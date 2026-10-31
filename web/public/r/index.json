@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-10-31T20:38:35.706Z",
+  "generatedAt": "2026-10-31T20:48:29.103Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -268,7 +268,7 @@
         {
           "name": "color",
           "type": "string",
-          "default": "\"#0b0e14\"",
+          "default": "\"#0a0a0a\"",
           "description": "Block color (match your background)."
         }
       ],
