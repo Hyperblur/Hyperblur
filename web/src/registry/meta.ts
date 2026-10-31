@@ -20,7 +20,11 @@ export interface EffectMeta {
   dependencies?: string[];
 }
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hyperblur.dev";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://hyperblur.dev");
 
 export const categories: { id: EffectCategory; label: string }[] = [
   { id: "text", label: "Text" },
