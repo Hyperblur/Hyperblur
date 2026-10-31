@@ -54,6 +54,15 @@ import { Silk } from "@/registry/hyperblur/silk";
 import { HeroSection } from "@/registry/hyperblur/hero-section";
 import { PricingSection } from "@/registry/hyperblur/pricing-section";
 import { LoginCard } from "@/registry/hyperblur/login-card";
+import { SplitText } from "@/registry/hyperblur/split-text";
+import { BlurText } from "@/registry/hyperblur/blur-text";
+import { RotatingText } from "@/registry/hyperblur/rotating-text";
+import { ScrollVelocityText } from "@/registry/hyperblur/scroll-velocity-text";
+import { StrokeText } from "@/registry/hyperblur/stroke-text";
+import { SplitFlapText } from "@/registry/hyperblur/split-flap-text";
+import { BlobCursor } from "@/registry/hyperblur/blob-cursor";
+import { ClickSpark } from "@/registry/hyperblur/click-spark";
+import { CursorTrail } from "@/registry/hyperblur/cursor-trail";
 
 const display = "font-display text-4xl font-bold uppercase tracking-wide";
 
@@ -342,4 +351,32 @@ export const demos: Record<string, ReactNode> = {
   "hero-section": thumb(<HeroSection />),
   "pricing-section": thumb(<PricingSection />),
   "login-card": thumb(<LoginCard />),
+  "split-text": <SplitText text="SPLIT" trigger="mount" className={display} />,
+  "blur-text": <BlurText text="Come into focus" trigger="mount" className={`${display} text-blue`} />,
+  "rotating-text": <RotatingText words={["Blur", "Speed", "Motion"]} className={`${display} text-blue`} />,
+  "scroll-velocity-text": (
+    <div className="w-full">
+      <ScrollVelocityText text="SCROLL VELOCITY" baseSpeed={80} className={display} />
+    </div>
+  ),
+  "stroke-text": <StrokeText text="STROKE" strokeWidth={1.5} className={display} />,
+  "split-flap-text": <SplitFlapText text="HYPERBLUR" className="text-3xl" />,
+  "blob-cursor": (
+    <div className="relative h-full w-full">
+      <BlobCursor />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>MOVE</div>
+    </div>
+  ),
+  "click-spark": (
+    <div className="relative h-full w-full">
+      <ClickSpark />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>CLICK</div>
+    </div>
+  ),
+  "cursor-trail": (
+    <div className="relative h-full w-full">
+      <CursorTrail />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>TRAIL</div>
+    </div>
+  ),
 };
