@@ -1,0 +1,42 @@
+{
+  "name": "@hyperblur/mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Hyperblur: search, inspect and install copy-paste React visual effects from any MCP client.",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://hyperblur.dev",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "hyperblur",
+    "react",
+    "shadcn",
+    "effects"
+  ],
+  "bin": {
+    "hyperblur-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "node -e \"process.getBuiltinModule('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.json && node -e \"process.getBuiltinModule('fs').chmodSync('dist/cli.js', 0o755)\"",
+    "dev": "node --watch src/cli.ts",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "npm run typecheck && node --test \"test/**/*.test.ts\"",
+    "start": "node dist/cli.js",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}

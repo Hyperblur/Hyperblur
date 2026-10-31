@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "hyperblur": {
+      "command": "npx",
+      "args": ["-y", "@hyperblur/mcp"]
+    }
+  }
+}
