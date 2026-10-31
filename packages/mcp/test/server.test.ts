@@ -38,16 +38,32 @@ describe("server", () => {
     await rm(workdir, { recursive: true, force: true });
   });
 
-  it("lists the four tools, the catalog resource and the add_effect prompt", async () => {
+  it("lists the five tools, the catalog resource and the add_effect prompt", async () => {
     const { tools } = await client.listTools();
     assert.deepEqual(
       tools.map((tool) => tool.name).sort(),
-      ["get_effect", "get_effect_source", "install_effect", "search_effects"],
+      ["get_effect", "get_effect_source", "install_effect", "list_categories", "search_effects"],
     );
     const { resources } = await client.listResources();
     assert.equal(resources[0]?.uri, "hyperblur://catalog");
     const { prompts } = await client.listPrompts();
     assert.equal(prompts[0]?.name, "add_effect");
+  });
+
+  it("describes the whole catalog without a fixed category list", async () => {
+    const { tools } = await client.listTools();
+    const search = tools.find((tool) => tool.name === "search_effects");
+    assert.ok(search);
+    assert.match(search.description ?? "", /effects, components, micro interactions and page blocks/);
+    const category = (search.inputSchema.properties as Record<string, { type?: string; enum?: unknown }>).category;
+    assert.equal(category?.type, "string");
+    assert.equal(category?.enum, undefined);
+    const { resources } = await client.listResources();
+    assert.match(resources[0]?.description ?? "", /components/);
+    assert.match(resources[0]?.description ?? "", /blocks/);
+    const { prompts } = await client.listPrompts();
+    assert.match(prompts[0]?.description ?? "", /components/);
+    assert.match(prompts[0]?.description ?? "", /blocks/);
   });
 
   it("search_effects returns a compact list", async () => {
@@ -56,6 +72,61 @@ describe("server", () => {
     assert.match(text, /Found 3 Hyperblur effects for "glitch"/);
     assert.match(text, /\*\*Glitch Text\*\* `glitch-text` \(text\)/);
     assert.match(text, /npx shadcn@latest add http:\/\/localhost:3000\/r\/glitch-text\.json/);
+  });
+
+  it("search_effects accepts categories from the index and names them in the results", async () => {
+    const micro = textOf(await client.callTool({ name: "search_effects", arguments: { category: "micro" } }));
+    assert.match(micro, /Found 1 Hyperblur component for category micro:/);
+    assert.match(micro, /\*\*Press Button\*\* `press-button` \(micro\)/);
+    assert.match(micro, /Categories in the catalog: text, overlay, hover, motion, components, micro, blocks\./);
+    const blocks = textOf(await client.callTool({ name: "search_effects", arguments: { category: "blocks" } }));
+    assert.match(blocks, /Found 1 Hyperblur block for category blocks:/);
+    assert.match(blocks, /`hero-banner`/);
+    const overlay = textOf(await client.callTool({ name: "search_effects", arguments: { category: "overlay" } }));
+    assert.match(overlay, /Found 2 Hyperblur effects for category overlay:/);
+  });
+
+  it("search_effects returns an error that lists the categories for an unknown one", async () => {
+    const result = await client.callTool({ name: "search_effects", arguments: { category: "sparkles" } });
+    assert.equal(result.isError, true);
+    assert.equal(
+      textOf(result),
+      'Unknown category "sparkles". Available categories: text, overlay, hover, motion, components, micro, blocks.',
+    );
+  });
+
+  it("search_effects reports no matches with the available categories", async () => {
+    const result = await client.callTool({ name: "search_effects", arguments: { query: "zzz" } });
+    assert.notEqual(result.isError, true);
+    assert.match(textOf(result), /No Hyperblur items match "zzz"/);
+    assert.match(textOf(result), /Categories in the catalog: text, overlay/);
+  });
+
+  it("list_categories returns counts and three example titles per category", async () => {
+    const result = await client.callTool({ name: "list_categories", arguments: {} });
+    assert.notEqual(result.isError, true);
+    const text = textOf(result);
+    assert.match(text, /11 items in 7 categories/);
+    assert.match(text, /- \*\*text\*\* \(1 item\): Glitch Text/);
+    assert.match(text, /- \*\*overlay\*\* \(2 items\): VHS Overlay, Scanlines/);
+    assert.match(text, /- \*\*components\*\* \(4 items\): Glass Card, Status Badge, Stat Tile$/m);
+    assert.doesNotMatch(text, /Pricing Card/);
+    assert.match(text, /- \*\*micro\*\* \(1 item\): Press Button/);
+    assert.match(text, /- \*\*blocks\*\* \(1 item\): Hero Banner/);
+  });
+
+  it("get_effect calls components and blocks by that name and effects by theirs", async () => {
+    const micro = textOf(await client.callTool({ name: "get_effect", arguments: { slug: "press-button" } }));
+    assert.match(micro, /- Category: micro/);
+    assert.match(micro, /install_effect adds this component with shadcn/);
+    assert.doesNotMatch(micro, /this effect/);
+    const components = textOf(await client.callTool({ name: "get_effect", arguments: { slug: "glass-card" } }));
+    assert.match(components, /install_effect adds this component with shadcn/);
+    const block = textOf(await client.callTool({ name: "get_effect", arguments: { slug: "hero-banner" } }));
+    assert.match(block, /install_effect adds this block with shadcn/);
+    assert.doesNotMatch(block, /this (effect|component)/);
+    const effect = textOf(await client.callTool({ name: "get_effect", arguments: { slug: "glitch-text" } }));
+    assert.match(effect, /install_effect adds this effect with shadcn/);
   });
 
   it("get_effect returns props, import line and docs", async () => {
@@ -117,7 +188,7 @@ describe("server", () => {
     const first = resource.contents[0];
     assert.ok(first && "text" in first);
     const parsed = JSON.parse(String(first.text)) as { items: unknown[] };
-    assert.equal(parsed.items.length, 4);
+    assert.equal(parsed.items.length, 11);
     const prompt = await client.getPrompt({ name: "add_effect", arguments: { slug: "tilt-card" } });
     const message = prompt.messages[0]?.content;
     assert.ok(message && message.type === "text");

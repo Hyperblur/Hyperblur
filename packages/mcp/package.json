@@ -1,7 +1,7 @@
 {
   "name": "@hyperblur/mcp",
-  "version": "0.1.0",
-  "description": "MCP server for Hyperblur: search, inspect and install copy-paste React visual effects from any MCP client.",
+  "version": "0.2.0",
+  "description": "MCP server for Hyperblur: search, inspect and install copy-paste React effects, components, micro interactions and page blocks from any MCP client.",
   "license": "MIT",
   "type": "module",
   "homepage": "https://hyperblur.dev",
@@ -11,7 +11,8 @@
     "hyperblur",
     "react",
     "shadcn",
-    "effects"
+    "effects",
+    "components"
   ],
   "bin": {
     "hyperblur-mcp": "dist/cli.js"
