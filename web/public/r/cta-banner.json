@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-banner",
+  "type": "registry:component",
+  "title": "CTA Banner",
+  "description": "A full-width call-to-action band with a soft pulsing radial glow, a headline, one line of text and two pill buttons.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "blocks",
+    "cta",
+    "banner",
+    "call to action",
+    "glow",
+    "section",
+    "landing"
+  ],
+  "docs": "https://hyperblur.dev/effects/cta-banner",
+  "files": [
+    {
+      "path": "registry/hyperblur/cta-banner.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/cta-banner.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface CtaLink {\n  label: string;\n  href: string;\n}\n\nexport interface CtaBannerProps extends Omit<React.HTMLAttributes<HTMLElement>, \"title\"> {\n  title?: string;\n  text?: string;\n  primary?: CtaLink;\n  secondary?: CtaLink;\n  accent?: string;\n}\n\nconst css = `\n.hb-cb {\n  --hb-cb-accent: #2f7bff;\n  position: relative;\n  box-sizing: border-box;\n  width: 100%;\n  overflow: hidden;\n  isolation: isolate;\n  padding: 96px 24px;\n  background: #07070a;\n  color: #f2f2f5;\n  text-align: center;\n  border-top: 1px solid rgba(255, 255, 255, .08);\n  border-bottom: 1px solid rgba(255, 255, 255, .08);\n  font-family: ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n}\n.hb-cb *, .hb-cb *::before, .hb-cb *::after { box-sizing: border-box; }\n.hb-cb::before {\n  content: \"\";\n  position: absolute;\n  z-index: -1;\n  left: 50%;\n  top: 50%;\n  width: min(900px, 140%);\n  aspect-ratio: 2 / 1;\n  transform: translate(-50%, -50%);\n  background: radial-gradient(closest-side, color-mix(in srgb, var(--hb-cb-accent) 38%, transparent), transparent);\n  filter: blur(20px);\n  pointer-events: none;\n  animation: hb-cb-glow 7s ease-in-out infinite alternate;\n}\n.hb-cb-inner { max-width: 680px; margin: 0 auto; }\n.hb-cb-title {\n  margin: 0;\n  font-size: clamp(30px, 4.8vw, 52px);\n  font-weight: 650;\n  line-height: 1.08;\n  letter-spacing: -.025em;\n}\n.hb-cb-text {\n  margin: 18px auto 0;\n  max-width: 520px;\n  font-size: clamp(15px, 1.7vw, 18px);\n  line-height: 1.6;\n  color: rgba(255, 255, 255, .66);\n}\n.hb-cb-actions {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  margin-top: 36px;\n}\n.hb-cb-btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 46px;\n  padding: 0 26px;\n  border: 1px solid transparent;\n  border-radius: 999px;\n  font-size: 15px;\n  font-weight: 600;\n  line-height: 1;\n  text-decoration: none;\n  white-space: nowrap;\n  transition: transform .25s cubic-bezier(.22, .8, .24, 1), background-color .25s ease, border-color .25s ease, box-shadow .25s ease;\n}\n.hb-cb-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }\n.hb-cb-primary {\n  background: var(--hb-cb-accent);\n  color: #fff;\n  box-shadow: 0 10px 28px -10px var(--hb-cb-accent);\n}\n.hb-cb-primary:hover {\n  transform: translate3d(0, -2px, 0);\n  box-shadow: 0 16px 34px -10px var(--hb-cb-accent);\n}\n.hb-cb-secondary {\n  border-color: rgba(255, 255, 255, .2);\n  background: rgba(255, 255, 255, .04);\n  color: #f2f2f5;\n}\n.hb-cb-secondary:hover {\n  transform: translate3d(0, -2px, 0);\n  border-color: rgba(255, 255, 255, .4);\n  background: rgba(255, 255, 255, .09);\n}\n@keyframes hb-cb-glow {\n  from { opacity: .75; transform: translate(-50%, -50%) scale(.95); }\n  to { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }\n}\n@media (max-width: 767px) {\n  .hb-cb { padding: 64px 16px; }\n  .hb-cb-actions { flex-direction: column; align-items: stretch; margin-top: 28px; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-cb::before { animation: none; }\n  .hb-cb-btn { transition: none; }\n  .hb-cb-primary:hover, .hb-cb-secondary:hover { transform: none; }\n}\n`;\n\nexport function CtaBanner({\n  title = \"Ready to build something great?\",\n  text = \"Start for free today. No credit card required, and you can cancel anytime.\",\n  primary = { label: \"Get started\", href: \"#start\" },\n  secondary = { label: \"Talk to sales\", href: \"#contact\" },\n  accent = \"#2f7bff\",\n  className = \"\",\n  style,\n  ...rest\n}: CtaBannerProps) {\n  const uid = React.useId();\n  const vars = { \"--hb-cb-accent\": accent, ...style } as React.CSSProperties;\n\n  return (\n    <section className={`hb-cb ${className}`} style={vars} aria-labelledby={`${uid}-title`} {...rest}>\n      <style href=\"hb-cta-banner\" precedence=\"default\">{css}</style>\n      <div className=\"hb-cb-inner\">\n        <h2 id={`${uid}-title`} className=\"hb-cb-title\">{title}</h2>\n        {text && <p className=\"hb-cb-text\">{text}</p>}\n        <div className=\"hb-cb-actions\">\n          <a className=\"hb-cb-btn hb-cb-primary\" href={primary.href}>{primary.label}</a>\n          <a className=\"hb-cb-btn hb-cb-secondary\" href={secondary.href}>{secondary.label}</a>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

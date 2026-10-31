@@ -1,6 +1,6 @@
 # @hyperblur/mcp
 
-An [MCP](https://modelcontextprotocol.io) server for [Hyperblur](https://hyperblur.dev), the catalog of copy-paste React visual effects. It lets MCP clients such as Claude Code, Cursor and Claude Desktop search the catalog, read an effect's props and usage, fetch its source, and install it into a project through the shadcn registry.
+An [MCP](https://modelcontextprotocol.io) server for [Hyperblur](https://hyperblur.dev), the catalog of copy-paste React visual effects. The catalog covers effects, components, micro interactions and page blocks. It lets MCP clients such as Claude Code, Cursor and Claude Desktop browse the catalog by category, search it, read an item's props and usage, fetch its source, and install it into a project through the shadcn registry.
 
 ## Requirements
 
@@ -59,12 +59,13 @@ The catalog index is cached in memory for five minutes.
 
 | Tool | Purpose |
 | --- | --- |
-| `search_effects` | Search by keyword and optional category (`text`, `motion`, `overlay`, `hover`). Returns slug, title, category, description and install command for each match. |
-| `get_effect` | Full reference for one effect: props table, usage example, import line, dependencies, install command and docs link. |
+| `list_categories` | Every category in the catalog with its item count and three example titles. |
+| `search_effects` | Search by keyword and optional category. The category can be any category present in the catalog (see `list_categories`); an unknown one returns an error that lists the available categories. Returns slug, title, category, description and install command for each match. |
+| `get_effect` | Full reference for one item: props table, usage example, import line, dependencies, install command and docs link. |
 | `get_effect_source` | The component source and its target path, for writing the file by hand when shadcn is not available. |
 | `install_effect` | Runs `npx shadcn@latest add <registry-url> --yes` in the given project directory (`--overwrite` optional) and reports the output and installed file. |
 
-It also exposes the resource `hyperblur://catalog` (the full catalog index as JSON) and the prompt `add_effect`, which walks through looking up and installing an effect by slug.
+It also exposes the resource `hyperblur://catalog` (the full catalog index as JSON) and the prompt `add_effect`, which walks through looking up and installing an effect, component or block by slug.
 
 ## Development
 

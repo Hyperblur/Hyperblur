@@ -3,6 +3,7 @@ import { Chakra_Petch, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
+import { SITE_URL } from "@/registry/meta";
 
 const chakra = Chakra_Petch({
   variable: "--font-chakra",
@@ -27,7 +28,21 @@ export const metadata: Metadata = {
   },
   description:
     "Copy-paste visual effects for React. Install with one shadcn command or paste the prompt into Claude Code, Cursor, Lovable or v0.",
-  metadataBase: new URL("https://hyperblur.dev"),
+  metadataBase: new URL(SITE_URL),
+  openGraph: {
+    type: "website",
+    siteName: "Hyperblur",
+    title: "Hyperblur — visual effects for React, one command away",
+    description:
+      "Copy-paste visual effects for React. Install with one shadcn command or paste the prompt into Claude Code, Cursor, Lovable or v0.",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hyperblur — visual effects for React, one command away",
+    description:
+      "Copy-paste visual effects for React. Install with one shadcn command or paste the prompt into Claude Code, Cursor, Lovable or v0.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
