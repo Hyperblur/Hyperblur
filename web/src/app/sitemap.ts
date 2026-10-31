@@ -7,6 +7,9 @@ const staticRoutes = [
   "/docs/introduction",
   "/docs/installation",
   "/docs/agents",
+  "/templates",
+  "/templates/landing",
+  "/pro",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -1166,6 +1166,198 @@
           "target": "components/hyperblur/login-card.tsx"
         }
       ]
+    },
+    {
+      "name": "split-text",
+      "type": "registry:component",
+      "title": "Split Text",
+      "description": "Characters or words fade, slide up and sharpen in one after another with a stagger.",
+      "categories": [
+        "text",
+        "split",
+        "stagger",
+        "reveal",
+        "intro",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/split-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/split-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blur-text",
+      "type": "registry:component",
+      "title": "Blur Text",
+      "description": "Words come into focus from a heavy blur with a soft upward drift, staggered.",
+      "categories": [
+        "text",
+        "blur",
+        "focus",
+        "stagger",
+        "reveal",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/blur-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/blur-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rotating-text",
+      "type": "registry:component",
+      "title": "Rotating Text",
+      "description": "Cycles through a list of words, each sliding up and out while the next flips in from below, letter by letter.",
+      "categories": [
+        "text",
+        "rotate",
+        "flip",
+        "words",
+        "loop",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/rotating-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/rotating-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-velocity-text",
+      "type": "registry:component",
+      "title": "Scroll Velocity Text",
+      "description": "A repeating text strip that drifts on its own and speeds up, slows down or reverses with the page scroll velocity.",
+      "categories": [
+        "text",
+        "scroll",
+        "velocity",
+        "marquee",
+        "ticker",
+        "text",
+        "parallax"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-velocity-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-velocity-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stroke-text",
+      "type": "registry:component",
+      "title": "Stroke Text",
+      "description": "Hollow outlined text that fills with color in a left to right sweep on hover.",
+      "categories": [
+        "text",
+        "outline",
+        "stroke",
+        "hollow",
+        "hover",
+        "text",
+        "fill"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stroke-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stroke-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "split-flap-text",
+      "type": "registry:component",
+      "title": "Split-Flap Text",
+      "description": "Airport departure board: every character flips through a set of glyphs until it lands on the target. Changing the text re-runs it.",
+      "categories": [
+        "text",
+        "split-flap",
+        "flip",
+        "airport",
+        "board",
+        "retro",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/split-flap-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/split-flap-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blob-cursor",
+      "type": "registry:component",
+      "title": "Blob Cursor",
+      "description": "A soft gooey blob that trails the cursor with lag, merging three circles through an SVG goo filter.",
+      "categories": [
+        "hover",
+        "cursor",
+        "blob",
+        "goo",
+        "pointer",
+        "follow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/blob-cursor.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/blob-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "click-spark",
+      "type": "registry:component",
+      "title": "Click Spark",
+      "description": "A burst of short lines radiates from every click and fades, like a cartoon impact.",
+      "categories": [
+        "hover",
+        "click",
+        "spark",
+        "burst",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/click-spark.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/click-spark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-trail",
+      "type": "registry:component",
+      "title": "Cursor Trail",
+      "description": "A fading trail of dots or a tapered ribbon that follows the cursor on a canvas.",
+      "categories": [
+        "hover",
+        "cursor",
+        "trail",
+        "ribbon",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-trail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-trail.tsx"
+        }
+      ]
     }
   ]
 }

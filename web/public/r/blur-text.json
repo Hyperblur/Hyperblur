@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blur-text",
+  "type": "registry:component",
+  "title": "Blur Text",
+  "description": "Words come into focus from a heavy blur with a soft upward drift, staggered.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "blur",
+    "focus",
+    "stagger",
+    "reveal",
+    "text"
+  ],
+  "docs": "https://hyperblur.dev/effects/blur-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/blur-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/blur-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface BlurTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  by?: \"words\" | \"chars\";\n  blur?: number;\n  stagger?: number;\n  duration?: number;\n  trigger?: \"view\" | \"mount\";\n  once?: boolean;\n}\n\nconst css = `\n@keyframes hb-bt-in {\n  0% { opacity: 0; filter: blur(var(--hb-blur)); transform: translate3d(0, .35em, 0); }\n  55% { opacity: .6; filter: blur(calc(var(--hb-blur) * .4)); transform: translate3d(0, .1em, 0); }\n  100% { opacity: 1; filter: blur(0); transform: translate3d(0, 0, 0); }\n}\n.hb-bt { display: inline-block; white-space: pre-wrap; }\n.hb-bt-w { display: inline-block; white-space: nowrap; }\n.hb-bt-i { display: inline-block; opacity: 0; filter: blur(var(--hb-blur)); will-change: opacity, transform, filter; }\n.hb-bt[data-active=\"true\"] .hb-bt-i {\n  animation: hb-bt-in var(--hb-dur) cubic-bezier(.22, .8, .24, 1) both;\n  animation-delay: calc(var(--hb-n) * var(--hb-st));\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-bt .hb-bt-i { opacity: 1; transform: none; filter: none; animation: none !important; will-change: auto; }\n}\n`;\n\ninterface Token {\n  space: boolean;\n  value: string;\n  parts: { value: string; n: number }[];\n}\n\nfunction tokenize(text: string, by: \"chars\" | \"words\") {\n  let n = 0;\n  return text.split(/(\\s+)/).filter((t) => t !== \"\").map((value): Token => {\n    const space = /^\\s+$/.test(value);\n    if (space) return { space, parts: [], value };\n    const pieces = by === \"chars\" ? Array.from(value) : [value];\n    return { space, value, parts: pieces.map((p) => ({ value: p, n: n++ })) };\n  });\n}\n\nexport function BlurText({\n  text,\n  by = \"words\",\n  blur = 12,\n  stagger = 0.08,\n  duration = 0.7,\n  trigger = \"view\",\n  once = true,\n  className = \"\",\n  style,\n  ...rest\n}: BlurTextProps) {\n  const ref = React.useRef<HTMLSpanElement>(null);\n  const [active, setActive] = React.useState(false);\n\n  React.useEffect(() => {\n    const el = ref.current;\n    if (!el) return;\n    if (trigger === \"mount\" || typeof IntersectionObserver === \"undefined\") {\n      const id = requestAnimationFrame(() => setActive(true));\n      return () => cancelAnimationFrame(id);\n    }\n    const io = new IntersectionObserver(\n      (entries) => {\n        for (const entry of entries) {\n          if (entry.isIntersecting) {\n            setActive(true);\n            if (once) io.disconnect();\n          } else if (!once) {\n            setActive(false);\n          }\n        }\n      },\n      { threshold: 0.2 }\n    );\n    io.observe(el);\n    return () => io.disconnect();\n  }, [trigger, once]);\n\n  const tokens = tokenize(text, by);\n\n  const vars = {\n    \"--hb-blur\": `${Math.max(0, blur)}px`,\n    \"--hb-st\": `${Math.max(0, stagger)}s`,\n    \"--hb-dur\": `${Math.max(0, duration)}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  const item = (p: { value: string; n: number }) => (\n    <span key={p.n} className=\"hb-bt-i\" style={{ \"--hb-n\": p.n } as React.CSSProperties}>\n      {p.value}\n    </span>\n  );\n\n  return (\n    <span\n      ref={ref}\n      className={`hb-bt ${className}`}\n      style={vars}\n      aria-label={text}\n      data-active={active}\n      {...rest}\n    >\n      <style href=\"hb-blur-text\" precedence=\"default\">{css}</style>\n      <span aria-hidden=\"true\">\n        {tokens.map((t, i) =>\n          t.space ? (\n            t.value\n          ) : by === \"chars\" ? (\n            <span key={i} className=\"hb-bt-w\">\n              {t.parts.map(item)}\n            </span>\n          ) : (\n            item(t.parts[0])\n          )\n        )}\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

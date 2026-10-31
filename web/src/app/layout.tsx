@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SITE_URL } from "@/registry/meta";
+import { Analytics } from "@vercel/analytics/next";
 
 const chakra = Chakra_Petch({
   variable: "--font-chakra",
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );

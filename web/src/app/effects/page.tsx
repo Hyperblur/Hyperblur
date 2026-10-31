@@ -19,7 +19,7 @@ export default function EffectsIndex() {
         const items = effects.filter((e) => e.category === cat.id);
         if (items.length === 0) return null;
         return (
-          <section key={cat.id} className="mt-10">
+          <section key={cat.id} id={cat.id} className="mt-10 scroll-mt-20">
             <h2 className="mb-4 text-sm font-medium uppercase tracking-wide text-muted">
               {cat.label} · {items.length}
             </h2>
