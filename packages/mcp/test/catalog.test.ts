@@ -1,6 +1,14 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { Catalog, CatalogError, UnknownEffectError, importLine, resolveSiteUrl } from "../src/catalog.ts";
+import {
+  Catalog,
+  CatalogError,
+  UnknownCategoryError,
+  UnknownEffectError,
+  importLine,
+  itemKind,
+  resolveSiteUrl,
+} from "../src/catalog.ts";
 import { SITE, mockFetch, siteRoutes } from "./fixtures.ts";
 
 function makeCatalog(routes = siteRoutes(), now = () => 0) {
@@ -28,10 +36,15 @@ describe("search", () => {
   it("returns every effect in catalog order without a query", async () => {
     const { catalog } = makeCatalog();
     const { total, results } = await catalog.search();
-    assert.equal(total, 4);
+    assert.equal(total, 11);
     assert.deepEqual(
       results.map((effect) => effect.slug),
-      ["glitch-text", "vhs-overlay", "scanlines", "tilt-card"],
+      ["glitch-text", "vhs-overlay", "scanlines", "tilt-card", "pixel-reveal", "glass-card", "status-badge", "stat-tile", "pricing-card", "press-button", "hero-banner"].slice(0, 10),
+    );
+    const all = await catalog.search({ limit: 50 });
+    assert.deepEqual(
+      all.results.map((effect) => effect.slug),
+      ["glitch-text", "vhs-overlay", "scanlines", "tilt-card", "pixel-reveal", "glass-card", "status-badge", "stat-tile", "pricing-card", "press-button", "hero-banner"],
     );
   });
 
@@ -76,6 +89,76 @@ describe("search", () => {
     assert.equal(limited.results.length, 1);
   });
 
+  it("filters by categories that the index gained, including blocks and micro", async () => {
+    const { catalog } = makeCatalog();
+    const blocks = await catalog.search({ category: "blocks" });
+    assert.deepEqual(
+      blocks.results.map((effect) => effect.slug),
+      ["hero-banner"],
+    );
+    const micro = await catalog.search({ category: "micro" });
+    assert.deepEqual(
+      micro.results.map((effect) => effect.slug),
+      ["press-button"],
+    );
+    const components = await catalog.search({ category: "components", limit: 2 });
+    assert.equal(components.total, 4);
+    assert.equal(components.results.length, 2);
+  });
+
+  it("combines a category with a query", async () => {
+    const { catalog } = makeCatalog();
+    const { total, results } = await catalog.search({ category: "components", query: "card" });
+    assert.equal(total, 2);
+    assert.deepEqual(
+      results.map((effect) => effect.slug).sort(),
+      ["glass-card", "pricing-card"],
+    );
+    const none = await catalog.search({ category: "hover", query: "badge" });
+    assert.equal(none.total, 0);
+  });
+
+  it("matches categories case-insensitively and ignores surrounding whitespace", async () => {
+    const { catalog } = makeCatalog();
+    const { results } = await catalog.search({ category: "  Hover " });
+    assert.deepEqual(
+      results.map((effect) => effect.slug),
+      ["tilt-card"],
+    );
+  });
+
+  it("rejects an unknown category and lists the available ones", async () => {
+    const { catalog } = makeCatalog();
+    await assert.rejects(catalog.search({ category: "sparkles" }), (error: unknown) => {
+      assert.ok(error instanceof UnknownCategoryError);
+      assert.ok(error instanceof CatalogError);
+      assert.equal(error.category, "sparkles");
+      assert.deepEqual(error.validCategories, ["text", "overlay", "hover", "motion", "components", "micro", "blocks"]);
+      assert.equal(
+        error.message,
+        'Unknown category "sparkles". Available categories: text, overlay, hover, motion, components, micro, blocks.',
+      );
+      return true;
+    });
+    await assert.rejects(catalog.search({ category: "" }), UnknownCategoryError);
+  });
+
+  it("validates categories against the fetched index, not a fixed list", async () => {
+    const routes = siteRoutes();
+    const base = routes[`${SITE}/r/index.json`] as { items: Record<string, unknown>[] };
+    routes[`${SITE}/r/index.json`] = {
+      ...base,
+      items: [...base.items, { ...base.items[0], slug: "extra-sparkle", title: "Extra Sparkle", category: "sparkles" }],
+    };
+    const { catalog } = makeCatalog(routes);
+    const { results } = await catalog.search({ category: "sparkles" });
+    assert.deepEqual(
+      results.map((effect) => effect.slug),
+      ["extra-sparkle"],
+    );
+    await assert.rejects(catalog.search({ category: "nothing" }), /Available categories: .*sparkles/);
+  });
+
   it("returns an empty result when nothing matches", async () => {
     const { catalog } = makeCatalog();
     const { total, results } = await catalog.search({ query: "zzz" });
@@ -89,6 +172,42 @@ describe("search", () => {
     assert.equal(effect.install, `npx shadcn@latest add ${SITE}/r/glitch-text.json`);
     assert.equal(effect.file, `${SITE}/r/glitch-text.json`);
     assert.equal(effect.docs, `${SITE}/effects/glitch-text`);
+  });
+});
+
+describe("listCategories", () => {
+  it("returns every category in index order with its count and three example titles", async () => {
+    const { catalog } = makeCatalog();
+    const categories = await catalog.listCategories();
+    assert.deepEqual(categories, [
+      { category: "text", count: 1, examples: ["Glitch Text"] },
+      { category: "overlay", count: 2, examples: ["VHS Overlay", "Scanlines"] },
+      { category: "hover", count: 1, examples: ["Tilt Card"] },
+      { category: "motion", count: 1, examples: ["Pixel Reveal"] },
+      { category: "components", count: 4, examples: ["Glass Card", "Status Badge", "Stat Tile"] },
+      { category: "micro", count: 1, examples: ["Press Button"] },
+      { category: "blocks", count: 1, examples: ["Hero Banner"] },
+    ]);
+  });
+
+  it("covers every item exactly once", async () => {
+    const { catalog } = makeCatalog();
+    const categories = await catalog.listCategories();
+    assert.equal(
+      categories.reduce((sum, entry) => sum + entry.count, 0),
+      11,
+    );
+  });
+});
+
+describe("itemKind", () => {
+  it("calls components and micro interactions components, blocks blocks, and the rest effects", () => {
+    assert.equal(itemKind("components"), "component");
+    assert.equal(itemKind("micro"), "component");
+    assert.equal(itemKind("blocks"), "block");
+    for (const category of ["text", "motion", "overlay", "hover", "anything-else"]) {
+      assert.equal(itemKind(category), "effect");
+    }
   });
 });
 
@@ -111,10 +230,10 @@ describe("getEffect", () => {
     const { catalog } = makeCatalog();
     await assert.rejects(catalog.getEffect("glitch"), (error: unknown) => {
       assert.ok(error instanceof UnknownEffectError);
-      assert.deepEqual(error.validSlugs, ["glitch-text", "vhs-overlay", "scanlines", "tilt-card"]);
+      assert.deepEqual(error.validSlugs, ["glitch-text", "vhs-overlay", "scanlines", "tilt-card", "pixel-reveal", "glass-card", "status-badge", "stat-tile", "pricing-card", "press-button", "hero-banner"]);
       assert.match(error.message, /Unknown effect "glitch"/);
       assert.match(error.message, /Did you mean "glitch-text"/);
-      assert.match(error.message, /Valid slugs: glitch-text, vhs-overlay, scanlines, tilt-card/);
+      assert.match(error.message, /Valid slugs: glitch-text, vhs-overlay, scanlines, tilt-card, pixel-reveal/);
       return true;
     });
   });
@@ -169,7 +288,7 @@ describe("index caching", () => {
     online = false;
     clock = 10 * 60 * 1000;
     const { total } = await catalog.search();
-    assert.equal(total, 4);
+    assert.equal(total, 11);
   });
 });
 
@@ -211,6 +330,6 @@ describe("site errors", () => {
     await assert.rejects(catalog.search(), CatalogError);
     online = true;
     const { total } = await catalog.search();
-    assert.equal(total, 4);
+    assert.equal(total, 11);
   });
 });

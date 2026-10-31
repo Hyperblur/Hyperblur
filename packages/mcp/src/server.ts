@@ -2,8 +2,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { completable } from "@modelcontextprotocol/sdk/server/completable.js";
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
-import { CATEGORIES, Catalog, importLine } from "./catalog.ts";
-import type { Effect, EffectProp, EffectSource } from "./catalog.ts";
+import { Catalog, categoryNames, importLine, itemKind } from "./catalog.ts";
+import type { CategorySummary, Effect, EffectProp, EffectSource } from "./catalog.ts";
 import {
   INSTALL_TIMEOUT_MS,
   findInstalledFile,
@@ -15,7 +15,7 @@ import {
 import type { CommandRunner } from "./install.ts";
 
 export const SERVER_NAME = "hyperblur";
-export const SERVER_VERSION = "0.1.0";
+export const SERVER_VERSION = "0.2.0";
 
 export interface ServerOptions {
   catalog: Catalog;
@@ -23,30 +23,31 @@ export interface ServerOptions {
   installTimeoutMs?: number;
 }
 
-const CATEGORY_GUIDE =
-  "text = animated typography (glitch, neon, decode, wave, motion blur); motion = reveals and movement (pixel and shutter reveals, speed lines); overlay = full-surface layers drawn over content (scanlines, film grain, VHS, grid floor); hover = pointer interactions that wrap an element (tilt, magnetic, chromatic split).";
+const SEARCH_DESCRIPTION = `Search the Hyperblur catalog of copy-paste React items. The catalog has effects, components, micro interactions and page blocks (for example glitch and neon text, motion blur, scanlines, film grain, VHS, reveals, cards and hero sections).
 
-const SEARCH_DESCRIPTION = `Search the Hyperblur catalog of copy-paste React visual effects (glitch and neon text, motion blur, scanlines, film grain, VHS, 3D tilt, magnetic hover, pixel and shutter reveals, and more).
+Use this first whenever the user asks for a visual effect, animation, text treatment, retro/cyberpunk look, hover interaction, UI component, micro interaction or page section in a React or Next.js project and you do not already know the exact slug. Leave "query" empty to browse the whole catalog, optionally narrowed by "category". Call list_categories to see the categories; an unknown category returns an error that lists the available ones.
 
-Use this first whenever the user asks for a visual effect, animation, text treatment, retro/cyberpunk look, or hover interaction in a React or Next.js project and you do not already know the exact effect slug. Leave "query" empty to browse the whole catalog, optionally narrowed by "category".
+Matching is case-insensitive against slug, title, description and tags; every word of the query must match somewhere, and items whose title or slug match rank first.
 
-Matching is case-insensitive against slug, title, description and tags; every word of the query must match somewhere, and effects whose title or slug match rank first.
+Returns a compact markdown list: slug, title, category, one-line description and the shadcn install command for each match, plus how many matched in total and the categories currently in the catalog. Next step: call get_effect with a slug to get props, usage and the import line.`;
 
-Returns a compact markdown list: slug, title, category, one-line description and the shadcn install command for each match, plus how many matched in total. Next step: call get_effect with a slug to get props, usage and the import line.`;
+const LIST_CATEGORIES_DESCRIPTION = `List every category in the Hyperblur catalog with its item count and three example titles. The catalog covers effects, components, micro interactions and page blocks, and its categories can grow over time.
 
-const GET_DESCRIPTION = `Get the full reference for one Hyperblur effect by slug: title, description, category, tags, a props table (name, type, default or required, description), a JSX usage example, the exact import line, npm dependencies, the shadcn install command and the docs URL.
+Use this to orient yourself before searching, or to find the right value for the "category" input of search_effects.`;
 
-Use this after search_effects (or when the user names an effect) and before writing code that renders the component, so the props you pass are real. It does not return the component source; use get_effect_source for that, or install_effect to add the file to a project.
+const GET_DESCRIPTION = `Get the full reference for one Hyperblur item (an effect, component or block) by slug: title, description, category, tags, a props table (name, type, default or required, description), a JSX usage example, the exact import line, npm dependencies, the shadcn install command and the docs URL.
+
+Use this after search_effects (or when the user names an item) and before writing code that renders the component, so the props you pass are real. It does not return the component source; use get_effect_source for that, or install_effect to add the file to a project.
 
 An unknown slug returns an error that lists every valid slug.`;
 
-const SOURCE_DESCRIPTION = `Get the complete TypeScript/React source of a Hyperblur effect, exactly as the shadcn registry ships it, along with the target path where the file belongs (for example components/hyperblur/glitch-text.tsx) and any npm dependencies it needs.
+const SOURCE_DESCRIPTION = `Get the complete TypeScript/React source of a Hyperblur effect, component or block, exactly as the shadcn registry ships it, along with the target path where the file belongs (for example components/hyperblur/glitch-text.tsx) and any npm dependencies it needs.
 
 Use this when you need to write the component file yourself: the project does not use shadcn, has no components.json, running npx is not possible, or install_effect failed. Write the content to the target path (under src/ if the project keeps components there) and install any listed dependencies. Prefer install_effect when shadcn is available.`;
 
-const INSTALL_DESCRIPTION = `Install a Hyperblur effect into a local React project by running "npx shadcn@latest add <registry-url> --yes" in projectDir. This writes the component file into the project (normally components/hyperblur/<slug>.tsx, or under src/ depending on components.json) and installs its npm dependencies.
+const INSTALL_DESCRIPTION = `Install a Hyperblur effect, component or block into a local React project by running "npx shadcn@latest add <registry-url> --yes" in projectDir. This writes the component file into the project (normally components/hyperblur/<slug>.tsx, or under src/ depending on components.json) and installs its npm dependencies.
 
-Use this when the user wants the effect added to a project on this machine and the project uses shadcn (has a components.json, or can be initialized by shadcn). projectDir must be the absolute path of the project root containing package.json; nothing runs if it does not. Existing files are kept unless overwrite is true. The command can take up to 3 minutes.
+Use this when the user wants the item added to a project on this machine and the project uses shadcn (has a components.json, or can be initialized by shadcn). projectDir must be the absolute path of the project root containing package.json; nothing runs if it does not. Existing files are kept unless overwrite is true. The command can take up to 3 minutes.
 
 Returns the exit status, the combined shadcn output, and the path of the installed file. If it fails, read the output, or fall back to get_effect_source and write the file by hand.`;
 
@@ -59,7 +60,7 @@ export function createServer(options: ServerOptions): McpServer {
     { name: SERVER_NAME, version: SERVER_VERSION, title: "Hyperblur" },
     {
       instructions:
-        "Hyperblur is a catalog of copy-paste React visual effects distributed through the shadcn registry. Find effects with search_effects, read props and usage with get_effect, then add them with install_effect (runs shadcn) or get_effect_source (write the file yourself). Components are imported from @/components/hyperblur/<slug>.",
+        "Hyperblur is a catalog of copy-paste React effects, components, micro interactions and page blocks distributed through the shadcn registry. See the categories with list_categories, find items with search_effects, read props and usage with get_effect, then add them with install_effect (runs shadcn) or get_effect_source (write the file yourself). Components are imported from @/components/hyperblur/<slug>.",
     },
   );
 
@@ -74,7 +75,10 @@ export function createServer(options: ServerOptions): McpServer {
           .max(200)
           .optional()
           .describe('Words to look for, e.g. "glitch", "retro crt", "hover tilt", "text reveal". Omit to list everything.'),
-        category: z.enum(CATEGORIES).optional().describe(`Restrict results to one category. ${CATEGORY_GUIDE}`),
+        category: z
+          .string()
+          .optional()
+          .describe("Restrict results to one category of the catalog, e.g. text, hover or micro. Call list_categories for the current list; an unknown value returns an error listing the available categories."),
         limit: z.number().int().min(1).max(50).default(10).describe("Maximum number of effects to return (1-50, default 10)."),
       },
       annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
@@ -86,8 +90,20 @@ export function createServer(options: ServerOptions): McpServer {
           ...(category !== undefined ? { category } : {}),
           limit,
         });
-        return text(formatSearch(results, total, query, category));
+        const categories = await catalog.listCategories();
+        return text(formatSearch(results, total, query, category, categories.map((entry) => entry.category)));
       }),
+  );
+
+  server.registerTool(
+    "list_categories",
+    {
+      title: "List Hyperblur categories",
+      description: LIST_CATEGORIES_DESCRIPTION,
+      inputSchema: {},
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
+    },
+    async () => guard(async () => text(formatCategories(await catalog.listCategories()))),
   );
 
   server.registerTool(
@@ -180,7 +196,7 @@ export function createServer(options: ServerOptions): McpServer {
     "hyperblur://catalog",
     {
       title: "Hyperblur catalog",
-      description: "The full Hyperblur catalog index as JSON: every effect with its props, usage, install command and docs URL.",
+      description: "The full Hyperblur catalog index as JSON: every item in the catalog (effects, components, micro interactions and page blocks) with its category, props, usage, install command and docs URL.",
       mimeType: "application/json",
     },
     async (uri) => ({
@@ -191,10 +207,10 @@ export function createServer(options: ServerOptions): McpServer {
   server.registerPrompt(
     "add_effect",
     {
-      title: "Add a Hyperblur effect",
-      description: "Add a Hyperblur effect to the current project: look it up, then install it or write its source.",
+      title: "Add a Hyperblur effect, component or block",
+      description: "Add a Hyperblur effect, component or block to the current project: look it up, then install it or write its source. Covers effects, components, micro interactions and page blocks.",
       argsSchema: {
-        slug: completable(z.string().describe('Effect slug, e.g. "glitch-text".'), async (value) => {
+        slug: completable(z.string().describe('Slug of the effect, component or block, e.g. "glitch-text".'), async (value) => {
           const slugs = await catalog.listSlugs().catch(() => [] as string[]);
           const prefix = (value ?? "").toLowerCase();
           return slugs.filter((slug) => slug.startsWith(prefix));
@@ -208,7 +224,7 @@ export function createServer(options: ServerOptions): McpServer {
           content: {
             type: "text",
             text: [
-              `Add the Hyperblur effect "${slug}" to this project.`,
+              `Add the Hyperblur effect, component or block "${slug}" to this project.`,
               "",
               `1. Call get_effect with slug "${slug}" to read its props, usage and import line.`,
               "2. If the project uses shadcn (it has a components.json), call install_effect with the absolute path of the project root as projectDir.",
@@ -224,20 +240,61 @@ export function createServer(options: ServerOptions): McpServer {
   return server;
 }
 
-export function formatSearch(results: Effect[], total: number, query?: string, category?: string): string {
+export function formatSearch(
+  results: Effect[],
+  total: number,
+  query?: string,
+  category?: string,
+  categories: string[] = categoryNames(results),
+): string {
   const scope = [query ? `"${query}"` : undefined, category ? `category ${category}` : undefined].filter(Boolean).join(", ");
+  const available = categories.length > 0 ? `Categories in the catalog: ${categories.join(", ")}.` : undefined;
   if (results.length === 0) {
-    return `No Hyperblur effects match ${scope || "your search"}. Try a broader word (for example "text", "blur", "retro", "hover"), drop the category filter, or call search_effects with no query to list everything.`;
+    return [
+      `No Hyperblur items match ${scope || "your search"}. Try a broader word (for example "text", "blur", "retro", "hover"), drop the category filter, or call search_effects with no query to list everything.`,
+      available,
+    ]
+      .filter((line): line is string => line !== undefined)
+      .join("\n");
   }
+  const noun = collectiveNoun(results);
   const heading =
     results.length === total
-      ? `Found ${total} Hyperblur effect${total === 1 ? "" : "s"}${scope ? ` for ${scope}` : ""}:`
-      : `Showing ${results.length} of ${total} Hyperblur effects${scope ? ` for ${scope}` : ""} (raise limit to see more):`;
+      ? `Found ${total} Hyperblur ${total === 1 ? noun.singular : noun.plural}${scope ? ` for ${scope}` : ""}:`
+      : `Showing ${results.length} of ${total} Hyperblur ${noun.plural}${scope ? ` for ${scope}` : ""} (raise limit to see more):`;
   const items = results.map(
     (effect) =>
       `- **${effect.title}** \`${effect.slug}\` (${effect.category}): ${effect.description}\n  Install: \`${effect.install}\``,
   );
-  return [heading, "", ...items, "", "Call get_effect with a slug for props, usage and the import line."].join("\n");
+  const footer = ["Call get_effect with a slug for props, usage and the import line."];
+  if (available) footer.push(available);
+  return [heading, "", ...items, "", ...footer].join("\n");
+}
+
+export function formatCategories(categories: CategorySummary[]): string {
+  if (categories.length === 0) {
+    return "The Hyperblur catalog has no categories yet.";
+  }
+  const total = categories.reduce((sum, entry) => sum + entry.count, 0);
+  const lines = categories.map(
+    (entry) => `- **${entry.category}** (${entry.count} ${entry.count === 1 ? "item" : "items"}): ${entry.examples.join(", ")}`,
+  );
+  return [
+    `The Hyperblur catalog has ${total} items in ${categories.length} categories:`,
+    "",
+    ...lines,
+    "",
+    "Pass a category to search_effects to browse it, or call get_effect with a slug.",
+  ].join("\n");
+}
+
+function collectiveNoun(results: Effect[]): { singular: string; plural: string } {
+  const kinds = new Set(results.map((effect) => itemKind(effect.category)));
+  const only = kinds.size === 1 ? [...kinds][0] : undefined;
+  if (only === "effect") return { singular: "effect", plural: "effects" };
+  if (only === "component") return { singular: "component", plural: "components" };
+  if (only === "block") return { singular: "block", plural: "blocks" };
+  return { singular: "item", plural: "items" };
 }
 
 export function formatEffect(effect: Effect): string {
@@ -270,7 +327,7 @@ export function formatEffect(effect: Effect): string {
   }
   lines.push(
     "",
-    "Next: install_effect adds the file with shadcn; get_effect_source returns the source to write by hand.",
+    `Next: install_effect adds this ${itemKind(effect.category)} with shadcn; get_effect_source returns the source to write by hand.`,
   );
   return lines.join("\n");
 }

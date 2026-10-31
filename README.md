@@ -17,3 +17,7 @@ cd web && npm install && npm run dev
 
 - `packages/mcp` — the `@hyperblur/mcp` server. Any MCP client can run it with `npx -y @hyperblur/mcp`; it searches the catalog, returns props and sources, and installs effects through the shadcn CLI.
 - `plugins/hyperblur` — the Claude Code plugin that bundles the server and a skill. Install with `claude plugin install hyperblur --marketplace Hyperblur/Hyperblur`.
+
+## License
+
+MIT. Everything in this repository, including every effect, component and block in the catalog, is free to use in personal and commercial projects. Paid content for Hyperblur Pro will live outside this repository under its own terms.

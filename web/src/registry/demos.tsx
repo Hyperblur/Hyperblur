@@ -41,8 +41,31 @@ import { FlipCard } from "@/registry/hyperblur/flip-card";
 import { LatticeLoader } from "@/registry/hyperblur/lattice-loader";
 import { StarRating } from "@/registry/hyperblur/star-rating";
 import { ToastStackDemo } from "@/registry/demos/toast-stack-demo";
+import { FeaturesSection } from "@/registry/hyperblur/features-section";
+import { TestimonialsSection } from "@/registry/hyperblur/testimonials-section";
+import { FaqSection } from "@/registry/hyperblur/faq-section";
+import { CtaBanner } from "@/registry/hyperblur/cta-banner";
+import { Plasma } from "@/registry/hyperblur/plasma";
+import { Particles } from "@/registry/hyperblur/particles";
+import { LightRays } from "@/registry/hyperblur/light-rays";
+import { Beams } from "@/registry/hyperblur/beams";
+import { Hyperspeed } from "@/registry/hyperblur/hyperspeed";
+import { Silk } from "@/registry/hyperblur/silk";
+import { HeroSection } from "@/registry/hyperblur/hero-section";
+import { PricingSection } from "@/registry/hyperblur/pricing-section";
+import { LoginCard } from "@/registry/hyperblur/login-card";
 
 const display = "font-display text-4xl font-bold uppercase tracking-wide";
+
+function thumb(node: ReactNode) {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="origin-top-left scale-[0.34]" style={{ width: 960 }}>
+        {node}
+      </div>
+    </div>
+  );
+}
 
 export const demos: Record<string, ReactNode> = {
   "glitch-text": <GlitchText text="GLITCH" className={display} />,
@@ -276,4 +299,47 @@ export const demos: Record<string, ReactNode> = {
     </div>
   ),
   "star-rating": <StarRating defaultValue={3.5} precision={0.5} size={32} />,
+  "features-section": thumb(<FeaturesSection />),
+  "testimonials-section": thumb(<TestimonialsSection />),
+  "faq-section": thumb(<FaqSection />),
+  "cta-banner": thumb(<CtaBanner />),
+  plasma: (
+    <div className="relative h-full w-full">
+      <Plasma />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>PLASMA</div>
+    </div>
+  ),
+  particles: (
+    <div className="relative h-full w-full">
+      <Particles />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>PARTICLES</div>
+    </div>
+  ),
+  "light-rays": (
+    <div className="relative h-full w-full">
+      <LightRays />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>RAYS</div>
+    </div>
+  ),
+  beams: (
+    <div className="relative h-full w-full">
+      <Beams />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>BEAMS</div>
+    </div>
+  ),
+  hyperspeed: (
+    <div className="relative h-full w-full">
+      <Hyperspeed />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>WARP</div>
+    </div>
+  ),
+  silk: (
+    <div className="relative h-full w-full">
+      <Silk />
+      <div className={`${display} absolute inset-0 flex items-center justify-center`}>SILK</div>
+    </div>
+  ),
+  "hero-section": thumb(<HeroSection />),
+  "pricing-section": thumb(<PricingSection />),
+  "login-card": thumb(<LoginCard />),
 };

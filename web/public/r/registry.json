@@ -878,6 +878,294 @@
           "target": "components/hyperblur/star-rating.tsx"
         }
       ]
+    },
+    {
+      "name": "features-section",
+      "type": "registry:component",
+      "title": "Features Section",
+      "description": "A heading and a grid of feature cards with icon, title and description. Cards lift on hover and carry a soft cursor spotlight.",
+      "categories": [
+        "blocks",
+        "features",
+        "section",
+        "grid",
+        "cards",
+        "landing",
+        "spotlight"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/features-section.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/features-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-section",
+      "type": "registry:component",
+      "title": "Testimonials Section",
+      "description": "A heading and quote cards in a looping horizontal strip that pauses on hover. Falls back to a static grid.",
+      "categories": [
+        "blocks",
+        "testimonials",
+        "reviews",
+        "social proof",
+        "marquee",
+        "section",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/testimonials-section.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/testimonials-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-section",
+      "type": "registry:component",
+      "title": "FAQ Section",
+      "description": "Two-column FAQ: heading and contact link on the left, an animated one-at-a-time accordion on the right.",
+      "categories": [
+        "blocks",
+        "faq",
+        "accordion",
+        "questions",
+        "section",
+        "landing",
+        "support"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/faq-section.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/faq-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-banner",
+      "type": "registry:component",
+      "title": "CTA Banner",
+      "description": "A full-width call-to-action band with a soft pulsing radial glow, a headline, one line of text and two pill buttons.",
+      "categories": [
+        "blocks",
+        "cta",
+        "banner",
+        "call to action",
+        "glow",
+        "section",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cta-banner.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cta-banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "plasma",
+      "type": "registry:component",
+      "title": "Plasma",
+      "description": "Classic plasma: a small buffer of interfering sine waves mapped through a color gradient and upscaled smooth. Canvas, no dependencies.",
+      "categories": [
+        "overlay",
+        "plasma",
+        "canvas",
+        "background",
+        "gradient",
+        "retro",
+        "demoscene"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/plasma.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/plasma.tsx"
+        }
+      ]
+    },
+    {
+      "name": "particles",
+      "type": "registry:component",
+      "title": "Particles",
+      "description": "Drifting dots joined by faint lines when they are close, gently pushed away by the pointer. Constellation style.",
+      "categories": [
+        "overlay",
+        "particles",
+        "canvas",
+        "background",
+        "constellation",
+        "network",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/particles.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/particles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "light-rays",
+      "type": "registry:component",
+      "title": "Light Rays",
+      "description": "Volumetric light rays fanning out from a point near the top, slowly swaying and pulsing with a radial falloff and additive blending.",
+      "categories": [
+        "overlay",
+        "light",
+        "rays",
+        "canvas",
+        "background",
+        "volumetric",
+        "god-rays",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/light-rays.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/light-rays.tsx"
+        }
+      ]
+    },
+    {
+      "name": "beams",
+      "type": "registry:component",
+      "title": "Beams",
+      "description": "Diagonal light beams sweeping slowly across a dark background, with soft edges and a gentle shimmer. Canvas 2D, additive blending.",
+      "categories": [
+        "overlay",
+        "beams",
+        "light",
+        "background",
+        "canvas",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/beams.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/beams.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hyperspeed",
+      "type": "registry:component",
+      "title": "Hyperspeed",
+      "description": "A starfield tunnel: stars streak out from a vanishing point with blurred trails, and accelerate on press or boost.",
+      "categories": [
+        "overlay",
+        "stars",
+        "warp",
+        "space",
+        "tunnel",
+        "canvas",
+        "speed"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hyperspeed.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hyperspeed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "silk",
+      "type": "registry:component",
+      "title": "Silk",
+      "description": "Layered sine waves filled with soft gradients that drift and breathe, like folded fabric.",
+      "categories": [
+        "overlay",
+        "silk",
+        "waves",
+        "fabric",
+        "gradient",
+        "background",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/silk.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/silk.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-section",
+      "type": "registry:component",
+      "title": "Hero Section",
+      "description": "A full landing hero: eyebrow pill, headline with a highlighted word, subtitle, two pill buttons, trust items and a framed panel for a screenshot or demo.",
+      "categories": [
+        "blocks",
+        "hero",
+        "landing",
+        "header",
+        "cta",
+        "section",
+        "marketing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-section.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-section",
+      "type": "registry:component",
+      "title": "Pricing Section",
+      "description": "Three pricing tiers with a sliding monthly/yearly toggle, crossfading prices, feature checklists and a highlighted most-popular plan.",
+      "categories": [
+        "blocks",
+        "pricing",
+        "plans",
+        "tiers",
+        "toggle",
+        "billing",
+        "section",
+        "marketing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-section.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-card",
+      "type": "registry:component",
+      "title": "Login Card",
+      "description": "A centered sign-in card with social buttons, floating-label fields, error alert, loading state and sign-up link.",
+      "categories": [
+        "blocks",
+        "login",
+        "auth",
+        "form",
+        "sign in",
+        "card",
+        "oauth",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-card.tsx"
+        }
+      ]
     }
   ]
 }
