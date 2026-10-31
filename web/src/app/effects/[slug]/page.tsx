@@ -8,6 +8,7 @@ import { effects, getEffect, installCommand, agentPrompt } from "@/registry/meta
 import { demos } from "@/registry/demos";
 import { CopyButton } from "@/components/site/copy-button";
 import { CodeBlock } from "@/components/site/code-block";
+import { EffectTabs } from "@/components/site/effect-tabs";
 
 type Params = PageProps<"/effects/[slug]">["params"];
 
@@ -29,7 +30,7 @@ function readSource(slug: string): string {
 
 export default function EffectPage({ params }: PageProps<"/effects/[slug]">) {
   return (
-    <article className="mx-auto min-w-0 max-w-6xl px-4 py-12 sm:px-6">
+    <article className="min-w-0">
       <Suspense fallback={<Skeleton />}>
         <EffectContent params={params} />
       </Suspense>
@@ -41,9 +42,9 @@ function Skeleton() {
   return (
     <div aria-hidden="true" className="animate-pulse">
       <div className="h-4 w-40 rounded bg-surface-2" />
-      <div className="mt-6 h-10 w-72 rounded bg-surface-2" />
+      <div className="mt-6 h-9 w-72 rounded bg-surface-2" />
       <div className="mt-3 h-5 w-96 max-w-full rounded bg-surface-2" />
-      <div className="mt-8 h-72 rounded-lg border border-line bg-surface" />
+      <div className="mt-8 h-80 rounded-xl border border-line bg-surface" />
     </div>
   );
 }
@@ -57,81 +58,89 @@ async function EffectContent({ params }: { params: Params }) {
   const install = installCommand(meta);
   const prompt = agentPrompt(meta);
   const importLine = `import { ${meta.component} } from "@/components/hyperblur/${meta.slug}"`;
+  const index = effects.findIndex((e) => e.slug === meta.slug);
+  const prev = effects[index - 1];
+  const next = effects[index + 1];
 
   return (
     <>
-      <nav className="mb-6 text-sm text-muted">
-        <Link href="/#effects" className="hover:text-ink">
+      <nav className="mb-5 text-sm text-muted">
+        <Link href="/effects" className="hover:text-ink">
           Effects
-        </Link>{" "}
-        / <span className="text-ink">{meta.title}</span>
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-ink">{meta.title}</span>
       </nav>
 
       <header className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="font-display text-4xl font-bold uppercase tracking-wide">{meta.title}</h1>
-          <p className="mt-2 max-w-2xl text-lg text-muted">{meta.description}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {meta.tags.map((t) => (
-              <span key={t} className="rounded border border-line px-2 py-0.5 font-mono text-[11px] text-muted">
-                #{t}
-              </span>
-            ))}
-          </div>
+        <div className="min-w-0">
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{meta.title}</h1>
+          <p className="mt-2 max-w-2xl text-muted">{meta.description}</p>
         </div>
         <CopyButton value={prompt} label="Copy prompt" variant="primary" />
       </header>
 
-      <section className="hb-grid relative mt-8 flex min-h-72 items-center justify-center overflow-hidden rounded-lg border border-line bg-bg">
-        {demos[meta.slug]}
+      <div className="mt-6">
+        <EffectTabs preview={demos[meta.slug]} source={source} sourceTitle={`${meta.slug}.tsx`} prompt={prompt} />
+      </div>
+
+      <section className="mt-10">
+        <h2 className="mb-3 text-lg font-semibold">Install</h2>
+        <CodeBlock code={install} title="terminal" />
+        <p className="mt-2 text-sm text-muted">
+          Works in any React project set up with the shadcn CLI. The file lands in{" "}
+          <code className="break-all font-mono text-ink/80">components/hyperblur/{meta.slug}.tsx</code>.
+        </p>
       </section>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[2fr_1fr]">
-        <div className="min-w-0 space-y-8">
-          <section>
-            <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-wide">Install</h2>
-            <CodeBlock code={install} title="terminal" />
-            <p className="mt-2 text-sm text-muted">
-              Works in any React project set up with the shadcn CLI. The file lands in{" "}
-              <code className="break-all font-mono text-ink/80">components/hyperblur/{meta.slug}.tsx</code>.
-            </p>
-          </section>
+      <section className="mt-10">
+        <h2 className="mb-3 text-lg font-semibold">Use</h2>
+        <CodeBlock code={`${importLine}\n\n${meta.usage}`} title="example.tsx" />
+      </section>
 
-          <section>
-            <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-wide">Use</h2>
-            <CodeBlock code={`${importLine}\n\n${meta.usage}`} title="example.tsx" />
-          </section>
-
-          <section>
-            <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-wide">Prompt for your agent</h2>
-            <CodeBlock code={prompt} title="paste into Claude Code, Cursor, Lovable, v0…" />
-          </section>
-
-          <section>
-            <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-wide">Source</h2>
-            <CodeBlock code={source} title={`${meta.slug}.tsx`} collapsible />
-          </section>
+      <section className="mt-10">
+        <h2 className="mb-3 text-lg font-semibold">Props</h2>
+        <div className="overflow-hidden rounded-xl border border-line">
+          <table className="w-full text-sm">
+            <thead className="bg-surface text-left text-xs uppercase tracking-wide text-muted">
+              <tr>
+                <th className="px-4 py-2 font-medium">Prop</th>
+                <th className="px-4 py-2 font-medium">Type</th>
+                <th className="px-4 py-2 font-medium">Default</th>
+                <th className="px-4 py-2 font-medium">Description</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-line">
+              {meta.props.map((p) => (
+                <tr key={p.name} className="align-top">
+                  <td className="px-4 py-2.5 font-mono text-blue-soft">{p.name}</td>
+                  <td className="px-4 py-2.5 font-mono text-xs text-muted">{p.type}</td>
+                  <td className="px-4 py-2.5 font-mono text-xs text-muted">
+                    {p.required ? "required" : (p.default ?? "")}
+                  </td>
+                  <td className="px-4 py-2.5 text-muted">{p.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+      </section>
 
-        <aside className="min-w-0">
-          <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-wide">Props</h2>
-          <dl className="divide-y divide-line rounded-lg border border-line bg-surface">
-            {meta.props.map((p) => (
-              <div key={p.name} className="p-4">
-                <dt className="flex flex-wrap items-baseline gap-2">
-                  <code className="font-mono text-sm text-blue-soft">{p.name}</code>
-                  <code className="font-mono text-xs text-muted">{p.type}</code>
-                  {p.required ? (
-                    <span className="font-mono text-[10px] uppercase text-blue">required</span>
-                  ) : p.default ? (
-                    <span className="font-mono text-[10px] text-muted">= {p.default}</span>
-                  ) : null}
-                </dt>
-                <dd className="mt-1 text-sm text-muted">{p.description}</dd>
-              </div>
-            ))}
-          </dl>
-        </aside>
+      <div className="mt-12 flex items-center justify-between border-t border-line pt-6 text-sm">
+        {prev ? (
+          <Link href={`/effects/${prev.slug}`} className="text-muted hover:text-ink">
+            ← {prev.title}
+          </Link>
+        ) : (
+          <span />
+        )}
+        {next ? (
+          <Link href={`/effects/${next.slug}`} className="text-muted hover:text-ink">
+            {next.title} →
+          </Link>
+        ) : (
+          <span />
+        )}
       </div>
     </>
   );

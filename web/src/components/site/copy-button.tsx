@@ -7,13 +7,15 @@ interface CopyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
   label?: string;
   copiedLabel?: string;
   variant?: "primary" | "ghost";
+  size?: "sm" | "md";
 }
 
 export function CopyButton({
   value,
   label = "Copy",
-  copiedLabel = "Copied!",
+  copiedLabel = "Copied",
   variant = "ghost",
+  size = "md",
   className = "",
   ...rest
 }: CopyButtonProps) {
@@ -29,21 +31,15 @@ export function CopyButton({
     }
   }
 
-  const base =
-    "inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-colors select-none";
-  const styles =
-    variant === "primary"
-      ? "hb-slant bg-blue text-white hover:bg-blue-soft hover:text-bg"
-      : "border border-line bg-surface text-ink hover:border-blue hover:text-blue";
+  const classes = [
+    "hb-btn",
+    variant === "primary" ? "hb-btn-primary" : "hb-btn-ghost",
+    size === "sm" ? "hb-btn-sm" : "",
+    className,
+  ].join(" ");
 
   return (
-    <button
-      type="button"
-      onClick={onCopy}
-      className={`${base} ${styles} ${className}`}
-      aria-live="polite"
-      {...rest}
-    >
+    <button type="button" onClick={onCopy} className={classes} aria-live="polite" {...rest}>
       {copied ? copiedLabel : label}
     </button>
   );
