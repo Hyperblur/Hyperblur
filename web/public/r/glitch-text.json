@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glitch-text",
+  "type": "registry:component",
+  "title": "Glitch Text",
+  "description": "RGB-split slices that stutter across the text, like a corrupted signal.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "glitch",
+    "text",
+    "cyberpunk"
+  ],
+  "docs": "https://hyperblur.dev/effects/glitch-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/glitch-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/glitch-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface GlitchTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  /** Text to render. */\n  text: string;\n  /** How far the slices jump. */\n  intensity?: 1 | 2 | 3;\n  /** Animation speed multiplier. */\n  speed?: number;\n  /** Colors of the two ghost layers. */\n  colors?: [string, string];\n}\n\nconst css = `\n@keyframes hb-glitch-a {\n  0%, 100% { clip-path: inset(0 0 92% 0); transform: translate(calc(var(--hb-g) * -1), 0); }\n  20% { clip-path: inset(30% 0 55% 0); transform: translate(var(--hb-g), 0); }\n  40% { clip-path: inset(70% 0 10% 0); transform: translate(calc(var(--hb-g) * -1.5), 0); }\n  60% { clip-path: inset(10% 0 80% 0); transform: translate(var(--hb-g), 0); }\n  80% { clip-path: inset(50% 0 30% 0); transform: translate(calc(var(--hb-g) * -0.5), 0); }\n}\n@keyframes hb-glitch-b {\n  0%, 100% { clip-path: inset(80% 0 5% 0); transform: translate(var(--hb-g), 0); }\n  25% { clip-path: inset(5% 0 85% 0); transform: translate(calc(var(--hb-g) * -1), 0); }\n  50% { clip-path: inset(45% 0 40% 0); transform: translate(calc(var(--hb-g) * 1.5), 0); }\n  75% { clip-path: inset(25% 0 60% 0); transform: translate(calc(var(--hb-g) * -0.5), 0); }\n}\n@keyframes hb-glitch-base {\n  0%, 92%, 100% { transform: translate(0, 0); }\n  94% { transform: translate(calc(var(--hb-g) * 0.5), -1px); }\n  96% { transform: translate(calc(var(--hb-g) * -0.5), 1px); }\n}\n.hb-glitch { position: relative; display: inline-block; animation: hb-glitch-base calc(3s / var(--hb-s)) steps(1) infinite; }\n.hb-glitch > span[aria-hidden] { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; }\n.hb-glitch > span[aria-hidden]:nth-child(2) { color: var(--hb-c1); animation: hb-glitch-a calc(1.6s / var(--hb-s)) steps(2) infinite; }\n.hb-glitch > span[aria-hidden]:nth-child(3) { color: var(--hb-c2); animation: hb-glitch-b calc(2.1s / var(--hb-s)) steps(2) infinite; }\n@media (prefers-reduced-motion: reduce) { .hb-glitch, .hb-glitch > span { animation: none !important; } }\n`;\n\nexport function GlitchText({\n  text,\n  intensity = 2,\n  speed = 1,\n  colors = [\"#19c3f5\", \"#ff2fa0\"],\n  className = \"\",\n  style,\n  ...rest\n}: GlitchTextProps) {\n  const vars = {\n    \"--hb-g\": `${intensity * 2}px`,\n    \"--hb-s\": speed,\n    \"--hb-c1\": colors[0],\n    \"--hb-c2\": colors[1],\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <span className={`hb-glitch ${className}`} style={vars} {...rest}>\n      <style href=\"hb-glitch-text\" precedence=\"default\">{css}</style>\n      <span>{text}</span>\n      <span aria-hidden=\"true\">{text}</span>\n      <span aria-hidden=\"true\">{text}</span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}
