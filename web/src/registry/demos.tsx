@@ -32,6 +32,15 @@ import { ImageCompare } from "@/registry/hyperblur/image-compare";
 import { Masonry } from "@/registry/hyperblur/masonry";
 import { AnimatedList } from "@/registry/hyperblur/animated-list";
 import { BentoGrid, BentoCard } from "@/registry/hyperblur/bento-grid";
+import { SpringToggle } from "@/registry/hyperblur/spring-toggle";
+import { SegmentedControl } from "@/registry/hyperblur/segmented-control";
+import { HoldButtonDemo } from "@/registry/demos/hold-button-demo";
+import { Tooltip } from "@/registry/hyperblur/tooltip";
+import { ScrubField } from "@/registry/hyperblur/scrub-field";
+import { FlipCard } from "@/registry/hyperblur/flip-card";
+import { LatticeLoader } from "@/registry/hyperblur/lattice-loader";
+import { StarRating } from "@/registry/hyperblur/star-rating";
+import { ToastStackDemo } from "@/registry/demos/toast-stack-demo";
 
 const display = "font-display text-4xl font-bold uppercase tracking-wide";
 
@@ -236,4 +245,35 @@ export const demos: Record<string, ReactNode> = {
       <BentoCard title="Neat" />
     </BentoGrid>
   ),
+  "hold-button": <HoldButtonDemo />,
+  "spring-toggle": <SpringToggle label="Notifications" size="lg" defaultChecked />,
+  "segmented-control": (
+    <SegmentedControl
+      aria-label="View"
+      defaultValue="week"
+      options={[
+        { value: "day", label: "Day" },
+        { value: "week", label: "Week" },
+        { value: "month", label: "Month" },
+      ]}
+    />
+  ),
+  tooltip: (
+    <Tooltip content="Follows the pointer">
+      <button type="button" className={`${display} cursor-pointer rounded-md border border-white/20 bg-white/5 px-6 py-3`}>
+        HOVER
+      </button>
+    </Tooltip>
+  ),
+  "scrub-field": <ScrubField label="Width" defaultValue={50} min={0} max={100} suffix="px" />,
+  "flip-card": <FlipCard front={<span className={display}>FLIP</span>} back={<span className={`${display} text-blue`}>BACK</span>} />,
+  "toast-stack": <ToastStackDemo />,
+  "lattice-loader": (
+    <div className="flex items-center gap-10">
+      <LatticeLoader size={44} />
+      <LatticeLoader size={44} shape="ring" />
+      <LatticeLoader size={44} shape="bars" />
+    </div>
+  ),
+  "star-rating": <StarRating defaultValue={3.5} precision={0.5} size={32} />,
 };
