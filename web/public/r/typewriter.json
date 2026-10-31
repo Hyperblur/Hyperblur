@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typewriter",
+  "type": "registry:component",
+  "title": "Typewriter",
+  "description": "Types one or more strings with a blinking cursor, deleting and moving on to the next. Width stays stable.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "typewriter",
+    "typing",
+    "cursor",
+    "loop",
+    "intro",
+    "text"
+  ],
+  "docs": "https://hyperblur.dev/effects/typewriter",
+  "files": [
+    {
+      "path": "registry/hyperblur/typewriter.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/typewriter.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface TypewriterProps extends React.HTMLAttributes<HTMLSpanElement> {\n  words: string[];\n  typeSpeed?: number;\n  deleteSpeed?: number;\n  pause?: number;\n  loop?: boolean;\n  cursor?: string;\n}\n\nconst css = `\n@keyframes hb-type-blink {\n  0%, 49.9% { opacity: 1; }\n  50%, 100% { opacity: 0; }\n}\n.hb-type { position: relative; display: inline-block; white-space: pre; }\n.hb-type-size { display: grid; visibility: hidden; }\n.hb-type-size > span { grid-area: 1 / 1; }\n.hb-type-live { position: absolute; inset: 0; }\n.hb-type-caret { animation: hb-type-blink 1s linear infinite; }\n@media (prefers-reduced-motion: reduce) { .hb-type-caret { animation: none; } }\n`;\n\nexport function Typewriter({\n  words,\n  typeSpeed = 70,\n  deleteSpeed = 40,\n  pause = 1400,\n  loop = true,\n  cursor = \"|\",\n  className = \"\",\n  ...rest\n}: TypewriterProps) {\n  const [typed, setTyped] = React.useState<string | null>(null);\n  const key = words.join(\"\\u0001\");\n\n  React.useEffect(() => {\n    const list = words.length === 0 ? [] : key.split(\"\\u0001\").map((w) => Array.from(w));\n    if (list.length === 0) return;\n    if (window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) return;\n\n    let index = 0;\n    let count = 0;\n    let deleting = false;\n    let timer = 0;\n\n    const show = () => setTyped(list[index].slice(0, count).join(\"\"));\n\n    const step = () => {\n      const word = list[index];\n      if (!deleting) {\n        if (count < word.length) {\n          count += 1;\n          show();\n        }\n        if (count < word.length) {\n          timer = window.setTimeout(step, typeSpeed);\n          return;\n        }\n        if (!loop && index === list.length - 1) return;\n        deleting = true;\n        timer = window.setTimeout(step, pause);\n        return;\n      }\n      if (count > 0) {\n        count -= 1;\n        show();\n      }\n      if (count > 0) {\n        timer = window.setTimeout(step, deleteSpeed);\n        return;\n      }\n      deleting = false;\n      index = (index + 1) % list.length;\n      timer = window.setTimeout(step, typeSpeed);\n    };\n\n    timer = window.setTimeout(() => {\n      setTyped(\"\");\n      timer = window.setTimeout(step, typeSpeed);\n    }, 0);\n\n    return () => window.clearTimeout(timer);\n  }, [key, words.length, typeSpeed, deleteSpeed, pause, loop]);\n\n  const shown = typed ?? words[0] ?? \"\";\n\n  return (\n    <span className={`hb-type ${className}`} aria-label={words[0]} {...rest}>\n      <style href=\"hb-typewriter\" precedence=\"default\">{css}</style>\n      <span className=\"hb-type-size\" aria-hidden=\"true\">\n        {words.map((w, i) => (\n          <span key={i}>\n            {w}\n            {cursor}\n          </span>\n        ))}\n      </span>\n      <span className=\"hb-type-live\" aria-hidden=\"true\">\n        {shown}\n        <span className=\"hb-type-caret\">{cursor}</span>\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

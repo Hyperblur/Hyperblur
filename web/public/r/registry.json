@@ -312,6 +312,195 @@
           "target": "components/hyperblur/vhs-overlay.tsx"
         }
       ]
+    },
+    {
+      "name": "dot-grid",
+      "type": "registry:component",
+      "title": "Dot Grid",
+      "description": "A dot-grid background with a soft spotlight that follows the cursor and lights up the dots near it.",
+      "categories": [
+        "hover",
+        "grid",
+        "dots",
+        "spotlight",
+        "background",
+        "cursor"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dot-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dot-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glow-border",
+      "type": "registry:component",
+      "title": "Glow Border",
+      "description": "A card whose border lights up around the cursor, like modern SaaS cards.",
+      "categories": [
+        "hover",
+        "border",
+        "glow",
+        "card",
+        "spotlight",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/glow-border.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/glow-border.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ripple-click",
+      "type": "registry:component",
+      "title": "Ripple Click",
+      "description": "A material-style ripple that spreads from the exact point you click.",
+      "categories": [
+        "hover",
+        "ripple",
+        "click",
+        "button",
+        "material"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/ripple-click.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/ripple-click.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fade-in-view",
+      "type": "registry:component",
+      "title": "Fade In View",
+      "description": "Fades and slides its children in when they scroll into view. Directional, with delay and replay.",
+      "categories": [
+        "motion",
+        "scroll",
+        "reveal",
+        "fade",
+        "intersection"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/fade-in-view.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/fade-in-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "title": "Marquee",
+      "description": "Infinite horizontal scroller for logos, text or cards. Seamless loop with soft edge fade.",
+      "categories": [
+        "motion",
+        "marquee",
+        "ticker",
+        "logos",
+        "loop",
+        "scroll"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/marquee.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "aurora",
+      "type": "registry:component",
+      "title": "Aurora",
+      "description": "Soft aurora background of blurred gradient blobs drifting slowly. Pure CSS.",
+      "categories": [
+        "overlay",
+        "aurora",
+        "gradient",
+        "background",
+        "blur",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/aurora.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/aurora.tsx"
+        }
+      ]
+    },
+    {
+      "name": "typewriter",
+      "type": "registry:component",
+      "title": "Typewriter",
+      "description": "Types one or more strings with a blinking cursor, deleting and moving on to the next. Width stays stable.",
+      "categories": [
+        "text",
+        "typewriter",
+        "typing",
+        "cursor",
+        "loop",
+        "intro",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/typewriter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/typewriter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gradient-text",
+      "type": "registry:component",
+      "title": "Gradient Text",
+      "description": "Text filled with a gradient that sweeps across it in a seamless loop.",
+      "categories": [
+        "text",
+        "gradient",
+        "shimmer",
+        "sweep",
+        "color",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gradient-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gradient-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "count-up",
+      "type": "registry:component",
+      "title": "Count Up",
+      "description": "A number that counts up with easing when it scrolls into view, formatted for any locale.",
+      "categories": [
+        "motion",
+        "counter",
+        "number",
+        "stats",
+        "scroll",
+        "viewport",
+        "intro"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/count-up.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/count-up.tsx"
+        }
+      ]
     }
   ]
 }

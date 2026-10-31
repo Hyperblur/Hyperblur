@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "count-up",
+  "type": "registry:component",
+  "title": "Count Up",
+  "description": "A number that counts up with easing when it scrolls into view, formatted for any locale.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "motion",
+    "counter",
+    "number",
+    "stats",
+    "scroll",
+    "viewport",
+    "intro"
+  ],
+  "docs": "https://hyperblur.dev/effects/count-up",
+  "files": [
+    {
+      "path": "registry/hyperblur/count-up.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/count-up.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface CountUpProps extends React.HTMLAttributes<HTMLSpanElement> {\n  to: number;\n  from?: number;\n  duration?: number;\n  decimals?: number;\n  prefix?: string;\n  suffix?: string;\n  locale?: string;\n  once?: boolean;\n}\n\nconst css = `\n.hb-count { display: inline-block; white-space: pre; font-variant-numeric: tabular-nums; }\n`;\n\nfunction ease(t: number) {\n  return 1 - Math.pow(1 - t, 3);\n}\n\nexport function CountUp({\n  to,\n  from = 0,\n  duration = 1.6,\n  decimals = 0,\n  prefix = \"\",\n  suffix = \"\",\n  locale = \"en-US\",\n  once = true,\n  className = \"\",\n  ...rest\n}: CountUpProps) {\n  const [value, setValue] = React.useState<number | null>(null);\n  const ref = React.useRef<HTMLSpanElement>(null);\n\n  const format = React.useMemo(() => {\n    const nf = new Intl.NumberFormat(locale, {\n      minimumFractionDigits: decimals,\n      maximumFractionDigits: decimals,\n    });\n    return (n: number) => `${prefix}${nf.format(n)}${suffix}`;\n  }, [locale, decimals, prefix, suffix]);\n\n  React.useEffect(() => {\n    const el = ref.current;\n    if (!el || typeof IntersectionObserver === \"undefined\") return;\n    if (window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) return;\n\n    let raf = 0;\n\n    const run = () => {\n      cancelAnimationFrame(raf);\n      const start = performance.now();\n      const tick = (now: number) => {\n        const t = Math.min((now - start) / (duration * 1000), 1);\n        if (t >= 1) {\n          setValue(null);\n          return;\n        }\n        setValue(from + (to - from) * ease(t));\n        raf = requestAnimationFrame(tick);\n      };\n      setValue(from);\n      raf = requestAnimationFrame(tick);\n    };\n\n    const observer = new IntersectionObserver((entries) => {\n      for (const entry of entries) {\n        if (entry.isIntersecting) {\n          run();\n          if (once) observer.disconnect();\n        } else if (!once) {\n          cancelAnimationFrame(raf);\n          setValue(null);\n        }\n      }\n    });\n    observer.observe(el);\n\n    return () => {\n      observer.disconnect();\n      cancelAnimationFrame(raf);\n    };\n  }, [from, to, duration, once]);\n\n  return (\n    <span\n      ref={ref}\n      className={`hb-count ${className}`}\n      aria-label={format(to)}\n      {...rest}\n    >\n      <style href=\"hb-count-up\" precedence=\"default\">{css}</style>\n      <span aria-hidden=\"true\">{format(value ?? to)}</span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}
