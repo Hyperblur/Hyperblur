@@ -49,7 +49,7 @@ Add to `claude_desktop_config.json` (Settings > Developer > Edit Config), then r
 
 | Variable | Default | Description |
 | --- | --- | --- |
-| `HYPERBLUR_SITE_URL` | `https://hyperblur.dev` | Site that serves the catalog (`/r/index.json`) and registry items (`/r/<slug>.json`). Point it at `http://localhost:3000` when working on the site locally. |
+| `HYPERBLUR_SITE_URL` | `https://hyperblur.vercel.app` | Site that serves the catalog (`/r/index.json`) and registry items (`/r/<slug>.json`). Point it at `http://localhost:3000` when working on the site locally. |
 
 Pass it through the `env` field of your client config, or with `claude mcp add hyperblur -e HYPERBLUR_SITE_URL=http://localhost:3000 -- npx -y @hyperblur/mcp`.
 
