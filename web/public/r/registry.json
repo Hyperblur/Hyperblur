@@ -501,6 +501,383 @@
           "target": "components/hyperblur/count-up.tsx"
         }
       ]
+    },
+    {
+      "name": "dock",
+      "type": "registry:component",
+      "title": "Dock",
+      "description": "A macOS-style dock whose icons swell smoothly as the cursor passes over them, with a label tooltip on each.",
+      "categories": [
+        "components",
+        "dock",
+        "macos",
+        "magnify",
+        "navigation",
+        "toolbar",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dock.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pill-nav",
+      "type": "registry:component",
+      "title": "Pill Nav",
+      "description": "A horizontal nav with a single pill that glides to the hovered or selected item.",
+      "categories": [
+        "components",
+        "nav",
+        "tabs",
+        "pill",
+        "slide",
+        "menu",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pill-nav.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pill-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Expandable sections whose panels animate their height with a rotating chevron. Single or multiple open.",
+      "categories": [
+        "components",
+        "accordion",
+        "collapse",
+        "faq",
+        "disclosure",
+        "expand"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/accordion.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "Scroll-snap slider with arrow buttons, dot indicators, keyboard control and optional autoplay.",
+      "categories": [
+        "components",
+        "carousel",
+        "slider",
+        "scroll-snap",
+        "gallery",
+        "autoplay"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/carousel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:component",
+      "title": "Stepper",
+      "description": "Multi-step flow with numbered progress, a line that fills as you advance, and sliding step content.",
+      "categories": [
+        "components",
+        "stepper",
+        "wizard",
+        "steps",
+        "progress",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stepper.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-compare",
+      "type": "registry:component",
+      "title": "Image Compare",
+      "description": "Before and after slider. Drag the handle or use the arrow keys to reveal either side.",
+      "categories": [
+        "components",
+        "compare",
+        "before-after",
+        "slider",
+        "image",
+        "drag"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-compare.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-compare.tsx"
+        }
+      ]
+    },
+    {
+      "name": "masonry",
+      "type": "registry:component",
+      "title": "Masonry",
+      "description": "Responsive column layout for mixed-height blocks, with a staggered entrance.",
+      "categories": [
+        "components",
+        "masonry",
+        "layout",
+        "grid",
+        "columns",
+        "gallery"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/masonry.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/masonry.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-list",
+      "type": "registry:component",
+      "title": "Animated List",
+      "description": "Keyboard-friendly list with a staggered entrance, a sliding highlight and scroll fades.",
+      "categories": [
+        "components",
+        "list",
+        "menu",
+        "keyboard",
+        "select",
+        "stagger"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/animated-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/animated-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:component",
+      "title": "Bento Grid",
+      "description": "Bento layout of spanning cards with a cursor spotlight and a hover lift.",
+      "categories": [
+        "components",
+        "bento",
+        "grid",
+        "layout",
+        "cards",
+        "spotlight"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hold-button",
+      "type": "registry:component",
+      "title": "Hold Button",
+      "description": "Press and hold to confirm. A fill sweeps across while held, letting go early snaps it back.",
+      "categories": [
+        "micro",
+        "button",
+        "hold",
+        "confirm",
+        "press",
+        "destructive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hold-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hold-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spring-toggle",
+      "type": "registry:component",
+      "title": "Spring Toggle",
+      "description": "A switch whose knob squishes and overshoots when you flip it.",
+      "categories": [
+        "micro",
+        "toggle",
+        "switch",
+        "spring",
+        "form",
+        "squish"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/spring-toggle.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/spring-toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:component",
+      "title": "Segmented Control",
+      "description": "iOS-style segmented control with a thumb that slides to the selected option.",
+      "categories": [
+        "micro",
+        "segmented",
+        "tabs",
+        "radio",
+        "form",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/segmented-control.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/segmented-control.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "A tooltip that trails the pointer with a soft lag, and settles in a fixed spot for keyboard focus.",
+      "categories": [
+        "micro",
+        "tooltip",
+        "hover",
+        "pointer",
+        "follow",
+        "a11y"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/tooltip.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scrub-field",
+      "type": "registry:component",
+      "title": "Scrub Field",
+      "description": "A numeric input you drag sideways to change, like the fields in design tools. Typing and arrow keys still work.",
+      "categories": [
+        "micro",
+        "input",
+        "number",
+        "drag",
+        "scrub",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scrub-field.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scrub-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flip-card",
+      "type": "registry:component",
+      "title": "Flip Card",
+      "description": "A card that flips in 3D to reveal its back on hover, focus or click. Crossfades with reduced motion.",
+      "categories": [
+        "micro",
+        "flip",
+        "card",
+        "3d",
+        "hover",
+        "reveal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/flip-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/flip-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast-stack",
+      "type": "registry:component",
+      "title": "Toast Stack",
+      "description": "Stacked notifications that slide in, pause on hover and dismiss by button, swipe or timeout.",
+      "categories": [
+        "micro",
+        "toast",
+        "notification",
+        "swipe",
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/toast-stack.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/toast-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lattice-loader",
+      "type": "registry:component",
+      "title": "Lattice Loader",
+      "description": "A compact loading indicator of dots or bars pulsing in a diagonal wave.",
+      "categories": [
+        "micro",
+        "loader",
+        "spinner",
+        "loading",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/lattice-loader.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/lattice-loader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "star-rating",
+      "type": "registry:component",
+      "title": "Star Rating",
+      "description": "Interactive star rating with hover preview, half steps and keyboard control.",
+      "categories": [
+        "micro",
+        "rating",
+        "stars",
+        "input",
+        "review"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/star-rating.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/star-rating.tsx"
+        }
+      ]
     }
   ]
 }

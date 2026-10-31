@@ -12,6 +12,9 @@ export function SiteHeader() {
           </Link>
           <span className="hidden text-line-2 sm:inline">/</span>
           <nav className="hidden items-center gap-5 text-sm text-muted sm:flex">
+            <Link href="/docs" className="hover:text-ink">
+              Docs
+            </Link>
             <Link href="/effects" className="hover:text-ink">
               Effects
             </Link>

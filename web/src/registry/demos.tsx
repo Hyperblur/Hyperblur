@@ -23,6 +23,24 @@ import { Aurora } from "@/registry/hyperblur/aurora";
 import { Typewriter } from "@/registry/hyperblur/typewriter";
 import { GradientText } from "@/registry/hyperblur/gradient-text";
 import { CountUp } from "@/registry/hyperblur/count-up";
+import { Dock } from "@/registry/hyperblur/dock";
+import { PillNav } from "@/registry/hyperblur/pill-nav";
+import { Accordion } from "@/registry/hyperblur/accordion";
+import { Carousel } from "@/registry/hyperblur/carousel";
+import { Stepper } from "@/registry/hyperblur/stepper";
+import { ImageCompare } from "@/registry/hyperblur/image-compare";
+import { Masonry } from "@/registry/hyperblur/masonry";
+import { AnimatedList } from "@/registry/hyperblur/animated-list";
+import { BentoGrid, BentoCard } from "@/registry/hyperblur/bento-grid";
+import { SpringToggle } from "@/registry/hyperblur/spring-toggle";
+import { SegmentedControl } from "@/registry/hyperblur/segmented-control";
+import { HoldButtonDemo } from "@/registry/demos/hold-button-demo";
+import { Tooltip } from "@/registry/hyperblur/tooltip";
+import { ScrubField } from "@/registry/hyperblur/scrub-field";
+import { FlipCard } from "@/registry/hyperblur/flip-card";
+import { LatticeLoader } from "@/registry/hyperblur/lattice-loader";
+import { StarRating } from "@/registry/hyperblur/star-rating";
+import { ToastStackDemo } from "@/registry/demos/toast-stack-demo";
 
 const display = "font-display text-4xl font-bold uppercase tracking-wide";
 
@@ -128,4 +146,134 @@ export const demos: Record<string, ReactNode> = {
   typewriter: <Typewriter words={["DESIGN", "BUILD", "SHIP"]} className={`${display} text-blue`} />,
   "gradient-text": <GradientText text="GRADIENT" className={display} />,
   "count-up": <CountUp to={12480} suffix="+" className={`${display} text-blue`} />,
+  dock: (
+    <Dock
+      size={40}
+      magnification={1.7}
+      items={[
+        { id: "circle", label: "Circle", icon: <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="8" /></svg> },
+        { id: "square", label: "Square", icon: <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" /></svg> },
+        { id: "triangle", label: "Triangle", icon: <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l10 18H2z" /></svg> },
+        { id: "diamond", label: "Diamond", icon: <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l10 10-10 10L2 12z" /></svg> },
+        { id: "ring", label: "Ring", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true"><circle cx="12" cy="12" r="7" /></svg> },
+      ]}
+    />
+  ),
+  "pill-nav": (
+    <PillNav
+      defaultActive="home"
+      items={[
+        { id: "home", label: "Home" },
+        { id: "work", label: "Work" },
+        { id: "about", label: "About" },
+        { id: "contact", label: "Contact" },
+      ]}
+    />
+  ),
+  accordion: (
+    <div className="w-full max-w-sm px-6 text-sm">
+      <Accordion
+        defaultOpen={["one"]}
+        items={[
+          { id: "one", title: "What is it?", content: "A copy-paste component with no dependencies." },
+          { id: "two", title: "How do I use it?", content: "Install it and pass an items array." },
+        ]}
+      />
+    </div>
+  ),
+  carousel: (
+    <div className="h-28 w-full max-w-xs">
+      <Carousel className="h-full rounded-xl" gap={12}>
+        <div className="flex items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-[#1b2a6b] to-[#2f7bff]">
+          <span className={display}>ONE</span>
+        </div>
+        <div className="flex items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-[#5b1b6b] to-[#ff2fa0]">
+          <span className={display}>TWO</span>
+        </div>
+        <div className="flex items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-[#0f4b52] to-[#19c3f5]">
+          <span className={display}>THREE</span>
+        </div>
+      </Carousel>
+    </div>
+  ),
+  stepper: (
+    <div className="w-full max-w-sm px-4">
+      <Stepper
+        steps={[
+          { id: "account", title: "Account", content: <p className="text-sm text-white/70">Pick a username.</p> },
+          { id: "plan", title: "Plan", content: <p className="text-sm text-white/70">Choose how you want to pay.</p> },
+          { id: "done", title: "Done", content: <p className="text-sm text-white/70">You are all set.</p> },
+        ]}
+      />
+    </div>
+  ),
+  "image-compare": (
+    <div className="w-full max-w-xs">
+      <ImageCompare
+        className="h-32 rounded-xl border border-white/20"
+        before={
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#2a2a2a] to-[#555]">
+            <span className={display}>RAW</span>
+          </div>
+        }
+        after={
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#1b2a6b] to-[#2f7bff]">
+            <span className={display}>GRADED</span>
+          </div>
+        }
+      />
+    </div>
+  ),
+  masonry: (
+    <Masonry columns={3} gap={8} stagger={0.06} className="w-full max-w-xs">
+      <div className="h-10 rounded-md bg-blue/70" />
+      <div className="h-16 rounded-md bg-white/15" />
+      <div className="h-12 rounded-md bg-white/10" />
+      <div className="h-14 rounded-md bg-white/20" />
+      <div className="h-9 rounded-md bg-blue/40" />
+      <div className="h-11 rounded-md bg-white/10" />
+    </Masonry>
+  ),
+  "animated-list": (
+    <AnimatedList className="max-w-[220px]" maxHeight={150} initialSelected={0} items={["Profile", "Billing", "Team", "Sign out"]} />
+  ),
+  "bento-grid": (
+    <BentoGrid columns={3} gap={8} rowHeight={56} className="max-w-xs">
+      <BentoCard colSpan={2} title="Fast" />
+      <BentoCard rowSpan={2} title="Tall" />
+      <BentoCard title="Tiny" />
+      <BentoCard title="Neat" />
+    </BentoGrid>
+  ),
+  "hold-button": <HoldButtonDemo />,
+  "spring-toggle": <SpringToggle label="Notifications" size="lg" defaultChecked />,
+  "segmented-control": (
+    <SegmentedControl
+      aria-label="View"
+      defaultValue="week"
+      options={[
+        { value: "day", label: "Day" },
+        { value: "week", label: "Week" },
+        { value: "month", label: "Month" },
+      ]}
+    />
+  ),
+  tooltip: (
+    <Tooltip content="Follows the pointer">
+      <button type="button" className={`${display} cursor-pointer rounded-md border border-white/20 bg-white/5 px-6 py-3`}>
+        HOVER
+      </button>
+    </Tooltip>
+  ),
+  "scrub-field": <ScrubField label="Width" defaultValue={50} min={0} max={100} suffix="px" />,
+  "flip-card": <FlipCard front={<span className={display}>FLIP</span>} back={<span className={`${display} text-blue`}>BACK</span>} />,
+  "toast-stack": <ToastStackDemo />,
+  "lattice-loader": (
+    <div className="flex items-center gap-10">
+      <LatticeLoader size={44} />
+      <LatticeLoader size={44} shape="ring" />
+      <LatticeLoader size={44} shape="bars" />
+    </div>
+  ),
+  "star-rating": <StarRating defaultValue={3.5} precision={0.5} size={32} />,
 };

@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-10-31T21:42:26.133Z",
+  "generatedAt": "2026-10-31T21:53:49.229Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -1191,6 +1191,1004 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/count-up.json",
       "docs": "https://hyperblur.dev/effects/count-up",
       "file": "https://hyperblur.dev/r/count-up.json"
+    },
+    {
+      "slug": "dock",
+      "component": "Dock",
+      "title": "Dock",
+      "description": "A macOS-style dock whose icons swell smoothly as the cursor passes over them, with a label tooltip on each.",
+      "category": "components",
+      "tags": [
+        "dock",
+        "macos",
+        "magnify",
+        "navigation",
+        "toolbar",
+        "hover"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; icon: ReactNode; onClick?: () => void; href?: string }[]",
+          "required": true,
+          "description": "Dock entries. An item with href renders as a link, otherwise as a button."
+        },
+        {
+          "name": "magnification",
+          "type": "number",
+          "default": "1.6",
+          "description": "Maximum scale of the icon under the cursor."
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "default": "120",
+          "description": "Distance in pixels along the dock over which the magnification fades out."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "48",
+          "description": "Base icon size in pixels."
+        },
+        {
+          "name": "position",
+          "type": "\"bottom\" | \"top\"",
+          "default": "\"bottom\"",
+          "description": "Edge the dock sits on. Icons grow away from it and tooltips open on the opposite side."
+        }
+      ],
+      "usage": "<Dock items={[{ id: \"home\", label: \"Home\", icon: <HomeIcon />, href: \"/\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/dock.json",
+      "docs": "https://hyperblur.dev/effects/dock",
+      "file": "https://hyperblur.dev/r/dock.json"
+    },
+    {
+      "slug": "pill-nav",
+      "component": "PillNav",
+      "title": "Pill Nav",
+      "description": "A horizontal nav with a single pill that glides to the hovered or selected item.",
+      "category": "components",
+      "tags": [
+        "nav",
+        "tabs",
+        "pill",
+        "slide",
+        "menu",
+        "hover"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; href?: string }[]",
+          "required": true,
+          "description": "Tabs. An item with href renders as a link, otherwise as a button."
+        },
+        {
+          "name": "active",
+          "type": "string",
+          "description": "Id of the selected item. Pass it to control the selection."
+        },
+        {
+          "name": "defaultActive",
+          "type": "string",
+          "default": "first item",
+          "description": "Id of the item selected on mount when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when the selection changes by click or arrow keys."
+        },
+        {
+          "name": "followHover",
+          "type": "boolean",
+          "default": "true",
+          "description": "Slide the pill to the hovered item and back to the selected one on leave."
+        }
+      ],
+      "usage": "<PillNav items={[{ id: \"home\", label: \"Home\" }, { id: \"docs\", label: \"Docs\" }]} defaultActive=\"home\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/pill-nav.json",
+      "docs": "https://hyperblur.dev/effects/pill-nav",
+      "file": "https://hyperblur.dev/r/pill-nav.json"
+    },
+    {
+      "slug": "accordion",
+      "component": "Accordion",
+      "title": "Accordion",
+      "description": "Expandable sections whose panels animate their height with a rotating chevron. Single or multiple open.",
+      "category": "components",
+      "tags": [
+        "accordion",
+        "collapse",
+        "faq",
+        "disclosure",
+        "expand"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; title: string; content: ReactNode }[]",
+          "required": true,
+          "description": "Sections to render."
+        },
+        {
+          "name": "type",
+          "type": "\"single\" | \"multiple\"",
+          "default": "\"single\"",
+          "description": "Whether opening a section closes the others."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Ids of sections open on mount. Only the first is used when type is single."
+        },
+        {
+          "name": "collapsible",
+          "type": "boolean",
+          "default": "true",
+          "description": "Allow closing the last open section. When false, one section stays open once opened."
+        }
+      ],
+      "usage": "<Accordion items={[{ id: \"a\", title: \"Question\", content: \"Answer\" }]} defaultOpen={[\"a\"]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/accordion.json",
+      "docs": "https://hyperblur.dev/effects/accordion",
+      "file": "https://hyperblur.dev/r/accordion.json"
+    },
+    {
+      "slug": "carousel",
+      "component": "Carousel",
+      "title": "Carousel",
+      "description": "Scroll-snap slider with arrow buttons, dot indicators, keyboard control and optional autoplay.",
+      "category": "components",
+      "tags": [
+        "carousel",
+        "slider",
+        "scroll-snap",
+        "gallery",
+        "autoplay"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Slides. Each child becomes one slide."
+        },
+        {
+          "name": "autoplay",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between slides. 0 turns autoplay off. Pauses on hover, on focus and while the tab is hidden."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Jump back to the first slide after the last one, and to the last one before the first."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "16",
+          "description": "Space between slides in pixels."
+        },
+        {
+          "name": "slidesPerView",
+          "type": "number",
+          "default": "1",
+          "description": "How many slides are visible at once. Fractions like 1.2 show a peek of the next slide."
+        }
+      ],
+      "usage": "<Carousel autoplay={4000} slidesPerView={1.2}>{slides}</Carousel>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/carousel.json",
+      "docs": "https://hyperblur.dev/effects/carousel",
+      "file": "https://hyperblur.dev/r/carousel.json"
+    },
+    {
+      "slug": "stepper",
+      "component": "Stepper",
+      "title": "Stepper",
+      "description": "Multi-step flow with numbered progress, a line that fills as you advance, and sliding step content.",
+      "category": "components",
+      "tags": [
+        "stepper",
+        "wizard",
+        "steps",
+        "progress",
+        "form"
+      ],
+      "props": [
+        {
+          "name": "steps",
+          "type": "{ id: string; title: string; content: ReactNode }[]",
+          "required": true,
+          "description": "The steps, in order. Only the current step's content is rendered."
+        },
+        {
+          "name": "initialStep",
+          "type": "number",
+          "default": "0",
+          "description": "Index of the step shown first."
+        },
+        {
+          "name": "onStepChange",
+          "type": "(index: number) => void",
+          "description": "Called with the new index whenever the step changes."
+        },
+        {
+          "name": "onFinish",
+          "type": "() => void",
+          "description": "Called when the user presses the finish button on the last step."
+        },
+        {
+          "name": "labels",
+          "type": "{ back: string; next: string; finish: string }",
+          "default": "{ back: \"Back\", next: \"Next\", finish: \"Finish\" }",
+          "description": "Button text. Pass any subset to translate or rename."
+        },
+        {
+          "name": "allowClickNavigation",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let users click a completed step to go back to it."
+        }
+      ],
+      "usage": "<Stepper steps={steps} onFinish={() => save()} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/stepper.json",
+      "docs": "https://hyperblur.dev/effects/stepper",
+      "file": "https://hyperblur.dev/r/stepper.json"
+    },
+    {
+      "slug": "image-compare",
+      "component": "ImageCompare",
+      "title": "Image Compare",
+      "description": "Before and after slider. Drag the handle or use the arrow keys to reveal either side.",
+      "category": "components",
+      "tags": [
+        "compare",
+        "before-after",
+        "slider",
+        "image",
+        "drag"
+      ],
+      "props": [
+        {
+          "name": "before",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Bottom layer, shown on the left (or top). An image or any element."
+        },
+        {
+          "name": "after",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Top layer, clipped by the handle and shown on the right (or bottom)."
+        },
+        {
+          "name": "initial",
+          "type": "number",
+          "default": "50",
+          "description": "Starting handle position from 0 to 100."
+        },
+        {
+          "name": "labels",
+          "type": "{ before: string; after: string }",
+          "default": "{ before: \"Before\", after: \"After\" }",
+          "description": "Text of the corner chips. An empty string hides that chip."
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Direction of the split. Vertical moves the handle up and down."
+        }
+      ],
+      "usage": "<ImageCompare before={<img src=\"/a.jpg\" alt=\"Before\" />} after={<img src=\"/b.jpg\" alt=\"After\" />} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/image-compare.json",
+      "docs": "https://hyperblur.dev/effects/image-compare",
+      "file": "https://hyperblur.dev/r/image-compare.json"
+    },
+    {
+      "slug": "masonry",
+      "component": "Masonry",
+      "title": "Masonry",
+      "description": "Responsive column layout for mixed-height blocks, with a staggered entrance.",
+      "category": "components",
+      "tags": [
+        "masonry",
+        "layout",
+        "grid",
+        "columns",
+        "gallery"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Items to lay out. Each child becomes one block."
+        },
+        {
+          "name": "columns",
+          "type": "number | { base?: number; sm?: number; md?: number; lg?: number }",
+          "default": "{ base: 1, sm: 2, lg: 3 }",
+          "description": "Column count, or a breakpoint map (sm 640px, md 768px, lg 1024px). Missing keys inherit the previous breakpoint."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "16",
+          "description": "Gap between columns and between items, in pixels."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.05",
+          "description": "Seconds between each item's entrance."
+        }
+      ],
+      "usage": "<Masonry columns={{ base: 1, sm: 2, lg: 4 }} gap={16}><Card /><Card /><Card /></Masonry>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/masonry.json",
+      "docs": "https://hyperblur.dev/effects/masonry",
+      "file": "https://hyperblur.dev/r/masonry.json"
+    },
+    {
+      "slug": "animated-list",
+      "component": "AnimatedList",
+      "title": "Animated List",
+      "description": "Keyboard-friendly list with a staggered entrance, a sliding highlight and scroll fades.",
+      "category": "components",
+      "tags": [
+        "list",
+        "menu",
+        "keyboard",
+        "select",
+        "stagger"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "ReactNode[]",
+          "required": true,
+          "description": "Content of each row."
+        },
+        {
+          "name": "onSelect",
+          "type": "(index: number) => void",
+          "description": "Called on click or when Enter is pressed on the selected row."
+        },
+        {
+          "name": "initialSelected",
+          "type": "number",
+          "default": "-1",
+          "description": "Index selected on mount. -1 means none."
+        },
+        {
+          "name": "showGradients",
+          "type": "boolean",
+          "default": "true",
+          "description": "Fade the top and bottom edges while the list can scroll."
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "default": "320",
+          "description": "Maximum height in pixels before the list scrolls."
+        }
+      ],
+      "usage": "<AnimatedList items={[\"Profile\", \"Billing\", \"Team\", \"Sign out\"]} onSelect={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/animated-list.json",
+      "docs": "https://hyperblur.dev/effects/animated-list",
+      "file": "https://hyperblur.dev/r/animated-list.json"
+    },
+    {
+      "slug": "bento-grid",
+      "component": "BentoGrid",
+      "title": "Bento Grid",
+      "description": "Bento layout of spanning cards with a cursor spotlight and a hover lift.",
+      "category": "components",
+      "tags": [
+        "bento",
+        "grid",
+        "layout",
+        "cards",
+        "spotlight"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "BentoCard elements (BentoGrid props)."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "3",
+          "description": "Number of grid columns (BentoGrid)."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "16",
+          "description": "Gap between cards in pixels (BentoGrid)."
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "default": "160",
+          "description": "Height of one grid row in pixels (BentoGrid)."
+        },
+        {
+          "name": "colSpan",
+          "type": "number",
+          "default": "1",
+          "description": "Columns a card spans (BentoCard)."
+        },
+        {
+          "name": "rowSpan",
+          "type": "number",
+          "default": "1",
+          "description": "Rows a card spans (BentoCard)."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "Card heading (BentoCard)."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Card supporting text (BentoCard)."
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "description": "Icon shown above the title (BentoCard)."
+        }
+      ],
+      "usage": "<BentoGrid columns={3}><BentoCard colSpan={2} title=\"Fast\" description=\"Zero config.\" /><BentoCard rowSpan={2} title=\"Tiny\" /></BentoGrid>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/bento-grid.json",
+      "docs": "https://hyperblur.dev/effects/bento-grid",
+      "file": "https://hyperblur.dev/r/bento-grid.json"
+    },
+    {
+      "slug": "hold-button",
+      "component": "HoldButton",
+      "title": "Hold Button",
+      "description": "Press and hold to confirm. A fill sweeps across while held, letting go early snaps it back.",
+      "category": "micro",
+      "tags": [
+        "button",
+        "hold",
+        "confirm",
+        "press",
+        "destructive"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Button label."
+        },
+        {
+          "name": "onConfirm",
+          "type": "() => void",
+          "required": true,
+          "description": "Called once the hold completes."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1200",
+          "description": "Milliseconds the button must be held."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Fill and focus ring color."
+        },
+        {
+          "name": "confirmedLabel",
+          "type": "string",
+          "default": "\"Done\"",
+          "description": "Label shown briefly after confirming."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Ignore presses and dim the button."
+        }
+      ],
+      "usage": "<HoldButton onConfirm={() => deleteItem()}>Hold to delete</HoldButton>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hold-button.json",
+      "docs": "https://hyperblur.dev/effects/hold-button",
+      "file": "https://hyperblur.dev/r/hold-button.json"
+    },
+    {
+      "slug": "spring-toggle",
+      "component": "SpringToggle",
+      "title": "Spring Toggle",
+      "description": "A switch whose knob squishes and overshoots when you flip it.",
+      "category": "micro",
+      "tags": [
+        "toggle",
+        "switch",
+        "spring",
+        "form",
+        "squish"
+      ],
+      "props": [
+        {
+          "name": "checked",
+          "type": "boolean",
+          "description": "Controlled state. Pair with onChange."
+        },
+        {
+          "name": "defaultChecked",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial state when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(checked: boolean) => void",
+          "description": "Called with the new state on every toggle."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Track and knob size."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Track color when on."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Text next to the switch. Clicking it toggles too."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Block interaction and dim the switch."
+        }
+      ],
+      "usage": "<SpringToggle label=\"Notifications\" defaultChecked />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/spring-toggle.json",
+      "docs": "https://hyperblur.dev/effects/spring-toggle",
+      "file": "https://hyperblur.dev/r/spring-toggle.json"
+    },
+    {
+      "slug": "segmented-control",
+      "component": "SegmentedControl",
+      "title": "Segmented Control",
+      "description": "iOS-style segmented control with a thumb that slides to the selected option.",
+      "category": "micro",
+      "tags": [
+        "segmented",
+        "tabs",
+        "radio",
+        "form",
+        "slider"
+      ],
+      "props": [
+        {
+          "name": "options",
+          "type": "{ value: string; label: string; disabled?: boolean }[]",
+          "required": true,
+          "description": "The segments, in order."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Controlled selection. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "Initial selection when uncontrolled. Falls back to the first enabled option."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Called with the newly selected value."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Control height and text size."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"rgba(255,255,255,0.18)\"",
+          "description": "Thumb color. Pass your accent, e.g. #2f7bff, for a tinted thumb."
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "default": "false",
+          "description": "Stretch to the container with equal-width segments."
+        }
+      ],
+      "usage": "<SegmentedControl aria-label=\"View\" defaultValue=\"grid\" options={[{ value: \"grid\", label: \"Grid\" }, { value: \"list\", label: \"List\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/segmented-control.json",
+      "docs": "https://hyperblur.dev/effects/segmented-control",
+      "file": "https://hyperblur.dev/r/segmented-control.json"
+    },
+    {
+      "slug": "tooltip",
+      "component": "Tooltip",
+      "title": "Tooltip",
+      "description": "A tooltip that trails the pointer with a soft lag, and settles in a fixed spot for keyboard focus.",
+      "category": "micro",
+      "tags": [
+        "tooltip",
+        "hover",
+        "pointer",
+        "follow",
+        "a11y"
+      ],
+      "props": [
+        {
+          "name": "content",
+          "type": "ReactNode",
+          "required": true,
+          "description": "What the tooltip shows."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "The trigger. Should be focusable, like a button or link."
+        },
+        {
+          "name": "placement",
+          "type": "\"top\" | \"bottom\"",
+          "default": "\"top\"",
+          "description": "Which side of the pointer or trigger the tooltip sits on."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "120",
+          "description": "Milliseconds before the tooltip appears."
+        },
+        {
+          "name": "follow",
+          "type": "boolean",
+          "default": "true",
+          "description": "Trail the pointer while hovering. When off, the tooltip stays anchored to the trigger."
+        }
+      ],
+      "usage": "<Tooltip content=\"Copied to clipboard\"><button>Copy</button></Tooltip>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/tooltip.json",
+      "docs": "https://hyperblur.dev/effects/tooltip",
+      "file": "https://hyperblur.dev/r/tooltip.json"
+    },
+    {
+      "slug": "scrub-field",
+      "component": "ScrubField",
+      "title": "Scrub Field",
+      "description": "A numeric input you drag sideways to change, like the fields in design tools. Typing and arrow keys still work.",
+      "category": "micro",
+      "tags": [
+        "input",
+        "number",
+        "drag",
+        "scrub",
+        "form"
+      ],
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled value."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "0",
+          "description": "Initial value when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number) => void",
+          "description": "Called whenever the value changes."
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "description": "Lowest allowed value."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "Highest allowed value."
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "default": "1",
+          "description": "Increment for arrow keys, and the grid values snap to while dragging."
+        },
+        {
+          "name": "sensitivity",
+          "type": "number",
+          "default": "0.5",
+          "description": "Units changed per pixel dragged. Hold Shift for 10x."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Value\"",
+          "description": "Drag handle text, also the input's accessible name."
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Unit shown after the number, such as px or %."
+        }
+      ],
+      "usage": "<ScrubField label=\"Width\" defaultValue={50} min={0} max={100} suffix=\"px\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/scrub-field.json",
+      "docs": "https://hyperblur.dev/effects/scrub-field",
+      "file": "https://hyperblur.dev/r/scrub-field.json"
+    },
+    {
+      "slug": "flip-card",
+      "component": "FlipCard",
+      "title": "Flip Card",
+      "description": "A card that flips in 3D to reveal its back on hover, focus or click. Crossfades with reduced motion.",
+      "category": "micro",
+      "tags": [
+        "flip",
+        "card",
+        "3d",
+        "hover",
+        "reveal"
+      ],
+      "props": [
+        {
+          "name": "front",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Content of the front face."
+        },
+        {
+          "name": "back",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Content of the back face."
+        },
+        {
+          "name": "trigger",
+          "type": "\"hover\" | \"click\"",
+          "default": "\"hover\"",
+          "description": "Flip on hover and focus, or toggle on click (renders a button with aria-pressed)."
+        },
+        {
+          "name": "direction",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Axis the card rotates around."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.6",
+          "description": "Seconds for the flip."
+        }
+      ],
+      "usage": "<FlipCard front={<span>Front</span>} back={<span>Back</span>} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/flip-card.json",
+      "docs": "https://hyperblur.dev/effects/flip-card",
+      "file": "https://hyperblur.dev/r/flip-card.json"
+    },
+    {
+      "slug": "toast-stack",
+      "component": "ToastProvider",
+      "title": "Toast Stack",
+      "description": "Stacked notifications that slide in, pause on hover and dismiss by button, swipe or timeout.",
+      "category": "micro",
+      "tags": [
+        "toast",
+        "notification",
+        "swipe",
+        "feedback"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "App content that can call useToast()."
+        },
+        {
+          "name": "position",
+          "type": "\"bottom-right\" | \"bottom-left\" | \"top-right\" | \"top-left\"",
+          "default": "\"bottom-right\"",
+          "description": "Corner where toasts stack."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "3",
+          "description": "Most toasts visible at once. The oldest leaves first."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "4000",
+          "description": "Milliseconds before auto-dismiss. 0 keeps toasts until closed. Pauses on hover and focus."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent for the default variant."
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "default": "false",
+          "description": "Position the stack absolutely inside the nearest relative parent instead of the window."
+        }
+      ],
+      "usage": "const { toast } = useToast(); toast({ title: \"Saved\", description: \"Changes are live.\", variant: \"success\" })",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/toast-stack.json",
+      "docs": "https://hyperblur.dev/effects/toast-stack",
+      "file": "https://hyperblur.dev/r/toast-stack.json"
+    },
+    {
+      "slug": "lattice-loader",
+      "component": "LatticeLoader",
+      "title": "Lattice Loader",
+      "description": "A compact loading indicator of dots or bars pulsing in a diagonal wave.",
+      "category": "micro",
+      "tags": [
+        "loader",
+        "spinner",
+        "loading",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "32",
+          "description": "Width and height of the whole loader in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Dot and bar color."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Animation speed multiplier."
+        },
+        {
+          "name": "shape",
+          "type": "\"grid\" | \"ring\" | \"bars\"",
+          "default": "\"grid\"",
+          "description": "Layout of the loader."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "3",
+          "description": "Dots per side for the grid shape (2 to 6)."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Visually hidden text announced to screen readers."
+        }
+      ],
+      "usage": "<LatticeLoader size={32} shape=\"grid\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/lattice-loader.json",
+      "docs": "https://hyperblur.dev/effects/lattice-loader",
+      "file": "https://hyperblur.dev/r/lattice-loader.json"
+    },
+    {
+      "slug": "star-rating",
+      "component": "StarRating",
+      "title": "Star Rating",
+      "description": "Interactive star rating with hover preview, half steps and keyboard control.",
+      "category": "micro",
+      "tags": [
+        "rating",
+        "stars",
+        "input",
+        "review"
+      ],
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled value. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "0",
+          "description": "Initial value when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number) => void",
+          "description": "Called when the value changes."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "5",
+          "description": "Number of stars."
+        },
+        {
+          "name": "precision",
+          "type": "1 | 0.5",
+          "default": "1",
+          "description": "Step size. 0.5 enables half stars."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Star size in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#f5b301\"",
+          "description": "Fill color."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "Display only: no hover, click or keyboard input."
+        }
+      ],
+      "usage": "<StarRating defaultValue={3.5} precision={0.5} onChange={(v) => console.log(v)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/star-rating.json",
+      "docs": "https://hyperblur.dev/effects/star-rating",
+      "file": "https://hyperblur.dev/r/star-rating.json"
     }
   ]
 }

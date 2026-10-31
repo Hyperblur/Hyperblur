@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "type": "registry:component",
+  "title": "Accordion",
+  "description": "Expandable sections whose panels animate their height with a rotating chevron. Single or multiple open.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "components",
+    "accordion",
+    "collapse",
+    "faq",
+    "disclosure",
+    "expand"
+  ],
+  "docs": "https://hyperblur.dev/effects/accordion",
+  "files": [
+    {
+      "path": "registry/hyperblur/accordion.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/accordion.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface AccordionItem {\n  id: string;\n  title: string;\n  content: React.ReactNode;\n}\n\nexport interface AccordionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, \"children\"> {\n  items: AccordionItem[];\n  type?: \"single\" | \"multiple\";\n  defaultOpen?: string[];\n  collapsible?: boolean;\n}\n\nconst css = `\n.hb-ac { width: 100%; color: inherit; }\n.hb-ac-item { border-bottom: 1px solid rgba(255,255,255,.14); }\n.hb-ac-item:first-child { border-top: 1px solid rgba(255,255,255,.14); }\n.hb-ac-head { margin: 0; font: inherit; }\n.hb-ac-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 12px;\n  box-sizing: border-box;\n  width: 100%;\n  margin: 0;\n  padding: 14px 4px;\n  border: 0;\n  border-radius: 6px;\n  color: inherit;\n  font: inherit;\n  font-weight: 500;\n  text-align: left;\n  cursor: pointer;\n  background: transparent;\n  -webkit-tap-highlight-color: transparent;\n}\n.hb-ac-trigger:focus-visible { outline: 2px solid #2f7bff; outline-offset: -2px; }\n.hb-ac-chevron {\n  flex: 0 0 auto;\n  width: 16px;\n  height: 16px;\n  opacity: .7;\n  transition: transform .35s cubic-bezier(.2, .9, .2, 1), opacity .2s ease;\n}\n.hb-ac-trigger[aria-expanded=\"true\"] .hb-ac-chevron { transform: rotate(180deg); opacity: 1; }\n.hb-ac-panel {\n  display: grid;\n  grid-template-rows: 0fr;\n  visibility: hidden;\n  transition: grid-template-rows .35s cubic-bezier(.2, .9, .2, 1), visibility 0s linear .35s;\n}\n.hb-ac-item[data-open=\"true\"] > .hb-ac-panel {\n  grid-template-rows: 1fr;\n  visibility: visible;\n  transition: grid-template-rows .35s cubic-bezier(.2, .9, .2, 1), visibility 0s linear 0s;\n}\n.hb-ac-inner { min-height: 0; overflow: hidden; }\n.hb-ac-body {\n  padding: 0 4px 14px;\n  color: rgba(255,255,255,.65);\n  font-size: .9em;\n  line-height: 1.55;\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-ac-panel, .hb-ac-item[data-open=\"true\"] > .hb-ac-panel { transition: none; }\n  .hb-ac-chevron { transition: none; }\n}\n`;\n\nexport function Accordion({\n  items,\n  type = \"single\",\n  defaultOpen,\n  collapsible = true,\n  className = \"\",\n  ...rest\n}: AccordionProps) {\n  const uid = React.useId();\n  const [open, setOpen] = React.useState<string[]>(() => {\n    const start = defaultOpen ?? [];\n    return type === \"single\" ? start.slice(0, 1) : start;\n  });\n\n  function toggle(id: string) {\n    setOpen((prev) => {\n      if (prev.includes(id)) {\n        if (!collapsible && prev.length === 1) return prev;\n        return prev.filter((x) => x !== id);\n      }\n      return type === \"single\" ? [id] : [...prev, id];\n    });\n  }\n\n  return (\n    <div className={`hb-ac ${className}`} {...rest}>\n      <style href=\"hb-accordion\" precedence=\"default\">{css}</style>\n      {items.map((item) => {\n        const isOpen = open.includes(item.id);\n        const triggerId = `${uid}-trigger-${item.id}`;\n        const panelId = `${uid}-panel-${item.id}`;\n        return (\n          <div className=\"hb-ac-item\" data-open={isOpen} key={item.id}>\n            <h3 className=\"hb-ac-head\">\n              <button\n                id={triggerId}\n                className=\"hb-ac-trigger\"\n                type=\"button\"\n                aria-expanded={isOpen}\n                aria-controls={panelId}\n                onClick={() => toggle(item.id)}\n              >\n                <span>{item.title}</span>\n                <svg\n                  className=\"hb-ac-chevron\"\n                  viewBox=\"0 0 16 16\"\n                  fill=\"none\"\n                  stroke=\"currentColor\"\n                  strokeWidth=\"1.8\"\n                  strokeLinecap=\"round\"\n                  strokeLinejoin=\"round\"\n                  aria-hidden=\"true\"\n                >\n                  <path d=\"M3.5 6l4.5 4.5L12.5 6\" />\n                </svg>\n              </button>\n            </h3>\n            <div id={panelId} className=\"hb-ac-panel\" role=\"region\" aria-labelledby={triggerId}>\n              <div className=\"hb-ac-inner\">\n                <div className=\"hb-ac-body\">{item.content}</div>\n              </div>\n            </div>\n          </div>\n        );\n      })}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

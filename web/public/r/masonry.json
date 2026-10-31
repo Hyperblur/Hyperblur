@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "masonry",
+  "type": "registry:component",
+  "title": "Masonry",
+  "description": "Responsive column layout for mixed-height blocks, with a staggered entrance.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "components",
+    "masonry",
+    "layout",
+    "grid",
+    "columns",
+    "gallery"
+  ],
+  "docs": "https://hyperblur.dev/effects/masonry",
+  "files": [
+    {
+      "path": "registry/hyperblur/masonry.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/masonry.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface MasonryBreakpoints {\n  base?: number;\n  sm?: number;\n  md?: number;\n  lg?: number;\n}\n\nexport interface MasonryProps extends React.HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode;\n  columns?: number | MasonryBreakpoints;\n  gap?: number;\n  stagger?: number;\n}\n\nconst css = `\n.hb-ms {\n  column-count: var(--hb-ms-base);\n  column-gap: var(--hb-ms-gap);\n  width: 100%;\n}\n@media (min-width: 640px) { .hb-ms { column-count: var(--hb-ms-sm); } }\n@media (min-width: 768px) { .hb-ms { column-count: var(--hb-ms-md); } }\n@media (min-width: 1024px) { .hb-ms { column-count: var(--hb-ms-lg); } }\n.hb-ms-item {\n  break-inside: avoid;\n  page-break-inside: avoid;\n  -webkit-column-break-inside: avoid;\n  margin-bottom: var(--hb-ms-gap);\n  animation: hb-ms-in .6s cubic-bezier(.22, .8, .24, 1) both;\n  animation-delay: calc(var(--hb-ms-i) * var(--hb-ms-st));\n}\n@keyframes hb-ms-in {\n  from { opacity: 0; transform: translate3d(0, 18px, 0) scale(.97); }\n  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-ms-item { animation: none; }\n}\n`;\n\nfunction count(value: number | undefined, fallback: number) {\n  if (typeof value !== \"number\" || !Number.isFinite(value)) return fallback;\n  return Math.max(1, Math.round(value));\n}\n\nfunction resolve(columns: number | MasonryBreakpoints) {\n  if (typeof columns === \"number\") {\n    const c = count(columns, 1);\n    return { base: c, sm: c, md: c, lg: c };\n  }\n  const base = count(columns.base, 1);\n  const sm = count(columns.sm, base);\n  const md = count(columns.md, sm);\n  const lg = count(columns.lg, md);\n  return { base, sm, md, lg };\n}\n\nexport function Masonry({\n  children,\n  columns = { base: 1, sm: 2, lg: 3 },\n  gap = 16,\n  stagger = 0.05,\n  className = \"\",\n  style,\n  ...rest\n}: MasonryProps) {\n  const c = resolve(columns);\n  const items = React.Children.toArray(children);\n\n  const vars = {\n    \"--hb-ms-base\": c.base,\n    \"--hb-ms-sm\": c.sm,\n    \"--hb-ms-md\": c.md,\n    \"--hb-ms-lg\": c.lg,\n    \"--hb-ms-gap\": `${Math.max(0, gap)}px`,\n    \"--hb-ms-st\": `${Math.max(0, stagger)}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div className={`hb-ms ${className}`} style={vars} {...rest}>\n      <style href=\"hb-masonry\" precedence=\"default\">{css}</style>\n      {items.map((child, i) => (\n        <div\n          key={React.isValidElement(child) && child.key != null ? child.key : i}\n          className=\"hb-ms-item\"\n          style={{ \"--hb-ms-i\": i } as React.CSSProperties}\n        >\n          {child}\n        </div>\n      ))}\n    </div>\n  );\n}\n"
+    }
+  ]
+}
