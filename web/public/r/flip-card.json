@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flip-card",
+  "type": "registry:component",
+  "title": "Flip Card",
+  "description": "A card that flips in 3D to reveal its back on hover, focus or click. Crossfades with reduced motion.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "micro",
+    "flip",
+    "card",
+    "3d",
+    "hover",
+    "reveal"
+  ],
+  "docs": "https://hyperblur.dev/effects/flip-card",
+  "files": [
+    {
+      "path": "registry/hyperblur/flip-card.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/flip-card.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface FlipCardProps extends Omit<React.HTMLAttributes<HTMLElement>, \"children\"> {\n  front: React.ReactNode;\n  back: React.ReactNode;\n  trigger?: \"hover\" | \"click\";\n  direction?: \"horizontal\" | \"vertical\";\n  duration?: number;\n}\n\nconst css = `\n.hb-fc {\n  --hb-flip: rotateY(180deg);\n  display: inline-block;\n  position: relative;\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: inherit;\n  font: inherit;\n  text-align: inherit;\n  perspective: 1000px;\n  -webkit-tap-highlight-color: transparent;\n}\n.hb-fc[data-d=\"vertical\"] { --hb-flip: rotateX(180deg); }\nbutton.hb-fc { cursor: pointer; appearance: none; }\n.hb-fc:focus-visible {\n  outline: 2px solid #2f7bff;\n  outline-offset: 4px;\n  border-radius: 16px;\n}\n.hb-fc > .hb-fc-i {\n  display: grid;\n  transform-style: preserve-3d;\n  transition: transform var(--hb-d) cubic-bezier(.4, .2, .2, 1);\n}\n.hb-fc[data-m=\"hover\"]:is(:hover, :focus-within) > .hb-fc-i,\n.hb-fc[aria-pressed=\"true\"] > .hb-fc-i {\n  transform: var(--hb-flip);\n}\n.hb-fc-f {\n  grid-area: 1 / 1;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 180px;\n  min-height: 120px;\n  padding: 16px;\n  border-radius: 14px;\n  border: 1px solid rgba(255, 255, 255, .16);\n  background: linear-gradient(145deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .02)), #101010;\n  color: #f5f5f5;\n  text-align: center;\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n}\n.hb-fc-b { transform: var(--hb-flip); }\n@media (prefers-reduced-motion: reduce) {\n  .hb-fc > .hb-fc-i {\n    transition: none;\n    transform: none !important;\n  }\n  .hb-fc-f {\n    backface-visibility: visible;\n    -webkit-backface-visibility: visible;\n    transition: opacity .25s ease;\n  }\n  .hb-fc-b {\n    transform: none !important;\n    opacity: 0;\n  }\n  .hb-fc[data-m=\"hover\"]:is(:hover, :focus-within) .hb-fc-a,\n  .hb-fc[aria-pressed=\"true\"] .hb-fc-a {\n    opacity: 0;\n  }\n  .hb-fc[data-m=\"hover\"]:is(:hover, :focus-within) .hb-fc-b,\n  .hb-fc[aria-pressed=\"true\"] .hb-fc-b {\n    opacity: 1;\n  }\n}\n`;\n\nexport function FlipCard({\n  front,\n  back,\n  trigger = \"hover\",\n  direction = \"horizontal\",\n  duration = 0.6,\n  className = \"\",\n  style,\n  onClick,\n  ...rest\n}: FlipCardProps) {\n  const [flipped, setFlipped] = React.useState(false);\n  const clickable = trigger === \"click\";\n  const vars = { \"--hb-d\": `${duration}s`, ...style } as React.CSSProperties;\n\n  const faces = (\n    <>\n      <style href=\"hb-flip-card\" precedence=\"default\">{css}</style>\n      <span className=\"hb-fc-i\">\n        <span className=\"hb-fc-f hb-fc-a\" aria-hidden={clickable ? flipped : undefined}>\n          {front}\n        </span>\n        <span className=\"hb-fc-f hb-fc-b\" aria-hidden={clickable ? !flipped : undefined}>\n          {back}\n        </span>\n      </span>\n    </>\n  );\n\n  if (clickable) {\n    return (\n      <button\n        {...rest}\n        type=\"button\"\n        className={`hb-fc ${className}`}\n        style={vars}\n        data-m=\"click\"\n        data-d={direction}\n        aria-pressed={flipped}\n        onClick={(e) => {\n          onClick?.(e);\n          setFlipped((f) => !f);\n        }}\n      >\n        {faces}\n      </button>\n    );\n  }\n\n  return (\n    <div\n      {...rest}\n      role=\"group\"\n      tabIndex={0}\n      className={`hb-fc ${className}`}\n      style={vars}\n      data-m=\"hover\"\n      data-d={direction}\n      onClick={onClick}\n    >\n      {faces}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

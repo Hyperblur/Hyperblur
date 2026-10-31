@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spring-toggle",
+  "type": "registry:component",
+  "title": "Spring Toggle",
+  "description": "A switch whose knob squishes and overshoots when you flip it.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "micro",
+    "toggle",
+    "switch",
+    "spring",
+    "form",
+    "squish"
+  ],
+  "docs": "https://hyperblur.dev/effects/spring-toggle",
+  "files": [
+    {
+      "path": "registry/hyperblur/spring-toggle.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/spring-toggle.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface SpringToggleProps\n  extends Omit<\n    React.ButtonHTMLAttributes<HTMLButtonElement>,\n    \"children\" | \"color\" | \"onChange\" | \"role\" | \"defaultChecked\"\n  > {\n  checked?: boolean;\n  defaultChecked?: boolean;\n  onChange?: (checked: boolean) => void;\n  size?: \"sm\" | \"md\" | \"lg\";\n  color?: string;\n  label?: string;\n  disabled?: boolean;\n}\n\nconst css = `\n.hb-spt {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.65em;\n  color: inherit;\n}\n.hb-spt[data-size=\"sm\"] { --hb-w: 36px; --hb-h: 20px; }\n.hb-spt[data-size=\"md\"] { --hb-w: 46px; --hb-h: 26px; }\n.hb-spt[data-size=\"lg\"] { --hb-w: 58px; --hb-h: 32px; }\n.hb-spt-b {\n  position: relative;\n  display: inline-block;\n  flex: none;\n  width: var(--hb-w);\n  height: var(--hb-h);\n  margin: 0;\n  padding: 0;\n  border: 0;\n  border-radius: 999px;\n  background: rgba(255, 255, 255, 0.18);\n  cursor: pointer;\n  -webkit-tap-highlight-color: transparent;\n  transition: background-color 0.25s ease;\n}\n.hb-spt-b[aria-checked=\"true\"] { background: var(--hb-c); }\n.hb-spt-b:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }\n.hb-spt-b:disabled { opacity: 0.45; cursor: not-allowed; }\n.hb-spt-k {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  width: calc(var(--hb-h) - 6px);\n  height: calc(var(--hb-h) - 6px);\n  transform: translateX(0);\n  transition: transform 0.5s cubic-bezier(0.34, 1.45, 0.5, 1);\n  pointer-events: none;\n}\n.hb-spt-b[aria-checked=\"true\"] .hb-spt-k { transform: translateX(calc(var(--hb-w) - var(--hb-h))); }\n.hb-spt-d {\n  display: block;\n  width: 100%;\n  height: 100%;\n  border-radius: 999px;\n  background: #fff;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);\n  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n.hb-spt-b:not(:disabled):active .hb-spt-d { transform: scaleX(1.2); }\n.hb-spt-b[data-fx=\"on\"] .hb-spt-d { animation: hb-spt-on 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); transform-origin: right center; }\n.hb-spt-b[data-fx=\"off\"] .hb-spt-d { animation: hb-spt-off 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); transform-origin: left center; }\n.hb-spt-l { cursor: pointer; user-select: none; -webkit-user-select: none; }\n.hb-spt[data-disabled=\"true\"] .hb-spt-l { opacity: 0.45; cursor: not-allowed; }\n@keyframes hb-spt-on {\n  0% { transform: scale(1, 1); }\n  30% { transform: scale(1.45, 0.82); }\n  65% { transform: scale(0.92, 1.1); }\n  100% { transform: scale(1, 1); }\n}\n@keyframes hb-spt-off {\n  0% { transform: scale(1, 1); }\n  30% { transform: scale(1.45, 0.82); }\n  65% { transform: scale(0.92, 1.1); }\n  100% { transform: scale(1, 1); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-spt-b, .hb-spt-k, .hb-spt-d { transition: none; }\n  .hb-spt-b[data-fx] .hb-spt-d { animation: none; }\n  .hb-spt-b:not(:disabled):active .hb-spt-d { transform: none; }\n}\n`;\n\nexport function SpringToggle({\n  checked,\n  defaultChecked = false,\n  onChange,\n  size = \"md\",\n  color = \"#2f7bff\",\n  label,\n  disabled = false,\n  className = \"\",\n  style,\n  onClick,\n  id,\n  ...rest\n}: SpringToggleProps) {\n  const autoId = React.useId();\n  const controlId = id ?? autoId;\n  const [inner, setInner] = React.useState(defaultChecked);\n  const [fx, setFx] = React.useState<\"\" | \"on\" | \"off\">(\"\");\n  const on = checked !== undefined ? checked : inner;\n\n  function handleClick(e: React.MouseEvent<HTMLButtonElement>) {\n    onClick?.(e);\n    if (e.defaultPrevented || disabled) return;\n    const next = !on;\n    if (checked === undefined) setInner(next);\n    setFx(next ? \"on\" : \"off\");\n    onChange?.(next);\n  }\n\n  const vars = { \"--hb-c\": color, ...style } as React.CSSProperties;\n\n  return (\n    <span\n      className={`hb-spt ${className}`}\n      style={vars}\n      data-size={size}\n      data-disabled={disabled}\n    >\n      <style href=\"hb-spring-toggle\" precedence=\"default\">{css}</style>\n      <button\n        {...rest}\n        id={controlId}\n        type=\"button\"\n        role=\"switch\"\n        aria-checked={on}\n        className=\"hb-spt-b\"\n        disabled={disabled}\n        data-fx={fx || undefined}\n        onClick={handleClick}\n      >\n        <span className=\"hb-spt-k\" aria-hidden=\"true\">\n          <span className=\"hb-spt-d\" />\n        </span>\n      </button>\n      {label ? (\n        <label className=\"hb-spt-l\" htmlFor={controlId}>\n          {label}\n        </label>\n      ) : null}\n    </span>\n  );\n}\n"
+    }
+  ]
+}

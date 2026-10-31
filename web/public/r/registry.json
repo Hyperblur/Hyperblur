@@ -692,6 +692,192 @@
           "target": "components/hyperblur/bento-grid.tsx"
         }
       ]
+    },
+    {
+      "name": "hold-button",
+      "type": "registry:component",
+      "title": "Hold Button",
+      "description": "Press and hold to confirm. A fill sweeps across while held, letting go early snaps it back.",
+      "categories": [
+        "micro",
+        "button",
+        "hold",
+        "confirm",
+        "press",
+        "destructive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hold-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hold-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spring-toggle",
+      "type": "registry:component",
+      "title": "Spring Toggle",
+      "description": "A switch whose knob squishes and overshoots when you flip it.",
+      "categories": [
+        "micro",
+        "toggle",
+        "switch",
+        "spring",
+        "form",
+        "squish"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/spring-toggle.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/spring-toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:component",
+      "title": "Segmented Control",
+      "description": "iOS-style segmented control with a thumb that slides to the selected option.",
+      "categories": [
+        "micro",
+        "segmented",
+        "tabs",
+        "radio",
+        "form",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/segmented-control.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/segmented-control.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "A tooltip that trails the pointer with a soft lag, and settles in a fixed spot for keyboard focus.",
+      "categories": [
+        "micro",
+        "tooltip",
+        "hover",
+        "pointer",
+        "follow",
+        "a11y"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/tooltip.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scrub-field",
+      "type": "registry:component",
+      "title": "Scrub Field",
+      "description": "A numeric input you drag sideways to change, like the fields in design tools. Typing and arrow keys still work.",
+      "categories": [
+        "micro",
+        "input",
+        "number",
+        "drag",
+        "scrub",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scrub-field.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scrub-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flip-card",
+      "type": "registry:component",
+      "title": "Flip Card",
+      "description": "A card that flips in 3D to reveal its back on hover, focus or click. Crossfades with reduced motion.",
+      "categories": [
+        "micro",
+        "flip",
+        "card",
+        "3d",
+        "hover",
+        "reveal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/flip-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/flip-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast-stack",
+      "type": "registry:component",
+      "title": "Toast Stack",
+      "description": "Stacked notifications that slide in, pause on hover and dismiss by button, swipe or timeout.",
+      "categories": [
+        "micro",
+        "toast",
+        "notification",
+        "swipe",
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/toast-stack.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/toast-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lattice-loader",
+      "type": "registry:component",
+      "title": "Lattice Loader",
+      "description": "A compact loading indicator of dots or bars pulsing in a diagonal wave.",
+      "categories": [
+        "micro",
+        "loader",
+        "spinner",
+        "loading",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/lattice-loader.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/lattice-loader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "star-rating",
+      "type": "registry:component",
+      "title": "Star Rating",
+      "description": "Interactive star rating with hover preview, half steps and keyboard control.",
+      "categories": [
+        "micro",
+        "rating",
+        "stars",
+        "input",
+        "review"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/star-rating.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/star-rating.tsx"
+        }
+      ]
     }
   ]
 }
