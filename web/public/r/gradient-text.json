@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-text",
+  "type": "registry:component",
+  "title": "Gradient Text",
+  "description": "Text filled with a gradient that sweeps across it in a seamless loop.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "gradient",
+    "shimmer",
+    "sweep",
+    "color",
+    "text"
+  ],
+  "docs": "https://hyperblur.dev/effects/gradient-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/gradient-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/gradient-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface GradientTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  colors?: string[];\n  speed?: number;\n  angle?: number;\n  animate?: boolean;\n}\n\nconst css = `\n@keyframes hb-gradient-sweep {\n  from { background-position: 0% 50%; }\n  to { background-position: -200% 50%; }\n}\n.hb-gradient {\n  display: inline-block;\n  white-space: pre;\n  color: transparent;\n  background-image: var(--hb-g);\n  background-size: 100% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n}\n.hb-gradient[data-animate] {\n  background-size: 200% 100%;\n  animation: hb-gradient-sweep calc(4s / var(--hb-s)) linear infinite;\n}\n@media (prefers-reduced-motion: reduce) { .hb-gradient[data-animate] { animation: none; } }\n`;\n\nconst DEFAULT_COLORS = [\"#2f7bff\", \"#7fb3ff\", \"#ffffff\", \"#2f7bff\"];\n\nexport function GradientText({\n  text,\n  colors = DEFAULT_COLORS,\n  speed = 1,\n  angle = 90,\n  animate = true,\n  className = \"\",\n  style,\n  ...rest\n}: GradientTextProps) {\n  const stops = colors.length === 1 ? [colors[0], colors[0]] : colors;\n  const vars = {\n    \"--hb-g\": `linear-gradient(${angle}deg, ${stops.join(\", \")})`,\n    \"--hb-s\": speed > 0 ? speed : 1,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <span\n      className={`hb-gradient ${className}`}\n      style={vars}\n      data-animate={animate ? \"\" : undefined}\n      {...rest}\n    >\n      <style href=\"hb-gradient-text\" precedence=\"default\">{css}</style>\n      {text}\n    </span>\n  );\n}\n"
+    }
+  ]
+}

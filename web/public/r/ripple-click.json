@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-click",
+  "type": "registry:component",
+  "title": "Ripple Click",
+  "description": "A material-style ripple that spreads from the exact point you click.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "hover",
+    "ripple",
+    "click",
+    "button",
+    "material"
+  ],
+  "docs": "https://hyperblur.dev/effects/ripple-click",
+  "files": [
+    {
+      "path": "registry/hyperblur/ripple-click.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/ripple-click.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface RippleClickProps extends React.HTMLAttributes<HTMLSpanElement> {\n  children: React.ReactNode;\n  color?: string;\n  duration?: number;\n}\n\ninterface Ripple {\n  id: number;\n  x: number;\n  y: number;\n  size: number;\n}\n\nconst css = `\n.hb-rc {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n}\n.hb-rc > .hb-rc-r {\n  position: absolute;\n  border-radius: 50%;\n  pointer-events: none;\n  background: var(--hb-c);\n  transform: translate(-50%, -50%) scale(0);\n  animation: hb-rc-ripple var(--hb-d) ease-out forwards;\n}\n@keyframes hb-rc-ripple {\n  to { transform: translate(-50%, -50%) scale(1); opacity: 0; }\n}\n`;\n\nexport function RippleClick({\n  children,\n  color = \"rgba(255,255,255,0.35)\",\n  duration = 0.6,\n  className = \"\",\n  style,\n  onClick,\n  ...rest\n}: RippleClickProps) {\n  const ref = React.useRef<HTMLSpanElement>(null);\n  const counter = React.useRef(0);\n  const [ripples, setRipples] = React.useState<Ripple[]>([]);\n\n  function handleClick(e: React.MouseEvent<HTMLSpanElement>) {\n    onClick?.(e);\n    const el = ref.current;\n    if (!el) return;\n    if (window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) return;\n    const r = el.getBoundingClientRect();\n    const keyboard = e.detail === 0 && e.clientX === 0 && e.clientY === 0;\n    const x = keyboard ? r.width / 2 : e.clientX - r.left;\n    const y = keyboard ? r.height / 2 : e.clientY - r.top;\n    const size = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y)) * 2;\n    const id = counter.current++;\n    setRipples((list) => [...list, { id, x, y, size }]);\n  }\n\n  function remove(id: number) {\n    setRipples((list) => list.filter((item) => item.id !== id));\n  }\n\n  const vars = {\n    \"--hb-c\": color,\n    \"--hb-d\": `${duration}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <span\n      ref={ref}\n      className={`hb-rc ${className}`}\n      style={vars}\n      onClick={handleClick}\n      {...rest}\n    >\n      <style href=\"hb-ripple-click\" precedence=\"default\">{css}</style>\n      {children}\n      {ripples.map((item) => (\n        <span\n          key={item.id}\n          className=\"hb-rc-r\"\n          aria-hidden=\"true\"\n          style={{ left: item.x, top: item.y, width: item.size, height: item.size }}\n          onAnimationEnd={() => remove(item.id)}\n        />\n      ))}\n    </span>\n  );\n}\n"
+    }
+  ]
+}

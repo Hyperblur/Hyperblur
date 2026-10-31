@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dot-grid",
+  "type": "registry:component",
+  "title": "Dot Grid",
+  "description": "A dot-grid background with a soft spotlight that follows the cursor and lights up the dots near it.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "hover",
+    "grid",
+    "dots",
+    "spotlight",
+    "background",
+    "cursor"
+  ],
+  "docs": "https://hyperblur.dev/effects/dot-grid",
+  "files": [
+    {
+      "path": "registry/hyperblur/dot-grid.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/dot-grid.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface DotGridProps extends React.HTMLAttributes<HTMLDivElement> {\n  size?: number;\n  dotColor?: string;\n  glowColor?: string;\n  radius?: number;\n  intensity?: number;\n}\n\nconst css = `\n.hb-dg {\n  --hb-x: 50%; --hb-y: 50%; --hb-o: 0;\n  position: absolute; inset: 0; overflow: hidden; pointer-events: none;\n}\n.hb-dg::before, .hb-dg::after { content: \"\"; position: absolute; inset: 0; }\n.hb-dg::before {\n  background-image: radial-gradient(circle, var(--hb-dc) 1px, transparent 1.6px);\n  background-size: var(--hb-s) var(--hb-s);\n}\n.hb-dg::after {\n  background-image:\n    radial-gradient(circle var(--hb-r) at var(--hb-x) var(--hb-y), color-mix(in srgb, var(--hb-gc) 18%, transparent), transparent 70%),\n    radial-gradient(circle, var(--hb-gc) 1px, transparent 1.8px);\n  background-size: 100% 100%, var(--hb-s) var(--hb-s);\n  -webkit-mask-image: radial-gradient(circle var(--hb-r) at var(--hb-x) var(--hb-y), #000 0%, transparent 100%);\n  mask-image: radial-gradient(circle var(--hb-r) at var(--hb-x) var(--hb-y), #000 0%, transparent 100%);\n  opacity: calc(var(--hb-o) * var(--hb-i));\n  transition: opacity .5s ease;\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-dg::after { transition: none; }\n}\n`;\n\nexport function DotGrid({\n  size = 22,\n  dotColor = \"rgba(255,255,255,0.08)\",\n  glowColor = \"#2f7bff\",\n  radius = 160,\n  intensity = 0.6,\n  className = \"\",\n  style,\n  ...rest\n}: DotGridProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n\n  React.useEffect(() => {\n    const el = ref.current;\n    const host = el?.parentElement;\n    if (!el || !host) return;\n\n    function move(e: PointerEvent) {\n      if (!el || !host) return;\n      const r = host.getBoundingClientRect();\n      el.style.setProperty(\"--hb-x\", `${(e.clientX - r.left).toFixed(1)}px`);\n      el.style.setProperty(\"--hb-y\", `${(e.clientY - r.top).toFixed(1)}px`);\n      el.style.setProperty(\"--hb-o\", \"1\");\n    }\n\n    function leave() {\n      if (!el) return;\n      el.style.setProperty(\"--hb-o\", \"0\");\n    }\n\n    host.addEventListener(\"pointermove\", move, { passive: true });\n    host.addEventListener(\"pointerleave\", leave);\n    return () => {\n      host.removeEventListener(\"pointermove\", move);\n      host.removeEventListener(\"pointerleave\", leave);\n    };\n  }, []);\n\n  const vars = {\n    \"--hb-s\": `${size}px`,\n    \"--hb-dc\": dotColor,\n    \"--hb-gc\": glowColor,\n    \"--hb-r\": `${radius}px`,\n    \"--hb-i\": intensity,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div ref={ref} className={`hb-dg ${className}`} style={vars} aria-hidden=\"true\" {...rest}>\n      <style href=\"hb-dot-grid\" precedence=\"default\">{css}</style>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

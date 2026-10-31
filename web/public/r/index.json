@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-10-31T21:04:32.249Z",
+  "generatedAt": "2026-10-31T21:35:15.206Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -708,6 +708,489 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/vhs-overlay.json",
       "docs": "https://hyperblur.dev/effects/vhs-overlay",
       "file": "https://hyperblur.dev/r/vhs-overlay.json"
+    },
+    {
+      "slug": "dot-grid",
+      "component": "DotGrid",
+      "title": "Dot Grid",
+      "description": "A dot-grid background with a soft spotlight that follows the cursor and lights up the dots near it.",
+      "category": "hover",
+      "tags": [
+        "grid",
+        "dots",
+        "spotlight",
+        "background",
+        "cursor"
+      ],
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "22",
+          "description": "Pixels between dots."
+        },
+        {
+          "name": "dotColor",
+          "type": "string",
+          "default": "\"rgba(255,255,255,0.08)\"",
+          "description": "Color of the resting dots."
+        },
+        {
+          "name": "glowColor",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the spotlight and the lit dots."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "160",
+          "description": "Spotlight radius in pixels."
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "default": "0.6",
+          "description": "Spotlight strength from 0 to 1."
+        }
+      ],
+      "usage": "<div className=\"relative\"><DotGrid /><h1>...</h1></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/dot-grid.json",
+      "docs": "https://hyperblur.dev/effects/dot-grid",
+      "file": "https://hyperblur.dev/r/dot-grid.json"
+    },
+    {
+      "slug": "glow-border",
+      "component": "GlowBorder",
+      "title": "Glow Border",
+      "description": "A card whose border lights up around the cursor, like modern SaaS cards.",
+      "category": "hover",
+      "tags": [
+        "border",
+        "glow",
+        "card",
+        "spotlight",
+        "hover"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Card content."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the glow."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "240",
+          "description": "Spread of the glow in pixels."
+        },
+        {
+          "name": "borderWidth",
+          "type": "number",
+          "default": "1",
+          "description": "Border thickness in pixels."
+        },
+        {
+          "name": "rounded",
+          "type": "number",
+          "default": "16",
+          "description": "Corner radius in pixels."
+        }
+      ],
+      "usage": "<GlowBorder><div className=\"p-6\">...</div></GlowBorder>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/glow-border.json",
+      "docs": "https://hyperblur.dev/effects/glow-border",
+      "file": "https://hyperblur.dev/r/glow-border.json"
+    },
+    {
+      "slug": "ripple-click",
+      "component": "RippleClick",
+      "title": "Ripple Click",
+      "description": "A material-style ripple that spreads from the exact point you click.",
+      "category": "hover",
+      "tags": [
+        "ripple",
+        "click",
+        "button",
+        "material"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "What to wrap, usually a button."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"rgba(255,255,255,0.35)\"",
+          "description": "Color of the ripple."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.6",
+          "description": "Seconds each ripple takes to fade out."
+        }
+      ],
+      "usage": "<RippleClick className=\"rounded-full\"><button>Click</button></RippleClick>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/ripple-click.json",
+      "docs": "https://hyperblur.dev/effects/ripple-click",
+      "file": "https://hyperblur.dev/r/ripple-click.json"
+    },
+    {
+      "slug": "fade-in-view",
+      "component": "FadeInView",
+      "title": "Fade In View",
+      "description": "Fades and slides its children in when they scroll into view. Directional, with delay and replay.",
+      "category": "motion",
+      "tags": [
+        "scroll",
+        "reveal",
+        "fade",
+        "intersection"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Content to reveal."
+        },
+        {
+          "name": "direction",
+          "type": "\"up\" | \"down\" | \"left\" | \"right\" | \"none\"",
+          "default": "\"up\"",
+          "description": "Direction the content travels while appearing."
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "default": "24",
+          "description": "Travel distance in pixels."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.7",
+          "description": "Seconds for the transition."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "0",
+          "description": "Seconds to wait before the reveal starts."
+        },
+        {
+          "name": "once",
+          "type": "boolean",
+          "default": "true",
+          "description": "Reveal only the first time. Set to false to hide and replay on every pass."
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "0.2",
+          "description": "Share of the element (0 to 1) that must be visible to trigger."
+        }
+      ],
+      "usage": "<FadeInView direction=\"up\" delay={0.1}><h2>...</h2></FadeInView>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/fade-in-view.json",
+      "docs": "https://hyperblur.dev/effects/fade-in-view",
+      "file": "https://hyperblur.dev/r/fade-in-view.json"
+    },
+    {
+      "slug": "marquee",
+      "component": "Marquee",
+      "title": "Marquee",
+      "description": "Infinite horizontal scroller for logos, text or cards. Seamless loop with soft edge fade.",
+      "category": "motion",
+      "tags": [
+        "marquee",
+        "ticker",
+        "logos",
+        "loop",
+        "scroll"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Items to scroll. They are rendered twice for the loop."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Speed multiplier. 1 is about 60 pixels per second."
+        },
+        {
+          "name": "direction",
+          "type": "\"left\" | \"right\"",
+          "default": "\"left\"",
+          "description": "Direction the items travel."
+        },
+        {
+          "name": "pauseOnHover",
+          "type": "boolean",
+          "default": "true",
+          "description": "Pause while the pointer is over the strip."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "32",
+          "description": "Space between items in pixels."
+        },
+        {
+          "name": "fade",
+          "type": "boolean",
+          "default": "true",
+          "description": "Soft fade mask on the left and right edges."
+        }
+      ],
+      "usage": "<Marquee><span>One</span><span>Two</span><span>Three</span></Marquee>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/marquee.json",
+      "docs": "https://hyperblur.dev/effects/marquee",
+      "file": "https://hyperblur.dev/r/marquee.json"
+    },
+    {
+      "slug": "aurora",
+      "component": "Aurora",
+      "title": "Aurora",
+      "description": "Soft aurora background of blurred gradient blobs drifting slowly. Pure CSS.",
+      "category": "overlay",
+      "tags": [
+        "aurora",
+        "gradient",
+        "background",
+        "blur",
+        "glow"
+      ],
+      "props": [
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#2f7bff\", \"#7fb3ff\", \"#19c3f5\"]",
+          "description": "Blob colors, cycled across four blobs."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Drift speed multiplier."
+        },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": "80",
+          "description": "Blur radius of the blobs in pixels."
+        },
+        {
+          "name": "opacity",
+          "type": "number",
+          "default": "0.55",
+          "description": "Overall opacity of the aurora."
+        }
+      ],
+      "usage": "<div className=\"relative\"><Aurora /><h1>...</h1></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/aurora.json",
+      "docs": "https://hyperblur.dev/effects/aurora",
+      "file": "https://hyperblur.dev/r/aurora.json"
+    },
+    {
+      "slug": "typewriter",
+      "component": "Typewriter",
+      "title": "Typewriter",
+      "description": "Types one or more strings with a blinking cursor, deleting and moving on to the next. Width stays stable.",
+      "category": "text",
+      "tags": [
+        "typewriter",
+        "typing",
+        "cursor",
+        "loop",
+        "intro",
+        "text"
+      ],
+      "props": [
+        {
+          "name": "words",
+          "type": "string[]",
+          "required": true,
+          "description": "Strings to type. With several entries it deletes each one and moves to the next."
+        },
+        {
+          "name": "typeSpeed",
+          "type": "number",
+          "default": "70",
+          "description": "Milliseconds per typed character."
+        },
+        {
+          "name": "deleteSpeed",
+          "type": "number",
+          "default": "40",
+          "description": "Milliseconds per deleted character."
+        },
+        {
+          "name": "pause",
+          "type": "number",
+          "default": "1400",
+          "description": "Milliseconds to hold a finished word before deleting it."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Keep cycling. When false, stops after the last word is typed."
+        },
+        {
+          "name": "cursor",
+          "type": "string",
+          "default": "\"|\"",
+          "description": "Cursor character."
+        }
+      ],
+      "usage": "<Typewriter words={[\"Design\", \"Build\", \"Ship\"]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/typewriter.json",
+      "docs": "https://hyperblur.dev/effects/typewriter",
+      "file": "https://hyperblur.dev/r/typewriter.json"
+    },
+    {
+      "slug": "gradient-text",
+      "component": "GradientText",
+      "title": "Gradient Text",
+      "description": "Text filled with a gradient that sweeps across it in a seamless loop.",
+      "category": "text",
+      "tags": [
+        "gradient",
+        "shimmer",
+        "sweep",
+        "color",
+        "text"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to render."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#2f7bff\", \"#7fb3ff\", \"#ffffff\", \"#2f7bff\"]",
+          "description": "Gradient stops. End with the first color for a seamless loop."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Animation speed multiplier."
+        },
+        {
+          "name": "angle",
+          "type": "number",
+          "default": "90",
+          "description": "Gradient angle in degrees."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Sweep the gradient. When false, shows it static."
+        }
+      ],
+      "usage": "<GradientText text=\"HYPERBLUR\" speed={1} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gradient-text.json",
+      "docs": "https://hyperblur.dev/effects/gradient-text",
+      "file": "https://hyperblur.dev/r/gradient-text.json"
+    },
+    {
+      "slug": "count-up",
+      "component": "CountUp",
+      "title": "Count Up",
+      "description": "A number that counts up with easing when it scrolls into view, formatted for any locale.",
+      "category": "motion",
+      "tags": [
+        "counter",
+        "number",
+        "stats",
+        "scroll",
+        "viewport",
+        "intro"
+      ],
+      "props": [
+        {
+          "name": "to",
+          "type": "number",
+          "required": true,
+          "description": "Final value."
+        },
+        {
+          "name": "from",
+          "type": "number",
+          "default": "0",
+          "description": "Starting value."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1.6",
+          "description": "Seconds the count takes."
+        },
+        {
+          "name": "decimals",
+          "type": "number",
+          "default": "0",
+          "description": "Fraction digits shown."
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text before the number."
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text after the number."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale passed to Intl.NumberFormat."
+        },
+        {
+          "name": "once",
+          "type": "boolean",
+          "default": "true",
+          "description": "Count only the first time it enters the viewport. When false, replays every time."
+        }
+      ],
+      "usage": "<CountUp to={12480} suffix=\"+\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/count-up.json",
+      "docs": "https://hyperblur.dev/effects/count-up",
+      "file": "https://hyperblur.dev/r/count-up.json"
     }
   ]
 }
