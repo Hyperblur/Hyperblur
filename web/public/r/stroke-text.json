@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stroke-text",
+  "type": "registry:component",
+  "title": "Stroke Text",
+  "description": "Hollow outlined text that fills with color in a left to right sweep on hover.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "outline",
+    "stroke",
+    "hollow",
+    "hover",
+    "text",
+    "fill"
+  ],
+  "docs": "https://hyperblur.dev/effects/stroke-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/stroke-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/stroke-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface StrokeTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  strokeWidth?: number;\n  color?: string;\n  fill?: string;\n  trigger?: \"hover\" | \"always\" | \"none\";\n  duration?: number;\n}\n\nconst css = `\n.hb-stroke { position: relative; display: inline-block; }\n.hb-stroke-base {\n  display: block;\n  color: transparent;\n  -webkit-text-stroke: var(--hb-stroke-w) var(--hb-stroke-c);\n  paint-order: stroke fill;\n}\n.hb-stroke-fill {\n  position: absolute;\n  inset: 0;\n  display: block;\n  color: var(--hb-stroke-f);\n  -webkit-text-stroke: var(--hb-stroke-w) var(--hb-stroke-f);\n  paint-order: stroke fill;\n  clip-path: inset(-20% 100% -20% -10%);\n  transition: clip-path var(--hb-stroke-d) cubic-bezier(0.65, 0, 0.35, 1);\n  pointer-events: none;\n  user-select: none;\n}\n.hb-stroke[data-trigger=\"hover\"]:hover .hb-stroke-fill,\n.hb-stroke[data-trigger=\"always\"] .hb-stroke-fill {\n  clip-path: inset(-20% -10% -20% -10%);\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-stroke-fill { transition: none; }\n}\n`;\n\nexport function StrokeText({\n  text,\n  strokeWidth = 1.5,\n  color = \"#ffffff\",\n  fill,\n  trigger = \"hover\",\n  duration = 0.6,\n  className = \"\",\n  style,\n  ...rest\n}: StrokeTextProps) {\n  const vars = {\n    \"--hb-stroke-w\": `${strokeWidth}px`,\n    \"--hb-stroke-c\": color,\n    \"--hb-stroke-f\": fill ?? color,\n    \"--hb-stroke-d\": `${Math.max(0, duration)}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <span className={`hb-stroke ${className}`} style={vars} data-trigger={trigger} {...rest}>\n      <style href=\"hb-stroke-text\" precedence=\"default\">{css}</style>\n      <span className=\"hb-stroke-base\">{text}</span>\n      <span className=\"hb-stroke-fill\" aria-hidden=\"true\">\n        {text}\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

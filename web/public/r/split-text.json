@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "split-text",
+  "type": "registry:component",
+  "title": "Split Text",
+  "description": "Characters or words fade, slide up and sharpen in one after another with a stagger.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "split",
+    "stagger",
+    "reveal",
+    "intro",
+    "text"
+  ],
+  "docs": "https://hyperblur.dev/effects/split-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/split-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/split-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface SplitTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  by?: \"chars\" | \"words\";\n  stagger?: number;\n  duration?: number;\n  distance?: number;\n  trigger?: \"view\" | \"mount\";\n  once?: boolean;\n  onComplete?: () => void;\n}\n\nconst css = `\n@keyframes hb-st-in {\n  from { opacity: 0; transform: translate3d(0, var(--hb-dist), 0); filter: blur(4px); }\n  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }\n}\n.hb-st { display: inline-block; white-space: pre-wrap; }\n.hb-st-w { display: inline-block; white-space: nowrap; }\n.hb-st-i { display: inline-block; opacity: 0; will-change: opacity, transform, filter; }\n.hb-st[data-active=\"true\"] .hb-st-i {\n  animation: hb-st-in var(--hb-dur) cubic-bezier(.22, .8, .24, 1) both;\n  animation-delay: calc(var(--hb-n) * var(--hb-st));\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-st .hb-st-i { opacity: 1; transform: none; filter: none; animation: none !important; will-change: auto; }\n}\n`;\n\ninterface Token {\n  space: boolean;\n  parts: { value: string; n: number }[];\n  value: string;\n}\n\nfunction tokenize(text: string, by: \"chars\" | \"words\") {\n  let n = 0;\n  const tokens: Token[] = text.split(/(\\s+)/).filter((t) => t !== \"\").map((value) => {\n    const space = /^\\s+$/.test(value);\n    if (space) return { space, parts: [], value };\n    const pieces = by === \"chars\" ? Array.from(value) : [value];\n    return { space, value, parts: pieces.map((p) => ({ value: p, n: n++ })) };\n  });\n  return { tokens, total: n };\n}\n\nexport function SplitText({\n  text,\n  by = \"chars\",\n  stagger = 0.03,\n  duration = 0.6,\n  distance = 20,\n  trigger = \"view\",\n  once = true,\n  onComplete,\n  className = \"\",\n  style,\n  ...rest\n}: SplitTextProps) {\n  const ref = React.useRef<HTMLSpanElement>(null);\n  const done = React.useRef(onComplete);\n  const [active, setActive] = React.useState(false);\n\n  React.useEffect(() => {\n    done.current = onComplete;\n  });\n\n  React.useEffect(() => {\n    const el = ref.current;\n    if (!el) return;\n    if (trigger === \"mount\" || typeof IntersectionObserver === \"undefined\") {\n      const id = requestAnimationFrame(() => setActive(true));\n      return () => cancelAnimationFrame(id);\n    }\n    const io = new IntersectionObserver(\n      (entries) => {\n        for (const entry of entries) {\n          if (entry.isIntersecting) {\n            setActive(true);\n            if (once) io.disconnect();\n          } else if (!once) {\n            setActive(false);\n          }\n        }\n      },\n      { threshold: 0.2 }\n    );\n    io.observe(el);\n    return () => io.disconnect();\n  }, [trigger, once]);\n\n  React.useEffect(() => {\n    if (!active) return;\n    if (!window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) return;\n    done.current?.();\n  }, [active]);\n\n  const { tokens, total } = tokenize(text, by);\n\n  const vars = {\n    \"--hb-st\": `${Math.max(0, stagger)}s`,\n    \"--hb-dur\": `${Math.max(0, duration)}s`,\n    \"--hb-dist\": `${distance}px`,\n    ...style,\n  } as React.CSSProperties;\n\n  const item = (p: { value: string; n: number }) => (\n    <span\n      key={p.n}\n      className=\"hb-st-i\"\n      style={{ \"--hb-n\": p.n } as React.CSSProperties}\n      data-last={p.n === total - 1 ? \"\" : undefined}\n    >\n      {p.value}\n    </span>\n  );\n\n  return (\n    <span\n      ref={ref}\n      className={`hb-st ${className}`}\n      style={vars}\n      aria-label={text}\n      data-active={active}\n      {...rest}\n    >\n      <style href=\"hb-split-text\" precedence=\"default\">{css}</style>\n      <span\n        aria-hidden=\"true\"\n        onAnimationEnd={(e) => {\n          if (\n            e.animationName === \"hb-st-in\" &&\n            e.target instanceof HTMLElement &&\n            e.target.hasAttribute(\"data-last\")\n          ) {\n            done.current?.();\n          }\n        }}\n      >\n        {tokens.map((t, i) =>\n          t.space ? (\n            t.value\n          ) : by === \"chars\" ? (\n            <span key={i} className=\"hb-st-w\">\n              {t.parts.map(item)}\n            </span>\n          ) : (\n            item(t.parts[0])\n          )\n        )}\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "click-spark",
+  "type": "registry:component",
+  "title": "Click Spark",
+  "description": "A burst of short lines radiates from every click and fades, like a cartoon impact.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "hover",
+    "click",
+    "spark",
+    "burst",
+    "canvas",
+    "pointer"
+  ],
+  "docs": "https://hyperblur.dev/effects/click-spark",
+  "files": [
+    {
+      "path": "registry/hyperblur/click-spark.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/click-spark.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface ClickSparkProps extends React.HTMLAttributes<HTMLDivElement> {\n  color?: string;\n  count?: number;\n  size?: number;\n  radius?: number;\n  duration?: number;\n  easing?: \"ease-out\" | \"linear\";\n}\n\ninterface Burst {\n  x: number;\n  y: number;\n  t: number;\n  a: number;\n}\n\nconst css = `\n.hb-cs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }\n.hb-cs-c { display: block; width: 100%; height: 100%; }\n@media (prefers-reduced-motion: reduce) {\n  .hb-cs { display: none; }\n}\n`;\n\nexport function ClickSpark({\n  color = \"#ffffff\",\n  count = 8,\n  size = 12,\n  radius = 24,\n  duration = 400,\n  easing = \"ease-out\",\n  className = \"\",\n  style,\n  ...rest\n}: ClickSparkProps) {\n  const wrapRef = React.useRef<HTMLDivElement>(null);\n  const canvasRef = React.useRef<HTMLCanvasElement>(null);\n\n  React.useEffect(() => {\n    const wrap = wrapRef.current;\n    const host = wrap?.parentElement;\n    const canvas = canvasRef.current;\n    const ctx = canvas?.getContext(\"2d\");\n    if (!wrap || !host || !canvas || !ctx) return;\n\n    const TAU = Math.PI * 2;\n    const n = Math.max(1, Math.min(64, Math.floor(count)));\n    const life = Math.max(50, duration);\n    const motion = window.matchMedia(\"(prefers-reduced-motion: reduce)\");\n    const bursts: Burst[] = [];\n    let w = 0;\n    let h = 0;\n    let raf = 0;\n    let seq = 0;\n\n    const draw = (now: number) => {\n      ctx.clearRect(0, 0, w, h);\n      ctx.strokeStyle = color;\n      ctx.lineCap = \"round\";\n      ctx.lineWidth = 2;\n      for (let b = bursts.length - 1; b >= 0; b--) {\n        const burst = bursts[b];\n        const p = Math.max(0, (now - burst.t) / life);\n        if (p >= 1) {\n          bursts.splice(b, 1);\n          continue;\n        }\n        const e = easing === \"linear\" ? p : 1 - Math.pow(1 - p, 3);\n        const from = radius * e;\n        const to = from + size * (1 - p);\n        ctx.globalAlpha = 1 - p;\n        ctx.beginPath();\n        for (let i = 0; i < n; i++) {\n          const a = burst.a + (i / n) * TAU;\n          const c = Math.cos(a);\n          const s = Math.sin(a);\n          ctx.moveTo(burst.x + c * from, burst.y + s * from);\n          ctx.lineTo(burst.x + c * to, burst.y + s * to);\n        }\n        ctx.stroke();\n      }\n      ctx.globalAlpha = 1;\n    };\n\n    const frame = (now: number) => {\n      raf = 0;\n      draw(now);\n      if (bursts.length) raf = requestAnimationFrame(frame);\n    };\n\n    const resize = () => {\n      const nw = wrap.clientWidth;\n      const nh = wrap.clientHeight;\n      if (!nw || !nh) return;\n      const dpr = Math.min(2, window.devicePixelRatio || 1);\n      w = nw;\n      h = nh;\n      canvas.width = Math.max(1, Math.round(w * dpr));\n      canvas.height = Math.max(1, Math.round(h * dpr));\n      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);\n      if (bursts.length) draw(performance.now());\n    };\n\n    const down = (ev: Event) => {\n      const e = ev as PointerEvent;\n      if (motion.matches || !w || !h) return;\n      if (e.pointerType === \"mouse\" && e.button !== 0) return;\n      const r = wrap.getBoundingClientRect();\n      if (bursts.length >= 24) bursts.shift();\n      bursts.push({\n        x: e.clientX - r.left,\n        y: e.clientY - r.top,\n        t: performance.now(),\n        a: ((seq++ * 0.6180339887) % 1) * (TAU / n),\n      });\n      if (!raf) raf = requestAnimationFrame(frame);\n    };\n\n    const ro = new ResizeObserver(resize);\n    ro.observe(wrap);\n    host.addEventListener(\"pointerdown\", down, { passive: true });\n    resize();\n\n    return () => {\n      if (raf) cancelAnimationFrame(raf);\n      ro.disconnect();\n      host.removeEventListener(\"pointerdown\", down);\n    };\n  }, [color, count, size, radius, duration, easing]);\n\n  return (\n    <div ref={wrapRef} className={`hb-cs ${className}`} style={style} aria-hidden=\"true\" {...rest}>\n      <style href=\"hb-click-spark\" precedence=\"default\">{css}</style>\n      <canvas ref={canvasRef} className=\"hb-cs-c\" />\n    </div>\n  );\n}\n"
+    }
+  ]
+}

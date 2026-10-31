@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-10-31T22:47:36.469Z",
+  "generatedAt": "2026-10-31T23:11:38.968Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -3009,6 +3009,509 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/login-card.json",
       "docs": "https://hyperblur.dev/effects/login-card",
       "file": "https://hyperblur.dev/r/login-card.json"
+    },
+    {
+      "slug": "split-text",
+      "component": "SplitText",
+      "title": "Split Text",
+      "description": "Characters or words fade, slide up and sharpen in one after another with a stagger.",
+      "category": "text",
+      "tags": [
+        "split",
+        "stagger",
+        "reveal",
+        "intro",
+        "text"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to render."
+        },
+        {
+          "name": "by",
+          "type": "\"chars\" | \"words\"",
+          "default": "\"chars\"",
+          "description": "Split into characters or words."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.03",
+          "description": "Seconds between each item starting."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.6",
+          "description": "Seconds each item takes to animate in."
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "default": "20",
+          "description": "Upward travel in pixels."
+        },
+        {
+          "name": "trigger",
+          "type": "\"view\" | \"mount\"",
+          "default": "\"view\"",
+          "description": "Play when scrolled into view, or immediately on mount."
+        },
+        {
+          "name": "once",
+          "type": "boolean",
+          "default": "true",
+          "description": "Play only the first time it enters the viewport. When false it resets and replays on each entry."
+        },
+        {
+          "name": "onComplete",
+          "type": "() => void",
+          "description": "Called after the last item finishes animating."
+        }
+      ],
+      "usage": "<SplitText text=\"Hyperblur\" by=\"chars\" stagger={0.03} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/split-text.json",
+      "docs": "https://hyperblur.dev/effects/split-text",
+      "file": "https://hyperblur.dev/r/split-text.json"
+    },
+    {
+      "slug": "blur-text",
+      "component": "BlurText",
+      "title": "Blur Text",
+      "description": "Words come into focus from a heavy blur with a soft upward drift, staggered.",
+      "category": "text",
+      "tags": [
+        "blur",
+        "focus",
+        "stagger",
+        "reveal",
+        "text"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to render."
+        },
+        {
+          "name": "by",
+          "type": "\"words\" | \"chars\"",
+          "default": "\"words\"",
+          "description": "Animate whole words or single characters."
+        },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": "12",
+          "description": "Starting blur radius in pixels."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.08",
+          "description": "Seconds between each item starting."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.7",
+          "description": "Seconds each item takes to focus."
+        },
+        {
+          "name": "trigger",
+          "type": "\"view\" | \"mount\"",
+          "default": "\"view\"",
+          "description": "Play when scrolled into view, or immediately on mount."
+        },
+        {
+          "name": "once",
+          "type": "boolean",
+          "default": "true",
+          "description": "Play only the first time it enters the viewport. When false it resets and replays on each entry."
+        }
+      ],
+      "usage": "<BlurText text=\"Come into focus\" by=\"words\" blur={12} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/blur-text.json",
+      "docs": "https://hyperblur.dev/effects/blur-text",
+      "file": "https://hyperblur.dev/r/blur-text.json"
+    },
+    {
+      "slug": "rotating-text",
+      "component": "RotatingText",
+      "title": "Rotating Text",
+      "description": "Cycles through a list of words, each sliding up and out while the next flips in from below, letter by letter.",
+      "category": "text",
+      "tags": [
+        "rotate",
+        "flip",
+        "words",
+        "loop",
+        "text"
+      ],
+      "props": [
+        {
+          "name": "words",
+          "type": "string[]",
+          "required": true,
+          "description": "Words to cycle through."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "2200",
+          "description": "Milliseconds each word stays before the next transition."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.02",
+          "description": "Seconds of delay between letters in a transition."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Return to the first word after the last. When false it stops on the last word."
+        },
+        {
+          "name": "ariaPrefix",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text read by screen readers before the current word."
+        }
+      ],
+      "usage": "<RotatingText words={[\"fast\", \"bold\", \"smooth\"]} interval={2200} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/rotating-text.json",
+      "docs": "https://hyperblur.dev/effects/rotating-text",
+      "file": "https://hyperblur.dev/r/rotating-text.json"
+    },
+    {
+      "slug": "scroll-velocity-text",
+      "component": "ScrollVelocityText",
+      "title": "Scroll Velocity Text",
+      "description": "A repeating text strip that drifts on its own and speeds up, slows down or reverses with the page scroll velocity.",
+      "category": "text",
+      "tags": [
+        "scroll",
+        "velocity",
+        "marquee",
+        "ticker",
+        "text",
+        "parallax"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to repeat. It is duplicated enough times to cover the container."
+        },
+        {
+          "name": "baseSpeed",
+          "type": "number",
+          "default": "40",
+          "description": "Idle drift speed in pixels per second."
+        },
+        {
+          "name": "velocityFactor",
+          "type": "number",
+          "default": "1.5",
+          "description": "How strongly page scroll speed adds to the drift. Scrolling up reverses the strip."
+        },
+        {
+          "name": "direction",
+          "type": "1 | -1",
+          "default": "1",
+          "description": "1 drifts left, -1 drifts right."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "48",
+          "description": "Space between repeats in pixels."
+        }
+      ],
+      "usage": "<ScrollVelocityText text=\"KEEP SCROLLING\" baseSpeed={40} velocityFactor={1.5} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/scroll-velocity-text.json",
+      "docs": "https://hyperblur.dev/effects/scroll-velocity-text",
+      "file": "https://hyperblur.dev/r/scroll-velocity-text.json"
+    },
+    {
+      "slug": "stroke-text",
+      "component": "StrokeText",
+      "title": "Stroke Text",
+      "description": "Hollow outlined text that fills with color in a left to right sweep on hover.",
+      "category": "text",
+      "tags": [
+        "outline",
+        "stroke",
+        "hollow",
+        "hover",
+        "text",
+        "fill"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to render."
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "default": "1.5",
+          "description": "Outline width in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#ffffff\"",
+          "description": "Outline color."
+        },
+        {
+          "name": "fill",
+          "type": "string",
+          "default": "same as color",
+          "description": "Color the text fills with. Defaults to the outline color."
+        },
+        {
+          "name": "trigger",
+          "type": "\"hover\" | \"always\" | \"none\"",
+          "default": "\"hover\"",
+          "description": "Fill on hover, keep it always filled, or stay hollow."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.6",
+          "description": "Seconds for the fill sweep."
+        }
+      ],
+      "usage": "<StrokeText text=\"OUTLINE\" strokeWidth={1.5} trigger=\"hover\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/stroke-text.json",
+      "docs": "https://hyperblur.dev/effects/stroke-text",
+      "file": "https://hyperblur.dev/r/stroke-text.json"
+    },
+    {
+      "slug": "split-flap-text",
+      "component": "SplitFlapText",
+      "title": "Split-Flap Text",
+      "description": "Airport departure board: every character flips through a set of glyphs until it lands on the target. Changing the text re-runs it.",
+      "category": "text",
+      "tags": [
+        "split-flap",
+        "flip",
+        "airport",
+        "board",
+        "retro",
+        "text"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to display. Changing it flips each tile to the new character."
+        },
+        {
+          "name": "chars",
+          "type": "string",
+          "default": "\" ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\"",
+          "description": "Characters each tile cycles through, in order. Characters outside the set land after a short run of flips."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "60",
+          "description": "Milliseconds per flip."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "40",
+          "description": "Milliseconds of delay added per column."
+        },
+        {
+          "name": "padTo",
+          "type": "number",
+          "default": "0",
+          "description": "Pad with spaces to this many tiles. 0 means no padding."
+        }
+      ],
+      "usage": "<SplitFlapText text=\"GATE B12\" padTo={10} className=\"text-5xl\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/split-flap-text.json",
+      "docs": "https://hyperblur.dev/effects/split-flap-text",
+      "file": "https://hyperblur.dev/r/split-flap-text.json"
+    },
+    {
+      "slug": "blob-cursor",
+      "component": "BlobCursor",
+      "title": "Blob Cursor",
+      "description": "A soft gooey blob that trails the cursor with lag, merging three circles through an SVG goo filter.",
+      "category": "hover",
+      "tags": [
+        "cursor",
+        "blob",
+        "goo",
+        "pointer",
+        "follow"
+      ],
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Fill color of the blob."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "48",
+          "description": "Diameter of the lead circle in pixels."
+        },
+        {
+          "name": "lag",
+          "type": "number",
+          "default": "0.15",
+          "description": "Follow factor per frame from 0 to 1. Lower trails more, 1 sticks to the pointer."
+        },
+        {
+          "name": "blend",
+          "type": "\"screen\" | \"normal\" | \"difference\"",
+          "default": "\"screen\"",
+          "description": "Blend mode against what is behind the blob."
+        },
+        {
+          "name": "global",
+          "type": "boolean",
+          "default": "false",
+          "description": "Follow the pointer across the whole window using fixed positioning."
+        }
+      ],
+      "usage": "<div className=\"relative\"><BlobCursor /><h1>...</h1></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/blob-cursor.json",
+      "docs": "https://hyperblur.dev/effects/blob-cursor",
+      "file": "https://hyperblur.dev/r/blob-cursor.json"
+    },
+    {
+      "slug": "click-spark",
+      "component": "ClickSpark",
+      "title": "Click Spark",
+      "description": "A burst of short lines radiates from every click and fades, like a cartoon impact.",
+      "category": "hover",
+      "tags": [
+        "click",
+        "spark",
+        "burst",
+        "canvas",
+        "pointer"
+      ],
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#ffffff\"",
+          "description": "Color of the sparks."
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "default": "8",
+          "description": "Sparks per click."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "12",
+          "description": "Length of each spark in pixels."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "24",
+          "description": "How far the sparks travel in pixels."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "400",
+          "description": "Lifetime of a burst in milliseconds."
+        },
+        {
+          "name": "easing",
+          "type": "\"ease-out\" | \"linear\"",
+          "default": "\"ease-out\"",
+          "description": "Travel curve of the sparks."
+        }
+      ],
+      "usage": "<div className=\"relative\"><ClickSpark /><button>...</button></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/click-spark.json",
+      "docs": "https://hyperblur.dev/effects/click-spark",
+      "file": "https://hyperblur.dev/r/click-spark.json"
+    },
+    {
+      "slug": "cursor-trail",
+      "component": "CursorTrail",
+      "title": "Cursor Trail",
+      "description": "A fading trail of dots or a tapered ribbon that follows the cursor on a canvas.",
+      "category": "hover",
+      "tags": [
+        "cursor",
+        "trail",
+        "ribbon",
+        "canvas",
+        "pointer"
+      ],
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the trail."
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "default": "24",
+          "description": "Number of recent points kept."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "6",
+          "description": "Thickness at the head in pixels."
+        },
+        {
+          "name": "fade",
+          "type": "number",
+          "default": "0.9",
+          "description": "How much the tail fades out, from 0 (no fade) to 1 (fully transparent)."
+        },
+        {
+          "name": "variant",
+          "type": "\"dots\" | \"ribbon\"",
+          "default": "\"ribbon\"",
+          "description": "Fading dots or a smooth tapered ribbon."
+        }
+      ],
+      "usage": "<div className=\"relative\"><CursorTrail variant=\"ribbon\" /><h1>...</h1></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/cursor-trail.json",
+      "docs": "https://hyperblur.dev/effects/cursor-trail",
+      "file": "https://hyperblur.dev/r/cursor-trail.json"
     }
   ]
 }

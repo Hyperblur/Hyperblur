@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rotating-text",
+  "type": "registry:component",
+  "title": "Rotating Text",
+  "description": "Cycles through a list of words, each sliding up and out while the next flips in from below, letter by letter.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "rotate",
+    "flip",
+    "words",
+    "loop",
+    "text"
+  ],
+  "docs": "https://hyperblur.dev/effects/rotating-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/rotating-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/rotating-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface RotatingTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  words: string[];\n  interval?: number;\n  stagger?: number;\n  loop?: boolean;\n  ariaPrefix?: string;\n}\n\nconst OUT_MS = 500;\n\nconst css = `\n@keyframes hb-rt-in {\n  from { transform: translate3d(0, 130%, 0); opacity: 0; }\n  to { transform: translate3d(0, 0, 0); opacity: 1; }\n}\n@keyframes hb-rt-out {\n  from { transform: translate3d(0, 0, 0); opacity: 1; }\n  to { transform: translate3d(0, -130%, 0); opacity: 0; }\n}\n.hb-rt {\n  position: relative;\n  display: inline-block;\n  white-space: pre;\n  clip-path: inset(0 -0.5em);\n  padding-block: .12em;\n  margin-block: -.12em;\n}\n.hb-rt-size { display: grid; visibility: hidden; }\n.hb-rt-size > span { grid-area: 1 / 1; }\n.hb-rt-live { position: absolute; inset: .12em 0; }\n.hb-rt-word { position: absolute; inset-inline: 0; top: 0; white-space: pre; }\n.hb-rt-ch { display: inline-block; }\n.hb-rt-in .hb-rt-ch {\n  animation: hb-rt-in ${OUT_MS}ms cubic-bezier(.22, .8, .24, 1) both;\n  animation-delay: calc(var(--hb-n) * var(--hb-st));\n}\n.hb-rt-out .hb-rt-ch {\n  animation: hb-rt-out ${OUT_MS}ms cubic-bezier(.5, 0, .75, 0) both;\n  animation-delay: calc(var(--hb-n) * var(--hb-st));\n}\n@media (prefers-reduced-motion: reduce) { .hb-rt .hb-rt-ch { animation: none !important; } }\n`;\n\ninterface State {\n  tick: number;\n  cur: number;\n  prev: number | null;\n}\n\nexport function RotatingText({\n  words,\n  interval = 2200,\n  stagger = 0.02,\n  loop = true,\n  ariaPrefix = \"\",\n  className = \"\",\n  style,\n  ...rest\n}: RotatingTextProps) {\n  const [state, setState] = React.useState<State>({ tick: 0, cur: 0, prev: null });\n  const key = words.join(\"\\u0001\");\n\n  React.useEffect(() => {\n    const list = words.length === 0 ? [] : key.split(\"\\u0001\");\n    if (list.length < 2) return;\n    if (window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) return;\n\n    const longest = list.reduce((m, w) => Math.max(m, Array.from(w).length), 0);\n    const settle = OUT_MS + Math.max(0, stagger) * 1000 * longest + 40;\n    let index = 0;\n    let timer = 0;\n\n    const wait = () => {\n      if (!loop && index === list.length - 1) return;\n      timer = window.setTimeout(advance, interval);\n    };\n\n    const advance = () => {\n      const from = index;\n      index = (index + 1) % list.length;\n      setState((s) => ({ tick: s.tick + 1, cur: index, prev: from }));\n      timer = window.setTimeout(() => {\n        setState((s) => ({ ...s, prev: null }));\n        wait();\n      }, settle);\n    };\n\n    wait();\n    return () => window.clearTimeout(timer);\n  }, [key, words.length, interval, stagger, loop]);\n\n  const count = words.length;\n  const cur = count === 0 ? \"\" : words[state.cur % count];\n  const prev = state.prev !== null && count > 0 ? words[state.prev % count] : null;\n  const prefix = ariaPrefix && !ariaPrefix.endsWith(\" \") ? `${ariaPrefix} ` : ariaPrefix;\n\n  const vars = { \"--hb-st\": `${Math.max(0, stagger)}s`, ...style } as React.CSSProperties;\n\n  const letters = (w: string) =>\n    Array.from(w).map((ch, i) => (\n      <span key={i} className=\"hb-rt-ch\" style={{ \"--hb-n\": i } as React.CSSProperties}>\n        {ch}\n      </span>\n    ));\n\n  return (\n    <span className={`hb-rt ${className}`} style={vars} aria-label={`${prefix}${cur}`} {...rest}>\n      <style href=\"hb-rotating-text\" precedence=\"default\">{css}</style>\n      <span className=\"hb-rt-size\" aria-hidden=\"true\">\n        {words.map((w, i) => (\n          <span key={i}>{w}</span>\n        ))}\n      </span>\n      <span className=\"hb-rt-live\" aria-hidden=\"true\">\n        {prev !== null && (\n          <span key={`o${state.tick}`} className=\"hb-rt-word hb-rt-out\">\n            {letters(prev)}\n          </span>\n        )}\n        <span key={`i${state.tick}`} className={state.tick > 0 ? \"hb-rt-word hb-rt-in\" : \"hb-rt-word\"}>\n          {letters(cur)}\n        </span>\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

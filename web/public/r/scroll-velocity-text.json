@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-velocity-text",
+  "type": "registry:component",
+  "title": "Scroll Velocity Text",
+  "description": "A repeating text strip that drifts on its own and speeds up, slows down or reverses with the page scroll velocity.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "scroll",
+    "velocity",
+    "marquee",
+    "ticker",
+    "text",
+    "parallax"
+  ],
+  "docs": "https://hyperblur.dev/effects/scroll-velocity-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/scroll-velocity-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/scroll-velocity-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface ScrollVelocityTextProps extends React.HTMLAttributes<HTMLDivElement> {\n  text: string;\n  baseSpeed?: number;\n  velocityFactor?: number;\n  direction?: 1 | -1;\n  gap?: number;\n}\n\nconst css = `\n.hb-svt { position: relative; display: block; overflow: hidden; width: 100%; }\n.hb-svt-track {\n  display: flex;\n  width: max-content;\n  white-space: nowrap;\n  will-change: transform;\n}\n.hb-svt-item { flex: 0 0 auto; padding-right: var(--hb-svt-gap); }\n@media (prefers-reduced-motion: reduce) {\n  .hb-svt { overflow-x: auto; }\n  .hb-svt-track { will-change: auto; transform: none !important; }\n  .hb-svt-item[aria-hidden=\"true\"] { display: none; }\n}\n`;\n\nexport function ScrollVelocityText({\n  text,\n  baseSpeed = 40,\n  velocityFactor = 1.5,\n  direction = 1,\n  gap = 48,\n  className = \"\",\n  style,\n  ...rest\n}: ScrollVelocityTextProps) {\n  const rootRef = React.useRef<HTMLDivElement>(null);\n  const trackRef = React.useRef<HTMLDivElement>(null);\n  const itemRef = React.useRef<HTMLSpanElement>(null);\n  const offset = React.useRef(0);\n  const [copies, setCopies] = React.useState(2);\n\n  React.useEffect(() => {\n    const root = rootRef.current;\n    const track = trackRef.current;\n    const item = itemRef.current;\n    if (!root || !track || !item) return;\n\n    let itemWidth = 0;\n    const measure = () => {\n      itemWidth = item.offsetWidth;\n      if (itemWidth <= 0) return;\n      setCopies(Math.max(2, Math.ceil(root.clientWidth / itemWidth) + 1));\n    };\n    measure();\n\n    const ro = typeof ResizeObserver === \"undefined\" ? null : new ResizeObserver(measure);\n    ro?.observe(root);\n    ro?.observe(item);\n\n    if (window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      return () => ro?.disconnect();\n    }\n\n    let raf = 0;\n    let lastTime = performance.now();\n    let lastY = window.scrollY;\n    let velocity = 0;\n\n    const tick = (now: number) => {\n      const dt = Math.min((now - lastTime) / 1000, 0.1);\n      lastTime = now;\n      if (dt > 0) {\n        const y = window.scrollY;\n        const raw = (y - lastY) / dt;\n        lastY = y;\n        velocity += (raw - velocity) * (1 - Math.exp(-dt * 8));\n        if (itemWidth > 0) {\n          const speed = direction * (baseSpeed + velocityFactor * velocity);\n          const next = (offset.current + speed * dt) % itemWidth;\n          offset.current = next < 0 ? next + itemWidth : next;\n          track.style.transform = `translate3d(${-offset.current}px, 0, 0)`;\n        }\n      }\n      raf = requestAnimationFrame(tick);\n    };\n\n    raf = requestAnimationFrame(tick);\n    return () => {\n      cancelAnimationFrame(raf);\n      ro?.disconnect();\n    };\n  }, [text, baseSpeed, velocityFactor, direction, gap]);\n\n  const vars = {\n    \"--hb-svt-gap\": `${Math.max(0, gap)}px`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div ref={rootRef} className={`hb-svt ${className}`} style={vars} {...rest}>\n      <style href=\"hb-scroll-velocity-text\" precedence=\"default\">{css}</style>\n      <div ref={trackRef} className=\"hb-svt-track\">\n        {Array.from({ length: copies }, (_, i) => (\n          <span\n            key={i}\n            ref={i === 0 ? itemRef : undefined}\n            className=\"hb-svt-item\"\n            aria-hidden={i === 0 ? undefined : true}\n          >\n            {text}\n          </span>\n        ))}\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}
