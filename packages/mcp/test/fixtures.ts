@@ -1,5 +1,22 @@
 export const SITE = "http://localhost:3000";
 
+function extraItem(slug: string, component: string, title: string, description: string, category: string, tags: string[]) {
+  return {
+    slug,
+    component,
+    title,
+    description,
+    category,
+    tags,
+    props: [],
+    usage: `<${component} />`,
+    dependencies: [],
+    install: `npx shadcn@latest add https://hyperblur.dev/r/${slug}.json`,
+    docs: `https://hyperblur.dev/effects/${slug}`,
+    file: `https://hyperblur.dev/r/${slug}.json`,
+  };
+}
+
 export const index = {
   name: "hyperblur",
   homepage: "https://hyperblur.dev",
@@ -64,6 +81,13 @@ export const index = {
       docs: "https://hyperblur.dev/effects/tilt-card",
       file: "https://hyperblur.dev/r/tilt-card.json",
     },
+    extraItem("pixel-reveal", "PixelReveal", "Pixel Reveal", "Reveals content through a dissolving grid of pixels.", "motion", ["reveal", "pixels"]),
+    extraItem("glass-card", "GlassCard", "Glass Card", "A frosted panel with a soft border.", "components", ["card", "frosted"]),
+    extraItem("status-badge", "StatusBadge", "Status Badge", "A compact pill that shows a state.", "components", ["badge", "pill"]),
+    extraItem("stat-tile", "StatTile", "Stat Tile", "A metric with a label and a trend marker.", "components", ["metric", "tile"]),
+    extraItem("pricing-card", "PricingCard", "Pricing Card", "A plan card with a feature list.", "components", ["pricing", "plan"]),
+    extraItem("press-button", "PressButton", "Press Button", "A button that sinks slightly when pressed.", "micro", ["button", "press"]),
+    extraItem("hero-banner", "HeroBanner", "Hero Banner", "A full-width section with a headline and a call to action.", "blocks", ["hero", "landing"]),
   ],
 };
 

@@ -4,9 +4,7 @@ export const DEFAULT_SITE_URL = "https://hyperblur.vercel.app";
 export const SITE_URL_ENV = "HYPERBLUR_SITE_URL";
 export const INDEX_TTL_MS = 5 * 60 * 1000;
 export const FETCH_TIMEOUT_MS = 15_000;
-export const CATEGORIES = ["text", "motion", "overlay", "hover"] as const;
-
-export type Category = (typeof CATEGORIES)[number];
+export const EXAMPLES_PER_CATEGORY = 3;
 
 const propSchema = z.object({
   name: z.string(),
@@ -93,9 +91,17 @@ export interface EffectSource {
 
 export interface SearchOptions {
   query?: string;
-  category?: Category;
+  category?: string;
   limit?: number;
 }
+
+export interface CategorySummary {
+  category: string;
+  count: number;
+  examples: string[];
+}
+
+export type ItemKind = "effect" | "component" | "block";
 
 export interface SearchResult {
   total: number;
@@ -129,6 +135,25 @@ export class UnknownEffectError extends CatalogError {
     this.slug = slug;
     this.validSlugs = validSlugs;
   }
+}
+
+export class UnknownCategoryError extends CatalogError {
+  readonly category: string;
+  readonly validCategories: string[];
+
+  constructor(category: string, validCategories: string[]) {
+    super(`Unknown category "${category}". Available categories: ${validCategories.join(", ")}.`);
+    this.name = "UnknownCategoryError";
+    this.category = category;
+    this.validCategories = validCategories;
+  }
+}
+
+export function itemKind(category: string): ItemKind {
+  const normalized = category.trim().toLowerCase();
+  if (normalized === "blocks") return "block";
+  if (normalized === "components" || normalized === "micro") return "component";
+  return "effect";
 }
 
 export function resolveSiteUrl(env: Record<string, string | undefined> = process.env): string {
@@ -209,7 +234,8 @@ export class Catalog {
   async search(options: SearchOptions = {}): Promise<SearchResult> {
     const index = await this.getIndex();
     const limit = Math.max(1, Math.floor(options.limit ?? 10));
-    const pool = options.category ? index.items.filter((item) => item.category === options.category) : index.items;
+    const category = options.category === undefined ? undefined : resolveCategory(options.category, index.items);
+    const pool = category === undefined ? index.items : index.items.filter((item) => item.category === category);
     const tokens = tokenize(options.query ?? "");
     if (tokens.length === 0) {
       return { total: pool.length, results: pool.slice(0, limit) };
@@ -220,6 +246,11 @@ export class Catalog {
       .filter((entry): entry is { effect: Effect; position: number; rank: Rank } => entry.rank !== undefined)
       .sort((a, b) => b.rank.tier - a.rank.tier || b.rank.score - a.rank.score || a.position - b.position);
     return { total: ranked.length, results: ranked.slice(0, limit).map((entry) => entry.effect) };
+  }
+
+  async listCategories(): Promise<CategorySummary[]> {
+    const index = await this.getIndex();
+    return summarizeCategories(index.items);
   }
 
   async getEffect(slug: string): Promise<Effect> {
@@ -313,6 +344,31 @@ export class Catalog {
       throw new CatalogError(`Failed to load ${what}: ${url} did not return valid JSON.`);
     }
   }
+}
+
+export function categoryNames(items: Effect[]): string[] {
+  return [...new Set(items.map((item) => item.category))];
+}
+
+export function summarizeCategories(items: Effect[]): CategorySummary[] {
+  return categoryNames(items).map((category) => {
+    const members = items.filter((item) => item.category === category);
+    return {
+      category,
+      count: members.length,
+      examples: members.slice(0, EXAMPLES_PER_CATEGORY).map((item) => item.title),
+    };
+  });
+}
+
+function resolveCategory(input: string, items: Effect[]): string {
+  const names = categoryNames(items);
+  const wanted = input.trim().toLowerCase();
+  const match = names.find((name) => name.toLowerCase() === wanted);
+  if (match === undefined) {
+    throw new UnknownCategoryError(input, names);
+  }
+  return match;
 }
 
 interface Rank {
