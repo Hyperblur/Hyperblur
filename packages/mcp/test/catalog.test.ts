@@ -11,7 +11,7 @@ function makeCatalog(routes = siteRoutes(), now = () => 0) {
 
 describe("resolveSiteUrl", () => {
   it("defaults to the public site", () => {
-    assert.equal(resolveSiteUrl({}), "https://hyperblur.dev");
+    assert.equal(resolveSiteUrl({}), "https://hyperblur.vercel.app");
   });
 
   it("honors HYPERBLUR_SITE_URL and strips trailing slashes", () => {

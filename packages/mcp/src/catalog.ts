@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const DEFAULT_SITE_URL = "https://hyperblur.dev";
+export const DEFAULT_SITE_URL = "https://hyperblur.vercel.app";
 export const SITE_URL_ENV = "HYPERBLUR_SITE_URL";
 export const INDEX_TTL_MS = 5 * 60 * 1000;
 export const FETCH_TIMEOUT_MS = 15_000;

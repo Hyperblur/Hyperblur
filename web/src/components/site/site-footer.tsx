@@ -6,7 +6,7 @@ export function SiteFooter() {
           <span className="font-display font-bold uppercase tracking-wide text-ink">
             Hyperblur
           </span>{" "}
-          · visual effects for vibe coders
+          · visual effects for React
         </p>
         <p>
           Built with React, Tailwind and the shadcn registry. Free while in beta.

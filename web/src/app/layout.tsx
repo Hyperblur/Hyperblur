@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Hyperblur — visual effects for vibe coders",
+    default: "Hyperblur — visual effects for React, one command away",
     template: "%s · Hyperblur",
   },
   description:

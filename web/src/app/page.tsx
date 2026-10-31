@@ -25,12 +25,12 @@ export default function Home() {
             className="h-20 w-auto sm:h-28"
           />
           <h1 className="mt-10 max-w-2xl font-display text-3xl font-bold uppercase leading-tight tracking-wide sm:text-5xl">
-            Visual effects for <span className="text-blue">vibe coders</span>
+            Visual effects, <span className="text-blue">one command away</span>
           </h1>
           <p className="mt-4 max-w-xl text-lg text-muted">
-            Glitch, blur, scanlines, speed. Copy-paste React components that install
-            with one shadcn command, or paste the prompt into Claude Code, Cursor,
-            Lovable or v0 and let the agent do it.
+            Glitch, blur, scanlines, speed. Copy-paste React components with no
+            dependencies. Install with one shadcn command, or hand the prompt to
+            your coding agent and let it do the work.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link
