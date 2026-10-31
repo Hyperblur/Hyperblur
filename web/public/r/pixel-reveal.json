@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pixel-reveal",
+  "type": "registry:component",
+  "title": "Pixel Reveal",
+  "description": "Content appears as a grid of blocks dissolves in a pseudo-random order.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "motion",
+    "pixel",
+    "reveal",
+    "intro",
+    "8-bit"
+  ],
+  "docs": "https://hyperblur.dev/effects/pixel-reveal",
+  "files": [
+    {
+      "path": "registry/hyperblur/pixel-reveal.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/pixel-reveal.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface PixelRevealProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** What to reveal. */\n  children: React.ReactNode;\n  /** Grid rows. */\n  rows?: number;\n  /** Grid columns. */\n  cols?: number;\n  /** Seconds until fully revealed. */\n  duration?: number;\n  /** Block color (match your background). */\n  color?: string;\n}\n\nconst css = `\n@keyframes hb-pr-out { to { opacity: 0; } }\n.hb-pr { position: relative; display: inline-block; }\n.hb-pr > .hb-pr-grid { position: absolute; inset: 0; display: grid; pointer-events: none; }\n.hb-pr > .hb-pr-grid > i { background: var(--hb-c); animation: hb-pr-out .05s steps(1) forwards; animation-delay: var(--d); }\n@media (prefers-reduced-motion: reduce) { .hb-pr > .hb-pr-grid { display: none; } }\n`;\n\n/** deterministic shuffle so server and client agree on the order */\nfunction hash(i: number) {\n  let x = (i + 1) * 2654435761;\n  x = ((x >>> 16) ^ x) * 0x45d9f3b;\n  x = ((x >>> 16) ^ x) >>> 0;\n  return (x % 1000) / 1000;\n}\n\nexport function PixelReveal({\n  children,\n  rows = 8,\n  cols = 14,\n  duration = 1.2,\n  color = \"#0b0e14\",\n  className = \"\",\n  style,\n  ...rest\n}: PixelRevealProps) {\n  const total = rows * cols;\n  const order = Array.from({ length: total }, (_, i) => i).sort((a, b) => hash(a) - hash(b));\n  const delays = new Array<number>(total);\n  order.forEach((cell, rank) => {\n    delays[cell] = (rank / total) * duration;\n  });\n\n  const vars = { \"--hb-c\": color, ...style } as React.CSSProperties;\n\n  return (\n    <div className={`hb-pr ${className}`} style={vars} {...rest}>\n      <style href=\"hb-pixel-reveal\" precedence=\"default\">{css}</style>\n      {children}\n      <div\n        className=\"hb-pr-grid\"\n        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}\n        aria-hidden=\"true\"\n      >\n        {delays.map((d, i) => (\n          <i key={i} style={{ \"--d\": `${d.toFixed(3)}s` } as React.CSSProperties} />\n        ))}\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}
