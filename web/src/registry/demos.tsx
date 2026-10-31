@@ -29,7 +29,7 @@ export const demos: Record<string, ReactNode> = {
     </div>
   ),
   scanlines: (
-    <div className="relative h-full w-full bg-gradient-to-br from-blue/60 to-bg">
+    <div className="relative h-full w-full bg-gradient-to-br from-[#2a2a2a] to-bg">
       <div className={`${display} absolute inset-0 flex items-center justify-center`}>CRT</div>
       <Scanlines />
     </div>
@@ -69,13 +69,13 @@ export const demos: Record<string, ReactNode> = {
     </div>
   ),
   "film-grain": (
-    <div className="relative h-full w-full bg-gradient-to-br from-blue/60 to-bg">
+    <div className="relative h-full w-full bg-gradient-to-br from-[#2a2a2a] to-bg">
       <div className={`${display} absolute inset-0 flex items-center justify-center`}>GRAIN</div>
       <FilmGrain opacity={0.3} />
     </div>
   ),
   "vhs-overlay": (
-    <div className="relative h-full w-full bg-gradient-to-br from-blue/60 to-bg">
+    <div className="relative h-full w-full bg-gradient-to-br from-[#2a2a2a] to-bg">
       <div className={`${display} absolute inset-0 flex items-center justify-center`}>VHS</div>
       <VhsOverlay />
     </div>
