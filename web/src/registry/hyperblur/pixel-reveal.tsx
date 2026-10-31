@@ -30,7 +30,7 @@ export function PixelReveal({
   rows = 8,
   cols = 14,
   duration = 1.2,
-  color = "#0b0e14",
+  color = "#0a0a0a",
   className = "",
   style,
   ...rest

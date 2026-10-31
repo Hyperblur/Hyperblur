@@ -118,7 +118,7 @@ export const effects: EffectMeta[] = [
       { name: "rows", type: "number", default: "8", description: "Grid rows." },
       { name: "cols", type: "number", default: "14", description: "Grid columns." },
       { name: "duration", type: "number", default: "1.2", description: "Seconds until fully revealed." },
-      { name: "color", type: "string", default: '"#0b0e14"', description: "Block color (match your background)." },
+      { name: "color", type: "string", default: '"#0a0a0a"', description: "Block color (match your background)." },
     ],
     usage: '<PixelReveal><h1>HYPERBLUR</h1></PixelReveal>',
   },
