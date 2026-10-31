@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neon-text",
+  "type": "registry:component",
+  "title": "Neon Text",
+  "description": "Neon sign glow built from layered shadows, with an occasional tube flicker.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "neon",
+    "glow",
+    "sign",
+    "flicker",
+    "retro",
+    "text"
+  ],
+  "docs": "https://hyperblur.dev/effects/neon-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/neon-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/neon-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface NeonTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  /** Text to render. */\n  text: string;\n  /** Glow color. */\n  color?: string;\n  /** Occasional flicker, like a failing tube. */\n  flicker?: boolean;\n  /** How far the glow reaches. */\n  intensity?: 1 | 2 | 3;\n}\n\nconst css = `\n@keyframes hb-neon-flicker {\n  0%, 18%, 22%, 25%, 53%, 57%, 100% { color: var(--hb-on-color); text-shadow: var(--hb-on); }\n  19%, 21%, 24%, 54%, 56% { color: var(--hb-off-color); text-shadow: var(--hb-off); }\n  76%, 78% { color: var(--hb-on-color); text-shadow: var(--hb-on); }\n  77% { color: var(--hb-off-color); text-shadow: var(--hb-off); }\n}\n.hb-neon {\n  --hb-on-color: color-mix(in srgb, var(--hb-neon) 22%, #fff);\n  --hb-off-color: color-mix(in srgb, var(--hb-neon) 45%, #000);\n  --hb-on:\n    0 0 calc(var(--hb-i) * 1px) #fff,\n    0 0 calc(var(--hb-i) * 4px) var(--hb-neon),\n    0 0 calc(var(--hb-i) * 9px) var(--hb-neon),\n    0 0 calc(var(--hb-i) * 16px) var(--hb-neon),\n    0 0 calc(var(--hb-i) * 28px) var(--hb-neon);\n  --hb-off: 0 0 calc(var(--hb-i) * 2px) var(--hb-neon);\n  display: inline-block;\n  color: var(--hb-on-color);\n  text-shadow: var(--hb-on);\n}\n.hb-neon[data-flicker=\"true\"] { animation: hb-neon-flicker 5.5s linear infinite; }\n@media (prefers-reduced-motion: reduce) { .hb-neon { animation: none !important; } }\n`;\n\nexport function NeonText({\n  text,\n  color = \"#2f7bff\",\n  flicker = true,\n  intensity = 2,\n  className = \"\",\n  style,\n  ...rest\n}: NeonTextProps) {\n  const vars = {\n    \"--hb-neon\": color,\n    \"--hb-i\": intensity,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <span className={`hb-neon ${className}`} style={vars} data-flicker={flicker} {...rest}>\n      <style href=\"hb-neon-text\" precedence=\"default\">{css}</style>\n      {text}\n    </span>\n  );\n}\n"
+    }
+  ]
+}

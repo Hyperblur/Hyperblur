@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "film-grain",
+  "type": "registry:component",
+  "title": "Film Grain",
+  "description": "Animated film grain overlay built from SVG turbulence, cycling through four pre-rendered frames.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "overlay",
+    "grain",
+    "noise",
+    "film",
+    "overlay",
+    "svg"
+  ],
+  "docs": "https://hyperblur.dev/effects/film-grain",
+  "files": [
+    {
+      "path": "registry/hyperblur/film-grain.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/film-grain.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface FilmGrainProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** Grain strength. */\n  opacity?: number;\n  /** Grain scale. Larger values give coarser grain. */\n  size?: number;\n  /** Frame rate multiplier. */\n  speed?: number;\n  /** Gray grain instead of colored. */\n  monochrome?: boolean;\n}\n\nconst FRAMES = [11, 47, 83, 129];\n\nconst css = `\n@keyframes hb-fg-step { 0% { opacity: 1; } 25% { opacity: 0; } 100% { opacity: 0; } }\n.hb-fg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--hb-o); mix-blend-mode: overlay; }\n.hb-fg > svg { position: absolute; inset: 0; width: 100%; height: 100%; }\n.hb-fg-f { opacity: 0; animation: hb-fg-step var(--hb-dur) steps(1, end) infinite; animation-delay: var(--d); }\n.hb-fg-f[data-f=\"0\"] { opacity: 1; }\n@media (prefers-reduced-motion: reduce) { .hb-fg-f { animation: none; } }\n`;\n\nexport function FilmGrain({\n  opacity = 0.18,\n  size = 1,\n  speed = 1,\n  monochrome = true,\n  className = \"\",\n  style,\n  ...rest\n}: FilmGrainProps) {\n  // useId output can contain characters that are not safe inside url(#...)\n  const uid = React.useId().replace(/[^a-zA-Z0-9_-]/g, \"\");\n  const freq = +(0.85 / Math.max(size, 0.1)).toFixed(4);\n  // four frames share one cycle, so each frame is on screen for a quarter of it\n  const dur = +(0.5 / Math.max(speed, 0.01)).toFixed(3);\n\n  // contrast stretch around mid gray so overlay blending has something to work with\n  const matrix = monochrome\n    ? \"0.9 0.9 0.9 0 -0.8  0.9 0.9 0.9 0 -0.8  0.9 0.9 0.9 0 -0.8  0 0 0 1 0\"\n    : \"2.4 0 0 0 -0.7  0 2.4 0 0 -0.7  0 0 2.4 0 -0.7  0 0 0 1 0\";\n\n  const vars = {\n    \"--hb-o\": opacity,\n    \"--hb-dur\": `${dur}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div className={`hb-fg ${className}`} style={vars} aria-hidden=\"true\" {...rest}>\n      <style href=\"hb-film-grain\" precedence=\"default\">{css}</style>\n      <svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\">\n        <defs>\n          {FRAMES.map((seed, i) => (\n            <filter key={seed} id={`hb-fg-${uid}-${i}`} x=\"0\" y=\"0\" width=\"1\" height=\"1\" colorInterpolationFilters=\"sRGB\">\n              <feTurbulence type=\"fractalNoise\" baseFrequency={freq} numOctaves={2} seed={seed} stitchTiles=\"stitch\" />\n              <feColorMatrix type=\"matrix\" values={matrix} />\n            </filter>\n          ))}\n        </defs>\n        {FRAMES.map((seed, i) => (\n          <rect\n            key={seed}\n            className=\"hb-fg-f\"\n            data-f={i}\n            width=\"100%\"\n            height=\"100%\"\n            filter={`url(#hb-fg-${uid}-${i})`}\n            style={{ \"--d\": `${+(-(1 - i / FRAMES.length) * dur).toFixed(3)}s` } as React.CSSProperties}\n          />\n        ))}\n      </svg>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

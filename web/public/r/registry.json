@@ -121,6 +121,197 @@
           "target": "components/hyperblur/pixel-reveal.tsx"
         }
       ]
+    },
+    {
+      "name": "decode-text",
+      "type": "registry:component",
+      "title": "Decode Text",
+      "description": "Text that scrambles through random glyphs and settles left to right, like a decrypting terminal.",
+      "categories": [
+        "text",
+        "decode",
+        "scramble",
+        "hacker",
+        "terminal",
+        "intro",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/decode-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/decode-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neon-text",
+      "type": "registry:component",
+      "title": "Neon Text",
+      "description": "Neon sign glow built from layered shadows, with an occasional tube flicker.",
+      "categories": [
+        "text",
+        "neon",
+        "glow",
+        "sign",
+        "flicker",
+        "retro",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/neon-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/neon-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "wave-text",
+      "type": "registry:component",
+      "title": "Wave Text",
+      "description": "Letters bob up and down in a rolling wave, each one a beat behind the last.",
+      "categories": [
+        "text",
+        "wave",
+        "bounce",
+        "loop",
+        "playful",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/wave-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/wave-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "magnetic",
+      "type": "registry:component",
+      "title": "Magnetic",
+      "description": "Pulls its child toward the cursor while you hover close, then springs back with a little overshoot.",
+      "categories": [
+        "hover",
+        "hover",
+        "magnet",
+        "cursor",
+        "button",
+        "spring"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/magnetic.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/magnetic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tilt-card",
+      "type": "registry:component",
+      "title": "Tilt Card",
+      "description": "3D tilt that follows the cursor, with a glare highlight that tracks the pointer.",
+      "categories": [
+        "hover",
+        "hover",
+        "3d",
+        "tilt",
+        "card",
+        "glare"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/tilt-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/tilt-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shutter-reveal",
+      "type": "registry:component",
+      "title": "Shutter Reveal",
+      "description": "Content is uncovered by slanted bars that slide away one after another.",
+      "categories": [
+        "motion",
+        "reveal",
+        "shutter",
+        "intro",
+        "bars",
+        "slanted"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shutter-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shutter-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "grid-floor",
+      "type": "registry:component",
+      "title": "Grid Floor",
+      "description": "Synthwave perspective grid scrolling toward the viewer, with a glowing horizon fade. Pure CSS.",
+      "categories": [
+        "overlay",
+        "synthwave",
+        "grid",
+        "retro",
+        "background",
+        "3d"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/grid-floor.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/grid-floor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "film-grain",
+      "type": "registry:component",
+      "title": "Film Grain",
+      "description": "Animated film grain overlay built from SVG turbulence, cycling through four pre-rendered frames.",
+      "categories": [
+        "overlay",
+        "grain",
+        "noise",
+        "film",
+        "overlay",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/film-grain.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/film-grain.tsx"
+        }
+      ]
+    },
+    {
+      "name": "vhs-overlay",
+      "type": "registry:component",
+      "title": "VHS Overlay",
+      "description": "Worn tape look: drifting tracking bands, cyan and magenta color bleed, and a tiny vertical jitter.",
+      "categories": [
+        "overlay",
+        "vhs",
+        "retro",
+        "tape",
+        "overlay",
+        "glitch"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/vhs-overlay.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/vhs-overlay.tsx"
+        }
+      ]
     }
   ]
 }

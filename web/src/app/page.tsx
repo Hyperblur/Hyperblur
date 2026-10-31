@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { effects } from "@/registry/meta";
+import { effects, categories } from "@/registry/meta";
 import { demos } from "@/registry/demos";
 import { EffectCard } from "@/components/site/effect-card";
 import { CopyButton } from "@/components/site/copy-button";
@@ -51,11 +51,22 @@ export default function Home() {
           </h2>
           <p className="text-sm text-muted">Hover the cards to play them.</p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {effects.map((meta) => (
-            <EffectCard key={meta.slug} meta={meta} demo={demos[meta.slug]} />
-          ))}
-        </div>
+        {categories.map((cat) => {
+          const items = effects.filter((e) => e.category === cat.id);
+          if (items.length === 0) return null;
+          return (
+            <div key={cat.id} className="mb-12">
+              <h3 className="mb-4 font-display text-lg font-bold uppercase tracking-wide text-muted">
+                {cat.label} <span className="font-sans text-sm font-normal">· {items.length}</span>
+              </h3>
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {items.map((meta) => (
+                  <EffectCard key={meta.slug} meta={meta} demo={demos[meta.slug]} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </section>
 
       <section id="agents" className="border-t border-line bg-surface">
