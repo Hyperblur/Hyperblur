@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt-card",
+  "type": "registry:component",
+  "title": "Tilt Card",
+  "description": "3D tilt that follows the cursor, with a glare highlight that tracks the pointer.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "hover",
+    "hover",
+    "3d",
+    "tilt",
+    "card",
+    "glare"
+  ],
+  "docs": "https://hyperblur.dev/effects/tilt-card",
+  "files": [
+    {
+      "path": "registry/hyperblur/tilt-card.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/tilt-card.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode;\n  maxTilt?: number;\n  glare?: boolean;\n  scale?: number;\n  perspective?: number;\n}\n\nconst css = `\n.hb-tc {\n  --hb-rx: 0deg; --hb-ry: 0deg; --hb-gx: 50%; --hb-gy: 50%;\n  position: relative;\n  display: inline-block;\n  transform: perspective(var(--hb-p)) rotateX(0deg) rotateY(0deg) scale(1);\n  transition: transform .5s cubic-bezier(.2, .9, .2, 1);\n  will-change: transform;\n}\n.hb-tc:hover {\n  transform: perspective(var(--hb-p)) rotateX(var(--hb-rx)) rotateY(var(--hb-ry)) scale(var(--hb-sc));\n  transition: transform .12s ease-out;\n}\n.hb-tc > .hb-tc-glare {\n  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;\n  background: radial-gradient(circle at var(--hb-gx) var(--hb-gy), rgba(255,255,255,.35), rgba(255,255,255,0) 60%);\n  opacity: 0;\n  transition: opacity .3s ease;\n}\n.hb-tc:hover > .hb-tc-glare { opacity: 1; }\n@media (prefers-reduced-motion: reduce) {\n  .hb-tc, .hb-tc:hover { transform: none; transition: none; }\n  .hb-tc > .hb-tc-glare { display: none; }\n}\n`;\n\nexport function TiltCard({\n  children,\n  maxTilt = 10,\n  glare = true,\n  scale = 1.02,\n  perspective = 800,\n  className = \"\",\n  style,\n  onPointerMove,\n  onPointerLeave,\n  ...rest\n}: TiltCardProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n\n  function handleMove(e: React.PointerEvent<HTMLDivElement>) {\n    onPointerMove?.(e);\n    const el = ref.current;\n    if (!el) return;\n    const r = el.getBoundingClientRect();\n    const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));\n    const y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));\n    el.style.setProperty(\"--hb-ry\", `${((x - 0.5) * 2 * maxTilt).toFixed(2)}deg`);\n    el.style.setProperty(\"--hb-rx\", `${(-(y - 0.5) * 2 * maxTilt).toFixed(2)}deg`);\n    el.style.setProperty(\"--hb-gx\", `${(x * 100).toFixed(1)}%`);\n    el.style.setProperty(\"--hb-gy\", `${(y * 100).toFixed(1)}%`);\n  }\n\n  function handleLeave(e: React.PointerEvent<HTMLDivElement>) {\n    onPointerLeave?.(e);\n    const el = ref.current;\n    if (!el) return;\n    el.style.setProperty(\"--hb-rx\", \"0deg\");\n    el.style.setProperty(\"--hb-ry\", \"0deg\");\n  }\n\n  const vars = {\n    \"--hb-p\": `${perspective}px`,\n    \"--hb-sc\": scale,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div\n      ref={ref}\n      className={`hb-tc ${className}`}\n      style={vars}\n      onPointerMove={handleMove}\n      onPointerLeave={handleLeave}\n      {...rest}\n    >\n      <style href=\"hb-tilt-card\" precedence=\"default\">{css}</style>\n      {children}\n      {glare && <span className=\"hb-tc-glare\" aria-hidden=\"true\" />}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "hyperblur",
+  "version": "0.1.0",
+  "description": "Search, inspect and install Hyperblur visual effects in the current project.",
+  "author": { "name": "Hyperblur", "url": "https://hyperblur.dev" },
+  "homepage": "https://hyperblur.dev",
+  "repository": "https://github.com/Hyperblur/Hyperblur",
+  "license": "MIT",
+  "keywords": ["react", "effects", "animation", "shadcn", "ui"]
+}

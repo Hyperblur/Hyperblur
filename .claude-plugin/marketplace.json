@@ -1,0 +1,14 @@
+{
+  "name": "hyperblur",
+  "owner": { "name": "Hyperblur", "url": "https://hyperblur.dev" },
+  "description": "Visual effects for React, installed from the chat.",
+  "plugins": [
+    {
+      "name": "hyperblur",
+      "source": "./plugins/hyperblur",
+      "description": "Search, inspect and install Hyperblur visual effects in the current project.",
+      "category": "design",
+      "tags": ["react", "effects", "animation", "shadcn", "ui"]
+    }
+  ]
+}

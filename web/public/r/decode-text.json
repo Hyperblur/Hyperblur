@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "decode-text",
+  "type": "registry:component",
+  "title": "Decode Text",
+  "description": "Text that scrambles through random glyphs and settles left to right, like a decrypting terminal.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "decode",
+    "scramble",
+    "hacker",
+    "terminal",
+    "intro",
+    "text"
+  ],
+  "docs": "https://hyperblur.dev/effects/decode-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/decode-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/decode-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface DecodeTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  duration?: number;\n  glyphs?: string;\n  trigger?: \"mount\" | \"hover\";\n  stagger?: number;\n}\n\nconst css = `\n.hb-decode { position: relative; display: inline-block; white-space: pre; }\n.hb-decode > span:first-child { visibility: hidden; }\n.hb-decode > span:last-child { position: absolute; inset: 0; }\n.hb-decode [data-s] { color: var(--hb-decode-color, inherit); opacity: var(--hb-decode-opacity, 0.7); }\n`;\n\nconst DEFAULT_GLYPHS = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@\";\nconst FPS = 24;\n\nfunction hash(n: number) {\n  let h = Math.imul(n ^ (n >>> 16), 0x45d9f3b);\n  h = Math.imul(h ^ (h >>> 16), 0x45d9f3b);\n  return (h ^ (h >>> 16)) >>> 0;\n}\n\ninterface Frame {\n  value: string;\n  settled: number;\n}\n\nexport function DecodeText({\n  text,\n  duration = 1.2,\n  glyphs = DEFAULT_GLYPHS,\n  trigger = \"mount\",\n  stagger = 0.04,\n  className = \"\",\n  style,\n  onMouseEnter,\n  ...rest\n}: DecodeTextProps) {\n  const [frame, setFrame] = React.useState<Frame | null>(null);\n  const raf = React.useRef(0);\n\n  const run = React.useCallback(() => {\n    cancelAnimationFrame(raf.current);\n    const chars = Array.from(text);\n    const pool = Array.from(glyphs);\n    const reduced = window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    if (reduced || pool.length === 0 || chars.length === 0) return;\n\n    const start = performance.now();\n    const total = duration + (chars.length - 1) * stagger;\n    let last = -1;\n\n    const tick = (now: number) => {\n      const t = (now - start) / 1000;\n      if (t >= total) {\n        setFrame(null);\n        return;\n      }\n      const step = Math.floor(t * FPS);\n      if (step !== last) {\n        last = step;\n        let settled = 0;\n        let value = \"\";\n        chars.forEach((ch, i) => {\n          if (t >= duration + i * stagger) {\n            settled = i + 1;\n            value += ch;\n          } else if (/\\s/.test(ch)) {\n            value += ch;\n          } else {\n            value += pool[hash(i * 7919 + step * 104729) % pool.length];\n          }\n        });\n        setFrame({ value, settled });\n      }\n      raf.current = requestAnimationFrame(tick);\n    };\n\n    raf.current = requestAnimationFrame(tick);\n  }, [text, duration, glyphs, stagger]);\n\n  React.useEffect(() => {\n    if (trigger === \"mount\") run();\n    return () => cancelAnimationFrame(raf.current);\n  }, [run, trigger]);\n\n  const shown = frame ? Array.from(frame.value) : Array.from(text);\n  const settled = frame ? frame.settled : shown.length;\n\n  return (\n    <span\n      className={`hb-decode ${className}`}\n      style={style}\n      aria-label={text}\n      onMouseEnter={(e) => {\n        if (trigger === \"hover\") run();\n        onMouseEnter?.(e);\n      }}\n      {...rest}\n    >\n      <style href=\"hb-decode-text\" precedence=\"default\">{css}</style>\n      <span aria-hidden=\"true\">{text}</span>\n      <span aria-hidden=\"true\">\n        {shown.map((ch, i) => (\n          <span key={i} data-s={i >= settled ? \"\" : undefined}>\n            {ch}\n          </span>\n        ))}\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

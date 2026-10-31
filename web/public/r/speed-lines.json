@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "speed-lines",
+  "type": "registry:component",
+  "title": "Speed Lines",
+  "description": "Slanted bars streaking across a container. Drop it behind a hero or a card.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "motion",
+    "speed",
+    "background",
+    "lines",
+    "anime"
+  ],
+  "docs": "https://hyperblur.dev/effects/speed-lines",
+  "files": [
+    {
+      "path": "registry/hyperblur/speed-lines.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/speed-lines.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface SpeedLinesProps extends React.HTMLAttributes<HTMLDivElement> {\n  color?: string;\n  count?: number;\n  speed?: number;\n  angle?: number;\n  opacity?: number;\n}\n\nconst css = `\n@keyframes hb-sl-run {\n  0% { transform: translateX(-140%) skewX(var(--hb-skew)); }\n  100% { transform: translateX(260%) skewX(var(--hb-skew)); }\n}\n.hb-sl { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }\n.hb-sl > i { position: absolute; top: var(--t); left: 0; width: var(--w); height: var(--h); background: var(--hb-c); opacity: var(--hb-o); animation: hb-sl-run var(--dur) linear infinite; animation-delay: var(--delay); will-change: transform; }\n@media (prefers-reduced-motion: reduce) { .hb-sl > i { animation: none; } }\n`;\n\nfunction rnd(i: number, salt: number) {\n  let x = ((i + 1) * 2654435761 + salt * 40503) >>> 0;\n  x = ((x >>> 16) ^ x) * 0x45d9f3b;\n  x = ((x >>> 16) ^ x) >>> 0;\n  return (x % 1000) / 1000;\n}\n\nexport function SpeedLines({\n  color = \"#2f7bff\",\n  count = 14,\n  speed = 1,\n  angle = 20,\n  opacity = 0.35,\n  className = \"\",\n  style,\n  ...rest\n}: SpeedLinesProps) {\n  const bars = Array.from({ length: count }, (_, i) => {\n    const top = +(((i + 0.5) / count) * 100).toFixed(2);\n    const w = +(25 + rnd(i, 1) * 45).toFixed(2);\n    const h = +(2 + rnd(i, 2) * 4).toFixed(2);\n    const dur = +((1.6 + rnd(i, 3) * 2.2) / speed).toFixed(2);\n    const delay = +(-rnd(i, 4) * dur).toFixed(2);\n    return { top, w, h, dur, delay };\n  });\n\n  const vars = {\n    \"--hb-c\": color,\n    \"--hb-o\": opacity,\n    \"--hb-skew\": `${-angle}deg`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div className={`hb-sl ${className}`} style={vars} aria-hidden=\"true\" {...rest}>\n      <style href=\"hb-speed-lines\" precedence=\"default\">{css}</style>\n      {bars.map((b, i) => (\n        <i\n          key={i}\n          style={\n            {\n              \"--t\": `${b.top}%`,\n              \"--w\": `${b.w}%`,\n              \"--h\": `${b.h}px`,\n              \"--dur\": `${b.dur}s`,\n              \"--delay\": `${b.delay}s`,\n            } as React.CSSProperties\n          }\n        />\n      ))}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

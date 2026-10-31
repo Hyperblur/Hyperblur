@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "motion-blur-text",
+  "type": "registry:component",
+  "title": "Motion Blur Text",
+  "description": "Text that snaps into place dragging a blurred trail behind it.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "blur",
+    "speed",
+    "intro",
+    "text"
+  ],
+  "docs": "https://hyperblur.dev/effects/motion-blur-text",
+  "files": [
+    {
+      "path": "registry/hyperblur/motion-blur-text.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/motion-blur-text.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface MotionBlurTextProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  direction?: \"left\" | \"right\" | \"up\" | \"down\";\n  distance?: number;\n  duration?: number;\n  trigger?: \"mount\" | \"hover\";\n}\n\nconst css = `\n@keyframes hb-mb-in {\n  0% { transform: translate(var(--hb-x), var(--hb-y)); filter: blur(var(--hb-blur)); opacity: 0; }\n  60% { filter: blur(calc(var(--hb-blur) * 0.35)); opacity: 1; }\n  100% { transform: translate(0, 0); filter: blur(0); opacity: 1; }\n}\n@keyframes hb-mb-ghost {\n  0% { transform: translate(var(--hb-x), var(--hb-y)); opacity: 0; }\n  30% { opacity: var(--hb-go); }\n  100% { transform: translate(0, 0); opacity: 0; }\n}\n.hb-mb { position: relative; display: inline-block; white-space: nowrap; }\n.hb-mb > span { display: inline-block; }\n.hb-mb > span[aria-hidden] { position: absolute; inset: 0; pointer-events: none; opacity: 0; }\n.hb-mb[data-play=\"true\"] > span:first-child { animation: hb-mb-in var(--hb-d) cubic-bezier(.2,.9,.2,1) both; }\n.hb-mb[data-play=\"true\"] > span:nth-child(2) { animation: hb-mb-ghost var(--hb-d) cubic-bezier(.2,.9,.2,1) both; animation-delay: calc(var(--hb-d) * 0.08); --hb-go: .45; filter: blur(calc(var(--hb-blur) * .6)); }\n.hb-mb[data-play=\"true\"] > span:nth-child(3) { animation: hb-mb-ghost var(--hb-d) cubic-bezier(.2,.9,.2,1) both; animation-delay: calc(var(--hb-d) * 0.16); --hb-go: .2; filter: blur(var(--hb-blur)); }\n@media (prefers-reduced-motion: reduce) { .hb-mb > span { animation: none !important; opacity: 1 !important; } .hb-mb > span[aria-hidden] { display: none; } }\n`;\n\nexport function MotionBlurText({\n  text,\n  direction = \"left\",\n  distance = 40,\n  duration = 0.7,\n  trigger = \"mount\",\n  className = \"\",\n  style,\n  ...rest\n}: MotionBlurTextProps) {\n  const [play, setPlay] = React.useState(trigger === \"mount\");\n  const [key, setKey] = React.useState(0);\n\n  const x = direction === \"left\" ? -distance : direction === \"right\" ? distance : 0;\n  const y = direction === \"up\" ? -distance : direction === \"down\" ? distance : 0;\n\n  const vars = {\n    \"--hb-x\": `${x}px`,\n    \"--hb-y\": `${y}px`,\n    \"--hb-blur\": `${Math.max(6, distance * 0.3)}px`,\n    \"--hb-d\": `${duration}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  function replay() {\n    setPlay(true);\n    setKey((k) => k + 1);\n  }\n\n  return (\n    <span\n      key={key}\n      className={`hb-mb ${className}`}\n      style={vars}\n      data-play={play}\n      onMouseEnter={trigger === \"hover\" ? replay : undefined}\n      {...rest}\n    >\n      <style href=\"hb-motion-blur-text\" precedence=\"default\">{css}</style>\n      <span>{text}</span>\n      <span aria-hidden=\"true\">{text}</span>\n      <span aria-hidden=\"true\">{text}</span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}
