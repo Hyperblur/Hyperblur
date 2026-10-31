@@ -3,11 +3,8 @@
 import * as React from "react";
 
 export interface VhsOverlayProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** How strong the tape damage looks: 1 subtle, 3 heavy. */
   intensity?: 1 | 2 | 3;
-  /** Number of drifting tracking bands. */
   bands?: number;
-  /** Animation speed multiplier. */
   speed?: number;
 }
 
@@ -40,7 +37,6 @@ const LEVELS = {
   3: { bleed: 0.38, shift: 5, jitter: 2, band: 0.16 },
 } as const;
 
-/** deterministic integer hash so server and client render the same bands */
 function rnd(i: number, salt: number) {
   let x = ((i + 1) * 2654435761 + salt * 40503) >>> 0;
   x = ((x >>> 16) ^ x) * 0x45d9f3b;
@@ -61,7 +57,6 @@ export function VhsOverlay({
 
   const list = Array.from({ length: Math.max(0, Math.floor(bands)) }, (_, i) => {
     const h = +(7 + rnd(i, 1) * 8).toFixed(2);
-    // translateY is relative to the band's own height, so the travel is 100 / h
     const end = +((100 / h) * 100).toFixed(1);
     const dur = +((5 + rnd(i, 2) * 5) / rate).toFixed(2);
     const delay = +(-rnd(i, 3) * dur).toFixed(2);

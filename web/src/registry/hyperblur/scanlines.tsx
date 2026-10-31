@@ -3,13 +3,9 @@
 import * as React from "react";
 
 export interface ScanlinesProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Line darkness. */
   opacity?: number;
-  /** Pixels per scanline. */
   lineHeight?: number;
-  /** Subtle brightness flicker. */
   flicker?: boolean;
-  /** Slow rolling bright band. */
   band?: boolean;
 }
 

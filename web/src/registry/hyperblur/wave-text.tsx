@@ -3,13 +3,9 @@
 import * as React from "react";
 
 export interface WaveTextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Text to render. */
   text: string;
-  /** How far each letter travels, in pixels. */
   amplitude?: number;
-  /** Animation speed multiplier. */
   speed?: number;
-  /** Seconds of delay between one letter and the next. */
   stagger?: number;
 }
 

@@ -27,7 +27,6 @@ function readSource(slug: string): string {
   return fs.readFileSync(file, "utf8");
 }
 
-/** The shell renders instantly; the slug-dependent content streams in. */
 export default function EffectPage({ params }: PageProps<"/effects/[slug]">) {
   return (
     <article className="mx-auto max-w-6xl px-4 py-12 sm:px-6">

@@ -3,13 +3,9 @@
 import * as React from "react";
 
 export interface MagneticProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** What to pull toward the cursor. */
   children: React.ReactNode;
-  /** Fraction of the cursor offset the child follows (0 to 1). */
   strength?: number;
-  /** Distance in pixels from the center where the pull reaches. */
   radius?: number;
-  /** Seconds the spring back takes. */
   ease?: number;
 }
 
@@ -42,7 +38,6 @@ export function Magnetic({
     const el = inner.current;
     if (!box || !el) return;
 
-    // the outer box never moves, so the center stays stable while the child drifts
     function move(e: PointerEvent) {
       if (!box || !el || e.pointerType === "touch") return;
       const r = box.getBoundingClientRect();

@@ -3,13 +3,9 @@
 import * as React from "react";
 
 export interface GlitchTextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Text to render. */
   text: string;
-  /** How far the slices jump. */
   intensity?: 1 | 2 | 3;
-  /** Animation speed multiplier. */
   speed?: number;
-  /** Colors of the two ghost layers. */
   colors?: [string, string];
 }
 

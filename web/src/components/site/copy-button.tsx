@@ -25,7 +25,6 @@ export function CopyButton({
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
-      // clipboard blocked: fall back to a prompt the user can copy from
       window.prompt("Copy this:", value);
     }
   }

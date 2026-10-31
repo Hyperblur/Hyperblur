@@ -3,15 +3,10 @@
 import * as React from "react";
 
 export interface MotionBlurTextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Text to render. */
   text: string;
-  /** Where the text comes from. */
   direction?: "left" | "right" | "up" | "down";
-  /** Travel distance in pixels. */
   distance?: number;
-  /** Seconds for the whole move. */
   duration?: number;
-  /** Play once on mount, or replay on hover. */
   trigger?: "mount" | "hover";
 }
 

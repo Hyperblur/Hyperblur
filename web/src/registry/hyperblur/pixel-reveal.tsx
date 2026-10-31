@@ -3,15 +3,10 @@
 import * as React from "react";
 
 export interface PixelRevealProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** What to reveal. */
   children: React.ReactNode;
-  /** Grid rows. */
   rows?: number;
-  /** Grid columns. */
   cols?: number;
-  /** Seconds until fully revealed. */
   duration?: number;
-  /** Block color (match your background). */
   color?: string;
 }
 
@@ -23,7 +18,6 @@ const css = `
 @media (prefers-reduced-motion: reduce) { .hb-pr > .hb-pr-grid { display: none; } }
 `;
 
-/** deterministic shuffle so server and client agree on the order */
 function hash(i: number) {
   let x = (i + 1) * 2654435761;
   x = ((x >>> 16) ^ x) * 0x45d9f3b;

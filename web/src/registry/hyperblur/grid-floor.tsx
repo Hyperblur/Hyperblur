@@ -3,15 +3,10 @@
 import * as React from "react";
 
 export interface GridFloorProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Line color. */
   color?: string;
-  /** Scroll speed multiplier. */
   speed?: number;
-  /** Grid cell size in pixels. */
   cell?: number;
-  /** Where the floor starts, from 0 (top) to 1 (bottom). */
   horizon?: number;
-  /** Soft glow on the lines and the horizon. */
   glow?: boolean;
 }
 

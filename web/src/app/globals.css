@@ -32,7 +32,6 @@ body {
   color: #fff;
 }
 
-/* faixa angular da marca, reutilizada em botões e títulos */
 .hb-slant {
   clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
 }

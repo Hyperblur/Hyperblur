@@ -3,17 +3,11 @@
 import * as React from "react";
 
 export interface ShutterRevealProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** What to reveal. */
   children: React.ReactNode;
-  /** How many bars cover the content. */
   bars?: number;
-  /** Bar color. */
   color?: string;
-  /** Seconds until the last bar has cleared. */
   duration?: number;
-  /** Side the bars start clearing from. */
   direction?: "left" | "right";
-  /** Play once on mount, or replay on hover. */
   trigger?: "mount" | "hover";
 }
 
@@ -52,7 +46,6 @@ export function ShutterReveal({
   const [key, setKey] = React.useState(0);
 
   const n = Math.max(1, Math.round(bars));
-  // spare bars on each side cover the corners the skew leaves open
   const extra = Math.ceil(n / 3);
   const total = n + extra * 2;
   const barDur = duration * 0.5;

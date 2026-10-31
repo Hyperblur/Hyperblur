@@ -3,15 +3,10 @@
 import * as React from "react";
 
 export interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Card content. */
   children: React.ReactNode;
-  /** Maximum tilt in degrees. */
   maxTilt?: number;
-  /** Show a glare highlight that follows the cursor. */
   glare?: boolean;
-  /** Scale while hovered. */
   scale?: number;
-  /** Perspective distance in pixels. */
   perspective?: number;
 }
 

@@ -3,13 +3,9 @@
 import * as React from "react";
 
 export interface NeonTextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Text to render. */
   text: string;
-  /** Glow color. */
   color?: string;
-  /** Occasional flicker, like a failing tube. */
   flicker?: boolean;
-  /** How far the glow reaches. */
   intensity?: 1 | 2 | 3;
 }
 
