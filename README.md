@@ -12,3 +12,8 @@ cd web && npm install && npm run dev
 ```
 
 `npm run registry` rebuilds the shadcn registry JSON in `web/public/r`. `npm run build` does it automatically before building the site.
+
+## Agents
+
+- `packages/mcp` — the `@hyperblur/mcp` server. Any MCP client can run it with `npx -y @hyperblur/mcp`; it searches the catalog, returns props and sources, and installs effects through the shadcn CLI.
+- `plugins/hyperblur` — the Claude Code plugin that bundles the server and a skill. Install with `claude plugin install hyperblur --marketplace Hyperblur/Hyperblur`.

@@ -50,4 +50,25 @@ const index = {
   items,
 };
 fs.writeFileSync(path.join(outDir, "registry.json"), JSON.stringify(index, null, 2));
+
+const catalog = {
+  name: "hyperblur",
+  homepage: SITE_URL,
+  generatedAt: new Date().toISOString(),
+  items: effects.map((meta) => ({
+    slug: meta.slug,
+    component: meta.component,
+    title: meta.title,
+    description: meta.description,
+    category: meta.category,
+    tags: meta.tags,
+    props: meta.props,
+    usage: meta.usage,
+    dependencies: meta.dependencies ?? [],
+    install: `npx shadcn@latest add ${SITE_URL}/r/${meta.slug}.json`,
+    docs: `${SITE_URL}/effects/${meta.slug}`,
+    file: `${SITE_URL}/r/${meta.slug}.json`,
+  })),
+};
+fs.writeFileSync(path.join(outDir, "index.json"), JSON.stringify(catalog, null, 2));
 console.log(`registry: ${items.length} items written to public/r/`);

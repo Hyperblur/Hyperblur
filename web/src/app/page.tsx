@@ -105,7 +105,9 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold">MCP server and Claude Code plugin</h3>
                 <p className="text-sm text-muted">
-                  Coming next: search and install effects without leaving the chat.
+                  <code className="font-mono text-ink/80">claude plugin install hyperblur --marketplace Hyperblur/Hyperblur</code>{" "}
+                  gives Claude Code the catalog as tools. Any MCP client can run{" "}
+                  <code className="font-mono text-ink/80">npx -y @hyperblur/mcp</code>.
                 </p>
               </div>
             </li>
