@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-10-31T21:42:26.133Z",
+  "generatedAt": "2026-10-31T21:52:04.953Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -1191,6 +1191,477 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/count-up.json",
       "docs": "https://hyperblur.dev/effects/count-up",
       "file": "https://hyperblur.dev/r/count-up.json"
+    },
+    {
+      "slug": "dock",
+      "component": "Dock",
+      "title": "Dock",
+      "description": "A macOS-style dock whose icons swell smoothly as the cursor passes over them, with a label tooltip on each.",
+      "category": "components",
+      "tags": [
+        "dock",
+        "macos",
+        "magnify",
+        "navigation",
+        "toolbar",
+        "hover"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; icon: ReactNode; onClick?: () => void; href?: string }[]",
+          "required": true,
+          "description": "Dock entries. An item with href renders as a link, otherwise as a button."
+        },
+        {
+          "name": "magnification",
+          "type": "number",
+          "default": "1.6",
+          "description": "Maximum scale of the icon under the cursor."
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "default": "120",
+          "description": "Distance in pixels along the dock over which the magnification fades out."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "48",
+          "description": "Base icon size in pixels."
+        },
+        {
+          "name": "position",
+          "type": "\"bottom\" | \"top\"",
+          "default": "\"bottom\"",
+          "description": "Edge the dock sits on. Icons grow away from it and tooltips open on the opposite side."
+        }
+      ],
+      "usage": "<Dock items={[{ id: \"home\", label: \"Home\", icon: <HomeIcon />, href: \"/\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/dock.json",
+      "docs": "https://hyperblur.dev/effects/dock",
+      "file": "https://hyperblur.dev/r/dock.json"
+    },
+    {
+      "slug": "pill-nav",
+      "component": "PillNav",
+      "title": "Pill Nav",
+      "description": "A horizontal nav with a single pill that glides to the hovered or selected item.",
+      "category": "components",
+      "tags": [
+        "nav",
+        "tabs",
+        "pill",
+        "slide",
+        "menu",
+        "hover"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; href?: string }[]",
+          "required": true,
+          "description": "Tabs. An item with href renders as a link, otherwise as a button."
+        },
+        {
+          "name": "active",
+          "type": "string",
+          "description": "Id of the selected item. Pass it to control the selection."
+        },
+        {
+          "name": "defaultActive",
+          "type": "string",
+          "default": "first item",
+          "description": "Id of the item selected on mount when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when the selection changes by click or arrow keys."
+        },
+        {
+          "name": "followHover",
+          "type": "boolean",
+          "default": "true",
+          "description": "Slide the pill to the hovered item and back to the selected one on leave."
+        }
+      ],
+      "usage": "<PillNav items={[{ id: \"home\", label: \"Home\" }, { id: \"docs\", label: \"Docs\" }]} defaultActive=\"home\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/pill-nav.json",
+      "docs": "https://hyperblur.dev/effects/pill-nav",
+      "file": "https://hyperblur.dev/r/pill-nav.json"
+    },
+    {
+      "slug": "accordion",
+      "component": "Accordion",
+      "title": "Accordion",
+      "description": "Expandable sections whose panels animate their height with a rotating chevron. Single or multiple open.",
+      "category": "components",
+      "tags": [
+        "accordion",
+        "collapse",
+        "faq",
+        "disclosure",
+        "expand"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; title: string; content: ReactNode }[]",
+          "required": true,
+          "description": "Sections to render."
+        },
+        {
+          "name": "type",
+          "type": "\"single\" | \"multiple\"",
+          "default": "\"single\"",
+          "description": "Whether opening a section closes the others."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Ids of sections open on mount. Only the first is used when type is single."
+        },
+        {
+          "name": "collapsible",
+          "type": "boolean",
+          "default": "true",
+          "description": "Allow closing the last open section. When false, one section stays open once opened."
+        }
+      ],
+      "usage": "<Accordion items={[{ id: \"a\", title: \"Question\", content: \"Answer\" }]} defaultOpen={[\"a\"]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/accordion.json",
+      "docs": "https://hyperblur.dev/effects/accordion",
+      "file": "https://hyperblur.dev/r/accordion.json"
+    },
+    {
+      "slug": "carousel",
+      "component": "Carousel",
+      "title": "Carousel",
+      "description": "Scroll-snap slider with arrow buttons, dot indicators, keyboard control and optional autoplay.",
+      "category": "components",
+      "tags": [
+        "carousel",
+        "slider",
+        "scroll-snap",
+        "gallery",
+        "autoplay"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Slides. Each child becomes one slide."
+        },
+        {
+          "name": "autoplay",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between slides. 0 turns autoplay off. Pauses on hover, on focus and while the tab is hidden."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Jump back to the first slide after the last one, and to the last one before the first."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "16",
+          "description": "Space between slides in pixels."
+        },
+        {
+          "name": "slidesPerView",
+          "type": "number",
+          "default": "1",
+          "description": "How many slides are visible at once. Fractions like 1.2 show a peek of the next slide."
+        }
+      ],
+      "usage": "<Carousel autoplay={4000} slidesPerView={1.2}>{slides}</Carousel>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/carousel.json",
+      "docs": "https://hyperblur.dev/effects/carousel",
+      "file": "https://hyperblur.dev/r/carousel.json"
+    },
+    {
+      "slug": "stepper",
+      "component": "Stepper",
+      "title": "Stepper",
+      "description": "Multi-step flow with numbered progress, a line that fills as you advance, and sliding step content.",
+      "category": "components",
+      "tags": [
+        "stepper",
+        "wizard",
+        "steps",
+        "progress",
+        "form"
+      ],
+      "props": [
+        {
+          "name": "steps",
+          "type": "{ id: string; title: string; content: ReactNode }[]",
+          "required": true,
+          "description": "The steps, in order. Only the current step's content is rendered."
+        },
+        {
+          "name": "initialStep",
+          "type": "number",
+          "default": "0",
+          "description": "Index of the step shown first."
+        },
+        {
+          "name": "onStepChange",
+          "type": "(index: number) => void",
+          "description": "Called with the new index whenever the step changes."
+        },
+        {
+          "name": "onFinish",
+          "type": "() => void",
+          "description": "Called when the user presses the finish button on the last step."
+        },
+        {
+          "name": "labels",
+          "type": "{ back: string; next: string; finish: string }",
+          "default": "{ back: \"Back\", next: \"Next\", finish: \"Finish\" }",
+          "description": "Button text. Pass any subset to translate or rename."
+        },
+        {
+          "name": "allowClickNavigation",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let users click a completed step to go back to it."
+        }
+      ],
+      "usage": "<Stepper steps={steps} onFinish={() => save()} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/stepper.json",
+      "docs": "https://hyperblur.dev/effects/stepper",
+      "file": "https://hyperblur.dev/r/stepper.json"
+    },
+    {
+      "slug": "image-compare",
+      "component": "ImageCompare",
+      "title": "Image Compare",
+      "description": "Before and after slider. Drag the handle or use the arrow keys to reveal either side.",
+      "category": "components",
+      "tags": [
+        "compare",
+        "before-after",
+        "slider",
+        "image",
+        "drag"
+      ],
+      "props": [
+        {
+          "name": "before",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Bottom layer, shown on the left (or top). An image or any element."
+        },
+        {
+          "name": "after",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Top layer, clipped by the handle and shown on the right (or bottom)."
+        },
+        {
+          "name": "initial",
+          "type": "number",
+          "default": "50",
+          "description": "Starting handle position from 0 to 100."
+        },
+        {
+          "name": "labels",
+          "type": "{ before: string; after: string }",
+          "default": "{ before: \"Before\", after: \"After\" }",
+          "description": "Text of the corner chips. An empty string hides that chip."
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Direction of the split. Vertical moves the handle up and down."
+        }
+      ],
+      "usage": "<ImageCompare before={<img src=\"/a.jpg\" alt=\"Before\" />} after={<img src=\"/b.jpg\" alt=\"After\" />} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/image-compare.json",
+      "docs": "https://hyperblur.dev/effects/image-compare",
+      "file": "https://hyperblur.dev/r/image-compare.json"
+    },
+    {
+      "slug": "masonry",
+      "component": "Masonry",
+      "title": "Masonry",
+      "description": "Responsive column layout for mixed-height blocks, with a staggered entrance.",
+      "category": "components",
+      "tags": [
+        "masonry",
+        "layout",
+        "grid",
+        "columns",
+        "gallery"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Items to lay out. Each child becomes one block."
+        },
+        {
+          "name": "columns",
+          "type": "number | { base?: number; sm?: number; md?: number; lg?: number }",
+          "default": "{ base: 1, sm: 2, lg: 3 }",
+          "description": "Column count, or a breakpoint map (sm 640px, md 768px, lg 1024px). Missing keys inherit the previous breakpoint."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "16",
+          "description": "Gap between columns and between items, in pixels."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "0.05",
+          "description": "Seconds between each item's entrance."
+        }
+      ],
+      "usage": "<Masonry columns={{ base: 1, sm: 2, lg: 4 }} gap={16}><Card /><Card /><Card /></Masonry>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/masonry.json",
+      "docs": "https://hyperblur.dev/effects/masonry",
+      "file": "https://hyperblur.dev/r/masonry.json"
+    },
+    {
+      "slug": "animated-list",
+      "component": "AnimatedList",
+      "title": "Animated List",
+      "description": "Keyboard-friendly list with a staggered entrance, a sliding highlight and scroll fades.",
+      "category": "components",
+      "tags": [
+        "list",
+        "menu",
+        "keyboard",
+        "select",
+        "stagger"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "ReactNode[]",
+          "required": true,
+          "description": "Content of each row."
+        },
+        {
+          "name": "onSelect",
+          "type": "(index: number) => void",
+          "description": "Called on click or when Enter is pressed on the selected row."
+        },
+        {
+          "name": "initialSelected",
+          "type": "number",
+          "default": "-1",
+          "description": "Index selected on mount. -1 means none."
+        },
+        {
+          "name": "showGradients",
+          "type": "boolean",
+          "default": "true",
+          "description": "Fade the top and bottom edges while the list can scroll."
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "default": "320",
+          "description": "Maximum height in pixels before the list scrolls."
+        }
+      ],
+      "usage": "<AnimatedList items={[\"Profile\", \"Billing\", \"Team\", \"Sign out\"]} onSelect={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/animated-list.json",
+      "docs": "https://hyperblur.dev/effects/animated-list",
+      "file": "https://hyperblur.dev/r/animated-list.json"
+    },
+    {
+      "slug": "bento-grid",
+      "component": "BentoGrid",
+      "title": "Bento Grid",
+      "description": "Bento layout of spanning cards with a cursor spotlight and a hover lift.",
+      "category": "components",
+      "tags": [
+        "bento",
+        "grid",
+        "layout",
+        "cards",
+        "spotlight"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "BentoCard elements (BentoGrid props)."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "3",
+          "description": "Number of grid columns (BentoGrid)."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "16",
+          "description": "Gap between cards in pixels (BentoGrid)."
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "default": "160",
+          "description": "Height of one grid row in pixels (BentoGrid)."
+        },
+        {
+          "name": "colSpan",
+          "type": "number",
+          "default": "1",
+          "description": "Columns a card spans (BentoCard)."
+        },
+        {
+          "name": "rowSpan",
+          "type": "number",
+          "default": "1",
+          "description": "Rows a card spans (BentoCard)."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "Card heading (BentoCard)."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Card supporting text (BentoCard)."
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "description": "Icon shown above the title (BentoCard)."
+        }
+      ],
+      "usage": "<BentoGrid columns={3}><BentoCard colSpan={2} title=\"Fast\" description=\"Zero config.\" /><BentoCard rowSpan={2} title=\"Tiny\" /></BentoGrid>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/bento-grid.json",
+      "docs": "https://hyperblur.dev/effects/bento-grid",
+      "file": "https://hyperblur.dev/r/bento-grid.json"
     }
   ]
 }

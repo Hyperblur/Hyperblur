@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-grid",
+  "type": "registry:component",
+  "title": "Bento Grid",
+  "description": "Bento layout of spanning cards with a cursor spotlight and a hover lift.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "components",
+    "bento",
+    "grid",
+    "layout",
+    "cards",
+    "spotlight"
+  ],
+  "docs": "https://hyperblur.dev/effects/bento-grid",
+  "files": [
+    {
+      "path": "registry/hyperblur/bento-grid.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/bento-grid.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface BentoGridProps extends React.HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode;\n  columns?: number;\n  gap?: number;\n  rowHeight?: number;\n}\n\nexport interface BentoCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, \"title\"> {\n  children?: React.ReactNode;\n  colSpan?: number;\n  rowSpan?: number;\n  title?: React.ReactNode;\n  description?: React.ReactNode;\n  icon?: React.ReactNode;\n}\n\nconst css = `\n.hb-bg {\n  display: grid;\n  grid-template-columns: repeat(var(--hb-bg-cols), minmax(0, 1fr));\n  grid-auto-rows: var(--hb-bg-row);\n  grid-auto-flow: dense;\n  gap: var(--hb-bg-gap);\n  width: 100%;\n}\n.hb-bc {\n  --hb-x: 50%;\n  --hb-y: 50%;\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  min-width: 0;\n  min-height: 0;\n  overflow: hidden;\n  padding: 16px;\n  border-radius: 16px;\n  border: 1px solid rgba(255, 255, 255, .1);\n  background: rgba(255, 255, 255, .04);\n  color: #f2f2f5;\n  grid-column: span var(--hb-bc-c);\n  grid-row: span var(--hb-bc-r);\n  transition: transform .3s cubic-bezier(.22, .8, .24, 1), border-color .3s ease, box-shadow .3s ease;\n}\n.hb-bc::before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  background: radial-gradient(260px circle at var(--hb-x) var(--hb-y), rgba(47, 123, 255, .2), transparent 70%);\n  opacity: 0;\n  transition: opacity .3s ease;\n}\n.hb-bc:hover {\n  transform: translate3d(0, -3px, 0);\n  border-color: rgba(255, 255, 255, .22);\n  box-shadow: 0 16px 32px -14px rgba(0, 0, 0, .7);\n}\n.hb-bc:hover::before { opacity: 1; }\n.hb-bc-vis {\n  position: relative;\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: hidden;\n  border-radius: 10px;\n}\n.hb-bc-body {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: auto;\n}\n.hb-bc-icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 28px;\n  height: 28px;\n  margin-bottom: 4px;\n  color: #2f7bff;\n}\n.hb-bc-title { font-size: 15px; font-weight: 600; line-height: 1.3; }\n.hb-bc-desc { font-size: 13px; line-height: 1.45; color: rgba(255, 255, 255, .6); }\n@media (max-width: 639px) {\n  .hb-bg {\n    grid-template-columns: minmax(0, 1fr);\n    grid-auto-rows: minmax(var(--hb-bg-row), auto);\n  }\n  .hb-bc { grid-column: span 1; grid-row: span 1; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-bc { transition: none; }\n  .hb-bc::before { transition: none; }\n  .hb-bc:hover { transform: none; }\n}\n`;\n\nfunction span(value: number) {\n  if (!Number.isFinite(value)) return 1;\n  return Math.max(1, Math.round(value));\n}\n\nexport function BentoGrid({\n  children,\n  columns = 3,\n  gap = 16,\n  rowHeight = 160,\n  className = \"\",\n  style,\n  ...rest\n}: BentoGridProps) {\n  const vars = {\n    \"--hb-bg-cols\": span(columns),\n    \"--hb-bg-gap\": `${Math.max(0, gap)}px`,\n    \"--hb-bg-row\": `${Math.max(0, rowHeight)}px`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div className={`hb-bg ${className}`} style={vars} {...rest}>\n      <style href=\"hb-bento-grid\" precedence=\"default\">{css}</style>\n      {children}\n    </div>\n  );\n}\n\nexport function BentoCard({\n  children,\n  colSpan = 1,\n  rowSpan = 1,\n  title,\n  description,\n  icon,\n  className = \"\",\n  style,\n  onPointerMove,\n  ...rest\n}: BentoCardProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n\n  function handleMove(e: React.PointerEvent<HTMLDivElement>) {\n    onPointerMove?.(e);\n    const el = ref.current;\n    if (!el) return;\n    const r = el.getBoundingClientRect();\n    el.style.setProperty(\"--hb-x\", `${(e.clientX - r.left).toFixed(1)}px`);\n    el.style.setProperty(\"--hb-y\", `${(e.clientY - r.top).toFixed(1)}px`);\n  }\n\n  const vars = {\n    \"--hb-bc-c\": span(colSpan),\n    \"--hb-bc-r\": span(rowSpan),\n    ...style,\n  } as React.CSSProperties;\n\n  const hasBody = icon != null || title != null || description != null;\n\n  return (\n    <div ref={ref} className={`hb-bc ${className}`} style={vars} onPointerMove={handleMove} {...rest}>\n      <style href=\"hb-bento-grid\" precedence=\"default\">{css}</style>\n      {children != null && <div className=\"hb-bc-vis\">{children}</div>}\n      {hasBody && (\n        <div className=\"hb-bc-body\">\n          {icon != null && <span className=\"hb-bc-icon\">{icon}</span>}\n          {title != null && <div className=\"hb-bc-title\">{title}</div>}\n          {description != null && <div className=\"hb-bc-desc\">{description}</div>}\n        </div>\n      )}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

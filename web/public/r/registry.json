@@ -501,6 +501,197 @@
           "target": "components/hyperblur/count-up.tsx"
         }
       ]
+    },
+    {
+      "name": "dock",
+      "type": "registry:component",
+      "title": "Dock",
+      "description": "A macOS-style dock whose icons swell smoothly as the cursor passes over them, with a label tooltip on each.",
+      "categories": [
+        "components",
+        "dock",
+        "macos",
+        "magnify",
+        "navigation",
+        "toolbar",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dock.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pill-nav",
+      "type": "registry:component",
+      "title": "Pill Nav",
+      "description": "A horizontal nav with a single pill that glides to the hovered or selected item.",
+      "categories": [
+        "components",
+        "nav",
+        "tabs",
+        "pill",
+        "slide",
+        "menu",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pill-nav.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pill-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Expandable sections whose panels animate their height with a rotating chevron. Single or multiple open.",
+      "categories": [
+        "components",
+        "accordion",
+        "collapse",
+        "faq",
+        "disclosure",
+        "expand"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/accordion.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "Scroll-snap slider with arrow buttons, dot indicators, keyboard control and optional autoplay.",
+      "categories": [
+        "components",
+        "carousel",
+        "slider",
+        "scroll-snap",
+        "gallery",
+        "autoplay"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/carousel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:component",
+      "title": "Stepper",
+      "description": "Multi-step flow with numbered progress, a line that fills as you advance, and sliding step content.",
+      "categories": [
+        "components",
+        "stepper",
+        "wizard",
+        "steps",
+        "progress",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stepper.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-compare",
+      "type": "registry:component",
+      "title": "Image Compare",
+      "description": "Before and after slider. Drag the handle or use the arrow keys to reveal either side.",
+      "categories": [
+        "components",
+        "compare",
+        "before-after",
+        "slider",
+        "image",
+        "drag"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-compare.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-compare.tsx"
+        }
+      ]
+    },
+    {
+      "name": "masonry",
+      "type": "registry:component",
+      "title": "Masonry",
+      "description": "Responsive column layout for mixed-height blocks, with a staggered entrance.",
+      "categories": [
+        "components",
+        "masonry",
+        "layout",
+        "grid",
+        "columns",
+        "gallery"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/masonry.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/masonry.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-list",
+      "type": "registry:component",
+      "title": "Animated List",
+      "description": "Keyboard-friendly list with a staggered entrance, a sliding highlight and scroll fades.",
+      "categories": [
+        "components",
+        "list",
+        "menu",
+        "keyboard",
+        "select",
+        "stagger"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/animated-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/animated-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:component",
+      "title": "Bento Grid",
+      "description": "Bento layout of spanning cards with a cursor spotlight and a hover lift.",
+      "categories": [
+        "components",
+        "bento",
+        "grid",
+        "layout",
+        "cards",
+        "spotlight"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-grid.tsx"
+        }
+      ]
     }
   ]
 }
