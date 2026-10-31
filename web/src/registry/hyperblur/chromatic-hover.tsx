@@ -3,11 +3,8 @@
 import * as React from "react";
 
 export interface ChromaticHoverProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** What to wrap. */
   children: React.ReactNode;
-  /** Offset of the color fringes in pixels. */
   strength?: number;
-  /** Run without hover. */
   always?: boolean;
 }
 

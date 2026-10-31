@@ -3,13 +3,9 @@
 import * as React from "react";
 
 export interface FilmGrainProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Grain strength. */
   opacity?: number;
-  /** Grain scale. Larger values give coarser grain. */
   size?: number;
-  /** Frame rate multiplier. */
   speed?: number;
-  /** Gray grain instead of colored. */
   monochrome?: boolean;
 }
 
@@ -33,13 +29,10 @@ export function FilmGrain({
   style,
   ...rest
 }: FilmGrainProps) {
-  // useId output can contain characters that are not safe inside url(#...)
   const uid = React.useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const freq = +(0.85 / Math.max(size, 0.1)).toFixed(4);
-  // four frames share one cycle, so each frame is on screen for a quarter of it
   const dur = +(0.5 / Math.max(speed, 0.01)).toFixed(3);
 
-  // contrast stretch around mid gray so overlay blending has something to work with
   const matrix = monochrome
     ? "0.9 0.9 0.9 0 -0.8  0.9 0.9 0.9 0 -0.8  0.9 0.9 0.9 0 -0.8  0 0 0 1 0"
     : "2.4 0 0 0 -0.7  0 2.4 0 0 -0.7  0 0 2.4 0 -0.7  0 0 0 1 0";

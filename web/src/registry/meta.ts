@@ -1,8 +1,3 @@
-/**
- * Catalog metadata. Pure data: no React here, so the registry build
- * script can import it from Node without a bundler.
- */
-
 export type EffectCategory = "text" | "overlay" | "motion" | "hover";
 
 export interface EffectProp {
@@ -14,18 +9,14 @@ export interface EffectProp {
 }
 
 export interface EffectMeta {
-  /** file name in src/registry/hyperblur and registry item name */
   slug: string;
-  /** exported component name */
   component: string;
   title: string;
   description: string;
   category: EffectCategory;
   tags: string[];
   props: EffectProp[];
-  /** one-line usage example */
   usage: string;
-  /** npm packages the component needs besides react */
   dependencies?: string[];
 }
 
@@ -280,7 +271,6 @@ export function installCommand(meta: EffectMeta): string {
   return `npx shadcn@latest add ${SITE_URL}/r/${meta.slug}.json`;
 }
 
-/** The text behind the "Copy prompt" button: everything an agent needs. */
 export function agentPrompt(meta: EffectMeta): string {
   const propLines = meta.props
     .map(

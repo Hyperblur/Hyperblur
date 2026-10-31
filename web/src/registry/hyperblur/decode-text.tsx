@@ -3,15 +3,10 @@
 import * as React from "react";
 
 export interface DecodeTextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Text to reveal. */
   text: string;
-  /** Seconds the first character scrambles before it settles. */
   duration?: number;
-  /** Characters the scramble cycles through. */
   glyphs?: string;
-  /** Play once on mount, or replay on hover. */
   trigger?: "mount" | "hover";
-  /** Seconds between one character settling and the next. */
   stagger?: number;
 }
 
@@ -25,7 +20,6 @@ const css = `
 const DEFAULT_GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@";
 const FPS = 24;
 
-// Integer hash so the scramble is repeatable for a given text and frame.
 function hash(n: number) {
   let h = Math.imul(n ^ (n >>> 16), 0x45d9f3b);
   h = Math.imul(h ^ (h >>> 16), 0x45d9f3b);
@@ -48,7 +42,6 @@ export function DecodeText({
   onMouseEnter,
   ...rest
 }: DecodeTextProps) {
-  // null means the animation is not running and the final text is shown.
   const [frame, setFrame] = React.useState<Frame | null>(null);
   const raf = React.useRef(0);
 

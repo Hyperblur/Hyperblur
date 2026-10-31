@@ -1,5 +1,3 @@
-// Builds the shadcn-compatible registry into public/r/.
-// Run: node scripts/build-registry.mjs   (also runs before `next build`)
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

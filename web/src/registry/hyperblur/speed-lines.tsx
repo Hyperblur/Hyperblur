@@ -3,15 +3,10 @@
 import * as React from "react";
 
 export interface SpeedLinesProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Bar color. */
   color?: string;
-  /** How many bars. */
   count?: number;
-  /** Speed multiplier. */
   speed?: number;
-  /** Tilt in degrees. */
   angle?: number;
-  /** Bar opacity. */
   opacity?: number;
 }
 
@@ -25,7 +20,6 @@ const css = `
 @media (prefers-reduced-motion: reduce) { .hb-sl > i { animation: none; } }
 `;
 
-/** deterministic integer hash so server and client render the same bars */
 function rnd(i: number, salt: number) {
   let x = ((i + 1) * 2654435761 + salt * 40503) >>> 0;
   x = ((x >>> 16) ^ x) * 0x45d9f3b;
