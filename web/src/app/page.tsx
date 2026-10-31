@@ -85,7 +85,7 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold">shadcn registry</h3>
                 <p className="text-sm text-muted">
-                  <code className="font-mono text-ink/80">npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json</code>{" "}
+                  <code className="break-all font-mono text-ink/80">npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json</code>{" "}
                   drops the component straight into your project, deps included.
                 </p>
               </div>
@@ -105,7 +105,7 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold">MCP server and Claude Code plugin</h3>
                 <p className="text-sm text-muted">
-                  <code className="font-mono text-ink/80">claude plugin install hyperblur --marketplace Hyperblur/Hyperblur</code>{" "}
+                  <code className="break-all font-mono text-ink/80">claude plugin install hyperblur --marketplace Hyperblur/Hyperblur</code>{" "}
                   gives Claude Code the catalog as tools. Any MCP client can run{" "}
                   <code className="font-mono text-ink/80">npx -y @hyperblur/mcp</code>.
                 </p>

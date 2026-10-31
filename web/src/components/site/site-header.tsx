@@ -19,7 +19,7 @@ export function SiteHeader() {
           <Link href="/#effects" className="hover:text-ink">
             Effects
           </Link>
-          <Link href="/#agents" className="hover:text-ink">
+          <Link href="/#agents" className="hidden hover:text-ink sm:inline">
             For agents
           </Link>
           <a

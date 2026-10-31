@@ -15,7 +15,7 @@ export function CodeBlock({ code, title, collapsible = false }: CodeBlockProps) 
   );
 
   return (
-    <div className="overflow-hidden rounded-lg border border-line bg-surface">
+    <div className="min-w-0 max-w-full overflow-hidden rounded-lg border border-line bg-surface">
       <div className="flex items-center justify-between border-b border-line px-4 py-2">
         <span className="font-mono text-xs text-muted">{title}</span>
         <CopyButton value={code} label="Copy" className="px-3 py-1 text-xs" />

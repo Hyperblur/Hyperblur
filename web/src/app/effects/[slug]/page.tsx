@@ -29,7 +29,7 @@ function readSource(slug: string): string {
 
 export default function EffectPage({ params }: PageProps<"/effects/[slug]">) {
   return (
-    <article className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <article className="mx-auto min-w-0 max-w-6xl px-4 py-12 sm:px-6">
       <Suspense fallback={<Skeleton />}>
         <EffectContent params={params} />
       </Suspense>
@@ -87,13 +87,13 @@ async function EffectContent({ params }: { params: Params }) {
       </section>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[2fr_1fr]">
-        <div className="space-y-8">
+        <div className="min-w-0 space-y-8">
           <section>
             <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-wide">Install</h2>
             <CodeBlock code={install} title="terminal" />
             <p className="mt-2 text-sm text-muted">
               Works in any React project set up with the shadcn CLI. The file lands in{" "}
-              <code className="font-mono text-ink/80">components/hyperblur/{meta.slug}.tsx</code>.
+              <code className="break-all font-mono text-ink/80">components/hyperblur/{meta.slug}.tsx</code>.
             </p>
           </section>
 
@@ -113,7 +113,7 @@ async function EffectContent({ params }: { params: Params }) {
           </section>
         </div>
 
-        <aside>
+        <aside className="min-w-0">
           <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-wide">Props</h2>
           <dl className="divide-y divide-line rounded-lg border border-line bg-surface">
             {meta.props.map((p) => (
