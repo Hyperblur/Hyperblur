@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Hyperblur/mcp",
+  "title": "Hyperblur",
+  "description": "Search, inspect and install copy-paste React effects, components and page blocks.",
+  "websiteUrl": "https://hyperblur.vercel.app",
+  "repository": {
+    "url": "https://github.com/Hyperblur/Hyperblur",
+    "source": "github",
+    "subfolder": "packages/mcp"
+  },
+  "version": "0.2.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@hyperblur/mcp",
+      "version": "0.2.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "HYPERBLUR_SITE_URL",
+          "description": "Site that serves the catalog. Defaults to https://hyperblur.vercel.app.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string",
+          "default": "https://hyperblur.vercel.app"
+        }
+      ]
+    }
+  ]
+}
