@@ -3,5 +3,9 @@
 import { HoldButton } from "@/registry/hyperblur/hold-button";
 
 export function HoldButtonDemo() {
-  return <HoldButton onConfirm={() => {}}>Hold to delete</HoldButton>;
+  return (
+    <HoldButton onConfirm={() => {}} color="#ff4d5e" confirmedLabel="Deleted">
+      Hold to delete
+    </HoldButton>
+  );
 }
