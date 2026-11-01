@@ -3,19 +3,28 @@ import { effects, categories } from "@/registry/meta";
 import { HeroShowcase } from "@/components/site/hero-showcase";
 import { ShowcaseTile } from "@/components/site/showcase-tile";
 import { CopyButton } from "@/components/site/copy-button";
-import { Aurora } from "@/registry/hyperblur/aurora";
-import { GridFloor } from "@/registry/hyperblur/grid-floor";
-import { DotGrid } from "@/registry/hyperblur/dot-grid";
-import { GlowBorder } from "@/registry/hyperblur/glow-border";
-import { Marquee } from "@/registry/hyperblur/marquee";
-import { ShutterReveal } from "@/registry/hyperblur/shutter-reveal";
-import { Scanlines } from "@/registry/hyperblur/scanlines";
-import { DecodeText } from "@/registry/hyperblur/decode-text";
+import { demos } from "@/registry/demos";
 
 const quickPrompt =
   "Browse https://hyperblur.vercel.app for copy-paste visual effects. Each effect installs with `npx shadcn@latest add https://hyperblur.vercel.app/r/<name>.json` and ships as a single client component with no dependencies besides React. Pick the one that fits and wire it in.";
 
-const display = "font-display text-4xl font-bold uppercase tracking-wide";
+const showcaseSlugs = [
+  "neon-text",
+  "hyperspeed",
+  "motion-blur-text",
+  "slide-show",
+  "stat-card",
+  "aurora",
+  "chat-thread",
+  "pay-button",
+  "silk",
+];
+
+const showcase = showcaseSlugs.map((slug) => {
+  const meta = effects.find((e) => e.slug === slug);
+  const category = categories.find((c) => c.id === meta?.category);
+  return { slug, title: meta?.title ?? slug, category: category?.label ?? "" };
+});
 
 export default function Home() {
   return (
@@ -160,42 +169,12 @@ export default function Home() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
           <h2 className="text-3xl font-semibold tracking-tight">See them in action</h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <ShowcaseTile href="/effects/aurora" title="Aurora" category="Overlays" tall>
-              <Aurora />
-              <span className={`${display} relative`}>AURORA</span>
-            </ShowcaseTile>
-            <ShowcaseTile href="/effects/grid-floor" title="Grid Floor" category="Overlays" tall>
-              <GridFloor />
-              <span className={`${display} absolute top-10`}>SYNTHWAVE</span>
-            </ShowcaseTile>
-            <ShowcaseTile href="/effects/glow-border" title="Glow Border + Dot Grid" category="Hover">
-              <DotGrid />
-              <GlowBorder className="relative bg-surface">
-                <div className="px-10 py-8 text-center">
-                  <span className={display}>GLOW</span>
-                  <p className="mt-1 text-sm text-muted">move the cursor</p>
-                </div>
-              </GlowBorder>
-            </ShowcaseTile>
-            <ShowcaseTile href="/effects/shutter-reveal" title="Shutter Reveal + Scanlines" category="Motion">
-              <ShutterReveal trigger="hover">
-                <span className={`${display} px-6 py-3`}>REVEAL</span>
-              </ShutterReveal>
-              <Scanlines opacity={0.18} />
-            </ShowcaseTile>
-            <ShowcaseTile href="/effects/decode-text" title="Decode Text" category="Text">
-              <DecodeText text="DECRYPTING" trigger="hover" className={`${display} text-blue`} />
-            </ShowcaseTile>
-            <ShowcaseTile href="/effects/marquee" title="Marquee" category="Motion">
-              <Marquee className={`${display} w-full`} gap={56}>
-                <span>GLITCH</span>
-                <span>BLUR</span>
-                <span>NEON</span>
-                <span>SPEED</span>
-                <span>REVEAL</span>
-              </Marquee>
-            </ShowcaseTile>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {showcase.map((item) => (
+              <ShowcaseTile key={item.slug} href={`/effects/${item.slug}`} title={item.title} category={item.category}>
+                {demos[item.slug]}
+              </ShowcaseTile>
+            ))}
           </div>
           <div className="mt-8 text-center">
             <Link href="/effects" className="hb-btn hb-btn-ghost">
