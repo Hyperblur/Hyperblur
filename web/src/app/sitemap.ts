@@ -9,6 +9,10 @@ const staticRoutes = [
   "/docs/agents",
   "/templates",
   "/templates/landing",
+  "/templates/pricing",
+  "/templates/portfolio",
+  "/templates/auth",
+  "/templates/coming-soon",
   "/pro",
 ];
 
