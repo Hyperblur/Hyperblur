@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-transition",
+  "type": "registry:component",
+  "title": "Page Transition",
+  "description": "Wrap your page content and animate it in whenever the route changes. Fade, slide, blur or a curtain wipe.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "transitions",
+    "page",
+    "route",
+    "navigation",
+    "wipe",
+    "layout"
+  ],
+  "docs": "https://hyperblur.dev/effects/page-transition",
+  "files": [
+    {
+      "path": "registry/hyperblur/page-transition.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/page-transition.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface PageTransitionProps extends React.HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode;\n  routeKey: string | number;\n  variant?: \"fade\" | \"slide-up\" | \"slide-left\" | \"blur\" | \"curtain\";\n  duration?: number;\n  initial?: boolean;\n}\n\nconst css = `\n@keyframes hb-pt-fade {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n@keyframes hb-pt-slide-up {\n  from { opacity: 0; transform: translateY(28px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n@keyframes hb-pt-slide-left {\n  from { opacity: 0; transform: translateX(48px); }\n  to { opacity: 1; transform: translateX(0); }\n}\n@keyframes hb-pt-blur {\n  from { opacity: 0; filter: blur(16px); transform: scale(1.03); }\n  to { opacity: 1; filter: blur(0); transform: scale(1); }\n}\n@keyframes hb-pt-sweep {\n  from { transform: translateX(0); }\n  to { transform: translateX(101%); }\n}\n.hb-pt { position: relative; }\n.hb-pt-v-slide-up, .hb-pt-v-slide-left, .hb-pt-v-curtain { overflow: hidden; }\n.hb-pt-page { position: relative; }\n.hb-pt-a-fade { animation: hb-pt-fade var(--hb-pt-d) ease both; }\n.hb-pt-a-slide-up { animation: hb-pt-slide-up var(--hb-pt-d) cubic-bezier(.22, 1, .36, 1) backwards; }\n.hb-pt-a-slide-left { animation: hb-pt-slide-left var(--hb-pt-d) cubic-bezier(.22, 1, .36, 1) backwards; }\n.hb-pt-a-blur { animation: hb-pt-blur var(--hb-pt-d) cubic-bezier(.22, 1, .36, 1) backwards; }\n.hb-pt-a-curtain { animation: hb-pt-fade calc(var(--hb-pt-d) * 0.6) ease calc(var(--hb-pt-d) * 0.25) backwards; }\n.hb-pt-curtain {\n  position: absolute;\n  inset: 0;\n  z-index: 10;\n  pointer-events: none;\n  background: linear-gradient(90deg, #0b0b0d, #141417);\n  box-shadow: -1px 0 0 rgba(255, 255, 255, 0.16), -24px 0 48px rgba(0, 0, 0, 0.45);\n  animation: hb-pt-sweep var(--hb-pt-d) cubic-bezier(.76, 0, .24, 1) forwards;\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-pt-page { animation-name: hb-pt-fade !important; animation-timing-function: ease !important; animation-delay: 0s !important; }\n  .hb-pt-curtain { display: none; }\n}\n`;\n\ninterface Track {\n  key: string | number;\n  n: number;\n}\n\nexport function PageTransition({\n  children,\n  routeKey,\n  variant = \"fade\",\n  duration = 0.45,\n  initial = false,\n  className = \"\",\n  style,\n  ...rest\n}: PageTransitionProps) {\n  const [track, setTrack] = React.useState<Track>({ key: routeKey, n: 0 });\n  if (track.key !== routeKey) setTrack({ key: routeKey, n: track.n + 1 });\n\n  const animate = initial || track.n > 0;\n  const vars = {\n    \"--hb-pt-d\": `${Math.max(0.05, duration)}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div className={`hb-pt hb-pt-v-${variant} ${className}`} style={vars} {...rest}>\n      <style href=\"hb-page-transition\" precedence=\"default\">{css}</style>\n      <div key={track.n} className={`hb-pt-page${animate ? ` hb-pt-a-${variant}` : \"\"}`}>\n        {children}\n      </div>\n      {animate && variant === \"curtain\" && <div key={`c${track.n}`} className=\"hb-pt-curtain\" aria-hidden=\"true\" />}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

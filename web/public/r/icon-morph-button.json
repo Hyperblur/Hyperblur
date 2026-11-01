@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-morph-button",
+  "type": "registry:component",
+  "title": "Icon Morph Button",
+  "description": "A label with an icon chip. On hover the icon slides out while a second icon slides in and crossfades.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "buttons",
+    "button",
+    "icon",
+    "morph",
+    "arrow",
+    "download",
+    "hover"
+  ],
+  "docs": "https://hyperblur.dev/effects/icon-morph-button",
+  "files": [
+    {
+      "path": "registry/hyperblur/icon-morph-button.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/icon-morph-button.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport type IconMorphName = \"arrow\" | \"download\" | \"external\" | \"plus\";\n\nexport interface IconMorphButtonProps\n  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, \"color\"> {\n  children: React.ReactNode;\n  icon?: IconMorphName;\n  hoverIcon?: IconMorphName | \"check\";\n  color?: string;\n  rounded?: number;\n  size?: \"sm\" | \"md\" | \"lg\";\n}\n\nconst css = `\n.hb-im {\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  gap: 0.75em;\n  margin: 0;\n  padding: 0.4em 0.4em 0.4em 1.4em;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 600;\n  line-height: 1.2;\n  white-space: nowrap;\n  color: #f4f6fb;\n  background: rgba(255, 255, 255, 0.05);\n  border: 1px solid rgba(255, 255, 255, 0.14);\n  border-radius: var(--hb-r);\n  cursor: pointer;\n  -webkit-tap-highlight-color: transparent;\n  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);\n  --hb-ox: 140%;\n  --hb-oy: 0%;\n}\n.hb-im[data-size=\"sm\"] { font-size: 13px; padding-left: 1.2em; }\n.hb-im[data-size=\"lg\"] { font-size: 17px; padding-left: 1.6em; }\n.hb-im[data-axis=\"y\"] { --hb-ox: 0%; --hb-oy: 140%; }\n.hb-im[data-axis=\"d\"] { --hb-ox: 140%; --hb-oy: -140%; }\n.hb-im-chip {\n  position: relative;\n  display: grid;\n  place-items: center;\n  flex: none;\n  width: 2.1em;\n  height: 2.1em;\n  overflow: hidden;\n  color: #fff;\n  background: var(--hb-c);\n  border-radius: 50%;\n  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n.hb-im-i {\n  grid-area: 1 / 1;\n  width: 1.1em;\n  height: 1.1em;\n  fill: none;\n  stroke: currentColor;\n  stroke-width: 2.2;\n  stroke-linecap: round;\n  stroke-linejoin: round;\n  transition: transform 0.45s cubic-bezier(0.6, 0, 0.2, 1), opacity 0.3s ease;\n}\n.hb-im-a { opacity: 1; transform: none; }\n.hb-im-b {\n  opacity: 0;\n  transform: translate(calc(var(--hb-ox) * -1), calc(var(--hb-oy) * -1));\n}\n.hb-im:hover, .hb-im:focus-visible {\n  border-color: color-mix(in srgb, var(--hb-c) 70%, transparent);\n  background-color: color-mix(in srgb, var(--hb-c) 14%, transparent);\n}\n.hb-im:hover .hb-im-a, .hb-im:focus-visible .hb-im-a {\n  opacity: 0;\n  transform: translate(var(--hb-ox), var(--hb-oy));\n}\n.hb-im:hover .hb-im-b, .hb-im:focus-visible .hb-im-b { opacity: 1; transform: none; }\n.hb-im:hover .hb-im-chip, .hb-im:focus-visible .hb-im-chip { transform: scale(1.08) rotate(-6deg); }\n.hb-im:active { transform: scale(0.97); }\n.hb-im:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }\n.hb-im:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }\n@media (prefers-reduced-motion: reduce) {\n  .hb-im, .hb-im-chip, .hb-im-i { transition-duration: 0.01s; }\n  .hb-im:hover .hb-im-chip, .hb-im:focus-visible .hb-im-chip, .hb-im:active { transform: none; }\n  .hb-im:hover .hb-im-a, .hb-im:focus-visible .hb-im-a { transform: none; }\n  .hb-im-b { transform: none; }\n}\n`;\n\nconst paths: Record<IconMorphName | \"check\", string> = {\n  arrow: \"M5 12h14M13 6l6 6-6 6\",\n  download: \"M12 4v12M7 11l5 5 5-5M5 20h14\",\n  external: \"M7 17L17 7M9 7h8v8\",\n  plus: \"M12 5v14M5 12h14\",\n  check: \"M5 12.5l4.5 4.5L19 7.5\",\n};\n\nconst defaultHover: Record<IconMorphName, IconMorphName | \"check\"> = {\n  arrow: \"check\",\n  download: \"check\",\n  external: \"arrow\",\n  plus: \"check\",\n};\n\nconst axes: Record<IconMorphName, \"x\" | \"y\" | \"d\"> = {\n  arrow: \"x\",\n  download: \"y\",\n  external: \"d\",\n  plus: \"x\",\n};\n\nfunction Glyph({ name, className }: { name: IconMorphName | \"check\"; className: string }) {\n  return (\n    <svg className={`hb-im-i ${className}`} viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n      <path d={paths[name]} />\n    </svg>\n  );\n}\n\nexport function IconMorphButton({\n  children,\n  icon = \"arrow\",\n  hoverIcon,\n  color = \"#2f7bff\",\n  rounded = 9999,\n  size = \"md\",\n  type = \"button\",\n  className = \"\",\n  style,\n  ...rest\n}: IconMorphButtonProps) {\n  const vars = {\n    \"--hb-c\": color,\n    \"--hb-r\": `${rounded}px`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <>\n      <style href=\"hb-icon-morph-button\" precedence=\"default\">{css}</style>\n      <button\n        type={type}\n        className={`hb-im ${className}`}\n        style={vars}\n        data-size={size}\n        data-axis={axes[icon]}\n        {...rest}\n      >\n        <span className=\"hb-im-t\">{children}</span>\n        <span className=\"hb-im-chip\" aria-hidden=\"true\">\n          <Glyph name={icon} className=\"hb-im-a\" />\n          <Glyph name={hoverIcon ?? defaultHover[icon]} className=\"hb-im-b\" />\n        </span>\n      </button>\n    </>\n  );\n}\n"
+    }
+  ]
+}

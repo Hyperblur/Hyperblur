@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "liquid-button",
+  "type": "registry:component",
+  "title": "Liquid Button",
+  "description": "On hover a liquid rises from the bottom with a rippling wavy edge while the label color inverts.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "buttons",
+    "button",
+    "liquid",
+    "wave",
+    "fill",
+    "hover"
+  ],
+  "docs": "https://hyperblur.dev/effects/liquid-button",
+  "files": [
+    {
+      "path": "registry/hyperblur/liquid-button.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/liquid-button.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface LiquidButtonProps\n  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, \"color\"> {\n  children: React.ReactNode;\n  color?: string;\n  duration?: number;\n  rounded?: number;\n  size?: \"sm\" | \"md\" | \"lg\";\n}\n\nconst css = `\n.hb-lb {\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n  isolation: isolate;\n  margin: 0;\n  padding: 0.8em 1.8em;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 600;\n  line-height: 1.2;\n  white-space: nowrap;\n  color: #f4f6fb;\n  background: rgba(255, 255, 255, 0.04);\n  border: 1px solid color-mix(in srgb, var(--hb-c) 65%, transparent);\n  border-radius: var(--hb-r);\n  cursor: pointer;\n  -webkit-tap-highlight-color: transparent;\n  transition:\n    color var(--hb-d) ease 0.08s,\n    border-color var(--hb-d) ease,\n    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n.hb-lb[data-size=\"sm\"] { font-size: 13px; padding: 0.65em 1.45em; }\n.hb-lb[data-size=\"lg\"] { font-size: 17px; padding: 0.9em 2.1em; }\n.hb-lb-fill {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  height: 100%;\n  z-index: -1;\n  pointer-events: none;\n  transform: translateY(calc(100% + 22px));\n  transition: transform var(--hb-d) cubic-bezier(0.3, 0.8, 0.25, 1);\n}\n.hb-lb-body {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: -2px;\n  background: var(--hb-c);\n}\n.hb-lb-wave {\n  position: absolute;\n  left: 0;\n  width: 200%;\n  height: 16px;\n  fill: var(--hb-c);\n}\n.hb-lb-wave-a {\n  top: -15px;\n  animation: hb-lb-slide calc(var(--hb-d) * 3) linear infinite;\n}\n.hb-lb-wave-b {\n  top: -19px;\n  opacity: 0.45;\n  animation: hb-lb-slide calc(var(--hb-d) * 4.5) linear infinite reverse;\n}\n.hb-lb-t { position: relative; }\n.hb-lb:hover, .hb-lb:focus-visible {\n  color: #05070b;\n  border-color: var(--hb-c);\n}\n.hb-lb:hover .hb-lb-fill, .hb-lb:focus-visible .hb-lb-fill { transform: translateY(0); }\n.hb-lb:active { transform: scale(0.97); }\n.hb-lb:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }\n.hb-lb:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }\n@keyframes hb-lb-slide {\n  to { transform: translateX(-50%); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-lb, .hb-lb-fill { transition-duration: 0.01s; }\n  .hb-lb-wave { animation: none; }\n  .hb-lb:active { transform: none; }\n}\n`;\n\nconst wave = \"M0 8 Q25 -2 50 8 T100 8 T150 8 T200 8 V16 H0 Z\";\n\nexport function LiquidButton({\n  children,\n  color = \"#2f7bff\",\n  duration = 0.6,\n  rounded = 9999,\n  size = \"md\",\n  type = \"button\",\n  className = \"\",\n  style,\n  ...rest\n}: LiquidButtonProps) {\n  const vars = {\n    \"--hb-c\": color,\n    \"--hb-d\": `${Math.max(0.05, duration)}s`,\n    \"--hb-r\": `${rounded}px`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <>\n      <style href=\"hb-liquid-button\" precedence=\"default\">{css}</style>\n      <button\n        type={type}\n        className={`hb-lb ${className}`}\n        style={vars}\n        data-size={size}\n        {...rest}\n      >\n        <span className=\"hb-lb-fill\" aria-hidden=\"true\">\n          <span className=\"hb-lb-body\" />\n          <svg className=\"hb-lb-wave hb-lb-wave-b\" viewBox=\"0 0 200 16\" preserveAspectRatio=\"none\">\n            <path d={wave} />\n          </svg>\n          <svg className=\"hb-lb-wave hb-lb-wave-a\" viewBox=\"0 0 200 16\" preserveAspectRatio=\"none\">\n            <path d={wave} />\n          </svg>\n        </span>\n        <span className=\"hb-lb-t\">{children}</span>\n      </button>\n    </>\n  );\n}\n"
+    }
+  ]
+}

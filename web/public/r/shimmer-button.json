@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer-button",
+  "type": "registry:component",
+  "title": "Shimmer Button",
+  "description": "A dark pill with a soft highlight sweeping across its surface and an inner glow that blooms on hover.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "buttons",
+    "button",
+    "shimmer",
+    "glow",
+    "cta",
+    "dark"
+  ],
+  "docs": "https://hyperblur.dev/effects/shimmer-button",
+  "files": [
+    {
+      "path": "registry/hyperblur/shimmer-button.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/shimmer-button.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface ShimmerButtonProps\n  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, \"color\"> {\n  children: React.ReactNode;\n  color?: string;\n  speed?: number;\n  rounded?: number;\n  size?: \"sm\" | \"md\" | \"lg\";\n}\n\nconst css = `\n.hb-sb {\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5em;\n  overflow: hidden;\n  isolation: isolate;\n  margin: 0;\n  padding: 0.8em 1.7em;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 600;\n  line-height: 1.2;\n  letter-spacing: 0.005em;\n  white-space: nowrap;\n  color: #f4f6fb;\n  background: linear-gradient(180deg, #151821, #0a0c11);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: var(--hb-r);\n  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 10px 26px -14px rgba(0, 0, 0, 0.9);\n  cursor: pointer;\n  -webkit-tap-highlight-color: transparent;\n  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.hb-sb[data-size=\"sm\"] { font-size: 13px; padding: 0.65em 1.4em; }\n.hb-sb[data-size=\"lg\"] { font-size: 17px; padding: 0.9em 2em; }\n.hb-sb::before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  z-index: -1;\n  pointer-events: none;\n  background-image: linear-gradient(\n    105deg,\n    transparent 40%,\n    color-mix(in srgb, var(--hb-c) 42%, transparent) 50%,\n    transparent 60%\n  );\n  background-size: 250% 100%;\n  background-repeat: no-repeat;\n  background-position: 100% 0;\n  animation: hb-sb-sweep var(--hb-d) ease-in-out infinite;\n}\n.hb-sb::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  z-index: -1;\n  pointer-events: none;\n  border-radius: inherit;\n  opacity: 0;\n  background: radial-gradient(120% 150% at 50% 130%, color-mix(in srgb, var(--hb-c) 34%, transparent), transparent 62%);\n  box-shadow: inset 0 0 22px color-mix(in srgb, var(--hb-c) 40%, transparent);\n  transition: opacity 0.35s ease;\n}\n.hb-sb:hover {\n  transform: translateY(-1px);\n  border-color: color-mix(in srgb, var(--hb-c) 55%, transparent);\n  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 12px 30px -14px color-mix(in srgb, var(--hb-c) 70%, transparent);\n}\n.hb-sb:hover::after { opacity: 1; }\n.hb-sb:active { transform: scale(0.97); }\n.hb-sb:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }\n.hb-sb:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }\n@keyframes hb-sb-sweep {\n  0% { background-position: 100% 0; }\n  70%, 100% { background-position: 0% 0; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-sb { transition: border-color 0.2s ease, box-shadow 0.2s ease; }\n  .hb-sb::before { animation: none; background-position: 50% 0; opacity: 0.5; }\n  .hb-sb:hover, .hb-sb:active { transform: none; }\n}\n`;\n\nexport function ShimmerButton({\n  children,\n  color = \"#2f7bff\",\n  speed = 1,\n  rounded = 9999,\n  size = \"md\",\n  type = \"button\",\n  className = \"\",\n  style,\n  ...rest\n}: ShimmerButtonProps) {\n  const vars = {\n    \"--hb-c\": color,\n    \"--hb-d\": `${(2.6 / Math.max(0.1, speed)).toFixed(3)}s`,\n    \"--hb-r\": `${rounded}px`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <>\n      <style href=\"hb-shimmer-button\" precedence=\"default\">{css}</style>\n      <button\n        type={type}\n        className={`hb-sb ${className}`}\n        style={vars}\n        data-size={size}\n        {...rest}\n      >\n        {children}\n      </button>\n    </>\n  );\n}\n"
+    }
+  ]
+}
