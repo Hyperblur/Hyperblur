@@ -21,3 +21,7 @@ cd web && npm install && npm run dev
 ## License
 
 MIT. Everything in this repository, including every effect, component and block in the catalog, is free to use in personal and commercial projects. Paid content for Hyperblur Pro will live outside this repository under its own terms.
+
+## Launch kit
+
+`launch/` holds everything needed to list Hyperblur on directories and marketplaces: a checklist with submission links and requirements (`launch/README.md`), paste-ready copy for each platform (`launch/listings.md`) and the images (`launch/assets/`). The MCP Registry manifest lives in `packages/mcp/server.json`.

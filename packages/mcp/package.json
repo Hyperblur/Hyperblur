@@ -1,6 +1,7 @@
 {
   "name": "@hyperblur/mcp",
   "version": "0.2.0",
+  "mcpName": "io.github.Hyperblur/mcp",
   "description": "MCP server for Hyperblur: search, inspect and install copy-paste React effects, components, micro interactions and page blocks from any MCP client.",
   "license": "MIT",
   "type": "module",
