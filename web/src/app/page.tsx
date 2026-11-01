@@ -73,20 +73,23 @@ export default function Home() {
             <div className="p-5">
               <h3 className="font-medium">{effects.length} effects</h3>
               <p className="mt-1 text-sm text-muted">
-                Text, reveals, backgrounds and pointer effects. The stuff you would build from scratch,
-                already done and battle-tested.
+                Text, motion, backgrounds, buttons, charts, agent UI and full page blocks. The stuff you
+                would build from scratch, already done and battle-tested.
               </p>
             </div>
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-line bg-surface">
             <div className="flex h-52 items-center justify-center border-b border-line bg-bg">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid w-full max-w-[490px] grid-cols-3 gap-2 px-4">
                 {categories.map((c) => (
-                  <div key={c.id} className="rounded-xl border border-line bg-surface px-4 py-3 text-sm">
-                    <span className="block font-medium">{c.label}</span>
-                    <span className="text-xs text-muted">
-                      {effects.filter((e) => e.category === c.id).length} effects
+                  <div
+                    key={c.id}
+                    className="flex min-w-0 items-center justify-between gap-2 rounded-lg border border-line bg-surface px-2.5 py-1.5"
+                  >
+                    <span className="truncate text-xs font-medium">{c.label}</span>
+                    <span className="shrink-0 font-mono text-[11px] text-muted">
+                      {effects.filter((e) => e.category === c.id).length}
                     </span>
                   </div>
                 ))}
@@ -95,8 +98,8 @@ export default function Home() {
             <div className="p-5">
               <h3 className="font-medium">Well organized</h3>
               <p className="mt-1 text-sm text-muted">
-                Four clear categories, so you find the right effect without scrolling through a wall of
-                demos.
+                Twelve categories, from text effects to app UI and agent kit, so you find the right piece
+                without scrolling through a wall of demos.
               </p>
             </div>
           </div>

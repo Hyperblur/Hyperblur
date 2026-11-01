@@ -21,7 +21,7 @@ const css = `
 }
 .hb-sf {
   display: inline-flex;
-  gap: 0.08em;
+  gap: 0.14em;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-weight: 700;
   line-height: 1;
@@ -30,9 +30,9 @@ const css = `
   position: relative;
   display: inline-block;
   flex: 0 0 auto;
-  width: 0.78em;
-  height: 1.3em;
-  perspective: 0.9em;
+  width: 0.98em;
+  height: 1.5em;
+  perspective: 1.2em;
   color: var(--hb-sf-fg, #f4f4f5);
 }
 .hb-sf-tile::after {
@@ -54,19 +54,23 @@ const css = `
   right: 0;
   height: 50%;
   overflow: hidden;
-  background: var(--hb-sf-bg, #151517);
+  background: var(--hb-sf-bg, #1c1c20);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   backface-visibility: hidden;
 }
-.hb-sf-top { top: 0; border-radius: 0.1em 0.1em 0 0; transform-origin: 50% 100%; }
-.hb-sf-bot { top: 50%; border-radius: 0 0 0.1em 0.1em; transform-origin: 50% 0; }
+.hb-sf-top { top: 0; border-radius: 0.12em 0.12em 0 0; transform-origin: 50% 100%; }
+.hb-sf-bot { top: 50%; border-radius: 0 0 0.12em 0.12em; transform-origin: 50% 0; background: var(--hb-sf-bg, #19191c); }
 .hb-sf-ch {
   position: absolute;
   left: 0;
   right: 0;
   height: 200%;
+  font-size: 0.92em;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 0.14em;
+  box-sizing: border-box;
 }
 .hb-sf-top .hb-sf-ch { top: 0; }
 .hb-sf-bot .hb-sf-ch { top: -100%; }
