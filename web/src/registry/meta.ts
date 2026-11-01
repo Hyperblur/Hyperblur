@@ -1,4 +1,4 @@
-export type EffectCategory = "text" | "overlay" | "motion" | "hover" | "components" | "micro" | "blocks";
+export type EffectCategory = "text" | "overlay" | "motion" | "hover" | "components" | "micro" | "blocks" | "buttons" | "app-ui" | "agent-kit" | "transitions" | "social";
 
 export interface EffectProp {
   name: string;
@@ -33,10 +33,22 @@ export const categories: { id: EffectCategory; label: string }[] = [
   { id: "hover", label: "Hover & pointer" },
   { id: "components", label: "Components" },
   { id: "micro", label: "Micro" },
+  { id: "buttons", label: "Buttons" },
+  { id: "transitions", label: "Transitions & slides" },
+  { id: "app-ui", label: "App UI & charts" },
+  { id: "agent-kit", label: "Agent kit" },
+  { id: "social", label: "Social & feedback" },
   { id: "blocks", label: "Blocks" },
 ];
 
-export const effects: EffectMeta[] = [
+import { buttonsMeta } from "./parts/buttons.meta.ts";
+import { appUiMeta } from "./parts/app-ui.meta.ts";
+import { appUiMoreMeta } from "./parts/app-ui-more.meta.ts";
+import { agentKitMeta } from "./parts/agent-kit.meta.ts";
+import { transitionsMeta } from "./parts/transitions.meta.ts";
+import { socialMeta } from "./parts/social.meta.ts";
+
+const baseEffects: EffectMeta[] = [
   {
     slug: "glitch-text",
     component: "GlitchText",
@@ -1104,6 +1116,16 @@ export const effects: EffectMeta[] = [
     ],
     usage: '<div className="relative"><CursorTrail variant="ribbon" /><h1>...</h1></div>',
   },
+];
+
+export const effects: EffectMeta[] = [
+  ...baseEffects,
+  ...buttonsMeta,
+  ...transitionsMeta,
+  ...appUiMeta,
+  ...appUiMoreMeta,
+  ...agentKitMeta,
+  ...socialMeta,
 ];
 
 export function getEffect(slug: string): EffectMeta | undefined {
