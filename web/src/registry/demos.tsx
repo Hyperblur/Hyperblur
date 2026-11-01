@@ -429,7 +429,7 @@ const baseDemos: Record<string, ReactNode> = {
         <span className="font-mono text-xs text-white/70">08:42</span>
       </div>
       <Stage className="gap-3 pt-6">
-        <SplitFlapText text="LISBON" padTo={6} className="text-[34px] text-[#ffe9a8]" />
+        <SplitFlapText text="LISBON" padTo={6} className="text-[36px] text-[#ffe9a8]" />
         <div className="flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.14em] text-white/45">
           <span>HB 207</span>
           <span>Gate B12</span>
