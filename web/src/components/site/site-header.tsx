@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { MobileMenu } from "./mobile-menu";
 
 export function SiteHeader() {
   return (
@@ -30,17 +31,20 @@ export function SiteHeader() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <a
-            href="https://github.com/Hyperblur/Hyperblur"
-            className="hb-btn hb-btn-ghost hb-btn-sm"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-          <Link href="/effects" className="hb-btn hb-btn-primary hb-btn-sm">
-            Browse effects
-          </Link>
+          <div className="hidden items-center gap-2 sm:flex">
+            <a
+              href="https://github.com/Hyperblur/Hyperblur"
+              className="hb-btn hb-btn-ghost hb-btn-sm"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+            <Link href="/effects" className="hb-btn hb-btn-primary hb-btn-sm">
+              Browse effects
+            </Link>
+          </div>
+          <MobileMenu />
         </div>
       </div>
     </header>

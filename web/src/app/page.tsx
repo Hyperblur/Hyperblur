@@ -204,7 +204,7 @@ export default function Home() {
 
       <section className="border-t border-line">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-          <div>
+          <div className="min-w-0">
             <h2 className="text-3xl font-semibold tracking-tight">One command, and the code is yours.</h2>
             <p className="mt-4 max-w-md text-muted">
               The shadcn CLI copies the effect&apos;s source into your Next.js, Vite, Astro or Remix project.
@@ -217,7 +217,7 @@ export default function Home() {
               <CopyButton value={quickPrompt} label="Copy prompt for your agent" />
             </div>
           </div>
-          <div className="space-y-3">
+          <div className="min-w-0 space-y-3">
             <div className="overflow-hidden rounded-xl border border-line bg-surface">
               <div className="border-b border-line px-4 py-2 font-mono text-xs text-muted">Terminal</div>
               <pre className="overflow-x-auto p-4 font-mono text-[13px] leading-6 text-ink/90">
