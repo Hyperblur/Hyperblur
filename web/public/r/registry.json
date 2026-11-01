@@ -1358,6 +1358,733 @@
           "target": "components/hyperblur/cursor-trail.tsx"
         }
       ]
+    },
+    {
+      "name": "shimmer-button",
+      "type": "registry:component",
+      "title": "Shimmer Button",
+      "description": "A dark pill with a soft highlight sweeping across its surface and an inner glow that blooms on hover.",
+      "categories": [
+        "buttons",
+        "button",
+        "shimmer",
+        "glow",
+        "cta",
+        "dark"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shimmer-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shimmer-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "border-beam-button",
+      "type": "registry:component",
+      "title": "Border Beam Button",
+      "description": "A thin beam of light travels around the border of a dark button and brightens on hover.",
+      "categories": [
+        "buttons",
+        "button",
+        "border",
+        "beam",
+        "gradient",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/border-beam-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/border-beam-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "liquid-button",
+      "type": "registry:component",
+      "title": "Liquid Button",
+      "description": "On hover a liquid rises from the bottom with a rippling wavy edge while the label color inverts.",
+      "categories": [
+        "buttons",
+        "button",
+        "liquid",
+        "wave",
+        "fill",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/liquid-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/liquid-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icon-morph-button",
+      "type": "registry:component",
+      "title": "Icon Morph Button",
+      "description": "A label with an icon chip. On hover the icon slides out while a second icon slides in and crossfades.",
+      "categories": [
+        "buttons",
+        "button",
+        "icon",
+        "morph",
+        "arrow",
+        "download",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/icon-morph-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/icon-morph-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "confetti-button",
+      "type": "registry:component",
+      "title": "Confetti Button",
+      "description": "Click and a burst of small rectangles and circles pops out and falls with gravity while the label swaps to a success message.",
+      "categories": [
+        "buttons",
+        "button",
+        "confetti",
+        "celebrate",
+        "success",
+        "click"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/confetti-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/confetti-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-button",
+      "type": "registry:component",
+      "title": "Pay Button",
+      "description": "A payment button that moves from idle to processing to success, with a spinner, a drawn check and a pop.",
+      "categories": [
+        "buttons",
+        "button",
+        "payment",
+        "checkout",
+        "loading",
+        "success",
+        "state"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flip-countdown",
+      "type": "registry:component",
+      "title": "Flip Countdown",
+      "description": "A split-flap countdown clock. Each digit folds down in 3D with a soft shadow, grouped into days, hours, minutes and seconds.",
+      "categories": [
+        "transitions",
+        "countdown",
+        "flip",
+        "clock",
+        "timer",
+        "launch"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/flip-countdown.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/flip-countdown.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-transition",
+      "type": "registry:component",
+      "title": "Page Transition",
+      "description": "Wrap your page content and animate it in whenever the route changes. Fade, slide, blur or a curtain wipe.",
+      "categories": [
+        "transitions",
+        "page",
+        "route",
+        "navigation",
+        "wipe",
+        "layout"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/page-transition.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/page-transition.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slide-show",
+      "type": "registry:component",
+      "title": "Slide Show",
+      "description": "A full-bleed slideshow with a slow Ken Burns zoom, animated captions, arrows, dots, an autoplay progress bar, swipe and keyboard control.",
+      "categories": [
+        "transitions",
+        "slideshow",
+        "gallery",
+        "hero",
+        "ken-burns",
+        "fullscreen"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/slide-show.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/slide-show.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtain-reveal",
+      "type": "registry:component",
+      "title": "Curtain Reveal",
+      "description": "Two curtain panels slide apart to uncover your content, with an optional label that fades out first.",
+      "categories": [
+        "transitions",
+        "reveal",
+        "curtain",
+        "intro",
+        "hover",
+        "scroll"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/curtain-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/curtain-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "morph-tabs",
+      "type": "registry:component",
+      "title": "Morph Tabs",
+      "description": "Tabs where the container smoothly resizes to each panel, panels crossfade with a slight scale, and a pill glides between triggers.",
+      "categories": [
+        "transitions",
+        "tabs",
+        "morph",
+        "height",
+        "crossfade",
+        "pill"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/morph-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/morph-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:component",
+      "title": "Sparkline",
+      "description": "A tiny smooth line with an optional area fill and a glowing end dot that draws in on mount.",
+      "categories": [
+        "app-ui",
+        "chart",
+        "sparkline",
+        "svg",
+        "trend",
+        "analytics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sparkline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sparkline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:component",
+      "title": "Stat Card",
+      "description": "KPI card with a counting value, a green or red delta pill, a caption and an embedded sparkline.",
+      "categories": [
+        "app-ui",
+        "kpi",
+        "stat",
+        "metric",
+        "card",
+        "dashboard",
+        "analytics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stat-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stat-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:component",
+      "title": "Bar Chart",
+      "description": "Vertical bars with rounded tops, grid lines, optional stacked series, grow-in motion and a hover tooltip.",
+      "categories": [
+        "app-ui",
+        "chart",
+        "bar",
+        "svg",
+        "stacked",
+        "analytics",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bar-chart.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bar-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "area-chart",
+      "type": "registry:component",
+      "title": "Area Chart",
+      "description": "Smooth monotone line over a gradient area with a hover crosshair, dot and tooltip, and a draw-in animation.",
+      "categories": [
+        "app-ui",
+        "chart",
+        "area",
+        "line",
+        "svg",
+        "timeseries",
+        "analytics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/area-chart.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/area-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "donut-chart",
+      "type": "registry:component",
+      "title": "Donut Chart",
+      "description": "Gapped arc segments that sweep in, a centered total, a percentage legend and hover that expands a segment.",
+      "categories": [
+        "app-ui",
+        "chart",
+        "donut",
+        "pie",
+        "svg",
+        "legend",
+        "analytics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/donut-chart.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/donut-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "Data Table",
+      "description": "Sortable table with sticky header, zebra rows, status pills, an empty state and optional pagination.",
+      "categories": [
+        "app-ui",
+        "table",
+        "data",
+        "sort",
+        "pagination",
+        "pill",
+        "analytics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/data-table.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/data-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:component",
+      "title": "Command Palette",
+      "description": "A Cmd+K modal with fuzzy search, grouped results, arrow-key navigation and a focus trap.",
+      "categories": [
+        "app-ui",
+        "command",
+        "search",
+        "modal",
+        "cmdk",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/command-palette.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/command-palette.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-nav",
+      "type": "registry:component",
+      "title": "Sidebar Nav",
+      "description": "A collapsible app sidebar with a sliding active indicator, badges and icon-only tooltips.",
+      "categories": [
+        "app-ui",
+        "sidebar",
+        "navigation",
+        "collapse",
+        "app shell"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-nav.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "activity-feed",
+      "type": "registry:component",
+      "title": "Activity Feed",
+      "description": "A vertical timeline of events with avatars, detail cards and a staggered entrance.",
+      "categories": [
+        "app-ui",
+        "timeline",
+        "feed",
+        "activity",
+        "audit log"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/activity-feed.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/activity-feed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notification-bell",
+      "type": "registry:component",
+      "title": "Notification Bell",
+      "description": "A bell button with a popping badge, a ring on new items and an unread dropdown.",
+      "categories": [
+        "app-ui",
+        "notifications",
+        "bell",
+        "badge",
+        "dropdown"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/notification-bell.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/notification-bell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs-underline",
+      "type": "registry:component",
+      "title": "Tabs Underline",
+      "description": "Tabs with a measured sliding underline, icons, counts and crossfading panels.",
+      "categories": [
+        "app-ui",
+        "tabs",
+        "underline",
+        "navigation",
+        "panels"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/tabs-underline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/tabs-underline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "kanban-board",
+      "type": "registry:component",
+      "title": "Kanban Board",
+      "description": "Columns of cards you can drag between lists and reorder, with a placeholder slot and add buttons.",
+      "categories": [
+        "app-ui",
+        "kanban",
+        "drag and drop",
+        "board",
+        "pointer events"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/kanban-board.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/kanban-board.tsx"
+        }
+      ]
+    },
+    {
+      "name": "streaming-text",
+      "type": "registry:component",
+      "title": "Streaming Text",
+      "description": "Reveals an assistant reply word by word with a blinking cursor. Supports bold, inline code and line breaks. The server render shows the full text.",
+      "categories": [
+        "agent-kit",
+        "streaming",
+        "chat",
+        "assistant",
+        "typing",
+        "cursor",
+        "agent"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/streaming-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/streaming-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chat-thread",
+      "type": "registry:component",
+      "title": "Chat Thread",
+      "description": "A scrolling conversation with user and assistant bubbles, avatars, timestamps, a streaming last reply, a typing indicator and auto-scroll to the newest message.",
+      "categories": [
+        "agent-kit",
+        "chat",
+        "messages",
+        "assistant",
+        "thread",
+        "streaming",
+        "agent"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/chat-thread.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/chat-thread.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tool-call-card",
+      "type": "registry:component",
+      "title": "Tool Call Card",
+      "description": "A collapsible card for a tool invocation with status, duration, syntax-colored arguments and result, and a copy button.",
+      "categories": [
+        "agent-kit",
+        "tool",
+        "function call",
+        "json",
+        "agent",
+        "collapsible",
+        "status"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/tool-call-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/tool-call-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "thinking-indicator",
+      "type": "registry:component",
+      "title": "Thinking Indicator",
+      "description": "A compact thinking state that cycles through phrases with a fade, as a shimmering label or breathing dots, with an optional elapsed timer.",
+      "categories": [
+        "agent-kit",
+        "thinking",
+        "loading",
+        "shimmer",
+        "status",
+        "assistant",
+        "agent"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/thinking-indicator.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/thinking-indicator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "prompt-bar",
+      "type": "registry:component",
+      "title": "Prompt Bar",
+      "description": "A chat composer with an auto-growing textarea, attach and mic buttons, a model picker and a send button. Enter sends, Shift+Enter adds a line.",
+      "categories": [
+        "agent-kit",
+        "composer",
+        "input",
+        "chat",
+        "textarea",
+        "model picker",
+        "agent"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/prompt-bar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/prompt-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-steps",
+      "type": "registry:component",
+      "title": "Agent Steps",
+      "description": "A vertical plan or trace with pending, active, done and failed steps joined by a connector line that fills as steps complete.",
+      "categories": [
+        "agent-kit",
+        "steps",
+        "plan",
+        "trace",
+        "progress",
+        "timeline",
+        "agent"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/agent-steps.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/agent-steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "like-burst",
+      "type": "registry:component",
+      "title": "Like Burst",
+      "description": "A heart button that fills with a bouncy pop, scatters a ring of particles and rolls its count to the new value.",
+      "categories": [
+        "social",
+        "like",
+        "heart",
+        "button",
+        "burst",
+        "counter",
+        "favorite"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/like-burst.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/like-burst.tsx"
+        }
+      ]
+    },
+    {
+      "name": "review-card",
+      "type": "registry:component",
+      "title": "Review Card",
+      "description": "A customer review with avatar, half-star rating, a Read more clamp, a verified badge and a helpful vote.",
+      "categories": [
+        "social",
+        "review",
+        "rating",
+        "testimonial",
+        "card",
+        "feedback",
+        "reviews"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/review-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/review-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar-stack",
+      "type": "registry:component",
+      "title": "Avatar Stack",
+      "description": "Overlapping avatars with a +N tail. Hovering spreads them apart and shows a name tooltip.",
+      "categories": [
+        "social",
+        "avatar",
+        "stack",
+        "people",
+        "team",
+        "group",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/avatar-stack.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/avatar-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "share-row",
+      "type": "registry:component",
+      "title": "Share Row",
+      "description": "A row of share pills with monochrome glyphs that pick up each platform's accent on hover, a copy-link pill and a native share button.",
+      "categories": [
+        "social",
+        "share",
+        "social",
+        "links",
+        "copy",
+        "clipboard",
+        "buttons"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/share-row.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/share-row.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rating-summary",
+      "type": "registry:component",
+      "title": "Rating Summary",
+      "description": "The average rating as a big number with stars and review total, beside five bars that fill in on mount.",
+      "categories": [
+        "social",
+        "rating",
+        "reviews",
+        "summary",
+        "bars",
+        "stars",
+        "distribution"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/rating-summary.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/rating-summary.tsx"
+        }
+      ]
     }
   ]
 }

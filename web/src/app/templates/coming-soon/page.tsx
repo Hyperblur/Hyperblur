@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Hyperspeed } from "@/registry/hyperblur/hyperspeed";
 import { SplitFlapText } from "@/registry/hyperblur/split-flap-text";
 import { Marquee } from "@/registry/hyperblur/marquee";
-import { Countdown } from "./countdown";
+import { FlipCountdown } from "@/registry/hyperblur/flip-countdown";
 
 export const metadata: Metadata = {
   title: "Coming soon template",
@@ -19,7 +19,7 @@ export default function ComingSoonTemplatePage() {
     <>
       <div className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 sm:px-6">
-          <p className="text-xs text-muted">Template · Coming soon · built from 3 blocks</p>
+          <p className="text-xs text-muted">Template · Coming soon · built from 4 blocks</p>
           <Link href="/effects#blocks" className="hb-btn hb-btn-ghost hb-btn-sm">
             View blocks
           </Link>
@@ -45,7 +45,9 @@ export default function ComingSoonTemplatePage() {
             Twelve hand-tuned code editor themes, drawn on pure black. Easier on your eyes at 2 a.m., sharper at noon.
           </p>
 
-          <Countdown />
+          <div className="w-full max-w-xl">
+            <FlipCountdown target="2026-12-16T00:00:00Z" size={52} labels={["Days", "Hours", "Minutes", "Seconds"]} />
+          </div>
 
           <div className="flex w-full max-w-md flex-col items-stretch gap-2 rounded-3xl border border-white/12 bg-black/50 p-2 backdrop-blur-sm sm:flex-row sm:items-center sm:rounded-full">
             <input

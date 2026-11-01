@@ -3,37 +3,28 @@ import type { ReactNode } from "react";
 import type { EffectMeta } from "@/registry/meta";
 
 const card =
-  "group flex flex-col overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-line-2";
-const preview = "relative flex h-44 items-center justify-center overflow-hidden border-b border-line bg-bg";
+  "group relative flex min-w-0 flex-col rounded-2xl border border-white/[0.06] bg-[#0f0f0f] p-3 transition-colors hover:border-white/[0.12]";
+const preview =
+  "relative flex h-44 items-center justify-center overflow-hidden rounded-xl border border-white/[0.04] bg-[#0a0a0a]";
 
 export function EffectCard({ meta, demo }: { meta: EffectMeta; demo: ReactNode }) {
   const href = `/effects/${meta.slug}`;
-  const body = (
-    <div className="flex items-start justify-between gap-3 p-4">
-      <div className="min-w-0">
-        <h3 className="text-[15px] font-semibold">{meta.title}</h3>
-        <p className="mt-1 text-sm leading-relaxed text-muted">{meta.description}</p>
-      </div>
-    </div>
-  );
-
-  if (meta.category === "blocks") {
-    return (
-      <div className={`${card} relative`}>
-        <div className={preview} aria-hidden="true">
-          <div className="pointer-events-none h-full w-full">{demo}</div>
-        </div>
-        <Link href={href} className="after:absolute after:inset-0 after:content-['']">
-          {body}
-        </Link>
-      </div>
-    );
-  }
-
+  const isBlock = meta.category === "blocks";
   return (
-    <Link href={href} className={card}>
-      <div className={preview}>{demo}</div>
-      {body}
-    </Link>
+    <div className={card}>
+      <div className={preview} aria-hidden={isBlock ? "true" : undefined}>
+        {isBlock ? <div className="pointer-events-none h-full w-full">{demo}</div> : demo}
+      </div>
+      <Link
+        href={href}
+        className={`flex items-start justify-between gap-3 px-2 pb-2 pt-4 ${isBlock ? "after:absolute after:inset-0 after:content-['']" : ""}`}
+      >
+        <div className="min-w-0">
+          <h3 className="text-[15px] font-semibold">{meta.title}</h3>
+          <p className="mt-1 text-sm leading-relaxed text-muted">{meta.description}</p>
+        </div>
+        <span className="mt-0.5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5">↗</span>
+      </Link>
+    </div>
   );
 }

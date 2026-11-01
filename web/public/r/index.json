@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-11-01T00:15:41.872Z",
+  "generatedAt": "2026-11-01T19:47:00.239Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -3512,6 +3512,2063 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/cursor-trail.json",
       "docs": "https://hyperblur.dev/effects/cursor-trail",
       "file": "https://hyperblur.dev/r/cursor-trail.json"
+    },
+    {
+      "slug": "shimmer-button",
+      "component": "ShimmerButton",
+      "title": "Shimmer Button",
+      "description": "A dark pill with a soft highlight sweeping across its surface and an inner glow that blooms on hover.",
+      "category": "buttons",
+      "tags": [
+        "button",
+        "shimmer",
+        "glow",
+        "cta",
+        "dark"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Button label."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Shimmer, hover glow and focus ring color."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Shimmer speed multiplier."
+        },
+        {
+          "name": "rounded",
+          "type": "number",
+          "default": "9999",
+          "description": "Corner radius in pixels. The default makes a pill."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Font size and padding preset."
+        }
+      ],
+      "usage": "<ShimmerButton color=\"#2f7bff\">Start building</ShimmerButton>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/shimmer-button.json",
+      "docs": "https://hyperblur.dev/effects/shimmer-button",
+      "file": "https://hyperblur.dev/r/shimmer-button.json"
+    },
+    {
+      "slug": "border-beam-button",
+      "component": "BorderBeamButton",
+      "title": "Border Beam Button",
+      "description": "A thin beam of light travels around the border of a dark button and brightens on hover.",
+      "category": "buttons",
+      "tags": [
+        "button",
+        "border",
+        "beam",
+        "gradient",
+        "glow"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Button label."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Head color of the beam."
+        },
+        {
+          "name": "secondary",
+          "type": "string",
+          "default": "\"#19c3f5\"",
+          "description": "Tail color of the beam."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "3",
+          "description": "Seconds for one lap around the border."
+        },
+        {
+          "name": "borderWidth",
+          "type": "number",
+          "default": "1.5",
+          "description": "Beam thickness in pixels."
+        },
+        {
+          "name": "rounded",
+          "type": "number",
+          "default": "9999",
+          "description": "Corner radius in pixels. The default makes a pill."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Font size and padding preset."
+        }
+      ],
+      "usage": "<BorderBeamButton duration={3}>Upgrade plan</BorderBeamButton>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/border-beam-button.json",
+      "docs": "https://hyperblur.dev/effects/border-beam-button",
+      "file": "https://hyperblur.dev/r/border-beam-button.json"
+    },
+    {
+      "slug": "liquid-button",
+      "component": "LiquidButton",
+      "title": "Liquid Button",
+      "description": "On hover a liquid rises from the bottom with a rippling wavy edge while the label color inverts.",
+      "category": "buttons",
+      "tags": [
+        "button",
+        "liquid",
+        "wave",
+        "fill",
+        "hover"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Button label."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Border, liquid and focus ring color."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.6",
+          "description": "Seconds for the liquid to fill the button."
+        },
+        {
+          "name": "rounded",
+          "type": "number",
+          "default": "9999",
+          "description": "Corner radius in pixels. The default makes a pill."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Font size and padding preset."
+        }
+      ],
+      "usage": "<LiquidButton color=\"#19c3f5\">Join the list</LiquidButton>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/liquid-button.json",
+      "docs": "https://hyperblur.dev/effects/liquid-button",
+      "file": "https://hyperblur.dev/r/liquid-button.json"
+    },
+    {
+      "slug": "icon-morph-button",
+      "component": "IconMorphButton",
+      "title": "Icon Morph Button",
+      "description": "A label with an icon chip. On hover the icon slides out while a second icon slides in and crossfades.",
+      "category": "buttons",
+      "tags": [
+        "button",
+        "icon",
+        "morph",
+        "arrow",
+        "download",
+        "hover"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Button label."
+        },
+        {
+          "name": "icon",
+          "type": "\"arrow\" | \"download\" | \"external\" | \"plus\"",
+          "default": "\"arrow\"",
+          "description": "Icon shown at rest."
+        },
+        {
+          "name": "hoverIcon",
+          "type": "\"arrow\" | \"download\" | \"external\" | \"plus\" | \"check\"",
+          "description": "Icon shown on hover. Defaults to a check, or an arrow for the external icon."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Icon chip, hover tint and focus ring color."
+        },
+        {
+          "name": "rounded",
+          "type": "number",
+          "default": "9999",
+          "description": "Corner radius in pixels. The default makes a pill."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Font size and padding preset."
+        }
+      ],
+      "usage": "<IconMorphButton icon=\"download\">Download</IconMorphButton>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/icon-morph-button.json",
+      "docs": "https://hyperblur.dev/effects/icon-morph-button",
+      "file": "https://hyperblur.dev/r/icon-morph-button.json"
+    },
+    {
+      "slug": "confetti-button",
+      "component": "ConfettiButton",
+      "title": "Confetti Button",
+      "description": "Click and a burst of small rectangles and circles pops out and falls with gravity while the label swaps to a success message.",
+      "category": "buttons",
+      "tags": [
+        "button",
+        "confetti",
+        "celebrate",
+        "success",
+        "click"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Button label."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#ff4d6d\", \"#ffb703\", \"#2f7bff\", \"#19c3f5\", \"#7cf29a\"]",
+          "description": "Palette the pieces are drawn from. The first color also tints the focus ring."
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "default": "28",
+          "description": "Pieces per burst (capped at 160)."
+        },
+        {
+          "name": "successLabel",
+          "type": "string",
+          "default": "\"Done\"",
+          "description": "Label shown briefly after a click, also announced to screen readers."
+        },
+        {
+          "name": "rounded",
+          "type": "number",
+          "default": "9999",
+          "description": "Corner radius in pixels. The default makes a pill."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Font size and padding preset."
+        }
+      ],
+      "usage": "<ConfettiButton successLabel=\"Shipped!\">Mark complete</ConfettiButton>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/confetti-button.json",
+      "docs": "https://hyperblur.dev/effects/confetti-button",
+      "file": "https://hyperblur.dev/r/confetti-button.json"
+    },
+    {
+      "slug": "pay-button",
+      "component": "PayButton",
+      "title": "Pay Button",
+      "description": "A payment button that moves from idle to processing to success, with a spinner, a drawn check and a pop.",
+      "category": "buttons",
+      "tags": [
+        "button",
+        "payment",
+        "checkout",
+        "loading",
+        "success",
+        "state"
+      ],
+      "props": [
+        {
+          "name": "amount",
+          "type": "string",
+          "required": true,
+          "description": "Price shown on the button, for example \"$29.00\"."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Pay\"",
+          "description": "Text before the amount."
+        },
+        {
+          "name": "successLabel",
+          "type": "string",
+          "default": "\"Paid\"",
+          "description": "Text shown once the payment succeeds."
+        },
+        {
+          "name": "processingMs",
+          "type": "number",
+          "default": "1400",
+          "description": "Milliseconds the processing state lasts."
+        },
+        {
+          "name": "resetMs",
+          "type": "number",
+          "default": "2400",
+          "description": "Milliseconds before returning to idle after success. Use 0 to stay in the success state."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Button and focus ring color."
+        },
+        {
+          "name": "onPaid",
+          "type": "() => void",
+          "description": "Called when the processing state ends in success."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Ignore presses and dim the button."
+        },
+        {
+          "name": "brand",
+          "type": "\"none\" | \"visa\" | \"mastercard\" | \"pix\"",
+          "default": "\"none\"",
+          "description": "Draws a small monochrome mark made of simple shapes next to the amount."
+        },
+        {
+          "name": "rounded",
+          "type": "number",
+          "default": "9999",
+          "description": "Corner radius in pixels. The default makes a pill."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Font size and padding preset."
+        }
+      ],
+      "usage": "<PayButton amount=\"$29.00\" brand=\"visa\" onPaid={() => {}} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/pay-button.json",
+      "docs": "https://hyperblur.dev/effects/pay-button",
+      "file": "https://hyperblur.dev/r/pay-button.json"
+    },
+    {
+      "slug": "flip-countdown",
+      "component": "FlipCountdown",
+      "title": "Flip Countdown",
+      "description": "A split-flap countdown clock. Each digit folds down in 3D with a soft shadow, grouped into days, hours, minutes and seconds.",
+      "category": "transitions",
+      "tags": [
+        "countdown",
+        "flip",
+        "clock",
+        "timer",
+        "launch"
+      ],
+      "props": [
+        {
+          "name": "target",
+          "type": "string",
+          "required": true,
+          "description": "ISO date string to count down to, for example 2026-12-31T00:00:00Z. Digits show -- until the component has mounted, so server and client markup match."
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "default": "[\"Days\", \"Hours\", \"Minutes\", \"Seconds\"]",
+          "description": "Captions under each group, in the order days, hours, minutes, seconds."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#ededed\"",
+          "description": "Digit color."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "48",
+          "description": "Digit font size in pixels. The clock shrinks on its own when its container is too narrow."
+        },
+        {
+          "name": "onComplete",
+          "type": "() => void",
+          "description": "Called once when the countdown reaches zero."
+        },
+        {
+          "name": "hideDays",
+          "type": "boolean",
+          "default": "false",
+          "description": "Drop the days group once less than a day remains."
+        }
+      ],
+      "usage": "<FlipCountdown target=\"2026-12-31T00:00:00Z\" size={48} onComplete={() => console.log(\"Launch\")} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/flip-countdown.json",
+      "docs": "https://hyperblur.dev/effects/flip-countdown",
+      "file": "https://hyperblur.dev/r/flip-countdown.json"
+    },
+    {
+      "slug": "page-transition",
+      "component": "PageTransition",
+      "title": "Page Transition",
+      "description": "Wrap your page content and animate it in whenever the route changes. Fade, slide, blur or a curtain wipe.",
+      "category": "transitions",
+      "tags": [
+        "page",
+        "route",
+        "navigation",
+        "wipe",
+        "layout"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Page content to animate."
+        },
+        {
+          "name": "routeKey",
+          "type": "string | number",
+          "required": true,
+          "description": "Any value that changes between pages, usually usePathname(). A new value replays the transition."
+        },
+        {
+          "name": "variant",
+          "type": "\"fade\" | \"slide-up\" | \"slide-left\" | \"blur\" | \"curtain\"",
+          "default": "\"fade\"",
+          "description": "Which animation plays. With reduced motion every variant becomes a plain crossfade."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "0.45",
+          "description": "Seconds the transition takes."
+        },
+        {
+          "name": "initial",
+          "type": "boolean",
+          "default": "false",
+          "description": "Also animate on first mount, not only on route changes."
+        }
+      ],
+      "usage": "const pathname = usePathname();\n\n<PageTransition routeKey={pathname} variant=\"slide-up\">{children}</PageTransition>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/page-transition.json",
+      "docs": "https://hyperblur.dev/effects/page-transition",
+      "file": "https://hyperblur.dev/r/page-transition.json"
+    },
+    {
+      "slug": "slide-show",
+      "component": "SlideShow",
+      "title": "Slide Show",
+      "description": "A full-bleed slideshow with a slow Ken Burns zoom, animated captions, arrows, dots, an autoplay progress bar, swipe and keyboard control.",
+      "category": "transitions",
+      "tags": [
+        "slideshow",
+        "gallery",
+        "hero",
+        "ken-burns",
+        "fullscreen"
+      ],
+      "props": [
+        {
+          "name": "slides",
+          "type": "{ background: ReactNode; title?: string; text?: string }[]",
+          "description": "Slides with a background and optional caption. Use this or children."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Slides as plain children. Each child becomes the background of one slide."
+        },
+        {
+          "name": "transition",
+          "type": "\"fade\" | \"zoom\" | \"slide\"",
+          "default": "\"zoom\"",
+          "description": "How slides change. Zoom crossfades and adds a slow Ken Burns push on the background."
+        },
+        {
+          "name": "autoplay",
+          "type": "number",
+          "default": "5000",
+          "description": "Milliseconds per slide, shown as a progress bar. 0 turns autoplay off. Pauses on hover and focus, and is off with reduced motion."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Wrap around after the last slide and before the first."
+        },
+        {
+          "name": "arrows",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show previous and next buttons."
+        },
+        {
+          "name": "dots",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the dot indicators."
+        },
+        {
+          "name": "fullscreenButton",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show a button that toggles browser fullscreen."
+        }
+      ],
+      "usage": "<div className=\"h-[420px]\">\n  <SlideShow slides={[{ background: <img src=\"/a.jpg\" alt=\"\" />, title: \"Northern light\" }]} />\n</div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/slide-show.json",
+      "docs": "https://hyperblur.dev/effects/slide-show",
+      "file": "https://hyperblur.dev/r/slide-show.json"
+    },
+    {
+      "slug": "curtain-reveal",
+      "component": "CurtainReveal",
+      "title": "Curtain Reveal",
+      "description": "Two curtain panels slide apart to uncover your content, with an optional label that fades out first.",
+      "category": "transitions",
+      "tags": [
+        "reveal",
+        "curtain",
+        "intro",
+        "hover",
+        "scroll"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Content hidden behind the curtains."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"hover\"",
+          "default": "\"mount\"",
+          "description": "Open on mount, once when scrolled into view, or while hovered or focused."
+        },
+        {
+          "name": "direction",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Panels part left and right, or top and bottom."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#0f0f0f\"",
+          "description": "Curtain color."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1.1",
+          "description": "Seconds the panels take to slide."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "0.3",
+          "description": "Seconds to wait before opening."
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "description": "Logo or text centered on the curtains. It fades out before the panels move."
+        }
+      ],
+      "usage": "<CurtainReveal trigger=\"view\" label=\"HYPERBLUR\">\n  <ProductCard />\n</CurtainReveal>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/curtain-reveal.json",
+      "docs": "https://hyperblur.dev/effects/curtain-reveal",
+      "file": "https://hyperblur.dev/r/curtain-reveal.json"
+    },
+    {
+      "slug": "morph-tabs",
+      "component": "MorphTabs",
+      "title": "Morph Tabs",
+      "description": "Tabs where the container smoothly resizes to each panel, panels crossfade with a slight scale, and a pill glides between triggers.",
+      "category": "transitions",
+      "tags": [
+        "tabs",
+        "morph",
+        "height",
+        "crossfade",
+        "pill"
+      ],
+      "props": [
+        {
+          "name": "tabs",
+          "type": "{ id: string; label: string; content: ReactNode }[]",
+          "required": true,
+          "description": "Tab definitions. Each id must be unique."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "Id of the tab selected first when uncontrolled. Defaults to the first tab."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Id of the selected tab, for controlled use. Pair it with onChange."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Called with the tab id when the selection changes."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color of the sliding pill and focus ring."
+        }
+      ],
+      "usage": "<MorphTabs tabs={[\n  { id: \"a\", label: \"Overview\", content: <p>Short.</p> },\n  { id: \"b\", label: \"Details\", content: <p>Much longer content…</p> },\n]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/morph-tabs.json",
+      "docs": "https://hyperblur.dev/effects/morph-tabs",
+      "file": "https://hyperblur.dev/r/morph-tabs.json"
+    },
+    {
+      "slug": "sparkline",
+      "component": "Sparkline",
+      "title": "Sparkline",
+      "description": "A tiny smooth line with an optional area fill and a glowing end dot that draws in on mount.",
+      "category": "app-ui",
+      "tags": [
+        "chart",
+        "sparkline",
+        "svg",
+        "trend",
+        "analytics"
+      ],
+      "props": [
+        {
+          "name": "data",
+          "type": "number[]",
+          "required": true,
+          "description": "Values to plot, left to right. Needs at least two points to draw a line."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Stroke, area and end dot color."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "40",
+          "description": "Height in pixels. Width fills the parent."
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "default": "2",
+          "description": "Line thickness in pixels."
+        },
+        {
+          "name": "fill",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the gradient area under the line."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draw the line in on mount. Skipped for reduced motion."
+        }
+      ],
+      "usage": "<Sparkline data={[4, 7, 6, 9, 8, 12, 11, 15]} color=\"#22c55e\" height={48} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sparkline.json",
+      "docs": "https://hyperblur.dev/effects/sparkline",
+      "file": "https://hyperblur.dev/r/sparkline.json"
+    },
+    {
+      "slug": "stat-card",
+      "component": "StatCard",
+      "title": "Stat Card",
+      "description": "KPI card with a counting value, a green or red delta pill, a caption and an embedded sparkline.",
+      "category": "app-ui",
+      "tags": [
+        "kpi",
+        "stat",
+        "metric",
+        "card",
+        "dashboard",
+        "analytics"
+      ],
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "Metric name shown above the value."
+        },
+        {
+          "name": "value",
+          "type": "string | number",
+          "required": true,
+          "description": "Headline value. Numbers count up on mount; strings render as given."
+        },
+        {
+          "name": "delta",
+          "type": "number",
+          "description": "Change in percent. Positive shows a green up arrow, negative a red down arrow."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "description": "Small comparison text next to the delta, such as \"vs last month\"."
+        },
+        {
+          "name": "data",
+          "type": "number[]",
+          "description": "Series for the sparkline at the bottom of the card. Hidden when omitted."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Sparkline color."
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text before the number, such as a currency symbol."
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text after the number."
+        },
+        {
+          "name": "decimals",
+          "type": "number",
+          "default": "0",
+          "description": "Fraction digits for numeric values."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale passed to Intl.NumberFormat."
+        }
+      ],
+      "usage": "<StatCard label=\"Monthly revenue\" value={48290} prefix=\"$\" delta={12.4} caption=\"vs last month\" data={[18, 22, 21, 27, 31, 36, 41, 52]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/stat-card.json",
+      "docs": "https://hyperblur.dev/effects/stat-card",
+      "file": "https://hyperblur.dev/r/stat-card.json"
+    },
+    {
+      "slug": "bar-chart",
+      "component": "BarChart",
+      "title": "Bar Chart",
+      "description": "Vertical bars with rounded tops, grid lines, optional stacked series, grow-in motion and a hover tooltip.",
+      "category": "app-ui",
+      "tags": [
+        "chart",
+        "bar",
+        "svg",
+        "stacked",
+        "analytics",
+        "tooltip"
+      ],
+      "props": [
+        {
+          "name": "data",
+          "type": "{ label: string; value: number; value2?: number }[]",
+          "required": true,
+          "description": "One entry per bar. Add value2 to stack a second series on top."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the first series."
+        },
+        {
+          "name": "color2",
+          "type": "string",
+          "default": "\"#6b7a99\"",
+          "description": "Color of the stacked second series."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "200",
+          "description": "Chart height in pixels. Width fills the parent."
+        },
+        {
+          "name": "showGrid",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draw horizontal grid lines."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(n: number) => string",
+          "description": "Formats axis ticks and tooltip values. Defaults to Intl compact notation."
+        },
+        {
+          "name": "seriesLabels",
+          "type": "[string, string]",
+          "default": "[\"Value\", \"Other\"]",
+          "description": "Names of the two series shown in the tooltip when stacked."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale for the default number formatting."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Grow bars from the baseline on mount."
+        }
+      ],
+      "usage": "<BarChart height={200} data={[{ label: \"Mon\", value: 84 }, { label: \"Tue\", value: 126 }, { label: \"Wed\", value: 112 }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/bar-chart.json",
+      "docs": "https://hyperblur.dev/effects/bar-chart",
+      "file": "https://hyperblur.dev/r/bar-chart.json"
+    },
+    {
+      "slug": "area-chart",
+      "component": "AreaChart",
+      "title": "Area Chart",
+      "description": "Smooth monotone line over a gradient area with a hover crosshair, dot and tooltip, and a draw-in animation.",
+      "category": "app-ui",
+      "tags": [
+        "chart",
+        "area",
+        "line",
+        "svg",
+        "timeseries",
+        "analytics"
+      ],
+      "props": [
+        {
+          "name": "data",
+          "type": "{ label: string; value: number }[]",
+          "required": true,
+          "description": "Points in order. Labels appear on the x axis."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Line and gradient color."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "220",
+          "description": "Chart height in pixels. Width fills the parent."
+        },
+        {
+          "name": "smooth",
+          "type": "boolean",
+          "default": "true",
+          "description": "Use a monotone curve instead of straight segments."
+        },
+        {
+          "name": "showDots",
+          "type": "boolean",
+          "default": "false",
+          "description": "Draw a dot on every data point."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(n: number) => string",
+          "description": "Formats axis ticks and tooltip values. Defaults to Intl compact notation."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale for the default number formatting."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draw the line in on mount."
+        }
+      ],
+      "usage": "<AreaChart height={220} data={[{ label: \"Jan\", value: 18200 }, { label: \"Feb\", value: 21400 }, { label: \"Mar\", value: 26100 }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/area-chart.json",
+      "docs": "https://hyperblur.dev/effects/area-chart",
+      "file": "https://hyperblur.dev/r/area-chart.json"
+    },
+    {
+      "slug": "donut-chart",
+      "component": "DonutChart",
+      "title": "Donut Chart",
+      "description": "Gapped arc segments that sweep in, a centered total, a percentage legend and hover that expands a segment.",
+      "category": "app-ui",
+      "tags": [
+        "chart",
+        "donut",
+        "pie",
+        "svg",
+        "legend",
+        "analytics"
+      ],
+      "props": [
+        {
+          "name": "data",
+          "type": "{ label: string; value: number; color?: string }[]",
+          "required": true,
+          "description": "Segments. Colors fall back to a built-in palette."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "180",
+          "description": "Diameter of the ring in pixels."
+        },
+        {
+          "name": "thickness",
+          "type": "number",
+          "default": "22",
+          "description": "Ring thickness in pixels."
+        },
+        {
+          "name": "centerLabel",
+          "type": "string",
+          "description": "Text for the center. Defaults to the formatted total with a Total caption."
+        },
+        {
+          "name": "showLegend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the legend with percentages beside the ring."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale for number and percent formatting."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Sweep the segments in on mount."
+        }
+      ],
+      "usage": "<DonutChart data={[{ label: \"Direct\", value: 4200 }, { label: \"Organic\", value: 3100, color: \"#22c55e\" }, { label: \"Referral\", value: 1600 }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/donut-chart.json",
+      "docs": "https://hyperblur.dev/effects/donut-chart",
+      "file": "https://hyperblur.dev/r/donut-chart.json"
+    },
+    {
+      "slug": "data-table",
+      "component": "DataTable",
+      "title": "Data Table",
+      "description": "Sortable table with sticky header, zebra rows, status pills, an empty state and optional pagination.",
+      "category": "app-ui",
+      "tags": [
+        "table",
+        "data",
+        "sort",
+        "pagination",
+        "pill",
+        "analytics"
+      ],
+      "props": [
+        {
+          "name": "columns",
+          "type": "{ key: string; header: string; align?: \"left\" | \"center\" | \"right\"; render?: (row) => ReactNode; sortable?: boolean }[]",
+          "required": true,
+          "description": "Column definitions. Sorting reads row[key]; render only changes how the cell looks. Columns are sortable unless sortable is false."
+        },
+        {
+          "name": "rows",
+          "type": "Record<string, unknown>[]",
+          "required": true,
+          "description": "Row objects. Click a header to sort ascending, again for descending, again to clear."
+        },
+        {
+          "name": "zebra",
+          "type": "boolean",
+          "default": "true",
+          "description": "Alternate row shading."
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "default": "320",
+          "description": "Height in pixels at which the body scrolls under the sticky header."
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "default": "\"No results\"",
+          "description": "Message shown when there are no rows."
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": "Rows per page. Omit to show everything and hide the pagination footer."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"Data table\"",
+          "description": "Accessible name for the table and its scroll region."
+        }
+      ],
+      "usage": "import { DataTable, pill } from \"@/components/hyperblur/data-table\";\n\n<DataTable\n  columns={[\n    { key: \"customer\", header: \"Customer\" },\n    { key: \"status\", header: \"Status\", render: (row) => pill(String(row.status)) },\n    { key: \"amount\", header: \"Amount\", align: \"right\" },\n  ]}\n  rows={[{ customer: \"Ava Thompson\", status: \"Paid\", amount: 249 }]}\n  pageSize={5}\n/>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/data-table.json",
+      "docs": "https://hyperblur.dev/effects/data-table",
+      "file": "https://hyperblur.dev/r/data-table.json"
+    },
+    {
+      "slug": "command-palette",
+      "component": "CommandPalette",
+      "title": "Command Palette",
+      "description": "A Cmd+K modal with fuzzy search, grouped results, arrow-key navigation and a focus trap.",
+      "category": "app-ui",
+      "tags": [
+        "command",
+        "search",
+        "modal",
+        "cmdk",
+        "keyboard"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "CommandPaletteItem[]",
+          "required": true,
+          "description": "Commands to search. Each item has id, label, optional group, hint (shortcut label), icon and onSelect."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Search…\"",
+          "description": "Placeholder for the search input and the default trigger."
+        },
+        {
+          "name": "hotkey",
+          "type": "boolean",
+          "default": "true",
+          "description": "Toggle the palette with Cmd+K or Ctrl+K."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. Leave undefined to let the palette manage itself."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called whenever the palette asks to open or close."
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "description": "Called with the chosen item id, after the item's own onSelect."
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "default": "false",
+          "description": "Render the panel statically inside its container instead of a modal, without the trigger."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the active icon and matched letters."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Custom content for the trigger button. Defaults to a search field look."
+        }
+      ],
+      "usage": "<CommandPalette\n  items={[\n    { id: \"board\", label: \"Open board\", group: \"Jump to\", hint: \"G B\" },\n    { id: \"issue\", label: \"Create issue\", group: \"Actions\", hint: \"C\" },\n  ]}\n  onSelect={(id) => console.log(id)}\n/>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/command-palette.json",
+      "docs": "https://hyperblur.dev/effects/command-palette",
+      "file": "https://hyperblur.dev/r/command-palette.json"
+    },
+    {
+      "slug": "sidebar-nav",
+      "component": "SidebarNav",
+      "title": "Sidebar Nav",
+      "description": "A collapsible app sidebar with a sliding active indicator, badges and icon-only tooltips.",
+      "category": "app-ui",
+      "tags": [
+        "sidebar",
+        "navigation",
+        "collapse",
+        "app shell"
+      ],
+      "props": [
+        {
+          "name": "groups",
+          "type": "{ label?: string; items: SidebarNavItem[] }[]",
+          "required": true,
+          "description": "Nav groups. Items take id, label, icon, badge and href (renders a link)."
+        },
+        {
+          "name": "active",
+          "type": "string",
+          "description": "Controlled active item id."
+        },
+        {
+          "name": "defaultActive",
+          "type": "string",
+          "description": "Initial active id when uncontrolled. Defaults to the first item."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when an item is chosen."
+        },
+        {
+          "name": "collapsed",
+          "type": "boolean",
+          "description": "Controlled collapsed state."
+        },
+        {
+          "name": "defaultCollapsed",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial collapsed state when uncontrolled."
+        },
+        {
+          "name": "onCollapsedChange",
+          "type": "(collapsed: boolean) => void",
+          "description": "Called when the collapse button is pressed."
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "240",
+          "description": "Expanded width in pixels. The collapsed width is 64px."
+        },
+        {
+          "name": "brand",
+          "type": "ReactNode",
+          "description": "Brand slot in the header. Hidden while collapsed."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "description": "Footer slot, for an account switcher or similar."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the indicator bar, badge and focus ring."
+        }
+      ],
+      "usage": "<SidebarNav\n  width={220}\n  brand=\"Orbit\"\n  defaultActive=\"board\"\n  groups={[\n    {\n      label: \"Workspace\",\n      items: [\n        { id: \"inbox\", label: \"Inbox\", badge: 3 },\n        { id: \"board\", label: \"Board\" },\n      ],\n    },\n  ]}\n/>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sidebar-nav.json",
+      "docs": "https://hyperblur.dev/effects/sidebar-nav",
+      "file": "https://hyperblur.dev/r/sidebar-nav.json"
+    },
+    {
+      "slug": "activity-feed",
+      "component": "ActivityFeed",
+      "title": "Activity Feed",
+      "description": "A vertical timeline of events with avatars, detail cards and a staggered entrance.",
+      "category": "app-ui",
+      "tags": [
+        "timeline",
+        "feed",
+        "activity",
+        "audit log"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "ActivityFeedItem[]",
+          "required": true,
+          "description": "Events in display order, newest first. Each has id, actor, action, time and optional target, avatar, detail and tone."
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "description": "Caps the height in pixels and scrolls the feed. Unlimited when omitted."
+        },
+        {
+          "name": "showLine",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draw the connecting line between avatars."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color used for the default tone dot."
+        }
+      ],
+      "usage": "<ActivityFeed\n  items={[\n    {\n      id: \"1\",\n      actor: \"Maya Chen\",\n      action: \"moved\",\n      target: \"ORB-142\",\n      time: \"2m ago\",\n      tone: \"success\",\n      detail: \"In progress to In review\",\n    },\n  ]}\n/>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/activity-feed.json",
+      "docs": "https://hyperblur.dev/effects/activity-feed",
+      "file": "https://hyperblur.dev/r/activity-feed.json"
+    },
+    {
+      "slug": "notification-bell",
+      "component": "NotificationBell",
+      "title": "Notification Bell",
+      "description": "A bell button with a popping badge, a ring on new items and an unread dropdown.",
+      "category": "app-ui",
+      "tags": [
+        "notifications",
+        "bell",
+        "badge",
+        "dropdown"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "NotificationBellItem[]",
+          "required": true,
+          "description": "Notifications with id, title, time and optional text and read flag."
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "Overrides the badge count. Defaults to the number of unread items."
+        },
+        {
+          "name": "onMarkAllRead",
+          "type": "() => void",
+          "description": "Called when Mark all as read is pressed."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the dropdown opens or closes."
+        },
+        {
+          "name": "align",
+          "type": "\"left\" | \"right\"",
+          "default": "\"right\"",
+          "description": "Which edge of the button the dropdown lines up with."
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "default": "false",
+          "description": "Render the dropdown open and static below the button instead of floating."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the badge and unread dots."
+        }
+      ],
+      "usage": "<NotificationBell\n  items={[\n    { id: \"1\", title: \"Sam commented on ORB-142\", time: \"2m\" },\n    { id: \"2\", title: \"Sprint 24 started\", time: \"1h\", read: true },\n  ]}\n  onMarkAllRead={() => {}}\n/>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/notification-bell.json",
+      "docs": "https://hyperblur.dev/effects/notification-bell",
+      "file": "https://hyperblur.dev/r/notification-bell.json"
+    },
+    {
+      "slug": "tabs-underline",
+      "component": "TabsUnderline",
+      "title": "Tabs Underline",
+      "description": "Tabs with a measured sliding underline, icons, counts and crossfading panels.",
+      "category": "app-ui",
+      "tags": [
+        "tabs",
+        "underline",
+        "navigation",
+        "panels"
+      ],
+      "props": [
+        {
+          "name": "tabs",
+          "type": "TabsUnderlineTab[]",
+          "required": true,
+          "description": "Tabs with id, label, content and optional icon and count."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "Initially selected tab id when uncontrolled. Defaults to the first tab."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Controlled selected tab id."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when the selection changes."
+        },
+        {
+          "name": "fitted",
+          "type": "boolean",
+          "default": "false",
+          "description": "Stretch the tabs to share the full width."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Underline and focus ring color."
+        }
+      ],
+      "usage": "<TabsUnderline\n  tabs={[\n    { id: \"overview\", label: \"Overview\", content: \"Project summary\" },\n    { id: \"issues\", label: \"Issues\", count: 12, content: \"Open issues\" },\n  ]}\n/>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/tabs-underline.json",
+      "docs": "https://hyperblur.dev/effects/tabs-underline",
+      "file": "https://hyperblur.dev/r/tabs-underline.json"
+    },
+    {
+      "slug": "kanban-board",
+      "component": "KanbanBoard",
+      "title": "Kanban Board",
+      "description": "Columns of cards you can drag between lists and reorder, with a placeholder slot and add buttons.",
+      "category": "app-ui",
+      "tags": [
+        "kanban",
+        "drag and drop",
+        "board",
+        "pointer events"
+      ],
+      "props": [
+        {
+          "name": "columns",
+          "type": "KanbanColumn[]",
+          "required": true,
+          "description": "Columns with id, title and cards. Each card has id, title and optional tag and tone (a CSS color for the tag dot)."
+        },
+        {
+          "name": "onChange",
+          "type": "(columns: KanbanColumn[]) => void",
+          "description": "Called with the new columns after a drop, a keyboard move or an added card."
+        },
+        {
+          "name": "newCardLabel",
+          "type": "string",
+          "default": "\"New card\"",
+          "description": "Title given to cards created with the add button."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the drop slot and focus ring."
+        }
+      ],
+      "usage": "<KanbanBoard\n  columns={[\n    { id: \"todo\", title: \"To do\", cards: [{ id: \"a\", title: \"Design review\" }] },\n    { id: \"doing\", title: \"In progress\", cards: [] },\n    { id: \"done\", title: \"Done\", cards: [] },\n  ]}\n  onChange={(next) => console.log(next)}\n/>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/kanban-board.json",
+      "docs": "https://hyperblur.dev/effects/kanban-board",
+      "file": "https://hyperblur.dev/r/kanban-board.json"
+    },
+    {
+      "slug": "streaming-text",
+      "component": "StreamingText",
+      "title": "Streaming Text",
+      "description": "Reveals an assistant reply word by word with a blinking cursor. Supports bold, inline code and line breaks. The server render shows the full text.",
+      "category": "agent-kit",
+      "tags": [
+        "streaming",
+        "chat",
+        "assistant",
+        "typing",
+        "cursor",
+        "agent"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Text to reveal. Supports **bold**, `inline code` and newlines."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "24",
+          "description": "Milliseconds per step."
+        },
+        {
+          "name": "chunk",
+          "type": "number",
+          "default": "0",
+          "description": "Characters revealed per step. 0 reveals one word per step."
+        },
+        {
+          "name": "start",
+          "type": "boolean",
+          "default": "true",
+          "description": "Begin streaming. While false the text stays empty after mount."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Cursor color."
+        },
+        {
+          "name": "cursor",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the blinking cursor while streaming."
+        },
+        {
+          "name": "onDone",
+          "type": "() => void",
+          "description": "Called once the last step is revealed."
+        }
+      ],
+      "usage": "<StreamingText text=\"Deploy **482** is live. Run `relay logs` to follow it.\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/streaming-text.json",
+      "docs": "https://hyperblur.dev/effects/streaming-text",
+      "file": "https://hyperblur.dev/r/streaming-text.json"
+    },
+    {
+      "slug": "chat-thread",
+      "component": "ChatThread",
+      "title": "Chat Thread",
+      "description": "A scrolling conversation with user and assistant bubbles, avatars, timestamps, a streaming last reply, a typing indicator and auto-scroll to the newest message.",
+      "category": "agent-kit",
+      "tags": [
+        "chat",
+        "messages",
+        "assistant",
+        "thread",
+        "streaming",
+        "agent"
+      ],
+      "props": [
+        {
+          "name": "messages",
+          "type": "{ id: string; role: \"user\" | \"assistant\" | \"system\"; content: string; time?: string; streaming?: boolean }[]",
+          "default": "[]",
+          "description": "Messages in order. Content supports **bold**, `inline code` and newlines. Set streaming on the last assistant message to reveal it progressively."
+        },
+        {
+          "name": "userName",
+          "type": "string",
+          "default": "\"You\"",
+          "description": "Name used for the user avatar initials."
+        },
+        {
+          "name": "assistantName",
+          "type": "string",
+          "default": "\"Assistant\"",
+          "description": "Name used for the assistant avatar initials and typing label."
+        },
+        {
+          "name": "avatars",
+          "type": "{ user?: ReactNode; assistant?: ReactNode }",
+          "description": "Custom avatar content. Defaults to initials."
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "default": "360",
+          "description": "Maximum height in pixels before the thread scrolls."
+        },
+        {
+          "name": "typing",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show the assistant typing indicator after the last message."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color of user bubbles."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "24",
+          "description": "Milliseconds per word for a streaming message."
+        }
+      ],
+      "usage": "<ChatThread messages={[{ id: \"1\", role: \"user\", content: \"Hello\" }, { id: \"2\", role: \"assistant\", content: \"Hi, how can I help?\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/chat-thread.json",
+      "docs": "https://hyperblur.dev/effects/chat-thread",
+      "file": "https://hyperblur.dev/r/chat-thread.json"
+    },
+    {
+      "slug": "tool-call-card",
+      "component": "ToolCallCard",
+      "title": "Tool Call Card",
+      "description": "A collapsible card for a tool invocation with status, duration, syntax-colored arguments and result, and a copy button.",
+      "category": "agent-kit",
+      "tags": [
+        "tool",
+        "function call",
+        "json",
+        "agent",
+        "collapsible",
+        "status"
+      ],
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"tool_call\"",
+          "description": "Tool name shown in the header."
+        },
+        {
+          "name": "status",
+          "type": "\"running\" | \"done\" | \"error\"",
+          "default": "\"done\"",
+          "description": "Shows a spinner, a check or a cross."
+        },
+        {
+          "name": "duration",
+          "type": "number | string",
+          "description": "Elapsed time. Numbers are milliseconds and render as 420ms or 1.2s."
+        },
+        {
+          "name": "args",
+          "type": "object | unknown[] | string",
+          "description": "Arguments, rendered as JSON-like text. JSON strings are pretty-printed."
+        },
+        {
+          "name": "result",
+          "type": "object | unknown[] | string",
+          "description": "Result, rendered like args, with a copy button."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Start expanded."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus and running-state accent."
+        }
+      ],
+      "usage": "<ToolCallCard name=\"search_docs\" duration={420} args={{ query: \"rollback\" }} result={{ hits: 3 }} defaultOpen />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/tool-call-card.json",
+      "docs": "https://hyperblur.dev/effects/tool-call-card",
+      "file": "https://hyperblur.dev/r/tool-call-card.json"
+    },
+    {
+      "slug": "thinking-indicator",
+      "component": "ThinkingIndicator",
+      "title": "Thinking Indicator",
+      "description": "A compact thinking state that cycles through phrases with a fade, as a shimmering label or breathing dots, with an optional elapsed timer.",
+      "category": "agent-kit",
+      "tags": [
+        "thinking",
+        "loading",
+        "shimmer",
+        "status",
+        "assistant",
+        "agent"
+      ],
+      "props": [
+        {
+          "name": "phrases",
+          "type": "string[]",
+          "default": "[\"Thinking\", \"Searching\", \"Writing\"]",
+          "description": "Labels to cycle through."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "1800",
+          "description": "Milliseconds between phrases."
+        },
+        {
+          "name": "showTimer",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show elapsed time next to the label."
+        },
+        {
+          "name": "variant",
+          "type": "\"dots\" | \"shimmer\"",
+          "default": "\"shimmer\"",
+          "description": "Shimmering label, or breathing dots beside a plain label."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Dot color for the dots variant."
+        }
+      ],
+      "usage": "<ThinkingIndicator phrases={[\"Thinking\", \"Searching\"]} showTimer />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/thinking-indicator.json",
+      "docs": "https://hyperblur.dev/effects/thinking-indicator",
+      "file": "https://hyperblur.dev/r/thinking-indicator.json"
+    },
+    {
+      "slug": "prompt-bar",
+      "component": "PromptBar",
+      "title": "Prompt Bar",
+      "description": "A chat composer with an auto-growing textarea, attach and mic buttons, a model picker and a send button. Enter sends, Shift+Enter adds a line.",
+      "category": "agent-kit",
+      "tags": [
+        "composer",
+        "input",
+        "chat",
+        "textarea",
+        "model picker",
+        "agent"
+      ],
+      "props": [
+        {
+          "name": "models",
+          "type": "string[]",
+          "default": "[\"default\"]",
+          "description": "Models offered in the picker."
+        },
+        {
+          "name": "defaultModel",
+          "type": "string",
+          "description": "Initially selected model. Defaults to the first entry."
+        },
+        {
+          "name": "maxRows",
+          "type": "number",
+          "default": "6",
+          "description": "Rows the textarea grows to before it scrolls."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Send a message\"",
+          "description": "Placeholder and accessible label of the textarea."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Disable the whole composer."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring and send button color."
+        },
+        {
+          "name": "attachIcon",
+          "type": "ReactNode",
+          "description": "Replaces the default attach icon."
+        },
+        {
+          "name": "micIcon",
+          "type": "ReactNode",
+          "description": "Replaces the default mic icon."
+        },
+        {
+          "name": "onAttach",
+          "type": "() => void",
+          "description": "Called when the attach button is pressed."
+        },
+        {
+          "name": "onMic",
+          "type": "() => void",
+          "description": "Called when the mic button is pressed."
+        },
+        {
+          "name": "onSend",
+          "type": "(text: string, model: string) => void",
+          "description": "Called with the trimmed text and the selected model. The field clears afterwards."
+        }
+      ],
+      "usage": "<PromptBar models={[\"relay-2\", \"relay-2-mini\"]} onSend={(text, model) => send(text, model)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/prompt-bar.json",
+      "docs": "https://hyperblur.dev/effects/prompt-bar",
+      "file": "https://hyperblur.dev/r/prompt-bar.json"
+    },
+    {
+      "slug": "agent-steps",
+      "component": "AgentSteps",
+      "title": "Agent Steps",
+      "description": "A vertical plan or trace with pending, active, done and failed steps joined by a connector line that fills as steps complete.",
+      "category": "agent-kit",
+      "tags": [
+        "steps",
+        "plan",
+        "trace",
+        "progress",
+        "timeline",
+        "agent"
+      ],
+      "props": [
+        {
+          "name": "steps",
+          "type": "{ id: string; title: string; detail?: string; status?: \"pending\" | \"active\" | \"done\" | \"failed\" }[]",
+          "default": "[]",
+          "description": "Steps in order. A step status overrides activeIndex."
+        },
+        {
+          "name": "activeIndex",
+          "type": "number",
+          "description": "Steps before it are done, it is active, the rest are pending."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent for the spinner, check and connector fill."
+        },
+        {
+          "name": "compact",
+          "type": "boolean",
+          "default": "false",
+          "description": "Tighter spacing and smaller text."
+        }
+      ],
+      "usage": "<AgentSteps activeIndex={1} steps={[{ id: \"a\", title: \"Read config\" }, { id: \"b\", title: \"Run checks\" }, { id: \"c\", title: \"Ship\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/agent-steps.json",
+      "docs": "https://hyperblur.dev/effects/agent-steps",
+      "file": "https://hyperblur.dev/r/agent-steps.json"
+    },
+    {
+      "slug": "like-burst",
+      "component": "LikeBurst",
+      "title": "Like Burst",
+      "description": "A heart button that fills with a bouncy pop, scatters a ring of particles and rolls its count to the new value.",
+      "category": "social",
+      "tags": [
+        "like",
+        "heart",
+        "button",
+        "burst",
+        "counter",
+        "favorite"
+      ],
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "0",
+          "description": "Total count at the initial liked state. Liking adds one to it, unliking takes it back."
+        },
+        {
+          "name": "liked",
+          "type": "boolean",
+          "description": "Controlled liked state. Pair with onChange."
+        },
+        {
+          "name": "defaultLiked",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial liked state when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(liked: boolean, count: number) => void",
+          "description": "Called on every toggle with the new liked state and the new count."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#ff4d6d\"",
+          "description": "Heart fill, ring and particle color."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24",
+          "description": "Heart size in pixels. The button and count scale with it."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Like\"",
+          "description": "Accessible name of the toggle button."
+        }
+      ],
+      "usage": "<LikeBurst count={1284} onChange={(liked, count) => console.log(liked, count)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/like-burst.json",
+      "docs": "https://hyperblur.dev/effects/like-burst",
+      "file": "https://hyperblur.dev/r/like-burst.json"
+    },
+    {
+      "slug": "review-card",
+      "component": "ReviewCard",
+      "title": "Review Card",
+      "description": "A customer review with avatar, half-star rating, a Read more clamp, a verified badge and a helpful vote.",
+      "category": "social",
+      "tags": [
+        "review",
+        "rating",
+        "testimonial",
+        "card",
+        "feedback",
+        "reviews"
+      ],
+      "props": [
+        {
+          "name": "rating",
+          "type": "number",
+          "default": "5",
+          "description": "Rating from 0 to 5. Rounded to the nearest half star."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"Anonymous\"",
+          "description": "Reviewer name. Also seeds the initials avatar color."
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Date text shown at the top right. Hidden when empty."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Short headline next to the stars."
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Review body. Clamped to `lines` with a Read more toggle when it overflows."
+        },
+        {
+          "name": "verified",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show the Verified badge next to the name."
+        },
+        {
+          "name": "helpful",
+          "type": "number",
+          "default": "0",
+          "description": "Starting helpful count. The vote button toggles one more on top."
+        },
+        {
+          "name": "avatar",
+          "type": "string",
+          "description": "Avatar image URL. Initials are shown when missing or when the image fails to load."
+        },
+        {
+          "name": "lines",
+          "type": "number",
+          "default": "3",
+          "description": "Number of text lines shown before the Read more toggle appears."
+        }
+      ],
+      "usage": "<ReviewCard name=\"Maya J.\" rating={4.5} title=\"Worth it\" text=\"Arrived early and healthy.\" verified helpful={12} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/review-card.json",
+      "docs": "https://hyperblur.dev/effects/review-card",
+      "file": "https://hyperblur.dev/r/review-card.json"
+    },
+    {
+      "slug": "avatar-stack",
+      "component": "AvatarStack",
+      "title": "Avatar Stack",
+      "description": "Overlapping avatars with a +N tail. Hovering spreads them apart and shows a name tooltip.",
+      "category": "social",
+      "tags": [
+        "avatar",
+        "stack",
+        "people",
+        "team",
+        "group",
+        "tooltip"
+      ],
+      "props": [
+        {
+          "name": "people",
+          "type": "{ name: string; image?: string; color?: string }[]",
+          "default": "[]",
+          "description": "People to show. Without an image the initials render on a color derived from the name, or on `color` when given."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "40",
+          "description": "Avatar diameter in pixels."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "5",
+          "description": "Most avatars to show. Anyone beyond it moves into the +N tail."
+        },
+        {
+          "name": "ring",
+          "type": "string",
+          "default": "\"#111111\"",
+          "description": "Color of the ring around each avatar. Match it to the surface behind the stack."
+        },
+        {
+          "name": "extra",
+          "type": "number",
+          "default": "0",
+          "description": "People you know about but did not list. Added to the +N tail."
+        }
+      ],
+      "usage": "<AvatarStack people={[{ name: \"Ada Lovelace\" }, { name: \"Alan Turing\" }]} extra={12} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/avatar-stack.json",
+      "docs": "https://hyperblur.dev/effects/avatar-stack",
+      "file": "https://hyperblur.dev/r/avatar-stack.json"
+    },
+    {
+      "slug": "share-row",
+      "component": "ShareRow",
+      "title": "Share Row",
+      "description": "A row of share pills with monochrome glyphs that pick up each platform's accent on hover, a copy-link pill and a native share button.",
+      "category": "social",
+      "tags": [
+        "share",
+        "social",
+        "links",
+        "copy",
+        "clipboard",
+        "buttons"
+      ],
+      "props": [
+        {
+          "name": "links",
+          "type": "{ id: \"x\" | \"linkedin\" | \"facebook\" | \"whatsapp\" | \"email\" | \"copy\" | \"link\"; href?: string; label?: string }[]",
+          "default": "[x, linkedin, email, copy]",
+          "description": "Pills to render. Share URLs are built from title, url and text unless href is given. The copy pill briefly reads Copied."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Page title used for the post text, email subject and native share sheet."
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "default": "\"\"",
+          "description": "URL to share. Falls back to the current page address when empty."
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra message text for the post, email body and native share sheet."
+        },
+        {
+          "name": "iconOnly",
+          "type": "boolean",
+          "default": "false",
+          "description": "Hide the pill labels and keep only the glyphs. Labels stay available to screen readers and as tooltips."
+        }
+      ],
+      "usage": "<ShareRow title=\"Notes from the greenhouse\" url={postUrl} links={[{ id: \"x\" }, { id: \"email\" }, { id: \"copy\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/share-row.json",
+      "docs": "https://hyperblur.dev/effects/share-row",
+      "file": "https://hyperblur.dev/r/share-row.json"
+    },
+    {
+      "slug": "rating-summary",
+      "component": "RatingSummary",
+      "title": "Rating Summary",
+      "description": "The average rating as a big number with stars and review total, beside five bars that fill in on mount.",
+      "category": "social",
+      "tags": [
+        "rating",
+        "reviews",
+        "summary",
+        "bars",
+        "stars",
+        "distribution"
+      ],
+      "props": [
+        {
+          "name": "counts",
+          "type": "{ 5: number; 4: number; 3: number; 2: number; 1: number } | number[]",
+          "default": "sample counts",
+          "description": "Review counts per star level. An array is read from five stars down to one star."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#f5b301\"",
+          "description": "Color of the stars and bar fills."
+        },
+        {
+          "name": "showPercent",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show a percentage at the end of each bar. When false the raw count is shown."
+        }
+      ],
+      "usage": "<RatingSummary counts={{ 5: 1700, 4: 420, 3: 100, 2: 50, 1: 40 }} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/rating-summary.json",
+      "docs": "https://hyperblur.dev/effects/rating-summary",
+      "file": "https://hyperblur.dev/r/rating-summary.json"
     }
   ]
 }

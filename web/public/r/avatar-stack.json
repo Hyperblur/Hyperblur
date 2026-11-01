@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-stack",
+  "type": "registry:component",
+  "title": "Avatar Stack",
+  "description": "Overlapping avatars with a +N tail. Hovering spreads them apart and shows a name tooltip.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "social",
+    "avatar",
+    "stack",
+    "people",
+    "team",
+    "group",
+    "tooltip"
+  ],
+  "docs": "https://hyperblur.dev/effects/avatar-stack",
+  "files": [
+    {
+      "path": "registry/hyperblur/avatar-stack.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/avatar-stack.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface AvatarPerson {\n  name: string;\n  image?: string;\n  color?: string;\n}\n\nexport interface AvatarStackProps extends React.HTMLAttributes<HTMLUListElement> {\n  size?: number;\n  max?: number;\n  ring?: string;\n  people?: AvatarPerson[];\n  extra?: number;\n}\n\nconst css = `\n.hb-as {\n  display: inline-flex;\n  align-items: center;\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  font-family: inherit;\n}\n.hb-as-i {\n  position: relative;\n  z-index: 1;\n  flex: none;\n  width: var(--hb-s);\n  height: var(--hb-s);\n  margin: 0 0 0 calc(var(--hb-s) * -0.3);\n  padding: 0;\n  transition: margin-left 0.35s cubic-bezier(0.3, 1.4, 0.5, 1);\n}\n.hb-as-i:first-child { margin-left: 0; }\n.hb-as:hover .hb-as-i:not(:first-child),\n.hb-as:focus-within .hb-as-i:not(:first-child) { margin-left: 6px; }\n.hb-as-i:hover, .hb-as-i:focus-within { z-index: 3; }\n.hb-as-a {\n  position: relative;\n  display: grid;\n  place-items: center;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  border-radius: 50%;\n  background: var(--hb-bg);\n  color: var(--hb-fg);\n  box-shadow: 0 0 0 2px var(--hb-r);\n  font-size: calc(var(--hb-s) * 0.36);\n  font-weight: 600;\n  letter-spacing: 0.02em;\n  line-height: 1;\n  user-select: none;\n  outline: none;\n  transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1);\n}\n.hb-as-img {\n  position: absolute;\n  inset: 0;\n  background-position: center;\n  background-size: cover;\n}\n.hb-as-i:hover .hb-as-a,\n.hb-as-a:focus-visible { transform: translateY(-3px); }\n.hb-as-a:focus-visible { box-shadow: 0 0 0 2px var(--hb-r), 0 0 0 4px #ededed; }\n.hb-as-tail {\n  --hb-bg: #1f1f1f;\n  --hb-fg: #bdbdbd;\n  font-size: calc(var(--hb-s) * 0.32);\n}\n.hb-as-tip {\n  position: absolute;\n  bottom: calc(100% + 8px);\n  left: 50%;\n  padding: 4px 8px;\n  border: 1px solid #262626;\n  border-radius: 6px;\n  background: #171717;\n  color: #ededed;\n  font-size: 12px;\n  font-weight: 500;\n  line-height: 1.3;\n  white-space: nowrap;\n  pointer-events: none;\n  opacity: 0;\n  transform: translate(-50%, 4px);\n  transition: opacity 0.15s ease, transform 0.15s ease;\n}\n.hb-as-i:hover .hb-as-tip,\n.hb-as-i:focus-within .hb-as-tip {\n  opacity: 1;\n  transform: translate(-50%, 0);\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-as-i, .hb-as-a, .hb-as-tip { transition: none; }\n  .hb-as-i:hover .hb-as-a, .hb-as-a:focus-visible { transform: none; }\n}\n`;\n\nfunction hash(input: string) {\n  let h = 0;\n  for (let i = 0; i < input.length; i++) h = (Math.imul(h, 31) + input.charCodeAt(i)) >>> 0;\n  return h;\n}\n\nfunction initials(name: string) {\n  const words = name.trim().split(/\\s+/).filter(Boolean);\n  if (words.length === 0) return \"?\";\n  const first = words[0][0] ?? \"\";\n  const last = words.length > 1 ? (words[words.length - 1][0] ?? \"\") : \"\";\n  return (first + last).toUpperCase();\n}\n\nexport function AvatarStack({\n  size = 40,\n  max = 5,\n  ring = \"#111111\",\n  people = [],\n  extra = 0,\n  className = \"\",\n  style,\n  ...rest\n}: AvatarStackProps) {\n  const limit = Math.max(1, Math.round(max));\n  const shown = people.slice(0, limit);\n  const hidden = Math.max(0, people.length - shown.length) + Math.max(0, Math.round(extra));\n\n  const vars = {\n    \"--hb-s\": `${size}px`,\n    \"--hb-r\": ring,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <ul\n      role=\"list\"\n      aria-label={`${people.length + Math.max(0, Math.round(extra))} people`}\n      className={`hb-as ${className}`}\n      style={vars}\n      {...rest}\n    >\n      <style href=\"hb-avatar-stack\" precedence=\"default\">{css}</style>\n      {shown.map((person, i) => {\n        const hue = hash(person.name) % 360;\n        const colors = {\n          \"--hb-bg\": person.color ?? `hsl(${hue} 42% 30%)`,\n          \"--hb-fg\": person.color ? \"#ffffff\" : `hsl(${hue} 70% 88%)`,\n        } as React.CSSProperties;\n        return (\n          <li key={`${person.name}-${i}`} className=\"hb-as-i\">\n            <span className=\"hb-as-a\" tabIndex={0} role=\"img\" aria-label={person.name} style={colors}>\n              {initials(person.name)}\n              {person.image && (\n                <span\n                  className=\"hb-as-img\"\n                  style={{ backgroundImage: `url(\"${person.image.replace(/\"/g, \"%22\")}\")` }}\n                />\n              )}\n            </span>\n            <span className=\"hb-as-tip\" aria-hidden=\"true\">\n              {person.name}\n            </span>\n          </li>\n        );\n      })}\n      {hidden > 0 && (\n        <li className=\"hb-as-i\">\n          <span className=\"hb-as-a hb-as-tail\" role=\"img\" aria-label={`${hidden} more`}>\n            {`+${hidden.toLocaleString(\"en-US\")}`}\n          </span>\n        </li>\n      )}\n    </ul>\n  );\n}\n"
+    }
+  ]
+}

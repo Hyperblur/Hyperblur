@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "thinking-indicator",
+  "type": "registry:component",
+  "title": "Thinking Indicator",
+  "description": "A compact thinking state that cycles through phrases with a fade, as a shimmering label or breathing dots, with an optional elapsed timer.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "agent-kit",
+    "thinking",
+    "loading",
+    "shimmer",
+    "status",
+    "assistant",
+    "agent"
+  ],
+  "docs": "https://hyperblur.dev/effects/thinking-indicator",
+  "files": [
+    {
+      "path": "registry/hyperblur/thinking-indicator.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/thinking-indicator.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface ThinkingIndicatorProps extends Omit<React.HTMLAttributes<HTMLDivElement>, \"children\"> {\n  phrases?: string[];\n  interval?: number;\n  showTimer?: boolean;\n  variant?: \"dots\" | \"shimmer\";\n  color?: string;\n}\n\nconst css = `\n@keyframes hb-ti-breathe {\n  0%, 100% { opacity: .35; transform: scale(.7); }\n  50% { opacity: 1; transform: scale(1); }\n}\n@keyframes hb-ti-sheen {\n  from { background-position: 100% 0; }\n  to { background-position: 0 0; }\n}\n@keyframes hb-ti-in {\n  from { opacity: 0; transform: translateY(4px); }\n  to { opacity: 1; transform: none; }\n}\n.hb-ti {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  color: #8f8f8f;\n  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;\n  font-size: 13px;\n  line-height: 1.4;\n}\n.hb-ti-dots { display: inline-flex; gap: 4px; align-items: center; }\n.hb-ti-dots i {\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: var(--hb-ti-color, #2f7bff);\n  animation: hb-ti-breathe 1.4s ease-in-out infinite;\n}\n.hb-ti-dots i:nth-child(2) { animation-delay: .18s; }\n.hb-ti-dots i:nth-child(3) { animation-delay: .36s; }\n.hb-ti-label { display: inline-block; animation: hb-ti-in .35s ease both; }\n.hb-ti[data-variant=\"shimmer\"] .hb-ti-label {\n  color: transparent;\n  background-image: linear-gradient(90deg, #6b6b6b 0%, #6b6b6b 38%, #ededed 50%, #6b6b6b 62%, #6b6b6b 100%);\n  background-size: 260% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: hb-ti-in .35s ease both, hb-ti-sheen 2s linear infinite;\n}\n.hb-ti-time {\n  padding: 1px 6px;\n  border: 1px solid #262626;\n  border-radius: 999px;\n  color: #8f8f8f;\n  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;\n  font-size: 11px;\n  font-variant-numeric: tabular-nums;\n  background: #111111;\n}\n.hb-ti-sr {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  overflow: hidden;\n  clip-path: inset(50%);\n  white-space: nowrap;\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-ti-dots i { animation: none; opacity: .8; transform: none; }\n  .hb-ti-label, .hb-ti[data-variant=\"shimmer\"] .hb-ti-label { animation: none; }\n  .hb-ti[data-variant=\"shimmer\"] .hb-ti-label { color: #b5b5b5; background: none; }\n}\n`;\n\nfunction formatElapsed(total: number) {\n  if (total < 60) return `${total}s`;\n  const m = Math.floor(total / 60);\n  const s = total % 60;\n  return `${m}:${s < 10 ? \"0\" : \"\"}${s}`;\n}\n\nexport function ThinkingIndicator({\n  phrases = [\"Thinking\", \"Searching\", \"Writing\"],\n  interval = 1800,\n  showTimer = false,\n  variant = \"shimmer\",\n  color = \"#2f7bff\",\n  className = \"\",\n  style,\n  ...rest\n}: ThinkingIndicatorProps) {\n  const [index, setIndex] = React.useState(0);\n  const [elapsed, setElapsed] = React.useState(0);\n  const key = phrases.join(\"\\u0001\");\n  const count = phrases.length;\n\n  React.useEffect(() => {\n    if (count < 2) return;\n    const id = window.setInterval(() => setIndex((i) => (i + 1) % count), Math.max(300, interval));\n    return () => window.clearInterval(id);\n  }, [key, count, interval]);\n\n  React.useEffect(() => {\n    if (!showTimer) return;\n    const id = window.setInterval(() => setElapsed((s) => s + 1), 1000);\n    return () => window.clearInterval(id);\n  }, [showTimer]);\n\n  const current = count > 0 ? phrases[index % count] : \"Thinking\";\n\n  return (\n    <div\n      className={`hb-ti ${className}`}\n      style={{ \"--hb-ti-color\": color, ...style } as React.CSSProperties}\n      data-variant={variant}\n      role=\"status\"\n      {...rest}\n    >\n      <style href=\"hb-thinking-indicator\" precedence=\"default\">{css}</style>\n      <span className=\"hb-ti-sr\">{count > 0 ? phrases[0] : \"Thinking\"}</span>\n      {variant === \"dots\" ? (\n        <span className=\"hb-ti-dots\" aria-hidden=\"true\">\n          <i />\n          <i />\n          <i />\n        </span>\n      ) : null}\n      <span className=\"hb-ti-label\" key={index} aria-hidden=\"true\">\n        {current}\n        {variant === \"shimmer\" ? \"...\" : \"\"}\n      </span>\n      {showTimer ? (\n        <span className=\"hb-ti-time\" aria-hidden=\"true\">\n          {formatElapsed(elapsed)}\n        </span>\n      ) : null}\n    </div>\n  );\n}\n"
+    }
+  ]
+}
