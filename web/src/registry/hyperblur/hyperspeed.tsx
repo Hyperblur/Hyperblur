@@ -12,8 +12,8 @@ export interface HyperspeedProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const css = `
-.hb-hs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.hb-hs-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hb-hsp { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hb-hsp-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 `;
 
 function rnd(i: number, salt: number, seed: number) {
@@ -236,9 +236,9 @@ export function Hyperspeed({
   }, [color, accent, count, seed]);
 
   return (
-    <div ref={wrapRef} className={`hb-hs ${className}`} style={style} aria-hidden="true" {...rest}>
+    <div ref={wrapRef} className={`hb-hsp ${className}`} style={style} aria-hidden="true" {...rest}>
       <style href="hb-hyperspeed" precedence="default">{css}</style>
-      <canvas ref={canvasRef} className="hb-hs-canvas" />
+      <canvas ref={canvasRef} className="hb-hsp-canvas" />
     </div>
   );
 }

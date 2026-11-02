@@ -36,6 +36,20 @@ const templates = [
     tone: "from-[#1f2937] to-[#4b5563]",
   },
   {
+    slug: "dashboard",
+    kind: "App",
+    title: "Dashboards",
+    text: "Six complete app screens: analytics, sales, projects, finance, admin users and orders.",
+    tone: "from-[#102a43] to-[#2f7bff]",
+  },
+  {
+    slug: "shop",
+    kind: "E-commerce",
+    title: "Shop listing",
+    text: "A product listing page with filter chips, sorting, a product grid, pagination and a full footer.",
+    tone: "from-[#14452f] to-[#34d399]",
+  },
+  {
     slug: "coming-soon",
     kind: "Launch",
     title: "Coming soon",

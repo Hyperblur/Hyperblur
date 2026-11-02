@@ -17,7 +17,7 @@ export interface PromptBarProps extends Omit<React.HTMLAttributes<HTMLDivElement
 }
 
 const css = `
-.hb-pb {
+.hb-prb {
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -30,12 +30,12 @@ const css = `
   background: #141414;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
-.hb-pb:focus-within {
-  border-color: color-mix(in srgb, var(--hb-pb-color, #2f7bff) 70%, #262626);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hb-pb-color, #2f7bff) 16%, transparent);
+.hb-prb:focus-within {
+  border-color: color-mix(in srgb, var(--hb-prb-color, #2f7bff) 70%, #262626);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hb-prb-color, #2f7bff) 16%, transparent);
 }
-.hb-pb[data-disabled="true"] { opacity: .55; }
-.hb-pb-input {
+.hb-prb[data-disabled="true"] { opacity: .55; }
+.hb-prb-input {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -52,10 +52,10 @@ const css = `
   scrollbar-width: thin;
   scrollbar-color: #2e2e2e transparent;
 }
-.hb-pb-input::placeholder { color: #6f6f6f; }
-.hb-pb-bar { display: flex; align-items: center; gap: 4px; margin-top: 8px; }
-.hb-pb-spacer { flex: 1 1 auto; }
-.hb-pb-icon {
+.hb-prb-input::placeholder { color: #6f6f6f; }
+.hb-prb-bar { display: flex; align-items: center; gap: 4px; margin-top: 8px; }
+.hb-prb-spacer { flex: 1 1 auto; }
+.hb-prb-icon {
   display: grid;
   flex: 0 0 auto;
   place-items: center;
@@ -70,15 +70,15 @@ const css = `
   background: transparent;
   transition: color .15s ease, background .15s ease;
 }
-.hb-pb-icon:hover:not(:disabled) { color: #ededed; background: #1f1f1f; }
-.hb-pb-icon:disabled { cursor: not-allowed; }
-.hb-pb-icon:focus-visible, .hb-pb-chip:focus-visible, .hb-pb-send:focus-visible {
-  outline: 2px solid var(--hb-pb-color, #2f7bff);
+.hb-prb-icon:hover:not(:disabled) { color: #ededed; background: #1f1f1f; }
+.hb-prb-icon:disabled { cursor: not-allowed; }
+.hb-prb-icon:focus-visible, .hb-prb-chip:focus-visible, .hb-prb-send:focus-visible {
+  outline: 2px solid var(--hb-prb-color, #2f7bff);
   outline-offset: 1px;
 }
-.hb-pb-icon svg { width: 16px; height: 16px; }
-.hb-pb-model { position: relative; }
-.hb-pb-chip {
+.hb-prb-icon svg { width: 16px; height: 16px; }
+.hb-prb-model { position: relative; }
+.hb-prb-chip {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -94,11 +94,11 @@ const css = `
   background: #171717;
   transition: border-color .15s ease, color .15s ease;
 }
-.hb-pb-chip:hover:not(:disabled) { color: #ededed; border-color: #333333; }
-.hb-pb-chip:disabled { cursor: not-allowed; }
-.hb-pb-chip svg { width: 10px; height: 10px; transition: transform .2s ease; }
-.hb-pb-chip[aria-expanded="true"] svg { transform: rotate(180deg); }
-.hb-pb-menu {
+.hb-prb-chip:hover:not(:disabled) { color: #ededed; border-color: #333333; }
+.hb-prb-chip:disabled { cursor: not-allowed; }
+.hb-prb-chip svg { width: 10px; height: 10px; transition: transform .2s ease; }
+.hb-prb-chip[aria-expanded="true"] svg { transform: rotate(180deg); }
+.hb-prb-menu {
   position: absolute;
   bottom: calc(100% + 6px);
   left: 0;
@@ -111,13 +111,13 @@ const css = `
   border-radius: 12px;
   background: #171717;
   box-shadow: 0 12px 32px rgba(0,0,0,.5);
-  animation: hb-pb-pop .15s ease both;
+  animation: hb-prb-pop .15s ease both;
 }
-@keyframes hb-pb-pop {
+@keyframes hb-prb-pop {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: none; }
 }
-.hb-pb-option {
+.hb-prb-option {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -130,10 +130,10 @@ const css = `
   cursor: pointer;
   outline: 0;
 }
-.hb-pb-option:hover, .hb-pb-option:focus-visible { color: #ededed; background: #232323; }
-.hb-pb-option[aria-selected="true"] { color: #ededed; }
-.hb-pb-option svg { width: 11px; height: 11px; color: var(--hb-pb-color, #2f7bff); }
-.hb-pb-send {
+.hb-prb-option:hover, .hb-prb-option:focus-visible { color: #ededed; background: #232323; }
+.hb-prb-option[aria-selected="true"] { color: #ededed; }
+.hb-prb-option svg { width: 11px; height: 11px; color: var(--hb-prb-color, #2f7bff); }
+.hb-prb-send {
   display: grid;
   flex: 0 0 auto;
   place-items: center;
@@ -148,12 +148,12 @@ const css = `
   background: #1f1f1f;
   transition: background .2s ease, color .2s ease, transform .15s ease;
 }
-.hb-pb-send:not(:disabled) { color: #ffffff; cursor: pointer; background: var(--hb-pb-color, #2f7bff); }
-.hb-pb-send:not(:disabled):active { transform: scale(.92); }
-.hb-pb-send svg { width: 14px; height: 14px; }
+.hb-prb-send:not(:disabled) { color: #ffffff; cursor: pointer; background: var(--hb-prb-color, #2f7bff); }
+.hb-prb-send:not(:disabled):active { transform: scale(.92); }
+.hb-prb-send svg { width: 14px; height: 14px; }
 @media (prefers-reduced-motion: reduce) {
-  .hb-pb, .hb-pb-icon, .hb-pb-chip, .hb-pb-chip svg, .hb-pb-send { transition: none; }
-  .hb-pb-menu { animation: none; }
+  .hb-prb, .hb-prb-icon, .hb-prb-chip, .hb-prb-chip svg, .hb-prb-send { transition: none; }
+  .hb-prb-menu { animation: none; }
 }
 `;
 
@@ -252,15 +252,15 @@ export function PromptBar({
   return (
     <div
       ref={root}
-      className={`hb-pb ${className}`}
-      style={{ "--hb-pb-color": color, ...style } as React.CSSProperties}
+      className={`hb-prb ${className}`}
+      style={{ "--hb-prb-color": color, ...style } as React.CSSProperties}
       data-disabled={disabled}
       {...rest}
     >
       <style href="hb-prompt-bar" precedence="default">{css}</style>
       <textarea
         ref={area}
-        className="hb-pb-input"
+        className="hb-prb-input"
         rows={1}
         value={value}
         placeholder={placeholder}
@@ -269,15 +269,15 @@ export function PromptBar({
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={onKeyDown}
       />
-      <div className="hb-pb-bar">
-        <button className="hb-pb-icon" type="button" aria-label="Attach file" disabled={disabled} onClick={onAttach}>
+      <div className="hb-prb-bar">
+        <button className="hb-prb-icon" type="button" aria-label="Attach file" disabled={disabled} onClick={onAttach}>
           {attachIcon ?? (
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M13.2 7.6l-5 5a3.2 3.2 0 0 1-4.5-4.5l5.2-5.2a2.1 2.1 0 0 1 3 3L6.6 10.9a1 1 0 0 1-1.5-1.5l4.7-4.7" />
             </svg>
           )}
         </button>
-        <button className="hb-pb-icon" type="button" aria-label="Use microphone" disabled={disabled} onClick={onMic}>
+        <button className="hb-prb-icon" type="button" aria-label="Use microphone" disabled={disabled} onClick={onMic}>
           {micIcon ?? (
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <rect x="5.8" y="1.8" width="4.4" height="7.4" rx="2.2" />
@@ -285,11 +285,11 @@ export function PromptBar({
             </svg>
           )}
         </button>
-        <span className="hb-pb-spacer" />
-        <div className="hb-pb-model">
+        <span className="hb-prb-spacer" />
+        <div className="hb-prb-model">
           <button
             ref={chip}
-            className="hb-pb-chip"
+            className="hb-prb-chip"
             type="button"
             aria-haspopup="listbox"
             aria-expanded={open}
@@ -307,7 +307,7 @@ export function PromptBar({
             <ul
               ref={menu}
               id={`${uid}-models`}
-              className="hb-pb-menu"
+              className="hb-prb-menu"
               role="listbox"
               aria-label="Model"
               onKeyDown={onMenuKeyDown}
@@ -315,7 +315,7 @@ export function PromptBar({
               {models.map((m) => (
                 <li
                   key={m}
-                  className="hb-pb-option"
+                  className="hb-prb-option"
                   role="option"
                   tabIndex={-1}
                   aria-selected={m === model}
@@ -338,7 +338,7 @@ export function PromptBar({
             </ul>
           ) : null}
         </div>
-        <button className="hb-pb-send" type="button" aria-label="Send message" disabled={!canSend} onClick={send}>
+        <button className="hb-prb-send" type="button" aria-label="Send message" disabled={!canSend} onClick={send}>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" />
           </svg>

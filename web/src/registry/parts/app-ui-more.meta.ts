@@ -32,7 +32,7 @@ export const appUiMoreMeta: EffectMeta[] = [
     component: "SidebarNav",
     title: "Sidebar Nav",
     description: "A collapsible app sidebar with a sliding active indicator, badges and icon-only tooltips.",
-    category: "app-ui",
+    category: "sidebars",
     tags: ["sidebar", "navigation", "collapse", "app shell"],
     props: [
       { name: "groups", type: "{ label?: string; items: SidebarNavItem[] }[]", required: true, description: "Nav groups. Items take id, label, icon, badge and href (renders a link)." },

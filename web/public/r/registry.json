@@ -1598,7 +1598,7 @@
       "title": "Sparkline",
       "description": "A tiny smooth line with an optional area fill and a glowing end dot that draws in on mount.",
       "categories": [
-        "app-ui",
+        "charts",
         "chart",
         "sparkline",
         "svg",
@@ -1619,7 +1619,7 @@
       "title": "Stat Card",
       "description": "KPI card with a counting value, a green or red delta pill, a caption and an embedded sparkline.",
       "categories": [
-        "app-ui",
+        "charts",
         "kpi",
         "stat",
         "metric",
@@ -1641,7 +1641,7 @@
       "title": "Bar Chart",
       "description": "Vertical bars with rounded tops, grid lines, optional stacked series, grow-in motion and a hover tooltip.",
       "categories": [
-        "app-ui",
+        "charts",
         "chart",
         "bar",
         "svg",
@@ -1663,7 +1663,7 @@
       "title": "Area Chart",
       "description": "Smooth monotone line over a gradient area with a hover crosshair, dot and tooltip, and a draw-in animation.",
       "categories": [
-        "app-ui",
+        "charts",
         "chart",
         "area",
         "line",
@@ -1685,7 +1685,7 @@
       "title": "Donut Chart",
       "description": "Gapped arc segments that sweep in, a centered total, a percentage legend and hover that expands a segment.",
       "categories": [
-        "app-ui",
+        "charts",
         "chart",
         "donut",
         "pie",
@@ -1707,7 +1707,7 @@
       "title": "Data Table",
       "description": "Sortable table with sticky header, zebra rows, status pills, an empty state and optional pagination.",
       "categories": [
-        "app-ui",
+        "lists",
         "table",
         "data",
         "sort",
@@ -1750,7 +1750,7 @@
       "title": "Sidebar Nav",
       "description": "A collapsible app sidebar with a sliding active indicator, badges and icon-only tooltips.",
       "categories": [
-        "app-ui",
+        "sidebars",
         "sidebar",
         "navigation",
         "collapse",
@@ -2083,6 +2083,1040 @@
           "path": "registry/hyperblur/rating-summary.tsx",
           "type": "registry:component",
           "target": "components/hyperblur/rating-summary.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-glass",
+      "type": "registry:component",
+      "title": "Navbar Glass",
+      "description": "A frosted glass navbar with a sliding hover pill, a keyboard-navigable mega menu and a hamburger layout that takes over in narrow containers.",
+      "categories": [
+        "site",
+        "navbar",
+        "navigation",
+        "mega menu",
+        "glass",
+        "header",
+        "responsive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-glass.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-glass.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-columns",
+      "type": "registry:component",
+      "title": "Footer Columns",
+      "description": "A full website footer with a brand blurb, social buttons, link columns, a newsletter mini-form, legal links and a live status pill.",
+      "categories": [
+        "site",
+        "footer",
+        "links",
+        "newsletter",
+        "social",
+        "status",
+        "responsive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/footer-columns.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/footer-columns.tsx"
+        }
+      ]
+    },
+    {
+      "name": "announcement-bar",
+      "type": "registry:component",
+      "title": "Announcement Bar",
+      "description": "A slim banner that rotates through messages with a vertical slide, pauses on hover and can be dismissed.",
+      "categories": [
+        "site",
+        "announcement",
+        "banner",
+        "promo",
+        "top bar",
+        "ticker",
+        "dismiss"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/announcement-bar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/announcement-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cookie-banner",
+      "type": "registry:component",
+      "title": "Cookie Banner",
+      "description": "A consent card with Accept all, Reject non-essential and a Customize panel of category switches. It slides up on mount.",
+      "categories": [
+        "site",
+        "cookie",
+        "consent",
+        "privacy",
+        "gdpr",
+        "banner",
+        "preferences"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cookie-banner.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cookie-banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "newsletter-signup",
+      "type": "registry:component",
+      "title": "Newsletter Signup",
+      "description": "An email capture block with inline validation and shake, a spinner while submitting and a success state that morphs the button into a check.",
+      "categories": [
+        "site",
+        "newsletter",
+        "email",
+        "form",
+        "signup",
+        "subscribe",
+        "validation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/newsletter-signup.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/newsletter-signup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumbs",
+      "type": "registry:component",
+      "title": "Breadcrumbs",
+      "description": "A breadcrumb trail that truncates long labels and folds the middle of deep paths into an ellipsis menu.",
+      "categories": [
+        "site",
+        "breadcrumbs",
+        "navigation",
+        "trail",
+        "path",
+        "docs",
+        "menu"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/breadcrumbs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/breadcrumbs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Page navigation with ellipsis collapsing, an indicator that slides between pages and a compact variant with a page select.",
+      "categories": [
+        "site",
+        "pagination",
+        "pages",
+        "navigation",
+        "table",
+        "list",
+        "paging"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pagination.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-modal",
+      "type": "registry:component",
+      "title": "Dialog Modal",
+      "description": "An accessible modal with a blurred scrim, scale-and-fade transitions, a focus trap and focus returned to the trigger.",
+      "categories": [
+        "site",
+        "dialog",
+        "modal",
+        "overlay",
+        "confirm",
+        "popup",
+        "a11y"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dialog-modal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dialog-modal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "A button-triggered menu driven by a data array, with icons, shortcuts, checkbox items, a side submenu and the full keyboard model.",
+      "categories": [
+        "site",
+        "dropdown",
+        "menu",
+        "actions",
+        "submenu",
+        "keyboard",
+        "context"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dropdown-menu.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dropdown-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropzone",
+      "type": "registry:component",
+      "title": "Dropzone",
+      "description": "A file upload area with an animated dashed drag-over border, type and size checks, inline errors and a file list with simulated progress. It never uploads anything.",
+      "categories": [
+        "site",
+        "dropzone",
+        "upload",
+        "file",
+        "drag and drop",
+        "input",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dropzone.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dropzone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "Empty State",
+      "description": "A zero-data state with four floating inline illustrations, a title, a description and primary and secondary actions.",
+      "categories": [
+        "site",
+        "empty state",
+        "zero data",
+        "illustration",
+        "placeholder",
+        "cta",
+        "no results"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/empty-state.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/empty-state.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Shimmering loading placeholders: a rect, circle and text primitive. SkeletonCard, SkeletonList and SkeletonProfile ship in the same file.",
+      "categories": [
+        "site",
+        "skeleton",
+        "loading",
+        "placeholder",
+        "shimmer",
+        "suspense",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/skeleton.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radar-chart",
+      "type": "registry:component",
+      "title": "Radar Chart",
+      "description": "A multi-axis radar chart with up to three translucent series, grid rings, point tooltips and a legend that hides or shows each series.",
+      "categories": [
+        "charts",
+        "radar",
+        "spider",
+        "chart",
+        "skills",
+        "comparison",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/radar-chart.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/radar-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "heatmap-calendar",
+      "type": "registry:component",
+      "title": "Heatmap Calendar",
+      "description": "A GitHub-style activity grid with month and weekday labels, an intensity legend and a hover tooltip with date and count. Ships a deterministic sampleActivity helper.",
+      "categories": [
+        "charts",
+        "heatmap",
+        "calendar",
+        "contributions",
+        "activity",
+        "grid",
+        "streak"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/heatmap-calendar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/heatmap-calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "funnel-chart",
+      "type": "registry:component",
+      "title": "Funnel Chart",
+      "description": "A conversion funnel of centered trapezoid stages with absolute values, share of the first stage and the drop-off between stages.",
+      "categories": [
+        "charts",
+        "funnel",
+        "conversion",
+        "pipeline",
+        "chart",
+        "stages",
+        "analytics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/funnel-chart.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/funnel-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gauge-meter",
+      "type": "registry:component",
+      "title": "Gauge Meter",
+      "description": "A semicircular gauge with colored zones, tick marks, an animated needle and a large readout that counts to the value.",
+      "categories": [
+        "charts",
+        "gauge",
+        "meter",
+        "speedometer",
+        "score",
+        "kpi",
+        "needle"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gauge-meter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gauge-meter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "multi-line-chart",
+      "type": "registry:component",
+      "title": "Multi-line Chart",
+      "description": "Smooth lines on shared axes with an interactive legend, a crosshair that snaps to the nearest point and a tooltip listing every series.",
+      "categories": [
+        "charts",
+        "line",
+        "chart",
+        "multi-series",
+        "crosshair",
+        "legend",
+        "analytics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/multi-line-chart.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/multi-line-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress-rings",
+      "type": "registry:component",
+      "title": "Progress Rings",
+      "description": "Concentric activity rings with rounded gradient strokes, an animated sweep, a center slot and a legend with value and goal.",
+      "categories": [
+        "charts",
+        "rings",
+        "progress",
+        "activity",
+        "goals",
+        "fitness",
+        "gradient"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/progress-rings.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/progress-rings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ranked-bars",
+      "type": "registry:component",
+      "title": "Ranked Bars",
+      "description": "Horizontal ranking bars with rank, label, value and share of total, plus optional delta badges and an animated show more toggle.",
+      "categories": [
+        "charts",
+        "ranking",
+        "bars",
+        "top pages",
+        "leaderboard",
+        "analytics",
+        "delta"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/ranked-bars.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/ranked-bars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "candlestick-chart",
+      "type": "registry:component",
+      "title": "Candlestick Chart",
+      "description": "OHLC candlesticks with wicks, a price axis, a volume strip, a crosshair with a price tag and an OHLC tooltip. Ships a deterministic sampleCandles helper.",
+      "categories": [
+        "charts",
+        "candlestick",
+        "ohlc",
+        "trading",
+        "stocks",
+        "crypto",
+        "volume"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/candlestick-chart.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/candlestick-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "people-list",
+      "type": "registry:component",
+      "title": "People List",
+      "description": "A team directory with initials avatars, presence dots, role badges, a keyboard-friendly row menu and a search field with an animated empty state.",
+      "categories": [
+        "lists",
+        "people",
+        "team",
+        "directory",
+        "members",
+        "search",
+        "menu"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/people-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/people-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "file-list",
+      "type": "registry:component",
+      "title": "File List",
+      "description": "Files and folders with a list and grid view, type-colored icons, multi-select checkboxes and a selection toolbar that slides in.",
+      "categories": [
+        "lists",
+        "files",
+        "folders",
+        "grid",
+        "select",
+        "toolbar",
+        "drive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/file-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/file-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "leaderboard",
+      "type": "registry:component",
+      "title": "Leaderboard",
+      "description": "A ranked list with medals for the top three, proportional score bars that grow in, rank change arrows and a pinned row for the current user.",
+      "categories": [
+        "lists",
+        "leaderboard",
+        "ranking",
+        "scores",
+        "gamification",
+        "medals",
+        "bars"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/leaderboard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/leaderboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transaction-list",
+      "type": "registry:component",
+      "title": "Transaction List",
+      "description": "Transactions grouped under sticky day headings, with merchant tiles, status chips, tabular amounts and an expandable detail row with a copy button.",
+      "categories": [
+        "lists",
+        "transactions",
+        "finance",
+        "banking",
+        "activity",
+        "sticky",
+        "copy"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transaction-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transaction-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "inbox-list",
+      "type": "registry:component",
+      "title": "Inbox List",
+      "description": "Email-style rows with unread dots, star toggles, checkboxes, hover quick actions that replace the time and j/k keyboard navigation.",
+      "categories": [
+        "lists",
+        "inbox",
+        "email",
+        "messages",
+        "keyboard",
+        "bulk",
+        "triage"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/inbox-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/inbox-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "product-grid",
+      "type": "registry:component",
+      "title": "Product Grid",
+      "description": "A shop listing with an animated category chip row, sort select, result count and a container-responsive grid that reflows with a FLIP animation.",
+      "categories": [
+        "lists",
+        "products",
+        "shop",
+        "grid",
+        "filter",
+        "sort",
+        "ecommerce"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/product-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/product-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sortable-list",
+      "type": "registry:component",
+      "title": "Sortable List",
+      "description": "A drag-to-reorder list with pointer dragging, siblings that slide out of the way, and full keyboard reordering with live announcements.",
+      "categories": [
+        "lists",
+        "sortable",
+        "drag",
+        "reorder",
+        "keyboard",
+        "accessible",
+        "tasks"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sortable-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sortable-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-floating",
+      "type": "registry:component",
+      "title": "Sidebar Floating",
+      "description": "A frosted, rounded sidebar inset from the page edge with labeled groups, an active pill that glides between items and a user card with a live status dot.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "floating",
+        "glass",
+        "navigation",
+        "dashboard",
+        "pill"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-floating.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-floating.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-rail",
+      "type": "registry:component",
+      "title": "Sidebar Rail",
+      "description": "A 56px icon rail. Hovering or focusing an item opens a flyout with its submenu, and items without a submenu show a tooltip. Arrow keys move through the rail.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "rail",
+        "icons",
+        "flyout",
+        "tooltip",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-rail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-rail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-docs",
+      "type": "registry:component",
+      "title": "Sidebar Docs",
+      "description": "Documentation navigation with a search field, collapsible groups that animate their height, nested links on a connected guide line and a marker that follows the active page.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "docs",
+        "documentation",
+        "search",
+        "accordion",
+        "scroll spy"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-docs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-docs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-workspace",
+      "type": "registry:component",
+      "title": "Sidebar Workspace",
+      "description": "A workspace app sidebar with a keyboard-friendly workspace switcher, sections with counts, collapsible favorites, a usage card with an upgrade button and a user menu.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "workspace",
+        "switcher",
+        "usage",
+        "favorites",
+        "saas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-workspace.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-workspace.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-drawer",
+      "type": "registry:component",
+      "title": "Sidebar Drawer",
+      "description": "A slide-in navigation drawer with a scrim. It fills its nearest positioned parent, traps Tab focus, closes on Escape or a scrim click and returns focus to the trigger.",
+      "categories": [
+        "sidebars",
+        "drawer",
+        "mobile",
+        "sidebar",
+        "overlay",
+        "focus trap",
+        "menu"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-drawer.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-tree",
+      "type": "registry:component",
+      "title": "Sidebar Tree",
+      "description": "A file explorer tree with animated folders, colored file type icons, a filter field and the full tree keyboard model.",
+      "categories": [
+        "sidebars",
+        "tree",
+        "file explorer",
+        "sidebar",
+        "folders",
+        "keyboard",
+        "filter"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-tree.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-tree.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shiny-text",
+      "type": "registry:component",
+      "title": "Shiny Text",
+      "description": "Text with a band of light that glides across the glyphs on a loop, like a reflection passing over brushed metal.",
+      "categories": [
+        "text",
+        "text",
+        "shine",
+        "shimmer",
+        "gradient",
+        "headline",
+        "loop"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shiny-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shiny-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:component",
+      "title": "Spotlight Card",
+      "description": "A card lit by a soft radial spotlight that follows the pointer and catches the border. Wrap several in SpotlightGroup and one light spans the whole row.",
+      "categories": [
+        "hover",
+        "card",
+        "spotlight",
+        "hover",
+        "pointer",
+        "border",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/spotlight-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/spotlight-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "meteors",
+      "type": "registry:component",
+      "title": "Meteors",
+      "description": "A shower of shooting stars with fading tails over a faint, twinkling star field. Pure CSS, fills its positioned parent.",
+      "categories": [
+        "overlay",
+        "meteors",
+        "stars",
+        "night",
+        "background",
+        "shooting star",
+        "space"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/meteors.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/meteors.tsx"
+        }
+      ]
+    },
+    {
+      "name": "mesh-gradient",
+      "type": "registry:component",
+      "title": "Mesh Gradient",
+      "description": "A living mesh gradient: large blurred color fields drift on independent looping paths and blend where they meet, with optional film grain.",
+      "categories": [
+        "overlay",
+        "gradient",
+        "mesh",
+        "background",
+        "blur",
+        "grain",
+        "colorful"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/mesh-gradient.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/mesh-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "orbit-icons",
+      "type": "registry:component",
+      "title": "Orbit Icons",
+      "description": "A central hub with concentric rings of icon tiles that orbit at different speeds and stay upright. Hovering pauses the motion.",
+      "categories": [
+        "motion",
+        "orbit",
+        "icons",
+        "integrations",
+        "rings",
+        "hub",
+        "logo"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/orbit-icons.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/orbit-icons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-beam",
+      "type": "registry:component",
+      "title": "Animated Beam",
+      "description": "An integrations diagram: sources on the left feed a central hub that sends to an output, with a light pulse running along each curved connection. Beams re-route on resize.",
+      "categories": [
+        "motion",
+        "beam",
+        "integrations",
+        "diagram",
+        "svg",
+        "flow",
+        "connections"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/animated-beam.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/animated-beam.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glass-card",
+      "type": "registry:component",
+      "title": "Glass Card",
+      "description": "A frosted glass card with a fine noise texture, a bright inner rim and a specular highlight that tracks the pointer as the card tilts slightly. Best over color.",
+      "categories": [
+        "hover",
+        "glass",
+        "glassmorphism",
+        "card",
+        "blur",
+        "tilt",
+        "highlight"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/glass-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/glass-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ripple-grid",
+      "type": "registry:component",
+      "title": "Ripple Grid",
+      "description": "A field of small tiles where a click or hover sends a radial wave that lifts, scales and lights them by distance. Ripples from the center on its own when idle.",
+      "categories": [
+        "motion",
+        "grid",
+        "ripple",
+        "wave",
+        "background",
+        "interactive",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/ripple-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/ripple-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "analytics-dashboard",
+      "type": "registry:component",
+      "title": "Analytics Dashboard",
+      "description": "A full website analytics screen: KPI cards with sparklines, an area chart with a 7D, 30D and 90D toggle, top pages, a traffic sources donut and a live online counter.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "analytics",
+        "traffic",
+        "kpi",
+        "area chart",
+        "donut"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/analytics-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/analytics-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sales-dashboard",
+      "type": "registry:component",
+      "title": "Sales Dashboard",
+      "description": "A revenue overview with revenue and order KPIs, a goal progress ring, a revenue versus target combo chart, regional sales, a conversion funnel and a sortable top products table.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "sales",
+        "revenue",
+        "funnel",
+        "combo chart",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sales-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sales-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "project-dashboard",
+      "type": "registry:component",
+      "title": "Project Dashboard",
+      "description": "A sprint overview with a progress header, task status tiles, a burndown chart, team workload bars, a mini kanban summary and checkable upcoming deadlines.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "project",
+        "sprint",
+        "burndown",
+        "kanban",
+        "workload"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/project-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/project-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "finance-dashboard",
+      "type": "registry:component",
+      "title": "Finance Dashboard",
+      "description": "A banking overview with a total balance card, a gradient debit card, income versus expenses bars, a spending donut, recent transactions and savings goals you can top up.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "finance",
+        "banking",
+        "balance",
+        "transactions",
+        "savings"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/finance-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/finance-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "admin-dashboard",
+      "type": "registry:component",
+      "title": "Admin Dashboard",
+      "description": "A users admin page with search, role and status filters, a sortable table, row selection with a bulk action bar, pagination and a slide-in detail panel.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "admin",
+        "users",
+        "table",
+        "bulk actions",
+        "detail panel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/admin-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/admin-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "orders-dashboard",
+      "type": "registry:component",
+      "title": "Orders Dashboard",
+      "description": "An e-commerce orders screen with stat tiles, status tabs that filter an orders table, payment and fulfillment chips and a timeline panel for the selected order.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "orders",
+        "ecommerce",
+        "fulfillment",
+        "timeline",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/orders-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/orders-dashboard.tsx"
         }
       ]
     }

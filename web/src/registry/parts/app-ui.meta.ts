@@ -6,7 +6,7 @@ export const appUiMeta: EffectMeta[] = [
     component: "Sparkline",
     title: "Sparkline",
     description: "A tiny smooth line with an optional area fill and a glowing end dot that draws in on mount.",
-    category: "app-ui",
+    category: "charts",
     tags: ["chart", "sparkline", "svg", "trend", "analytics"],
     props: [
       { name: "data", type: "number[]", required: true, description: "Values to plot, left to right. Needs at least two points to draw a line." },
@@ -23,7 +23,7 @@ export const appUiMeta: EffectMeta[] = [
     component: "StatCard",
     title: "Stat Card",
     description: "KPI card with a counting value, a green or red delta pill, a caption and an embedded sparkline.",
-    category: "app-ui",
+    category: "charts",
     tags: ["kpi", "stat", "metric", "card", "dashboard", "analytics"],
     props: [
       { name: "label", type: "string", required: true, description: "Metric name shown above the value." },
@@ -45,7 +45,7 @@ export const appUiMeta: EffectMeta[] = [
     component: "BarChart",
     title: "Bar Chart",
     description: "Vertical bars with rounded tops, grid lines, optional stacked series, grow-in motion and a hover tooltip.",
-    category: "app-ui",
+    category: "charts",
     tags: ["chart", "bar", "svg", "stacked", "analytics", "tooltip"],
     props: [
       { name: "data", type: "{ label: string; value: number; value2?: number }[]", required: true, description: "One entry per bar. Add value2 to stack a second series on top." },
@@ -66,7 +66,7 @@ export const appUiMeta: EffectMeta[] = [
     component: "AreaChart",
     title: "Area Chart",
     description: "Smooth monotone line over a gradient area with a hover crosshair, dot and tooltip, and a draw-in animation.",
-    category: "app-ui",
+    category: "charts",
     tags: ["chart", "area", "line", "svg", "timeseries", "analytics"],
     props: [
       { name: "data", type: "{ label: string; value: number }[]", required: true, description: "Points in order. Labels appear on the x axis." },
@@ -86,7 +86,7 @@ export const appUiMeta: EffectMeta[] = [
     component: "DonutChart",
     title: "Donut Chart",
     description: "Gapped arc segments that sweep in, a centered total, a percentage legend and hover that expands a segment.",
-    category: "app-ui",
+    category: "charts",
     tags: ["chart", "donut", "pie", "svg", "legend", "analytics"],
     props: [
       { name: "data", type: "{ label: string; value: number; color?: string }[]", required: true, description: "Segments. Colors fall back to a built-in palette." },
@@ -105,7 +105,7 @@ export const appUiMeta: EffectMeta[] = [
     component: "DataTable",
     title: "Data Table",
     description: "Sortable table with sticky header, zebra rows, status pills, an empty state and optional pagination.",
-    category: "app-ui",
+    category: "lists",
     tags: ["table", "data", "sort", "pagination", "pill", "analytics"],
     props: [
       { name: "columns", type: "{ key: string; header: string; align?: \"left\" | \"center\" | \"right\"; render?: (row) => ReactNode; sortable?: boolean }[]", required: true, description: "Column definitions. Sorting reads row[key]; render only changes how the cell looks. Columns are sortable unless sortable is false." },

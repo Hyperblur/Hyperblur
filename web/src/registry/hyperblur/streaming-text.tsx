@@ -13,19 +13,19 @@ export interface StreamingTextProps extends Omit<React.HTMLAttributes<HTMLDivEle
 }
 
 const css = `
-@keyframes hb-st-blink {
+@keyframes hb-stx-blink {
   0%, 49.9% { opacity: 1; }
   50%, 100% { opacity: 0; }
 }
-.hb-st {
+.hb-stx {
   margin: 0;
   color: inherit;
   line-height: 1.6;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
-.hb-st-b { color: #ffffff; font-weight: 600; }
-.hb-st-c {
+.hb-stx-b { color: #ffffff; font-weight: 600; }
+.hb-stx-c {
   padding: 1px 5px;
   border: 1px solid #262626;
   border-radius: 5px;
@@ -34,17 +34,17 @@ const css = `
   font-size: .88em;
   background: #171717;
 }
-.hb-st-caret {
+.hb-stx-caret {
   display: inline-block;
   width: 2px;
   height: 1.1em;
   margin-left: 2px;
   vertical-align: -0.18em;
   border-radius: 1px;
-  background: var(--hb-st-color, #2f7bff);
-  animation: hb-st-blink 1s linear infinite;
+  background: var(--hb-stx-color, #2f7bff);
+  animation: hb-stx-blink 1s linear infinite;
 }
-@media (prefers-reduced-motion: reduce) { .hb-st-caret { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hb-stx-caret { animation: none; } }
 `;
 
 type Kind = "t" | "b" | "c" | "n";
@@ -93,8 +93,8 @@ function render(units: Unit[], count: number): React.ReactNode[] {
       s += units[i].s;
       i += 1;
     }
-    if (k === "b") nodes.push(<strong key={from} className="hb-st-b">{s}</strong>);
-    else if (k === "c") nodes.push(<code key={from} className="hb-st-c">{s}</code>);
+    if (k === "b") nodes.push(<strong key={from} className="hb-stx-b">{s}</strong>);
+    else if (k === "c") nodes.push(<code key={from} className="hb-stx-c">{s}</code>);
     else nodes.push(<React.Fragment key={from}>{s}</React.Fragment>);
   }
   return nodes;
@@ -170,15 +170,15 @@ export function StreamingText({
 
   return (
     <div
-      className={`hb-st ${className}`}
-      style={{ "--hb-st-color": color, ...style } as React.CSSProperties}
+      className={`hb-stx ${className}`}
+      style={{ "--hb-stx-color": color, ...style } as React.CSSProperties}
       aria-live="polite"
       aria-busy={active}
       {...rest}
     >
       <style href="hb-streaming-text" precedence="default">{css}</style>
       {render(units, shown)}
-      {cursor && active ? <span className="hb-st-caret" aria-hidden="true" /> : null}
+      {cursor && active ? <span className="hb-stx-caret" aria-hidden="true" /> : null}
     </div>
   );
 }
