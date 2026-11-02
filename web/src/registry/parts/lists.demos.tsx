@@ -78,59 +78,63 @@ export const listsDemos: Record<string, ReactNode> = {
   ),
   leaderboard: (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} p-2`}>
-        <div className="mb-1 flex items-baseline justify-between px-1.5">
+      <div className={`${card} p-3`}>
+        <div className="mb-1 flex items-baseline justify-between">
           <span className="font-display text-sm font-semibold uppercase tracking-[0.08em]">Weekly XP</span>
           <span className="font-mono text-[11px] text-[#8f8f8f]">resets in 2d</span>
         </div>
         <Leaderboard
           entries={leaders}
-          topN={2}
+          topN={1}
           unit="xp"
-          className="[&_.hb-ldb-body]:py-[2px]! [&_.hb-ldb-main]:gap-1! [&_.hb-ldb-avatar]:size-6! [&_.hb-ldb-gap]:py-px!"
+          className="[&_.hb-ldb-body]:px-3! [&_.hb-ldb-body]:py-[2px]! [&_.hb-ldb-main]:gap-1! [&_.hb-ldb-avatar]:size-6! [&_.hb-ldb-gap]:py-px! [&_[data-you=true]_.hb-ldb-body]:py-3!"
         />
       </div>
     </div>
   ),
   "transaction-list": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} font-mono p-2`}>
+      <div className={`${card} font-mono p-1.5`}>
         <TransactionList
           transactions={payments}
-          maxHeight={170}
-          className="[&_.hb-trx-row]:py-1!"
+          maxHeight={152}
+          className="[&_.hb-trx-row]:p-3! [&_.hb-trx-day]:px-3!"
         />
       </div>
     </div>
   ),
   "inbox-list": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} font-grotesk p-2`}>
+      <div className={`${card} font-grotesk p-1.5`}>
         <InboxList
-          messages={mail}
-          className="[&_.hb-inb-inner]:py-1! [&_.hb-inb-head]:h-[30px]!"
+          messages={mail.slice(0, 2)}
+          className="[&_.hb-inb-inner]:p-3! [&_.hb-inb-head]:px-3!"
         />
       </div>
     </div>
   ),
   "product-grid": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} p-2`}>
-        <ProductGrid products={shop} density="compact" />
+      <div className="w-full max-w-[340px]">
+        <ProductGrid
+          products={shop.slice(0, 2)}
+          density="compact"
+          className="[&_.hb-pgr-bar]:hidden [&_.hb-pgr-grid]:grid-cols-1! [&_.hb-pgr-card]:p-3! [&_.hb-pgr-heart]:right-3!"
+        />
       </div>
     </div>
   ),
   "sortable-list": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} p-2`}>
-        <div className="mb-1.5 flex items-baseline justify-between px-1">
-          <span className="font-serif text-xl italic leading-6">Today&rsquo;s focus</span>
+      <div className={`${card} p-3`}>
+        <div className="mb-1.5 flex items-baseline justify-between">
+          <span className="font-serif text-lg italic leading-5">Today&rsquo;s focus</span>
           <span className="font-grotesk text-[11px] text-[#8f8f8f]">Drag to reorder</span>
         </div>
         <SortableList
-          items={tasks}
+          items={tasks.slice(0, 3)}
           label="Today's focus"
-          className="[&_.hb-srt-row]:h-8!"
+          className="[&_.hb-srt-row]:h-10! [&_.hb-srt-row]:pl-3! [&_.hb-srt-grip]:h-4!"
           style={{ "--hb-srt-gap": "4px" } as CSSProperties}
         />
       </div>

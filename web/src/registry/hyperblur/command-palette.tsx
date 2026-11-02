@@ -343,7 +343,7 @@ function Panel({ uid, items, placeholder, inline, onClose, onPick }: PanelProps)
         e.preventDefault();
         onPick(flat[safe].item);
       }
-    } else if (e.key === "Tab") {
+    } else if (e.key === "Tab" && !inline) {
       e.preventDefault();
       inputRef.current?.focus();
     }

@@ -1,0 +1,68 @@
+import type { EffectMeta } from "@/registry/meta";
+
+const ctaType = "{ label: string; href: string } | null";
+
+export const heroesBMeta: EffectMeta[] = [
+  {
+    slug: "hero-spotlight",
+    component: "HeroSpotlight",
+    title: "Hero Spotlight",
+    description: "A dark hero where a soft spotlight follows the pointer, revealing a hidden dotted grid, floating metric chips and a brighter copy of the headline. It drifts on its own path when nobody is pointing.",
+    category: "hero",
+    tags: ["hero", "spotlight", "landing", "pointer", "mask", "reveal"],
+    props: [
+      { name: "eyebrow", type: "string", default: '"Session replay 2.0 is live"', description: "Text in the pill above the headline. Empty hides the pill." },
+      { name: "badge", type: "string", default: '"New"', description: "Small tag at the start of the eyebrow pill. Empty hides it." },
+      { name: "title", type: "string", default: '"See what your users actually see"', description: "Headline. The spotlight reveals a brighter gradient copy of it." },
+      { name: "subtitle", type: "string", default: '"Replays, real-user metrics and error traces on one timeline, so you find the slow screen before your customers do."', description: "Supporting paragraph under the headline. Empty hides it." },
+      { name: "primaryCta", type: ctaType, default: '{ label: "Start free trial", href: "#" }', description: "Solid primary button. Pass null to hide it." },
+      { name: "secondaryCta", type: ctaType, default: '{ label: "Watch the demo", href: "#" }', description: "Outlined secondary button with a play icon. Pass null to hide it." },
+      { name: "accent", type: "string", default: '"#2f7bff"', description: "Color of the revealed grid, the glow, the chips and the lit headline." },
+      { name: "logos", type: "string[]", default: '["Northwind", "Kestrel", "Halcyon", "Lumen", "Arcadia"]', description: "Company names in the trust row, each with a simple mark. An empty array hides the row." },
+      { name: "radius", type: "number", default: "280", description: "Spotlight radius in pixels." },
+    ],
+    usage: '<HeroSpotlight title="Find the bug before your users do" primaryCta={{ label: "Get started", href: "/signup" }} />',
+  },
+  {
+    slug: "hero-particles",
+    component: "HeroParticles",
+    title: "Hero Particles",
+    description: "A constellation hero: drifting points linked by proximity lines that lean toward the pointer, behind a centered headline with a shimmering gradient phrase and a copyable install command.",
+    category: "hero",
+    tags: ["hero", "particles", "constellation", "canvas", "landing", "network"],
+    props: [
+      { name: "eyebrow", type: "string", default: '"Graph engine v4 is now generally available"', description: "Text in the pill above the headline, with a pulsing dot. Empty hides it." },
+      { name: "title", type: "string", default: '"Connect every signal in your stack"', description: "Headline." },
+      { name: "highlight", type: "string", default: '"every signal"', description: "Part of the title rendered in the animated gradient. Ignored when it is not found in the title." },
+      { name: "subtitle", type: "string", default: '"Lattice maps services, queues and databases into one live dependency graph and flags what breaks before you deploy."', description: "Supporting paragraph under the headline. Empty hides it." },
+      { name: "primaryCta", type: ctaType, default: '{ label: "Get started", href: "#" }', description: "Gradient primary button with an arrow. Pass null to hide it." },
+      { name: "secondaryCta", type: ctaType, default: '{ label: "Read the docs", href: "#" }', description: "Outlined secondary button. Pass null to hide it." },
+      { name: "command", type: "string", default: '"npm install @lattice/graph"', description: "Shell command shown under the buttons with a copy button. Empty hides it." },
+      { name: "accent", type: "string", default: '"#2f7bff"', description: "Color of the links, the glow, the primary button and the gradient phrase." },
+      { name: "density", type: "number", default: "1.5", description: "Points per 10,000 square pixels. The count is kept between 16 and 260." },
+      { name: "linkDistance", type: "number", default: "120", description: "Largest distance in pixels at which two points are linked by a line." },
+      { name: "seed", type: "number", default: "7", description: "Seed for the point layout. The same seed always gives the same constellation." },
+    ],
+    usage: '<HeroParticles title="Every service, one live map" highlight="one live map" command="npx lattice init" />',
+  },
+  {
+    slug: "hero-beams",
+    component: "HeroBeams",
+    title: "Hero Beams",
+    description: "Vertical light beams fall and fade toward a glowing horizon arc, under a headline that splits into red and cyan on hover. Three stats count up when the hero scrolls into view.",
+    category: "hero",
+    tags: ["hero", "beams", "horizon", "stats", "landing", "chromatic"],
+    props: [
+      { name: "eyebrow", type: "string", default: '"Relay 3.0 is here with streaming logs"', description: "Text in the pill above the headline. Empty hides it." },
+      { name: "title", type: "string", default: '"Ship to the edge at the speed of light"', description: "Headline. Hovering it shows a subtle chromatic split." },
+      { name: "subtitle", type: "string", default: '"Deploy APIs and full-stack apps to every region in seconds, with preview URLs for every branch and instant rollbacks."', description: "Supporting paragraph under the headline. Empty hides it." },
+      { name: "primaryCta", type: ctaType, default: '{ label: "Deploy now", href: "#" }', description: "Solid accent button with an arrow. Pass null to hide it." },
+      { name: "secondaryCta", type: ctaType, default: '{ label: "Talk to sales", href: "#" }', description: "Outlined secondary button. Pass null to hide it." },
+      { name: "stats", type: "{ value: number; label: string; decimals?: number; prefix?: string; suffix?: string }[]", default: "310+ regions, 38ms cold start, 99.99% uptime", description: "Numbers on the horizon. Each counts up from zero once it is in view. An empty array hides the row." },
+      { name: "accent", type: "string", default: '"#2f7bff"', description: "Color of the beams, the horizon glow and the primary button." },
+      { name: "beams", type: "number", default: "18", description: "Number of beam lanes, from 0 to 48." },
+      { name: "seed", type: "number", default: "4", description: "Seed for beam positions, lengths and timing." },
+    ],
+    usage: '<HeroBeams title="Deploy worldwide in seconds" stats={[{ value: 120, suffix: "+", label: "Cities" }, { value: 12, suffix: "ms", label: "Latency" }, { value: 99.9, decimals: 1, suffix: "%", label: "Uptime" }]} />',
+  },
+];

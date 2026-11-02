@@ -49,27 +49,26 @@ export function SidebarTreeDemo() {
 
   return (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className="flex h-[190px] w-full max-w-[340px] overflow-hidden rounded-xl border border-[#262626] bg-[#0a0a0a] text-left">
-        <div className="w-[148px] shrink-0 border-r border-[#1f1f1f]">
+      <div className="flex h-[300px] w-full max-w-[348px] overflow-hidden rounded-xl border border-[#262626] bg-[#0a0a0a] text-left">
+        <div className="w-[156px] shrink-0 border-r border-[#1f1f1f]">
           <SidebarTree
             nodes={nodes}
             title=""
             filterable
-            rowHeight={20}
+            rowHeight={26}
             indent={12}
             defaultExpanded={["app"]}
             selected={selected}
             onSelect={(id, node) => {
               if (!node.children) setSelected(id);
             }}
-            style={{ fontSize: 12 }}
           />
         </div>
         <div className="min-w-0 flex-1 overflow-hidden">
           <div className="flex h-8 items-center border-b border-[#1f1f1f] px-3">
             <span className="font-mono truncate text-[11px] text-[#ededed]">{name}</span>
           </div>
-          <div className="font-mono space-y-0.5 px-2.5 py-3 text-[10.5px] leading-4 text-[#a8a8a8]">{lines.map((line, i) => tint(line, i))}</div>
+          <div className="font-mono space-y-0.5 px-2.5 py-3 text-[11px] leading-5 text-[#a8a8a8]">{lines.map((line, i) => tint(line, i))}</div>
         </div>
       </div>
     </div>

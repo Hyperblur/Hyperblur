@@ -21,7 +21,7 @@ export function SidebarDrawerDemo() {
 
   return (
     <div className="flex h-full w-full items-center justify-center gap-4 px-4">
-      <div className="relative h-[188px] w-[150px] shrink-0 overflow-hidden rounded-[22px] border border-[#2a2a2a] bg-[#0a0a0a] text-left">
+      <div className="relative h-[300px] w-[172px] shrink-0 overflow-hidden rounded-[22px] border border-[#2a2a2a] bg-[#0a0a0a] text-left">
         <div className="flex h-11 items-center gap-2 border-b border-[#1c1c1c] px-2.5">
           <button
             type="button"
@@ -50,11 +50,11 @@ export function SidebarDrawerDemo() {
           open={open}
           onOpenChange={setOpen}
           items={items}
-          rowHeight={28}
+          rowHeight={38}
           header={<span className="font-grotesk text-[13px]">Fernhill</span>}
           label="Mobile menu"
-          width={118}
-          style={{ fontSize: 12 }}
+          width={158}
+          
         />
       </div>
       <div className="w-[130px] shrink-0">
