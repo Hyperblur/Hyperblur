@@ -24,23 +24,23 @@ export interface StepperProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
 }
 
 const css = `
-@keyframes hb-st-fwd {
+@keyframes hb-stp-fwd {
   from { opacity: 0; transform: translateX(28px); }
   to { opacity: 1; transform: translateX(0); }
 }
-@keyframes hb-st-back {
+@keyframes hb-stp-back {
   from { opacity: 0; transform: translateX(-28px); }
   to { opacity: 1; transform: translateX(0); }
 }
-.hb-st {
+.hb-stp {
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
   color: #fff;
 }
-.hb-st-head { position: relative; }
-.hb-st-line {
+.hb-stp-head { position: relative; }
+.hb-stp-line {
   position: absolute;
   top: 13px;
   left: calc(100% / (2 * var(--hb-n)));
@@ -50,7 +50,7 @@ const css = `
   border-radius: 2px;
   background: rgba(255, 255, 255, .15);
 }
-.hb-st-fill {
+.hb-stp-fill {
   display: block;
   width: 100%;
   height: 100%;
@@ -59,14 +59,14 @@ const css = `
   transform-origin: left center;
   transition: transform .45s cubic-bezier(.2, .9, .2, 1);
 }
-.hb-st-list {
+.hb-stp-list {
   position: relative;
   display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.hb-st-item {
+.hb-stp-item {
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
@@ -74,7 +74,7 @@ const css = `
   gap: 6px;
   min-width: 0;
 }
-.hb-st-dot {
+.hb-stp-dot {
   display: grid;
   place-items: center;
   width: 28px;
@@ -90,16 +90,16 @@ const css = `
   line-height: 1;
   transition: background .3s ease, border-color .3s ease, color .3s ease, box-shadow .3s ease;
 }
-button.hb-st-dot { cursor: pointer; }
-button.hb-st-dot:hover { border-color: #2f7bff; }
-.hb-st-dot:focus-visible { outline: 2px solid #2f7bff; outline-offset: 3px; }
-.hb-st-item[data-state="done"] .hb-st-dot { border-color: #2f7bff; background: #2f7bff; color: #fff; }
-.hb-st-item[data-state="current"] .hb-st-dot {
+button.hb-stp-dot { cursor: pointer; }
+button.hb-stp-dot:hover { border-color: #2f7bff; }
+.hb-stp-dot:focus-visible { outline: 2px solid #2f7bff; outline-offset: 3px; }
+.hb-stp-item[data-state="done"] .hb-stp-dot { border-color: #2f7bff; background: #2f7bff; color: #fff; }
+.hb-stp-item[data-state="current"] .hb-stp-dot {
   border-color: #2f7bff;
   color: #fff;
   box-shadow: 0 0 0 4px rgba(47, 123, 255, .22);
 }
-.hb-st-title {
+.hb-stp-title {
   max-width: 100%;
   overflow: hidden;
   color: rgba(255, 255, 255, .5);
@@ -110,13 +110,13 @@ button.hb-st-dot:hover { border-color: #2f7bff; }
   white-space: nowrap;
   transition: color .3s ease;
 }
-.hb-st-item[data-state="current"] .hb-st-title,
-.hb-st-item[data-state="done"] .hb-st-title { color: #fff; }
-.hb-st-body { position: relative; overflow: hidden; padding: 2px; }
-.hb-st-panel[data-dir="1"] { animation: hb-st-fwd .35s cubic-bezier(.2, .9, .2, 1) both; }
-.hb-st-panel[data-dir="-1"] { animation: hb-st-back .35s cubic-bezier(.2, .9, .2, 1) both; }
-.hb-st-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.hb-st-btn {
+.hb-stp-item[data-state="current"] .hb-stp-title,
+.hb-stp-item[data-state="done"] .hb-stp-title { color: #fff; }
+.hb-stp-body { position: relative; overflow: hidden; padding: 2px; }
+.hb-stp-panel[data-dir="1"] { animation: hb-stp-fwd .35s cubic-bezier(.2, .9, .2, 1) both; }
+.hb-stp-panel[data-dir="-1"] { animation: hb-stp-back .35s cubic-bezier(.2, .9, .2, 1) both; }
+.hb-stp-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.hb-stp-btn {
   padding: 6px 14px;
   border: 1px solid rgba(255, 255, 255, .25);
   border-radius: 8px;
@@ -128,14 +128,14 @@ button.hb-st-dot:hover { border-color: #2f7bff; }
   cursor: pointer;
   transition: background .2s ease, border-color .2s ease, opacity .2s ease;
 }
-.hb-st-btn:hover:not(:disabled) { background: rgba(255, 255, 255, .1); }
-.hb-st-btn:focus-visible { outline: 2px solid #2f7bff; outline-offset: 2px; }
-.hb-st-btn:disabled { opacity: .35; cursor: default; }
-.hb-st-btn[data-primary="true"] { border-color: #2f7bff; background: #2f7bff; }
-.hb-st-btn[data-primary="true"]:hover:not(:disabled) { background: #5393ff; }
+.hb-stp-btn:hover:not(:disabled) { background: rgba(255, 255, 255, .1); }
+.hb-stp-btn:focus-visible { outline: 2px solid #2f7bff; outline-offset: 2px; }
+.hb-stp-btn:disabled { opacity: .35; cursor: default; }
+.hb-stp-btn[data-primary="true"] { border-color: #2f7bff; background: #2f7bff; }
+.hb-stp-btn[data-primary="true"]:hover:not(:disabled) { background: #5393ff; }
 @media (prefers-reduced-motion: reduce) {
-  .hb-st-panel[data-dir] { animation: none; }
-  .hb-st-fill, .hb-st-dot, .hb-st-title, .hb-st-btn { transition: none; }
+  .hb-stp-panel[data-dir] { animation: none; }
+  .hb-stp-fill, .hb-stp-dot, .hb-stp-title, .hb-stp-btn { transition: none; }
 }
 `;
 
@@ -192,13 +192,13 @@ export function Stepper({
   if (!step) return null;
 
   return (
-    <div className={`hb-st ${className}`} style={vars} {...rest}>
+    <div className={`hb-stp ${className}`} style={vars} {...rest}>
       <style href="hb-stepper" precedence="default">{css}</style>
-      <div className="hb-st-head">
-        <div className="hb-st-line" aria-hidden="true">
-          <i className="hb-st-fill" />
+      <div className="hb-stp-head">
+        <div className="hb-stp-line" aria-hidden="true">
+          <i className="hb-stp-fill" />
         </div>
-        <ol className="hb-st-list">
+        <ol className="hb-stp-list">
           {steps.map((s, i) => {
             const done = finished || i < index;
             const state = done ? "done" : i === index ? "current" : "todo";
@@ -212,7 +212,7 @@ export function Stepper({
             const clickable = allowClickNavigation && done && !(finished && i === last);
             return (
               <li
-                className="hb-st-item"
+                className="hb-stp-item"
                 key={s.id}
                 data-state={state}
                 aria-current={i === index && !finished ? "step" : undefined}
@@ -220,31 +220,31 @@ export function Stepper({
                 {clickable ? (
                   <button
                     type="button"
-                    className="hb-st-dot"
+                    className="hb-stp-dot"
                     aria-label={`Go to step ${i + 1}: ${s.title}`}
                     onClick={() => go(i)}
                   >
                     {marker}
                   </button>
                 ) : (
-                  <span className="hb-st-dot">{marker}</span>
+                  <span className="hb-stp-dot">{marker}</span>
                 )}
-                <span className="hb-st-title">{s.title}</span>
+                <span className="hb-stp-title">{s.title}</span>
               </li>
             );
           })}
         </ol>
       </div>
-      <div className="hb-st-body" aria-live="polite">
-        <div className="hb-st-panel" key={step.id} data-dir={dir}>
+      <div className="hb-stp-body" aria-live="polite">
+        <div className="hb-stp-panel" key={step.id} data-dir={dir}>
           {step.content}
         </div>
       </div>
-      <div className="hb-st-actions">
-        <button type="button" className="hb-st-btn" disabled={index === 0 && !finished} onClick={() => go(finished ? index : index - 1)}>
+      <div className="hb-stp-actions">
+        <button type="button" className="hb-stp-btn" disabled={index === 0 && !finished} onClick={() => go(finished ? index : index - 1)}>
           {text.back}
         </button>
-        <button type="button" className="hb-st-btn" data-primary="true" disabled={finished} onClick={handleNext}>
+        <button type="button" className="hb-stp-btn" data-primary="true" disabled={finished} onClick={handleNext}>
           {isLast ? text.finish : text.next}
         </button>
       </div>

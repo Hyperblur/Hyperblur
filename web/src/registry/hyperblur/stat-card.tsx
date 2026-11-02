@@ -16,7 +16,7 @@ export interface StatCardProps extends Omit<React.HTMLAttributes<HTMLDivElement>
 }
 
 const css = `
-.hb-sc {
+.hb-stc {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -29,9 +29,9 @@ const css = `
   color: #ededed;
   overflow: hidden;
 }
-.hb-sc-label { font-size: 12px; font-weight: 500; line-height: 1.2; color: #8f8f8f; letter-spacing: .01em; }
-.hb-sc-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; }
-.hb-sc-value {
+.hb-stc-label { font-size: 12px; font-weight: 500; line-height: 1.2; color: #8f8f8f; letter-spacing: .01em; }
+.hb-stc-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; }
+.hb-stc-value {
   font-family: var(--font-grotesk, ui-sans-serif, system-ui, sans-serif);
   font-size: 30px;
   font-weight: 600;
@@ -40,7 +40,7 @@ const css = `
   font-variant-numeric: tabular-nums;
   white-space: pre;
 }
-.hb-sc-delta {
+.hb-stc-delta {
   display: inline-flex;
   align-items: center;
   gap: 3px;
@@ -51,14 +51,14 @@ const css = `
   font-weight: 500;
   line-height: 1.4;
   font-variant-numeric: tabular-nums;
-  color: var(--hb-sc-tone);
-  background: color-mix(in srgb, var(--hb-sc-tone) 14%, transparent);
+  color: var(--hb-stc-tone);
+  background: color-mix(in srgb, var(--hb-stc-tone) 14%, transparent);
 }
-.hb-sc-delta svg { display: block; width: 10px; height: 10px; }
-.hb-sc-caption { font-size: 12px; line-height: 1.3; color: #8f8f8f; }
-.hb-sc-spark { margin-top: auto; position: relative; width: 100%; line-height: 0; }
-.hb-sc-svg { display: block; width: 100%; overflow: visible; }
-.hb-sc-line {
+.hb-stc-delta svg { display: block; width: 10px; height: 10px; }
+.hb-stc-caption { font-size: 12px; line-height: 1.3; color: #8f8f8f; }
+.hb-stc-spark { margin-top: auto; position: relative; width: 100%; line-height: 0; }
+.hb-stc-svg { display: block; width: 100%; overflow: visible; }
+.hb-stc-line {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -66,16 +66,16 @@ const css = `
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 1.1s cubic-bezier(.22, .8, .24, 1), opacity .15s ease;
 }
-.hb-sc-area { transition: opacity .7s ease .35s; }
-.hb-sc-dot { transition: opacity .3s ease .95s; }
-.hb-sc[data-ready="false"] .hb-sc-line { stroke-dashoffset: 1; opacity: 0; }
-.hb-sc[data-ready="false"] .hb-sc-area,
-.hb-sc[data-ready="false"] .hb-sc-dot { opacity: 0; }
+.hb-stc-area { transition: opacity .7s ease .35s; }
+.hb-stc-dot { transition: opacity .3s ease .95s; }
+.hb-stc[data-ready="false"] .hb-stc-line { stroke-dashoffset: 1; opacity: 0; }
+.hb-stc[data-ready="false"] .hb-stc-area,
+.hb-stc[data-ready="false"] .hb-stc-dot { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
-  .hb-sc-line, .hb-sc-area, .hb-sc-dot { transition: none !important; }
-  .hb-sc[data-ready="false"] .hb-sc-line { stroke-dashoffset: 0 !important; opacity: 1 !important; }
-  .hb-sc[data-ready="false"] .hb-sc-area,
-  .hb-sc[data-ready="false"] .hb-sc-dot { opacity: 1 !important; }
+  .hb-stc-line, .hb-stc-area, .hb-stc-dot { transition: none !important; }
+  .hb-stc[data-ready="false"] .hb-stc-line { stroke-dashoffset: 0 !important; opacity: 1 !important; }
+  .hb-stc[data-ready="false"] .hb-stc-area,
+  .hb-stc[data-ready="false"] .hb-stc-dot { opacity: 1 !important; }
 }
 `;
 
@@ -224,19 +224,19 @@ export function StatCard({
 
   return (
     <div
-      className={`hb-sc ${className}`}
+      className={`hb-stc ${className}`}
       data-ready={ready ? "true" : "false"}
       role="group"
       aria-label={summary}
-      style={{ ["--hb-sc-tone" as string]: deltaTone, ...style }}
+      style={{ ["--hb-stc-tone" as string]: deltaTone, ...style }}
       {...rest}
     >
       <style href="hb-stat-card" precedence="default">{css}</style>
-      <div className="hb-sc-label" aria-hidden="true">{label}</div>
-      <div className="hb-sc-row" aria-hidden="true">
-        <span className="hb-sc-value">{shown}</span>
+      <div className="hb-stc-label" aria-hidden="true">{label}</div>
+      <div className="hb-stc-row" aria-hidden="true">
+        <span className="hb-stc-value">{shown}</span>
         {delta !== undefined ? (
-          <span className="hb-sc-delta">
+          <span className="hb-stc-delta">
             {delta !== 0 ? (
               <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 {delta > 0 ? <path d="M5 8.5V1.8M2 4.6 5 1.6l3 3" /> : <path d="M5 1.5v6.7M2 5.4l3 3 3-3" />}
@@ -245,26 +245,26 @@ export function StatCard({
             {deltaText}
           </span>
         ) : null}
-        {caption ? <span className="hb-sc-caption">{caption}</span> : null}
+        {caption ? <span className="hb-stc-caption">{caption}</span> : null}
       </div>
       {vals.length > 1 ? (
-        <div className="hb-sc-spark" ref={sparkRef} style={{ height: SPARK_H }}>
+        <div className="hb-stc-spark" ref={sparkRef} style={{ height: SPARK_H }}>
           <svg
-            className="hb-sc-svg"
+            className="hb-stc-svg"
             viewBox={`0 0 ${width} ${SPARK_H}`}
             width={width}
             height={SPARK_H}
             aria-hidden="true"
           >
             <defs>
-              <linearGradient id={`hb-sc-${uid}`} x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id={`hb-stc-${uid}`} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor={color} stopOpacity="0.32" />
                 <stop offset="100%" stopColor={color} stopOpacity="0" />
               </linearGradient>
             </defs>
-            <path className="hb-sc-area" d={area} fill={`url(#hb-sc-${uid})`} />
-            <path className="hb-sc-line" d={line} pathLength={1} stroke={color} strokeWidth={2} />
-            <g className="hb-sc-dot">
+            <path className="hb-stc-area" d={area} fill={`url(#hb-stc-${uid})`} />
+            <path className="hb-stc-line" d={line} pathLength={1} stroke={color} strokeWidth={2} />
+            <g className="hb-stc-dot">
               <circle cx={last[0]} cy={last[1]} r={dotR * 2} fill={color} opacity="0.18" />
               <circle cx={last[0]} cy={last[1]} r={dotR} fill={color} stroke="#111111" strokeWidth="1.5" />
             </g>

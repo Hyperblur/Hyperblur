@@ -13,8 +13,8 @@ export interface ParticlesProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const css = `
-.hb-pt { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.hb-pt-c { display: block; width: 100%; height: 100%; }
+.hb-par { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hb-par-c { display: block; width: 100%; height: 100%; }
 `;
 
 function rnd(seed: number, i: number) {
@@ -252,9 +252,9 @@ export function Particles({
   }, [count, color, lineColor, linkDistance, speed, size, seed]);
 
   return (
-    <div ref={wrapRef} className={`hb-pt ${className}`} style={style} aria-hidden="true" {...rest}>
+    <div ref={wrapRef} className={`hb-par ${className}`} style={style} aria-hidden="true" {...rest}>
       <style href="hb-particles" precedence="default">{css}</style>
-      <canvas ref={canvasRef} className="hb-pt-c" />
+      <canvas ref={canvasRef} className="hb-par-c" />
     </div>
   );
 }

@@ -19,7 +19,7 @@ export interface ScrubFieldProps
 }
 
 const css = `
-.hb-sf {
+.hb-scf {
   display: inline-flex;
   align-items: stretch;
   height: 36px;
@@ -31,14 +31,14 @@ const css = `
   font: 500 14px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
   transition: border-color .15s ease, background-color .15s ease;
 }
-.hb-sf:hover { background: rgba(255, 255, 255, .07); }
-.hb-sf:focus-within,
-.hb-sf[data-dragging="true"] {
+.hb-scf:hover { background: rgba(255, 255, 255, .07); }
+.hb-scf:focus-within,
+.hb-scf[data-dragging="true"] {
   border-color: #2f7bff;
   background: rgba(47, 123, 255, .1);
 }
-.hb-sf:focus-within { box-shadow: 0 0 0 3px rgba(47, 123, 255, .28); }
-.hb-sf-l {
+.hb-scf:focus-within { box-shadow: 0 0 0 3px rgba(47, 123, 255, .28); }
+.hb-scf-l {
   display: flex;
   align-items: center;
   padding: 0 10px;
@@ -54,9 +54,9 @@ const css = `
   touch-action: none;
   transition: color .15s ease;
 }
-.hb-sf-l:hover,
-.hb-sf[data-dragging="true"] .hb-sf-l { color: #fff; }
-.hb-sf-i {
+.hb-scf-l:hover,
+.hb-scf[data-dragging="true"] .hb-scf-l { color: #fff; }
+.hb-scf-i {
   width: 4.5em;
   min-width: 0;
   padding: 0 10px;
@@ -69,13 +69,13 @@ const css = `
   appearance: textfield;
   -moz-appearance: textfield;
 }
-.hb-sf-i::-webkit-inner-spin-button,
-.hb-sf-i::-webkit-outer-spin-button {
+.hb-scf-i::-webkit-inner-spin-button,
+.hb-scf-i::-webkit-outer-spin-button {
   appearance: none;
   -webkit-appearance: none;
   margin: 0;
 }
-.hb-sf-s {
+.hb-scf-s {
   display: flex;
   align-items: center;
   padding: 0 10px 0 0;
@@ -86,7 +86,7 @@ const css = `
   -webkit-user-select: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hb-sf, .hb-sf-l { transition: none; }
+  .hb-scf, .hb-scf-l { transition: none; }
 }
 `;
 
@@ -211,12 +211,12 @@ export function ScrubField({
   }
 
   return (
-    <div className={`hb-sf ${className}`} style={style} data-dragging={dragging}>
+    <div className={`hb-scf ${className}`} style={style} data-dragging={dragging}>
       <style href="hb-scrub-field" precedence="default">{css}</style>
       {label && (
         <label
           htmlFor={id}
-          className="hb-sf-l"
+          className="hb-scf-l"
           onPointerDown={handleDown}
           onPointerMove={handleMove}
           onPointerUp={handleEnd}
@@ -231,7 +231,7 @@ export function ScrubField({
         aria-describedby={suffix ? suffixId : undefined}
         {...rest}
         id={id}
-        className="hb-sf-i"
+        className="hb-scf-i"
         type="number"
         inputMode="decimal"
         min={min}
@@ -243,7 +243,7 @@ export function ScrubField({
         onKeyDown={handleKey}
       />
       {suffix && (
-        <span id={suffixId} className="hb-sf-s">
+        <span id={suffixId} className="hb-scf-s">
           {suffix}
         </span>
       )}

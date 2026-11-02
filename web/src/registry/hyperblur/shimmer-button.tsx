@@ -12,7 +12,7 @@ export interface ShimmerButtonProps
 }
 
 const css = `
-.hb-sb {
+.hb-shb {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -37,9 +37,9 @@ const css = `
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.hb-sb[data-size="sm"] { font-size: 13px; padding: 0.65em 1.4em; }
-.hb-sb[data-size="lg"] { font-size: 17px; padding: 0.9em 2em; }
-.hb-sb::before {
+.hb-shb[data-size="sm"] { font-size: 13px; padding: 0.65em 1.4em; }
+.hb-shb[data-size="lg"] { font-size: 17px; padding: 0.9em 2em; }
+.hb-shb::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -54,9 +54,9 @@ const css = `
   background-size: 250% 100%;
   background-repeat: no-repeat;
   background-position: 100% 0;
-  animation: hb-sb-sweep var(--hb-d) ease-in-out infinite;
+  animation: hb-shb-sweep var(--hb-d) ease-in-out infinite;
 }
-.hb-sb::after {
+.hb-shb::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -68,23 +68,23 @@ const css = `
   box-shadow: inset 0 0 22px color-mix(in srgb, var(--hb-c) 40%, transparent);
   transition: opacity 0.35s ease;
 }
-.hb-sb:hover {
+.hb-shb:hover {
   transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--hb-c) 55%, transparent);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 12px 30px -14px color-mix(in srgb, var(--hb-c) 70%, transparent);
 }
-.hb-sb:hover::after { opacity: 1; }
-.hb-sb:active { transform: scale(0.97); }
-.hb-sb:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }
-.hb-sb:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
-@keyframes hb-sb-sweep {
+.hb-shb:hover::after { opacity: 1; }
+.hb-shb:active { transform: scale(0.97); }
+.hb-shb:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }
+.hb-shb:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+@keyframes hb-shb-sweep {
   0% { background-position: 100% 0; }
   70%, 100% { background-position: 0% 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hb-sb { transition: border-color 0.2s ease, box-shadow 0.2s ease; }
-  .hb-sb::before { animation: none; background-position: 50% 0; opacity: 0.5; }
-  .hb-sb:hover, .hb-sb:active { transform: none; }
+  .hb-shb { transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+  .hb-shb::before { animation: none; background-position: 50% 0; opacity: 0.5; }
+  .hb-shb:hover, .hb-shb:active { transform: none; }
 }
 `;
 
@@ -111,7 +111,7 @@ export function ShimmerButton({
       <style href="hb-shimmer-button" precedence="default">{css}</style>
       <button
         type={type}
-        className={`hb-sb ${className}`}
+        className={`hb-shb ${className}`}
         style={vars}
         data-size={size}
         {...rest}

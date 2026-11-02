@@ -66,7 +66,7 @@ export const socialDemos: Record<string, ReactNode> = {
         <p className="font-grotesk m-0 text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">
           Fernhill Plant Club
         </p>
-        <p className="font-serif m-0 text-2xl italic leading-8">Grown by neighbours</p>
+        <p className="font-serif m-0 text-xl italic leading-7">Grown by neighbours</p>
         <div className="mt-auto flex items-center justify-between gap-3 pt-3">
           <AvatarStack people={people} max={5} extra={13} size={32} />
           <span className="font-grotesk text-xs text-[#8f8f8f]">18 members</span>
@@ -80,7 +80,7 @@ export const socialDemos: Record<string, ReactNode> = {
         <p className="font-grotesk m-0 text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">
           From the Fernhill journal
         </p>
-        <p className="font-serif m-0 text-2xl italic leading-8">Repotting without tears</p>
+        <p className="font-serif m-0 text-xl italic leading-7">Repotting without tears</p>
         <p className="font-grotesk m-0 text-xs text-[#8f8f8f]">Share this post</p>
         <div className="mt-auto">
           <ShareRow
@@ -90,7 +90,6 @@ export const socialDemos: Record<string, ReactNode> = {
             text="A gentle guide to repotting."
             links={[
               { id: "x" },
-              { id: "linkedin" },
               { id: "whatsapp" },
               { id: "email" },
               { id: "copy" },
@@ -102,13 +101,8 @@ export const socialDemos: Record<string, ReactNode> = {
   ),
   "rating-summary": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} justify-start gap-3`}>
-        <div className="flex items-baseline justify-between">
-          <p className="font-serif m-0 text-2xl italic leading-8">Loved at Fernhill</p>
-          <span className="font-grotesk text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">
-            Customer reviews
-          </span>
-        </div>
+      <div className="box-border flex w-full max-w-[380px] flex-col gap-2 rounded-2xl border border-[#262626] bg-[#111111] p-3.5 text-left text-[#ededed]">
+        <p className="font-serif m-0 text-xl italic leading-6">Loved at Fernhill</p>
         <RatingSummary counts={{ 5: 1700, 4: 420, 3: 100, 2: 50, 1: 40 }} />
       </div>
     </div>

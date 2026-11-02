@@ -13,9 +13,9 @@ export interface ToolCallCardProps extends Omit<React.HTMLAttributes<HTMLDivElem
 }
 
 const css = `
-@keyframes hb-tc-spin { to { transform: rotate(360deg); } }
-@keyframes hb-tc-draw { from { stroke-dashoffset: 16; } to { stroke-dashoffset: 0; } }
-.hb-tc {
+@keyframes hb-tcc-spin { to { transform: rotate(360deg); } }
+@keyframes hb-tcc-draw { from { stroke-dashoffset: 16; } to { stroke-dashoffset: 0; } }
+.hb-tcc {
   box-sizing: border-box;
   width: 100%;
   overflow: hidden;
@@ -26,8 +26,8 @@ const css = `
   font-size: 13px;
   background: #111111;
 }
-.hb-tc-head { margin: 0; font: inherit; }
-.hb-tc-toggle {
+.hb-tcc-head { margin: 0; font: inherit; }
+.hb-tcc-toggle {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -43,9 +43,9 @@ const css = `
   background: transparent;
   -webkit-tap-highlight-color: transparent;
 }
-.hb-tc-toggle:hover { background: #151515; }
-.hb-tc-toggle:focus-visible { outline: 2px solid var(--hb-tc-accent, #2f7bff); outline-offset: -2px; }
-.hb-tc-icon {
+.hb-tcc-toggle:hover { background: #151515; }
+.hb-tcc-toggle:focus-visible { outline: 2px solid var(--hb-tcc-accent, #2f7bff); outline-offset: -2px; }
+.hb-tcc-icon {
   display: grid;
   flex: 0 0 auto;
   place-items: center;
@@ -55,8 +55,8 @@ const css = `
   color: #8b5cf6;
   background: rgba(139,92,246,.14);
 }
-.hb-tc-icon svg { width: 13px; height: 13px; }
-.hb-tc-name {
+.hb-tcc-icon svg { width: 13px; height: 13px; }
+.hb-tcc-name {
   flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
@@ -65,42 +65,42 @@ const css = `
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.hb-tc-meta { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 6px; color: #8f8f8f; font-size: 11.5px; }
-.hb-tc-status { display: inline-flex; align-items: center; gap: 5px; }
-.hb-tc-status[data-status="done"] { color: #34d399; }
-.hb-tc-status[data-status="error"] { color: #f87171; }
-.hb-tc-status[data-status="running"] { color: var(--hb-tc-accent, #2f7bff); }
-.hb-tc-status svg { width: 12px; height: 12px; }
-.hb-tc-spinner {
+.hb-tcc-meta { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 6px; color: #8f8f8f; font-size: 11.5px; }
+.hb-tcc-status { display: inline-flex; align-items: center; gap: 5px; }
+.hb-tcc-status[data-status="done"] { color: #34d399; }
+.hb-tcc-status[data-status="error"] { color: #f87171; }
+.hb-tcc-status[data-status="running"] { color: var(--hb-tcc-accent, #2f7bff); }
+.hb-tcc-status svg { width: 12px; height: 12px; }
+.hb-tcc-spinner {
   width: 11px;
   height: 11px;
   border: 1.5px solid rgba(255,255,255,.14);
   border-top-color: currentColor;
   border-radius: 50%;
-  animation: hb-tc-spin .8s linear infinite;
+  animation: hb-tcc-spin .8s linear infinite;
 }
-.hb-tc-check { stroke-dasharray: 16; animation: hb-tc-draw .4s ease both; }
-.hb-tc-time { font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
-.hb-tc-chevron {
+.hb-tcc-check { stroke-dasharray: 16; animation: hb-tcc-draw .4s ease both; }
+.hb-tcc-time { font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+.hb-tcc-chevron {
   width: 14px;
   height: 14px;
   color: #8f8f8f;
   transition: transform .3s cubic-bezier(.2, .9, .2, 1);
 }
-.hb-tc-toggle[aria-expanded="true"] .hb-tc-chevron { transform: rotate(180deg); }
-.hb-tc-panel {
+.hb-tcc-toggle[aria-expanded="true"] .hb-tcc-chevron { transform: rotate(180deg); }
+.hb-tcc-panel {
   display: grid;
   grid-template-rows: 0fr;
   visibility: hidden;
   transition: grid-template-rows .3s cubic-bezier(.2, .9, .2, 1), visibility 0s linear .3s;
 }
-.hb-tc[data-open="true"] .hb-tc-panel {
+.hb-tcc[data-open="true"] .hb-tcc-panel {
   grid-template-rows: 1fr;
   visibility: visible;
   transition: grid-template-rows .3s cubic-bezier(.2, .9, .2, 1), visibility 0s linear 0s;
 }
-.hb-tc-inner { min-height: 0; overflow: hidden; }
-.hb-tc-row {
+.hb-tcc-inner { min-height: 0; overflow: hidden; }
+.hb-tcc-row {
   position: relative;
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
@@ -109,7 +109,7 @@ const css = `
   border-top: 1px solid #262626;
   background: #0d0d0d;
 }
-.hb-tc-label {
+.hb-tcc-label {
   padding-top: 1px;
   color: #8f8f8f;
   font-size: 10px;
@@ -117,7 +117,7 @@ const css = `
   letter-spacing: .06em;
   text-transform: uppercase;
 }
-.hb-tc-code {
+.hb-tcc-code {
   margin: 0;
   max-height: 132px;
   overflow: auto;
@@ -129,13 +129,13 @@ const css = `
   scrollbar-width: thin;
   scrollbar-color: #2e2e2e transparent;
 }
-.hb-tc-code:focus-visible { outline: 2px solid var(--hb-tc-accent, #2f7bff); outline-offset: 2px; }
-.hb-tc-row[data-has-copy="true"] .hb-tc-code { padding-right: 28px; }
-.hb-tc-k { color: #7cb0ff; }
-.hb-tc-s { color: #86d9a3; }
-.hb-tc-n { color: #f0b072; }
-.hb-tc-empty { color: #8f8f8f; font-size: 12px; }
-.hb-tc-copy {
+.hb-tcc-code:focus-visible { outline: 2px solid var(--hb-tcc-accent, #2f7bff); outline-offset: 2px; }
+.hb-tcc-row[data-has-copy="true"] .hb-tcc-code { padding-right: 28px; }
+.hb-tcc-k { color: #7cb0ff; }
+.hb-tcc-s { color: #86d9a3; }
+.hb-tcc-n { color: #f0b072; }
+.hb-tcc-empty { color: #8f8f8f; font-size: 12px; }
+.hb-tcc-copy {
   position: absolute;
   top: 6px;
   right: 8px;
@@ -152,11 +152,11 @@ const css = `
   background: #171717;
   transition: color .15s ease, border-color .15s ease;
 }
-.hb-tc-copy:hover { color: #ededed; border-color: #333333; }
-.hb-tc-copy[data-copied="true"] { color: #34d399; }
-.hb-tc-copy:focus-visible { outline: 2px solid var(--hb-tc-accent, #2f7bff); outline-offset: 1px; }
-.hb-tc-copy svg { width: 13px; height: 13px; }
-.hb-tc-sr {
+.hb-tcc-copy:hover { color: #ededed; border-color: #333333; }
+.hb-tcc-copy[data-copied="true"] { color: #34d399; }
+.hb-tcc-copy:focus-visible { outline: 2px solid var(--hb-tcc-accent, #2f7bff); outline-offset: 1px; }
+.hb-tcc-copy svg { width: 13px; height: 13px; }
+.hb-tcc-sr {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -165,9 +165,9 @@ const css = `
   white-space: nowrap;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hb-tc-spinner { animation-duration: 2.4s; }
-  .hb-tc-check { animation: none; }
-  .hb-tc-panel, .hb-tc[data-open="true"] .hb-tc-panel, .hb-tc-chevron { transition: none; }
+  .hb-tcc-spinner { animation-duration: 2.4s; }
+  .hb-tcc-check { animation: none; }
+  .hb-tcc-panel, .hb-tcc[data-open="true"] .hb-tcc-panel, .hb-tcc-chevron { transition: none; }
 }
 `;
 
@@ -201,14 +201,14 @@ function highlight(text: string): React.ReactNode[] {
     if (match.index > last) nodes.push(text.slice(last, match.index));
     if (match[1] !== undefined) {
       nodes.push(
-        <span key={match.index} className={match[2] ? "hb-tc-k" : "hb-tc-s"}>
+        <span key={match.index} className={match[2] ? "hb-tcc-k" : "hb-tcc-s"}>
           {match[1]}
         </span>
       );
       if (match[2]) nodes.push(match[2]);
     } else {
       nodes.push(
-        <span key={match.index} className="hb-tc-n">
+        <span key={match.index} className="hb-tcc-n">
           {match[3]}
         </span>
       );
@@ -263,66 +263,66 @@ export function ToolCallCard({
 
   return (
     <div
-      className={`hb-tc ${className}`}
-      style={{ "--hb-tc-accent": color, ...style } as React.CSSProperties}
+      className={`hb-tcc ${className}`}
+      style={{ "--hb-tcc-accent": color, ...style } as React.CSSProperties}
       data-open={open}
       data-status={status}
       {...rest}
     >
       <style href="hb-tool-call-card" precedence="default">{css}</style>
-      <h3 className="hb-tc-head">
+      <h3 className="hb-tcc-head">
         <button
-          className="hb-tc-toggle"
+          className="hb-tcc-toggle"
           type="button"
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="hb-tc-icon" aria-hidden="true">
+          <span className="hb-tcc-icon" aria-hidden="true">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9.6 3.4a3 3 0 0 0 3 3.9l-6.7 6.7a1.4 1.4 0 0 1-2-2l6.7-6.7a3 3 0 0 0-1-1.9z" />
             </svg>
           </span>
-          <span className="hb-tc-name">{name}</span>
-          <span className="hb-tc-meta">
-            <span className="hb-tc-status" data-status={status}>
+          <span className="hb-tcc-name">{name}</span>
+          <span className="hb-tcc-meta">
+            <span className="hb-tcc-status" data-status={status}>
               {status === "running" ? (
-                <span className="hb-tc-spinner" aria-hidden="true" />
+                <span className="hb-tcc-spinner" aria-hidden="true" />
               ) : status === "done" ? (
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path className="hb-tc-check" d="M3 8.5l3.2 3.2L13 4.8" />
+                  <path className="hb-tcc-check" d="M3 8.5l3.2 3.2L13 4.8" />
                 </svg>
               ) : (
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                   <path d="M4 4l8 8M12 4l-8 8" />
                 </svg>
               )}
-              <span className="hb-tc-sr">{LABELS[status]}</span>
+              <span className="hb-tcc-sr">{LABELS[status]}</span>
             </span>
-            {time ? <span className="hb-tc-time">{time}</span> : null}
+            {time ? <span className="hb-tcc-time">{time}</span> : null}
           </span>
-          <svg className="hb-tc-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg className="hb-tcc-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M3.5 6l4.5 4.5L12.5 6" />
           </svg>
         </button>
       </h3>
-      <div id={panelId} className="hb-tc-panel" role="region" aria-label={`${name} details`}>
-        <div className="hb-tc-inner">
-          <div className="hb-tc-row">
-            <span className="hb-tc-label">Args</span>
+      <div id={panelId} className="hb-tcc-panel" role="region" aria-label={`${name} details`}>
+        <div className="hb-tcc-inner">
+          <div className="hb-tcc-row">
+            <span className="hb-tcc-label">Args</span>
             {argsText ? (
-              <pre className="hb-tc-code" tabIndex={0}>{highlight(argsText)}</pre>
+              <pre className="hb-tcc-code" tabIndex={0}>{highlight(argsText)}</pre>
             ) : (
-              <span className="hb-tc-empty">No arguments</span>
+              <span className="hb-tcc-empty">No arguments</span>
             )}
           </div>
-          <div className="hb-tc-row" data-has-copy={resultText ? "true" : "false"}>
-            <span className="hb-tc-label">Result</span>
+          <div className="hb-tcc-row" data-has-copy={resultText ? "true" : "false"}>
+            <span className="hb-tcc-label">Result</span>
             {resultText ? (
               <>
-                <pre className="hb-tc-code" tabIndex={0}>{highlight(resultText)}</pre>
+                <pre className="hb-tcc-code" tabIndex={0}>{highlight(resultText)}</pre>
                 <button
-                  className="hb-tc-copy"
+                  className="hb-tcc-copy"
                   type="button"
                   data-copied={copied}
                   aria-label={copied ? "Result copied" : "Copy result"}
@@ -341,7 +341,7 @@ export function ToolCallCard({
                 </button>
               </>
             ) : (
-              <span className="hb-tc-empty">{status === "running" ? "Waiting for result" : "No result"}</span>
+              <span className="hb-tcc-empty">{status === "running" ? "Waiting for result" : "No result"}</span>
             )}
           </div>
         </div>

@@ -37,7 +37,7 @@ interface ToastEntry {
 }
 
 const css = `
-.hb-ts-v {
+.hb-tos-v {
   position: fixed;
   z-index: 2147483000;
   display: flex;
@@ -49,19 +49,19 @@ const css = `
   padding: 16px;
   pointer-events: none;
 }
-.hb-ts-bottom-right { bottom: 0; right: 0; --hb-ts-x: 32px; }
-.hb-ts-bottom-left { bottom: 0; left: 0; --hb-ts-x: -32px; }
-.hb-ts-top-right { top: 0; right: 0; --hb-ts-x: 32px; }
-.hb-ts-top-left { top: 0; left: 0; --hb-ts-x: -32px; }
-.hb-ts-v.hb-ts-inline {
+.hb-tos-bottom-right { bottom: 0; right: 0; --hb-tos-x: 32px; }
+.hb-tos-bottom-left { bottom: 0; left: 0; --hb-tos-x: -32px; }
+.hb-tos-top-right { top: 0; right: 0; --hb-tos-x: 32px; }
+.hb-tos-top-left { top: 0; left: 0; --hb-tos-x: -32px; }
+.hb-tos-v.hb-tos-inline {
   position: absolute;
   z-index: 10;
   width: min(344px, 100%);
   max-width: 100%;
   padding: 12px;
 }
-.hb-ts-t {
-  --hb-ts-a: var(--hb-c);
+.hb-tos-t {
+  --hb-tos-a: var(--hb-c);
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -79,28 +79,28 @@ const css = `
   touch-action: pan-y;
   user-select: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
-  animation: hb-ts-in 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: hb-tos-in 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.hb-ts-t[data-variant="success"] { --hb-ts-a: #2fd17a; }
-.hb-ts-t[data-variant="error"] { --hb-ts-a: #ff4d5e; }
-.hb-ts-t[data-drag] { transition: none; }
-.hb-ts-t[data-leaving] {
+.hb-tos-t[data-variant="success"] { --hb-tos-a: #2fd17a; }
+.hb-tos-t[data-variant="error"] { --hb-tos-a: #ff4d5e; }
+.hb-tos-t[data-drag] { transition: none; }
+.hb-tos-t[data-leaving] {
   pointer-events: none;
-  animation: hb-ts-out 0.22s ease-in forwards;
+  animation: hb-tos-out 0.22s ease-in forwards;
 }
-.hb-ts-i {
+.hb-tos-i {
   flex: none;
   width: 8px;
   height: 8px;
   margin-top: 6px;
   border-radius: 50%;
-  background: var(--hb-ts-a);
-  box-shadow: 0 0 10px var(--hb-ts-a);
+  background: var(--hb-tos-a);
+  box-shadow: 0 0 10px var(--hb-tos-a);
 }
-.hb-ts-m { flex: 1; min-width: 0; }
-.hb-ts-title { font-weight: 600; }
-.hb-ts-desc { margin-top: 2px; color: rgba(255, 255, 255, 0.62); font-size: 13px; }
-.hb-ts-x {
+.hb-tos-m { flex: 1; min-width: 0; }
+.hb-tos-title { font-weight: 600; }
+.hb-tos-desc { margin-top: 2px; color: rgba(255, 255, 255, 0.62); font-size: 13px; }
+.hb-tos-x {
   flex: none;
   display: grid;
   place-items: center;
@@ -113,27 +113,27 @@ const css = `
   color: rgba(255, 255, 255, 0.55);
   cursor: pointer;
 }
-.hb-ts-x:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
-.hb-ts-x:focus-visible { outline: 2px solid var(--hb-ts-a); outline-offset: 1px; }
-.hb-ts-b {
+.hb-tos-x:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.hb-tos-x:focus-visible { outline: 2px solid var(--hb-tos-a); outline-offset: 1px; }
+.hb-tos-b {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: var(--hb-ts-a);
+  background: var(--hb-tos-a);
   opacity: 0.7;
   transform-origin: left;
-  animation: hb-ts-bar var(--hb-ts-d) linear forwards;
+  animation: hb-tos-bar var(--hb-tos-d) linear forwards;
 }
-.hb-ts-t[data-paused] .hb-ts-b { animation-play-state: paused; }
-@keyframes hb-ts-in { from { opacity: 0; transform: translateX(var(--hb-ts-x)); } }
-@keyframes hb-ts-out { to { opacity: 0; transform: translateX(var(--hb-ts-o, var(--hb-ts-x))); } }
-@keyframes hb-ts-bar { to { transform: scaleX(0); } }
+.hb-tos-t[data-paused] .hb-tos-b { animation-play-state: paused; }
+@keyframes hb-tos-in { from { opacity: 0; transform: translateX(var(--hb-tos-x)); } }
+@keyframes hb-tos-out { to { opacity: 0; transform: translateX(var(--hb-tos-o, var(--hb-tos-x))); } }
+@keyframes hb-tos-bar { to { transform: scaleX(0); } }
 @media (prefers-reduced-motion: reduce) {
-  .hb-ts-t { animation: none; transition: none; }
-  .hb-ts-t[data-leaving] { animation: none; opacity: 0; }
-  .hb-ts-b { display: none; }
+  .hb-tos-t { animation: none; transition: none; }
+  .hb-tos-t[data-leaving] { animation: none; opacity: 0; }
+  .hb-tos-b { display: none; }
 }
 `;
 
@@ -202,7 +202,7 @@ function ToastItem({ item, onDismiss, onRemove }: ToastItemProps) {
     const el = e.currentTarget;
     el.removeAttribute("data-drag");
     if (Math.abs(d.dx) > 80) {
-      el.style.setProperty("--hb-ts-o", `${Math.sign(d.dx) * 320}px`);
+      el.style.setProperty("--hb-tos-o", `${Math.sign(d.dx) * 320}px`);
       onDismiss(item.id);
     } else {
       el.style.transform = "";
@@ -221,11 +221,11 @@ function ToastItem({ item, onDismiss, onRemove }: ToastItemProps) {
   return (
     <div
       ref={ref}
-      className="hb-ts-t"
+      className="hb-tos-t"
       data-variant={item.variant}
       data-paused={paused ? "" : undefined}
       data-leaving={item.leaving ? "" : undefined}
-      style={{ "--hb-ts-d": `${item.duration}ms` } as React.CSSProperties}
+      style={{ "--hb-tos-d": `${item.duration}ms` } as React.CSSProperties}
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
       onFocus={() => setFocused(true)}
@@ -236,14 +236,14 @@ function ToastItem({ item, onDismiss, onRemove }: ToastItemProps) {
       onPointerUp={up}
       onPointerCancel={up}
     >
-      <span className="hb-ts-i" aria-hidden="true" />
-      <div className="hb-ts-m">
-        <div className="hb-ts-title">{item.title}</div>
-        {item.description ? <div className="hb-ts-desc">{item.description}</div> : null}
+      <span className="hb-tos-i" aria-hidden="true" />
+      <div className="hb-tos-m">
+        <div className="hb-tos-title">{item.title}</div>
+        {item.description ? <div className="hb-tos-desc">{item.description}</div> : null}
       </div>
       <button
         type="button"
-        className="hb-ts-x"
+        className="hb-tos-x"
         aria-label="Dismiss notification"
         onClick={() => onDismiss(item.id)}
       >
@@ -251,7 +251,7 @@ function ToastItem({ item, onDismiss, onRemove }: ToastItemProps) {
           <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       </button>
-      {item.duration > 0 ? <span className="hb-ts-b" aria-hidden="true" /> : null}
+      {item.duration > 0 ? <span className="hb-tos-b" aria-hidden="true" /> : null}
     </div>
   );
 }
@@ -310,7 +310,7 @@ export function ToastProvider({
       <style href="hb-toast-stack" precedence="default">{css}</style>
       {children}
       <div
-        className={`hb-ts-v hb-ts-${position}${inline ? " hb-ts-inline" : ""} ${className}`}
+        className={`hb-tos-v hb-tos-${position}${inline ? " hb-tos-inline" : ""} ${className}`}
         style={{ "--hb-c": color } as React.CSSProperties}
         role="status"
         aria-live="polite"
