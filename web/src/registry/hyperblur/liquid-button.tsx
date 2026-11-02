@@ -12,7 +12,7 @@ export interface LiquidButtonProps
 }
 
 const css = `
-.hb-lb {
+.hb-lqb {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -37,9 +37,9 @@ const css = `
     border-color var(--hb-d) ease,
     transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.hb-lb[data-size="sm"] { font-size: 13px; padding: 0.65em 1.45em; }
-.hb-lb[data-size="lg"] { font-size: 17px; padding: 0.9em 2.1em; }
-.hb-lb-fill {
+.hb-lqb[data-size="sm"] { font-size: 13px; padding: 0.65em 1.45em; }
+.hb-lqb[data-size="lg"] { font-size: 17px; padding: 0.9em 2.1em; }
+.hb-lqb-fill {
   position: absolute;
   left: 0;
   right: 0;
@@ -50,7 +50,7 @@ const css = `
   transform: translateY(calc(100% + 22px));
   transition: transform var(--hb-d) cubic-bezier(0.3, 0.8, 0.25, 1);
 }
-.hb-lb-body {
+.hb-lqb-body {
   position: absolute;
   left: 0;
   right: 0;
@@ -58,38 +58,38 @@ const css = `
   bottom: -2px;
   background: var(--hb-c);
 }
-.hb-lb-wave {
+.hb-lqb-wave {
   position: absolute;
   left: 0;
   width: 200%;
   height: 16px;
   fill: var(--hb-c);
 }
-.hb-lb-wave-a {
+.hb-lqb-wave-a {
   top: -15px;
-  animation: hb-lb-slide calc(var(--hb-d) * 3) linear infinite;
+  animation: hb-lqb-slide calc(var(--hb-d) * 3) linear infinite;
 }
-.hb-lb-wave-b {
+.hb-lqb-wave-b {
   top: -19px;
   opacity: 0.45;
-  animation: hb-lb-slide calc(var(--hb-d) * 4.5) linear infinite reverse;
+  animation: hb-lqb-slide calc(var(--hb-d) * 4.5) linear infinite reverse;
 }
-.hb-lb-t { position: relative; }
-.hb-lb:hover, .hb-lb:focus-visible {
+.hb-lqb-t { position: relative; }
+.hb-lqb:hover, .hb-lqb:focus-visible {
   color: #05070b;
   border-color: var(--hb-c);
 }
-.hb-lb:hover .hb-lb-fill, .hb-lb:focus-visible .hb-lb-fill { transform: translateY(0); }
-.hb-lb:active { transform: scale(0.97); }
-.hb-lb:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }
-.hb-lb:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
-@keyframes hb-lb-slide {
+.hb-lqb:hover .hb-lqb-fill, .hb-lqb:focus-visible .hb-lqb-fill { transform: translateY(0); }
+.hb-lqb:active { transform: scale(0.97); }
+.hb-lqb:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }
+.hb-lqb:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+@keyframes hb-lqb-slide {
   to { transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hb-lb, .hb-lb-fill { transition-duration: 0.01s; }
-  .hb-lb-wave { animation: none; }
-  .hb-lb:active { transform: none; }
+  .hb-lqb, .hb-lqb-fill { transition-duration: 0.01s; }
+  .hb-lqb-wave { animation: none; }
+  .hb-lqb:active { transform: none; }
 }
 `;
 
@@ -118,21 +118,21 @@ export function LiquidButton({
       <style href="hb-liquid-button" precedence="default">{css}</style>
       <button
         type={type}
-        className={`hb-lb ${className}`}
+        className={`hb-lqb ${className}`}
         style={vars}
         data-size={size}
         {...rest}
       >
-        <span className="hb-lb-fill" aria-hidden="true">
-          <span className="hb-lb-body" />
-          <svg className="hb-lb-wave hb-lb-wave-b" viewBox="0 0 200 16" preserveAspectRatio="none">
+        <span className="hb-lqb-fill" aria-hidden="true">
+          <span className="hb-lqb-body" />
+          <svg className="hb-lqb-wave hb-lqb-wave-b" viewBox="0 0 200 16" preserveAspectRatio="none">
             <path d={wave} />
           </svg>
-          <svg className="hb-lb-wave hb-lb-wave-a" viewBox="0 0 200 16" preserveAspectRatio="none">
+          <svg className="hb-lqb-wave hb-lqb-wave-a" viewBox="0 0 200 16" preserveAspectRatio="none">
             <path d={wave} />
           </svg>
         </span>
-        <span className="hb-lb-t">{children}</span>
+        <span className="hb-lqb-t">{children}</span>
       </button>
     </>
   );

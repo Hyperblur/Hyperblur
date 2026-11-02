@@ -226,23 +226,20 @@ function Corners() {
   );
 }
 
-function thumb(node: ReactNode, { scale = 0.34, width = 960, y = 0 }: { scale?: number; width?: number; y?: number } = {}) {
-  const transform = `translateX(calc(50cqw - ${(width * scale) / 2}px)) scale(${scale}) translateY(${-y}px)`;
-  return (
-    <div className="hb-thumb @container absolute inset-0 overflow-hidden">
-      <div className="origin-top-left [transform:var(--hb-thumb)]" style={{ width, "--hb-thumb": transform } as CSSProperties}>
-        {node}
-      </div>
-    </div>
-  );
-}
-
+import { thumb } from "@/registry/thumb";
 import { buttonsDemos } from "@/registry/parts/buttons.demos";
 import { appUiDemos } from "@/registry/parts/app-ui.demos";
 import { appUiMoreDemos } from "@/registry/parts/app-ui-more.demos";
 import { agentKitDemos } from "@/registry/parts/agent-kit.demos";
 import { transitionsDemos } from "@/registry/parts/transitions.demos";
 import { socialDemos } from "@/registry/parts/social.demos";
+import { siteADemos } from "@/registry/parts/site-a.demos";
+import { siteBDemos } from "@/registry/parts/site-b.demos";
+import { chartsDemos } from "@/registry/parts/charts.demos";
+import { listsDemos } from "@/registry/parts/lists.demos";
+import { sidebarsDemos } from "@/registry/parts/sidebars.demos";
+import { effectsDemos } from "@/registry/parts/effects.demos";
+import { dashboardsDemos } from "@/registry/parts/dashboards.demos";
 
 const baseDemos: Record<string, ReactNode> = {
   "glitch-text": (
@@ -1308,4 +1305,11 @@ export const demos: Record<string, ReactNode> = {
   ...appUiMoreDemos,
   ...agentKitDemos,
   ...socialDemos,
+  ...siteADemos,
+  ...siteBDemos,
+  ...chartsDemos,
+  ...listsDemos,
+  ...sidebarsDemos,
+  ...effectsDemos,
+  ...dashboardsDemos,
 };
