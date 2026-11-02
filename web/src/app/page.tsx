@@ -82,7 +82,7 @@ export default function Home() {
             <div className="p-5">
               <h3 className="font-medium">{effects.length} effects</h3>
               <p className="mt-1 text-sm text-muted">
-                Text, motion, backgrounds, buttons, charts, agent UI and full page blocks. The stuff you
+                Text, motion, backgrounds, buttons, charts, lists, sidebars, dashboards and agent UI. The stuff you
                 would build from scratch, already done and battle-tested.
               </p>
             </div>
@@ -90,11 +90,11 @@ export default function Home() {
 
           <div className="overflow-hidden rounded-2xl border border-line bg-surface">
             <div className="flex h-52 items-center justify-center border-b border-line bg-bg">
-              <div className="grid w-full max-w-[490px] grid-cols-3 gap-2 px-4">
+              <div className="grid w-full max-w-[490px] grid-cols-3 gap-1.5 px-4">
                 {categories.map((c) => (
                   <div
                     key={c.id}
-                    className="flex min-w-0 items-center justify-between gap-2 rounded-lg border border-line bg-surface px-2.5 py-1.5"
+                    className="flex min-w-0 items-center justify-between gap-2 rounded-lg border border-line bg-surface px-2.5 py-1"
                   >
                     <span className="truncate text-xs font-medium">{c.label}</span>
                     <span className="shrink-0 font-mono text-[11px] text-muted">
@@ -107,8 +107,8 @@ export default function Home() {
             <div className="p-5">
               <h3 className="font-medium">Well organized</h3>
               <p className="mt-1 text-sm text-muted">
-                Twelve categories, from text effects to app UI and agent kit, so you find the right piece
-                without scrolling through a wall of demos.
+                {categories.length} categories, from text effects to dashboards, sidebars and agent kit, so you find the
+                right piece without scrolling through a wall of demos.
               </p>
             </div>
           </div>

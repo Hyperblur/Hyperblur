@@ -11,24 +11,24 @@ export interface BlobCursorProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const css = `
-.hb-bc { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.hb-bc[data-global="true"] { position: fixed; }
-.hb-bc-svg { position: absolute; width: 0; height: 0; overflow: hidden; }
-.hb-bc-b {
+.hb-bcur { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hb-bcur[data-global="true"] { position: fixed; }
+.hb-bcur-svg { position: absolute; width: 0; height: 0; overflow: hidden; }
+.hb-bcur-b {
   position: absolute; left: 0; top: 0;
   width: var(--hb-w); height: var(--hb-w);
   opacity: 0; transition: opacity .25s ease;
   mix-blend-mode: var(--hb-bm);
   will-change: transform;
 }
-.hb-bc[data-on="true"] .hb-bc-b { opacity: 1; }
-.hb-bc-c {
+.hb-bcur[data-on="true"] .hb-bcur-b { opacity: 1; }
+.hb-bcur-c {
   position: absolute; left: 0; top: 0;
   border-radius: 50%; background: var(--hb-c);
   will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hb-bc { display: none; }
+  .hb-bcur { display: none; }
 }
 `;
 
@@ -45,7 +45,7 @@ export function BlobCursor({
   const rootRef = React.useRef<HTMLDivElement>(null);
   const boxRef = React.useRef<HTMLDivElement>(null);
   const uid = React.useId().replace(/[^a-zA-Z0-9_-]/g, "");
-  const fid = `hb-bc-${uid}`;
+  const fid = `hb-bcur-${uid}`;
   const s = Math.max(4, size);
 
   React.useEffect(() => {
@@ -154,14 +154,14 @@ export function BlobCursor({
   return (
     <div
       ref={rootRef}
-      className={`hb-bc ${className}`}
+      className={`hb-bcur ${className}`}
       style={vars}
       data-global={global ? "true" : "false"}
       aria-hidden="true"
       {...rest}
     >
       <style href="hb-blob-cursor" precedence="default">{css}</style>
-      <svg className="hb-bc-svg" width="0" height="0" focusable="false">
+      <svg className="hb-bcur-svg" width="0" height="0" focusable="false">
         <defs>
           <filter id={fid} colorInterpolationFilters="sRGB">
             <feGaussianBlur in="SourceGraphic" stdDeviation={s * 0.12} result="blur" />
@@ -173,9 +173,9 @@ export function BlobCursor({
           </filter>
         </defs>
       </svg>
-      <div ref={boxRef} className="hb-bc-b" style={{ filter: `url(#${fid})` }}>
+      <div ref={boxRef} className="hb-bcur-b" style={{ filter: `url(#${fid})` }}>
         {diameters.map((d, i) => (
-          <span key={i} className="hb-bc-c" style={{ width: d, height: d }} />
+          <span key={i} className="hb-bcur-c" style={{ width: d, height: d }} />
         ))}
       </div>
     </div>

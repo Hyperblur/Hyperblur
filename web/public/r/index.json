@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-11-01T19:47:00.239Z",
+  "generatedAt": "2026-11-01T22:13:18.014Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -4168,7 +4168,7 @@
       "component": "Sparkline",
       "title": "Sparkline",
       "description": "A tiny smooth line with an optional area fill and a glowing end dot that draws in on mount.",
-      "category": "app-ui",
+      "category": "charts",
       "tags": [
         "chart",
         "sparkline",
@@ -4225,7 +4225,7 @@
       "component": "StatCard",
       "title": "Stat Card",
       "description": "KPI card with a counting value, a green or red delta pill, a caption and an embedded sparkline.",
-      "category": "app-ui",
+      "category": "charts",
       "tags": [
         "kpi",
         "stat",
@@ -4304,7 +4304,7 @@
       "component": "BarChart",
       "title": "Bar Chart",
       "description": "Vertical bars with rounded tops, grid lines, optional stacked series, grow-in motion and a hover tooltip.",
-      "category": "app-ui",
+      "category": "charts",
       "tags": [
         "chart",
         "bar",
@@ -4379,7 +4379,7 @@
       "component": "AreaChart",
       "title": "Area Chart",
       "description": "Smooth monotone line over a gradient area with a hover crosshair, dot and tooltip, and a draw-in animation.",
-      "category": "app-ui",
+      "category": "charts",
       "tags": [
         "chart",
         "area",
@@ -4448,7 +4448,7 @@
       "component": "DonutChart",
       "title": "Donut Chart",
       "description": "Gapped arc segments that sweep in, a centered total, a percentage legend and hover that expands a segment.",
-      "category": "app-ui",
+      "category": "charts",
       "tags": [
         "chart",
         "donut",
@@ -4511,7 +4511,7 @@
       "component": "DataTable",
       "title": "Data Table",
       "description": "Sortable table with sticky header, zebra rows, status pills, an empty state and optional pagination.",
-      "category": "app-ui",
+      "category": "lists",
       "tags": [
         "table",
         "data",
@@ -4645,7 +4645,7 @@
       "component": "SidebarNav",
       "title": "Sidebar Nav",
       "description": "A collapsible app sidebar with a sliding active indicator, badges and icon-only tooltips.",
-      "category": "app-ui",
+      "category": "sidebars",
       "tags": [
         "sidebar",
         "navigation",
@@ -5569,6 +5569,3382 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/rating-summary.json",
       "docs": "https://hyperblur.dev/effects/rating-summary",
       "file": "https://hyperblur.dev/r/rating-summary.json"
+    },
+    {
+      "slug": "navbar-glass",
+      "component": "NavbarGlass",
+      "title": "Navbar Glass",
+      "description": "A frosted glass navbar with a sliding hover pill, a keyboard-navigable mega menu and a hamburger layout that takes over in narrow containers.",
+      "category": "site",
+      "tags": [
+        "navbar",
+        "navigation",
+        "mega menu",
+        "glass",
+        "header",
+        "responsive"
+      ],
+      "props": [
+        {
+          "name": "logo",
+          "type": "ReactNode",
+          "description": "Content of the logo slot. Defaults to a small mark with the Hyperblur name."
+        },
+        {
+          "name": "links",
+          "type": "{ id: string; label: string; href?: string; menu?: { title: string; description?: string; href?: string; icon?: IconName | ReactNode }[] }[]",
+          "description": "Navigation links. A link with a `menu` array opens the mega menu panel. Built-in icon names: bolt, chart, shield, code, users, book, globe, layers."
+        },
+        {
+          "name": "cta",
+          "type": "{ label: string; href?: string; onClick?: () => void } | null",
+          "default": "{ label: \"Get started\", href: \"#\" }",
+          "description": "Primary call to action on the right. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the call to action, the menu icons and the focus rings."
+        },
+        {
+          "name": "sticky",
+          "type": "boolean",
+          "default": "true",
+          "description": "Sticks the navbar to the top of its scroll container. Set false for a static position."
+        },
+        {
+          "name": "defaultOpenId",
+          "type": "string",
+          "description": "Id of a link whose mega menu starts open. Escape, an outside click or focus leaving the navbar closes it."
+        }
+      ],
+      "usage": "<NavbarGlass cta={{ label: \"Start free\", href: \"/signup\" }} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/navbar-glass.json",
+      "docs": "https://hyperblur.dev/effects/navbar-glass",
+      "file": "https://hyperblur.dev/r/navbar-glass.json"
+    },
+    {
+      "slug": "footer-columns",
+      "component": "FooterColumns",
+      "title": "Footer Columns",
+      "description": "A full website footer with a brand blurb, social buttons, link columns, a newsletter mini-form, legal links and a live status pill.",
+      "category": "site",
+      "tags": [
+        "footer",
+        "links",
+        "newsletter",
+        "social",
+        "status",
+        "responsive"
+      ],
+      "props": [
+        {
+          "name": "logo",
+          "type": "ReactNode",
+          "description": "Content of the logo slot. Defaults to a small mark with the Hyperblur name."
+        },
+        {
+          "name": "blurb",
+          "type": "string",
+          "default": "\"Build, ship and measure product experiments from one workspace your whole team can trust.\"",
+          "description": "Short description under the logo."
+        },
+        {
+          "name": "socials",
+          "type": "{ name: \"x\" | \"github\" | \"linkedin\" | \"youtube\" | \"instagram\"; label?: string; href?: string }[]",
+          "default": "x, github, linkedin, youtube",
+          "description": "Social icon buttons."
+        },
+        {
+          "name": "columns",
+          "type": "{ title: string; links: { label: string; href?: string }[] }[]",
+          "default": "Product, Company, Resources, Legal",
+          "description": "Link columns. Three or four work best. They collapse to two columns, then one, as the container narrows."
+        },
+        {
+          "name": "newsletter",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the email mini-form under the blurb."
+        },
+        {
+          "name": "newsletterTitle",
+          "type": "string",
+          "default": "\"Product updates, once a month\"",
+          "description": "Label above the mini-form."
+        },
+        {
+          "name": "onSubscribe",
+          "type": "(email: string) => void",
+          "description": "Called with the trimmed email after it passes validation."
+        },
+        {
+          "name": "legal",
+          "type": "{ label: string; href?: string }[]",
+          "default": "Privacy, Terms, Cookies",
+          "description": "Links in the bottom bar."
+        },
+        {
+          "name": "copyright",
+          "type": "string",
+          "default": "\"© 2026 Hyperblur, Inc. All rights reserved.\"",
+          "description": "Copyright line in the bottom bar."
+        },
+        {
+          "name": "status",
+          "type": "{ label: string; tone?: \"ok\" | \"warn\" | \"down\"; href?: string } | null",
+          "default": "{ label: \"All systems normal\", tone: \"ok\" }",
+          "description": "Status pill with a pulsing dot. Pass an href to make it a link, or null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of hover states, the subscribe button and focus rings."
+        }
+      ],
+      "usage": "<FooterColumns onSubscribe={(email) => console.log(email)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/footer-columns.json",
+      "docs": "https://hyperblur.dev/effects/footer-columns",
+      "file": "https://hyperblur.dev/r/footer-columns.json"
+    },
+    {
+      "slug": "announcement-bar",
+      "component": "AnnouncementBar",
+      "title": "Announcement Bar",
+      "description": "A slim banner that rotates through messages with a vertical slide, pauses on hover and can be dismissed.",
+      "category": "site",
+      "tags": [
+        "announcement",
+        "banner",
+        "promo",
+        "top bar",
+        "ticker",
+        "dismiss"
+      ],
+      "props": [
+        {
+          "name": "messages",
+          "type": "{ text: string; badge?: string; cta?: string; href?: string }[]",
+          "description": "Messages to show. With more than one, they rotate. `cta` renders an arrow link pointing at `href`."
+        },
+        {
+          "name": "variant",
+          "type": "\"solid\" | \"gradient\" | \"subtle\"",
+          "default": "\"solid\"",
+          "description": "Visual style. Solid and gradient use the accent color, subtle sits on a dark surface."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "4500",
+          "description": "Milliseconds each message stays on screen. Set 0 to stop rotating. Rotation is also off when the user prefers reduced motion."
+        },
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the dismiss button. Dismissal lives in component state only."
+        },
+        {
+          "name": "onDismiss",
+          "type": "() => void",
+          "description": "Called when the user dismisses the bar. Use it to persist the choice yourself."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Base color of the solid and gradient variants and of the subtle variant highlights."
+        }
+      ],
+      "usage": "<AnnouncementBar variant=\"gradient\" messages={[{ text: \"Version 2.0 is live.\", cta: \"Read more\", href: \"/blog\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/announcement-bar.json",
+      "docs": "https://hyperblur.dev/effects/announcement-bar",
+      "file": "https://hyperblur.dev/r/announcement-bar.json"
+    },
+    {
+      "slug": "cookie-banner",
+      "component": "CookieBanner",
+      "title": "Cookie Banner",
+      "description": "A consent card with Accept all, Reject non-essential and a Customize panel of category switches. It slides up on mount.",
+      "category": "site",
+      "tags": [
+        "cookie",
+        "consent",
+        "privacy",
+        "gdpr",
+        "banner",
+        "preferences"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"We value your privacy\"",
+          "description": "Heading of the card."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "default": "\"We use cookies to run the site and understand how it is used. Choose what you allow.\"",
+          "description": "Short explanation under the heading."
+        },
+        {
+          "name": "placement",
+          "type": "\"bottom-left\" | \"bottom-center\" | \"inline\"",
+          "default": "\"inline\"",
+          "description": "Inline renders in the page flow. The bottom placements fix the card to the viewport."
+        },
+        {
+          "name": "defaultPreferences",
+          "type": "{ analytics?: boolean; marketing?: boolean }",
+          "default": "{}",
+          "description": "Initial state of the optional category switches. Necessary is always on."
+        },
+        {
+          "name": "onChange",
+          "type": "(preferences: { necessary: true; analytics: boolean; marketing: boolean }) => void",
+          "description": "Called once when the user accepts, rejects or saves custom choices."
+        },
+        {
+          "name": "policyHref",
+          "type": "string",
+          "description": "When set, adds a Cookie policy link after the description."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the primary button, the switches and the focus rings."
+        }
+      ],
+      "usage": "<CookieBanner placement=\"bottom-left\" onChange={(prefs) => console.log(prefs)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/cookie-banner.json",
+      "docs": "https://hyperblur.dev/effects/cookie-banner",
+      "file": "https://hyperblur.dev/r/cookie-banner.json"
+    },
+    {
+      "slug": "newsletter-signup",
+      "component": "NewsletterSignup",
+      "title": "Newsletter Signup",
+      "description": "An email capture block with inline validation and shake, a spinner while submitting and a success state that morphs the button into a check.",
+      "category": "site",
+      "tags": [
+        "newsletter",
+        "email",
+        "form",
+        "signup",
+        "subscribe",
+        "validation"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "default": "\"Get the Friday dispatch\"",
+          "description": "Heading. Pass an element to style it your own way."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "default": "\"One short email every week with new features, product notes and what we are reading.\"",
+          "description": "Helper text under the heading."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"you@company.com\"",
+          "description": "Input placeholder."
+        },
+        {
+          "name": "buttonLabel",
+          "type": "string",
+          "default": "\"Subscribe\"",
+          "description": "Label of the submit button."
+        },
+        {
+          "name": "successMessage",
+          "type": "string",
+          "default": "\"You are in. Check your inbox to confirm.\"",
+          "description": "Message shown inside the field after a successful submit."
+        },
+        {
+          "name": "privacyNote",
+          "type": "ReactNode",
+          "default": "\"No spam. Unsubscribe with one click.\"",
+          "description": "Small note under the form."
+        },
+        {
+          "name": "align",
+          "type": "\"center\" | \"left\"",
+          "default": "\"center\"",
+          "description": "Alignment of the heading, text and note."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the submit button and the focus ring."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(email: string) => void | Promise<void>",
+          "description": "Called with the trimmed email once it is valid. While a returned promise is pending the button shows a spinner. A rejection shows an inline error."
+        }
+      ],
+      "usage": "<NewsletterSignup onSubmit={async (email) => { await fetch('/api/subscribe', { method: 'POST', body: email }); }} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/newsletter-signup.json",
+      "docs": "https://hyperblur.dev/effects/newsletter-signup",
+      "file": "https://hyperblur.dev/r/newsletter-signup.json"
+    },
+    {
+      "slug": "breadcrumbs",
+      "component": "Breadcrumbs",
+      "title": "Breadcrumbs",
+      "description": "A breadcrumb trail that truncates long labels and folds the middle of deep paths into an ellipsis menu.",
+      "category": "site",
+      "tags": [
+        "breadcrumbs",
+        "navigation",
+        "trail",
+        "path",
+        "docs",
+        "menu"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ label: string; href?: string }[]",
+          "description": "Trail from the root to the current page. The last item renders as the current page and is not a link."
+        },
+        {
+          "name": "separator",
+          "type": "\"chevron\" | \"slash\"",
+          "default": "\"chevron\"",
+          "description": "Glyph between items."
+        },
+        {
+          "name": "maxItems",
+          "type": "number",
+          "default": "4",
+          "description": "Most items shown before the middle ones collapse into an ellipsis button that opens a small menu. Minimum 2."
+        },
+        {
+          "name": "maxLabelWidth",
+          "type": "number",
+          "default": "160",
+          "description": "Widest a label can be in pixels before it truncates with an ellipsis."
+        },
+        {
+          "name": "homeIcon",
+          "type": "boolean",
+          "default": "false",
+          "description": "Shows a home icon in place of the first label. The label stays as the accessible name."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the focus rings."
+        }
+      ],
+      "usage": "<Breadcrumbs homeIcon items={[{ label: \"Home\", href: \"/\" }, { label: \"Docs\", href: \"/docs\" }, { label: \"Setup\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/breadcrumbs.json",
+      "docs": "https://hyperblur.dev/effects/breadcrumbs",
+      "file": "https://hyperblur.dev/r/breadcrumbs.json"
+    },
+    {
+      "slug": "pagination",
+      "component": "Pagination",
+      "title": "Pagination",
+      "description": "Page navigation with ellipsis collapsing, an indicator that slides between pages and a compact variant with a page select.",
+      "category": "site",
+      "tags": [
+        "pagination",
+        "pages",
+        "navigation",
+        "table",
+        "list",
+        "paging"
+      ],
+      "props": [
+        {
+          "name": "total",
+          "type": "number",
+          "default": "12",
+          "description": "Total number of pages."
+        },
+        {
+          "name": "page",
+          "type": "number",
+          "description": "Controlled current page, starting at 1. Pair with onPageChange."
+        },
+        {
+          "name": "defaultPage",
+          "type": "number",
+          "default": "1",
+          "description": "Initial page when uncontrolled."
+        },
+        {
+          "name": "onPageChange",
+          "type": "(page: number) => void",
+          "description": "Called with the new page whenever it changes."
+        },
+        {
+          "name": "siblings",
+          "type": "number",
+          "default": "1",
+          "description": "Pages shown on each side of the current page before collapsing into an ellipsis."
+        },
+        {
+          "name": "boundaries",
+          "type": "number",
+          "default": "1",
+          "description": "Pages always shown at the start and at the end of the list."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height of the buttons: 28, 34 or 40 pixels."
+        },
+        {
+          "name": "variant",
+          "type": "\"full\" | \"compact\"",
+          "default": "\"full\"",
+          "description": "Numbered buttons, or a compact Page N of M control with a select."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the active page indicator and focus ring."
+        }
+      ],
+      "usage": "<Pagination total={24} defaultPage={3} onPageChange={(page) => console.log(page)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/pagination.json",
+      "docs": "https://hyperblur.dev/effects/pagination",
+      "file": "https://hyperblur.dev/r/pagination.json"
+    },
+    {
+      "slug": "dialog-modal",
+      "component": "DialogModal",
+      "title": "Dialog Modal",
+      "description": "An accessible modal with a blurred scrim, scale-and-fade transitions, a focus trap and focus returned to the trigger.",
+      "category": "site",
+      "tags": [
+        "dialog",
+        "modal",
+        "overlay",
+        "confirm",
+        "popup",
+        "a11y"
+      ],
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the dialog asks to open or close."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "description": "Heading. Also names the dialog through aria-labelledby."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Supporting text under the title. Wired to aria-describedby."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Body content."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode | ((close: () => void) => ReactNode)",
+          "description": "Footer content, usually buttons. A function receives a close callback."
+        },
+        {
+          "name": "trigger",
+          "type": "ReactNode",
+          "description": "Label for a built-in trigger button. Omit it to open the dialog from your own state."
+        },
+        {
+          "name": "container",
+          "type": "\"viewport\" | \"parent\"",
+          "default": "\"viewport\"",
+          "description": "viewport covers the screen through a portal. parent fills the nearest positioned ancestor."
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"destructive\"",
+          "default": "\"default\"",
+          "description": "destructive adds a warning badge and a red accent."
+        },
+        {
+          "name": "closeOnEscape",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when Escape is pressed inside the dialog."
+        },
+        {
+          "name": "closeOnScrim",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close when the scrim is clicked."
+        },
+        {
+          "name": "showClose",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the close button in the corner."
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "default": "true",
+          "description": "Move focus into the dialog on open. An element with data-autofocus wins over the first focusable one."
+        },
+        {
+          "name": "maxWidth",
+          "type": "number",
+          "default": "440",
+          "description": "Maximum panel width in pixels."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring color."
+        }
+      ],
+      "usage": "<DialogModal trigger=\"Open\" title=\"Rename project\" description=\"Pick a new name.\" footer={(close) => <DialogButton tone=\"primary\" onClick={close}>Save</DialogButton>} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/dialog-modal.json",
+      "docs": "https://hyperblur.dev/effects/dialog-modal",
+      "file": "https://hyperblur.dev/r/dialog-modal.json"
+    },
+    {
+      "slug": "dropdown-menu",
+      "component": "DropdownMenu",
+      "title": "Dropdown Menu",
+      "description": "A button-triggered menu driven by a data array, with icons, shortcuts, checkbox items, a side submenu and the full keyboard model.",
+      "category": "site",
+      "tags": [
+        "dropdown",
+        "menu",
+        "actions",
+        "submenu",
+        "keyboard",
+        "context"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "DropdownMenuItem[]",
+          "required": true,
+          "description": "Menu entries: item, checkbox, separator, label or submenu. Items take id, label, icon, shortcut, disabled and destructive."
+        },
+        {
+          "name": "trigger",
+          "type": "ReactNode",
+          "default": "\"Options\"",
+          "description": "Content of the trigger button. A string also gets a chevron."
+        },
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "description": "Accessible name of the trigger when it only holds an icon."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the menu opens or closes."
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "description": "Called with the id of the chosen action item."
+        },
+        {
+          "name": "align",
+          "type": "\"start\" | \"end\"",
+          "default": "\"start\"",
+          "description": "Which edge of the trigger the menu lines up with."
+        },
+        {
+          "name": "side",
+          "type": "\"auto\" | \"bottom\" | \"top\"",
+          "default": "\"auto\"",
+          "description": "auto flips the menu above the trigger when there is no room below."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\"",
+          "default": "\"md\"",
+          "description": "Item height: 24 or 32 pixels."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring and checkbox tick color."
+        }
+      ],
+      "usage": "<DropdownMenu trigger=\"Actions\" items={[{ id: \"rename\", label: \"Rename\", shortcut: \"R\" }, { type: \"separator\" }, { id: \"delete\", label: \"Delete\", destructive: true }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/dropdown-menu.json",
+      "docs": "https://hyperblur.dev/effects/dropdown-menu",
+      "file": "https://hyperblur.dev/r/dropdown-menu.json"
+    },
+    {
+      "slug": "dropzone",
+      "component": "Dropzone",
+      "title": "Dropzone",
+      "description": "A file upload area with an animated dashed drag-over border, type and size checks, inline errors and a file list with simulated progress. It never uploads anything.",
+      "category": "site",
+      "tags": [
+        "dropzone",
+        "upload",
+        "file",
+        "drag and drop",
+        "input",
+        "progress"
+      ],
+      "props": [
+        {
+          "name": "accept",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Comma-separated extensions or MIME types, for example .png,.jpg,.pdf. Empty accepts any file."
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "default": "10485760",
+          "description": "Largest file size in bytes."
+        },
+        {
+          "name": "maxFiles",
+          "type": "number",
+          "default": "6",
+          "description": "Most files kept in the list at once."
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": "true",
+          "description": "Allow several files. When false, a new file replaces the current one."
+        },
+        {
+          "name": "simulate",
+          "type": "boolean",
+          "default": "false",
+          "description": "Animate a fake upload progress for each added file. Without it files show as ready immediately."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Block drops, clicks and keyboard browsing."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Drop files here or browse\"",
+          "description": "Main line inside the zone."
+        },
+        {
+          "name": "hint",
+          "type": "string",
+          "description": "Second line. Defaults to a summary of the accepted types and the size limit."
+        },
+        {
+          "name": "size",
+          "type": "\"md\" | \"sm\"",
+          "default": "\"md\"",
+          "description": "sm turns the zone into a compact horizontal strip."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Drag-over border, icon and progress color."
+        },
+        {
+          "name": "defaultFiles",
+          "type": "{ name: string; size: number; progress?: number }[]",
+          "description": "Files shown at the start. Their progress stays where you set it."
+        },
+        {
+          "name": "onFiles",
+          "type": "(files: File[]) => void",
+          "description": "Called with the accepted File objects. Send them wherever you like."
+        },
+        {
+          "name": "onReject",
+          "type": "(rejections: { name: string; reason: string }[]) => void",
+          "description": "Called with the files that failed the type, size or count checks."
+        },
+        {
+          "name": "onRemove",
+          "type": "(file: DropzoneFile) => void",
+          "description": "Called when a file is removed from the list."
+        }
+      ],
+      "usage": "<Dropzone accept=\".png,.jpg,.pdf\" maxSize={5 * 1024 * 1024} simulate onFiles={(files) => console.log(files)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/dropzone.json",
+      "docs": "https://hyperblur.dev/effects/dropzone",
+      "file": "https://hyperblur.dev/r/dropzone.json"
+    },
+    {
+      "slug": "empty-state",
+      "component": "EmptyState",
+      "title": "Empty State",
+      "description": "A zero-data state with four floating inline illustrations, a title, a description and primary and secondary actions.",
+      "category": "site",
+      "tags": [
+        "empty state",
+        "zero data",
+        "illustration",
+        "placeholder",
+        "cta",
+        "no results"
+      ],
+      "props": [
+        {
+          "name": "illustration",
+          "type": "\"inbox\" | \"search\" | \"folder\" | \"chart\" | \"none\"",
+          "default": "\"inbox\"",
+          "description": "Built-in illustration. none hides it."
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "default": "\"Nothing here yet\"",
+          "description": "Heading. Pass a styled node to change the typeface."
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "description": "Supporting sentence under the title."
+        },
+        {
+          "name": "primaryAction",
+          "type": "{ label: string; onClick?: () => void; href?: string }",
+          "description": "Filled pill button. Renders a link when href is set."
+        },
+        {
+          "name": "secondaryAction",
+          "type": "{ label: string; onClick?: () => void; href?: string }",
+          "description": "Quiet ghost button next to the primary one."
+        },
+        {
+          "name": "size",
+          "type": "\"md\" | \"sm\"",
+          "default": "\"md\"",
+          "description": "sm shrinks the artwork, spacing and type for small panels."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color used inside the illustrations and for the focus ring."
+        }
+      ],
+      "usage": "<EmptyState illustration=\"search\" title=\"No results\" description=\"Try a different keyword.\" primaryAction={{ label: \"Clear filters\" }} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/empty-state.json",
+      "docs": "https://hyperblur.dev/effects/empty-state",
+      "file": "https://hyperblur.dev/r/empty-state.json"
+    },
+    {
+      "slug": "skeleton",
+      "component": "Skeleton",
+      "title": "Skeleton",
+      "description": "Shimmering loading placeholders: a rect, circle and text primitive. SkeletonCard, SkeletonList and SkeletonProfile ship in the same file.",
+      "category": "site",
+      "tags": [
+        "skeleton",
+        "loading",
+        "placeholder",
+        "shimmer",
+        "suspense",
+        "spinner"
+      ],
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"rect\" | \"circle\" | \"text\"",
+          "default": "\"rect\"",
+          "description": "Shape of the placeholder."
+        },
+        {
+          "name": "width",
+          "type": "number | string",
+          "description": "Width. Numbers are pixels. For circle it is the diameter."
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "description": "Height. Defaults to 96 for rect and 12 per line for text."
+        },
+        {
+          "name": "lines",
+          "type": "number",
+          "default": "1",
+          "description": "Number of lines for the text variant."
+        },
+        {
+          "name": "lastLineWidth",
+          "type": "number | string",
+          "default": "\"62%\"",
+          "description": "Width of the final text line when there are several."
+        },
+        {
+          "name": "radius",
+          "type": "number | string",
+          "default": "8",
+          "description": "Corner radius of rect and text blocks."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Run the shimmer sweep. With reduced motion it pulses gently instead."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#1d1d1d\"",
+          "description": "Base color of the blocks."
+        },
+        {
+          "name": "highlight",
+          "type": "string",
+          "default": "\"rgba(255,255,255,0.075)\"",
+          "description": "Color of the shimmer band."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Makes the placeholder a labelled status region for screen readers. Composites default to Loading."
+        },
+        {
+          "name": "SkeletonCard",
+          "type": "{ media?: boolean; mediaHeight?: number; lines?: number }",
+          "description": "Composite props on top of animate, color, highlight and label. media toggles the image block, mediaHeight is in pixels and lines sets the text lines."
+        },
+        {
+          "name": "SkeletonList",
+          "type": "{ rows?: number; avatarSize?: number }",
+          "description": "Composite props on top of animate, color, highlight and label. Defaults are 3 rows and a 36 pixel avatar."
+        }
+      ],
+      "usage": "<SkeletonCard />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/skeleton.json",
+      "docs": "https://hyperblur.dev/effects/skeleton",
+      "file": "https://hyperblur.dev/r/skeleton.json"
+    },
+    {
+      "slug": "radar-chart",
+      "component": "RadarChart",
+      "title": "Radar Chart",
+      "description": "A multi-axis radar chart with up to three translucent series, grid rings, point tooltips and a legend that hides or shows each series.",
+      "category": "charts",
+      "tags": [
+        "radar",
+        "spider",
+        "chart",
+        "skills",
+        "comparison",
+        "svg"
+      ],
+      "props": [
+        {
+          "name": "axes",
+          "type": "string[]",
+          "default": "[\"Speed\", \"Power\", \"Range\", \"Defense\", \"Agility\", \"Focus\"]",
+          "description": "Axis labels, drawn clockwise from the top."
+        },
+        {
+          "name": "series",
+          "type": "{ name: string; values: number[]; color?: string }[]",
+          "default": "two sample series",
+          "description": "Series to plot. Each values array lines up with axes by index. Any number works, three reads best."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "Value at the outer ring. Rounded up from the highest value when omitted."
+        },
+        {
+          "name": "rings",
+          "type": "number",
+          "default": "4",
+          "description": "Number of concentric grid rings."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#2f7bff\", \"#8b5cf6\", \"#34d399\", \"#fbbf24\", \"#fb7185\", \"#7fb3ff\"]",
+          "description": "Palette used by series that have no color of their own."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "200",
+          "description": "Height of the plot in viewBox units. The width follows the container."
+        },
+        {
+          "name": "legend",
+          "type": "\"bottom\" | \"right\" | \"none\"",
+          "default": "\"bottom\"",
+          "description": "Where the toggle legend sits. Each entry is a button that hides or shows its series."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(n: number) => string",
+          "description": "Formats values in the tooltip and the accessible label."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Grow the polygons from the center on mount."
+        }
+      ],
+      "usage": "<RadarChart axes={[\"Design\", \"Code\", \"Speed\", \"Docs\"]} series={[{ name: \"Maya\", values: [88, 72, 65, 80] }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/radar-chart.json",
+      "docs": "https://hyperblur.dev/effects/radar-chart",
+      "file": "https://hyperblur.dev/r/radar-chart.json"
+    },
+    {
+      "slug": "heatmap-calendar",
+      "component": "HeatmapCalendar",
+      "title": "Heatmap Calendar",
+      "description": "A GitHub-style activity grid with month and weekday labels, an intensity legend and a hover tooltip with date and count. Ships a deterministic sampleActivity helper.",
+      "category": "charts",
+      "tags": [
+        "heatmap",
+        "calendar",
+        "contributions",
+        "activity",
+        "grid",
+        "streak"
+      ],
+      "props": [
+        {
+          "name": "values",
+          "type": "Record<string, number> | number[]",
+          "description": "Counts by ISO date (2026-10-31), or an array whose last item is endDate and runs back one day per entry. Uses sampleActivity() when omitted."
+        },
+        {
+          "name": "endDate",
+          "type": "string",
+          "default": "\"2026-10-31\"",
+          "description": "Last day shown, as YYYY-MM-DD. Pass today's date from the server or an effect to keep rendering deterministic."
+        },
+        {
+          "name": "weeks",
+          "type": "number",
+          "default": "52",
+          "description": "Number of week columns."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#171717\", \"#112a52\", \"#1a4a94\", \"#2f7bff\", \"#8dbcff\"]",
+          "description": "Intensity scale from empty to busiest. Any length of two or more."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "default": "\"contribution\"",
+          "description": "Singular noun used in the tooltip and summary."
+        },
+        {
+          "name": "showTotal",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the total count under the grid."
+        },
+        {
+          "name": "showLegend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the Less to More legend."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Fade the columns in from left to right on mount."
+        }
+      ],
+      "usage": "<HeatmapCalendar values={sampleActivity(\"2026-10-31\", 26)} weeks={26} unit=\"commit\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/heatmap-calendar.json",
+      "docs": "https://hyperblur.dev/effects/heatmap-calendar",
+      "file": "https://hyperblur.dev/r/heatmap-calendar.json"
+    },
+    {
+      "slug": "funnel-chart",
+      "component": "FunnelChart",
+      "title": "Funnel Chart",
+      "description": "A conversion funnel of centered trapezoid stages with absolute values, share of the first stage and the drop-off between stages.",
+      "category": "charts",
+      "tags": [
+        "funnel",
+        "conversion",
+        "pipeline",
+        "chart",
+        "stages",
+        "analytics"
+      ],
+      "props": [
+        {
+          "name": "stages",
+          "type": "{ label: string; value: number; color?: string }[]",
+          "default": "five sample stages",
+          "description": "Stages from top to bottom. Percentages are measured against the first stage."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#2f7bff\", \"#4d86ff\", \"#6a8ffa\", \"#8b8cf6\", \"#8b5cf6\", \"#34d399\"]",
+          "description": "Fill per stage, in order. Used when a stage has no color."
+        },
+        {
+          "name": "stageHeight",
+          "type": "number",
+          "default": "34",
+          "description": "Height of each stage row in viewBox units."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(n: number) => string",
+          "description": "Formats the absolute values. Defaults to grouped digits."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Grow the stages in one after another on mount."
+        }
+      ],
+      "usage": "<FunnelChart stages={[{ label: \"Visitors\", value: 48200 }, { label: \"Sign-ups\", value: 14600 }, { label: \"Paid\", value: 1260 }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/funnel-chart.json",
+      "docs": "https://hyperblur.dev/effects/funnel-chart",
+      "file": "https://hyperblur.dev/r/funnel-chart.json"
+    },
+    {
+      "slug": "gauge-meter",
+      "component": "GaugeMeter",
+      "title": "Gauge Meter",
+      "description": "A semicircular gauge with colored zones, tick marks, an animated needle and a large readout that counts to the value.",
+      "category": "charts",
+      "tags": [
+        "gauge",
+        "meter",
+        "speedometer",
+        "score",
+        "kpi",
+        "needle"
+      ],
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "default": "72",
+          "description": "Current value. Changing it sweeps the needle and counts the readout."
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "default": "0",
+          "description": "Value at the left end of the arc."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "100",
+          "description": "Value at the right end of the arc."
+        },
+        {
+          "name": "zones",
+          "type": "{ to: number; color: string; label?: string }[]",
+          "default": "red to 40, amber to 70, green to 100",
+          "description": "Colored bands. Each zone runs from the previous zone's end to its own to value."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Caption under the readout. Falls back to the label of the zone the value is in."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Unit shown after the readout, such as % or ms."
+        },
+        {
+          "name": "decimals",
+          "type": "number",
+          "default": "0",
+          "description": "Decimal places in the readout and the min and max labels."
+        },
+        {
+          "name": "ticks",
+          "type": "number",
+          "default": "11",
+          "description": "Tick marks along the inside of the arc. Zero hides them."
+        },
+        {
+          "name": "showMinMax",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the min and max labels under the ends of the arc."
+        },
+        {
+          "name": "needleColor",
+          "type": "string",
+          "default": "\"#ededed\"",
+          "description": "Needle and hub color."
+        },
+        {
+          "name": "size",
+          "type": "number | string",
+          "default": "\"100%\"",
+          "description": "Width of the gauge. Height follows the aspect ratio."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(n: number) => string",
+          "description": "Custom readout formatting. Overrides decimals."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Sweep the zones and needle in on mount and count the readout."
+        }
+      ],
+      "usage": "<GaugeMeter value={72} unit=\"%\" label=\"CPU load\" size={220} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gauge-meter.json",
+      "docs": "https://hyperblur.dev/effects/gauge-meter",
+      "file": "https://hyperblur.dev/r/gauge-meter.json"
+    },
+    {
+      "slug": "multi-line-chart",
+      "component": "MultiLineChart",
+      "title": "Multi-line Chart",
+      "description": "Smooth lines on shared axes with an interactive legend, a crosshair that snaps to the nearest point and a tooltip listing every series.",
+      "category": "charts",
+      "tags": [
+        "line",
+        "chart",
+        "multi-series",
+        "crosshair",
+        "legend",
+        "analytics"
+      ],
+      "props": [
+        {
+          "name": "series",
+          "type": "{ name: string; data: number[]; color?: string }[]",
+          "default": "three sample series",
+          "description": "Series to plot. data lines up with labels by index."
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "default": "Jan to Dec",
+          "description": "X axis labels, one per point."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#2f7bff\", \"#8b5cf6\", \"#34d399\", \"#fbbf24\", \"#fb7185\", \"#7fb3ff\"]",
+          "description": "Palette used by series without a color."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "200",
+          "description": "Chart height in pixels. The width follows the container."
+        },
+        {
+          "name": "smooth",
+          "type": "boolean",
+          "default": "true",
+          "description": "Use monotone curves. Set false for straight segments."
+        },
+        {
+          "name": "legend",
+          "type": "\"top\" | \"bottom\" | \"none\"",
+          "default": "\"bottom\"",
+          "description": "Legend position. Entries are buttons that hide or show a series."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(n: number) => string",
+          "description": "Formats axis ticks and tooltip values."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale for the default number formatting."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draw the lines in on mount."
+        }
+      ],
+      "usage": "<MultiLineChart labels={[\"Mon\", \"Tue\", \"Wed\"]} series={[{ name: \"p50\", data: [42, 38, 45] }, { name: \"p95\", data: [120, 110, 135] }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/multi-line-chart.json",
+      "docs": "https://hyperblur.dev/effects/multi-line-chart",
+      "file": "https://hyperblur.dev/r/multi-line-chart.json"
+    },
+    {
+      "slug": "progress-rings",
+      "component": "ProgressRings",
+      "title": "Progress Rings",
+      "description": "Concentric activity rings with rounded gradient strokes, an animated sweep, a center slot and a legend with value and goal.",
+      "category": "charts",
+      "tags": [
+        "rings",
+        "progress",
+        "activity",
+        "goals",
+        "fitness",
+        "gradient"
+      ],
+      "props": [
+        {
+          "name": "rings",
+          "type": "{ label: string; value: number; goal: number; unit?: string; color?: string; color2?: string }[]",
+          "default": "Move, Exercise and Stand",
+          "description": "Up to three rings, outermost first. color2 is the gradient end and defaults to a lighter tint of color."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "150",
+          "description": "Diameter of the ring stack in pixels."
+        },
+        {
+          "name": "thickness",
+          "type": "number",
+          "default": "14",
+          "description": "Stroke width of each ring in pixels."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#fb7185\", \"#34d399\", \"#2f7bff\", \"#fbbf24\", \"#8b5cf6\", \"#7fb3ff\"]",
+          "description": "Palette used by rings without a color."
+        },
+        {
+          "name": "showLegend",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the legend rows beside the rings. They stack under the rings in narrow containers."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Sweep the rings from empty on mount."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content for the hollow center, such as a day number or an icon."
+        }
+      ],
+      "usage": "<ProgressRings rings={[{ label: \"Move\", value: 486, goal: 600, unit: \"kcal\" }]}><b>81%</b></ProgressRings>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/progress-rings.json",
+      "docs": "https://hyperblur.dev/effects/progress-rings",
+      "file": "https://hyperblur.dev/r/progress-rings.json"
+    },
+    {
+      "slug": "ranked-bars",
+      "component": "RankedBars",
+      "title": "Ranked Bars",
+      "description": "Horizontal ranking bars with rank, label, value and share of total, plus optional delta badges and an animated show more toggle.",
+      "category": "charts",
+      "tags": [
+        "ranking",
+        "bars",
+        "top pages",
+        "leaderboard",
+        "analytics",
+        "delta"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ label: string; value: number; delta?: number }[]",
+          "default": "seven sample pages",
+          "description": "Rows in the order shown. delta is a percent change and adds an up or down badge."
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "default": "5",
+          "description": "Rows shown before the toggle. Extra rows reveal with a height animation."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Bar color."
+        },
+        {
+          "name": "showShare",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show each row's share of the total. Hidden automatically in very narrow containers."
+        },
+        {
+          "name": "showRank",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the rank number before each label."
+        },
+        {
+          "name": "valueFormatter",
+          "type": "(n: number) => string",
+          "description": "Formats row values. Defaults to grouped digits, compact above 10,000."
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "description": "Controlled expanded state of the extra rows."
+        },
+        {
+          "name": "defaultExpanded",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial expanded state when uncontrolled."
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "(expanded: boolean) => void",
+          "description": "Called when the toggle is pressed."
+        },
+        {
+          "name": "moreLabel",
+          "type": "string",
+          "description": "Toggle text while collapsed. Defaults to \"Show N more\"."
+        },
+        {
+          "name": "lessLabel",
+          "type": "string",
+          "default": "\"Show less\"",
+          "description": "Toggle text while expanded."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Grow the bars in one after another on mount."
+        }
+      ],
+      "usage": "<RankedBars items={[{ label: \"United States\", value: 18420, delta: 6.2 }, { label: \"Germany\", value: 9810 }]} limit={5} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/ranked-bars.json",
+      "docs": "https://hyperblur.dev/effects/ranked-bars",
+      "file": "https://hyperblur.dev/r/ranked-bars.json"
+    },
+    {
+      "slug": "candlestick-chart",
+      "component": "CandlestickChart",
+      "title": "Candlestick Chart",
+      "description": "OHLC candlesticks with wicks, a price axis, a volume strip, a crosshair with a price tag and an OHLC tooltip. Ships a deterministic sampleCandles helper.",
+      "category": "charts",
+      "tags": [
+        "candlestick",
+        "ohlc",
+        "trading",
+        "stocks",
+        "crypto",
+        "volume"
+      ],
+      "props": [
+        {
+          "name": "candles",
+          "type": "{ label: string; open: number; high: number; low: number; close: number; volume?: number }[]",
+          "default": "sampleCandles(48, 100)",
+          "description": "Candles from oldest to newest. label is shown on the time axis and in the tooltip."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "240",
+          "description": "Chart height in pixels, volume strip included. The width follows the container."
+        },
+        {
+          "name": "colors",
+          "type": "{ up?: string; down?: string }",
+          "default": "{ up: \"#34d399\", down: \"#fb7185\" }",
+          "description": "Colors for rising and falling candles."
+        },
+        {
+          "name": "showVolume",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the volume strip under the price panel."
+        },
+        {
+          "name": "priceFormatter",
+          "type": "(n: number) => string",
+          "description": "Formats prices on the axis, the price tag and the tooltip. Defaults to two decimals."
+        },
+        {
+          "name": "volumeFormatter",
+          "type": "(n: number) => string",
+          "description": "Formats volume in the tooltip. Defaults to compact notation."
+        },
+        {
+          "name": "animate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Grow the candles in from left to right on mount."
+        }
+      ],
+      "usage": "<CandlestickChart candles={sampleCandles(60, 3400)} height={220} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/candlestick-chart.json",
+      "docs": "https://hyperblur.dev/effects/candlestick-chart",
+      "file": "https://hyperblur.dev/r/candlestick-chart.json"
+    },
+    {
+      "slug": "people-list",
+      "component": "PeopleList",
+      "title": "People List",
+      "description": "A team directory with initials avatars, presence dots, role badges, a keyboard-friendly row menu and a search field with an animated empty state.",
+      "category": "lists",
+      "tags": [
+        "people",
+        "team",
+        "directory",
+        "members",
+        "search",
+        "menu"
+      ],
+      "props": [
+        {
+          "name": "people",
+          "type": "{ id: string; name: string; email: string; role: string; status?: \"online\" | \"away\" | \"offline\" }[]",
+          "default": "defaultPeople",
+          "description": "People to list. Avatar color is derived from the name. Owner and Admin roles get a colored badge."
+        },
+        {
+          "name": "searchable",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the search field above the rows. It filters by name, email and role."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Search people\"",
+          "description": "Placeholder and accessible label of the search field."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color used for focus rings and the open-row highlight."
+        },
+        {
+          "name": "onAction",
+          "type": "(action: \"edit\" | \"invite\" | \"remove\", person: Person) => void",
+          "description": "Called when a menu item is chosen. Remove also takes the row out of the list and Invite adds an Invited chip."
+        }
+      ],
+      "usage": "<PeopleList onAction={(action, person) => console.log(action, person.name)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/people-list.json",
+      "docs": "https://hyperblur.dev/effects/people-list",
+      "file": "https://hyperblur.dev/r/people-list.json"
+    },
+    {
+      "slug": "file-list",
+      "component": "FileList",
+      "title": "File List",
+      "description": "Files and folders with a list and grid view, type-colored icons, multi-select checkboxes and a selection toolbar that slides in.",
+      "category": "lists",
+      "tags": [
+        "files",
+        "folders",
+        "grid",
+        "select",
+        "toolbar",
+        "drive"
+      ],
+      "props": [
+        {
+          "name": "files",
+          "type": "{ id: string; name: string; kind: FileKind; size?: string; modified: string }[]",
+          "default": "defaultFiles",
+          "description": "Items to show. kind is one of folder, image, doc, sheet, code, video, audio, archive or pdf."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Documents\"",
+          "description": "Heading shown next to the item count."
+        },
+        {
+          "name": "view",
+          "type": "\"list\" | \"grid\"",
+          "description": "Controlled view mode. Pair with onViewChange."
+        },
+        {
+          "name": "defaultView",
+          "type": "\"list\" | \"grid\"",
+          "default": "\"list\"",
+          "description": "Initial view mode when uncontrolled."
+        },
+        {
+          "name": "onViewChange",
+          "type": "(view: FileView) => void",
+          "description": "Called when the view toggle changes."
+        },
+        {
+          "name": "selected",
+          "type": "string[]",
+          "description": "Controlled list of selected file ids. Pair with onSelectionChange."
+        },
+        {
+          "name": "defaultSelected",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Initially selected file ids when uncontrolled."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(ids: string[]) => void",
+          "description": "Called whenever the selection changes."
+        },
+        {
+          "name": "onDownload",
+          "type": "(ids: string[]) => void",
+          "description": "Called when Download is pressed in the selection toolbar."
+        },
+        {
+          "name": "onDelete",
+          "type": "(ids: string[]) => void",
+          "description": "Called when Delete is pressed. The selected files are removed from the list."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for checkboxes and the selected state."
+        }
+      ],
+      "usage": "<FileList defaultView=\"grid\" onDelete={(ids) => console.log(ids)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/file-list.json",
+      "docs": "https://hyperblur.dev/effects/file-list",
+      "file": "https://hyperblur.dev/r/file-list.json"
+    },
+    {
+      "slug": "leaderboard",
+      "component": "Leaderboard",
+      "title": "Leaderboard",
+      "description": "A ranked list with medals for the top three, proportional score bars that grow in, rank change arrows and a pinned row for the current user.",
+      "category": "lists",
+      "tags": [
+        "leaderboard",
+        "ranking",
+        "scores",
+        "gamification",
+        "medals",
+        "bars"
+      ],
+      "props": [
+        {
+          "name": "entries",
+          "type": "{ id: string; name: string; score: number; change?: number; you?: boolean }[]",
+          "default": "defaultLeaders",
+          "description": "Scored entries in any order. They are sorted by score. change is the number of places gained (positive) or lost (negative). you marks the current user."
+        },
+        {
+          "name": "topN",
+          "type": "number",
+          "default": "5",
+          "description": "How many ranks to show. If the current user ranks lower, their row is pinned below a divider."
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "default": "\"pts\"",
+          "description": "Unit shown after each score. Pass an empty string to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Bar color and the highlight on the current user's row."
+        },
+        {
+          "name": "onSelect",
+          "type": "(entry: LeaderboardEntry, rank: number) => void",
+          "description": "When provided, rows become buttons and call this with the entry and its rank."
+        }
+      ],
+      "usage": "<Leaderboard topN={5} unit=\"pts\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/leaderboard.json",
+      "docs": "https://hyperblur.dev/effects/leaderboard",
+      "file": "https://hyperblur.dev/r/leaderboard.json"
+    },
+    {
+      "slug": "transaction-list",
+      "component": "TransactionList",
+      "title": "Transaction List",
+      "description": "Transactions grouped under sticky day headings, with merchant tiles, status chips, tabular amounts and an expandable detail row with a copy button.",
+      "category": "lists",
+      "tags": [
+        "transactions",
+        "finance",
+        "banking",
+        "activity",
+        "sticky",
+        "copy"
+      ],
+      "props": [
+        {
+          "name": "transactions",
+          "type": "{ id: string; day: string; merchant: string; category: string; time: string; amount: number; status?: \"pending\" | \"posted\"; reference?: string; account?: string }[]",
+          "default": "defaultTransactions",
+          "description": "Transactions in display order. Rows with the same day are grouped under one heading. Negative amounts are spending, positive amounts are income."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"USD\"",
+          "description": "ISO currency code used to format amounts."
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "default": "360",
+          "description": "Height in pixels at which the list starts to scroll."
+        },
+        {
+          "name": "surface",
+          "type": "string",
+          "default": "\"#111111\"",
+          "description": "Background color of the sticky day headings. Match it to the surface behind the list."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for focus rings and the expanded row."
+        },
+        {
+          "name": "defaultExpanded",
+          "type": "string",
+          "description": "Id of a transaction whose detail row starts open."
+        },
+        {
+          "name": "onCopy",
+          "type": "(transaction: Transaction) => void",
+          "description": "Called after a reference id is copied."
+        }
+      ],
+      "usage": "<TransactionList maxHeight={320} defaultExpanded=\"t2\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/transaction-list.json",
+      "docs": "https://hyperblur.dev/effects/transaction-list",
+      "file": "https://hyperblur.dev/r/transaction-list.json"
+    },
+    {
+      "slug": "inbox-list",
+      "component": "InboxList",
+      "title": "Inbox List",
+      "description": "Email-style rows with unread dots, star toggles, checkboxes, hover quick actions that replace the time and j/k keyboard navigation.",
+      "category": "lists",
+      "tags": [
+        "inbox",
+        "email",
+        "messages",
+        "keyboard",
+        "bulk",
+        "triage"
+      ],
+      "props": [
+        {
+          "name": "messages",
+          "type": "{ id: string; sender: string; subject: string; preview: string; time: string; unread?: boolean; starred?: boolean }[]",
+          "default": "defaultMessages",
+          "description": "Messages to show, newest first."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Inbox\"",
+          "description": "Heading shown in the header next to the unread count."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the unread dot, checkboxes and selected rows."
+        },
+        {
+          "name": "onAction",
+          "type": "(action: \"open\" | \"star\" | \"archive\" | \"snooze\" | \"delete\", ids: string[]) => void",
+          "description": "Called for every action. Archive, Snooze and Delete also remove the rows with a collapse animation."
+        }
+      ],
+      "usage": "<InboxList onAction={(action, ids) => console.log(action, ids)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/inbox-list.json",
+      "docs": "https://hyperblur.dev/effects/inbox-list",
+      "file": "https://hyperblur.dev/r/inbox-list.json"
+    },
+    {
+      "slug": "product-grid",
+      "component": "ProductGrid",
+      "title": "Product Grid",
+      "description": "A shop listing with an animated category chip row, sort select, result count and a container-responsive grid that reflows with a FLIP animation.",
+      "category": "lists",
+      "tags": [
+        "products",
+        "shop",
+        "grid",
+        "filter",
+        "sort",
+        "ecommerce"
+      ],
+      "props": [
+        {
+          "name": "products",
+          "type": "{ id: string; name: string; category: string; price: number; rating: number; colors: [string, string]; shape?: \"orb\" | \"arch\" | \"ring\" | \"bars\" }[]",
+          "default": "defaultProducts",
+          "description": "Products to list. Chips are built from the distinct categories. colors drive the gradient imagery."
+        },
+        {
+          "name": "allLabel",
+          "type": "string",
+          "default": "\"All\"",
+          "description": "Label of the chip that clears the category filter."
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "description": "Controlled active category. Pair with onCategoryChange."
+        },
+        {
+          "name": "defaultCategory",
+          "type": "string",
+          "default": "allLabel",
+          "description": "Initial category when uncontrolled."
+        },
+        {
+          "name": "onCategoryChange",
+          "type": "(category: string) => void",
+          "description": "Called when a chip is chosen."
+        },
+        {
+          "name": "sort",
+          "type": "\"featured\" | \"price-asc\" | \"price-desc\"",
+          "description": "Controlled sort order. Pair with onSortChange."
+        },
+        {
+          "name": "defaultSort",
+          "type": "\"featured\" | \"price-asc\" | \"price-desc\"",
+          "default": "\"featured\"",
+          "description": "Initial sort order when uncontrolled."
+        },
+        {
+          "name": "onSortChange",
+          "type": "(sort: ProductSort) => void",
+          "description": "Called when the sort select changes."
+        },
+        {
+          "name": "defaultFavorites",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Ids of products that start with their heart filled."
+        },
+        {
+          "name": "onFavorite",
+          "type": "(product: Product, favorited: boolean) => void",
+          "description": "Called when a heart is toggled."
+        },
+        {
+          "name": "density",
+          "type": "\"comfortable\" | \"compact\"",
+          "default": "\"comfortable\"",
+          "description": "Compact turns the cards into small horizontal rows for narrow spaces."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the active chip and focus rings."
+        }
+      ],
+      "usage": "<ProductGrid defaultCategory=\"Lighting\" defaultSort=\"price-asc\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/product-grid.json",
+      "docs": "https://hyperblur.dev/effects/product-grid",
+      "file": "https://hyperblur.dev/r/product-grid.json"
+    },
+    {
+      "slug": "sortable-list",
+      "component": "SortableList",
+      "title": "Sortable List",
+      "description": "A drag-to-reorder list with pointer dragging, siblings that slide out of the way, and full keyboard reordering with live announcements.",
+      "category": "lists",
+      "tags": [
+        "sortable",
+        "drag",
+        "reorder",
+        "keyboard",
+        "accessible",
+        "tasks"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; title: string; meta?: string; tone?: \"blue\" | \"green\" | \"amber\" | \"red\" | \"neutral\" }[]",
+          "default": "defaultTasks",
+          "description": "Items in their starting order. The list keeps its own order after each reorder."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Sortable list\"",
+          "description": "Accessible name of the list."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the lifted row outline and the grip while dragging."
+        },
+        {
+          "name": "onReorder",
+          "type": "(items: SortableItem[], from: number, to: number) => void",
+          "description": "Called when an item is dropped in a new position, with the new order and the old and new indexes."
+        }
+      ],
+      "usage": "<SortableList onReorder={(items, from, to) => console.log(from, to)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sortable-list.json",
+      "docs": "https://hyperblur.dev/effects/sortable-list",
+      "file": "https://hyperblur.dev/r/sortable-list.json"
+    },
+    {
+      "slug": "sidebar-floating",
+      "component": "SidebarFloating",
+      "title": "Sidebar Floating",
+      "description": "A frosted, rounded sidebar inset from the page edge with labeled groups, an active pill that glides between items and a user card with a live status dot.",
+      "category": "sidebars",
+      "tags": [
+        "sidebar",
+        "floating",
+        "glass",
+        "navigation",
+        "dashboard",
+        "pill"
+      ],
+      "props": [
+        {
+          "name": "groups",
+          "type": "{ label?: string; items: { id: string; label: string; icon?: ReactNode; badge?: string | number; href?: string }[] }[]",
+          "default": "sample groups",
+          "description": "Navigation groups. Items render as links when `href` is set and as buttons otherwise. The label letter stands in when `icon` is missing."
+        },
+        {
+          "name": "active",
+          "type": "string",
+          "description": "Controlled active item id. Pair with onChange."
+        },
+        {
+          "name": "defaultActive",
+          "type": "string",
+          "default": "first item",
+          "description": "Initial active item id when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when an item is chosen."
+        },
+        {
+          "name": "brand",
+          "type": "ReactNode",
+          "description": "Content shown above the navigation, such as a logo and product name."
+        },
+        {
+          "name": "user",
+          "type": "{ name: string; role?: string; color?: string; status?: \"online\" | \"away\" | \"offline\" } | null",
+          "default": "sample user",
+          "description": "User card at the bottom. Initials and avatar color come from the name unless `color` is given. Pass null to hide the card."
+        },
+        {
+          "name": "onUserClick",
+          "type": "() => void",
+          "description": "Called when the user card is pressed."
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "248",
+          "description": "Total width in pixels, including the inset."
+        },
+        {
+          "name": "inset",
+          "type": "number",
+          "default": "12",
+          "description": "Gap in pixels between the container edge and the glass panel."
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "default": "36",
+          "description": "Height of each navigation row in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the active pill, badges and focus rings."
+        }
+      ],
+      "usage": "<div style={{ height: 520 }}><SidebarFloating onChange={(id) => console.log(id)} /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sidebar-floating.json",
+      "docs": "https://hyperblur.dev/effects/sidebar-floating",
+      "file": "https://hyperblur.dev/r/sidebar-floating.json"
+    },
+    {
+      "slug": "sidebar-rail",
+      "component": "SidebarRail",
+      "title": "Sidebar Rail",
+      "description": "A 56px icon rail. Hovering or focusing an item opens a flyout with its submenu, and items without a submenu show a tooltip. Arrow keys move through the rail.",
+      "category": "sidebars",
+      "tags": [
+        "sidebar",
+        "rail",
+        "icons",
+        "flyout",
+        "tooltip",
+        "navigation"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; icon?: ReactNode; href?: string; links?: { id: string; label: string; badge?: string | number; href?: string }[] }[]",
+          "default": "sample items",
+          "description": "Rail items. An item with `links` opens a flyout, an item without them acts as a direct link or button."
+        },
+        {
+          "name": "active",
+          "type": "string",
+          "description": "Controlled active id. A rail item is highlighted when its own id or any of its link ids matches."
+        },
+        {
+          "name": "defaultActive",
+          "type": "string",
+          "description": "Initial active id when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when an item or a flyout link is chosen."
+        },
+        {
+          "name": "openId",
+          "type": "string | null",
+          "description": "Controlled id of the item whose flyout is open. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpenId",
+          "type": "string | null",
+          "default": "null",
+          "description": "Item whose flyout starts open when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(id: string | null) => void",
+          "description": "Called when a flyout opens or closes."
+        },
+        {
+          "name": "brand",
+          "type": "ReactNode",
+          "description": "Mark shown at the top of the rail."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "description": "Content pinned to the bottom of the rail, such as an avatar."
+        },
+        {
+          "name": "flyoutWidth",
+          "type": "number",
+          "default": "176",
+          "description": "Width of the flyout panel in pixels."
+        },
+        {
+          "name": "itemSize",
+          "type": "number",
+          "default": "40",
+          "description": "Width and height of each rail button in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the active bar, markers and focus rings."
+        }
+      ],
+      "usage": "<div style={{ height: 420 }}><SidebarRail defaultOpenId=\"projects\" /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sidebar-rail.json",
+      "docs": "https://hyperblur.dev/effects/sidebar-rail",
+      "file": "https://hyperblur.dev/r/sidebar-rail.json"
+    },
+    {
+      "slug": "sidebar-docs",
+      "component": "SidebarDocs",
+      "title": "Sidebar Docs",
+      "description": "Documentation navigation with a search field, collapsible groups that animate their height, nested links on a connected guide line and a marker that follows the active page.",
+      "category": "sidebars",
+      "tags": [
+        "sidebar",
+        "docs",
+        "documentation",
+        "search",
+        "accordion",
+        "scroll spy"
+      ],
+      "props": [
+        {
+          "name": "groups",
+          "type": "{ id: string; title: string; items: { id: string; label: string; href?: string; badge?: string; children?: SidebarDocsLink[] }[] }[]",
+          "default": "sample docs",
+          "description": "Groups of links. `badge` renders a small pill such as New. `children` render as an indented sub list."
+        },
+        {
+          "name": "active",
+          "type": "string",
+          "description": "Controlled active link id. Drive it from a scroll observer for scroll spy behavior. Its group opens and the link scrolls into view."
+        },
+        {
+          "name": "defaultActive",
+          "type": "string",
+          "description": "Initial active link id when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when a link is chosen."
+        },
+        {
+          "name": "openGroups",
+          "type": "string[]",
+          "description": "Controlled list of open group ids. Pair with onOpenGroupsChange."
+        },
+        {
+          "name": "defaultOpenGroups",
+          "type": "string[]",
+          "default": "all groups",
+          "description": "Groups that start open when uncontrolled."
+        },
+        {
+          "name": "onOpenGroupsChange",
+          "type": "(ids: string[]) => void",
+          "description": "Called when a group is opened or closed."
+        },
+        {
+          "name": "search",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the search field. Typing filters links and opens every group with a match."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Search docs\"",
+          "description": "Placeholder and accessible label of the search field."
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "default": "30",
+          "description": "Height of group headers and links in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the active marker, badges and focus rings."
+        }
+      ],
+      "usage": "<div style={{ height: 520 }}><SidebarDocs defaultActive=\"installation\" /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sidebar-docs.json",
+      "docs": "https://hyperblur.dev/effects/sidebar-docs",
+      "file": "https://hyperblur.dev/r/sidebar-docs.json"
+    },
+    {
+      "slug": "sidebar-workspace",
+      "component": "SidebarWorkspace",
+      "title": "Sidebar Workspace",
+      "description": "A workspace app sidebar with a keyboard-friendly workspace switcher, sections with counts, collapsible favorites, a usage card with an upgrade button and a user menu.",
+      "category": "sidebars",
+      "tags": [
+        "sidebar",
+        "workspace",
+        "switcher",
+        "usage",
+        "favorites",
+        "saas"
+      ],
+      "props": [
+        {
+          "name": "workspaces",
+          "type": "{ id: string; name: string; plan?: string; color?: string }[]",
+          "default": "sample workspaces",
+          "description": "Workspaces listed in the switcher dropdown."
+        },
+        {
+          "name": "workspace",
+          "type": "string",
+          "description": "Controlled current workspace id. Pair with onWorkspaceChange."
+        },
+        {
+          "name": "defaultWorkspace",
+          "type": "string",
+          "default": "first workspace",
+          "description": "Initial workspace id when uncontrolled."
+        },
+        {
+          "name": "onWorkspaceChange",
+          "type": "(id: string) => void",
+          "description": "Called when a workspace is picked."
+        },
+        {
+          "name": "onCreateWorkspace",
+          "type": "() => void",
+          "description": "Adds a Create workspace action to the dropdown when provided."
+        },
+        {
+          "name": "sections",
+          "type": "{ label?: string; items: { id: string; label: string; icon?: ReactNode; count?: number | string; href?: string }[] }[]",
+          "default": "sample sections",
+          "description": "Navigation sections. `count` shows a number at the end of the row."
+        },
+        {
+          "name": "favorites",
+          "type": "{ id: string; label: string; color?: string }[]",
+          "default": "sample favorites",
+          "description": "Items in the collapsible favorites group. The group is hidden when the list is empty."
+        },
+        {
+          "name": "favoritesLabel",
+          "type": "string",
+          "default": "\"Favorites\"",
+          "description": "Title of the favorites group."
+        },
+        {
+          "name": "defaultFavoritesOpen",
+          "type": "boolean",
+          "default": "true",
+          "description": "Whether the favorites group starts open."
+        },
+        {
+          "name": "active",
+          "type": "string",
+          "description": "Controlled active item id. Pair with onChange."
+        },
+        {
+          "name": "defaultActive",
+          "type": "string",
+          "default": "first item",
+          "description": "Initial active item id when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when a navigation item or favorite is chosen."
+        },
+        {
+          "name": "usage",
+          "type": "{ label: string; used: number; total: number; caption?: string } | null",
+          "default": "sample usage",
+          "description": "Usage card with a progress bar. The bar turns amber at 85 percent. Pass null to hide the card."
+        },
+        {
+          "name": "upgradeLabel",
+          "type": "string",
+          "default": "\"Upgrade\"",
+          "description": "Text of the upgrade button."
+        },
+        {
+          "name": "onUpgrade",
+          "type": "() => void",
+          "description": "Called when the upgrade button is pressed."
+        },
+        {
+          "name": "user",
+          "type": "{ name: string; email?: string; color?: string } | null",
+          "default": "sample user",
+          "description": "User row at the bottom. Pass null to hide it."
+        },
+        {
+          "name": "userMenu",
+          "type": "{ id: string; label: string; danger?: boolean }[]",
+          "default": "Profile, Settings, Sign out",
+          "description": "Entries of the menu that opens from the user row."
+        },
+        {
+          "name": "onUserMenuSelect",
+          "type": "(id: string) => void",
+          "description": "Called when a user menu entry is chosen."
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "default": "260",
+          "description": "Sidebar width in pixels."
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "default": "32",
+          "description": "Height of navigation rows in pixels. The switcher and user row scale with it."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the progress bar, checkmark and focus rings."
+        }
+      ],
+      "usage": "<div style={{ height: 600 }}><SidebarWorkspace onCreateWorkspace={() => {}} /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sidebar-workspace.json",
+      "docs": "https://hyperblur.dev/effects/sidebar-workspace",
+      "file": "https://hyperblur.dev/r/sidebar-workspace.json"
+    },
+    {
+      "slug": "sidebar-drawer",
+      "component": "SidebarDrawer",
+      "title": "Sidebar Drawer",
+      "description": "A slide-in navigation drawer with a scrim. It fills its nearest positioned parent, traps Tab focus, closes on Escape or a scrim click and returns focus to the trigger.",
+      "category": "sidebars",
+      "tags": [
+        "drawer",
+        "mobile",
+        "sidebar",
+        "overlay",
+        "focus trap",
+        "menu"
+      ],
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled. An initially open drawer does not take focus until it is reopened."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the drawer asks to open or close."
+        },
+        {
+          "name": "side",
+          "type": "\"left\" | \"right\"",
+          "default": "\"left\"",
+          "description": "Edge the drawer slides from."
+        },
+        {
+          "name": "items",
+          "type": "{ id: string; label: string; icon?: ReactNode; badge?: string | number; href?: string }[]",
+          "default": "sample items",
+          "description": "Navigation entries. Links render for items with `href`, buttons otherwise."
+        },
+        {
+          "name": "header",
+          "type": "ReactNode",
+          "description": "Content at the top of the panel, next to the close button."
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "description": "Content pinned to the bottom of the panel."
+        },
+        {
+          "name": "active",
+          "type": "string",
+          "description": "Controlled active item id. Pair with onChange."
+        },
+        {
+          "name": "defaultActive",
+          "type": "string",
+          "default": "first item",
+          "description": "Initial active item id when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when an item is chosen."
+        },
+        {
+          "name": "closeOnSelect",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close the drawer after an item is chosen."
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "default": "44",
+          "description": "Height of each navigation row in pixels."
+        },
+        {
+          "name": "position",
+          "type": "\"absolute\" | \"fixed\"",
+          "default": "\"absolute\"",
+          "description": "Absolute fills the nearest positioned ancestor, which suits a phone frame or a card. Fixed covers the whole viewport."
+        },
+        {
+          "name": "width",
+          "type": "number | string",
+          "default": "\"min(280px, 84%)\"",
+          "description": "Panel width. Numbers are pixels."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Navigation menu\"",
+          "description": "Accessible name of the dialog and its navigation."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for badges, the active icon and focus rings."
+        }
+      ],
+      "usage": "<div style={{ position: \"relative\", height: 480 }}><SidebarDrawer open={open} onOpenChange={setOpen} header=\"Menu\" /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sidebar-drawer.json",
+      "docs": "https://hyperblur.dev/effects/sidebar-drawer",
+      "file": "https://hyperblur.dev/r/sidebar-drawer.json"
+    },
+    {
+      "slug": "sidebar-tree",
+      "component": "SidebarTree",
+      "title": "Sidebar Tree",
+      "description": "A file explorer tree with animated folders, colored file type icons, a filter field and the full tree keyboard model.",
+      "category": "sidebars",
+      "tags": [
+        "tree",
+        "file explorer",
+        "sidebar",
+        "folders",
+        "keyboard",
+        "filter"
+      ],
+      "props": [
+        {
+          "name": "nodes",
+          "type": "{ id: string; name: string; children?: SidebarTreeNode[] }[]",
+          "default": "sample project",
+          "description": "Tree data. A node with a `children` array is a folder, any other node is a file. Icons follow the file extension."
+        },
+        {
+          "name": "selected",
+          "type": "string | null",
+          "description": "Controlled selected node id. Pair with onSelect."
+        },
+        {
+          "name": "defaultSelected",
+          "type": "string | null",
+          "default": "null",
+          "description": "Initial selected node id when uncontrolled."
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string, node: SidebarTreeNode) => void",
+          "description": "Called when a row is chosen with a click, Enter or Space."
+        },
+        {
+          "name": "expanded",
+          "type": "string[]",
+          "description": "Controlled list of open folder ids. Pair with onExpandedChange."
+        },
+        {
+          "name": "defaultExpanded",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Folders that start open when uncontrolled. The built-in sample project opens app and components."
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "(ids: string[]) => void",
+          "description": "Called when a folder opens or closes."
+        },
+        {
+          "name": "filterable",
+          "type": "boolean",
+          "default": "false",
+          "description": "Show a filter field. Matching files stay visible with their folders open."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Filter files\"",
+          "description": "Placeholder and accessible label of the filter field."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Explorer\"",
+          "description": "Heading above the tree. Pass an empty string to hide it."
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "default": "26",
+          "description": "Height of each row in pixels."
+        },
+        {
+          "name": "indent",
+          "type": "number",
+          "default": "14",
+          "description": "Indentation per level in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the selected row, focus rings and filter field."
+        }
+      ],
+      "usage": "<div style={{ height: 420, width: 260 }}><SidebarTree filterable onSelect={(id) => console.log(id)} /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sidebar-tree.json",
+      "docs": "https://hyperblur.dev/effects/sidebar-tree",
+      "file": "https://hyperblur.dev/r/sidebar-tree.json"
+    },
+    {
+      "slug": "shiny-text",
+      "component": "ShinyText",
+      "title": "Shiny Text",
+      "description": "Text with a band of light that glides across the glyphs on a loop, like a reflection passing over brushed metal.",
+      "category": "text",
+      "tags": [
+        "text",
+        "shine",
+        "shimmer",
+        "gradient",
+        "headline",
+        "loop"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to render."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "3",
+          "description": "Seconds the highlight takes to cross the text. A short rest follows each pass."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#8f8f8f\"",
+          "description": "Base color of the glyphs."
+        },
+        {
+          "name": "shine",
+          "type": "string",
+          "default": "\"#ffffff\"",
+          "description": "Color of the moving highlight band."
+        },
+        {
+          "name": "pauseOnHover",
+          "type": "boolean",
+          "default": "false",
+          "description": "Freeze the sweep while the pointer is over the text."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Turn the sweep off and show the text in the base color."
+        },
+        {
+          "name": "direction",
+          "type": "\"right\" | \"left\"",
+          "default": "\"right\"",
+          "description": "Direction the highlight travels."
+        }
+      ],
+      "usage": "<ShinyText text=\"Introducing Nova One\" speed={2.5} className=\"text-5xl font-semibold\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/shiny-text.json",
+      "docs": "https://hyperblur.dev/effects/shiny-text",
+      "file": "https://hyperblur.dev/r/shiny-text.json"
+    },
+    {
+      "slug": "spotlight-card",
+      "component": "SpotlightCard",
+      "title": "Spotlight Card",
+      "description": "A card lit by a soft radial spotlight that follows the pointer and catches the border. Wrap several in SpotlightGroup and one light spans the whole row.",
+      "category": "hover",
+      "tags": [
+        "card",
+        "spotlight",
+        "hover",
+        "pointer",
+        "border",
+        "glow"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Card content."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Spotlight and border highlight color."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "320",
+          "description": "Spotlight radius in pixels."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "16",
+          "description": "Corner radius in pixels."
+        },
+        {
+          "name": "borderWidth",
+          "type": "number",
+          "default": "1",
+          "description": "Width of the border that lights up, in pixels."
+        },
+        {
+          "name": "idle",
+          "type": "number",
+          "default": "0.35",
+          "description": "Strength of the resting light at the top edge while the pointer is away, from 0 to 1."
+        }
+      ],
+      "usage": "<SpotlightGroup className=\"grid grid-cols-3 gap-3\"><SpotlightCard className=\"p-5\">Starter</SpotlightCard><SpotlightCard className=\"p-5\">Pro</SpotlightCard><SpotlightCard className=\"p-5\">Team</SpotlightCard></SpotlightGroup>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/spotlight-card.json",
+      "docs": "https://hyperblur.dev/effects/spotlight-card",
+      "file": "https://hyperblur.dev/r/spotlight-card.json"
+    },
+    {
+      "slug": "meteors",
+      "component": "Meteors",
+      "title": "Meteors",
+      "description": "A shower of shooting stars with fading tails over a faint, twinkling star field. Pure CSS, fills its positioned parent.",
+      "category": "overlay",
+      "tags": [
+        "meteors",
+        "stars",
+        "night",
+        "background",
+        "shooting star",
+        "space"
+      ],
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "20",
+          "description": "Number of meteors in the shower. Roughly a third are in flight at any moment."
+        },
+        {
+          "name": "angle",
+          "type": "number",
+          "default": "145",
+          "description": "Direction of travel in degrees. 0 moves right, 90 falls straight down, 145 heads down and to the left."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Speed multiplier. 2 is twice as fast."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#ffffff\"",
+          "description": "Color of the meteors and stars."
+        },
+        {
+          "name": "stars",
+          "type": "number",
+          "default": "60",
+          "description": "Number of twinkling background stars. 0 hides the star field."
+        },
+        {
+          "name": "seed",
+          "type": "number",
+          "default": "7",
+          "description": "Changes the deterministic layout of meteors and stars."
+        }
+      ],
+      "usage": "<div className=\"relative h-80 bg-[#060914]\"><Meteors count={20} /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/meteors.json",
+      "docs": "https://hyperblur.dev/effects/meteors",
+      "file": "https://hyperblur.dev/r/meteors.json"
+    },
+    {
+      "slug": "mesh-gradient",
+      "component": "MeshGradient",
+      "title": "Mesh Gradient",
+      "description": "A living mesh gradient: large blurred color fields drift on independent looping paths and blend where they meet, with optional film grain.",
+      "category": "overlay",
+      "tags": [
+        "gradient",
+        "mesh",
+        "background",
+        "blur",
+        "grain",
+        "colorful"
+      ],
+      "props": [
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#ff4d8d\", \"#7c3aed\", \"#2f7bff\", \"#19c3f5\", \"#ffb547\"]",
+          "description": "Blob colors. Four to six blobs are drawn, cycling through the list."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Drift speed multiplier."
+        },
+        {
+          "name": "grain",
+          "type": "number",
+          "default": "0.18",
+          "description": "Film grain opacity from 0 to 1. 0 removes the grain layer."
+        },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": "60",
+          "description": "Blur radius applied to the color fields, in pixels."
+        },
+        {
+          "name": "background",
+          "type": "string",
+          "default": "\"#0b0a1a\"",
+          "description": "Base color behind the blobs."
+        },
+        {
+          "name": "blend",
+          "type": "CSSProperties[\"mixBlendMode\"]",
+          "default": "\"lighten\"",
+          "description": "Blend mode used where blobs overlap. Try \"screen\" for a brighter, pastel mix."
+        }
+      ],
+      "usage": "<div className=\"relative h-80 overflow-hidden rounded-2xl\"><MeshGradient colors={[\"#ff4d8d\", \"#7c3aed\", \"#2f7bff\", \"#19c3f5\"]} /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/mesh-gradient.json",
+      "docs": "https://hyperblur.dev/effects/mesh-gradient",
+      "file": "https://hyperblur.dev/r/mesh-gradient.json"
+    },
+    {
+      "slug": "orbit-icons",
+      "component": "OrbitIcons",
+      "title": "Orbit Icons",
+      "description": "A central hub with concentric rings of icon tiles that orbit at different speeds and stay upright. Hovering pauses the motion.",
+      "category": "motion",
+      "tags": [
+        "orbit",
+        "icons",
+        "integrations",
+        "rings",
+        "hub",
+        "logo"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ icon: ReactNode; label: string }[][]",
+          "default": "six generic icons on three rings",
+          "description": "One array of icon tiles per ring, from the inside out. Labels become the accessible name and tooltip."
+        },
+        {
+          "name": "radii",
+          "type": "number[]",
+          "default": "[0.44, 0.7, 0.96]",
+          "description": "Ring diameters as a fraction of the component width. Rings without items are drawn empty."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "22",
+          "description": "Seconds for one revolution of the inner ring. Each outer ring is slower and alternates direction."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Hub glow, ring highlight and hover color."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content of the hub. Defaults to a gradient logo mark."
+        }
+      ],
+      "usage": "<OrbitIcons className=\"w-80\"><img src=\"/logo.svg\" alt=\"Acme\" /></OrbitIcons>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/orbit-icons.json",
+      "docs": "https://hyperblur.dev/effects/orbit-icons",
+      "file": "https://hyperblur.dev/r/orbit-icons.json"
+    },
+    {
+      "slug": "animated-beam",
+      "component": "AnimatedBeam",
+      "title": "Animated Beam",
+      "description": "An integrations diagram: sources on the left feed a central hub that sends to an output, with a light pulse running along each curved connection. Beams re-route on resize.",
+      "category": "motion",
+      "tags": [
+        "beam",
+        "integrations",
+        "diagram",
+        "svg",
+        "flow",
+        "connections"
+      ],
+      "props": [
+        {
+          "name": "sources",
+          "type": "{ icon: ReactNode; label: string }[]",
+          "default": "Email, Calendar, Chat, Database",
+          "description": "Nodes stacked on the left. Each sends a beam to the hub."
+        },
+        {
+          "name": "hub",
+          "type": "{ icon: ReactNode; label: string }",
+          "default": "Sync engine",
+          "description": "Central node that collects every source."
+        },
+        {
+          "name": "output",
+          "type": "{ icon: ReactNode; label: string }",
+          "default": "Workspace",
+          "description": "Node on the right that receives the hub beam."
+        },
+        {
+          "name": "curvature",
+          "type": "number",
+          "default": "0.5",
+          "description": "How far the curves bow, from 0 (straight lines) to 1."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "3",
+          "description": "Seconds for a pulse to travel one beam."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Pulse and hub glow color."
+        }
+      ],
+      "usage": "<AnimatedBeam color=\"#7fb3ff\" duration={2.5} className=\"max-w-md\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/animated-beam.json",
+      "docs": "https://hyperblur.dev/effects/animated-beam",
+      "file": "https://hyperblur.dev/r/animated-beam.json"
+    },
+    {
+      "slug": "glass-card",
+      "component": "GlassCard",
+      "title": "Glass Card",
+      "description": "A frosted glass card with a fine noise texture, a bright inner rim and a specular highlight that tracks the pointer as the card tilts slightly. Best over color.",
+      "category": "hover",
+      "tags": [
+        "glass",
+        "glassmorphism",
+        "card",
+        "blur",
+        "tilt",
+        "highlight"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Card content."
+        },
+        {
+          "name": "blur",
+          "type": "number",
+          "default": "18",
+          "description": "Backdrop blur radius in pixels."
+        },
+        {
+          "name": "tilt",
+          "type": "number",
+          "default": "6",
+          "description": "Maximum tilt in degrees while hovering, capped at 6. 0 keeps the card flat."
+        },
+        {
+          "name": "glare",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the moving specular highlight and the lit rim."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "20",
+          "description": "Corner radius in pixels."
+        },
+        {
+          "name": "tint",
+          "type": "string",
+          "default": "\"#ffffff\"",
+          "description": "Color mixed into the glass."
+        }
+      ],
+      "usage": "<GlassCard className=\"w-72 p-6\">Frosted content</GlassCard>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/glass-card.json",
+      "docs": "https://hyperblur.dev/effects/glass-card",
+      "file": "https://hyperblur.dev/r/glass-card.json"
+    },
+    {
+      "slug": "ripple-grid",
+      "component": "RippleGrid",
+      "title": "Ripple Grid",
+      "description": "A field of small tiles where a click or hover sends a radial wave that lifts, scales and lights them by distance. Ripples from the center on its own when idle.",
+      "category": "motion",
+      "tags": [
+        "grid",
+        "ripple",
+        "wave",
+        "background",
+        "interactive",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "rows",
+          "type": "number",
+          "default": "12",
+          "description": "Number of rows."
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "default": "20",
+          "description": "Number of columns."
+        },
+        {
+          "name": "shape",
+          "type": "\"square\" | \"dot\"",
+          "default": "\"square\"",
+          "description": "Rounded squares that fill each cell, or smaller round dots."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Wave color. The resting tiles use a dim tint of it."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "4",
+          "description": "Space between cells in pixels."
+        },
+        {
+          "name": "autoPlay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Send a ripple from the center every few seconds while nobody is interacting."
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "true",
+          "description": "Start ripples from the tile under the pointer on click and hover."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "3.6",
+          "description": "Seconds between idle ripples."
+        }
+      ],
+      "usage": "<div className=\"relative h-72\"><RippleGrid rows={10} cols={18} color=\"#7fb3ff\" /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/ripple-grid.json",
+      "docs": "https://hyperblur.dev/effects/ripple-grid",
+      "file": "https://hyperblur.dev/r/ripple-grid.json"
+    },
+    {
+      "slug": "analytics-dashboard",
+      "component": "AnalyticsDashboard",
+      "title": "Analytics Dashboard",
+      "description": "A full website analytics screen: KPI cards with sparklines, an area chart with a 7D, 30D and 90D toggle, top pages, a traffic sources donut and a live online counter.",
+      "category": "dashboards",
+      "tags": [
+        "dashboard",
+        "analytics",
+        "traffic",
+        "kpi",
+        "area chart",
+        "donut"
+      ],
+      "props": [
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the active nav item, main series, bars and focus rings."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Pulse\"",
+          "description": "Product name shown at the top of the sidebar."
+        },
+        {
+          "name": "site",
+          "type": "string",
+          "default": "\"acme.studio\"",
+          "description": "Website name shown in the breadcrumb and the page subtitle."
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "default": "\"Maya Reyes\"",
+          "description": "Name used for the avatar initials in the top bar."
+        },
+        {
+          "name": "range",
+          "type": "\"7D\" | \"30D\" | \"90D\"",
+          "description": "Controlled date range. Pair with onRangeChange."
+        },
+        {
+          "name": "defaultRange",
+          "type": "\"7D\" | \"30D\" | \"90D\"",
+          "default": "\"30D\"",
+          "description": "Initial date range when uncontrolled."
+        },
+        {
+          "name": "onRangeChange",
+          "type": "(range: AnalyticsRange) => void",
+          "description": "Called when the range toggle changes."
+        }
+      ],
+      "usage": "<AnalyticsDashboard site=\"acme.studio\" defaultRange=\"30D\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/analytics-dashboard.json",
+      "docs": "https://hyperblur.dev/effects/analytics-dashboard",
+      "file": "https://hyperblur.dev/r/analytics-dashboard.json"
+    },
+    {
+      "slug": "sales-dashboard",
+      "component": "SalesDashboard",
+      "title": "Sales Dashboard",
+      "description": "A revenue overview with revenue and order KPIs, a goal progress ring, a revenue versus target combo chart, regional sales, a conversion funnel and a sortable top products table.",
+      "category": "dashboards",
+      "tags": [
+        "dashboard",
+        "sales",
+        "revenue",
+        "funnel",
+        "combo chart",
+        "table"
+      ],
+      "props": [
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for bars, the goal ring, active nav item and focus rings."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Ledgerly\"",
+          "description": "Product name shown at the top of the sidebar."
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "default": "\"Priya Nair\"",
+          "description": "Name used for the avatar initials in the top bar."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"$\"",
+          "description": "Currency symbol used in every amount."
+        },
+        {
+          "name": "period",
+          "type": "\"H1\" | \"H2\" | \"FY\"",
+          "description": "Controlled period. Pair with onPeriodChange."
+        },
+        {
+          "name": "defaultPeriod",
+          "type": "\"H1\" | \"H2\" | \"FY\"",
+          "default": "\"FY\"",
+          "description": "Initial period when uncontrolled: first half, second half or the full year."
+        },
+        {
+          "name": "onPeriodChange",
+          "type": "(period: SalesPeriod) => void",
+          "description": "Called when the period toggle changes."
+        }
+      ],
+      "usage": "<SalesDashboard currency=\"$\" defaultPeriod=\"FY\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/sales-dashboard.json",
+      "docs": "https://hyperblur.dev/effects/sales-dashboard",
+      "file": "https://hyperblur.dev/r/sales-dashboard.json"
+    },
+    {
+      "slug": "project-dashboard",
+      "component": "ProjectDashboard",
+      "title": "Project Dashboard",
+      "description": "A sprint overview with a progress header, task status tiles, a burndown chart, team workload bars, a mini kanban summary and checkable upcoming deadlines.",
+      "category": "dashboards",
+      "tags": [
+        "dashboard",
+        "project",
+        "sprint",
+        "burndown",
+        "kanban",
+        "workload"
+      ],
+      "props": [
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for progress, the burndown line, active nav item and focus rings."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Cadence\"",
+          "description": "Product name shown at the top of the sidebar."
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "default": "\"Maya Reyes\"",
+          "description": "Name used for the avatar initials in the top bar."
+        },
+        {
+          "name": "sprint",
+          "type": "\"current\" | \"previous\"",
+          "description": "Controlled sprint. Pair with onSprintChange."
+        },
+        {
+          "name": "defaultSprint",
+          "type": "\"current\" | \"previous\"",
+          "default": "\"current\"",
+          "description": "Initial sprint when uncontrolled."
+        },
+        {
+          "name": "onSprintChange",
+          "type": "(sprint: ProjectSprint) => void",
+          "description": "Called when the sprint toggle changes."
+        }
+      ],
+      "usage": "<ProjectDashboard defaultSprint=\"current\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/project-dashboard.json",
+      "docs": "https://hyperblur.dev/effects/project-dashboard",
+      "file": "https://hyperblur.dev/r/project-dashboard.json"
+    },
+    {
+      "slug": "finance-dashboard",
+      "component": "FinanceDashboard",
+      "title": "Finance Dashboard",
+      "description": "A banking overview with a total balance card, a gradient debit card, income versus expenses bars, a spending donut, recent transactions and savings goals you can top up.",
+      "category": "dashboards",
+      "tags": [
+        "dashboard",
+        "finance",
+        "banking",
+        "balance",
+        "transactions",
+        "savings"
+      ],
+      "props": [
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the card gradient, income bars, active nav item and focus rings."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Marlow\"",
+          "description": "Bank name shown in the sidebar and on the card."
+        },
+        {
+          "name": "owner",
+          "type": "string",
+          "default": "\"Dana Reyes\"",
+          "description": "Account holder. Used in the greeting, on the card and for the avatar."
+        },
+        {
+          "name": "range",
+          "type": "\"6M\" | \"12M\"",
+          "description": "Controlled range of the income chart. Pair with onRangeChange."
+        },
+        {
+          "name": "defaultRange",
+          "type": "\"6M\" | \"12M\"",
+          "default": "\"6M\"",
+          "description": "Initial range when uncontrolled."
+        },
+        {
+          "name": "onRangeChange",
+          "type": "(range: FinanceRange) => void",
+          "description": "Called when the range toggle changes."
+        },
+        {
+          "name": "defaultHidden",
+          "type": "boolean",
+          "default": "false",
+          "description": "Start with balances masked. Users can toggle it with the Hide balances button."
+        }
+      ],
+      "usage": "<FinanceDashboard owner=\"Dana Reyes\" defaultRange=\"6M\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/finance-dashboard.json",
+      "docs": "https://hyperblur.dev/effects/finance-dashboard",
+      "file": "https://hyperblur.dev/r/finance-dashboard.json"
+    },
+    {
+      "slug": "admin-dashboard",
+      "component": "AdminDashboard",
+      "title": "Admin Dashboard",
+      "description": "A users admin page with search, role and status filters, a sortable table, row selection with a bulk action bar, pagination and a slide-in detail panel.",
+      "category": "dashboards",
+      "tags": [
+        "dashboard",
+        "admin",
+        "users",
+        "table",
+        "bulk actions",
+        "detail panel"
+      ],
+      "props": [
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for selection, checkboxes, active nav item and focus rings."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Control\"",
+          "description": "Product name shown at the top of the sidebar."
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "default": "\"Amara Okafor\"",
+          "description": "Name used for the avatar initials in the top bar."
+        },
+        {
+          "name": "workspace",
+          "type": "string",
+          "default": "\"Northwind\"",
+          "description": "Workspace name shown in the breadcrumb and subtitle."
+        },
+        {
+          "name": "users",
+          "type": "AdminUser[]",
+          "description": "Users to list. Each has id, name, email, role, status, lastActive (minutes ago, -1 for never), team, location, joined and twoFactor. Defaults to 24 sample users."
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "default": "8",
+          "description": "Rows per page."
+        },
+        {
+          "name": "defaultSelected",
+          "type": "string[]",
+          "default": "[]",
+          "description": "Ids of the users selected on first render."
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(ids: string[]) => void",
+          "description": "Called with the selected user ids whenever the selection changes."
+        }
+      ],
+      "usage": "<AdminDashboard pageSize={8} onSelectionChange={(ids) => console.log(ids)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/admin-dashboard.json",
+      "docs": "https://hyperblur.dev/effects/admin-dashboard",
+      "file": "https://hyperblur.dev/r/admin-dashboard.json"
+    },
+    {
+      "slug": "orders-dashboard",
+      "component": "OrdersDashboard",
+      "title": "Orders Dashboard",
+      "description": "An e-commerce orders screen with stat tiles, status tabs that filter an orders table, payment and fulfillment chips and a timeline panel for the selected order.",
+      "category": "dashboards",
+      "tags": [
+        "dashboard",
+        "orders",
+        "ecommerce",
+        "fulfillment",
+        "timeline",
+        "tabs"
+      ],
+      "props": [
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the selected row, tabs, timeline, active nav item and focus rings."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Parcel\"",
+          "description": "Product name shown at the top of the sidebar."
+        },
+        {
+          "name": "store",
+          "type": "string",
+          "default": "\"Fernhill Goods\"",
+          "description": "Store name shown in the breadcrumb, subtitle and sidebar."
+        },
+        {
+          "name": "user",
+          "type": "string",
+          "default": "\"Nora Whitfield\"",
+          "description": "Name used for the avatar initials in the top bar."
+        },
+        {
+          "name": "orders",
+          "type": "Order[]",
+          "description": "Orders to list. Each has id, customer, email, city, items (name, qty, price), payment, fulfillment, day and time. Defaults to 12 sample orders."
+        },
+        {
+          "name": "tab",
+          "type": "\"all\" | \"unfulfilled\" | \"shipped\" | \"returns\"",
+          "description": "Controlled tab. Pair with onTabChange."
+        },
+        {
+          "name": "defaultTab",
+          "type": "\"all\" | \"unfulfilled\" | \"shipped\" | \"returns\"",
+          "default": "\"all\"",
+          "description": "Initial tab when uncontrolled."
+        },
+        {
+          "name": "onTabChange",
+          "type": "(tab: OrdersTab) => void",
+          "description": "Called when the active tab changes."
+        },
+        {
+          "name": "onOrderSelect",
+          "type": "(order: Order) => void",
+          "description": "Called when a row is selected."
+        }
+      ],
+      "usage": "<OrdersDashboard store=\"Fernhill Goods\" defaultTab=\"all\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/orders-dashboard.json",
+      "docs": "https://hyperblur.dev/effects/orders-dashboard",
+      "file": "https://hyperblur.dev/r/orders-dashboard.json"
     }
   ]
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { PreviewStage } from "./preview-stage";
 
 interface ShowcaseTileProps {
   href: string;
@@ -13,7 +14,7 @@ export function ShowcaseTile({ href, title, category, children, tall = false }: 
   return (
     <div className="group flex min-w-0 flex-col rounded-2xl border border-white/[0.06] bg-[#0f0f0f] p-3 transition-colors hover:border-white/[0.12]">
       <div className={`relative flex ${tall ? "h-80" : "h-64"} items-center justify-center overflow-hidden rounded-xl border border-white/[0.04] bg-[#0a0a0a]`}>
-        {children}
+        <PreviewStage>{children}</PreviewStage>
       </div>
       <Link href={href} className="flex items-center justify-between px-2 pb-1 pt-3">
         <span className="text-sm font-medium">{title}</span>

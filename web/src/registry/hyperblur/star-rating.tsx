@@ -15,7 +15,7 @@ export interface StarRatingProps
 }
 
 const css = `
-.hb-sr {
+.hb-sra {
   display: inline-flex;
   vertical-align: middle;
   border-radius: 6px;
@@ -24,23 +24,23 @@ const css = `
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
-.hb-sr[role="slider"] { cursor: pointer; }
-.hb-sr:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }
-.hb-sr-s {
+.hb-sra[role="slider"] { cursor: pointer; }
+.hb-sra:focus-visible { outline: 2px solid var(--hb-c); outline-offset: 3px; }
+.hb-sra-s {
   position: relative;
   flex: none;
   width: var(--hb-s);
   height: var(--hb-s);
 }
-.hb-sr-s svg {
+.hb-sra-s svg {
   position: absolute;
   inset: 0;
   width: var(--hb-s);
   height: var(--hb-s);
   display: block;
 }
-.hb-sr-b { fill: rgba(255, 255, 255, 0.16); }
-.hb-sr-f {
+.hb-sra-b { fill: rgba(255, 255, 255, 0.16); }
+.hb-sra-f {
   position: absolute;
   top: 0;
   left: 0;
@@ -48,16 +48,16 @@ const css = `
   overflow: hidden;
   transition: width 0.12s ease-out;
 }
-.hb-sr-f svg { fill: var(--hb-c); }
-.hb-sr-s[data-pop] { animation: hb-sr-pop 0.28s cubic-bezier(0.3, 1.6, 0.5, 1); }
-@keyframes hb-sr-pop {
+.hb-sra-f svg { fill: var(--hb-c); }
+.hb-sra-s[data-pop] { animation: hb-sra-pop 0.28s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes hb-sra-pop {
   0% { transform: scale(1); }
   40% { transform: scale(1.3); }
   100% { transform: scale(1); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hb-sr-f { transition: none; }
-  .hb-sr-s[data-pop] { animation: none; }
+  .hb-sra-f { transition: none; }
+  .hb-sra-s[data-pop] { animation: none; }
 }
 `;
 
@@ -176,7 +176,7 @@ export function StarRating({
   return (
     <div
       ref={ref}
-      className={`hb-sr ${className}`}
+      className={`hb-sra ${className}`}
       style={vars}
       {...a11y}
       {...rest}
@@ -192,15 +192,15 @@ export function StarRating({
         return (
           <span
             key={i}
-            className="hb-sr-s"
+            className="hb-sra-s"
             data-pop={popIndex === i ? "" : undefined}
             onAnimationEnd={() => setPop((p) => (p === i ? null : p))}
             aria-hidden="true"
           >
-            <svg viewBox="0 0 24 24" className="hb-sr-b">
+            <svg viewBox="0 0 24 24" className="hb-sra-b">
               <path d={path} />
             </svg>
-            <span className="hb-sr-f" style={{ width: `${fill * 100}%` }}>
+            <span className="hb-sra-f" style={{ width: `${fill * 100}%` }}>
               <svg viewBox="0 0 24 24">
                 <path d={path} />
               </svg>

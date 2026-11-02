@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "registry": "node scripts/build-registry.mjs",
-    "build": "node scripts/build-registry.mjs && next build",
+    "build": "node scripts/check-css.mjs && node scripts/build-registry.mjs && next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:css": "node scripts/check-css.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

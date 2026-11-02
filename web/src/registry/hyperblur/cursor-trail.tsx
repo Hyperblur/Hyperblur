@@ -11,10 +11,10 @@ export interface CursorTrailProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const css = `
-.hb-ct { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.hb-ct-c { display: block; width: 100%; height: 100%; }
+.hb-ctr { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hb-ctr-c { display: block; width: 100%; height: 100%; }
 @media (prefers-reduced-motion: reduce) {
-  .hb-ct { display: none; }
+  .hb-ctr { display: none; }
 }
 `;
 
@@ -230,9 +230,9 @@ export function CursorTrail({
   }, [color, length, size, fade, variant]);
 
   return (
-    <div ref={wrapRef} className={`hb-ct ${className}`} style={style} aria-hidden="true" {...rest}>
+    <div ref={wrapRef} className={`hb-ctr ${className}`} style={style} aria-hidden="true" {...rest}>
       <style href="hb-cursor-trail" precedence="default">{css}</style>
-      <canvas ref={canvasRef} className="hb-ct-c" />
+      <canvas ref={canvasRef} className="hb-ctr-c" />
     </div>
   );
 }

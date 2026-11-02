@@ -12,6 +12,8 @@ const staticRoutes = [
   "/templates/pricing",
   "/templates/portfolio",
   "/templates/auth",
+  "/templates/dashboard",
+  "/templates/shop",
   "/templates/coming-soon",
   "/pro",
 ];

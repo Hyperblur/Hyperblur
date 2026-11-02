@@ -17,7 +17,7 @@ export interface AvatarStackProps extends React.HTMLAttributes<HTMLUListElement>
 }
 
 const css = `
-.hb-as {
+.hb-avs {
   display: inline-flex;
   align-items: center;
   margin: 0;
@@ -25,7 +25,7 @@ const css = `
   list-style: none;
   font-family: inherit;
 }
-.hb-as-i {
+.hb-avs-i {
   position: relative;
   z-index: 1;
   flex: none;
@@ -35,11 +35,11 @@ const css = `
   padding: 0;
   transition: margin-left 0.35s cubic-bezier(0.3, 1.4, 0.5, 1);
 }
-.hb-as-i:first-child { margin-left: 0; }
-.hb-as:hover .hb-as-i:not(:first-child),
-.hb-as:focus-within .hb-as-i:not(:first-child) { margin-left: 6px; }
-.hb-as-i:hover, .hb-as-i:focus-within { z-index: 3; }
-.hb-as-a {
+.hb-avs-i:first-child { margin-left: 0; }
+.hb-avs:hover .hb-avs-i:not(:first-child),
+.hb-avs:focus-within .hb-avs-i:not(:first-child) { margin-left: 6px; }
+.hb-avs-i:hover, .hb-avs-i:focus-within { z-index: 3; }
+.hb-avs-a {
   position: relative;
   display: grid;
   place-items: center;
@@ -58,21 +58,21 @@ const css = `
   outline: none;
   transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1);
 }
-.hb-as-img {
+.hb-avs-img {
   position: absolute;
   inset: 0;
   background-position: center;
   background-size: cover;
 }
-.hb-as-i:hover .hb-as-a,
-.hb-as-a:focus-visible { transform: translateY(-3px); }
-.hb-as-a:focus-visible { box-shadow: 0 0 0 2px var(--hb-r), 0 0 0 4px #ededed; }
-.hb-as-tail {
+.hb-avs-i:hover .hb-avs-a,
+.hb-avs-a:focus-visible { transform: translateY(-3px); }
+.hb-avs-a:focus-visible { box-shadow: 0 0 0 2px var(--hb-r), 0 0 0 4px #ededed; }
+.hb-avs-tail {
   --hb-bg: #1f1f1f;
   --hb-fg: #bdbdbd;
   font-size: calc(var(--hb-s) * 0.32);
 }
-.hb-as-tip {
+.hb-avs-tip {
   position: absolute;
   bottom: calc(100% + 8px);
   left: 50%;
@@ -90,14 +90,14 @@ const css = `
   transform: translate(-50%, 4px);
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
-.hb-as-i:hover .hb-as-tip,
-.hb-as-i:focus-within .hb-as-tip {
+.hb-avs-i:hover .hb-avs-tip,
+.hb-avs-i:focus-within .hb-avs-tip {
   opacity: 1;
   transform: translate(-50%, 0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .hb-as-i, .hb-as-a, .hb-as-tip { transition: none; }
-  .hb-as-i:hover .hb-as-a, .hb-as-a:focus-visible { transform: none; }
+  .hb-avs-i, .hb-avs-a, .hb-avs-tip { transition: none; }
+  .hb-avs-i:hover .hb-avs-a, .hb-avs-a:focus-visible { transform: none; }
 }
 `;
 
@@ -139,7 +139,7 @@ export function AvatarStack({
     <ul
       role="list"
       aria-label={`${people.length + Math.max(0, Math.round(extra))} people`}
-      className={`hb-as ${className}`}
+      className={`hb-avs ${className}`}
       style={vars}
       {...rest}
     >
@@ -151,25 +151,25 @@ export function AvatarStack({
           "--hb-fg": person.color ? "#ffffff" : `hsl(${hue} 70% 88%)`,
         } as React.CSSProperties;
         return (
-          <li key={`${person.name}-${i}`} className="hb-as-i">
-            <span className="hb-as-a" tabIndex={0} role="img" aria-label={person.name} style={colors}>
+          <li key={`${person.name}-${i}`} className="hb-avs-i">
+            <span className="hb-avs-a" tabIndex={0} role="img" aria-label={person.name} style={colors}>
               {initials(person.name)}
               {person.image && (
                 <span
-                  className="hb-as-img"
+                  className="hb-avs-img"
                   style={{ backgroundImage: `url("${person.image.replace(/"/g, "%22")}")` }}
                 />
               )}
             </span>
-            <span className="hb-as-tip" aria-hidden="true">
+            <span className="hb-avs-tip" aria-hidden="true">
               {person.name}
             </span>
           </li>
         );
       })}
       {hidden > 0 && (
-        <li className="hb-as-i">
-          <span className="hb-as-a hb-as-tail" role="img" aria-label={`${hidden} more`}>
+        <li className="hb-avs-i">
+          <span className="hb-avs-a hb-avs-tail" role="img" aria-label={`${hidden} more`}>
             {`+${hidden.toLocaleString("en-US")}`}
           </span>
         </li>

@@ -18,7 +18,7 @@ export const agentKitDemos: Record<string, ReactNode> = {
           duration={420}
           defaultOpen
           args={{ query: "rollback policy" }}
-          result={{ hits: 3, top: "deploys/rollback.md" }}
+          result={{ hits: 3, top: "rollback.md" }}
         />
       </div>
     </div>

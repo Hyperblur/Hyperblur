@@ -1,4 +1,4 @@
-export type EffectCategory = "text" | "overlay" | "motion" | "hover" | "components" | "micro" | "blocks" | "buttons" | "app-ui" | "agent-kit" | "transitions" | "social";
+export type EffectCategory = "text" | "overlay" | "motion" | "hover" | "components" | "micro" | "blocks" | "buttons" | "app-ui" | "agent-kit" | "transitions" | "social" | "charts" | "lists" | "sidebars" | "dashboards" | "site";
 
 export interface EffectProp {
   name: string;
@@ -32,10 +32,15 @@ export const categories: { id: EffectCategory; label: string }[] = [
   { id: "overlay", label: "Overlays & backgrounds" },
   { id: "hover", label: "Hover & pointer" },
   { id: "components", label: "Components" },
+  { id: "site", label: "Website elements" },
   { id: "micro", label: "Micro" },
   { id: "buttons", label: "Buttons" },
   { id: "transitions", label: "Transitions & slides" },
-  { id: "app-ui", label: "App UI & charts" },
+  { id: "charts", label: "Charts" },
+  { id: "lists", label: "Lists & tables" },
+  { id: "sidebars", label: "Sidebars" },
+  { id: "dashboards", label: "Dashboards" },
+  { id: "app-ui", label: "App UI" },
   { id: "agent-kit", label: "Agent kit" },
   { id: "social", label: "Social & feedback" },
   { id: "blocks", label: "Blocks" },
@@ -47,6 +52,13 @@ import { appUiMoreMeta } from "./parts/app-ui-more.meta.ts";
 import { agentKitMeta } from "./parts/agent-kit.meta.ts";
 import { transitionsMeta } from "./parts/transitions.meta.ts";
 import { socialMeta } from "./parts/social.meta.ts";
+import { siteAMeta } from "./parts/site-a.meta.ts";
+import { siteBMeta } from "./parts/site-b.meta.ts";
+import { chartsMeta } from "./parts/charts.meta.ts";
+import { listsMeta } from "./parts/lists.meta.ts";
+import { sidebarsMeta } from "./parts/sidebars.meta.ts";
+import { effectsMeta } from "./parts/effects.meta.ts";
+import { dashboardsMeta } from "./parts/dashboards.meta.ts";
 
 const baseEffects: EffectMeta[] = [
   {
@@ -1126,6 +1138,13 @@ export const effects: EffectMeta[] = [
   ...appUiMoreMeta,
   ...agentKitMeta,
   ...socialMeta,
+  ...siteAMeta,
+  ...siteBMeta,
+  ...chartsMeta,
+  ...listsMeta,
+  ...sidebarsMeta,
+  ...effectsMeta,
+  ...dashboardsMeta,
 ];
 
 export function getEffect(slug: string): EffectMeta | undefined {
