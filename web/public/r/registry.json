@@ -885,7 +885,7 @@
       "title": "Features Section",
       "description": "A heading and a grid of feature cards with icon, title and description. Cards lift on hover and carry a soft cursor spotlight.",
       "categories": [
-        "blocks",
+        "features",
         "features",
         "section",
         "grid",
@@ -907,7 +907,7 @@
       "title": "Testimonials Section",
       "description": "A heading and quote cards in a looping horizontal strip that pauses on hover. Falls back to a static grid.",
       "categories": [
-        "blocks",
+        "social-proof",
         "testimonials",
         "reviews",
         "social proof",
@@ -929,7 +929,7 @@
       "title": "FAQ Section",
       "description": "Two-column FAQ: heading and contact link on the left, an animated one-at-a-time accordion on the right.",
       "categories": [
-        "blocks",
+        "faq",
         "faq",
         "accordion",
         "questions",
@@ -951,7 +951,7 @@
       "title": "CTA Banner",
       "description": "A full-width call-to-action band with a soft pulsing radial glow, a headline, one line of text and two pill buttons.",
       "categories": [
-        "blocks",
+        "cta",
         "cta",
         "banner",
         "call to action",
@@ -1105,7 +1105,7 @@
       "title": "Hero Section",
       "description": "A full landing hero: eyebrow pill, headline with a highlighted word, subtitle, two pill buttons, trust items and a framed panel for a screenshot or demo.",
       "categories": [
-        "blocks",
+        "hero",
         "hero",
         "landing",
         "header",
@@ -1127,7 +1127,7 @@
       "title": "Pricing Section",
       "description": "Three pricing tiers with a sliding monthly/yearly toggle, crossfading prices, feature checklists and a highlighted most-popular plan.",
       "categories": [
-        "blocks",
+        "pricing",
         "pricing",
         "plans",
         "tiers",
@@ -1150,7 +1150,7 @@
       "title": "Login Card",
       "description": "A centered sign-in card with social buttons, floating-label fields, error alert, loading state and sign-up link.",
       "categories": [
-        "blocks",
+        "auth",
         "login",
         "auth",
         "form",
@@ -3117,6 +3117,1920 @@
           "path": "registry/hyperblur/orders-dashboard.tsx",
           "type": "registry:component",
           "target": "components/hyperblur/orders-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-split-brand",
+      "type": "registry:component",
+      "title": "Auth Split Brand",
+      "description": "A full-width sign-in section: a brand panel with a drifting gradient and rotating customer quotes on one side, a complete email and password form with social buttons on the other.",
+      "categories": [
+        "auth",
+        "auth",
+        "login",
+        "sign in",
+        "split",
+        "testimonial",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-split-brand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-split-brand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-signup-steps",
+      "type": "registry:component",
+      "title": "Auth Signup Steps",
+      "description": "A three-step sign-up wizard for account, workspace and team invites, with a progress rail, sliding step transitions and validation on every step.",
+      "categories": [
+        "auth",
+        "auth",
+        "sign up",
+        "wizard",
+        "stepper",
+        "onboarding",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-signup-steps.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-signup-steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-otp",
+      "type": "registry:component",
+      "title": "Auth OTP",
+      "description": "A verification screen with single-digit code inputs that auto-advance, accept a pasted code and step back on Backspace, plus a resend countdown, an error shake and a success check.",
+      "categories": [
+        "auth",
+        "auth",
+        "otp",
+        "verification",
+        "2fa",
+        "code input",
+        "security"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-otp.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-otp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-magic-link",
+      "type": "registry:component",
+      "title": "Auth Magic Link",
+      "description": "A light passwordless sign-in: an email field that morphs into a Check your inbox state with an envelope that folds shut, a resend countdown and a change email action.",
+      "categories": [
+        "auth",
+        "auth",
+        "magic link",
+        "passwordless",
+        "email",
+        "light",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-magic-link.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-magic-link.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-split-form",
+      "type": "registry:component",
+      "title": "Contact Split Form",
+      "description": "A two-column contact section: email, live chat and office hours cards on the left, a validated form with a topic select and a character counter inside a rotating border beam on the right.",
+      "categories": [
+        "contact",
+        "contact",
+        "form",
+        "support",
+        "split",
+        "textarea",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/contact-split-form.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/contact-split-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-offices",
+      "type": "registry:component",
+      "title": "Contact Offices",
+      "description": "Global offices on a dotted world map with pulsing city markers and arcs from headquarters. Hovering or focusing a city opens its address card, synced with a list showing each office's local time.",
+      "categories": [
+        "contact",
+        "contact",
+        "offices",
+        "world map",
+        "locations",
+        "map",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/contact-offices.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/contact-offices.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-support-cards",
+      "type": "registry:component",
+      "title": "Contact Support Cards",
+      "description": "Three support channel cards for docs, priority support and community with response-time chips and a pointer tilt, followed by a minimal inline question field.",
+      "categories": [
+        "contact",
+        "contact",
+        "support",
+        "help center",
+        "cards",
+        "tilt",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/contact-support-cards.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/contact-support-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-minimal-light",
+      "type": "registry:component",
+      "title": "Contact Minimal Light",
+      "description": "A light editorial contact section with a huge serif Let's talk headline, a fill-in-the-blanks sentence form with suggestion chips, and studio details on the side.",
+      "categories": [
+        "contact",
+        "contact",
+        "form",
+        "editorial",
+        "serif",
+        "light",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/contact-minimal-light.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/contact-minimal-light.tsx"
+        }
+      ]
+    },
+    {
+      "name": "how-steps-line",
+      "type": "registry:component",
+      "title": "How It Works: Steps Line",
+      "description": "Four numbered step cards joined by a line that fills from start to end when the section scrolls into view. Each card carries a small looping illustration.",
+      "categories": [
+        "how-it-works",
+        "how it works",
+        "steps",
+        "process",
+        "timeline",
+        "onboarding",
+        "scroll reveal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/how-steps-line.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/how-steps-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "how-sticky-scroll",
+      "type": "registry:component",
+      "title": "How It Works: Sticky Scroll",
+      "description": "Step descriptions on the left and a sticky product mockup on the right that switches screens as each step reaches the middle of the viewport. Steps are also clickable.",
+      "categories": [
+        "how-it-works",
+        "how it works",
+        "sticky",
+        "scroll",
+        "product tour",
+        "steps",
+        "mockup"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/how-sticky-scroll.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/how-sticky-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "how-timeline-vertical",
+      "type": "registry:component",
+      "title": "How It Works: Vertical Timeline",
+      "description": "A light, editorial timeline with serif titles and cards that alternate sides. The line fills and the current dot pulses as you scroll; on narrow screens every card sits on the right.",
+      "categories": [
+        "how-it-works",
+        "timeline",
+        "process",
+        "how it works",
+        "light",
+        "serif",
+        "agency"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/how-timeline-vertical.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/how-timeline-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "how-flow-diagram",
+      "type": "registry:component",
+      "title": "How It Works: Flow Diagram",
+      "description": "Four connected nodes for input, process, review and output, with packets traveling along the paths, a skip route and a loop back. Hovering or focusing a node shows its details below.",
+      "categories": [
+        "how-it-works",
+        "flow",
+        "diagram",
+        "pipeline",
+        "workflow",
+        "nodes",
+        "animated"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/how-flow-diagram.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/how-flow-diagram.tsx"
+        }
+      ]
+    },
+    {
+      "name": "download-platforms",
+      "type": "registry:component",
+      "title": "Download: Platforms",
+      "description": "Desktop download cards for macOS, Windows and Linux. The card matching the platform prop gets a rotating beam border and the primary button, and every card has a checksum you can copy.",
+      "categories": [
+        "download",
+        "download",
+        "desktop",
+        "platforms",
+        "checksum",
+        "release",
+        "installer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/download-platforms.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/download-platforms.tsx"
+        }
+      ]
+    },
+    {
+      "name": "download-app-badges",
+      "type": "registry:component",
+      "title": "Download: App Badges",
+      "description": "A mobile app promo with a phone mockup, floating cards that drift, generic store badges, a scannable-looking QR pattern and a rating line.",
+      "categories": [
+        "download",
+        "download",
+        "mobile app",
+        "phone mockup",
+        "qr code",
+        "app badges",
+        "promo"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/download-app-badges.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/download-app-badges.tsx"
+        }
+      ]
+    },
+    {
+      "name": "download-install-tabs",
+      "type": "registry:component",
+      "title": "Download: Install Tabs",
+      "description": "A light developer install block with tabs for npm, pnpm, yarn and brew. The command types itself out on every switch and each box has a copy button with a copied state.",
+      "categories": [
+        "download",
+        "install",
+        "cli",
+        "npm",
+        "tabs",
+        "copy",
+        "developer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/download-install-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/download-install-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-counter",
+      "type": "registry:component",
+      "title": "Waitlist: Live Counter",
+      "description": "A light, centered waitlist with an email field, a rolling counter that ticks up live and on signup, an avatar stack and a road-to-launch bar. After signup it shows the spot number and a referral link to copy.",
+      "categories": [
+        "waitlist",
+        "waitlist",
+        "email",
+        "counter",
+        "referral",
+        "launch",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/waitlist-counter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/waitlist-counter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-launch-card",
+      "type": "registry:component",
+      "title": "Waitlist: Launch Card",
+      "description": "A dark glass card over drifting color with a four-tile flip countdown to a launch date, an email form and a perks column.",
+      "categories": [
+        "waitlist",
+        "waitlist",
+        "countdown",
+        "flip clock",
+        "launch",
+        "email",
+        "coming soon"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/waitlist-launch-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/waitlist-launch-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-product",
+      "type": "registry:component",
+      "title": "Bento Product",
+      "description": "An asymmetric four-column bento with a revenue chart that switches range, a sprint calendar, working automation toggles, live presence and a typing command bar.",
+      "categories": [
+        "bento",
+        "bento",
+        "features",
+        "chart",
+        "calendar",
+        "command",
+        "saas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-product.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-product.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-metrics",
+      "type": "registry:component",
+      "title": "Bento Metrics",
+      "description": "A dashboard-style bento with counting stat tiles, a plan donut, a sparkline strip, goal progress bars, an NPS gauge and a 30-day uptime bar.",
+      "categories": [
+        "bento",
+        "bento",
+        "metrics",
+        "dashboard",
+        "count-up",
+        "donut",
+        "stats"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-metrics.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-metrics.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-integrations",
+      "type": "registry:component",
+      "title": "Bento Integrations",
+      "description": "An integrations bento with a central hub, animated data flowing along curved links, connectable service tiles, a scrolling webhook log and an SDK install snippet.",
+      "categories": [
+        "bento",
+        "bento",
+        "integrations",
+        "hub",
+        "webhooks",
+        "sdk",
+        "beams"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-integrations.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-integrations.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-terminal",
+      "type": "registry:component",
+      "title": "Bento Terminal",
+      "description": "A developer bento with a terminal that types a deploy command, a code diff, a rollout status card, a git graph and a per-region latency heat strip.",
+      "categories": [
+        "bento",
+        "bento",
+        "developer",
+        "terminal",
+        "deploy",
+        "git",
+        "latency"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-terminal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-terminal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-editorial",
+      "type": "registry:component",
+      "title": "Bento Editorial",
+      "description": "A light, magazine-style bento on paper with serif headlines, grainy gradient covers, a pull quote, a big numeral and a selectable tag cloud.",
+      "categories": [
+        "bento",
+        "bento",
+        "editorial",
+        "light",
+        "serif",
+        "magazine",
+        "blog"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-editorial.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-editorial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-spotlight",
+      "type": "registry:component",
+      "title": "Bento Spotlight",
+      "description": "A 3x3 feature grid where the hovered or focused tile lifts under a pointer-following glow while the others dim and blur, each tile with its own animated icon.",
+      "categories": [
+        "bento",
+        "bento",
+        "features",
+        "spotlight",
+        "hover",
+        "icons",
+        "grid"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-spotlight.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "showcase-browser",
+      "type": "registry:component",
+      "title": "Showcase Browser",
+      "description": "A product showcase with copy on the left and a browser frame on a gradient stage whose page scrolls slowly, with floating callouts pointing at what matters.",
+      "categories": [
+        "showcase",
+        "showcase",
+        "browser",
+        "mockup",
+        "callouts",
+        "product",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/showcase-browser.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/showcase-browser.tsx"
+        }
+      ]
+    },
+    {
+      "name": "showcase-device-stack",
+      "type": "registry:component",
+      "title": "Showcase Device Stack",
+      "description": "A laptop, tablet and phone stacked in depth that tilt with parallax as the pointer moves, above a four-column feature caption row.",
+      "categories": [
+        "showcase",
+        "showcase",
+        "devices",
+        "parallax",
+        "tilt",
+        "mockup",
+        "responsive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/showcase-device-stack.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/showcase-device-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "showcase-marquee-cards",
+      "type": "registry:component",
+      "title": "Showcase Marquee Cards",
+      "description": "A light portfolio section with two rows of project cards gliding in opposite directions, faded at the edges and paused on hover or focus.",
+      "categories": [
+        "showcase",
+        "showcase",
+        "marquee",
+        "portfolio",
+        "projects",
+        "light",
+        "cards"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/showcase-marquee-cards.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/showcase-marquee-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blog-featured-grid",
+      "type": "registry:component",
+      "title": "Blog Featured Grid",
+      "description": "A blog index section with one large featured story beside a two by two grid of recent posts, gradient covers, category chips and author initials.",
+      "categories": [
+        "blog",
+        "blog",
+        "posts",
+        "grid",
+        "featured",
+        "journal",
+        "covers"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/blog-featured-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/blog-featured-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blog-list-editorial",
+      "type": "registry:component",
+      "title": "Blog List Editorial",
+      "description": "A light, paper toned list of essays with a date column, serif titles, excerpts and a sticky category filter that fades the list in on change.",
+      "categories": [
+        "blog",
+        "blog",
+        "editorial",
+        "list",
+        "serif",
+        "filter",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/blog-list-editorial.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/blog-list-editorial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blog-article-header",
+      "type": "registry:component",
+      "title": "Blog Article Header",
+      "description": "The top of a single article: breadcrumb, large title that blurs in word by word, author block, share buttons, a reading progress bar and an opening paragraph with a drop cap.",
+      "categories": [
+        "blog",
+        "blog",
+        "article",
+        "header",
+        "progress",
+        "drop cap",
+        "share"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/blog-article-header.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/blog-article-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blog-carousel",
+      "type": "registry:component",
+      "title": "Blog Carousel",
+      "description": "A horizontal row of post cards with native scroll snapping, previous and next buttons, a position counter, a progress meter and fading edges.",
+      "categories": [
+        "blog",
+        "blog",
+        "carousel",
+        "slider",
+        "scroll snap",
+        "posts",
+        "cards"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/blog-carousel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/blog-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shop-product-detail",
+      "type": "registry:component",
+      "title": "Shop Product Detail",
+      "description": "A product page section with a switchable gallery and hover zoom, rating, price with savings, color swatches, size chips, a quantity stepper and an add to bag button that morphs into a confirmation.",
+      "categories": [
+        "ecommerce",
+        "ecommerce",
+        "product",
+        "gallery",
+        "swatches",
+        "add to cart",
+        "shop"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shop-product-detail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shop-product-detail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shop-cart-summary",
+      "type": "registry:component",
+      "title": "Shop Cart Summary",
+      "description": "A cart panel with line items, quantity steppers and remove, a free shipping progress bar, a promo code field with valid and invalid states and totals that count to their new value.",
+      "categories": [
+        "ecommerce",
+        "ecommerce",
+        "cart",
+        "checkout",
+        "promo code",
+        "totals",
+        "shop"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shop-cart-summary.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shop-cart-summary.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shop-collection-hero",
+      "type": "registry:component",
+      "title": "Shop Collection Hero",
+      "description": "A light collection page opener: a warm banner with a serif title and floating product art, filter chips and a row of four products with wishlist hearts and a quick add overlay.",
+      "categories": [
+        "ecommerce",
+        "ecommerce",
+        "collection",
+        "banner",
+        "wishlist",
+        "quick add",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shop-collection-hero.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shop-collection-hero.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shop-checkout-steps",
+      "type": "registry:component",
+      "title": "Shop Checkout Steps",
+      "description": "A three step checkout with an animated step header, a shipping form, delivery method cards with prices, payment options, a review screen and a live order summary.",
+      "categories": [
+        "ecommerce",
+        "ecommerce",
+        "checkout",
+        "stepper",
+        "form",
+        "delivery",
+        "payment"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shop-checkout-steps.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shop-checkout-steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-switch",
+      "type": "registry:component",
+      "title": "Pricing Switch",
+      "description": "Three tiers in one joined panel with a sliding monthly and yearly switch. Prices roll like an odometer when the period changes and the featured tier glows with a rotating border.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "plans",
+        "odometer",
+        "billing toggle",
+        "tiers",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-switch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-slider",
+      "type": "registry:component",
+      "title": "Pricing Slider",
+      "description": "Usage-based pricing driven by a keyboard-friendly range slider. The estimate, graduated tier breakdown and cost bar update live, with tier thresholds marked on the track.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "usage",
+        "slider",
+        "calculator",
+        "metered",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-slider.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-compare-cards",
+      "type": "registry:component",
+      "title": "Pricing Compare Cards",
+      "description": "A light paper layout with two large plan cards whose feature rows tick, dash or show a value side by side, and a dark enterprise strip underneath.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "plans",
+        "light",
+        "compare",
+        "enterprise",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-compare-cards.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-compare-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-credits",
+      "type": "registry:component",
+      "title": "Pricing Credits",
+      "description": "Credit pack pricing with four selectable cards that tilt toward the pointer, a best value ribbon, per-credit prices and savings, a purchase bar and a three-line FAQ strip.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "credits",
+        "packs",
+        "tilt",
+        "one-time",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-credits.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-credits.tsx"
+        }
+      ]
+    },
+    {
+      "name": "comparison-table",
+      "type": "registry:component",
+      "title": "Comparison Table",
+      "description": "A feature matrix with grouped rows, a sticky header and a glowing highlighted column. Rows highlight on hover and the table turns into stacked cards in narrow containers.",
+      "categories": [
+        "comparison",
+        "comparison",
+        "table",
+        "matrix",
+        "features",
+        "sticky",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/comparison-table.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/comparison-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "comparison-versus",
+      "type": "registry:component",
+      "title": "Comparison Versus",
+      "description": "A Before and After split with a spinning VS badge between two contrasting panels, and a metric strip whose bars grow to show the change.",
+      "categories": [
+        "comparison",
+        "comparison",
+        "before after",
+        "versus",
+        "metrics",
+        "split",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/comparison-versus.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/comparison-versus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "comparison-slider",
+      "type": "registry:component",
+      "title": "Comparison Slider",
+      "description": "A light section with a draggable divider over two release timelines. Drag or use the arrow keys to reveal how the same stages shrink from weeks to days.",
+      "categories": [
+        "comparison",
+        "comparison",
+        "slider",
+        "before after",
+        "timeline",
+        "light",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/comparison-slider.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/comparison-slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-gradient-card",
+      "type": "registry:component",
+      "title": "CTA Gradient Card",
+      "description": "A large rounded card with a flowing gradient border, floating shapes, a gradient headline and an inline email form with a success state.",
+      "categories": [
+        "cta",
+        "cta",
+        "gradient",
+        "email",
+        "signup",
+        "card",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cta-gradient-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cta-gradient-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-marquee-band",
+      "type": "registry:component",
+      "title": "CTA Marquee Band",
+      "description": "A full-bleed band where the call to action loops in three huge marquee rows, solid, outlined and dim, behind a pill button that magnetically follows the pointer.",
+      "categories": [
+        "cta",
+        "cta",
+        "marquee",
+        "magnetic",
+        "band",
+        "typography",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cta-marquee-band.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cta-marquee-band.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-split-light",
+      "type": "registry:component",
+      "title": "CTA Split Light",
+      "description": "A light paper split with a serif headline whose key word gets a hand-drawn underline, bullet promises, a compact signup card and a row of trust logos.",
+      "categories": [
+        "cta",
+        "cta",
+        "signup",
+        "light",
+        "serif",
+        "split",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cta-split-light.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cta-split-light.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-mega-menu",
+      "type": "registry:component",
+      "title": "Nav Mega Menu",
+      "description": "A top bar whose triggers open a wide mega menu with three columns of icon links, a featured card and a footer strip. Opens on hover with an intent delay and is fully keyboard driven.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "mega menu",
+        "header",
+        "dropdown",
+        "keyboard",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-mega-menu.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-mega-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-floating-island",
+      "type": "registry:component",
+      "title": "Nav Floating Island",
+      "description": "A centered floating pill nav with a springy highlight that slides between links, a search chip with a Cmd K shortcut and an account menu. It shrinks into a compact island when compact is set or the page scrolls.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "floating",
+        "pill",
+        "command k",
+        "profile menu",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-floating-island.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-floating-island.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-sidebar-mobile",
+      "type": "registry:component",
+      "title": "Nav Sidebar Mobile",
+      "description": "A mobile app bar whose animated hamburger opens a full-height drawer with grouped links, accordion sub-links, a search field and an account footer. Focus is trapped while open and Escape closes it.",
+      "categories": [
+        "navigation",
+        "mobile nav",
+        "drawer",
+        "hamburger",
+        "accordion",
+        "focus trap",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-sidebar-mobile.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-sidebar-mobile.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-announce-split",
+      "type": "registry:component",
+      "title": "Nav Announce Split",
+      "description": "A light header with a dismissible announcement strip, the logo on the left, centered links with a drawing underline, log in and a call to action on the right, and a hairline that fills as the page scrolls.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "announcement",
+        "light",
+        "underline",
+        "scroll progress",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-announce-split.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-announce-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-mega",
+      "type": "registry:component",
+      "title": "Footer Mega",
+      "description": "A large footer with a newsletter card, a brand column with social buttons, five link columns, and a bottom row with legal links, a live status pill and a language selector.",
+      "categories": [
+        "footer",
+        "footer",
+        "newsletter",
+        "sitemap",
+        "language",
+        "status",
+        "social"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/footer-mega.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/footer-mega.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-giant-wordmark",
+      "type": "registry:component",
+      "title": "Footer Giant Wordmark",
+      "description": "A minimal footer with a statement, an email link and a compact link row, ending in an enormous wordmark that spans the full width, fades out at the bottom and rises letter by letter when it scrolls into view.",
+      "categories": [
+        "footer",
+        "footer",
+        "wordmark",
+        "minimal",
+        "typography",
+        "reveal",
+        "brand"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/footer-giant-wordmark.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/footer-giant-wordmark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-cta-sitemap",
+      "type": "registry:component",
+      "title": "Footer CTA Sitemap",
+      "description": "A light paper footer that opens with a deep green call to action card, with serif headline and orbiting rating seal, overlapping into a sitemap with serif column titles, an address block and a legal row.",
+      "categories": [
+        "footer",
+        "footer",
+        "call to action",
+        "sitemap",
+        "light",
+        "serif",
+        "paper"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/footer-cta-sitemap.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/footer-cta-sitemap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-links-rail",
+      "type": "registry:component",
+      "title": "Footer Links Rail",
+      "description": "A compact single row footer: brand, copyright, link groups as pill menus and a back to top button whose arrow launches up and drops back in. It wraps into stacked rows on small screens.",
+      "categories": [
+        "footer",
+        "footer",
+        "compact",
+        "pills",
+        "back to top",
+        "rail",
+        "minimal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/footer-links-rail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/footer-links-rail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-grid-glow",
+      "type": "registry:component",
+      "title": "Features Grid Glow",
+      "description": "A six-card feature grid under a split header. One soft spotlight follows the pointer across every card at once, lighting borders and surfaces, and cards lift on hover.",
+      "categories": [
+        "features",
+        "features",
+        "grid",
+        "spotlight",
+        "glow",
+        "cards",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/features-grid-glow.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/features-grid-glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-alternating",
+      "type": "registry:component",
+      "title": "Features Alternating",
+      "description": "Numbered feature rows that alternate copy and visual sides. Each visual is a small animated product screen (an inbox, a routing flow, a chart) that plays when its row scrolls into view.",
+      "categories": [
+        "features",
+        "features",
+        "alternating",
+        "zigzag",
+        "scroll reveal",
+        "product",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/features-alternating.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/features-alternating.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-tabs",
+      "type": "registry:component",
+      "title": "Features Tabs",
+      "description": "A vertical tab list with a progress bar that advances to the next feature every few seconds, beside a window that crossfades between product mockups. Hover pauses it and arrow keys move between tabs.",
+      "categories": [
+        "features",
+        "features",
+        "tabs",
+        "autoplay",
+        "progress",
+        "mockup",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/features-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/features-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-checklist",
+      "type": "registry:component",
+      "title": "Features Checklist",
+      "description": "A light paper section with a large serif headline, a two-column ticklist whose check marks draw in one after another, and a pinned summary card that stays in view while the list scrolls.",
+      "categories": [
+        "features",
+        "features",
+        "checklist",
+        "light",
+        "serif",
+        "included",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/features-checklist.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/features-checklist.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-orbit",
+      "type": "registry:component",
+      "title": "Features Orbit",
+      "description": "A central product mark with feature chips circling it on two counter-rotating rings. Hovering a chip pauses the orbit and slides out its label, and a row of captions sits beneath.",
+      "categories": [
+        "features",
+        "features",
+        "orbit",
+        "integrations",
+        "rings",
+        "hover",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/features-orbit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/features-orbit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-counters",
+      "type": "registry:component",
+      "title": "Stats Counters",
+      "description": "Four oversized numbers that count up when the row scrolls into view, separated by hairlines, each with a label, a sparkline that draws itself and a small change note.",
+      "categories": [
+        "stats",
+        "stats",
+        "numbers",
+        "count up",
+        "sparkline",
+        "metrics",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stats-counters.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stats-counters.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-bar-race",
+      "type": "registry:component",
+      "title": "Stats Bar Race",
+      "description": "A headline and summary figure beside a ranked bar chart. On view the bars race out to their values, larger ones running longer, while the numbers count up in step.",
+      "categories": [
+        "stats",
+        "stats",
+        "bar chart",
+        "ranking",
+        "race",
+        "count up",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stats-bar-race.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stats-bar-race.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-radial",
+      "type": "registry:component",
+      "title": "Stats Radial",
+      "description": "A light section with three radial progress rings that sweep in on view, with tick marks that light up behind the arc, counting center numbers and a short description under each.",
+      "categories": [
+        "stats",
+        "stats",
+        "radial",
+        "progress ring",
+        "light",
+        "count up",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stats-radial.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stats-radial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-ticker",
+      "type": "registry:component",
+      "title": "Stats Ticker",
+      "description": "A dark full-bleed band with one oversized featured figure on top and two rows of metrics scrolling in opposite directions underneath, each with a value and a colored change arrow.",
+      "categories": [
+        "stats",
+        "stats",
+        "ticker",
+        "marquee",
+        "live",
+        "metrics",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stats-ticker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stats-ticker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notfound-glitch",
+      "type": "registry:component",
+      "title": "404 Glitch",
+      "description": "A split 404 page with a giant code torn by chromatic glitch slices, a scanline sweep and a terminal log that types out the failed request.",
+      "categories": [
+        "not-found",
+        "404",
+        "error page",
+        "glitch",
+        "terminal",
+        "typewriter",
+        "scanlines"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/notfound-glitch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/notfound-glitch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notfound-astronaut",
+      "type": "registry:component",
+      "title": "404 Astronaut",
+      "description": "A lost in space 404 page with an illustrated astronaut that floats and slowly spins over an outlined code, twinkling stars, a glowing planet horizon and pointer parallax.",
+      "categories": [
+        "not-found",
+        "404",
+        "error page",
+        "space",
+        "astronaut",
+        "parallax",
+        "stars"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/notfound-astronaut.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/notfound-astronaut.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notfound-search",
+      "type": "registry:component",
+      "title": "404 Search",
+      "description": "A light 404 page with a serif headline, a live search that filters popular pages as you type, keyboard navigation and a hand-drawn arrow that draws itself in.",
+      "categories": [
+        "not-found",
+        "404",
+        "error page",
+        "search",
+        "light",
+        "serif",
+        "filter"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/notfound-search.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/notfound-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notfound-broken-plug",
+      "type": "registry:component",
+      "title": "404 Broken Plug",
+      "description": "A 404 page with a flickering neon code and an unplugged cable whose plug and socket throw sparks. The retry button plugs it back in with a short reconnect animation.",
+      "categories": [
+        "not-found",
+        "404",
+        "error page",
+        "neon",
+        "flicker",
+        "illustration",
+        "retry"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/notfound-broken-plug.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/notfound-broken-plug.tsx"
+        }
+      ]
+    },
+    {
+      "name": "profile-header-card",
+      "type": "registry:component",
+      "title": "Profile Header Card",
+      "description": "A social profile header with a drifting gradient cover, overlapping avatar, follow and message actions, stats that count up and tabs with a sliding underline.",
+      "categories": [
+        "profile",
+        "profile",
+        "header",
+        "cover",
+        "follow",
+        "tabs",
+        "stats"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/profile-header-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/profile-header-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "profile-creator-bio",
+      "type": "registry:component",
+      "title": "Profile Creator Bio",
+      "description": "A light link-in-bio section with a spinning gradient avatar ring, availability status, pill links that fill and slide on hover, a shining featured link and a row of social icons.",
+      "categories": [
+        "profile",
+        "profile",
+        "link in bio",
+        "creator",
+        "links",
+        "social",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/profile-creator-bio.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/profile-creator-bio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "profile-dev-card",
+      "type": "registry:component",
+      "title": "Profile Dev Card",
+      "description": "A developer profile with avatar, role, location, stack chips, a year of contributions as an animated heatmap with hover tooltips, and pinned project cards with stars and forks.",
+      "categories": [
+        "profile",
+        "profile",
+        "developer",
+        "heatmap",
+        "contributions",
+        "projects",
+        "portfolio"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/profile-dev-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/profile-dev-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "proof-wall",
+      "type": "registry:component",
+      "title": "Proof Wall",
+      "description": "A masonry wall of testimonial cards in three columns. The outer columns drift slowly in opposite directions under soft top and bottom fades, and pause on hover.",
+      "categories": [
+        "social-proof",
+        "testimonials",
+        "wall of love",
+        "masonry",
+        "reviews",
+        "marquee",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/proof-wall.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/proof-wall.tsx"
+        }
+      ]
+    },
+    {
+      "name": "proof-spotlight-quote",
+      "type": "registry:component",
+      "title": "Proof Spotlight Quote",
+      "description": "One large serif quote at a time on a paper background. It advances every few seconds with a blur crossfade, and small avatar buttons with a progress ring let visitors pick a quote.",
+      "categories": [
+        "social-proof",
+        "testimonial",
+        "quote",
+        "carousel",
+        "customer story",
+        "light",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/proof-spotlight-quote.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/proof-spotlight-quote.tsx"
+        }
+      ]
+    },
+    {
+      "name": "proof-logo-cloud",
+      "type": "registry:component",
+      "title": "Proof Logo Cloud",
+      "description": "A hairline grid of twelve wordmark tiles that go from gray to full color on hover, with a light sweep that travels across the grid and a star rating line below.",
+      "categories": [
+        "social-proof",
+        "logos",
+        "logo cloud",
+        "customers",
+        "trusted by",
+        "rating",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/proof-logo-cloud.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/proof-logo-cloud.tsx"
+        }
+      ]
+    },
+    {
+      "name": "proof-metrics-quotes",
+      "type": "registry:component",
+      "title": "Proof Metrics Quotes",
+      "description": "Three result cards, each with a big number that counts up when the section scrolls into view, a growing bar, a short quote and the customer behind it.",
+      "categories": [
+        "social-proof",
+        "metrics",
+        "results",
+        "case study",
+        "count up",
+        "testimonials",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/proof-metrics-quotes.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/proof-metrics-quotes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-search",
+      "type": "registry:component",
+      "title": "FAQ Search",
+      "description": "A search field that filters questions as you type and highlights every match, popular keyword chips, a smooth accordion and a friendly empty state with a contact button.",
+      "categories": [
+        "faq",
+        "faq",
+        "search",
+        "filter",
+        "highlight",
+        "accordion",
+        "help center"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/faq-search.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/faq-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-two-column",
+      "type": "registry:component",
+      "title": "FAQ Two Column",
+      "description": "A light FAQ with a sticky left column holding the title and a support card with online status, and numbered questions on the right that open with a smooth height animation.",
+      "categories": [
+        "faq",
+        "faq",
+        "accordion",
+        "support",
+        "sticky",
+        "light",
+        "numbered"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/faq-two-column.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/faq-two-column.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-categories",
+      "type": "registry:component",
+      "title": "FAQ Categories",
+      "description": "Category tabs with a sliding pill switch between sets of question cards, which slide and fade in from the direction you moved. Arrow keys move between tabs.",
+      "categories": [
+        "faq",
+        "faq",
+        "tabs",
+        "categories",
+        "help center",
+        "cards",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/faq-categories.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/faq-categories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "about-story",
+      "type": "registry:component",
+      "title": "About Story",
+      "description": "A company story with a large serif statement, a row of key facts, a five-step timeline whose line draws down as it enters view, and a founder note card.",
+      "categories": [
+        "about",
+        "about",
+        "story",
+        "timeline",
+        "company",
+        "founder",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/about-story.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/about-story.tsx"
+        }
+      ]
+    },
+    {
+      "name": "about-values",
+      "type": "registry:component",
+      "title": "About Values",
+      "description": "A light values section with six numbered cards, a softly bobbing row of team avatars with a head count, and a strip of open roles as pill links.",
+      "categories": [
+        "about",
+        "about",
+        "values",
+        "team",
+        "careers",
+        "culture",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/about-values.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/about-values.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-editorial",
+      "type": "registry:component",
+      "title": "Hero Editorial",
+      "description": "A light, magazine-style hero on warm paper: a large serif headline with an italic word that gets a hand-drawn underline, a floating collage of paper cards and a slow marquee of press names.",
+      "categories": [
+        "hero",
+        "hero",
+        "editorial",
+        "serif",
+        "collage",
+        "marquee",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-editorial.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-editorial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-orbs",
+      "type": "registry:component",
+      "title": "Hero Orbs",
+      "description": "A dark waitlist hero: three blurred gradient orbs drift on slow orbits behind a frosted glass card with the headline, a validated email form with a success state, and a row of avatars.",
+      "categories": [
+        "hero",
+        "hero",
+        "waitlist",
+        "glass",
+        "gradient",
+        "email",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-orbs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-orbs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-prompt",
+      "type": "registry:component",
+      "title": "Hero Prompt",
+      "description": "A centered hero built around a large prompt box: auto-growing textarea, Enter to send, a rotating placeholder, suggestion chips that type themselves in and a glow that pulses while the box is focused.",
+      "categories": [
+        "hero",
+        "hero",
+        "prompt",
+        "input",
+        "assistant",
+        "chips",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-prompt.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-prompt.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-spotlight",
+      "type": "registry:component",
+      "title": "Hero Spotlight",
+      "description": "A dark hero where a soft spotlight follows the pointer, revealing a hidden dotted grid, floating metric chips and a brighter copy of the headline. It drifts on its own path when nobody is pointing.",
+      "categories": [
+        "hero",
+        "hero",
+        "spotlight",
+        "landing",
+        "pointer",
+        "mask",
+        "reveal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-spotlight.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-particles",
+      "type": "registry:component",
+      "title": "Hero Particles",
+      "description": "A constellation hero: drifting points linked by proximity lines that lean toward the pointer, behind a centered headline with a shimmering gradient phrase and a copyable install command.",
+      "categories": [
+        "hero",
+        "hero",
+        "particles",
+        "constellation",
+        "canvas",
+        "landing",
+        "network"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-particles.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-particles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-beams",
+      "type": "registry:component",
+      "title": "Hero Beams",
+      "description": "Vertical light beams fall and fade toward a glowing horizon arc, under a headline that splits into red and cyan on hover. Three stats count up when the hero scrolls into view.",
+      "categories": [
+        "hero",
+        "hero",
+        "beams",
+        "horizon",
+        "stats",
+        "landing",
+        "chromatic"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-beams.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-beams.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-aurora",
+      "type": "registry:component",
+      "title": "Hero Aurora",
+      "description": "A dark, centered hero with drifting aurora ribbons, a shining pill badge and a headline that sharpens in word by word over a fading grid.",
+      "categories": [
+        "hero",
+        "hero",
+        "aurora",
+        "landing",
+        "headline",
+        "blur reveal",
+        "marketing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-aurora.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-aurora.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-grid",
+      "type": "registry:component",
+      "title": "Hero Grid",
+      "description": "A technical hero with a perspective grid floor running toward a glowing horizon, a headline that decodes into place and a copyable install command.",
+      "categories": [
+        "hero",
+        "hero",
+        "grid",
+        "developer",
+        "terminal",
+        "decode",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-product",
+      "type": "registry:component",
+      "title": "Hero Product",
+      "description": "A split hero with copy on the left and a layered product mockup on the right that floats gently and tilts in depth with the pointer, above a row of customer logos.",
+      "categories": [
+        "hero",
+        "hero",
+        "product",
+        "mockup",
+        "parallax",
+        "saas",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-product.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-product.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-type",
+      "type": "registry:component",
+      "title": "Hero Type",
+      "description": "A typographic hero in bone on black with a giant tight headline, a rotating italic word, oversized numerals and a two-row keyword marquee.",
+      "categories": [
+        "hero",
+        "hero",
+        "typography",
+        "editorial",
+        "marquee",
+        "studio",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-type.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-type.tsx"
         }
       ]
     }

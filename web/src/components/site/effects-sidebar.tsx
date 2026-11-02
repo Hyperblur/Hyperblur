@@ -2,11 +2,22 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { categories, effects } from "@/registry/meta";
+import { categories, effects, groups, type EffectGroup } from "@/registry/meta";
 import { docPages } from "./docs-nav";
+
+function activeGroup(pathname: string): EffectGroup {
+  if (pathname.startsWith("/components")) return "components";
+  if (pathname.startsWith("/blocks")) return "blocks";
+  const slug = pathname.startsWith("/effects/") ? pathname.slice("/effects/".length) : null;
+  const category = slug ? effects.find((e) => e.slug === slug)?.category : null;
+  const group = category ? categories.find((c) => c.id === category)?.group : null;
+  return group ?? "effects";
+}
 
 export function EffectsSidebar() {
   const pathname = usePathname();
+  const group = activeGroup(pathname);
+  const current = groups.find((g) => g.id === group);
 
   return (
     <nav aria-label="Documentation" className="text-sm">
@@ -30,15 +41,29 @@ export function EffectsSidebar() {
           })}
         </ul>
       </div>
+      <div className="mb-3 grid grid-cols-3 gap-1 rounded-lg border border-line bg-surface p-1 text-xs">
+        {groups.map((g) => (
+          <Link
+            key={g.id}
+            href={g.href}
+            aria-current={g.id === group ? "page" : undefined}
+            className={`rounded-md px-2 py-1.5 text-center transition-colors ${
+              g.id === group ? "bg-surface-2 text-ink" : "text-muted hover:text-ink"
+            }`}
+          >
+            {g.label}
+          </Link>
+        ))}
+      </div>
       <Link
-        href="/effects"
+        href={current?.href ?? "/effects"}
         className={`mb-6 block rounded-lg border border-line px-3 py-2 ${
-          pathname === "/effects" ? "bg-surface-2 text-ink" : "bg-surface text-muted hover:text-ink"
+          pathname === current?.href ? "bg-surface-2 text-ink" : "bg-surface text-muted hover:text-ink"
         }`}
       >
-        All effects
+        All {current?.label.toLowerCase()}
       </Link>
-      {categories.map((cat) => {
+      {categories.filter((c) => c.group === group).map((cat) => {
         const items = effects.filter((e) => e.category === cat.id);
         if (items.length === 0) return null;
         return (

@@ -29,7 +29,7 @@ export function CandlestickChartDemo() {
   const change = ((last.close - first.open) / first.open) * 100;
   const rising = change >= 0;
   return (
-    <div className="box-border w-full max-w-[340px] rounded-2xl border border-[#262626] bg-[#111111] p-3 text-left font-mono text-[#ededed]">
+    <div className="box-border w-full max-w-[340px] rounded-2xl border border-[#262626] bg-[#111111] p-4 text-left font-mono text-[#ededed]">
       <div className="mb-1.5 flex items-start justify-between gap-2">
         <div className="min-w-0">
           <div className="text-[10.5px] tracking-wide text-[#8f8f8f]">ETH / USD</div>
@@ -47,7 +47,7 @@ export function CandlestickChartDemo() {
               type="button"
               aria-pressed={range === r}
               onClick={() => setRange(r)}
-              className="cursor-pointer rounded-full border-0 bg-transparent px-2 py-0.5 text-[10.5px] text-[#8f8f8f] transition-colors hover:text-[#ededed] focus-visible:outline-2 focus-visible:outline-[#7fb3ff] aria-pressed:bg-[#262626] aria-pressed:text-[#ededed]"
+              className="cursor-pointer rounded-full border-0 bg-transparent px-3 py-0.5 text-[10.5px] text-[#8f8f8f] transition-colors hover:text-[#ededed] focus-visible:outline-2 focus-visible:outline-[#7fb3ff] aria-pressed:bg-[#262626] aria-pressed:text-[#ededed]"
             >
               {r}
             </button>
@@ -57,7 +57,7 @@ export function CandlestickChartDemo() {
       <CandlestickChart
         key={range}
         candles={candles}
-        height={112}
+        height={100}
         priceFormatter={(n) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
       />
     </div>

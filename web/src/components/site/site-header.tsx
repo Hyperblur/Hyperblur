@@ -19,6 +19,12 @@ export function SiteHeader() {
             <Link href="/effects" className="hover:text-ink">
               Effects
             </Link>
+            <Link href="/components" className="hover:text-ink">
+              Components
+            </Link>
+            <Link href="/blocks" className="hover:text-ink">
+              Blocks
+            </Link>
             <Link href="/templates" className="hover:text-ink">
               Templates
             </Link>

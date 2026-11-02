@@ -17,7 +17,7 @@ export default function ShopTemplatePage() {
       <div className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 sm:px-6">
           <p className="text-xs text-muted">Template · Shop · built from 5 components</p>
-          <Link href="/effects#site" className="hb-btn hb-btn-ghost hb-btn-sm">
+          <Link href="/components#site" className="hb-btn hb-btn-ghost hb-btn-sm">
             View components
           </Link>
         </div>

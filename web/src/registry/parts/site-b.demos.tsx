@@ -81,16 +81,14 @@ export const siteBDemos: Record<string, ReactNode> = {
   dropzone: (
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="font-grotesk w-full max-w-[340px] text-left text-[#ededed]">
-        <p className="m-0 mb-1.5 text-[12px] font-medium text-[#a1a1a1]">Attach receipts to this expense</p>
+        <p className="m-0 mb-2 text-[12px] font-medium text-[#a1a1a1]">Attach receipts to this expense</p>
         <Dropzone
           size="sm"
           accept=".pdf,.png,.jpg"
           maxSize={5 * 1024 * 1024}
           simulate
-          defaultFiles={[
-            { name: "lisbon-hotel-invoice.pdf", size: 1887436, progress: 100 },
-            { name: "IMG_4021.jpg", size: 3355443, progress: 64 },
-          ]}
+          className="[&_.hb-drz-file]:p-3!"
+          defaultFiles={[{ name: "IMG_4021.jpg", size: 3355443, progress: 64 }]}
         />
       </div>
     </div>
@@ -101,7 +99,8 @@ export const siteBDemos: Record<string, ReactNode> = {
         <EmptyState
           size="sm"
           illustration="folder"
-          style={{ padding: 10 }}
+          style={{ padding: 14 }}
+          className="[&_.hb-emp-art]:h-[62px]! [&_.hb-emp-art]:w-[82px]!"
           title={<span className="font-serif text-[22px] font-normal italic leading-none">No saved homes yet</span>}
           description="Saved listings will show up here."
           primaryAction={{ label: "Browse listings" }}
