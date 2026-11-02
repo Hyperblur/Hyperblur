@@ -1,0 +1,446 @@
+"use client";
+
+import * as React from "react";
+
+export interface BentoMetricsStat {
+  label: string;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  delta: string;
+  positive?: boolean;
+}
+
+export interface BentoMetricsSlice {
+  label: string;
+  value: number;
+}
+
+export interface BentoMetricsSpark {
+  label: string;
+  value: string;
+  data: number[];
+}
+
+export interface BentoMetricsGoal {
+  label: string;
+  target: string;
+  progress: number;
+}
+
+export interface BentoMetricsProps extends Omit<React.HTMLAttributes<HTMLElement>, "title"> {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  stats?: BentoMetricsStat[];
+  slices?: BentoMetricsSlice[];
+  sparks?: BentoMetricsSpark[];
+  goals?: BentoMetricsGoal[];
+  nps?: number;
+  uptime?: number;
+  accent?: string;
+}
+
+const css = `
+@keyframes hb-kb2-rise { from { opacity: 0; transform: translate3d(0, 16px, 0) scale(.985); } to { opacity: 1; transform: none; } }
+@keyframes hb-kb2-ring { from { stroke-dasharray: 0 100; } }
+@keyframes hb-kb2-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes hb-kb2-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes hb-kb2-grow { from { transform: scaleY(.1); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+@keyframes hb-kb2-needle { from { transform: rotate(-90deg); } }
+@keyframes hb-kb2-glow { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+.hb-kb2 {
+  --hb-kb2-accent: #10b981;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  container-type: inline-size;
+  background: #0a0a0a;
+  color: #ededed;
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+.hb-kb2 *, .hb-kb2 *::before, .hb-kb2 *::after { box-sizing: border-box; }
+.hb-kb2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 30% at 50% 0%, color-mix(in srgb, var(--hb-kb2-accent) 14%, transparent), transparent 75%),
+    linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px) 0 0 / 100% 56px;
+  mask-image: linear-gradient(#000, transparent 70%);
+}
+.hb-kb2-in { position: relative; max-width: 1120px; margin: 0 auto; padding: clamp(56px, 8cqi, 104px) clamp(16px, 5cqi, 48px); }
+.hb-kb2-head { max-width: 640px; margin: 0 auto clamp(28px, 4cqi, 44px); text-align: center; animation: hb-kb2-rise .7s cubic-bezier(.2, .8, .2, 1) backwards; }
+.hb-kb2-eyebrow { margin: 0 0 12px; color: var(--hb-kb2-accent); font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.hb-kb2-title { margin: 0; font-size: clamp(28px, 4cqi, 44px); font-weight: 600; line-height: 1.08; letter-spacing: -.03em; text-wrap: balance; }
+.hb-kb2-sub { margin: 14px auto 0; max-width: 520px; color: #8f8f8f; font-size: 15.5px; line-height: 1.6; text-wrap: pretty; }
+.hb-kb2-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "s0 s1 s2 donut"
+    "spark spark spark donut"
+    "goals goals nps up";
+  gap: 12px;
+}
+.hb-kb2-cell {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 16px;
+  background: #111;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+  animation: hb-kb2-rise .65s cubic-bezier(.2, .8, .2, 1) backwards;
+  animation-delay: calc(var(--hb-kb2-i, 0) * 70ms + 100ms);
+  transition: border-color .25s ease, background .25s ease;
+}
+.hb-kb2-cell:hover { border-color: color-mix(in srgb, var(--hb-kb2-accent) 35%, rgba(255, 255, 255, .08)); background: #131313; }
+.hb-kb2-label { display: flex; align-items: center; gap: 8px; color: #8f8f8f; font-size: 12.5px; font-weight: 500; }
+.hb-kb2-label svg { flex: none; color: #6b6b6b; }
+.hb-kb2-big { display: block; margin-top: 12px; font-size: clamp(22px, 2.9cqi, 30px); font-weight: 600; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.hb-kb2-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-top: 14px; }
+.hb-kb2-delta { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 999px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+.hb-kb2-delta[data-good="true"] { background: rgba(34, 197, 94, .12); color: #4ade80; }
+.hb-kb2-delta[data-good="false"] { background: rgba(244, 63, 94, .12); color: #fb7185; }
+.hb-kb2-note { color: #5f5f5f; font-size: 11px; }
+.hb-kb2-bars { display: flex; align-items: flex-end; gap: 3px; height: 26px; }
+.hb-kb2-bars i { display: block; width: 4px; height: var(--h); border-radius: 2px; background: color-mix(in srgb, var(--hb-kb2-accent) 40%, #262626); transform-origin: bottom; animation: hb-kb2-grow .5s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--hb-kb2-j) * 40ms + 400ms); }
+.hb-kb2-bars i:last-child { background: var(--hb-kb2-accent); }
+.hb-kb2-donut { grid-area: donut; display: flex; flex-direction: column; }
+.hb-kb2-ringwrap { position: relative; width: min(100%, 176px); aspect-ratio: 1; margin: 18px auto 8px; }
+.hb-kb2-ringwrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.hb-kb2-seg { fill: none; stroke-width: 12; stroke-linecap: round; stroke-dasharray: var(--d) 100; stroke-dashoffset: var(--o); animation: hb-kb2-ring 1.3s cubic-bezier(.65, 0, .35, 1) both; animation-delay: calc(var(--hb-kb2-j) * 150ms + 300ms); transition: stroke-width .2s ease; }
+.hb-kb2-seg:hover { stroke-width: 15; }
+.hb-kb2-center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.hb-kb2-center strong { font-size: 26px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.hb-kb2-center span { color: #8f8f8f; font-size: 11.5px; }
+.hb-kb2-legend { display: grid; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+.hb-kb2-legend li { display: flex; align-items: center; gap: 9px; font-size: 12.5px; color: #a1a1a1; }
+.hb-kb2-legend i { width: 8px; height: 8px; border-radius: 3px; background: var(--c); }
+.hb-kb2-legend b { margin-left: auto; color: #ededed; font-weight: 600; font-variant-numeric: tabular-nums; }
+.hb-kb2-foot { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, .06); color: #8f8f8f; font-size: 12px; line-height: 1.5; }
+.hb-kb2-foot b { color: var(--hb-kb2-accent); font-weight: 600; }
+.hb-kb2-spark { grid-area: spark; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0; }
+.hb-kb2-sp { min-width: 0; padding: 18px; border-left: 1px solid rgba(255, 255, 255, .06); transition: background .2s ease; }
+.hb-kb2-sp:first-child { border-left: 0; }
+.hb-kb2-sp:hover { background: rgba(255, 255, 255, .02); }
+.hb-kb2-sp strong { display: block; margin-top: 8px; font-size: 19px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.hb-kb2-sp svg { display: block; width: 100%; height: 44px; margin-top: 12px; overflow: visible; }
+.hb-kb2-sline { fill: none; stroke: var(--hb-kb2-accent); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; animation: hb-kb2-draw 1.2s cubic-bezier(.65, 0, .35, 1) both; animation-delay: calc(var(--hb-kb2-j) * 120ms + 350ms); }
+.hb-kb2-goals { grid-area: goals; }
+.hb-kb2-glist { display: grid; gap: 13px; margin: 14px 0 0; padding: 0; list-style: none; }
+.hb-kb2-glist li { display: grid; gap: 6px; }
+.hb-kb2-gtop { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; }
+.hb-kb2-gtop span { overflow: hidden; color: #a1a1a1; text-overflow: ellipsis; white-space: nowrap; }
+.hb-kb2-gtop b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.hb-kb2-track { height: 6px; overflow: hidden; border-radius: 6px; background: #1d1d1d; }
+.hb-kb2-track i { display: block; width: var(--p); height: 100%; border-radius: inherit; background: linear-gradient(90deg, color-mix(in srgb, var(--hb-kb2-accent) 45%, #111), var(--hb-kb2-accent)); transform-origin: left; animation: hb-kb2-fill 1.1s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--hb-kb2-j) * 110ms + 450ms); }
+.hb-kb2-nps { grid-area: nps; display: flex; flex-direction: column; }
+.hb-kb2-gauge { position: relative; width: 100%; max-width: 180px; margin: 14px auto 0; }
+.hb-kb2-gauge svg { display: block; width: 100%; overflow: visible; }
+.hb-kb2-needle { transform-origin: 60px 60px; transform: rotate(var(--r)); animation: hb-kb2-needle 1.4s cubic-bezier(.34, 1.3, .64, 1) .5s both; }
+.hb-kb2-gval { margin-top: -6px; text-align: center; }
+.hb-kb2-gval strong { font-size: 24px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.hb-kb2-gval span { display: block; color: #6f6f6f; font-size: 11px; }
+.hb-kb2-up { grid-area: up; display: flex; flex-direction: column; }
+.hb-kb2-live { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; color: #4ade80; font-size: 11px; font-weight: 600; }
+.hb-kb2-live i { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; animation: hb-kb2-glow 1.8s ease-in-out infinite; }
+.hb-kb2-ticks { display: grid; grid-template-columns: repeat(30, minmax(0, 1fr)); gap: 2px; height: 34px; margin-top: auto; }
+.hb-kb2-ticks i { border-radius: 2px; background: #22c55e; opacity: .85; transform-origin: bottom; animation: hb-kb2-grow .45s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--hb-kb2-j) * 22ms + 500ms); transition: opacity .15s ease; }
+.hb-kb2-ticks i[data-warn="true"] { background: #f5a524; }
+.hb-kb2-ticks i:hover { opacity: 1; filter: brightness(1.25); }
+.hb-kb2-uprow { display: flex; justify-content: space-between; margin-top: 8px; color: #5f5f5f; font-size: 10.5px; }
+@container (max-width: 860px) {
+  .hb-kb2-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "s0 s1" "s2 donut" "spark donut" "goals goals" "nps up"; }
+  .hb-kb2-spark { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hb-kb2-sp:nth-child(3) { border-left: 0; }
+  .hb-kb2-sp:nth-child(n + 3) { border-top: 1px solid rgba(255, 255, 255, .06); }
+}
+@container (max-width: 520px) {
+  .hb-kb2-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "s0" "s1" "s2" "donut" "spark" "goals" "nps" "up"; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hb-kb2 *, .hb-kb2 *::before, .hb-kb2 *::after { animation: none !important; transition: none !important; }
+}
+`;
+
+const defaultStats: BentoMetricsStat[] = [
+  { label: "Monthly recurring revenue", value: 84210, prefix: "$", delta: "+12.4%", positive: true },
+  { label: "Active accounts", value: 12904, delta: "+3.1%", positive: true },
+  { label: "Net revenue churn", value: 1.8, decimals: 1, suffix: "%", delta: "+0.3 pts", positive: false },
+];
+
+const defaultSlices: BentoMetricsSlice[] = [
+  { label: "Team", value: 2502 },
+  { label: "Business", value: 1492 },
+  { label: "Enterprise", value: 818 },
+];
+
+const defaultSparks: BentoMetricsSpark[] = [
+  { label: "Signups", value: "2,481", data: [12, 18, 15, 22, 19, 27, 24, 31, 29, 36, 34, 41] },
+  { label: "Sessions", value: "184k", data: [40, 38, 44, 41, 47, 45, 52, 49, 55, 53, 58, 61] },
+  { label: "Trial to paid", value: "18.6%", data: [14, 15, 13, 16, 17, 15, 18, 17, 19, 18, 20, 21] },
+  { label: "Avg. response", value: "212 ms", data: [30, 27, 29, 24, 26, 22, 23, 20, 21, 19, 18, 17] },
+];
+
+const defaultGoals: BentoMetricsGoal[] = [
+  { label: "New ARR", target: "$1.2M", progress: 72 },
+  { label: "Self-serve conversion", target: "4.0%", progress: 88 },
+  { label: "Enterprise logos", target: "25", progress: 56 },
+  { label: "Support CSAT", target: "95%", progress: 97 },
+];
+
+function format(n: number, decimals: number) {
+  const fixed = n.toFixed(decimals);
+  const [int, dec] = fixed.split(".");
+  const grouped = int.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return dec ? `${grouped}.${dec}` : grouped;
+}
+
+function hash(n: number) {
+  let x = (n + 1) * 2654435761;
+  x = (x ^ (x >>> 15)) >>> 0;
+  return (x % 1000) / 1000;
+}
+
+function Count({ value, decimals = 0, prefix = "", suffix = "", duration = 1400 }: { value: number; decimals?: number; prefix?: string; suffix?: string; duration?: number }) {
+  const ref = React.useRef<HTMLSpanElement>(null);
+  React.useEffect(() => {
+    const el = ref.current;
+    const node = el?.firstChild;
+    if (!el || !node || typeof IntersectionObserver === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        const start = performance.now();
+        const tick = (t: number) => {
+          const p = Math.min(1, (t - start) / duration);
+          const eased = 1 - Math.pow(1 - p, 3);
+          node.nodeValue = prefix + format(value * eased, decimals) + suffix;
+          if (p < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [value, decimals, prefix, suffix, duration]);
+  return <span ref={ref}>{prefix + format(value, decimals) + suffix}</span>;
+}
+
+function sparkPath(data: number[]) {
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  return data
+    .map((v, i) => {
+      const x = (i / (data.length - 1)) * 100;
+      const y = 36 - ((v - min) / (max - min || 1)) * 32;
+      return `${i ? "L" : "M"}${x.toFixed(2)},${y.toFixed(2)}`;
+    })
+    .join(" ");
+}
+
+const icons = [
+  <path key="0" d="M8 2v12M11 4.5C11 3.7 9.7 3 8 3S5 3.7 5 5s1.3 2 3 2.5 3 1.2 3 2.5-1.3 2-3 2-3-.7-3-1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" fill="none" />,
+  <path key="1" d="M2.5 13c.5-2.2 2.6-3.5 5.5-3.5s5 1.3 5.5 3.5M8 7.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" fill="none" />,
+  <path key="2" d="M2 4.5h3.5L8 10l2.5-3 3.5 4.5M10.5 11.5H14V8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />,
+];
+
+export function BentoMetrics({
+  eyebrow = "Metrics",
+  title = "Numbers the whole company can read at a glance",
+  subtitle = "Revenue, usage and reliability on one board that refreshes every minute, with goals everyone can see.",
+  stats = defaultStats,
+  slices = defaultSlices,
+  sparks = defaultSparks,
+  goals = defaultGoals,
+  nps = 64,
+  uptime = 99.98,
+  accent = "#10b981",
+  className,
+  style,
+  ...rest
+}: BentoMetricsProps) {
+  const total = slices.reduce((s, x) => s + x.value, 0) || 1;
+  const sliceColors = [accent, `color-mix(in srgb, ${accent} 55%, #0a0a0a)`, "#3f3f46", "#27272a"];
+  const pcts = slices.map((s) => (s.value / total) * 100);
+  const segs = pcts.map((pct, i) => ({
+    d: Math.max(pct - 2.4, 0.5),
+    o: -pcts.slice(0, i).reduce((a, b) => a + b, 0),
+    color: sliceColors[i % sliceColors.length],
+    pct,
+  }));
+  const npsAngle = (Math.max(-100, Math.min(100, nps)) / 100) * 90;
+
+  return (
+    <section
+      className={["hb-kb2", className].filter(Boolean).join(" ")}
+      style={{ "--hb-kb2-accent": accent, ...style } as React.CSSProperties}
+      {...rest}
+    >
+      <style href="hb-bento-metrics" precedence="default">{css}</style>
+      <div className="hb-kb2-in">
+        <header className="hb-kb2-head">
+          {eyebrow ? <p className="hb-kb2-eyebrow">{eyebrow}</p> : null}
+          <h2 className="hb-kb2-title">{title}</h2>
+          {subtitle ? <p className="hb-kb2-sub">{subtitle}</p> : null}
+        </header>
+        <div className="hb-kb2-grid">
+          {stats.slice(0, 3).map((s, i) => (
+            <article key={s.label} className="hb-kb2-cell" style={{ gridArea: `s${i}`, "--hb-kb2-i": i } as React.CSSProperties}>
+              <span className="hb-kb2-label">
+                <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+                  {icons[i % icons.length]}
+                </svg>
+                {s.label}
+              </span>
+              <strong className="hb-kb2-big">
+                <Count value={s.value} decimals={s.decimals ?? 0} prefix={s.prefix ?? ""} suffix={s.suffix ?? ""} />
+              </strong>
+              <div className="hb-kb2-row">
+                <div>
+                  <span className="hb-kb2-delta" data-good={s.positive !== false ? "true" : "false"}>
+                    {s.delta}
+                  </span>
+                  <div className="hb-kb2-note" style={{ marginTop: 6 }}>vs. last month</div>
+                </div>
+                <div className="hb-kb2-bars" aria-hidden="true">
+                  {Array.from({ length: 8 }, (_, j) => (
+                    <i key={j} style={{ "--h": `${(30 + hash(i * 13 + j) * 55 + j * 2).toFixed(0)}%`, "--hb-kb2-j": j } as React.CSSProperties} />
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+
+          <article className="hb-kb2-cell hb-kb2-donut" style={{ "--hb-kb2-i": 3 } as React.CSSProperties}>
+            <span className="hb-kb2-label">Seats by plan</span>
+            <div className="hb-kb2-ringwrap">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="46" fill="none" stroke="#1c1c1c" strokeWidth="12" />
+                {segs.map((s, i) => (
+                  <circle
+                    key={slices[i].label}
+                    className="hb-kb2-seg"
+                    cx="60"
+                    cy="60"
+                    r="46"
+                    pathLength={100}
+                    stroke={s.color}
+                    style={{ "--d": s.d.toFixed(2), "--o": s.o.toFixed(2), "--hb-kb2-j": i } as React.CSSProperties}
+                  />
+                ))}
+              </svg>
+              <div className="hb-kb2-center">
+                <strong>
+                  <Count value={total} />
+                </strong>
+                <span>paid seats</span>
+              </div>
+            </div>
+            <ul className="hb-kb2-legend">
+              {segs.map((s, i) => (
+                <li key={slices[i].label}>
+                  <i style={{ "--c": s.color } as React.CSSProperties} />
+                  {slices[i].label}
+                  <b>{s.pct.toFixed(0)}%</b>
+                </li>
+              ))}
+            </ul>
+            <p className="hb-kb2-foot">
+              Expansion revenue is up <b>$9.4k</b> this month, led by Business upgrades.
+            </p>
+          </article>
+
+          <article className="hb-kb2-cell hb-kb2-spark" style={{ "--hb-kb2-i": 4 } as React.CSSProperties}>
+            {sparks.slice(0, 4).map((s, j) => (
+              <div key={s.label} className="hb-kb2-sp">
+                <span className="hb-kb2-label">{s.label}</span>
+                <strong>{s.value}</strong>
+                <svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+                  <path className="hb-kb2-sline" d={sparkPath(s.data)} pathLength={1} style={{ "--hb-kb2-j": j } as React.CSSProperties} />
+                </svg>
+              </div>
+            ))}
+          </article>
+
+          <article className="hb-kb2-cell hb-kb2-goals" style={{ "--hb-kb2-i": 5 } as React.CSSProperties}>
+            <span className="hb-kb2-label">Q4 goals</span>
+            <ul className="hb-kb2-glist">
+              {goals.map((g, j) => (
+                <li key={g.label}>
+                  <div className="hb-kb2-gtop">
+                    <span>
+                      {g.label} · {g.target}
+                    </span>
+                    <b>
+                      <Count value={g.progress} suffix="%" duration={1200} />
+                    </b>
+                  </div>
+                  <div className="hb-kb2-track" role="progressbar" aria-label={g.label} aria-valuenow={g.progress} aria-valuemin={0} aria-valuemax={100}>
+                    <i style={{ "--p": `${Math.max(0, Math.min(100, g.progress))}%`, "--hb-kb2-j": j } as React.CSSProperties} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="hb-kb2-cell hb-kb2-nps" style={{ "--hb-kb2-i": 6 } as React.CSSProperties}>
+            <span className="hb-kb2-label">Net promoter score</span>
+            <div className="hb-kb2-gauge" aria-hidden="true">
+              <svg viewBox="0 0 120 66">
+                <path d="M10 60a50 50 0 0 1 100 0" fill="none" stroke="#1d1d1d" strokeWidth="10" strokeLinecap="round" />
+                <path d="M10 60a50 50 0 0 1 100 0" fill="none" stroke={accent} strokeWidth="10" strokeLinecap="round" pathLength={100} strokeDasharray={`${((nps + 100) / 2).toFixed(1)} 100`} opacity=".9" />
+                <g className="hb-kb2-needle" style={{ "--r": `${npsAngle.toFixed(1)}deg` } as React.CSSProperties}>
+                  <path d="M60 60L60 20" stroke="#ededed" strokeWidth="2.5" strokeLinecap="round" />
+                </g>
+                <circle cx="60" cy="60" r="5" fill="#ededed" />
+              </svg>
+            </div>
+            <div className="hb-kb2-gval">
+              <strong>
+                <Count value={nps} />
+              </strong>
+              <span>71% promoters · 7% detractors</span>
+            </div>
+          </article>
+
+          <article className="hb-kb2-cell hb-kb2-up" style={{ "--hb-kb2-i": 7 } as React.CSSProperties}>
+            <span className="hb-kb2-label">
+              Uptime, 30 days
+              <span className="hb-kb2-live">
+                <i aria-hidden="true" />
+                Live
+              </span>
+            </span>
+            <strong className="hb-kb2-big" style={{ marginBottom: 16 }}>
+              <Count value={uptime} decimals={2} suffix="%" />
+            </strong>
+            <div className="hb-kb2-ticks" aria-hidden="true">
+              {Array.from({ length: 30 }, (_, j) => (
+                <i key={j} data-warn={j === 17 ? "true" : undefined} style={{ "--hb-kb2-j": j } as React.CSSProperties} />
+              ))}
+            </div>
+            <div className="hb-kb2-uprow">
+              <span>Oct 4</span>
+              <span>Last incident 23 days ago</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}

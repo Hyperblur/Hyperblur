@@ -29,8 +29,8 @@ const rows = [
 
 export function DataTableDemo() {
   return (
-    <div style={{ width: "100%", maxWidth: 420 }}>
-      <DataTable columns={columns} rows={rows} maxHeight={176} caption="Recent orders" />
+    <div style={{ width: "100%", maxWidth: 340 }}>
+      <DataTable columns={columns} rows={rows.slice(0, 3)} maxHeight={186} caption="Recent orders" />
     </div>
   );
 }

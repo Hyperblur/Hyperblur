@@ -93,7 +93,7 @@ export default function PortfolioTemplatePage() {
       <div className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 sm:px-6">
           <p className="text-xs text-muted">Template · Portfolio · built from 10 blocks</p>
-          <Link href="/effects#blocks" className="hb-btn hb-btn-ghost hb-btn-sm">
+          <Link href="/blocks" className="hb-btn hb-btn-ghost hb-btn-sm">
             View blocks
           </Link>
         </div>

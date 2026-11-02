@@ -35,18 +35,20 @@ const orbitMark = (
 
 export const appUiMoreDemos: Record<string, ReactNode> = {
   "command-palette": (
-    <div className="w-full max-w-[380px] px-3">
-      <CommandPalette
-        inline
-        hotkey={false}
-        placeholder="Jump to or run a command…"
-        items={[
-          { id: "board", label: "Open sprint board", group: "Jump to", hint: "G B", icon: <Glyph d={paths.board} /> },
-          { id: "roadmap", label: "Open roadmap", group: "Jump to", hint: "G R", icon: <Glyph d={paths.roadmap} /> },
-          { id: "inbox", label: "Go to inbox", group: "Jump to", hint: "G I", icon: <Glyph d={paths.inbox} /> },
-          { id: "issue", label: "Create issue", group: "Actions", hint: "C", icon: <Glyph d={paths.bolt} /> },
-        ]}
-      />
+    <div className="flex h-full w-full items-center justify-center px-4">
+      <div className="w-full max-w-[340px]">
+        <CommandPalette
+          inline
+          hotkey={false}
+          placeholder="Jump to or run a command…"
+          className="[&_.hb-cp-item]:px-3!"
+          items={[
+            { id: "board", label: "Open sprint board", group: "Jump to", hint: "G B", icon: <Glyph d={paths.board} /> },
+            { id: "roadmap", label: "Open roadmap", group: "Jump to", hint: "G R", icon: <Glyph d={paths.roadmap} /> },
+            { id: "inbox", label: "Go to inbox", group: "Jump to", hint: "G I", icon: <Glyph d={paths.inbox} /> },
+          ]}
+        />
+      </div>
     </div>
   ),
   "sidebar-nav": (
@@ -87,78 +89,74 @@ export const appUiMoreDemos: Record<string, ReactNode> = {
     </div>
   ),
   "notification-bell": (
-    <div className="w-full max-w-[340px] px-3">
-      <NotificationBell
-        inline
-        items={[
-          { id: "n1", title: "Sam commented on ORB-138", time: "2m" },
-          { id: "n2", title: "Maya moved ORB-142 to review", time: "18m" },
-          { id: "n3", title: "Sprint 24 starts tomorrow", time: "1h" },
-          { id: "n4", title: "Priya joined Orbit", time: "3h", read: true },
-        ]}
-      />
+    <div className="flex h-full w-full items-center justify-center px-4">
+      <div className="w-full max-w-[340px]">
+        <NotificationBell
+          inline
+          className="[&_.hb-nb-item]:px-3!"
+          items={[
+            { id: "n1", title: "Sam commented on ORB-138", time: "2m" },
+            { id: "n2", title: "Maya moved ORB-142 to review", time: "18m" },
+          ]}
+        />
+      </div>
     </div>
   ),
   "tabs-underline": (
-    <div className="w-full max-w-[380px] px-4">
-      <TabsUnderline
-        defaultValue="issues"
-        tabs={[
-          {
-            id: "overview",
-            label: "Overview",
-            icon: <Glyph d={paths.doc} />,
-            content: "Sprint 24 is on track. 14 of 20 issues are closed.",
-          },
-          {
-            id: "issues",
-            label: "Issues",
-            icon: <Glyph d={paths.hash} />,
-            count: 12,
-            content: "12 open issues, 3 blocked on design review.",
-          },
-          {
-            id: "people",
-            label: "People",
-            icon: <Glyph d={paths.user} />,
-            count: 5,
-            content: "Maya, Sam, Priya and 2 others are on this sprint.",
-          },
-        ]}
-      />
+    <div className="flex h-full w-full items-center justify-center px-4">
+      <div className="box-border w-full max-w-[340px] rounded-2xl border border-[#262626] bg-[#111111] p-4 text-left">
+        <TabsUnderline
+          defaultValue="issues"
+          className="[&_.hb-tu-panel]:min-h-[54px]"
+          tabs={[
+            {
+              id: "overview",
+              label: "Overview",
+              content: "Sprint 24 is on track. 14 of 20 issues are closed.",
+            },
+            {
+              id: "issues",
+              label: "Issues",
+              count: 12,
+              content: "12 open issues, 3 blocked on design review.",
+            },
+            {
+              id: "people",
+              label: "People",
+              count: 5,
+              content: "Maya, Sam, Priya and 2 others are on this sprint.",
+            },
+          ]}
+        />
+      </div>
     </div>
   ),
   "kanban-board": (
-    <div className="w-full max-w-[400px] px-2">
-      <KanbanBoard
-        style={{ "--hb-kb-minw": "0px" } as CSSProperties}
-        columns={[
-          {
-            id: "todo",
-            title: "To do",
-            cards: [
-              { id: "k1", title: "Auth" },
-              { id: "k2", title: "Search", tag: "Design", tone: "#a855f7" },
-            ],
-          },
-          {
-            id: "doing",
-            title: "Doing",
-            cards: [
-              { id: "k3", title: "Billing" },
-              { id: "k4", title: "Invites" },
-                          ],
-          },
-          {
-            id: "done",
-            title: "Done",
-            cards: [
-              { id: "k6", title: "Signup", tag: "Web", tone: "#3ecf8e" },
-              { id: "k7", title: "Hooks" },
-            ],
-          },
-        ]}
-      />
+    <div className="flex h-full w-full items-center justify-center px-2">
+      <div className="w-full max-w-[344px]">
+        <KanbanBoard
+          className="[&_.hb-kb-col]:p-3! [&_.hb-kb-card]:p-3! [&_.hb-kb-add]:px-3!"
+          style={{ "--hb-kb-minw": "0px" } as CSSProperties}
+          columns={[
+            {
+              id: "todo",
+              title: "To do",
+              cards: [
+                { id: "k1", title: "Auth" },
+                { id: "k2", title: "Search" },
+              ],
+            },
+            {
+              id: "doing",
+              title: "Doing",
+              cards: [
+                { id: "k3", title: "Billing" },
+                { id: "k4", title: "Invites" },
+              ],
+            },
+          ]}
+        />
+      </div>
     </div>
   ),
 };

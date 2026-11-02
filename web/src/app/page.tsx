@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { effects, categories } from "@/registry/meta";
+import { effects, categories, groups } from "@/registry/meta";
 import { HeroShowcase } from "@/components/site/hero-showcase";
 import { ShowcaseTile } from "@/components/site/showcase-tile";
 import { CopyButton } from "@/components/site/copy-button";
@@ -37,13 +37,13 @@ export default function Home() {
             className="inline-flex items-center gap-2 rounded-full border border-line-2 bg-surface px-3 py-1 text-xs text-muted hover:text-ink"
           >
             <span className="rounded-full bg-ink px-1.5 py-0.5 text-[10px] font-semibold uppercase text-bg">New</span>
-            Second batch: {effects.length} effects →
+            New: {effects.length} items, with page blocks →
           </Link>
           <h1 className="mt-6 max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
             Visual effects for React, one command away.
           </h1>
           <p className="mt-4 max-w-xl text-lg text-muted">
-            {effects.length} copy-paste effects with no dependencies. Tune them yourself, or hand them to
+            {effects.length} copy-paste effects, components and page blocks with no dependencies. Tune them yourself, or hand them to
             your coding agent.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -82,7 +82,7 @@ export default function Home() {
             <div className="p-5">
               <h3 className="font-medium">{effects.length} effects</h3>
               <p className="mt-1 text-sm text-muted">
-                Text, motion, backgrounds, buttons, charts, lists, sidebars, dashboards and agent UI. The stuff you
+                Effects, charts, sidebars, dashboards, agent UI and full page sections. The stuff you
                 would build from scratch, already done and battle-tested.
               </p>
             </div>
@@ -90,25 +90,29 @@ export default function Home() {
 
           <div className="overflow-hidden rounded-2xl border border-line bg-surface">
             <div className="flex h-52 items-center justify-center border-b border-line bg-bg">
-              <div className="grid w-full max-w-[490px] grid-cols-3 gap-1.5 px-4">
-                {categories.map((c) => (
-                  <div
-                    key={c.id}
-                    className="flex min-w-0 items-center justify-between gap-2 rounded-lg border border-line bg-surface px-2.5 py-1"
-                  >
-                    <span className="truncate text-xs font-medium">{c.label}</span>
-                    <span className="shrink-0 font-mono text-[11px] text-muted">
-                      {effects.filter((e) => e.category === c.id).length}
-                    </span>
-                  </div>
-                ))}
+              <div className="grid w-full max-w-[490px] grid-cols-3 gap-2 px-4">
+                {groups.map((g) => {
+                  const cats = categories.filter((c) => c.group === g.id);
+                  const count = effects.filter((e) => cats.some((c) => c.id === e.category)).length;
+                  return (
+                    <Link
+                      key={g.id}
+                      href={g.href}
+                      className="flex min-w-0 flex-col justify-between rounded-xl border border-line bg-surface p-3 transition-colors hover:border-line-2"
+                    >
+                      <span className="text-xs font-medium">{g.label}</span>
+                      <span className="mt-6 font-mono text-2xl leading-none">{count}</span>
+                      <span className="mt-1 text-[11px] text-muted">{cats.length} categories</span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
             <div className="p-5">
               <h3 className="font-medium">Well organized</h3>
               <p className="mt-1 text-sm text-muted">
-                {categories.length} categories, from text effects to dashboards, sidebars and agent kit, so you find the
-                right piece without scrolling through a wall of demos.
+                {categories.length} categories in three groups: effects, components and full page blocks, from heroes and
+                pricing to footers, auth and ecommerce.
               </p>
             </div>
           </div>

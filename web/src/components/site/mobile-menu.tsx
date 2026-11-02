@@ -9,6 +9,8 @@ import { EffectsSidebar } from "./effects-sidebar";
 const links = [
   { href: "/docs", label: "Docs" },
   { href: "/effects", label: "Effects" },
+  { href: "/components", label: "Components" },
+  { href: "/blocks", label: "Blocks" },
   { href: "/templates", label: "Templates" },
   { href: "/pro", label: "Pro" },
   { href: "/#agents", label: "Agents" },

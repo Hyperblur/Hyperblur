@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import { SidebarNav } from "@/registry/hyperblur/sidebar-nav";
 import { SidebarFloating, SidebarFloatingIcon } from "@/registry/hyperblur/sidebar-floating";
 import { SidebarRail, SidebarRailIcon } from "@/registry/hyperblur/sidebar-rail";
 import { SidebarDocs } from "@/registry/hyperblur/sidebar-docs";
@@ -7,7 +8,24 @@ import { SidebarDrawerDemo } from "@/registry/demos/sidebar-drawer-demo";
 import { SidebarTreeDemo } from "@/registry/demos/sidebar-tree-demo";
 
 const frame =
-  "relative flex h-[188px] w-full max-w-[340px] overflow-hidden rounded-xl border border-[#262626] bg-[#0a0a0a] text-left text-[#ededed]";
+  "relative flex h-[300px] w-full max-w-[348px] overflow-hidden rounded-xl border border-[#262626] bg-[#0a0a0a] text-left text-[#ededed]";
+
+function NavGlyph({ d }: { d: string }) {
+  return (
+    <svg width={16} height={16} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={d} />
+    </svg>
+  );
+}
+
+const navPaths = {
+  inbox: "M2 9.5l1.6-5.2A1 1 0 0 1 4.5 3.6h7a1 1 0 0 1 .9.7L14 9.5M2 9.5V12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9.5M2 9.5h3.5l.7 1.5h3.6l.7-1.5H14",
+  board: "M2.5 3h3v10h-3zM6.5 3h3v6h-3zM10.5 3h3v8h-3z",
+  roadmap: "M2 4h7M2 8h11M2 12h5",
+  cycles: "M13 8a5 5 0 1 1-1.5-3.5M13 2.5v2.5h-2.5",
+  docs: "M4 2h5l3 3v9H4zM9 2v3h3",
+  people: "M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2.5 14c.6-2.4 2.8-3.6 5.5-3.6s4.9 1.2 5.5 3.6",
+};
 
 function Lines({ widths }: { widths: string[] }) {
   return (
@@ -23,14 +41,51 @@ const floatingBackdrop =
   "radial-gradient(circle at 80% 14%, rgba(47,123,255,.5), transparent 52%), radial-gradient(circle at 58% 104%, rgba(139,92,246,.42), transparent 50%), #0a0a0a";
 
 export const sidebarsDemos: Record<string, ReactNode> = {
+  "sidebar-nav": (
+    <div className="flex h-full w-full items-center justify-center px-4">
+      <div className={frame}>
+        <SidebarNav
+          width={184}
+          defaultActive="board"
+          style={{ height: "100%", borderTop: 0, borderBottom: 0, borderLeft: 0 } as CSSProperties}
+          brand={
+            <span className="flex items-center gap-2 text-[13px] font-semibold tracking-tight">
+              <span className="grid h-5 w-5 place-items-center rounded-md bg-[#2f7bff] text-[11px] text-white">O</span>
+              Orbit
+            </span>
+          }
+          groups={[
+            {
+              items: [
+                { id: "inbox", label: "Inbox", badge: 3, icon: <NavGlyph d={navPaths.inbox} /> },
+                { id: "board", label: "Board", icon: <NavGlyph d={navPaths.board} /> },
+                { id: "roadmap", label: "Roadmap", icon: <NavGlyph d={navPaths.roadmap} /> },
+                { id: "cycles", label: "Cycles", icon: <NavGlyph d={navPaths.cycles} /> },
+                { id: "docs", label: "Docs", icon: <NavGlyph d={navPaths.docs} /> },
+                { id: "people", label: "People", icon: <NavGlyph d={navPaths.people} /> },
+              ],
+            },
+          ]}
+        />
+        <div className="min-w-0 flex-1 px-4 py-4">
+          <p className="m-0 text-[15px] font-semibold leading-5">Sprint board</p>
+          <p className="m-0 mt-0.5 text-[11px] leading-4 text-[#8f8f8f]">12 issues, 4 in review</p>
+          <div className="mt-3 flex flex-col gap-2">
+            <div className="h-10 rounded-lg border border-[#1f1f1f] bg-[#111111]" />
+            <div className="h-10 rounded-lg border border-[#1f1f1f] bg-[#111111]" />
+            <div className="h-10 rounded-lg border border-[#1f1f1f] bg-[#111111]" />
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
   "sidebar-floating": (
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={frame} style={{ background: floatingBackdrop }}>
         <SidebarFloating
-          width={168}
-          inset={6}
-          rowHeight={26}
-          style={{ "--hb-sbf-lh": "14px" } as CSSProperties}
+          width={176}
+          inset={10}
+          rowHeight={32}
           groups={[
             {
               label: "Workspace",
@@ -41,14 +96,17 @@ export const sidebarsDemos: Record<string, ReactNode> = {
             },
             {
               label: "Manage",
-              items: [{ id: "projects", label: "Projects", icon: <SidebarFloatingIcon name="folder" /> }],
+              items: [
+                { id: "projects", label: "Projects", icon: <SidebarFloatingIcon name="folder" /> },
+                { id: "team", label: "Team", icon: <SidebarFloatingIcon name="users" /> },
+              ],
             },
           ]}
           user={{ name: "Maya Chen", role: "Designer", status: "online" }}
         />
         <div className="font-grotesk min-w-0 flex-1 px-3 py-4">
           <p className="m-0 text-[10px] uppercase tracking-[0.08em] text-[#9aa7c2]">Tuesday, Nov 4</p>
-          <p className="m-0 mt-1 truncate text-[14px] font-semibold leading-5">Good morning, Maya</p>
+          <p className="m-0 mt-1 truncate text-[15px] font-semibold leading-5">Good morning</p>
           <div className="mt-3 grid grid-cols-2 gap-2">
             <div className="rounded-lg border border-white/10 bg-white/5 p-2">
               <p className="m-0 text-[9px] uppercase tracking-[0.08em] text-[#8f8f8f]">Open</p>
@@ -68,8 +126,8 @@ export const sidebarsDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={frame}>
         <SidebarRail
-          itemSize={34}
-          flyoutWidth={156}
+          itemSize={40}
+          flyoutWidth={168}
           defaultActive="projects-active"
           defaultOpenId="projects"
           items={[
@@ -100,10 +158,10 @@ export const sidebarsDemos: Record<string, ReactNode> = {
         <div className="min-w-0 flex-1 px-4 py-4">
           <p className="font-serif m-0 text-[24px] italic leading-7">Projects</p>
           <div className="mt-3 grid grid-cols-2 gap-2">
-            <div className="h-14 rounded-lg border border-[#1f1f1f] bg-[#111111]" />
-            <div className="h-14 rounded-lg border border-[#1f1f1f] bg-[#111111]" />
-            <div className="h-14 rounded-lg border border-[#1f1f1f] bg-[#111111]" />
-            <div className="h-14 rounded-lg border border-[#1f1f1f] bg-[#111111]" />
+            <div className="h-[72px] rounded-lg border border-[#1f1f1f] bg-[#111111]" />
+            <div className="h-[72px] rounded-lg border border-[#1f1f1f] bg-[#111111]" />
+            <div className="h-[72px] rounded-lg border border-[#1f1f1f] bg-[#111111]" />
+            <div className="h-[72px] rounded-lg border border-[#1f1f1f] bg-[#111111]" />
           </div>
         </div>
       </div>
@@ -113,10 +171,10 @@ export const sidebarsDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={frame}>
         <SidebarDocs
-          rowHeight={22}
+          rowHeight={30}
           defaultActive="installation"
-          defaultOpenGroups={["start"]}
-          style={{ "--hb-sdoc-w": "172px", fontSize: 12.5 } as CSSProperties}
+          defaultOpenGroups={["start", "concepts"]}
+          style={{ "--hb-sdoc-w": "176px" } as CSSProperties}
           groups={[
             {
               id: "start",
@@ -152,10 +210,9 @@ export const sidebarsDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={frame}>
         <SidebarWorkspace
-          width={172}
-          rowHeight={20}
-          user={null}
-          style={{ fontSize: 12 }}
+          width={176}
+          rowHeight={30}
+          user={{ name: "Maya Chen", email: "maya@northwind.io", color: "#8b5cf6" }}
           workspaces={[
             { id: "northwind", name: "Northwind", plan: "Team plan", color: "#2f7bff" },
             { id: "studio", name: "Fable Studio", plan: "Pro plan", color: "#e5484d" },

@@ -1,4 +1,11 @@
-export type EffectCategory = "text" | "overlay" | "motion" | "hover" | "components" | "micro" | "blocks" | "buttons" | "app-ui" | "agent-kit" | "transitions" | "social" | "charts" | "lists" | "sidebars" | "dashboards" | "site";
+export type EffectGroup = "effects" | "components" | "blocks";
+
+export type EffectCategory =
+  | "text" | "motion" | "overlay" | "hover" | "transitions" | "micro" | "buttons"
+  | "components" | "site" | "charts" | "lists" | "sidebars" | "dashboards" | "app-ui" | "agent-kit" | "social"
+  | "hero" | "features" | "bento" | "social-proof" | "contact" | "footer" | "comparison" | "navigation" | "auth"
+  | "cta" | "faq" | "pricing" | "stats" | "not-found" | "profile" | "about" | "waitlist" | "showcase"
+  | "how-it-works" | "download" | "blog" | "ecommerce";
 
 export interface EffectProp {
   name: string;
@@ -26,25 +33,54 @@ export const SITE_URL =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "https://hyperblur.dev");
 
-export const categories: { id: EffectCategory; label: string }[] = [
-  { id: "text", label: "Text" },
-  { id: "motion", label: "Motion & reveals" },
-  { id: "overlay", label: "Overlays & backgrounds" },
-  { id: "hover", label: "Hover & pointer" },
-  { id: "components", label: "Components" },
-  { id: "site", label: "Website elements" },
-  { id: "micro", label: "Micro" },
-  { id: "buttons", label: "Buttons" },
-  { id: "transitions", label: "Transitions & slides" },
-  { id: "charts", label: "Charts" },
-  { id: "lists", label: "Lists & tables" },
-  { id: "sidebars", label: "Sidebars" },
-  { id: "dashboards", label: "Dashboards" },
-  { id: "app-ui", label: "App UI" },
-  { id: "agent-kit", label: "Agent kit" },
-  { id: "social", label: "Social & feedback" },
-  { id: "blocks", label: "Blocks" },
+export const groups: { id: EffectGroup; label: string; href: string }[] = [
+  { id: "effects", label: "Effects", href: "/effects" },
+  { id: "components", label: "Components", href: "/components" },
+  { id: "blocks", label: "Blocks", href: "/blocks" },
 ];
+
+export const categories: { id: EffectCategory; label: string; group: EffectGroup }[] = [
+  { id: "text", label: "Text", group: "effects" },
+  { id: "motion", label: "Motion & reveals", group: "effects" },
+  { id: "overlay", label: "Overlays & backgrounds", group: "effects" },
+  { id: "hover", label: "Hover & pointer", group: "effects" },
+  { id: "transitions", label: "Transitions & slides", group: "effects" },
+  { id: "buttons", label: "Buttons", group: "effects" },
+  { id: "micro", label: "Micro", group: "effects" },
+  { id: "components", label: "Components", group: "components" },
+  { id: "site", label: "Website elements", group: "components" },
+  { id: "charts", label: "Charts", group: "components" },
+  { id: "lists", label: "Lists & tables", group: "components" },
+  { id: "sidebars", label: "Sidebars", group: "components" },
+  { id: "dashboards", label: "Dashboards", group: "components" },
+  { id: "app-ui", label: "App UI", group: "components" },
+  { id: "agent-kit", label: "Agent kit", group: "components" },
+  { id: "social", label: "Social & feedback", group: "components" },
+  { id: "hero", label: "Hero sections", group: "blocks" },
+  { id: "features", label: "Features", group: "blocks" },
+  { id: "bento", label: "Bento", group: "blocks" },
+  { id: "social-proof", label: "Social proof", group: "blocks" },
+  { id: "contact", label: "Contact", group: "blocks" },
+  { id: "footer", label: "Footers", group: "blocks" },
+  { id: "comparison", label: "Comparison", group: "blocks" },
+  { id: "navigation", label: "Navigation", group: "blocks" },
+  { id: "auth", label: "Auth", group: "blocks" },
+  { id: "cta", label: "Call to action", group: "blocks" },
+  { id: "faq", label: "FAQ", group: "blocks" },
+  { id: "pricing", label: "Pricing", group: "blocks" },
+  { id: "stats", label: "Stats", group: "blocks" },
+  { id: "not-found", label: "404 pages", group: "blocks" },
+  { id: "profile", label: "Profile", group: "blocks" },
+  { id: "about", label: "About", group: "blocks" },
+  { id: "waitlist", label: "Waitlist", group: "blocks" },
+  { id: "showcase", label: "Showcase", group: "blocks" },
+  { id: "how-it-works", label: "How it works", group: "blocks" },
+  { id: "download", label: "Download", group: "blocks" },
+  { id: "blog", label: "Blog", group: "blocks" },
+  { id: "ecommerce", label: "Ecommerce", group: "blocks" },
+];
+
+export const sectionCategoryIds = categories.filter((c) => c.group === "blocks").map((c) => c.id);
 
 import { buttonsMeta } from "./parts/buttons.meta.ts";
 import { appUiMeta } from "./parts/app-ui.meta.ts";
@@ -59,6 +95,18 @@ import { listsMeta } from "./parts/lists.meta.ts";
 import { sidebarsMeta } from "./parts/sidebars.meta.ts";
 import { effectsMeta } from "./parts/effects.meta.ts";
 import { dashboardsMeta } from "./parts/dashboards.meta.ts";
+import { sectionsFMeta } from "./parts/sectionsF.meta.ts";
+import { sectionsHMeta } from "./parts/sectionsH.meta.ts";
+import { sectionsBMeta } from "./parts/sectionsB.meta.ts";
+import { sectionsIMeta } from "./parts/sectionsI.meta.ts";
+import { sectionsCMeta } from "./parts/sectionsC.meta.ts";
+import { sectionsEMeta } from "./parts/sectionsE.meta.ts";
+import { sectionsAMeta } from "./parts/sectionsA.meta.ts";
+import { sectionsGMeta } from "./parts/sectionsG.meta.ts";
+import { sectionsDMeta } from "./parts/sectionsD.meta.ts";
+import { heroesCMeta } from "./parts/heroesC.meta.ts";
+import { heroesBMeta } from "./parts/heroesB.meta.ts";
+import { heroesAMeta } from "./parts/heroesA.meta.ts";
 
 const baseEffects: EffectMeta[] = [
   {
@@ -750,7 +798,7 @@ const baseEffects: EffectMeta[] = [
     component: "FeaturesSection",
     title: "Features Section",
     description: "A heading and a grid of feature cards with icon, title and description. Cards lift on hover and carry a soft cursor spotlight.",
-    category: "blocks",
+    category: "features",
     tags: ["features", "section", "grid", "cards", "landing", "spotlight"],
     props: [
       { name: "eyebrow", type: "string", default: '"Features"', description: "Small pill label above the title. Pass an empty string to hide it." },
@@ -768,7 +816,7 @@ const baseEffects: EffectMeta[] = [
     component: "TestimonialsSection",
     title: "Testimonials Section",
     description: "A heading and quote cards in a looping horizontal strip that pauses on hover. Falls back to a static grid.",
-    category: "blocks",
+    category: "social-proof",
     tags: ["testimonials", "reviews", "social proof", "marquee", "section", "landing"],
     props: [
       { name: "title", type: "string", default: '"Loved by teams everywhere"', description: "Section heading." },
@@ -784,7 +832,7 @@ const baseEffects: EffectMeta[] = [
     component: "FaqSection",
     title: "FAQ Section",
     description: "Two-column FAQ: heading and contact link on the left, an animated one-at-a-time accordion on the right.",
-    category: "blocks",
+    category: "faq",
     tags: ["faq", "accordion", "questions", "section", "landing", "support"],
     props: [
       { name: "title", type: "string", default: '"Frequently asked questions"', description: "Section heading." },
@@ -801,7 +849,7 @@ const baseEffects: EffectMeta[] = [
     component: "CtaBanner",
     title: "CTA Banner",
     description: "A full-width call-to-action band with a soft pulsing radial glow, a headline, one line of text and two pill buttons.",
-    category: "blocks",
+    category: "cta",
     tags: ["cta", "banner", "call to action", "glow", "section", "landing"],
     props: [
       { name: "title", type: "string", default: '"Ready to build something great?"', description: "Headline." },
@@ -920,7 +968,7 @@ const baseEffects: EffectMeta[] = [
     component: "HeroSection",
     title: "Hero Section",
     description: "A full landing hero: eyebrow pill, headline with a highlighted word, subtitle, two pill buttons, trust items and a framed panel for a screenshot or demo.",
-    category: "blocks",
+    category: "hero",
     tags: ["hero", "landing", "header", "cta", "section", "marketing"],
     props: [
       { name: "eyebrow", type: "string", default: '"Now in public beta"', description: "Small pill above the headline. Empty string hides it." },
@@ -941,7 +989,7 @@ const baseEffects: EffectMeta[] = [
     component: "PricingSection",
     title: "Pricing Section",
     description: "Three pricing tiers with a sliding monthly/yearly toggle, crossfading prices, feature checklists and a highlighted most-popular plan.",
-    category: "blocks",
+    category: "pricing",
     tags: ["pricing", "plans", "tiers", "toggle", "billing", "section", "marketing"],
     props: [
       { name: "title", type: "string", default: '"Simple pricing that scales with you"', description: "Section heading." },
@@ -960,7 +1008,7 @@ const baseEffects: EffectMeta[] = [
     component: "LoginCard",
     title: "Login Card",
     description: "A centered sign-in card with social buttons, floating-label fields, error alert, loading state and sign-up link.",
-    category: "blocks",
+    category: "auth",
     tags: ["login", "auth", "form", "sign in", "card", "oauth", "section"],
     props: [
       { name: "logo", type: "ReactNode", default: "accent logo mark", description: "Logo slot above the title. Pass null to hide it." },
@@ -1145,6 +1193,18 @@ export const effects: EffectMeta[] = [
   ...sidebarsMeta,
   ...effectsMeta,
   ...dashboardsMeta,
+  ...sectionsFMeta,
+  ...sectionsHMeta,
+  ...sectionsBMeta,
+  ...sectionsIMeta,
+  ...sectionsCMeta,
+  ...sectionsEMeta,
+  ...sectionsAMeta,
+  ...sectionsGMeta,
+  ...sectionsDMeta,
+  ...heroesCMeta,
+  ...heroesBMeta,
+  ...heroesAMeta,
 ];
 
 export function getEffect(slug: string): EffectMeta | undefined {
