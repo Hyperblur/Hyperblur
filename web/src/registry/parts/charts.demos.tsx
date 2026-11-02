@@ -11,6 +11,8 @@ import { CandlestickChartDemo } from "@/registry/demos/candlestick-chart-demo";
 const card =
   "box-border w-full max-w-[340px] rounded-2xl border border-[#262626] bg-[#111111] p-3 text-left text-[#ededed]";
 
+const roomyCard = card.replace(" p-3 ", " p-4 ");
+
 export const chartsDemos: Record<string, ReactNode> = {
   "radar-chart": (
     <div className="flex h-full w-full items-center justify-center px-4">
@@ -86,25 +88,21 @@ export const chartsDemos: Record<string, ReactNode> = {
   ),
   "ranked-bars": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} flex h-[188px] flex-col`}>
+      <div className={roomyCard}>
         <div className="mb-2 flex items-baseline justify-between gap-2">
           <span className="text-[13px] font-medium">Top countries</span>
           <span className="font-mono text-[11px] text-[#8f8f8f]">48.2k visitors</span>
         </div>
-        <div className="min-h-0 flex-1 overflow-y-auto [scrollbar-color:#262626_transparent] [scrollbar-width:thin]">
-          <RankedBars
-            className="[&_.hb-rkb-row]:min-h-[22px]"
-            limit={4}
-            items={[
-              { label: "United States", value: 18420, delta: 6.2 },
-              { label: "Germany", value: 9810, delta: -3.4 },
-              { label: "United Kingdom", value: 7240, delta: 11.8 },
-              { label: "Brazil", value: 5120, delta: 24.5 },
-              { label: "Canada", value: 3880, delta: 0 },
-              { label: "France", value: 2760, delta: -1.9 },
-            ]}
-          />
-        </div>
+        <RankedBars
+          className="[&_.hb-rkb-row]:min-h-[28px] [&_.hb-rkb-row]:px-3!"
+          limit={4}
+          items={[
+            { label: "United States", value: 18420, delta: 6.2 },
+            { label: "Germany", value: 9810, delta: -3.4 },
+            { label: "United Kingdom", value: 7240, delta: 11.8 },
+            { label: "Brazil", value: 5120, delta: 24.5 },
+          ]}
+        />
       </div>
     </div>
   ),

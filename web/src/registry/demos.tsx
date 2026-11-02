@@ -240,6 +240,18 @@ import { listsDemos } from "@/registry/parts/lists.demos";
 import { sidebarsDemos } from "@/registry/parts/sidebars.demos";
 import { effectsDemos } from "@/registry/parts/effects.demos";
 import { dashboardsDemos } from "@/registry/parts/dashboards.demos";
+import { sectionsFDemos } from "@/registry/parts/sectionsF.demos";
+import { sectionsHDemos } from "@/registry/parts/sectionsH.demos";
+import { sectionsBDemos } from "@/registry/parts/sectionsB.demos";
+import { sectionsIDemos } from "@/registry/parts/sectionsI.demos";
+import { sectionsCDemos } from "@/registry/parts/sectionsC.demos";
+import { sectionsEDemos } from "@/registry/parts/sectionsE.demos";
+import { sectionsADemos } from "@/registry/parts/sectionsA.demos";
+import { sectionsGDemos } from "@/registry/parts/sectionsG.demos";
+import { sectionsDDemos } from "@/registry/parts/sectionsD.demos";
+import { heroesCDemos } from "@/registry/parts/heroesC.demos";
+import { heroesBDemos } from "@/registry/parts/heroesB.demos";
+import { heroesADemos } from "@/registry/parts/heroesA.demos";
 
 const baseDemos: Record<string, ReactNode> = {
   "glitch-text": (
@@ -1107,10 +1119,10 @@ const baseDemos: Record<string, ReactNode> = {
   "hold-button": (
     <Scene>
       <Stage>
-        <div className="flex w-full max-w-[280px] flex-col items-center gap-3 rounded-2xl border border-white/10 bg-[#111113] px-4 py-4">
+        <div className="flex w-full max-w-[300px] flex-col items-center gap-3 rounded-2xl border border-white/10 bg-[#111113] p-5">
           <div className="text-center">
             <div className="text-sm font-medium text-white">Delete project “Atlas”?</div>
-            <div className="mt-0.5 text-xs text-white/50">214 files and 3 deploys will be removed.</div>
+            <div className="mt-0.5 text-xs text-white/50">This removes 214 files for good.</div>
           </div>
           <HoldButtonDemo />
         </div>
@@ -1248,18 +1260,18 @@ const baseDemos: Record<string, ReactNode> = {
   "lattice-loader": (
     <Scene>
       <Stage>
-        <div className="grid w-full max-w-[300px] grid-cols-3 gap-2">
-          <div className="flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-[#111113] px-2 py-3.5">
+        <div className="grid w-full max-w-[320px] grid-cols-3 gap-2">
+          <div className="flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-[#111113] px-3 py-4">
             <LatticeLoader size={34} label="Syncing" />
             <span className="text-[11px] text-white/70">Syncing</span>
             <Label className="text-[9px]">12 files</Label>
           </div>
-          <div className="flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-[#111113] px-2 py-3.5">
+          <div className="flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-[#111113] px-3 py-4">
             <LatticeLoader size={34} shape="ring" color="#19c3f5" label="Uploading" />
             <span className="text-[11px] text-white/70">Uploading</span>
             <Label className="text-[9px]">64%</Label>
           </div>
-          <div className="flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-[#111113] px-2 py-3.5">
+          <div className="flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-[#111113] px-3 py-4">
             <LatticeLoader size={34} shape="bars" color="#ffffff" label="Rendering" />
             <span className="text-[11px] text-white/70">Rendering</span>
             <Label className="text-[9px]">frame 82</Label>
@@ -1312,4 +1324,16 @@ export const demos: Record<string, ReactNode> = {
   ...sidebarsDemos,
   ...effectsDemos,
   ...dashboardsDemos,
+  ...sectionsFDemos,
+  ...sectionsHDemos,
+  ...sectionsBDemos,
+  ...sectionsIDemos,
+  ...sectionsCDemos,
+  ...sectionsEDemos,
+  ...sectionsADemos,
+  ...sectionsGDemos,
+  ...sectionsDDemos,
+  ...heroesCDemos,
+  ...heroesBDemos,
+  ...heroesADemos,
 };

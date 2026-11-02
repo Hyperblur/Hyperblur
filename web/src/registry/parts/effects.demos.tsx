@@ -269,7 +269,7 @@ export const effectsDemos: Record<string, ReactNode> = {
         <RippleGrid rows={11} cols={20} gap={5} color="#7fb3ff" />
       </div>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_90%_at_50%_50%,rgba(7,7,9,0)_55%,rgba(7,7,9,0.85)_100%)]" />
-      <div className="pointer-events-none absolute bottom-3.5 left-3.5 rounded-xl border border-white/10 bg-black/65 px-3 py-2 backdrop-blur-md">
+      <div className="pointer-events-none absolute bottom-4 left-4 rounded-xl border border-white/10 bg-black/65 px-4 py-3 backdrop-blur-md">
         <div className="font-serif text-[19px] leading-none text-white">Every signal, felt.</div>
         <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">Click or hover the grid</div>
       </div>

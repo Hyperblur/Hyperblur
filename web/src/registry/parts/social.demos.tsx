@@ -6,7 +6,7 @@ import { ShareRow } from "@/registry/hyperblur/share-row";
 import { RatingSummary } from "@/registry/hyperblur/rating-summary";
 
 const card =
-  "box-border flex h-[150px] w-full max-w-[380px] flex-col justify-between rounded-2xl border border-[#262626] bg-[#111111] p-3.5 text-left text-[#ededed]";
+  "box-border flex w-full max-w-[340px] flex-col rounded-2xl border border-[#262626] bg-[#111111] p-4 text-left text-[#ededed]";
 
 const post = "https://fernhill.example/journal/repotting";
 
@@ -22,9 +22,9 @@ const people = [
 export const socialDemos: Record<string, ReactNode> = {
   "like-burst": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className="box-border flex h-[152px] w-full max-w-[380px] flex-col gap-1.5 rounded-2xl border border-[#262626] bg-[#111111] p-3 text-left text-[#ededed]">
+      <div className="box-border flex w-full max-w-[340px] flex-col gap-1.5 rounded-2xl border border-[#262626] bg-[#111111] p-4 text-left text-[#ededed]">
         <div
-          className="h-[54px] shrink-0 rounded-xl"
+          className="h-10 shrink-0 rounded-xl"
           style={{
             background:
               "radial-gradient(circle at 28% 120%, #2f6b3f 0%, transparent 55%), radial-gradient(circle at 78% -20%, #4f8f55 0%, transparent 50%), #17261b",
@@ -36,7 +36,7 @@ export const socialDemos: Record<string, ReactNode> = {
             Fernhill / Indoor plants
           </p>
         </div>
-        <div className="mt-auto flex items-center justify-between">
+        <div className="mt-1 flex items-center justify-between">
           <span className="font-grotesk text-base font-semibold">$34</span>
           <LikeBurst count={1284} size={20} />
         </div>
@@ -45,7 +45,7 @@ export const socialDemos: Record<string, ReactNode> = {
   ),
   "review-card": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className="w-full max-w-[380px]">
+      <div className="w-full max-w-[340px]">
         <ReviewCard
           name="Maya J."
           date="Mar 12"
@@ -55,19 +55,19 @@ export const socialDemos: Record<string, ReactNode> = {
           verified
           helpful={18}
           lines={2}
-          style={{ padding: 12, gap: 6 }}
+          style={{ padding: 16, gap: 6 }}
         />
       </div>
     </div>
   ),
   "avatar-stack": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} justify-start gap-1`}>
+      <div className={`${card} gap-1`}>
         <p className="font-grotesk m-0 text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">
           Fernhill Plant Club
         </p>
         <p className="font-serif m-0 text-xl italic leading-7">Grown by neighbours</p>
-        <div className="mt-auto flex items-center justify-between gap-3 pt-3">
+        <div className="mt-3 flex items-center justify-between gap-3">
           <AvatarStack people={people} max={5} extra={13} size={32} />
           <span className="font-grotesk text-xs text-[#8f8f8f]">18 members</span>
         </div>
@@ -76,13 +76,13 @@ export const socialDemos: Record<string, ReactNode> = {
   ),
   "share-row": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} justify-start gap-1`}>
+      <div className={`${card} gap-1`}>
         <p className="font-grotesk m-0 text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">
           From the Fernhill journal
         </p>
         <p className="font-serif m-0 text-xl italic leading-7">Repotting without tears</p>
         <p className="font-grotesk m-0 text-xs text-[#8f8f8f]">Share this post</p>
-        <div className="mt-auto">
+        <div className="mt-3">
           <ShareRow
             iconOnly
             title="Repotting without tears"
@@ -101,7 +101,7 @@ export const socialDemos: Record<string, ReactNode> = {
   ),
   "rating-summary": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className="box-border flex w-full max-w-[380px] flex-col gap-2 rounded-2xl border border-[#262626] bg-[#111111] p-3.5 text-left text-[#ededed]">
+      <div className="box-border flex w-full max-w-[340px] flex-col gap-2 rounded-2xl border border-[#262626] bg-[#111111] p-4 text-left text-[#ededed]">
         <p className="font-serif m-0 text-xl italic leading-6">Loved at Fernhill</p>
         <RatingSummary counts={{ 5: 1700, 4: 420, 3: 100, 2: 50, 1: 40 }} />
       </div>
