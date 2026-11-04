@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { categories, effects, groups, type EffectGroup } from "@/registry/meta";
 import { demos } from "@/registry/demos";
 import { EffectCard } from "@/components/site/effect-card";
@@ -40,8 +41,16 @@ export function CatalogIndex({ group }: { group: EffectGroup }) {
         if (items.length === 0) return null;
         return (
           <section key={cat.id} id={cat.id} className="mt-10 scroll-mt-20">
-            <h2 className="mb-4 text-sm font-medium uppercase tracking-wide text-muted">
-              {cat.label} · {items.length}
+            <h2 className="mb-4 flex items-center justify-between gap-3 text-sm font-medium uppercase tracking-wide text-muted">
+              <span>
+                {cat.label} · {items.length}
+              </span>
+              <Link
+                href={`/category/${cat.id}`}
+                className="rounded-full border border-line px-3 py-1 text-xs normal-case tracking-normal transition-colors hover:border-line-2 hover:text-ink"
+              >
+                View all
+              </Link>
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {items.map((item) => (
