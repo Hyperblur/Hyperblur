@@ -240,6 +240,13 @@ import { listsDemos } from "@/registry/parts/lists.demos";
 import { sidebarsDemos } from "@/registry/parts/sidebars.demos";
 import { effectsDemos } from "@/registry/parts/effects.demos";
 import { dashboardsDemos } from "@/registry/parts/dashboards.demos";
+import { qwDemos } from "@/registry/parts/qw.demos";
+import { qxDemos } from "@/registry/parts/qx.demos";
+import { raDemos } from "@/registry/parts/ra.demos";
+import { rbDemos } from "@/registry/parts/rb.demos";
+import { qyDemos } from "@/registry/parts/qy.demos";
+import { qzDemos } from "@/registry/parts/qz.demos";
+import { rcDemos } from "@/registry/parts/rc.demos";
 import { qpDemos } from "@/registry/parts/qp.demos";
 import { quDemos } from "@/registry/parts/qu.demos";
 import { qoDemos } from "@/registry/parts/qo.demos";
@@ -1346,6 +1353,13 @@ export const demos: Record<string, ReactNode> = {
   ...sidebarsDemos,
   ...effectsDemos,
   ...dashboardsDemos,
+  ...qwDemos,
+  ...qxDemos,
+  ...raDemos,
+  ...rbDemos,
+  ...qyDemos,
+  ...qzDemos,
+  ...rcDemos,
   ...qpDemos,
   ...quDemos,
   ...qoDemos,
