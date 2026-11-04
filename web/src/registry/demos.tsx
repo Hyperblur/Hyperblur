@@ -240,6 +240,28 @@ import { listsDemos } from "@/registry/parts/lists.demos";
 import { sidebarsDemos } from "@/registry/parts/sidebars.demos";
 import { effectsDemos } from "@/registry/parts/effects.demos";
 import { dashboardsDemos } from "@/registry/parts/dashboards.demos";
+import { qpDemos } from "@/registry/parts/qp.demos";
+import { quDemos } from "@/registry/parts/qu.demos";
+import { qoDemos } from "@/registry/parts/qo.demos";
+import { qrDemos } from "@/registry/parts/qr.demos";
+import { qsDemos } from "@/registry/parts/qs.demos";
+import { qvDemos } from "@/registry/parts/qv.demos";
+import { qqDemos } from "@/registry/parts/qq.demos";
+import { qtDemos } from "@/registry/parts/qt.demos";
+import { qlDemos } from "@/registry/parts/ql.demos";
+import { sectionsQGDemos } from "@/registry/parts/sectionsQG.demos";
+import { qbDemos } from "@/registry/parts/qb.demos";
+import { qfDemos } from "@/registry/parts/qf.demos";
+import { sectionsQHDemos } from "@/registry/parts/sectionsQH.demos";
+import { qkDemos } from "@/registry/parts/qk.demos";
+import { qmDemos } from "@/registry/parts/qm.demos";
+import { qeDemos } from "@/registry/parts/qe.demos";
+import { qnDemos } from "@/registry/parts/qn.demos";
+import { qiDemos } from "@/registry/parts/qi.demos";
+import { qdDemos } from "@/registry/parts/qd.demos";
+import { qjDemos } from "@/registry/parts/qj.demos";
+import { qaDemos } from "@/registry/parts/qa.demos";
+import { qcDemos } from "@/registry/parts/qc.demos";
 import { sectionsFDemos } from "@/registry/parts/sectionsF.demos";
 import { sectionsHDemos } from "@/registry/parts/sectionsH.demos";
 import { sectionsBDemos } from "@/registry/parts/sectionsB.demos";
@@ -1324,6 +1346,28 @@ export const demos: Record<string, ReactNode> = {
   ...sidebarsDemos,
   ...effectsDemos,
   ...dashboardsDemos,
+  ...qpDemos,
+  ...quDemos,
+  ...qoDemos,
+  ...qrDemos,
+  ...qsDemos,
+  ...qvDemos,
+  ...qqDemos,
+  ...qtDemos,
+  ...qlDemos,
+  ...sectionsQGDemos,
+  ...qbDemos,
+  ...qfDemos,
+  ...sectionsQHDemos,
+  ...qkDemos,
+  ...qmDemos,
+  ...qeDemos,
+  ...qnDemos,
+  ...qiDemos,
+  ...qdDemos,
+  ...qjDemos,
+  ...qaDemos,
+  ...qcDemos,
   ...sectionsFDemos,
   ...sectionsHDemos,
   ...sectionsBDemos,

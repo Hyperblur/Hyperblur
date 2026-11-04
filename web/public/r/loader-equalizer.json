@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-equalizer",
+  "type": "registry:component",
+  "title": "Loader Equalizer",
+  "description": "Audio-style bars bounce out of phase with their own rhythm. Good for buffering, streaming and listening states.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "loaders",
+    "loader",
+    "equalizer",
+    "audio",
+    "bars",
+    "music",
+    "css"
+  ],
+  "docs": "https://hyperblur.dev/effects/loader-equalizer",
+  "files": [
+    {
+      "path": "registry/hyperblur/loader-equalizer.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/loader-equalizer.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface LoaderEqualizerProps extends React.HTMLAttributes<HTMLSpanElement> {\n  size?: number;\n  color?: string;\n  accent?: string;\n  bars?: number;\n  label?: string;\n}\n\nconst css = `\n.hb-qc3 {\n  position: relative;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 0.7em;\n  box-sizing: border-box;\n  font-family: inherit;\n  color: #ededed;\n  vertical-align: middle;\n}\n.hb-qc3 *, .hb-qc3 *::before, .hb-qc3 *::after { box-sizing: border-box; }\n.hb-qc3-g {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: none;\n  gap: calc(var(--hb-qc3-s) * 0.1);\n  height: var(--hb-qc3-s);\n}\n.hb-qc3-g > i {\n  flex: none;\n  width: calc(var(--hb-qc3-s) * 0.14);\n  height: 100%;\n  border-radius: 999px;\n  background: linear-gradient(to top, var(--hb-qc3-c), var(--hb-qc3-a));\n  transform: scaleY(0.2);\n  animation: hb-qc3-bounce var(--d) ease-in-out infinite;\n  animation-delay: var(--w);\n}\n.hb-qc3-l { font-size: 12px; line-height: 1.3; color: #a1a1a1; white-space: nowrap; }\n.hb-qc3-sr {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  margin: -1px;\n  padding: 0;\n  overflow: hidden;\n  clip-path: inset(50%);\n  white-space: nowrap;\n  border: 0;\n}\n@keyframes hb-qc3-bounce {\n  0%, 100% { transform: scaleY(0.2); }\n  28% { transform: scaleY(1); }\n  52% { transform: scaleY(0.42); }\n  78% { transform: scaleY(0.82); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-qc3-g > i { animation: none; transform: scaleY(0.6); }\n}\n`;\n\nexport function LoaderEqualizer({\n  size = 32,\n  color = \"#2f7bff\",\n  accent = \"#7fb3ff\",\n  bars = 5,\n  label,\n  className = \"\",\n  style,\n  ...rest\n}: LoaderEqualizerProps) {\n  const n = Math.max(2, Math.round(bars));\n  const vars = {\n    \"--hb-qc3-s\": `${size}px`,\n    \"--hb-qc3-c\": color,\n    \"--hb-qc3-a\": accent,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <>\n      <style href=\"hb-loader-equalizer\" precedence=\"default\">{css}</style>\n      <span role=\"status\" className={`hb-qc3 ${className}`} style={vars} {...rest}>\n        <span className=\"hb-qc3-g\" aria-hidden=\"true\">\n          {Array.from({ length: n }, (_, i) => {\n            const h = Math.imul(i + 3, 2654435761) >>> 0;\n            const dur = 0.72 + (h % 7) * 0.09;\n            const wait = -((h >>> 8) % 10) * 0.11;\n            return (\n              <i\n                key={i}\n                style={\n                  {\n                    \"--d\": `${dur.toFixed(2)}s`,\n                    \"--w\": `${wait.toFixed(2)}s`,\n                  } as React.CSSProperties\n                }\n              />\n            );\n          })}\n        </span>\n        <span className={label ? \"hb-qc3-l\" : \"hb-qc3-sr\"}>{label ?? \"Loading\"}</span>\n      </span>\n    </>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-fuzzy",
+  "type": "registry:component",
+  "title": "Text Fuzzy",
+  "description": "Text with a flickering noise displacement, like a worn signal, that grows rougher while hovered or focused.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "text",
+    "fuzzy",
+    "noise",
+    "svg filter",
+    "static",
+    "hover"
+  ],
+  "docs": "https://hyperblur.dev/effects/text-fuzzy",
+  "files": [
+    {
+      "path": "registry/hyperblur/text-fuzzy.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/text-fuzzy.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface TextFuzzyProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  baseIntensity?: number;\n  hoverIntensity?: number;\n  frequency?: number;\n  fps?: number;\n  glow?: boolean;\n}\n\nconst css = `\n.hb-qd4 {\n  position: relative;\n  display: inline-block;\n  max-width: 100%;\n  padding: 0.1em 0.12em;\n  line-height: 1.1;\n  cursor: default;\n  font-family: inherit;\n  box-sizing: border-box;\n}\n.hb-qd4-svg {\n  position: absolute;\n  width: 0;\n  height: 0;\n  overflow: hidden;\n  pointer-events: none;\n}\n.hb-qd4-t { display: inline-block; max-width: 100%; }\n.hb-qd4[data-glow] .hb-qd4-t { text-shadow: 0 0 0.35em color-mix(in srgb, currentColor 45%, transparent); }\n`;\n\nexport function TextFuzzy({\n  text,\n  baseIntensity = 2,\n  hoverIntensity = 14,\n  frequency = 0.7,\n  fps = 14,\n  glow = true,\n  className = \"\",\n  style,\n  ...rest\n}: TextFuzzyProps) {\n  const uid = React.useId().replace(/[^a-zA-Z0-9]/g, \"\");\n  const id = `hb-qd4-${uid}`;\n  const rootRef = React.useRef<HTMLSpanElement>(null);\n  const noiseRef = React.useRef<SVGFETurbulenceElement>(null);\n  const mapRef = React.useRef<SVGFEDisplacementMapElement>(null);\n\n  React.useEffect(() => {\n    const root = rootRef.current;\n    const noise = noiseRef.current;\n    const map = mapRef.current;\n    if (!root || !noise || !map) return;\n    map.setAttribute(\"scale\", String(baseIntensity));\n    if (window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) return;\n\n    const interval = 1000 / Math.max(1, fps);\n    const start = performance.now();\n    let hovered = false;\n    let level = baseIntensity;\n    let lastSeed = -1;\n    let shownScale = -1;\n    let visible = true;\n    let raf = 0;\n\n    const tick = (now: number) => {\n      raf = 0;\n      if (!visible) return;\n      const t = (now - start) / 1000;\n      const pulse = 0.5 + 0.5 * Math.sin(t * 1.4);\n      const target = hovered\n        ? hoverIntensity\n        : baseIntensity + (hoverIntensity - baseIntensity) * 0.28 * pulse * pulse;\n      level += (target - level) * 0.12;\n      const step = Math.floor((now - start) / interval);\n      if (step !== lastSeed) {\n        lastSeed = step;\n        noise.setAttribute(\"seed\", String(1 + (step % 97)));\n      }\n      if (Math.abs(level - shownScale) > 0.05) {\n        shownScale = level;\n        map.setAttribute(\"scale\", level.toFixed(2));\n      }\n      raf = requestAnimationFrame(tick);\n    };\n\n    const kick = () => {\n      if (!raf && visible) raf = requestAnimationFrame(tick);\n    };\n    const on = () => {\n      hovered = true;\n    };\n    const off = () => {\n      hovered = false;\n    };\n    const io = new IntersectionObserver(([entry]) => {\n      visible = entry.isIntersecting;\n      kick();\n    });\n    io.observe(root);\n    root.addEventListener(\"pointerenter\", on);\n    root.addEventListener(\"pointerleave\", off);\n    root.addEventListener(\"pointercancel\", off);\n    root.addEventListener(\"focus\", on);\n    root.addEventListener(\"blur\", off);\n    kick();\n    return () => {\n      cancelAnimationFrame(raf);\n      io.disconnect();\n      root.removeEventListener(\"pointerenter\", on);\n      root.removeEventListener(\"pointerleave\", off);\n      root.removeEventListener(\"pointercancel\", off);\n      root.removeEventListener(\"focus\", on);\n      root.removeEventListener(\"blur\", off);\n    };\n  }, [baseIntensity, hoverIntensity, fps]);\n\n  const fx = (frequency * 0.02).toFixed(4);\n  const fy = frequency.toFixed(3);\n\n  return (\n    <span\n      ref={rootRef}\n      className={`hb-qd4 ${className}`}\n      style={style}\n      data-glow={glow ? \"\" : undefined}\n      {...rest}\n    >\n      <style href=\"hb-text-fuzzy\" precedence=\"default\">{css}</style>\n      <svg className=\"hb-qd4-svg\" aria-hidden=\"true\" focusable=\"false\" width=\"0\" height=\"0\">\n        <filter id={id} x=\"-12%\" y=\"-30%\" width=\"124%\" height=\"160%\" colorInterpolationFilters=\"sRGB\">\n          <feTurbulence\n            ref={noiseRef}\n            type=\"fractalNoise\"\n            baseFrequency={`${fx} ${fy}`}\n            numOctaves=\"2\"\n            seed=\"1\"\n            result=\"noise\"\n          />\n          <feDisplacementMap\n            ref={mapRef}\n            in=\"SourceGraphic\"\n            in2=\"noise\"\n            scale={baseIntensity}\n            xChannelSelector=\"R\"\n            yChannelSelector=\"G\"\n          />\n        </filter>\n      </svg>\n      <span className=\"hb-qd4-t\" style={{ filter: `url(#${id})` }}>\n        {text}\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

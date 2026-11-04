@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-echo",
+  "type": "registry:component",
+  "title": "Text Echo",
+  "description": "Text with trailing echo copies that stagger in, fade out with distance and breathe slowly. Hover or focus spreads them apart.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "echo",
+    "delay",
+    "trail",
+    "outline",
+    "hover",
+    "typography"
+  ],
+  "docs": "https://hyperblur.dev/effects/text-echo",
+  "files": [
+    {
+      "path": "registry/hyperblur/text-echo.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/text-echo.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface TextEchoProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, \"children\"> {\n  children: string;\n  echoes?: number;\n  distance?: number;\n  angle?: number;\n  fade?: number;\n  spread?: number;\n  stagger?: number;\n  variant?: \"solid\" | \"outline\";\n  accent?: string;\n}\n\nconst css = `\n@property --hb-qs6-k {\n  syntax: \"<number>\";\n  inherits: true;\n  initial-value: 1;\n}\n@property --hb-qs6-b {\n  syntax: \"<number>\";\n  inherits: true;\n  initial-value: 1;\n}\n@property --hb-qs6-r {\n  syntax: \"<number>\";\n  inherits: false;\n  initial-value: 0;\n}\n.hb-qs6 {\n  --hb-qs6-c: #2f7bff;\n  --hb-qs6-k: 1;\n  position: relative;\n  display: inline-block;\n  box-sizing: border-box;\n  font: inherit;\n  line-height: inherit;\n  white-space: pre-wrap;\n  isolation: isolate;\n  outline: none;\n  transition: --hb-qs6-k 0.55s cubic-bezier(0.34, 1.4, 0.5, 1);\n  animation: hb-qs6-breathe 4.8s ease-in-out infinite;\n}\n.hb-qs6:hover, .hb-qs6:focus-visible { --hb-qs6-k: var(--hb-qs6-spread, 2.2); }\n.hb-qs6:focus-visible { outline: 2px solid var(--hb-qs6-c); outline-offset: 6px; border-radius: 4px; }\n.hb-qs6-m { position: relative; z-index: 1; display: inline-block; }\n.hb-qs6-e {\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: 0;\n  pointer-events: none;\n  user-select: none;\n  -webkit-user-select: none;\n  white-space: inherit;\n  color: var(--hb-qs6-c);\n  opacity: calc(var(--hb-qs6-o) * var(--hb-qs6-r));\n  transform: translate(\n    calc(var(--hb-qs6-dx) * var(--hb-qs6-i) * var(--hb-qs6-k) * var(--hb-qs6-b) * var(--hb-qs6-r)),\n    calc(var(--hb-qs6-dy) * var(--hb-qs6-i) * var(--hb-qs6-k) * var(--hb-qs6-b) * var(--hb-qs6-r))\n  );\n}\n.hb-qs6[data-variant=\"outline\"] .hb-qs6-e {\n  color: transparent;\n  -webkit-text-stroke: 1px var(--hb-qs6-c);\n}\n.hb-qs6[data-on=\"true\"] .hb-qs6-e {\n  animation: hb-qs6-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;\n  animation-delay: calc(var(--hb-qs6-i) * var(--hb-qs6-st));\n}\n.hb-qs6[data-on=\"false\"] .hb-qs6-e { --hb-qs6-r: 0; }\n.hb-qs6[data-on=\"static\"] .hb-qs6-e { --hb-qs6-r: 1; }\n@keyframes hb-qs6-in {\n  from { --hb-qs6-r: 0; }\n  to { --hb-qs6-r: 1; }\n}\n@keyframes hb-qs6-breathe {\n  0%, 100% { --hb-qs6-b: 0.78; }\n  50% { --hb-qs6-b: 1.2; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-qs6 { animation: none; transition: none; }\n  .hb-qs6[data-on=\"true\"] .hb-qs6-e { animation: none; --hb-qs6-r: 1; }\n}\n`;\n\nexport function TextEcho({\n  children,\n  echoes = 5,\n  distance = 7,\n  angle = 35,\n  fade = 0.75,\n  spread = 2.2,\n  stagger = 80,\n  variant = \"outline\",\n  accent = \"#2f7bff\",\n  className = \"\",\n  style,\n  tabIndex = 0,\n  ...rest\n}: TextEchoProps) {\n  const ref = React.useRef<HTMLSpanElement>(null);\n  const [on, setOn] = React.useState<\"false\" | \"true\" | \"static\">(\"false\");\n  const count = Math.max(1, Math.min(12, Math.round(echoes)));\n  const rad = (angle * Math.PI) / 180;\n  const dx = (Math.cos(rad) * distance).toFixed(2);\n  const dy = (Math.sin(rad) * distance).toFixed(2);\n\n  React.useEffect(() => {\n    const el = ref.current;\n    if (!el) return;\n    const io = new IntersectionObserver(\n      (entries) => {\n        if (!entries.some((e) => e.isIntersecting)) return;\n        io.disconnect();\n        const reduced = window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n        setOn(reduced ? \"static\" : \"true\");\n      },\n      { threshold: 0.2 },\n    );\n    io.observe(el);\n    return () => io.disconnect();\n  }, []);\n\n  const vars = {\n    \"--hb-qs6-c\": accent,\n    \"--hb-qs6-dx\": `${dx}px`,\n    \"--hb-qs6-dy\": `${dy}px`,\n    \"--hb-qs6-spread\": spread,\n    \"--hb-qs6-st\": `${stagger}ms`,\n    ...style,\n  } as React.CSSProperties;\n\n  const copies = Array.from({ length: count }, (_, n) => {\n    const i = n + 1;\n    const o = Math.max(0, fade * (1 - n / (count + 0.6)));\n    return (\n      <span\n        key={i}\n        className=\"hb-qs6-e\"\n        aria-hidden=\"true\"\n        style={{ \"--hb-qs6-i\": i, \"--hb-qs6-o\": o.toFixed(3) } as React.CSSProperties}\n      >\n        {children}\n      </span>\n    );\n  });\n\n  return (\n    <>\n      <style href=\"hb-text-echo\" precedence=\"default\">{css}</style>\n      <span\n        ref={ref}\n        className={`hb-qs6 ${className}`}\n        style={vars}\n        tabIndex={tabIndex}\n        data-variant={variant}\n        data-on={on}\n        {...rest}\n      >\n        {copies}\n        <span className=\"hb-qs6-m\">{children}</span>\n      </span>\n    </>\n  );\n}\n"
+    }
+  ]
+}

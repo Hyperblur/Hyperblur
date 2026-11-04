@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-mask-reveal",
+  "type": "registry:component",
+  "title": "Text Mask Reveal",
+  "description": "Lines or words slide up out of an invisible mask with a stagger when the block scrolls into view.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "text",
+    "reveal",
+    "mask",
+    "scroll",
+    "headline",
+    "stagger"
+  ],
+  "docs": "https://hyperblur.dev/effects/text-mask-reveal",
+  "files": [
+    {
+      "path": "registry/hyperblur/text-mask-reveal.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/text-mask-reveal.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface TextMaskRevealProps extends React.HTMLAttributes<HTMLDivElement> {\n  text: string;\n  by?: \"lines\" | \"words\";\n  stagger?: number;\n  duration?: number;\n  delay?: number;\n  tilt?: number;\n  once?: boolean;\n  loop?: number;\n}\n\nconst css = `\n@keyframes hb-qd5-up {\n  from { transform: translate3d(0, 118%, 0) rotate(var(--hb-qd5-tilt)); }\n  to { transform: translate3d(0, 0, 0) rotate(0deg); }\n}\n.hb-qd5 { display: block; font-family: inherit; box-sizing: border-box; }\n.hb-qd5 *, .hb-qd5 *::before, .hb-qd5 *::after { box-sizing: border-box; }\n.hb-qd5-m {\n  display: block;\n  overflow: hidden;\n  padding: 0.08em 0.06em 0.16em;\n  margin: -0.08em -0.06em -0.16em;\n}\n.hb-qd5[data-by=\"words\"] .hb-qd5-m { display: inline-block; vertical-align: top; }\n.hb-qd5-i {\n  display: inline-block;\n  transform: translate3d(0, 118%, 0) rotate(var(--hb-qd5-tilt));\n  transform-origin: 0 100%;\n  will-change: transform;\n}\n.hb-qd5[data-active] .hb-qd5-i {\n  animation: hb-qd5-up var(--hb-qd5-dur) cubic-bezier(.19, 1, .22, 1) both;\n  animation-delay: calc(var(--hb-qd5-delay) + var(--hb-qd5-n) * var(--hb-qd5-stagger));\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-qd5 .hb-qd5-i { transform: none; animation: none !important; will-change: auto; }\n}\n`;\n\nexport function TextMaskReveal({\n  text,\n  by = \"lines\",\n  stagger = 0.12,\n  duration = 0.95,\n  delay = 0,\n  tilt = 4,\n  once = true,\n  loop = 0,\n  className = \"\",\n  style,\n  ...rest\n}: TextMaskRevealProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const [inView, setInView] = React.useState(false);\n  const [hidden, setHidden] = React.useState(false);\n\n  const pieces = React.useMemo(\n    () => (by === \"lines\" ? text.split(\"\\n\") : text.split(/\\s+/).filter(Boolean)),\n    [text, by],\n  );\n\n  React.useEffect(() => {\n    const el = ref.current;\n    if (!el) return;\n    if (typeof IntersectionObserver === \"undefined\") {\n      const id = requestAnimationFrame(() => setInView(true));\n      return () => cancelAnimationFrame(id);\n    }\n    const io = new IntersectionObserver(\n      (entries) => {\n        for (const entry of entries) {\n          if (entry.isIntersecting) {\n            setInView(true);\n            if (once) io.disconnect();\n          } else if (!once) {\n            setInView(false);\n          }\n        }\n      },\n      { threshold: 0.25 },\n    );\n    io.observe(el);\n    return () => io.disconnect();\n  }, [once]);\n\n  React.useEffect(() => {\n    if (!inView || loop <= 0) return;\n    const total = (delay + duration + stagger * pieces.length + loop) * 1000;\n    const id = setTimeout(() => setHidden((h) => !h), hidden ? 450 : total);\n    return () => clearTimeout(id);\n  }, [inView, loop, hidden, delay, duration, stagger, pieces.length]);\n\n  const vars = {\n    \"--hb-qd5-dur\": `${duration}s`,\n    \"--hb-qd5-delay\": `${delay}s`,\n    \"--hb-qd5-stagger\": `${stagger}s`,\n    \"--hb-qd5-tilt\": `${tilt}deg`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <div\n      ref={ref}\n      className={`hb-qd5 ${className}`}\n      style={vars}\n      data-by={by}\n      data-active={inView && !hidden ? \"\" : undefined}\n      {...rest}\n    >\n      <style href=\"hb-text-mask-reveal\" precedence=\"default\">{css}</style>\n      {pieces.map((piece, i) => (\n        <React.Fragment key={`${i}-${piece}`}>\n          <span className=\"hb-qd5-m\">\n            <span className=\"hb-qd5-i\" style={{ \"--hb-qd5-n\": i } as React.CSSProperties}>\n              {piece}\n            </span>\n          </span>\n          {by === \"words\" && i < pieces.length - 1 ? \" \" : null}\n        </React.Fragment>\n      ))}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

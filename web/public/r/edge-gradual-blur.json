@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "edge-gradual-blur",
+  "type": "registry:component",
+  "title": "Edge Gradual Blur",
+  "description": "An overlay for the edge of a container that blurs the content under it a little more with every pixel, built from stacked backdrop-filter layers.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "motion",
+    "blur",
+    "edge",
+    "overlay",
+    "backdrop-filter",
+    "mask",
+    "scroll"
+  ],
+  "docs": "https://hyperblur.dev/effects/edge-gradual-blur",
+  "files": [
+    {
+      "path": "registry/hyperblur/edge-gradual-blur.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/edge-gradual-blur.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface EdgeGradualBlurProps extends React.HTMLAttributes<HTMLDivElement> {\n  position?: \"top\" | \"bottom\" | \"left\" | \"right\";\n  height?: number | string;\n  strength?: number;\n  layers?: number;\n  tint?: string;\n}\n\nconst css = `\n.hb-qr2 {\n  position: absolute;\n  z-index: 3;\n  box-sizing: border-box;\n  pointer-events: none;\n  overflow: hidden;\n}\n.hb-qr2[data-position=\"top\"] { top: 0; left: 0; right: 0; height: var(--hb-qr2-s); }\n.hb-qr2[data-position=\"bottom\"] { bottom: 0; left: 0; right: 0; height: var(--hb-qr2-s); }\n.hb-qr2[data-position=\"left\"] { top: 0; bottom: 0; left: 0; width: var(--hb-qr2-s); }\n.hb-qr2[data-position=\"right\"] { top: 0; bottom: 0; right: 0; width: var(--hb-qr2-s); }\n.hb-qr2-l,\n.hb-qr2-t {\n  position: absolute;\n  inset: 0;\n}\n`;\n\nconst directions = {\n  top: \"to top\",\n  bottom: \"to bottom\",\n  left: \"to left\",\n  right: \"to right\",\n} as const;\n\nfunction layerMask(index: number, count: number, direction: string) {\n  const step = 100 / count;\n  const p0 = index * step;\n  const p1 = (index + 1) * step;\n  const p2 = (index + 2) * step;\n  const p3 = (index + 3) * step;\n  const stops = [`transparent ${p0.toFixed(2)}%`, `#000 ${p1.toFixed(2)}%`];\n  if (p2 < 100) stops.push(`#000 ${p2.toFixed(2)}%`);\n  if (p3 <= 100) stops.push(`transparent ${p3.toFixed(2)}%`);\n  return `linear-gradient(${direction}, ${stops.join(\", \")})`;\n}\n\nexport function EdgeGradualBlur({\n  position = \"bottom\",\n  height = 64,\n  strength = 1,\n  layers = 6,\n  tint,\n  className = \"\",\n  style,\n  ...rest\n}: EdgeGradualBlurProps) {\n  const count = Math.max(2, Math.min(10, Math.round(layers)));\n  const direction = directions[position];\n  const size = typeof height === \"number\" ? `${height}px` : height;\n  const items = Array.from({ length: count }, (_, i) => {\n    const blur = Math.max(0.1, strength * 0.4 * Math.pow(2, i));\n    const mask = layerMask(i, count, direction);\n    const filter = `blur(${blur.toFixed(2)}px)`;\n    return {\n      key: i,\n      style: {\n        backdropFilter: filter,\n        WebkitBackdropFilter: filter,\n        maskImage: mask,\n        WebkitMaskImage: mask,\n      } as React.CSSProperties,\n    };\n  });\n\n  return (\n    <div\n      aria-hidden=\"true\"\n      data-position={position}\n      className={`hb-qr2 ${className}`.trim()}\n      style={{ [\"--hb-qr2-s\" as string]: size, ...style } as React.CSSProperties}\n      {...rest}\n    >\n      <style href=\"hb-edge-gradual-blur\" precedence=\"default\">\n        {css}\n      </style>\n      {items.map((item) => (\n        <span key={item.key} className=\"hb-qr2-l\" style={item.style} />\n      ))}\n      {tint ? (\n        <span\n          className=\"hb-qr2-t\"\n          style={{ background: `linear-gradient(${direction}, transparent 0%, ${tint} 100%)`, opacity: 0.85 }}\n        />\n      ) : null}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

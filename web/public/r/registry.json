@@ -3121,6 +3121,4252 @@
       ]
     },
     {
+      "name": "bg-ferrofluid",
+      "type": "registry:component",
+      "title": "Ferrofluid",
+      "description": "A dark, glossy liquid-metal pool whose blobs rise toward the pointer and grow a crown of magnetic spikes, shaded with specular highlights.",
+      "categories": [
+        "overlay",
+        "background",
+        "ferrofluid",
+        "metaballs",
+        "liquid",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-ferrofluid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-ferrofluid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-soft-aurora",
+      "type": "registry:component",
+      "title": "Soft Aurora",
+      "description": "Wide pastel aurora curtains that drift slowly, with a gentle bloom that follows the pointer and tiny motes floating upward.",
+      "categories": [
+        "overlay",
+        "background",
+        "aurora",
+        "pastel",
+        "calm",
+        "canvas",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-soft-aurora.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-soft-aurora.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-rune-rings",
+      "type": "registry:component",
+      "title": "Rune Rings",
+      "description": "Concentric glowing rings carrying orbiting glyph marks, each ring spinning at its own speed. The pointer tilts the whole system in 3D.",
+      "categories": [
+        "overlay",
+        "background",
+        "rings",
+        "glyphs",
+        "3d",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-rune-rings.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-rune-rings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-grid-scan",
+      "type": "registry:component",
+      "title": "Grid Scan",
+      "description": "A flat grid crossed by a horizontal and a vertical scan line. The cell under the pointer lights up and leaves a trail of fading cells.",
+      "categories": [
+        "overlay",
+        "background",
+        "grid",
+        "scan",
+        "trail",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-grid-scan.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-grid-scan.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-color-bends",
+      "type": "registry:component",
+      "title": "Color Bends",
+      "description": "Saturated ribbons of color that flow across the area, twisting as they go and bending around a warp field that follows the pointer.",
+      "categories": [
+        "overlay",
+        "background",
+        "ribbons",
+        "gradient",
+        "warp",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-color-bends.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-color-bends.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-prism-burst",
+      "type": "registry:component",
+      "title": "Prism Burst",
+      "description": "A slowly rotating burst of light rays that split into spectrum colors from a bright core that follows the pointer.",
+      "categories": [
+        "overlay",
+        "background",
+        "prism",
+        "rays",
+        "spectrum",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-prism-burst.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-prism-burst.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-faulty-terminal",
+      "type": "registry:component",
+      "title": "Faulty Terminal",
+      "description": "A wall of scrolling terminal output that tears, glitches and flickers now and then. Glyphs near the pointer brighten and scramble.",
+      "categories": [
+        "overlay",
+        "background",
+        "terminal",
+        "glitch",
+        "monospace",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-faulty-terminal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-faulty-terminal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-infinite-spiral",
+      "type": "registry:component",
+      "title": "Gallery Infinite Spiral",
+      "description": "Images laid out along a spiral that drifts forever, growing and brightening as they leave the center. Drag, scroll or use the arrow keys to move along it.",
+      "categories": [
+        "components",
+        "gallery",
+        "spiral",
+        "infinite",
+        "drag",
+        "scroll",
+        "images"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-infinite-spiral.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-infinite-spiral.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel-depth",
+      "type": "registry:component",
+      "title": "Carousel Depth",
+      "description": "A carousel in perspective: the active card is large and sharp while its neighbors turn away, shrink and dim. Supports drag, arrows, dots, keyboard and autoplay that pauses on hover.",
+      "categories": [
+        "components",
+        "carousel",
+        "3d",
+        "depth",
+        "slider",
+        "autoplay",
+        "cards"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/carousel-depth.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/carousel-depth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "wheel-option-picker",
+      "type": "registry:component",
+      "title": "Wheel Option Picker",
+      "description": "A vertical drum picker. Options sit on a cylinder in perspective and snap to the center after a drag, flick, wheel step or key press. Set the text size with style or className on the picker.",
+      "categories": [
+        "components",
+        "picker",
+        "wheel",
+        "select",
+        "drum",
+        "time",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/wheel-option-picker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/wheel-option-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-staggered",
+      "type": "registry:component",
+      "title": "Menu Staggered",
+      "description": "A full-frame menu that slides in as three layered panels, then reveals its links one by one. The hamburger morphs into a close icon, Escape closes it and focus stays inside.",
+      "categories": [
+        "components",
+        "menu",
+        "navigation",
+        "overlay",
+        "stagger",
+        "hamburger",
+        "fullscreen"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-staggered.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-staggered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-card-expand",
+      "type": "registry:component",
+      "title": "Nav Card Expand",
+      "description": "A compact top bar that unfolds downward into a card with three link cards and a call to action. The panel floats over the page, so nothing below it moves.",
+      "categories": [
+        "components",
+        "navbar",
+        "menu",
+        "expand",
+        "card",
+        "header",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-card-expand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-card-expand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-wave-pattern",
+      "type": "registry:component",
+      "title": "Wave Pattern",
+      "description": "A tiled pattern of stripes, checks or diamonds warped by travelling sine waves. Cells near the pointer lean toward it and pick up the accent color.",
+      "categories": [
+        "overlay",
+        "background",
+        "pattern",
+        "wave",
+        "pointer",
+        "canvas",
+        "geometric"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-wave-pattern.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-wave-pattern.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-slats",
+      "type": "registry:component",
+      "title": "Slats",
+      "description": "Rows of thin vertical slats that turn and catch the light in a rolling wave. A bright crest follows the pointer across them.",
+      "categories": [
+        "overlay",
+        "background",
+        "slats",
+        "blinds",
+        "wave",
+        "pointer",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-slats.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-slats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-ghost-fibers",
+      "type": "registry:component",
+      "title": "Ghost Fibers",
+      "description": "Translucent strands that drift on smooth noise and leave faint trails behind them. Strands thicken and glow where the pointer passes.",
+      "categories": [
+        "overlay",
+        "background",
+        "fibers",
+        "noise",
+        "trails",
+        "pointer",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-ghost-fibers.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-ghost-fibers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-crt-warp",
+      "type": "registry:component",
+      "title": "CRT Warp",
+      "description": "An old tube screen: curved frame, scanlines, color fringing, flicker and a rolling bar. The pointer pushes a lens of distortion across the glass. Shows an animated test pattern when it has no children.",
+      "categories": [
+        "overlay",
+        "background",
+        "crt",
+        "retro",
+        "scanlines",
+        "pointer",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-crt-warp.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-crt-warp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-acid-squares",
+      "type": "registry:component",
+      "title": "Acid Squares",
+      "description": "A grid of squares that flash neon colors in rings spreading out from the pointer. Pulses fire on their own while nobody is touching it, and a click sends a bigger wave.",
+      "categories": [
+        "overlay",
+        "background",
+        "grid",
+        "neon",
+        "ripple",
+        "pointer",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-acid-squares.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-acid-squares.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-scanner-sweep",
+      "type": "registry:component",
+      "title": "Scanner Sweep",
+      "description": "A beam sweeps back and forth over a grid of dots, lighting cells as it passes and marking a few as detected. The pointer takes hold of the beam.",
+      "categories": [
+        "overlay",
+        "background",
+        "scanner",
+        "radar",
+        "grid",
+        "pointer",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-scanner-sweep.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-scanner-sweep.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-web-threads",
+      "type": "registry:component",
+      "title": "Web Threads",
+      "description": "A spider web strung to the edges with a knot in the middle. Moving the pointer across a thread plucks it, and the vibration travels through the web before it settles.",
+      "categories": [
+        "overlay",
+        "background",
+        "web",
+        "spring",
+        "physics",
+        "pointer",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-web-threads.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-web-threads.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ball-crystal",
+      "type": "registry:component",
+      "title": "Crystal Ball",
+      "description": "A faceted low-poly sphere drawn on canvas. It turns slowly, tilts toward the pointer and moves its highlights with it.",
+      "categories": [
+        "hover",
+        "crystal",
+        "sphere",
+        "canvas",
+        "3d",
+        "facets",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/ball-crystal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/ball-crystal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "edge-gradual-blur",
+      "type": "registry:component",
+      "title": "Edge Gradual Blur",
+      "description": "An overlay for the edge of a container that blurs the content under it a little more with every pixel, built from stacked backdrop-filter layers.",
+      "categories": [
+        "motion",
+        "blur",
+        "edge",
+        "overlay",
+        "backdrop-filter",
+        "mask",
+        "scroll"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/edge-gradual-blur.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/edge-gradual-blur.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-loop-belt",
+      "type": "registry:component",
+      "title": "Logo Loop Belt",
+      "description": "An endless belt of wordmark chips with faded edges. It slows down or stops on hover and can run a second row in the opposite direction.",
+      "categories": [
+        "motion",
+        "marquee",
+        "logos",
+        "belt",
+        "loop",
+        "social proof",
+        "ticker"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/logo-loop-belt.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/logo-loop-belt.tsx"
+        }
+      ]
+    },
+    {
+      "name": "border-star-orbit",
+      "type": "registry:component",
+      "title": "Border Star Orbit",
+      "description": "A card whose border carries a glowing four-point star that circles the perimeter, dragging a trail of fading color behind it.",
+      "categories": [
+        "hover",
+        "border",
+        "star",
+        "orbit",
+        "glow",
+        "card",
+        "comet"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/border-star-orbit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/border-star-orbit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio-jelly",
+      "type": "registry:component",
+      "title": "Jelly Radio",
+      "description": "A radio group whose selected dot squashes and stretches like jelly when it is chosen, while the label slides over. Arrow keys work out of the box.",
+      "categories": [
+        "micro",
+        "radio",
+        "form",
+        "jelly",
+        "spring",
+        "group",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/radio-jelly.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/radio-jelly.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-spring",
+      "type": "registry:component",
+      "title": "Spring Checkbox",
+      "description": "A checkbox whose box springs past its size when checked while the tick draws itself and bounces in. Supports a label and an indeterminate state.",
+      "categories": [
+        "micro",
+        "checkbox",
+        "form",
+        "spring",
+        "check",
+        "indeterminate",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkbox-spring.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkbox-spring.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-status-mark",
+      "type": "registry:component",
+      "title": "Status Mark",
+      "description": "A small status indicator whose outline morphs between a circle, a triangle and a rounded square as it changes between idle, loading, success, warning and error.",
+      "categories": [
+        "micro",
+        "status",
+        "indicator",
+        "morph",
+        "loading",
+        "svg",
+        "state"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-status-mark.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-status-mark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip-warm",
+      "type": "registry:component",
+      "title": "Warm Tooltip",
+      "description": "A cream tooltip with a soft amber glow that springs out of its trigger with a small arrow wobble. Opens after a delay on hover and at once on keyboard focus.",
+      "categories": [
+        "micro",
+        "tooltip",
+        "hint",
+        "spring",
+        "focus",
+        "popover",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/tooltip-warm.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/tooltip-warm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-branched",
+      "type": "registry:component",
+      "title": "Branched Menu",
+      "description": "A tree menu whose submenus branch out with connector lines that draw in one after another. Arrow keys, Enter and Escape work at every level.",
+      "categories": [
+        "micro",
+        "menu",
+        "tree",
+        "submenu",
+        "nested",
+        "keyboard",
+        "connector"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-branched.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-branched.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-code-slots",
+      "type": "registry:component",
+      "title": "Code Slots",
+      "description": "A code or PIN display where every character is a vertical reel that spins and settles on its value, with a short glow when each reel locks. Changing the value replays it.",
+      "categories": [
+        "micro",
+        "pin",
+        "code",
+        "otp",
+        "slot",
+        "reel",
+        "counter"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-code-slots.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-code-slots.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-glide",
+      "type": "registry:component",
+      "title": "Glide Select",
+      "description": "A custom select whose highlight glides between options on a spring and whose arrow rotates open. Supports arrow keys, Home, End, Enter, Escape and type-ahead.",
+      "categories": [
+        "micro",
+        "select",
+        "dropdown",
+        "listbox",
+        "spring",
+        "type-ahead",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/select-glide.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/select-glide.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-slide-commit",
+      "type": "registry:component",
+      "title": "Slide Commit",
+      "description": "A press-and-slide control for destructive actions. The track turns from neutral to danger as the handle moves and locks with a pop when it reaches the end. Hold Enter does the same from the keyboard.",
+      "categories": [
+        "micro",
+        "slider",
+        "confirm",
+        "destructive",
+        "delete",
+        "gesture",
+        "danger"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-slide-commit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-slide-commit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-tech-readout",
+      "type": "registry:component",
+      "title": "Tech Readout",
+      "description": "Text that appears like an instrument readout: letters flip through glyphs before settling, corner brackets and a tick scale draw in, and small mono labels fade up around it.",
+      "categories": [
+        "text",
+        "hud",
+        "readout",
+        "technical",
+        "scramble",
+        "brackets",
+        "sci-fi"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-tech-readout.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-tech-readout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-echo",
+      "type": "registry:component",
+      "title": "Text Echo",
+      "description": "Text with trailing echo copies that stagger in, fade out with distance and breathe slowly. Hover or focus spreads them apart.",
+      "categories": [
+        "text",
+        "echo",
+        "delay",
+        "trail",
+        "outline",
+        "hover",
+        "typography"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-echo.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-echo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-depth-layers",
+      "type": "registry:component",
+      "title": "Depth Layers",
+      "description": "Text built from many stacked layers that shift with the pointer for real parallax depth, with a shadow stack for volume. It drifts on its own until the pointer arrives.",
+      "categories": [
+        "text",
+        "3d",
+        "parallax",
+        "depth",
+        "extrude",
+        "pointer",
+        "typography"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-depth-layers.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-depth-layers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-fold",
+      "type": "registry:component",
+      "title": "Text Fold",
+      "description": "Lines of text that fold open like paper with a per-line rotateX and perspective when they scroll into view, then pleat into an accordion on hover and unfold again when you leave.",
+      "categories": [
+        "text",
+        "fold",
+        "paper",
+        "3d",
+        "perspective",
+        "hover",
+        "reveal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-fold.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-fold.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-specular",
+      "type": "registry:component",
+      "title": "Specular Button",
+      "description": "A metallic, glass or blue button with a specular highlight that slides across its surface, a lit edge bevel and a subtle tilt that follow the pointer. A scripted highlight plays until the pointer arrives.",
+      "categories": [
+        "buttons",
+        "button",
+        "metallic",
+        "glass",
+        "specular",
+        "tilt",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-specular.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-specular.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-border-glow",
+      "type": "registry:component",
+      "title": "Card Border Glow",
+      "description": "A card whose border lights up in the segment nearest the pointer, with a soft bloom spilling both outside and inside. While idle the glow slowly circles the border.",
+      "categories": [
+        "components",
+        "card",
+        "border",
+        "glow",
+        "bloom",
+        "pointer",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-border-glow.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-border-glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-pointer-glow",
+      "type": "registry:component",
+      "title": "Bento Pointer Glow",
+      "description": "A three-column bento grid where one cursor-following glow lights every tile border and surface. Tiles lift on hover or focus and swap their description for a secondary caption; built-in visuals animate on their own.",
+      "categories": [
+        "components",
+        "bento",
+        "grid",
+        "glow",
+        "pointer",
+        "tiles",
+        "dashboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bento-pointer-glow.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bento-pointer-glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-gooey",
+      "type": "registry:component",
+      "title": "Gooey Nav",
+      "description": "A pill navigation whose active indicator is a gooey blob. Three blobs with different timings stretch and merge through an SVG filter as the selection moves. Arrow keys, Home and End change the selection.",
+      "categories": [
+        "components",
+        "navigation",
+        "gooey",
+        "svg-filter",
+        "tabs",
+        "indicator",
+        "blob"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-gooey.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-gooey.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider-elastic",
+      "type": "registry:component",
+      "title": "Elastic Slider",
+      "description": "A slider whose track bends toward the pointer like a rubber band while you drag and springs back on release. The thumb rides the curve with a value bubble above it. Arrow keys, Page keys, Home and End also work.",
+      "categories": [
+        "micro",
+        "slider",
+        "elastic",
+        "spring",
+        "range",
+        "drag",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/slider-elastic.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/slider-elastic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-galaxy",
+      "type": "registry:component",
+      "title": "Galaxy",
+      "description": "A tilted spiral galaxy of thousands of twinkling stars with a warm core and dark dust lanes, turning slowly. The pointer shifts the depth layers and parts the stars around it.",
+      "categories": [
+        "overlay",
+        "background",
+        "galaxy",
+        "stars",
+        "space",
+        "parallax",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-galaxy.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-galaxy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-dark-veil",
+      "type": "registry:component",
+      "title": "Dark Veil",
+      "description": "A dark translucent veil of drifting smoke with faint colored light at its edges. The pointer lifts a ragged, glowing tear in it that stretches as it moves.",
+      "categories": [
+        "overlay",
+        "background",
+        "smoke",
+        "noise",
+        "veil",
+        "glow",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-dark-veil.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-dark-veil.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-silk-threads",
+      "type": "registry:component",
+      "title": "Silk Threads",
+      "description": "Dozens of long, thin threads flowing across the area in offset waves, with a highlight that slides along each one. The pointer combs through them and pushes them apart.",
+      "categories": [
+        "overlay",
+        "background",
+        "threads",
+        "lines",
+        "waves",
+        "comb",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-silk-threads.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-silk-threads.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-layered-waves",
+      "type": "registry:component",
+      "title": "Layered Waves",
+      "description": "Stacked translucent waves in depth with gradient fills and soft crest lines, rolling gently. The wave closest to the pointer rises toward it.",
+      "categories": [
+        "overlay",
+        "background",
+        "waves",
+        "layers",
+        "ocean",
+        "gradient",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-layered-waves.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-layered-waves.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-grid-motion",
+      "type": "registry:component",
+      "title": "Grid Motion",
+      "description": "A tilted wall of gradient tiles with small charts and cards, its rows sliding in alternating directions. Rows under the pointer speed up and brighten.",
+      "categories": [
+        "overlay",
+        "background",
+        "grid",
+        "tiles",
+        "marquee",
+        "tilt",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-grid-motion.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-grid-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-shuffle-in",
+      "type": "registry:component",
+      "title": "Text Shuffle In",
+      "description": "Every letter slides through a few other letters before it lands on its own. Plays when the text enters the viewport and again on hover or focus.",
+      "categories": [
+        "text",
+        "shuffle",
+        "text",
+        "letters",
+        "reveal",
+        "hover",
+        "stagger"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-shuffle-in.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-shuffle-in.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-scroll-float",
+      "type": "registry:component",
+      "title": "Text Scroll Float",
+      "description": "Lines of text whose letters float up into place in a wave as the element scrolls into view. Progress follows the scroll position.",
+      "categories": [
+        "text",
+        "scroll",
+        "float",
+        "wave",
+        "letters",
+        "heading",
+        "reveal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-scroll-float.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-scroll-float.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-scroll-words",
+      "type": "registry:component",
+      "title": "Text Scroll Words",
+      "description": "A paragraph that wakes up word by word, from dim and blurred to bright and sharp, as it scrolls through the viewport.",
+      "categories": [
+        "text",
+        "scroll",
+        "words",
+        "paragraph",
+        "blur",
+        "reading",
+        "reveal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-scroll-words.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-scroll-words.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-circular",
+      "type": "registry:component",
+      "title": "Text Circular",
+      "description": "Text set around a circle that turns slowly. Hovering speeds it up and spins it the other way. The center takes any content.",
+      "categories": [
+        "text",
+        "circular",
+        "badge",
+        "rotate",
+        "svg",
+        "textpath",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-circular.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-circular.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-ascii-render",
+      "type": "registry:component",
+      "title": "Text ASCII Render",
+      "description": "Turns text into a field of monospace characters on a canvas. The letters ripple on their own and light up around the pointer.",
+      "categories": [
+        "text",
+        "ascii",
+        "canvas",
+        "monospace",
+        "terminal",
+        "text",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-ascii-render.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-ascii-render.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-sling-button",
+      "type": "registry:component",
+      "title": "Sling Button",
+      "description": "Drag the button back against a stretching band and let go. It slings forward, overshoots and settles on a spring.",
+      "categories": [
+        "micro",
+        "button",
+        "drag",
+        "spring",
+        "elastic",
+        "slingshot",
+        "micro"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-sling-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-sling-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-dodge-field",
+      "type": "registry:component",
+      "title": "Dodge Field",
+      "description": "A text field with a glowing dot that slips away from the pointer on a spring and tucks into the corner on focus. The input underneath is a plain accessible input.",
+      "categories": [
+        "micro",
+        "input",
+        "field",
+        "pointer",
+        "spring",
+        "form",
+        "micro"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-dodge-field.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-dodge-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-swipe-toast",
+      "type": "registry:component",
+      "title": "Swipe Toast",
+      "description": "A toast you flick sideways to dismiss. It resists with a rubber band, flies off past a threshold and carries an undo chip. Escape and the arrow keys dismiss it too.",
+      "categories": [
+        "micro",
+        "toast",
+        "swipe",
+        "dismiss",
+        "undo",
+        "gesture",
+        "micro"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-swipe-toast.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-swipe-toast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-swipe-row",
+      "type": "registry:component",
+      "title": "Swipe Row",
+      "description": "A list row that reveals Archive on a swipe right and Delete on a swipe left. It snaps open or closed with momentum, and the arrow keys reveal the same actions.",
+      "categories": [
+        "micro",
+        "list",
+        "row",
+        "swipe",
+        "actions",
+        "gesture",
+        "mobile"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-swipe-row.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-swipe-row.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-squish-switch",
+      "type": "registry:component",
+      "title": "Squish Switch",
+      "description": "A switch whose knob behaves like jelly. It squashes under the press, stretches in the direction of travel and wobbles into place, and it also follows a drag or a flick.",
+      "categories": [
+        "micro",
+        "switch",
+        "toggle",
+        "jelly",
+        "squish",
+        "form",
+        "spring"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-squish-switch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-squish-switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-wake-slider",
+      "type": "registry:component",
+      "title": "Wake Slider",
+      "description": "A slider whose thumb drags a stretching wake of liquid behind it and sends out ripples where it comes to rest. Arrow keys, Home, End and Page keys all work.",
+      "categories": [
+        "micro",
+        "slider",
+        "range",
+        "wake",
+        "liquid",
+        "drag",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-wake-slider.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-wake-slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-rubber-segment",
+      "type": "registry:component",
+      "title": "Rubber Segment",
+      "description": "A segmented control whose selection pill stretches like rubber toward the new option, leading with one edge and letting the other catch up. Dragging across segments works too.",
+      "categories": [
+        "micro",
+        "segmented",
+        "tabs",
+        "radio",
+        "elastic",
+        "pill",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-rubber-segment.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-rubber-segment.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-pulse-heart",
+      "type": "registry:component",
+      "title": "Pulse Heart",
+      "description": "A heart toggle that beats twice in a loop while hovered or focused and fills with a burst of rings and sparks when pressed.",
+      "categories": [
+        "micro",
+        "heart",
+        "like",
+        "favorite",
+        "toggle",
+        "pulse",
+        "burst"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-pulse-heart.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-pulse-heart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-bell-toggle",
+      "type": "registry:component",
+      "title": "Bell Toggle",
+      "description": "A notifications bell that swings on a decaying spring with a lagging clapper. Turning it on rings it and pops a badge dot; turning it off settles it quietly.",
+      "categories": [
+        "micro",
+        "bell",
+        "notifications",
+        "toggle",
+        "switch",
+        "spring",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-bell-toggle.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-bell-toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "micro-comet-dial",
+      "type": "registry:component",
+      "title": "Comet Dial",
+      "description": "A rotary dial you flick. It spins with inertia, clicks into detents while the readout snaps to each one, and a comet tail follows the pointer around the rim.",
+      "categories": [
+        "micro",
+        "dial",
+        "knob",
+        "rotary",
+        "inertia",
+        "detent",
+        "control"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/micro-comet-dial.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/micro-comet-dial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-one-page",
+      "type": "registry:component",
+      "title": "Checkout One Page",
+      "description": "Contact, shipping, delivery and payment on a single page beside a sticky order summary. Card numbers format as you type and pass a Luhn check, a progress rail fills as each part becomes valid, and a success state replaces the form.",
+      "categories": [
+        "checkout",
+        "checkout",
+        "payment form",
+        "luhn",
+        "order summary",
+        "validation",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-one-page.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-one-page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-split-summary",
+      "type": "registry:component",
+      "title": "Checkout Split Summary",
+      "description": "A dark two-column checkout with a brand panel on the left holding the order, a promotion code field and trust badges, and a card form on the right. The total counts to its new value when a code is applied.",
+      "categories": [
+        "checkout",
+        "checkout",
+        "split layout",
+        "promo code",
+        "card form",
+        "trust badges",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-split-summary.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-split-summary.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-stepper-card",
+      "type": "registry:component",
+      "title": "Checkout Stepper Card",
+      "description": "One centered card that walks through Details, Payment and Confirm with a glowing progress track. Steps slide in from the direction you travel, each step validates before moving on, and the review step links back to edit.",
+      "categories": [
+        "checkout",
+        "checkout",
+        "stepper",
+        "wizard",
+        "subscription",
+        "card",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-stepper-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-stepper-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-mobile-sheet",
+      "type": "registry:component",
+      "title": "Checkout Mobile Sheet",
+      "description": "A phone mockup with a product page and a wallet-style payment sheet that rises from the bottom. Payment is confirmed by dragging a slider, or with the arrow keys and Enter, followed by a success state inside the sheet.",
+      "categories": [
+        "checkout",
+        "checkout",
+        "mobile",
+        "bottom sheet",
+        "slide to confirm",
+        "wallet",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-mobile-sheet.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-mobile-sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-subscription-upgrade",
+      "type": "registry:component",
+      "title": "Checkout Subscription Upgrade",
+      "description": "A light plan upgrade screen comparing the current plan with the new one. A seat slider drives a proration breakdown whose figures count to their new values, next to the card on file and a confirm button.",
+      "categories": [
+        "checkout",
+        "checkout",
+        "upgrade",
+        "proration",
+        "seats",
+        "subscription",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-subscription-upgrade.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-subscription-upgrade.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-success-receipt",
+      "type": "registry:component",
+      "title": "Checkout Success Receipt",
+      "description": "An order confirmation with a self-drawing success mark, a paper receipt that prints out of a slot with perforated edges and a barcode, and a delivery timeline. Download receipt saves a text file locally unless you handle it.",
+      "categories": [
+        "checkout",
+        "checkout",
+        "confirmation",
+        "receipt",
+        "success",
+        "delivery timeline",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-success-receipt.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-success-receipt.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-payment-failed",
+      "type": "registry:component",
+      "title": "Checkout Payment Failed",
+      "description": "A declined payment screen that explains the reason and offers three ways forward: retry the same card, enter another card, or pay by bank transfer with copyable sample details. A support card sits alongside with the order reference.",
+      "categories": [
+        "checkout",
+        "checkout",
+        "declined",
+        "error state",
+        "recovery",
+        "bank transfer",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-payment-failed.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-payment-failed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-billing-settings",
+      "type": "registry:component",
+      "title": "Checkout Billing Settings",
+      "description": "A light billing settings page with the current plan, saved payment methods that can be made default or removed after an inline confirm, billing email and tax ID fields with format checks, usage meters and the next invoice.",
+      "categories": [
+        "checkout",
+        "billing",
+        "settings",
+        "payment methods",
+        "usage meter",
+        "tax id",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-billing-settings.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-billing-settings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-invoice-history",
+      "type": "registry:component",
+      "title": "Checkout Invoice History",
+      "description": "Invoice history with counting totals, an upcoming invoice card, status filters, search and a year select over a table with status pills and download buttons. The table turns into stacked rows in narrow containers and exports to CSV locally.",
+      "categories": [
+        "checkout",
+        "billing",
+        "invoices",
+        "table",
+        "filters",
+        "csv export",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-invoice-history.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-invoice-history.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkout-pricing-modal",
+      "type": "registry:component",
+      "title": "Checkout Pricing Modal",
+      "description": "Plan cards inside a dialog over a dimmed app, with a monthly and yearly switch, prices that roll on change and a summary bar with Continue. Focus is trapped while open, Escape and the backdrop close it, and focus returns to the Upgrade button.",
+      "categories": [
+        "checkout",
+        "pricing",
+        "modal",
+        "dialog",
+        "plans",
+        "focus trap",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkout-pricing-modal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkout-pricing-modal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "like-heart-fill",
+      "type": "registry:component",
+      "title": "Like Heart Fill",
+      "description": "A heart button that fills with a rolling liquid wave, pulses two rings and rolls its count to the new value.",
+      "categories": [
+        "social",
+        "like",
+        "heart",
+        "liquid",
+        "wave",
+        "counter",
+        "favorite"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/like-heart-fill.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/like-heart-fill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "like-thumbs-pop",
+      "type": "registry:component",
+      "title": "Like Thumbs Pop",
+      "description": "A thumbs-up that tilts back, pops forward and throws a fan of spark lines, with a rolling like count beside it.",
+      "categories": [
+        "social",
+        "like",
+        "thumbs",
+        "button",
+        "sparks",
+        "counter",
+        "reaction"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/like-thumbs-pop.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/like-thumbs-pop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "like-reaction-picker",
+      "type": "registry:component",
+      "title": "Like Reaction Picker",
+      "description": "A react button that opens a row of five face reactions on click or press and hold. The hovered face scales up and the choice replaces the button label.",
+      "categories": [
+        "social",
+        "reaction",
+        "picker",
+        "emoji",
+        "faces",
+        "like",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/like-reaction-picker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/like-reaction-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "like-star-favorite",
+      "type": "registry:component",
+      "title": "Like Star Favorite",
+      "description": "A star toggle that spins, sprays a burst of tiny stars and shows an Added to favorites chip that fades on its own.",
+      "categories": [
+        "social",
+        "favorite",
+        "star",
+        "toggle",
+        "toast",
+        "particles",
+        "bookmark"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/like-star-favorite.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/like-star-favorite.tsx"
+        }
+      ]
+    },
+    {
+      "name": "like-bookmark",
+      "type": "registry:component",
+      "title": "Like Bookmark",
+      "description": "A bookmark ribbon that drops into a tray with a bounce and a squash, next to a rolling saved counter.",
+      "categories": [
+        "social",
+        "bookmark",
+        "save",
+        "tray",
+        "counter",
+        "reading list",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/like-bookmark.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/like-bookmark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "follow-button",
+      "type": "registry:component",
+      "title": "Follow Button",
+      "description": "A pill that morphs its width between Follow, Following and Unfollow on hover, with a check that draws itself.",
+      "categories": [
+        "social",
+        "follow",
+        "button",
+        "morph",
+        "profile",
+        "subscribe",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/follow-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/follow-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "vote-arrows",
+      "type": "registry:component",
+      "title": "Vote Arrows",
+      "description": "An up and down vote pair with a rolling score, one active vote at a time and optimistic updates that roll back when onVote rejects.",
+      "categories": [
+        "social",
+        "vote",
+        "upvote",
+        "score",
+        "optimistic",
+        "forum",
+        "arrows"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/vote-arrows.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/vote-arrows.tsx"
+        }
+      ]
+    },
+    {
+      "name": "share-popover",
+      "type": "registry:component",
+      "title": "Share Popover",
+      "description": "A share button that opens an anchored popover with a link field, a copy button that confirms and four generic channels. Escape and outside click close it.",
+      "categories": [
+        "social",
+        "share",
+        "popover",
+        "copy link",
+        "clipboard",
+        "menu",
+        "channels"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/share-popover.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/share-popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "share-sheet",
+      "type": "registry:component",
+      "title": "Share Sheet",
+      "description": "A bottom sheet with a scrim, a drag handle, a channel grid and a copy link row. It lives in its own frame, closes on drag down, scrim click or Escape.",
+      "categories": [
+        "social",
+        "share",
+        "sheet",
+        "bottom sheet",
+        "drag",
+        "mobile",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/share-sheet.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/share-sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "share-floating-rail",
+      "type": "registry:component",
+      "title": "Share Floating Rail",
+      "description": "A round share trigger that fans a vertical rail of icon buttons out with a staggered spring. Each button shows a tooltip on hover or focus.",
+      "categories": [
+        "social",
+        "share",
+        "floating",
+        "rail",
+        "fab",
+        "tooltip",
+        "stagger"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/share-floating-rail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/share-floating-rail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-card-preview",
+      "type": "registry:component",
+      "title": "Pay Card Preview",
+      "description": "A payment card that shows live number, name and expiry, and flips in 3D to the back when the CVC field is focused.",
+      "categories": [
+        "payments",
+        "card",
+        "payment",
+        "credit card",
+        "flip",
+        "checkout",
+        "3d"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-card-preview.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-card-preview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-card-form",
+      "type": "registry:component",
+      "title": "Pay Card Form",
+      "description": "A card entry form with grouped number formatting, a Luhn check, brand detection, expiry validation and a live card preview. It never sends data anywhere.",
+      "categories": [
+        "payments",
+        "card",
+        "form",
+        "payment",
+        "luhn",
+        "validation",
+        "checkout"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-card-form.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-card-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-method-picker",
+      "type": "registry:component",
+      "title": "Pay Method Picker",
+      "description": "A radio list of payment methods with a highlight that slides to the selection and a detail panel that expands under it.",
+      "categories": [
+        "payments",
+        "payment",
+        "method",
+        "radio",
+        "picker",
+        "checkout",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-method-picker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-method-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-success-check",
+      "type": "registry:component",
+      "title": "Pay Success Check",
+      "description": "A payment success state where a ring draws, a check strokes in, dots burst outward and the amount and reference fade up.",
+      "categories": [
+        "payments",
+        "success",
+        "payment",
+        "check",
+        "confirmation",
+        "confetti",
+        "animation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-success-check.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-success-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-failed-retry",
+      "type": "registry:component",
+      "title": "Pay Failed Retry",
+      "description": "A payment failure state with a shaking x mark, an error message, reason chips and Retry and Change method buttons.",
+      "categories": [
+        "payments",
+        "failed",
+        "error",
+        "payment",
+        "retry",
+        "declined",
+        "shake"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-failed-retry.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-failed-retry.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-slide-to-pay",
+      "type": "registry:component",
+      "title": "Pay Slide To Pay",
+      "description": "A slide to confirm control. The track fills as you drag, the handle turns into a check, and Enter or the arrow keys work too.",
+      "categories": [
+        "payments",
+        "slide",
+        "confirm",
+        "payment",
+        "swipe",
+        "drag",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-slide-to-pay.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-slide-to-pay.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-order-summary",
+      "type": "registry:component",
+      "title": "Pay Order Summary",
+      "description": "Line items with quantity steppers, subtotal, discount, tax and total. Amounts roll when they change and the list folds on narrow containers.",
+      "categories": [
+        "payments",
+        "order",
+        "summary",
+        "cart",
+        "checkout",
+        "total",
+        "quantity"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-order-summary.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-order-summary.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-tip-selector",
+      "type": "registry:component",
+      "title": "Pay Tip Selector",
+      "description": "Tip percentage chips with the amount under each one, a custom amount field, and a total that rolls to the new value.",
+      "categories": [
+        "payments",
+        "tip",
+        "gratuity",
+        "checkout",
+        "chips",
+        "payment",
+        "total"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-tip-selector.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-tip-selector.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-coupon-field",
+      "type": "registry:component",
+      "title": "Pay Coupon Field",
+      "description": "A coupon input with Apply, loading, valid and invalid states. A valid code turns into a removable chip with the saving; an invalid one shakes.",
+      "categories": [
+        "payments",
+        "coupon",
+        "promo",
+        "discount",
+        "code",
+        "input",
+        "checkout"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-coupon-field.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-coupon-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-subscription-toggle",
+      "type": "registry:component",
+      "title": "Pay Subscription Toggle",
+      "description": "A plan card with a monthly and yearly switch. A pill slides between the two, the price rolls to the new figure and a savings badge pops in.",
+      "categories": [
+        "payments",
+        "subscription",
+        "pricing",
+        "toggle",
+        "yearly",
+        "plan",
+        "billing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-subscription-toggle.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-subscription-toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-invoice-card",
+      "type": "registry:component",
+      "title": "Pay Invoice Card",
+      "description": "An invoice summary with a Paid, Due or Overdue status pill, line items, download and pay buttons, and a perforated bottom edge.",
+      "categories": [
+        "payments",
+        "invoice",
+        "billing",
+        "receipt",
+        "status",
+        "payment",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-invoice-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-invoice-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pay-wallet-balance",
+      "type": "registry:component",
+      "title": "Pay Wallet Balance",
+      "description": "A wallet card with a counting balance, quick top-up amounts, recent activity and an eye button that blurs the figures.",
+      "categories": [
+        "payments",
+        "wallet",
+        "balance",
+        "top up",
+        "activity",
+        "privacy",
+        "fintech"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pay-wallet-balance.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pay-wallet-balance.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-glass-card",
+      "type": "registry:component",
+      "title": "Login Glass Card",
+      "description": "A frosted sign-in card floating over a slowly drifting mesh gradient and glassy orbs, with provider buttons, email and password fields, validation and a success state.",
+      "categories": [
+        "auth",
+        "login",
+        "glassmorphism",
+        "mesh gradient",
+        "sign in",
+        "form",
+        "social login"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-glass-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-glass-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-passkey",
+      "type": "registry:component",
+      "title": "Login Passkey",
+      "description": "A passkey-first sign-in with a large fingerprint that traces its ridges while a scan line sweeps, a Use passkey button with waiting and success states, and a password form that expands smoothly as a fallback.",
+      "categories": [
+        "auth",
+        "login",
+        "passkey",
+        "webauthn",
+        "passwordless",
+        "fingerprint",
+        "biometric"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-passkey.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-passkey.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-social-first",
+      "type": "registry:component",
+      "title": "Login Social First",
+      "description": "A light sign-in page that leads with a grid of provider buttons with generic glyphs and a Last used badge, then an email and password form below a divider.",
+      "categories": [
+        "auth",
+        "login",
+        "social login",
+        "oauth",
+        "light",
+        "providers",
+        "sso"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-social-first.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-social-first.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-minimal-line",
+      "type": "registry:component",
+      "title": "Login Minimal Line",
+      "description": "An ultra-minimal sign-in on warm paper: a large serif greeting whose words rise in, underline fields with floating labels that draw an ink line on focus, and a pill submit button.",
+      "categories": [
+        "auth",
+        "login",
+        "minimal",
+        "serif",
+        "light",
+        "underline",
+        "editorial"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-minimal-line.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-minimal-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-forgot-password",
+      "type": "registry:component",
+      "title": "Login Forgot Password",
+      "description": "A forgot password card with an animated envelope: enter an email, and it opens to show the letter, masks the address and starts a resend countdown.",
+      "categories": [
+        "auth",
+        "forgot password",
+        "reset",
+        "email",
+        "countdown",
+        "auth",
+        "recovery"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-forgot-password.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-forgot-password.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-reset-password",
+      "type": "registry:component",
+      "title": "Login Reset Password",
+      "description": "A new password form with a four-segment strength meter, a rules checklist that ticks off as you type, a time-to-crack estimate, confirmation matching and a success state.",
+      "categories": [
+        "auth",
+        "reset password",
+        "strength meter",
+        "checklist",
+        "validation",
+        "auth",
+        "security"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-reset-password.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-reset-password.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-two-factor-choice",
+      "type": "registry:component",
+      "title": "Login Two-Factor Choice",
+      "description": "A two-step verification screen with method radio cards for authenticator app, text message and security key, a step tracker, and a second step that shows the matching code input or key prompt.",
+      "categories": [
+        "auth",
+        "2fa",
+        "two-factor",
+        "mfa",
+        "security key",
+        "radio cards",
+        "verification"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-two-factor-choice.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-two-factor-choice.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-account-chooser",
+      "type": "registry:component",
+      "title": "Login Account Chooser",
+      "description": "A choose-an-account screen with gradient avatars, workspace badges and signed-in dots, full arrow key navigation, a remembered device chip, a Use another account row and a remove mode.",
+      "categories": [
+        "auth",
+        "account chooser",
+        "accounts",
+        "listbox",
+        "keyboard",
+        "login",
+        "switcher"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-account-chooser.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-account-chooser.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-terminal",
+      "type": "registry:component",
+      "title": "Login Terminal",
+      "description": "A developer sign-in told as a terminal session: prompt lines type in, a one-time device code appears with a copy button, a pulsing waiting line counts down to expiry, plus a token form for headless machines.",
+      "categories": [
+        "auth",
+        "cli",
+        "terminal",
+        "device code",
+        "developer",
+        "login",
+        "token"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-terminal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-terminal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-onboarding-profile",
+      "type": "registry:component",
+      "title": "Login Onboarding Profile",
+      "description": "A first-run profile setup in three steps with a progress bar: gradient avatar picker and name, a role chip, interest chips with a minimum, a live profile preview and a confetti finish.",
+      "categories": [
+        "auth",
+        "onboarding",
+        "profile",
+        "wizard",
+        "chips",
+        "avatar",
+        "first run"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/login-onboarding-profile.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/login-onboarding-profile.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-glare",
+      "type": "registry:component",
+      "title": "Card Glare",
+      "description": "A poster card that tilts slightly toward the pointer while a specular band and a lit edge slide across its surface.",
+      "categories": [
+        "components",
+        "card",
+        "glare",
+        "tilt",
+        "pointer",
+        "shine",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-glare.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-glare.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-profile-holo",
+      "type": "registry:component",
+      "title": "Profile Holo",
+      "description": "A profile card with a foil layer whose rainbow shifts with the pointer angle, an initials avatar and a stats row.",
+      "categories": [
+        "components",
+        "card",
+        "profile",
+        "holographic",
+        "foil",
+        "avatar",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-profile-holo.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-profile-holo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-pixel-hover",
+      "type": "registry:component",
+      "title": "Pixel Hover",
+      "description": "A canvas card whose picture breaks into a grid of pixels in a wave that starts where the pointer enters, then reforms on leave.",
+      "categories": [
+        "components",
+        "card",
+        "pixel",
+        "canvas",
+        "dissolve",
+        "wave",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-pixel-hover.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-pixel-hover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-decay",
+      "type": "registry:component",
+      "title": "Card Decay",
+      "description": "A card whose image follows the pointer on a spring and swings with its speed, while a large title and an outlined echo trail behind it.",
+      "categories": [
+        "components",
+        "card",
+        "spring",
+        "inertia",
+        "parallax",
+        "title",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-decay.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-decay.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-sticker-peel",
+      "type": "registry:component",
+      "title": "Sticker Peel",
+      "description": "A die-cut sticker on its backing sheet. Drag to peel a corner and reveal the backing, click or press Enter to peel or reset.",
+      "categories": [
+        "components",
+        "sticker",
+        "peel",
+        "drag",
+        "card",
+        "fold",
+        "clip-path"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-sticker-peel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-sticker-peel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-bounce-stack",
+      "type": "registry:component",
+      "title": "Bounce Stack",
+      "description": "A tight pile of rotated cards that fans out with an overshooting bounce on hover or focus and settles back on leave.",
+      "categories": [
+        "components",
+        "cards",
+        "stack",
+        "fan",
+        "bounce",
+        "spring",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-bounce-stack.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-bounce-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-chroma-grid",
+      "type": "registry:component",
+      "title": "Chroma Grid",
+      "description": "A grid of cards that stays grayscale except under a soft spotlight that follows the pointer, where each card lights up in its own accent.",
+      "categories": [
+        "components",
+        "grid",
+        "cards",
+        "spotlight",
+        "grayscale",
+        "color",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-chroma-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-chroma-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-accordion",
+      "type": "registry:component",
+      "title": "Gallery Accordion",
+      "description": "A row of image panels where the hovered or focused one grows wide and the rest fold into slim strips with vertical labels.",
+      "categories": [
+        "components",
+        "gallery",
+        "accordion",
+        "panels",
+        "horizontal",
+        "hover",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-accordion.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-drift-wall",
+      "type": "registry:component",
+      "title": "Drift Wall",
+      "description": "A wall of tiles in columns that drift against the pointer at different depths, with the hovered tile lifting forward.",
+      "categories": [
+        "components",
+        "gallery",
+        "wall",
+        "parallax",
+        "tiles",
+        "depth",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-drift-wall.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-drift-wall.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-stack-drag",
+      "type": "registry:component",
+      "title": "Stack Drag",
+      "description": "A deck of cards where you drag or flick the top card away with momentum and it drops to the back. Arrow keys cycle too.",
+      "categories": [
+        "components",
+        "cards",
+        "stack",
+        "drag",
+        "flick",
+        "swipe",
+        "deck"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-stack-drag.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-stack-drag.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress-bar",
+      "type": "registry:component",
+      "title": "Scroll Progress Bar",
+      "description": "A thin gradient bar pinned to the top of the page or a container, with a percentage chip that rides its head.",
+      "categories": [
+        "motion",
+        "scroll",
+        "progress",
+        "reading",
+        "bar",
+        "indicator",
+        "percentage"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-progress-bar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-progress-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-parallax-layers",
+      "type": "registry:component",
+      "title": "Scroll Parallax Layers",
+      "description": "A dusk scene built from three SVG layers (sky, hills, pines) that drift at different speeds as it crosses the viewport.",
+      "categories": [
+        "motion",
+        "scroll",
+        "parallax",
+        "layers",
+        "svg",
+        "scene",
+        "depth"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-parallax-layers.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-parallax-layers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-pin-steps",
+      "type": "registry:component",
+      "title": "Scroll Pin Steps",
+      "description": "A pinned stage that swaps its content step by step as you scroll, with clickable step dots and a progress line.",
+      "categories": [
+        "motion",
+        "scroll",
+        "pinned",
+        "sticky",
+        "steps",
+        "storytelling",
+        "stepper"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-pin-steps.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-pin-steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-stagger-grid",
+      "type": "registry:component",
+      "title": "Scroll Stagger Grid",
+      "description": "A grid of tiles that fly in one after another from alternating directions as it scrolls into view, and fly back out in reverse.",
+      "categories": [
+        "motion",
+        "scroll",
+        "grid",
+        "stagger",
+        "reveal",
+        "tiles",
+        "gallery"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-stagger-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-stagger-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-zoom-reveal",
+      "type": "registry:component",
+      "title": "Scroll Zoom Reveal",
+      "description": "A small framed image that grows to fill the whole stage while the headline fades away. A caption fades in at the end.",
+      "categories": [
+        "motion",
+        "scroll",
+        "zoom",
+        "reveal",
+        "image",
+        "pinned",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-zoom-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-zoom-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-horizontal-track",
+      "type": "registry:component",
+      "title": "Scroll Horizontal Track",
+      "description": "A pinned section where vertical scrolling slides a strip of cards sideways, with a progress rail and a card counter.",
+      "categories": [
+        "motion",
+        "scroll",
+        "horizontal",
+        "pinned",
+        "cards",
+        "carousel",
+        "gallery"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-horizontal-track.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-horizontal-track.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-counter-ticker",
+      "type": "registry:component",
+      "title": "Scroll Counter Ticker",
+      "description": "A pinned section with a big odometer whose value is tied to scroll progress. Digits roll vertically and carry over like a real counter.",
+      "categories": [
+        "motion",
+        "scroll",
+        "counter",
+        "odometer",
+        "number",
+        "stats",
+        "ticker"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-counter-ticker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-counter-ticker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-sticky-stack",
+      "type": "registry:component",
+      "title": "Scroll Sticky Stack",
+      "description": "Cards that stick to the top and pile on each other. Each card shrinks and dims a little as the next one slides over it.",
+      "categories": [
+        "motion",
+        "scroll",
+        "sticky",
+        "stack",
+        "cards",
+        "layers",
+        "process"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-sticky-stack.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-sticky-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-wipe-slider",
+      "type": "registry:component",
+      "title": "Image Wipe Slider",
+      "description": "A slideshow where each photo takes over with a diagonal, soft-edged wipe. Includes arrows, dots, auto-advance and keyboard control.",
+      "categories": [
+        "transitions",
+        "image",
+        "slider",
+        "wipe",
+        "mask",
+        "carousel",
+        "gallery"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-wipe-slider.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-wipe-slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-mosaic-reveal",
+      "type": "registry:component",
+      "title": "Image Mosaic Reveal",
+      "description": "The next photo appears tile by tile in a fixed shuffled order, each tile popping in over the previous image.",
+      "categories": [
+        "transitions",
+        "image",
+        "mosaic",
+        "tiles",
+        "reveal",
+        "grid",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-mosaic-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-mosaic-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-liquid-distort",
+      "type": "registry:component",
+      "title": "Image Liquid Distort",
+      "description": "A photo that ripples like water through an SVG turbulence filter. The warp swells on hover and focus and spikes when the slide changes.",
+      "categories": [
+        "transitions",
+        "image",
+        "liquid",
+        "distort",
+        "svg-filter",
+        "hover",
+        "ripple"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-liquid-distort.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-liquid-distort.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-pixelate-transition",
+      "type": "registry:component",
+      "title": "Image Pixelate Transition",
+      "description": "A canvas transition that pixelates the current photo into coarse blocks, swaps to the next at the peak and resolves it back to sharp.",
+      "categories": [
+        "transitions",
+        "image",
+        "pixelate",
+        "canvas",
+        "retro",
+        "transition",
+        "slideshow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-pixelate-transition.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-pixelate-transition.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-split-slide",
+      "type": "registry:component",
+      "title": "Image Split Slide",
+      "description": "The current photo splits down the middle and the two halves slide apart to uncover the next one, which settles in from a slight zoom.",
+      "categories": [
+        "transitions",
+        "image",
+        "split",
+        "slide",
+        "halves",
+        "reveal",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-split-slide.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-split-slide.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-parallax-tilt",
+      "type": "registry:component",
+      "title": "Image Parallax Tilt",
+      "description": "A photo that tilts in 3D toward the pointer while its background, middle and foreground layers drift at different depths, with a moving glare. It sways on its own until touched.",
+      "categories": [
+        "transitions",
+        "image",
+        "parallax",
+        "tilt",
+        "3d",
+        "pointer",
+        "glare"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-parallax-tilt.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-parallax-tilt.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-ken-burns",
+      "type": "registry:component",
+      "title": "Image Ken Burns",
+      "description": "A story-style slideshow with slow zoom and pan on every photo, crossfades, segmented progress bars and tap zones for previous and next.",
+      "categories": [
+        "transitions",
+        "image",
+        "ken-burns",
+        "stories",
+        "zoom",
+        "slideshow",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-ken-burns.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-ken-burns.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-gallery-expand",
+      "type": "registry:component",
+      "title": "Image Gallery Expand",
+      "description": "A row of narrow image strips where the hovered or focused strip widens to reveal its caption. Click or press Enter to select one.",
+      "categories": [
+        "transitions",
+        "image",
+        "gallery",
+        "accordion",
+        "expand",
+        "strips",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-gallery-expand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-gallery-expand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-stack-swipe",
+      "type": "registry:component",
+      "title": "Image Stack Swipe",
+      "description": "A stack of photo cards. Drag the top one away with a tilt, or use the arrow keys, to reveal the next card underneath.",
+      "categories": [
+        "transitions",
+        "image",
+        "stack",
+        "swipe",
+        "cards",
+        "drag",
+        "gesture"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-stack-swipe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-stack-swipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-hover-zoom-lens",
+      "type": "registry:component",
+      "title": "Image Hover Zoom Lens",
+      "description": "A round magnifier that follows the pointer and shows the photo enlarged. It drifts along its own path until the pointer arrives and can be moved with the arrow keys.",
+      "categories": [
+        "transitions",
+        "image",
+        "zoom",
+        "lens",
+        "magnifier",
+        "hover",
+        "inspect"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-hover-zoom-lens.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-hover-zoom-lens.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-theme-switch",
+      "type": "registry:component",
+      "title": "Theme Switch",
+      "description": "A sun and moon switch. The thumb morphs between a rayed sun and a crescent while clouds drift out and stars twinkle in.",
+      "categories": [
+        "micro",
+        "toggle",
+        "switch",
+        "theme",
+        "dark mode",
+        "sun",
+        "moon"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/toggle-theme-switch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/toggle-theme-switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-gooey",
+      "type": "registry:component",
+      "title": "Gooey Toggle",
+      "description": "A pill toggle whose thumb stretches like liquid as it travels, built from two blobs merged by an SVG gooey filter.",
+      "categories": [
+        "micro",
+        "toggle",
+        "switch",
+        "gooey",
+        "liquid",
+        "svg filter",
+        "settings"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/toggle-gooey.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/toggle-gooey.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-draw",
+      "type": "registry:component",
+      "title": "Drawn Checkbox",
+      "description": "A checkbox that pops, fills and draws its check with a stroke. It also supports an indeterminate dash for select-all patterns.",
+      "categories": [
+        "micro",
+        "checkbox",
+        "check",
+        "indeterminate",
+        "stroke",
+        "form",
+        "select all"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/checkbox-draw.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/checkbox-draw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio-card-group",
+      "type": "registry:component",
+      "title": "Radio Card Group",
+      "description": "Selectable cards backed by native radios. A highlight slides to the chosen card and the radio dot springs in. Arrow keys move the selection.",
+      "categories": [
+        "micro",
+        "radio",
+        "cards",
+        "select",
+        "plan",
+        "form",
+        "highlight"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/radio-card-group.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/radio-card-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-floating-label",
+      "type": "registry:component",
+      "title": "Floating Label Input",
+      "description": "A text field whose label floats up on focus or when filled, with an animated focus line and error and success states.",
+      "categories": [
+        "micro",
+        "input",
+        "floating label",
+        "form",
+        "validation",
+        "text field",
+        "focus"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-floating-label.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-floating-label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-password-strength",
+      "type": "registry:component",
+      "title": "Password Strength Input",
+      "description": "A password field with a show and hide button, a four segment strength bar and a checklist of rules that tick as they are met.",
+      "categories": [
+        "micro",
+        "password",
+        "input",
+        "strength",
+        "validation",
+        "show hide",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-password-strength.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-password-strength.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-tags",
+      "type": "registry:component",
+      "title": "Tags Input",
+      "description": "A tag field. Enter or comma adds a chip, Backspace removes the last one, and chips scale in and out. Supports a maximum count.",
+      "categories": [
+        "micro",
+        "tags",
+        "chips",
+        "input",
+        "form",
+        "multi value",
+        "keywords"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-tags.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-tags.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider-range-dual",
+      "type": "registry:component",
+      "title": "Dual Range Slider",
+      "description": "A two thumb range slider with a filled track, value bubbles, a minimum gap, pointer dragging and full keyboard control.",
+      "categories": [
+        "micro",
+        "slider",
+        "range",
+        "dual",
+        "filter",
+        "price",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/slider-range-dual.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/slider-range-dual.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stepper-number",
+      "type": "registry:component",
+      "title": "Number Stepper",
+      "description": "A quantity stepper with plus and minus buttons, digits that roll like an odometer and hold to repeat with acceleration.",
+      "categories": [
+        "micro",
+        "stepper",
+        "quantity",
+        "number",
+        "counter",
+        "input",
+        "cart"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stepper-number.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stepper-number.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-command",
+      "type": "registry:component",
+      "title": "Command Select",
+      "description": "A searchable select. Type to filter with highlighted matches, move with the arrow keys, group options and close with Escape.",
+      "categories": [
+        "micro",
+        "select",
+        "combobox",
+        "search",
+        "listbox",
+        "dropdown",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/select-command.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/select-command.tsx"
+        }
+      ]
+    },
+    {
+      "name": "otp-input-inline",
+      "type": "registry:component",
+      "title": "Inline Code Input",
+      "description": "A compact one line code field built on a single real input, with a blinking caret, pop-in characters and full paste support.",
+      "categories": [
+        "micro",
+        "otp",
+        "code",
+        "verification",
+        "input",
+        "pin",
+        "paste"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/otp-input-inline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/otp-input-inline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-target",
+      "type": "registry:component",
+      "title": "Cursor Target",
+      "description": "A lock-on reticle with four corner brackets and a rotating dashed ring. It follows the pointer and shrinks onto buttons and links when you hover or tab to them.",
+      "categories": [
+        "hover",
+        "cursor",
+        "reticle",
+        "lock-on",
+        "hover",
+        "focus",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-target.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-target.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-ghost",
+      "type": "registry:component",
+      "title": "Cursor Ghost",
+      "description": "A faint ghost that trails the pointer on a spring, leans into its motion, looks where it is going and leaves a fading afterimage.",
+      "categories": [
+        "hover",
+        "cursor",
+        "ghost",
+        "spring",
+        "follower",
+        "afterimage",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-ghost.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-ghost.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-swarm",
+      "type": "registry:component",
+      "title": "Cursor Swarm",
+      "description": "A flock of small arrow points that steer toward the pointer, keep their distance from each other and circle it like starlings.",
+      "categories": [
+        "hover",
+        "cursor",
+        "swarm",
+        "boids",
+        "flock",
+        "particles",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-swarm.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-swarm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-fluid-splash",
+      "type": "registry:component",
+      "title": "Cursor Fluid Splash",
+      "description": "Colorful blobs pour out along the pointer path, carry its velocity, swirl in a soft flow field and fade into streaks.",
+      "categories": [
+        "hover",
+        "cursor",
+        "fluid",
+        "splash",
+        "paint",
+        "color",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-fluid-splash.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-fluid-splash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-ribbons",
+      "type": "registry:component",
+      "title": "Cursor Ribbons",
+      "description": "Several glowing ribbons chase the pointer through spring-chained segments, taper to a point and blend where they cross.",
+      "categories": [
+        "hover",
+        "cursor",
+        "ribbons",
+        "trail",
+        "spring",
+        "glow",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-ribbons.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-ribbons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-metaballs",
+      "type": "registry:component",
+      "title": "Cursor Metaballs",
+      "description": "A gooey blob follows the pointer while smaller blobs orbit it, stretch away and melt back in through an SVG goo filter.",
+      "categories": [
+        "hover",
+        "cursor",
+        "metaballs",
+        "goo",
+        "blob",
+        "svg",
+        "liquid"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-metaballs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-metaballs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-pixel-trail",
+      "type": "registry:component",
+      "title": "Cursor Pixel Trail",
+      "description": "Cells on a pixel grid light up under the pointer and fade out in hard steps, like an old LED matrix.",
+      "categories": [
+        "hover",
+        "cursor",
+        "pixel",
+        "grid",
+        "trail",
+        "retro",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-pixel-trail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-pixel-trail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-image-trail",
+      "type": "registry:component",
+      "title": "Cursor Image Trail",
+      "description": "Small photo tiles drop along the pointer path every few dozen pixels, then tilt, drift away and fade.",
+      "categories": [
+        "hover",
+        "cursor",
+        "image",
+        "trail",
+        "gallery",
+        "portfolio",
+        "photos"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-image-trail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-image-trail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-crosshair",
+      "type": "registry:component",
+      "title": "Cursor Crosshair",
+      "description": "Full-width dashed guide lines follow the pointer with X and Y readout chips and a dot that snaps to a grid, like a design tool ruler.",
+      "categories": [
+        "hover",
+        "cursor",
+        "crosshair",
+        "guides",
+        "coordinates",
+        "grid",
+        "technical"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-crosshair.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-crosshair.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-glare-grid",
+      "type": "registry:component",
+      "title": "Cursor Glare Grid",
+      "description": "A field of tiny needles turns to face the pointer like compasses, growing and lighting up the closer they are.",
+      "categories": [
+        "hover",
+        "cursor",
+        "grid",
+        "needles",
+        "compass",
+        "field",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-glare-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-glare-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-pressure",
+      "type": "registry:component",
+      "title": "Text Pressure",
+      "description": "Every letter swells in weight and size as the pointer gets close, with a slow breathing wave when nothing is touching it.",
+      "categories": [
+        "text",
+        "text",
+        "variable font",
+        "weight",
+        "pointer",
+        "hover",
+        "typography"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-pressure.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-pressure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-scramble-hover",
+      "type": "registry:component",
+      "title": "Text Scramble Hover",
+      "description": "Letters near the pointer flip to random glyphs and settle back one by one once it moves away.",
+      "categories": [
+        "text",
+        "text",
+        "scramble",
+        "hover",
+        "glyphs",
+        "terminal",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-scramble-hover.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-scramble-hover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-warp",
+      "type": "registry:component",
+      "title": "Text Warp",
+      "description": "A lens follows the pointer and bends the line: letters shove aside, grow and tilt with a smooth falloff.",
+      "categories": [
+        "text",
+        "text",
+        "warp",
+        "lens",
+        "pointer",
+        "distortion",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-warp.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-warp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-fuzzy",
+      "type": "registry:component",
+      "title": "Text Fuzzy",
+      "description": "Text with a flickering noise displacement, like a worn signal, that grows rougher while hovered or focused.",
+      "categories": [
+        "text",
+        "text",
+        "fuzzy",
+        "noise",
+        "svg filter",
+        "static",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-fuzzy.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-fuzzy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-mask-reveal",
+      "type": "registry:component",
+      "title": "Text Mask Reveal",
+      "description": "Lines or words slide up out of an invisible mask with a stagger when the block scrolls into view.",
+      "categories": [
+        "text",
+        "text",
+        "reveal",
+        "mask",
+        "scroll",
+        "headline",
+        "stagger"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-mask-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-mask-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-highlight-marker",
+      "type": "registry:component",
+      "title": "Text Highlight Marker",
+      "description": "Chosen words get a hand-drawn marker stroke that sweeps across them one after another.",
+      "categories": [
+        "text",
+        "text",
+        "highlight",
+        "marker",
+        "scroll",
+        "emphasis",
+        "paragraph"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-highlight-marker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-highlight-marker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-underline-draw",
+      "type": "registry:component",
+      "title": "Text Underline Draw",
+      "description": "A wavy or straight underline that draws itself under the text on hover, focus or when it scrolls into view.",
+      "categories": [
+        "text",
+        "text",
+        "underline",
+        "link",
+        "wavy",
+        "hover",
+        "draw"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-underline-draw.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-underline-draw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-odometer",
+      "type": "registry:component",
+      "title": "Text Odometer",
+      "description": "Each digit rolls vertically to its new value like a mechanical counter, with separators and symbols left in place.",
+      "categories": [
+        "text",
+        "text",
+        "odometer",
+        "counter",
+        "number",
+        "rolling",
+        "stats"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-odometer.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-odometer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-flip-words",
+      "type": "registry:component",
+      "title": "Text Flip Words",
+      "description": "A sentence with one slot that flips through a list of words in 3D while the line resizes to fit each one.",
+      "categories": [
+        "text",
+        "text",
+        "flip",
+        "words",
+        "rotating",
+        "headline",
+        "3d"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-flip-words.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-flip-words.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-fill-scroll",
+      "type": "registry:component",
+      "title": "Text Fill Scroll",
+      "description": "A paragraph that fills with color word by word, left to right, as it scrolls through the viewport.",
+      "categories": [
+        "text",
+        "text",
+        "scroll",
+        "fill",
+        "progress",
+        "manifesto",
+        "reading"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-fill-scroll.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-fill-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-3d-extrude",
+      "type": "registry:component",
+      "title": "Text 3D Extrude",
+      "description": "Text built from a stack of shifted layers that forms a solid extrusion and tilts with the pointer.",
+      "categories": [
+        "text",
+        "text",
+        "3d",
+        "extrude",
+        "tilt",
+        "pointer",
+        "depth"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-3d-extrude.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-3d-extrude.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-liquid-gradient",
+      "type": "registry:component",
+      "title": "Text Liquid Gradient",
+      "description": "Text filled with soft color blobs that drift through each other, over a blurred glow of the same colors.",
+      "categories": [
+        "text",
+        "text",
+        "gradient",
+        "liquid",
+        "glow",
+        "blob",
+        "animated"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-liquid-gradient.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-liquid-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-grid-distortion",
+      "type": "registry:component",
+      "title": "Grid Distortion",
+      "description": "A fine line grid that bulges around the pointer like a magnifying lens, with a soft accent glow where it bends. Drifts on its own until the pointer arrives.",
+      "categories": [
+        "overlay",
+        "background",
+        "grid",
+        "lens",
+        "pointer",
+        "canvas",
+        "distortion"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-grid-distortion.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-grid-distortion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-magnet-lines",
+      "type": "registry:component",
+      "title": "Magnet Lines",
+      "description": "A field of short strokes that turn to face the pointer like iron filings around a magnet. Without a pointer they follow a slow swirl.",
+      "categories": [
+        "overlay",
+        "background",
+        "magnet",
+        "lines",
+        "pointer",
+        "canvas",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-magnet-lines.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-magnet-lines.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-dot-field",
+      "type": "registry:component",
+      "title": "Dot Field",
+      "description": "A dense grid of dots that swell and scatter away from the pointer, then spring back into place with a little overshoot.",
+      "categories": [
+        "overlay",
+        "background",
+        "dots",
+        "spring",
+        "pointer",
+        "canvas",
+        "repel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-dot-field.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-dot-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-ripple-water",
+      "type": "registry:component",
+      "title": "Ripple Water",
+      "description": "A dark water surface where the pointer leaves trails of wavy rings and a click drops a stone. Raindrops fall on their own while nobody is touching it.",
+      "categories": [
+        "overlay",
+        "background",
+        "water",
+        "ripple",
+        "click",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-ripple-water.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-ripple-water.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-liquid-ether",
+      "type": "registry:component",
+      "title": "Liquid Ether",
+      "description": "Soft pastel clouds that drift on a slow current and get swept along by the speed and direction of the pointer, leaving a colored wake.",
+      "categories": [
+        "overlay",
+        "background",
+        "fluid",
+        "pastel",
+        "gradient",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-liquid-ether.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-liquid-ether.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-topography",
+      "type": "registry:component",
+      "title": "Topography",
+      "description": "Contour lines of a slowly shifting terrain, like a living survey map. The pointer raises a hill that pulls the lines into rings around it.",
+      "categories": [
+        "overlay",
+        "background",
+        "contour",
+        "map",
+        "terrain",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-topography.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-topography.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-light-tunnel",
+      "type": "registry:component",
+      "title": "Light Tunnel",
+      "description": "Glowing rounded frames fly out of the distance in an endless tunnel. The vanishing point leans toward the pointer.",
+      "categories": [
+        "overlay",
+        "background",
+        "tunnel",
+        "neon",
+        "perspective",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-light-tunnel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-light-tunnel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-glitch-letters",
+      "type": "registry:component",
+      "title": "Glitch Letters",
+      "description": "A wall of monospaced characters that keep flickering into new glyphs and colors, with short glitch bursts along a row. Letters brighten around the pointer.",
+      "categories": [
+        "overlay",
+        "background",
+        "letters",
+        "glitch",
+        "terminal",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-glitch-letters.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-glitch-letters.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-spotlight",
+      "type": "registry:component",
+      "title": "Button Spotlight",
+      "description": "A soft light follows the pointer across the face while the border brightens near the cursor. It drifts on its own until the pointer arrives.",
+      "categories": [
+        "buttons",
+        "button",
+        "spotlight",
+        "pointer",
+        "glow",
+        "hover",
+        "cursor"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-spotlight.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-slide-fill",
+      "type": "registry:component",
+      "title": "Button Slide Fill",
+      "description": "Color fills from the side the pointer enters and drains out through the side it leaves, with the label color inverting in sync.",
+      "categories": [
+        "buttons",
+        "button",
+        "fill",
+        "slide",
+        "hover",
+        "direction",
+        "invert"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-slide-fill.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-slide-fill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-glitch-hover",
+      "type": "registry:component",
+      "title": "Button Glitch Hover",
+      "description": "Chromatic slices of the label jitter on hover and keyboard focus, then snap clean when the pointer leaves. A brief glitch also fires now and then while idle.",
+      "categories": [
+        "buttons",
+        "button",
+        "glitch",
+        "chromatic",
+        "hover",
+        "cyber",
+        "retro"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-glitch-hover.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-glitch-hover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-3d-press",
+      "type": "registry:component",
+      "title": "Button 3D Press",
+      "description": "A chunky tactile button with a solid depth edge. It squashes flat on press and springs back with overshoot.",
+      "categories": [
+        "buttons",
+        "button",
+        "3d",
+        "press",
+        "tactile",
+        "spring",
+        "game"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-3d-press.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-3d-press.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-neon-pulse",
+      "type": "registry:component",
+      "title": "Button Neon Pulse",
+      "description": "A neon outline with a breathing glow that quickens on hover. Each click sends a ring ripple out from the pointer.",
+      "categories": [
+        "buttons",
+        "button",
+        "neon",
+        "glow",
+        "pulse",
+        "ripple",
+        "click"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-neon-pulse.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-neon-pulse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-arrow-reveal",
+      "type": "registry:component",
+      "title": "Button Arrow Reveal",
+      "description": "On hover the label slides left while an arrow slides in beside it. Clicking loops the arrow out the right edge and back in.",
+      "categories": [
+        "buttons",
+        "button",
+        "arrow",
+        "reveal",
+        "slide",
+        "cta",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-arrow-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-arrow-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-stateful",
+      "type": "registry:component",
+      "title": "Button Stateful",
+      "description": "Morphs from idle to loading to success and back. The width animates to fit each label and the check draws itself. Driven by a promise returned from onClick or by a status prop.",
+      "categories": [
+        "buttons",
+        "button",
+        "loading",
+        "success",
+        "async",
+        "morph",
+        "state"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-stateful.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-stateful.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-copy",
+      "type": "registry:component",
+      "title": "Button Copy",
+      "description": "Copies a string to the clipboard. The icon morphs into a check and the label swaps from Copy to Copied, then reverts after 1.6 seconds.",
+      "categories": [
+        "buttons",
+        "button",
+        "copy",
+        "clipboard",
+        "code",
+        "icon",
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-copy.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-copy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-download-progress",
+      "type": "registry:component",
+      "title": "Button Download Progress",
+      "description": "Click starts a simulated download. A fill bar and percentage run inside the button and it ends on Done with a drawn check.",
+      "categories": [
+        "buttons",
+        "button",
+        "download",
+        "progress",
+        "percent",
+        "loading",
+        "file"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-download-progress.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-download-progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-stacked-text",
+      "type": "registry:component",
+      "title": "Button Stacked Text",
+      "description": "The label is stacked above an alternate label. Hover rolls the letters upward one by one to reveal the second line.",
+      "categories": [
+        "buttons",
+        "button",
+        "text",
+        "roll",
+        "stagger",
+        "hover",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-stacked-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-stacked-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-orbit",
+      "type": "registry:component",
+      "title": "Loader Orbit",
+      "description": "Three glowing dots travel around concentric rings at different radii and speeds, with a beating core in the middle.",
+      "categories": [
+        "loaders",
+        "loader",
+        "spinner",
+        "orbit",
+        "dots",
+        "loading",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-orbit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-orbit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-wave-dots",
+      "type": "registry:component",
+      "title": "Loader Wave Dots",
+      "description": "A row of dots rides a sine wave while a color sweep runs through them from the first dot to the last.",
+      "categories": [
+        "loaders",
+        "loader",
+        "dots",
+        "wave",
+        "loading",
+        "search",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-wave-dots.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-wave-dots.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-equalizer",
+      "type": "registry:component",
+      "title": "Loader Equalizer",
+      "description": "Audio-style bars bounce out of phase with their own rhythm. Good for buffering, streaming and listening states.",
+      "categories": [
+        "loaders",
+        "loader",
+        "equalizer",
+        "audio",
+        "bars",
+        "music",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-equalizer.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-equalizer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-ring-gradient",
+      "type": "registry:component",
+      "title": "Loader Ring Gradient",
+      "description": "A conic gradient ring with a glowing head that spins while the whole ring breathes in and out.",
+      "categories": [
+        "loaders",
+        "loader",
+        "spinner",
+        "ring",
+        "gradient",
+        "loading",
+        "conic"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-ring-gradient.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-ring-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-progress-stripes",
+      "type": "registry:component",
+      "title": "Loader Progress Stripes",
+      "description": "A determinate progress bar with moving stripes, a soft glint at the leading edge and a tabular percentage.",
+      "categories": [
+        "loaders",
+        "loader",
+        "progress",
+        "bar",
+        "stripes",
+        "upload",
+        "percentage"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-progress-stripes.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-progress-stripes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-percentage",
+      "type": "registry:component",
+      "title": "Loader Percentage",
+      "description": "A large percentage counter inside an SVG ring that fills as it counts. Pass a value, or leave it out to run a looping demo.",
+      "categories": [
+        "loaders",
+        "loader",
+        "percentage",
+        "progress",
+        "ring",
+        "counter",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-percentage.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-percentage.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-morph-shapes",
+      "type": "registry:component",
+      "title": "Loader Morph Shapes",
+      "description": "A single gradient shape morphs from a circle to a rounded square to a triangle and back, turning as it goes.",
+      "categories": [
+        "loaders",
+        "loader",
+        "morph",
+        "shapes",
+        "clip-path",
+        "loading",
+        "geometry"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-morph-shapes.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-morph-shapes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-typing",
+      "type": "registry:component",
+      "title": "Loader Typing",
+      "description": "A chat typing indicator with three hopping dots in a bubble, plus an optional avatar and sender name.",
+      "categories": [
+        "loaders",
+        "loader",
+        "typing",
+        "chat",
+        "bubble",
+        "message",
+        "indicator"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-typing.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-typing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-radar",
+      "type": "registry:component",
+      "title": "Loader Radar",
+      "description": "A radar sweep rotates over concentric rings and lights up blips as it passes over them, at the same positions every time.",
+      "categories": [
+        "loaders",
+        "loader",
+        "radar",
+        "scan",
+        "search",
+        "sweep",
+        "devices"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-radar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-radar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-pulse-rings",
+      "type": "registry:component",
+      "title": "Loader Pulse Rings",
+      "description": "Concentric rings expand from a core icon and fade out, staggered so there is always a pulse in flight.",
+      "categories": [
+        "loaders",
+        "loader",
+        "pulse",
+        "rings",
+        "signal",
+        "connecting",
+        "waiting"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-pulse-rings.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-pulse-rings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-cube",
+      "type": "registry:component",
+      "title": "Loader Cube",
+      "description": "A translucent CSS 3D cube turns on its vertical axis above a soft shadow that breathes with the rotation.",
+      "categories": [
+        "loaders",
+        "loader",
+        "cube",
+        "3d",
+        "rotate",
+        "perspective",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-cube.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-cube.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-text-scramble",
+      "type": "registry:component",
+      "title": "Loader Text Scramble",
+      "description": "A word scrambles through random glyphs and resolves letter by letter, holds for a moment and starts over. Monospace, with a blinking cursor.",
+      "categories": [
+        "loaders",
+        "loader",
+        "text",
+        "scramble",
+        "terminal",
+        "mono",
+        "glyphs"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-text-scramble.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-text-scramble.tsx"
+        }
+      ]
+    },
+    {
       "name": "auth-split-brand",
       "type": "registry:component",
       "title": "Auth Split Brand",

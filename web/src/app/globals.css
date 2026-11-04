@@ -89,3 +89,7 @@ body {
   width: 100% !important;
   transform: none;
 }
+
+.hb-card-preview [class*="hb-qm"][class*="-vp"] {
+  overflow-y: hidden !important;
+}
