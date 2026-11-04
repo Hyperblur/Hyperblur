@@ -55,7 +55,7 @@ function hash(value: string) {
 function Ceramic({ shape, seed }: { shape: CeramicShape; seed: number }) {
   const speckles = Array.from({ length: 22 }, (_, i) => {
     const h = hash(`${seed}-${i}`) >>> 0;
-    return { x: 36 + (h % 28), y: 56 + ((h >> 5) % 40), r: 0.5 + ((h >> 10) % 8) / 10 };
+    return { x: 36 + (h % 28), y: 56 + ((h >>> 5) % 40), r: 0.5 + ((h >>> 10) % 8) / 10 };
   });
   return (
     <svg className="hb-ki7-svg" viewBox="0 0 100 120" aria-hidden="true">
