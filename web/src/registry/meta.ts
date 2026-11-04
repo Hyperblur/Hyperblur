@@ -5,7 +5,8 @@ export type EffectCategory =
   | "components" | "site" | "charts" | "lists" | "sidebars" | "dashboards" | "app-ui" | "agent-kit" | "social"
   | "hero" | "features" | "bento" | "social-proof" | "contact" | "footer" | "comparison" | "navigation" | "auth"
   | "cta" | "faq" | "pricing" | "stats" | "not-found" | "profile" | "about" | "waitlist" | "showcase"
-  | "how-it-works" | "download" | "blog" | "ecommerce";
+  | "how-it-works" | "download" | "blog" | "ecommerce"
+  | "loaders" | "payments" | "checkout";
 
 export interface EffectProp {
   name: string;
@@ -46,6 +47,7 @@ export const categories: { id: EffectCategory; label: string; group: EffectGroup
   { id: "hover", label: "Hover & pointer", group: "effects" },
   { id: "transitions", label: "Transitions & slides", group: "effects" },
   { id: "buttons", label: "Buttons", group: "effects" },
+  { id: "loaders", label: "Loaders", group: "effects" },
   { id: "micro", label: "Micro", group: "effects" },
   { id: "components", label: "Components", group: "components" },
   { id: "site", label: "Website elements", group: "components" },
@@ -56,6 +58,7 @@ export const categories: { id: EffectCategory; label: string; group: EffectGroup
   { id: "app-ui", label: "App UI", group: "components" },
   { id: "agent-kit", label: "Agent kit", group: "components" },
   { id: "social", label: "Social & feedback", group: "components" },
+  { id: "payments", label: "Payments", group: "components" },
   { id: "hero", label: "Hero sections", group: "blocks" },
   { id: "features", label: "Features", group: "blocks" },
   { id: "bento", label: "Bento", group: "blocks" },
@@ -78,6 +81,7 @@ export const categories: { id: EffectCategory; label: string; group: EffectGroup
   { id: "download", label: "Download", group: "blocks" },
   { id: "blog", label: "Blog", group: "blocks" },
   { id: "ecommerce", label: "Ecommerce", group: "blocks" },
+  { id: "checkout", label: "Checkout & billing", group: "blocks" },
 ];
 
 export const sectionCategoryIds = categories.filter((c) => c.group === "blocks").map((c) => c.id);
@@ -95,6 +99,28 @@ import { listsMeta } from "./parts/lists.meta.ts";
 import { sidebarsMeta } from "./parts/sidebars.meta.ts";
 import { effectsMeta } from "./parts/effects.meta.ts";
 import { dashboardsMeta } from "./parts/dashboards.meta.ts";
+import { qpMeta } from "./parts/qp.meta.ts";
+import { quMeta } from "./parts/qu.meta.ts";
+import { qoMeta } from "./parts/qo.meta.ts";
+import { qrMeta } from "./parts/qr.meta.ts";
+import { qsMeta } from "./parts/qs.meta.ts";
+import { qvMeta } from "./parts/qv.meta.ts";
+import { qqMeta } from "./parts/qq.meta.ts";
+import { qtMeta } from "./parts/qt.meta.ts";
+import { qlMeta } from "./parts/ql.meta.ts";
+import { sectionsQGMeta } from "./parts/sectionsQG.meta.ts";
+import { qbMeta } from "./parts/qb.meta.ts";
+import { qfMeta } from "./parts/qf.meta.ts";
+import { sectionsQHMeta } from "./parts/sectionsQH.meta.ts";
+import { qkMeta } from "./parts/qk.meta.ts";
+import { qmMeta } from "./parts/qm.meta.ts";
+import { qeMeta } from "./parts/qe.meta.ts";
+import { qnMeta } from "./parts/qn.meta.ts";
+import { qiMeta } from "./parts/qi.meta.ts";
+import { qdMeta } from "./parts/qd.meta.ts";
+import { qjMeta } from "./parts/qj.meta.ts";
+import { qaMeta } from "./parts/qa.meta.ts";
+import { qcMeta } from "./parts/qc.meta.ts";
 import { sectionsFMeta } from "./parts/sectionsF.meta.ts";
 import { sectionsHMeta } from "./parts/sectionsH.meta.ts";
 import { sectionsBMeta } from "./parts/sectionsB.meta.ts";
@@ -1193,6 +1219,28 @@ export const effects: EffectMeta[] = [
   ...sidebarsMeta,
   ...effectsMeta,
   ...dashboardsMeta,
+  ...qpMeta,
+  ...quMeta,
+  ...qoMeta,
+  ...qrMeta,
+  ...qsMeta,
+  ...qvMeta,
+  ...qqMeta,
+  ...qtMeta,
+  ...qlMeta,
+  ...sectionsQGMeta,
+  ...qbMeta,
+  ...qfMeta,
+  ...sectionsQHMeta,
+  ...qkMeta,
+  ...qmMeta,
+  ...qeMeta,
+  ...qnMeta,
+  ...qiMeta,
+  ...qdMeta,
+  ...qjMeta,
+  ...qaMeta,
+  ...qcMeta,
   ...sectionsFMeta,
   ...sectionsHMeta,
   ...sectionsBMeta,

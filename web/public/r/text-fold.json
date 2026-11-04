@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-fold",
+  "type": "registry:component",
+  "title": "Text Fold",
+  "description": "Lines of text that fold open like paper with a per-line rotateX and perspective when they scroll into view, then pleat into an accordion on hover and unfold again when you leave.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "fold",
+    "paper",
+    "3d",
+    "perspective",
+    "hover",
+    "reveal"
+  ],
+  "docs": "https://hyperblur.dev/effects/text-fold",
+  "files": [
+    {
+      "path": "registry/hyperblur/text-fold.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/text-fold.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface TextFoldProps extends Omit<React.HTMLAttributes<HTMLDivElement>, \"children\"> {\n  lines?: string[];\n  fold?: number;\n  stagger?: number;\n  duration?: number;\n  lineHeight?: number;\n  shade?: boolean;\n  replayEvery?: number;\n}\n\nconst css = `\n.hb-qs8 {\n  --hb-qs8-lh: 1.15em;\n  position: relative;\n  box-sizing: border-box;\n  display: block;\n  font: inherit;\n  perspective: 900px;\n  perspective-origin: 50% 50%;\n  outline: none;\n}\n.hb-qs8 *, .hb-qs8 *::before, .hb-qs8 *::after { box-sizing: border-box; }\n.hb-qs8:focus-visible { outline: 2px solid #2f7bff; outline-offset: 6px; border-radius: 4px; }\n.hb-qs8-w { display: block; transform-style: preserve-3d; }\n.hb-qs8-l {\n  display: block;\n  height: var(--hb-qs8-lh);\n  transform-origin: 50% 0;\n  transform-style: preserve-3d;\n}\n.hb-qs8[data-on=\"false\"] .hb-qs8-l { opacity: 0; }\n.hb-qs8[data-on=\"true\"] .hb-qs8-l {\n  animation: hb-qs8-open var(--hb-qs8-d) cubic-bezier(0.22, 1, 0.36, 1) both;\n  animation-delay: calc(var(--hb-qs8-n) * var(--hb-qs8-st));\n}\n.hb-qs8-f {\n  position: relative;\n  display: block;\n  height: 100%;\n  line-height: var(--hb-qs8-lh);\n  white-space: nowrap;\n  transform-origin: 50% 50%;\n  transition: transform 0.7s cubic-bezier(0.34, 1.35, 0.5, 1);\n  backface-visibility: hidden;\n}\n.hb-qs8-f::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  background: linear-gradient(180deg, var(--hb-qs8-sh1) 0%, var(--hb-qs8-sh2) 100%);\n  opacity: 0;\n  transition: opacity 0.5s ease;\n}\n.hb-qs8:hover .hb-qs8-f, .hb-qs8:focus-visible .hb-qs8-f {\n  transform: translateY(var(--hb-qs8-ty)) rotateX(var(--hb-qs8-a));\n}\n.hb-qs8:hover .hb-qs8-f::after, .hb-qs8:focus-visible .hb-qs8-f::after { opacity: 1; }\n@keyframes hb-qs8-open {\n  0% { opacity: 0; transform: rotateX(-96deg); }\n  25% { opacity: 1; }\n  100% { opacity: 1; transform: rotateX(0deg); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-qs8[data-on=\"true\"] .hb-qs8-l { animation: none; opacity: 1; }\n  .hb-qs8-f, .hb-qs8-f::after { transition: none; }\n}\n`;\n\nexport function TextFold({\n  lines = [\"Fold the page.\", \"Keep the crease.\", \"Read between lines.\"],\n  fold = 52,\n  stagger = 140,\n  duration = 1000,\n  lineHeight = 1.15,\n  shade = true,\n  replayEvery = 0,\n  className = \"\",\n  style,\n  tabIndex = 0,\n  ...rest\n}: TextFoldProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const [on, setOn] = React.useState<\"false\" | \"true\" | \"static\">(\"false\");\n  const [run, setRun] = React.useState(0);\n  const n = lines.length;\n  const cos = Math.cos((fold * Math.PI) / 180);\n\n  React.useEffect(() => {\n    const el = ref.current;\n    if (!el) return;\n    const io = new IntersectionObserver(\n      (entries) => {\n        if (!entries.some((e) => e.isIntersecting)) return;\n        io.disconnect();\n        setOn(window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches ? \"static\" : \"true\");\n      },\n      { threshold: 0.2 },\n    );\n    io.observe(el);\n    return () => io.disconnect();\n  }, []);\n\n  React.useEffect(() => {\n    if (!replayEvery || on !== \"true\") return;\n    const id = window.setInterval(() => setRun((r) => r + 1), Math.max(2000, replayEvery));\n    return () => window.clearInterval(id);\n  }, [replayEvery, on]);\n\n  const vars = {\n    \"--hb-qs8-lh\": `${lineHeight}em`,\n    \"--hb-qs8-d\": `${duration}ms`,\n    \"--hb-qs8-st\": `${stagger}ms`,\n    \"--hb-qs8-sh1\": shade ? \"rgba(0, 0, 0, 0.5)\" : \"transparent\",\n    \"--hb-qs8-sh2\": shade ? \"rgba(0, 0, 0, 0)\" : \"transparent\",\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <>\n      <style href=\"hb-text-fold\" precedence=\"default\">{css}</style>\n      <div\n        ref={ref}\n        className={`hb-qs8 ${className}`}\n        style={vars}\n        tabIndex={tabIndex}\n        data-on={on}\n        aria-label={lines.join(\" \")}\n        role=\"group\"\n        {...rest}\n      >\n        <span key={run} className=\"hb-qs8-w\">\n          {lines.map((line, i) => {\n            const down = i % 2 === 0 ? 1 : -1;\n            const shift = (i + 0.5 - n / 2) * lineHeight * (cos - 1);\n            const faceStyle = {\n              \"--hb-qs8-a\": `${(down * fold).toFixed(1)}deg`,\n              \"--hb-qs8-ty\": `${shift.toFixed(3)}em`,\n            } as React.CSSProperties;\n            return (\n              <span\n                key={i}\n                className=\"hb-qs8-l\"\n                aria-hidden=\"true\"\n                style={{ \"--hb-qs8-n\": i } as React.CSSProperties}\n              >\n                <span className=\"hb-qs8-f\" style={faceStyle}>\n                  {line}\n                </span>\n              </span>\n            );\n          })}\n        </span>\n      </div>\n    </>\n  );\n}\n"
+    }
+  ]
+}

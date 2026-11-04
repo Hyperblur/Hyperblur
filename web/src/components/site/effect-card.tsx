@@ -6,7 +6,7 @@ import { PreviewStage } from "./preview-stage";
 const card =
   "group relative flex min-w-0 flex-col rounded-2xl border border-white/[0.06] bg-[#0f0f0f] p-3 transition-colors hover:border-white/[0.12]";
 const preview =
-  "relative flex items-center justify-center overflow-hidden rounded-xl border border-white/[0.04] bg-[#0a0a0a]";
+  "hb-card-preview relative flex items-center justify-center overflow-hidden rounded-xl border border-white/[0.04] bg-[#0a0a0a]";
 
 export function EffectCard({ meta, demo }: { meta: EffectMeta; demo: ReactNode }) {
   const href = `/effects/${meta.slug}`;

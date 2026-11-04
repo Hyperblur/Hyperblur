@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-cube",
+  "type": "registry:component",
+  "title": "Loader Cube",
+  "description": "A translucent CSS 3D cube turns on its vertical axis above a soft shadow that breathes with the rotation.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "loaders",
+    "loader",
+    "cube",
+    "3d",
+    "rotate",
+    "perspective",
+    "css"
+  ],
+  "docs": "https://hyperblur.dev/effects/loader-cube",
+  "files": [
+    {
+      "path": "registry/hyperblur/loader-cube.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/loader-cube.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface LoaderCubeProps extends React.HTMLAttributes<HTMLSpanElement> {\n  size?: number;\n  color?: string;\n  accent?: string;\n  speed?: number;\n  label?: string;\n}\n\nconst css = `\n.hb-qcb {\n  position: relative;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 0.7em;\n  box-sizing: border-box;\n  font-family: inherit;\n  color: #ededed;\n  vertical-align: middle;\n}\n.hb-qcb *, .hb-qcb *::before, .hb-qcb *::after { box-sizing: border-box; }\n.hb-qcb-g {\n  position: relative;\n  flex: none;\n  display: grid;\n  place-items: center;\n  width: calc(var(--hb-qcb-s) * 1.7);\n  height: calc(var(--hb-qcb-s) * 1.9);\n  perspective: calc(var(--hb-qcb-s) * 6);\n}\n.hb-qcb-cube {\n  position: relative;\n  width: var(--hb-qcb-s);\n  height: var(--hb-qcb-s);\n  margin-top: calc(var(--hb-qcb-s) * -0.15);\n  transform-style: preserve-3d;\n  animation: hb-qcb-turn var(--hb-qcb-t) linear infinite;\n}\n.hb-qcb-f {\n  position: absolute;\n  inset: 0;\n  border: 1.5px solid var(--hb-qcb-c);\n  border-radius: calc(var(--hb-qcb-s) * 0.06);\n  background: linear-gradient(145deg, color-mix(in srgb, var(--hb-qcb-a) 30%, transparent), color-mix(in srgb, var(--hb-qcb-c) 14%, transparent));\n  box-shadow: inset 0 0 calc(var(--hb-qcb-s) * 0.3) color-mix(in srgb, var(--hb-qcb-c) 30%, transparent);\n  backface-visibility: visible;\n}\n.hb-qcb-f:nth-child(1) { transform: translateZ(calc(var(--hb-qcb-s) / 2)); }\n.hb-qcb-f:nth-child(2) { transform: rotateY(180deg) translateZ(calc(var(--hb-qcb-s) / 2)); }\n.hb-qcb-f:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--hb-qcb-s) / 2)); }\n.hb-qcb-f:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--hb-qcb-s) / 2)); }\n.hb-qcb-f:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--hb-qcb-s) / 2)); background: linear-gradient(145deg, color-mix(in srgb, var(--hb-qcb-a) 55%, transparent), color-mix(in srgb, var(--hb-qcb-c) 30%, transparent)); }\n.hb-qcb-f:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--hb-qcb-s) / 2)); }\n.hb-qcb-shadow {\n  position: absolute;\n  left: 50%;\n  bottom: calc(var(--hb-qcb-s) * 0.1);\n  width: calc(var(--hb-qcb-s) * 1.1);\n  height: calc(var(--hb-qcb-s) * 0.22);\n  margin-left: calc(var(--hb-qcb-s) * -0.55);\n  border-radius: 50%;\n  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.7), transparent);\n  filter: blur(2px);\n  animation: hb-qcb-shade calc(var(--hb-qcb-t) / 2) ease-in-out infinite;\n}\n.hb-qcb-l { font-size: 12px; line-height: 1.3; color: #a1a1a1; white-space: nowrap; }\n.hb-qcb-sr {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  margin: -1px;\n  padding: 0;\n  overflow: hidden;\n  clip-path: inset(50%);\n  white-space: nowrap;\n  border: 0;\n}\n@keyframes hb-qcb-turn {\n  from { transform: rotateX(-24deg) rotateY(0deg); }\n  to { transform: rotateX(-24deg) rotateY(360deg); }\n}\n@keyframes hb-qcb-shade {\n  0%, 100% { transform: scale(1); opacity: 0.9; }\n  50% { transform: scale(0.82); opacity: 0.55; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-qcb-cube { animation: none; transform: rotateX(-24deg) rotateY(35deg); }\n  .hb-qcb-shadow { animation: none; }\n}\n`;\n\nexport function LoaderCube({\n  size = 40,\n  color = \"#2f7bff\",\n  accent = \"#7fb3ff\",\n  speed = 4,\n  label,\n  className = \"\",\n  style,\n  ...rest\n}: LoaderCubeProps) {\n  const vars = {\n    \"--hb-qcb-s\": `${size}px`,\n    \"--hb-qcb-c\": color,\n    \"--hb-qcb-a\": accent,\n    \"--hb-qcb-t\": `${speed}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <>\n      <style href=\"hb-loader-cube\" precedence=\"default\">{css}</style>\n      <span role=\"status\" className={`hb-qcb ${className}`} style={vars} {...rest}>\n        <span className=\"hb-qcb-g\" aria-hidden=\"true\">\n          <span className=\"hb-qcb-shadow\" />\n          <span className=\"hb-qcb-cube\">\n            <i className=\"hb-qcb-f\" />\n            <i className=\"hb-qcb-f\" />\n            <i className=\"hb-qcb-f\" />\n            <i className=\"hb-qcb-f\" />\n            <i className=\"hb-qcb-f\" />\n            <i className=\"hb-qcb-f\" />\n          </span>\n        </span>\n        <span className={label ? \"hb-qcb-l\" : \"hb-qcb-sr\"}>{label ?? \"Loading\"}</span>\n      </span>\n    </>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-orbit",
+  "type": "registry:component",
+  "title": "Loader Orbit",
+  "description": "Three glowing dots travel around concentric rings at different radii and speeds, with a beating core in the middle.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "loaders",
+    "loader",
+    "spinner",
+    "orbit",
+    "dots",
+    "loading",
+    "css"
+  ],
+  "docs": "https://hyperblur.dev/effects/loader-orbit",
+  "files": [
+    {
+      "path": "registry/hyperblur/loader-orbit.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/loader-orbit.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface LoaderOrbitProps extends React.HTMLAttributes<HTMLSpanElement> {\n  size?: number;\n  color?: string;\n  accent?: string;\n  speed?: number;\n  label?: string;\n}\n\nconst css = `\n.hb-qc1 {\n  position: relative;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 0.7em;\n  box-sizing: border-box;\n  font-family: inherit;\n  color: #ededed;\n  vertical-align: middle;\n}\n.hb-qc1 *, .hb-qc1 *::before, .hb-qc1 *::after { box-sizing: border-box; }\n.hb-qc1-g {\n  position: relative;\n  flex: none;\n  width: var(--hb-qc1-s);\n  height: var(--hb-qc1-s);\n}\n.hb-qc1-r {\n  position: absolute;\n  inset: var(--hb-qc1-in);\n  border-radius: 50%;\n  border: 1px solid color-mix(in srgb, var(--hb-qc1-c) 22%, transparent);\n  animation: hb-qc1-spin calc(var(--hb-qc1-t) * var(--hb-qc1-k)) linear infinite;\n}\n.hb-qc1-r > b {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: var(--hb-qc1-d);\n  height: var(--hb-qc1-d);\n  margin: calc(var(--hb-qc1-d) / -2) 0 0 calc(var(--hb-qc1-d) / -2);\n  border-radius: 50%;\n  background: var(--hb-qc1-dc);\n  box-shadow: 0 0 calc(var(--hb-qc1-d) * 1.6) var(--hb-qc1-dc);\n}\n.hb-qc1-core {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: calc(var(--hb-qc1-s) * 0.12);\n  height: calc(var(--hb-qc1-s) * 0.12);\n  margin: calc(var(--hb-qc1-s) * -0.06) 0 0 calc(var(--hb-qc1-s) * -0.06);\n  border-radius: 50%;\n  background: var(--hb-qc1-c);\n  opacity: 0.9;\n  animation: hb-qc1-beat 1.6s ease-in-out infinite;\n}\n.hb-qc1-l { font-size: 12px; line-height: 1.3; color: #a1a1a1; white-space: nowrap; }\n.hb-qc1-sr {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  margin: -1px;\n  padding: 0;\n  overflow: hidden;\n  clip-path: inset(50%);\n  white-space: nowrap;\n  border: 0;\n}\n@keyframes hb-qc1-spin { to { transform: rotate(360deg); } }\n@keyframes hb-qc1-beat {\n  0%, 100% { transform: scale(0.8); opacity: 0.6; }\n  50% { transform: scale(1.25); opacity: 1; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-qc1-r { animation-duration: 12s; }\n  .hb-qc1-core { animation: none; }\n}\n`;\n\nconst orbits = [\n  { inset: \"0%\", dot: 0.14, k: 1, color: 0 },\n  { inset: \"19%\", dot: 0.12, k: 0.62, color: 1 },\n  { inset: \"36%\", dot: 0.1, k: 0.4, color: 2 },\n];\n\nexport function LoaderOrbit({\n  size = 56,\n  color = \"#2f7bff\",\n  accent = \"#7fb3ff\",\n  speed = 2.6,\n  label,\n  className = \"\",\n  style,\n  ...rest\n}: LoaderOrbitProps) {\n  const vars = {\n    \"--hb-qc1-s\": `${size}px`,\n    \"--hb-qc1-c\": color,\n    \"--hb-qc1-t\": `${speed}s`,\n    ...style,\n  } as React.CSSProperties;\n  const dotColors = [color, accent, \"#ededed\"];\n\n  return (\n    <>\n      <style href=\"hb-loader-orbit\" precedence=\"default\">{css}</style>\n      <span role=\"status\" className={`hb-qc1 ${className}`} style={vars} {...rest}>\n        <span className=\"hb-qc1-g\" aria-hidden=\"true\">\n          {orbits.map((o, i) => (\n            <span\n              key={i}\n              className=\"hb-qc1-r\"\n              style={\n                {\n                  \"--hb-qc1-in\": o.inset,\n                  \"--hb-qc1-k\": o.k,\n                  \"--hb-qc1-d\": `${(size * o.dot).toFixed(2)}px`,\n                  \"--hb-qc1-dc\": dotColors[o.color],\n                  animationDelay: `${(i * -0.5).toFixed(2)}s`,\n                } as React.CSSProperties\n              }\n            >\n              <b />\n            </span>\n          ))}\n          <span className=\"hb-qc1-core\" />\n        </span>\n        <span className={label ? \"hb-qc1-l\" : \"hb-qc1-sr\"}>{label ?? \"Loading\"}</span>\n      </span>\n    </>\n  );\n}\n"
+    }
+  ]
+}
