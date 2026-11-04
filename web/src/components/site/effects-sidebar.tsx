@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { categories, effects, groups, type EffectGroup } from "@/registry/meta";
 import { docPages } from "./docs-nav";
+import { NewBadge } from "./new-badge";
 
 function activeGroup(pathname: string): EffectGroup {
   if (pathname.startsWith("/components")) return "components";
@@ -80,7 +81,10 @@ export function EffectsSidebar() {
                         active ? "bg-surface-2 text-ink" : "text-muted hover:bg-surface hover:text-ink"
                       }`}
                     >
-                      {e.title}
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="min-w-0 truncate">{e.title}</span>
+                        {e.isNew && <NewBadge className="hb-new-sm" />}
+                      </span>
                     </Link>
                   </li>
                 );

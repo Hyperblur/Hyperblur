@@ -3121,6 +3121,908 @@
       ]
     },
     {
+      "name": "gallery-showcase",
+      "type": "registry:component",
+      "title": "Gallery Showcase",
+      "description": "A large featured image above a row of thumbnails. Picking a thumbnail crossfades the feature with a slow settle, slides the caption in and restarts the autoplay progress.",
+      "categories": [
+        "components",
+        "gallery",
+        "thumbnails",
+        "slideshow",
+        "autoplay",
+        "images",
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-showcase.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-showcase.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-archive",
+      "type": "registry:component",
+      "title": "Gallery Archive",
+      "description": "A typographic archive index of year, title and type. Hovering or focusing an entry dims the other rows and shows a floating image preview that trails the pointer.",
+      "categories": [
+        "components",
+        "gallery",
+        "archive",
+        "list",
+        "hover preview",
+        "portfolio",
+        "index"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-archive.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-archive.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-backstage",
+      "type": "registry:component",
+      "title": "Gallery Backstage",
+      "description": "A dark stage with the images standing in a row. A soft spotlight cone picks out the active one while the rest wait dimmed behind; drag across the stage, click or use the arrows to move the light.",
+      "categories": [
+        "components",
+        "gallery",
+        "spotlight",
+        "stage",
+        "drag",
+        "dark",
+        "images"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-backstage.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-backstage.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-grid-expand",
+      "type": "registry:component",
+      "title": "Gallery Grid Expand",
+      "description": "A grid of image cards. Opening a card grows it from its own spot to fill the grid with the title and caption; Back or Escape shrinks it back into place.",
+      "categories": [
+        "components",
+        "gallery",
+        "grid",
+        "expand",
+        "shared layout",
+        "lightbox",
+        "cards"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-grid-expand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-grid-expand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-coverflow",
+      "type": "registry:component",
+      "title": "Gallery Coverflow",
+      "description": "A classic cover flow: the center image faces you while the others turn away in 3D and stack to each side, with a soft reflection on the floor. Drag, click a side image or use the arrow keys.",
+      "categories": [
+        "components",
+        "gallery",
+        "coverflow",
+        "3d",
+        "carousel",
+        "reflection",
+        "drag"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-coverflow.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-coverflow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-filmstrip",
+      "type": "registry:component",
+      "title": "Gallery Filmstrip",
+      "description": "A strip of film with sprocket holes and edge numbers drifts under a center gate, and the frame in the gate is projected large in the viewer above.",
+      "categories": [
+        "components",
+        "gallery",
+        "film",
+        "carousel",
+        "images",
+        "photography",
+        "drag"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-filmstrip.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-filmstrip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-rail-hang",
+      "type": "registry:component",
+      "title": "Gallery Rail Hang",
+      "description": "Prints hang from a clothes rail on small hangers and swing like pendulums when the pointer brushes past or the rail is dragged. Clicking one pulls it forward.",
+      "categories": [
+        "components",
+        "gallery",
+        "hanger",
+        "pendulum",
+        "physics",
+        "images",
+        "lookbook"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-rail-hang.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-rail-hang.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-coverflow-lights",
+      "type": "registry:component",
+      "title": "Gallery Coverflow Lights",
+      "description": "A cover flow where the active image throws soft colored light onto the stage while the neighbors turn away into the dark.",
+      "categories": [
+        "components",
+        "gallery",
+        "coverflow",
+        "carousel",
+        "3d",
+        "glow",
+        "albums"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-coverflow-lights.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-coverflow-lights.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-scatter",
+      "type": "registry:component",
+      "title": "Gallery Scatter",
+      "description": "Polaroid-style prints lie scattered at loose angles. Drag any of them to the top of the pile, or tidy the whole table into a neat grid.",
+      "categories": [
+        "components",
+        "gallery",
+        "polaroid",
+        "drag",
+        "photos",
+        "grid",
+        "playful"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-scatter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-scatter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gallery-runway",
+      "type": "registry:component",
+      "title": "Gallery Runway",
+      "description": "Framed images walk toward the viewer along a lit runway in 3D, growing and stepping aside as they pass. Hovering a frame stops the flow.",
+      "categories": [
+        "components",
+        "gallery",
+        "3d",
+        "perspective",
+        "runway",
+        "images",
+        "showcase"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/gallery-runway.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/gallery-runway.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel-lightbox",
+      "type": "registry:component",
+      "title": "Carousel Lightbox",
+      "description": "A thumbnail strip where each image opens in a lightbox. The picture zooms out of its thumbnail and flies back on close, with previous and next, Escape and a focus trap.",
+      "categories": [
+        "components",
+        "carousel",
+        "lightbox",
+        "gallery",
+        "thumbnails",
+        "zoom",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/carousel-lightbox.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/carousel-lightbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel-page-count",
+      "type": "registry:component",
+      "title": "Carousel Page Count",
+      "description": "A swipeable carousel with a rolling two-digit page counter, a progress hairline and arrow buttons that disable at both ends.",
+      "categories": [
+        "components",
+        "carousel",
+        "counter",
+        "pagination",
+        "slides",
+        "arrows",
+        "swipe"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/carousel-page-count.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/carousel-page-count.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel-scrubber",
+      "type": "registry:component",
+      "title": "Carousel Scrubber",
+      "description": "A card carousel with a draggable scrubber under it. Dragging moves the track continuously and releases onto the nearest stop. Arrow keys step between stops.",
+      "categories": [
+        "components",
+        "carousel",
+        "scrubber",
+        "slider",
+        "drag",
+        "timeline",
+        "snap"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/carousel-scrubber.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/carousel-scrubber.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-stack-expand",
+      "type": "registry:component",
+      "title": "Card Stack Expand",
+      "description": "Notification cards stacked with depth. Hover, focus or the Expand button spreads them into a list, and each card dismisses with a swipe or its close button. New cards drop in from the top.",
+      "categories": [
+        "components",
+        "stack",
+        "notifications",
+        "cards",
+        "swipe",
+        "dismiss",
+        "expand"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-stack-expand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-stack-expand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-context",
+      "type": "registry:component",
+      "title": "Context Menu",
+      "description": "A right-click and long-press menu that opens at the pointer and flips at the edges. It has icons, shortcuts, a submenu, a danger item and full keyboard control.",
+      "categories": [
+        "micro",
+        "context menu",
+        "right click",
+        "long press",
+        "submenu",
+        "popover",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-context.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-context.tsx"
+        }
+      ]
+    },
+    {
+      "name": "list-todo-animated",
+      "type": "registry:component",
+      "title": "Animated Todo List",
+      "description": "A task list with an add field, a check mark that draws itself, a strike-through that sweeps across the text, collapsing delete and up and down reordering that glides into place.",
+      "categories": [
+        "components",
+        "todo",
+        "list",
+        "checkbox",
+        "reorder",
+        "tasks",
+        "animation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/list-todo-animated.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/list-todo-animated.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-shared-layout",
+      "type": "registry:component",
+      "title": "Shared Layout Modal",
+      "description": "Cards that grow into a modal and shrink back into the same spot. The card morphs by measuring its box, the content crossfades, and everything stays inside its own frame.",
+      "categories": [
+        "components",
+        "modal",
+        "shared layout",
+        "morph",
+        "card",
+        "transition",
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-shared-layout.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-shared-layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "view-direction-switch",
+      "type": "registry:component",
+      "title": "Direction Switch",
+      "description": "Switches between views with tabs or steps. Moving forward slides content to the left, moving back slides it to the right, and the container height eases to the new view.",
+      "categories": [
+        "components",
+        "tabs",
+        "steps",
+        "transition",
+        "direction",
+        "slide",
+        "height"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/view-direction-switch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/view-direction-switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-reveal-under",
+      "type": "registry:component",
+      "title": "Footer Reveal Under",
+      "description": "A footer that sits beneath the page and is uncovered as the content above scrolls away, with a gradient wordmark that follows the pointer, link columns and a newsletter field. Wrap the page above it in FooterRevealUnderPage so it covers the footer.",
+      "categories": [
+        "footer",
+        "footer",
+        "reveal",
+        "sticky",
+        "wordmark",
+        "newsletter",
+        "scroll"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/footer-reveal-under.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/footer-reveal-under.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-image-reveal",
+      "type": "registry:component",
+      "title": "Scroll Image Reveal",
+      "description": "An image that opens from a thin glowing slit to full size when it scrolls into view, while it settles from a 1.3x zoom and its caption slides up line by line.",
+      "categories": [
+        "motion",
+        "scroll",
+        "image",
+        "reveal",
+        "clip-path",
+        "caption",
+        "gallery"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/scroll-image-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/scroll-image-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-magnetic-filings",
+      "type": "registry:component",
+      "title": "Cursor Magnetic Filings",
+      "description": "A canvas field of iron-filing needles that swing into the field lines of a dipole magnet. A hidden magnet drifts on its own until the pointer takes over.",
+      "categories": [
+        "hover",
+        "cursor",
+        "magnet",
+        "canvas",
+        "particles",
+        "field",
+        "interactive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-magnetic-filings.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-magnetic-filings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-trail-velocity",
+      "type": "registry:component",
+      "title": "Cursor Trail Velocity",
+      "description": "A canvas cursor trail that reads pointer speed: slow moves leave small round dots, fast flicks stretch into long thin streaks that shift in hue.",
+      "categories": [
+        "hover",
+        "cursor",
+        "trail",
+        "velocity",
+        "canvas",
+        "streak",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cursor-trail-velocity.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cursor-trail-velocity.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-line-graph",
+      "type": "registry:component",
+      "title": "Chart Line Graph",
+      "description": "A responsive line graph that draws its path when it scrolls into view, with gradient area fill, gridlines, a pulsing end point and a crosshair tooltip you can drive with the pointer or the arrow keys.",
+      "categories": [
+        "charts",
+        "chart",
+        "line",
+        "graph",
+        "tooltip",
+        "keyboard",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/chart-line-graph.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/chart-line-graph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-stagger-intro",
+      "type": "registry:component",
+      "title": "Hero Stagger Intro",
+      "description": "A hero section whose eyebrow, headline lines, subtitle, buttons and product visual enter one after another with a rise, blur and fade. Change the replay key to play it again.",
+      "categories": [
+        "motion",
+        "hero",
+        "intro",
+        "stagger",
+        "blur",
+        "entrance",
+        "sequence"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-stagger-intro.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-stagger-intro.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtain-blinds",
+      "type": "registry:component",
+      "title": "Curtain Blinds",
+      "description": "Venetian blind slats that tilt open one after another in 3D to reveal the content, and tilt shut in reverse order.",
+      "categories": [
+        "transitions",
+        "curtain",
+        "blinds",
+        "reveal",
+        "transition",
+        "3d",
+        "stagger"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/curtain-blinds.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/curtain-blinds.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtain-clip-wipe",
+      "type": "registry:component",
+      "title": "Curtain Clip Wipe",
+      "description": "A crisp clip-path wipe that pulls the curtain away with a bright leading edge and a soft trailing glow, in five directions.",
+      "categories": [
+        "transitions",
+        "curtain",
+        "wipe",
+        "clip-path",
+        "reveal",
+        "transition",
+        "edge"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/curtain-clip-wipe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/curtain-clip-wipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtain-doors",
+      "type": "registry:component",
+      "title": "Curtain Doors",
+      "description": "Two doors swing open from the center in 3D with shading that deepens as they turn, while the room behind brightens into view.",
+      "categories": [
+        "transitions",
+        "curtain",
+        "doors",
+        "3d",
+        "reveal",
+        "transition",
+        "perspective"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/curtain-doors.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/curtain-doors.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtain-mixed",
+      "type": "registry:component",
+      "title": "Curtain Mixed",
+      "description": "A mosaic of tiles that wipe away row by row, each row in the opposite direction of the one before, in a snaking order.",
+      "categories": [
+        "transitions",
+        "curtain",
+        "tiles",
+        "mosaic",
+        "wipe",
+        "reveal",
+        "stagger"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/curtain-mixed.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/curtain-mixed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtain-iris",
+      "type": "registry:component",
+      "title": "Curtain Iris",
+      "description": "A scope-style iris that opens a circle from a chosen point, with a bright ring at its edge. In pointer mode a click picks the point.",
+      "categories": [
+        "transitions",
+        "curtain",
+        "iris",
+        "circle",
+        "scope",
+        "reveal",
+        "clip-path"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/curtain-iris.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/curtain-iris.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtain-stagger-wipe",
+      "type": "registry:component",
+      "title": "Curtain Stagger Wipe",
+      "description": "Vertical bars sweep off one after another, each trailed by a colored layer, then drop back in reverse to cover the content.",
+      "categories": [
+        "transitions",
+        "curtain",
+        "bars",
+        "stagger",
+        "wipe",
+        "reveal",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/curtain-stagger-wipe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/curtain-stagger-wipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtain-wipe",
+      "type": "registry:component",
+      "title": "Curtain Wipe",
+      "description": "One soft curtain that glides away with a glowing gradient edge, feathering wider as it travels across.",
+      "categories": [
+        "transitions",
+        "curtain",
+        "wipe",
+        "gradient",
+        "feather",
+        "reveal",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/curtain-wipe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/curtain-wipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-scramble-view",
+      "type": "registry:component",
+      "title": "Text Scramble View",
+      "description": "Text that churns through random glyphs and settles left to right when it scrolls into view. Click or press Enter to replay it.",
+      "categories": [
+        "text",
+        "text",
+        "scramble",
+        "decode",
+        "reveal",
+        "in-view",
+        "headline"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-scramble-view.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-scramble-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-scramble-center",
+      "type": "registry:component",
+      "title": "Text Scramble Center",
+      "description": "Scrambled text that locks in from the middle outward. Each letter flares with a soft glow the moment it resolves.",
+      "categories": [
+        "text",
+        "text",
+        "scramble",
+        "glow",
+        "center",
+        "reveal",
+        "headline"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-scramble-center.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-scramble-center.tsx"
+        }
+      ]
+    },
+    {
+      "name": "typewriter-human",
+      "type": "registry:component",
+      "title": "Typewriter Human",
+      "description": "A typewriter with uneven rhythm: longer beats after punctuation, the occasional wrong key noticed late and backspaced. The sequence is seeded, so it is identical on every render.",
+      "categories": [
+        "text",
+        "text",
+        "typewriter",
+        "typing",
+        "typo",
+        "human",
+        "caret"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/typewriter-human.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/typewriter-human.tsx"
+        }
+      ]
+    },
+    {
+      "name": "typewriter-swap",
+      "type": "registry:component",
+      "title": "Typewriter Swap",
+      "description": "Types a phrase, holds it, then deletes only what differs before typing the next one. A shared opening stays on screen and is dimmed while the rest is erased.",
+      "categories": [
+        "text",
+        "text",
+        "typewriter",
+        "rotating",
+        "phrases",
+        "diff",
+        "caret"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/typewriter-swap.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/typewriter-swap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ticker-vertical",
+      "type": "registry:component",
+      "title": "Ticker Vertical",
+      "description": "A news ticker that scrolls upward in a loop. The row passing through the middle lights up, the edges fade out, and hover or focus pauses it. Two columns scroll in opposite directions.",
+      "categories": [
+        "motion",
+        "ticker",
+        "news",
+        "scroll",
+        "marquee",
+        "vertical",
+        "feed"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/ticker-vertical.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/ticker-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-fill-text",
+      "type": "registry:component",
+      "title": "Loader Fill Text",
+      "description": "An outlined word that fills with color from the bottom up behind a rolling wave surface. Drive it with a value or let it loop.",
+      "categories": [
+        "loaders",
+        "loader",
+        "text",
+        "fill",
+        "wave",
+        "progress",
+        "splash"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-fill-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-fill-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-line-reveal",
+      "type": "registry:component",
+      "title": "Loader Line Reveal",
+      "description": "Thin lines draw across one after another, and the title and placeholder bars beneath each line wipe in behind it as loading completes.",
+      "categories": [
+        "loaders",
+        "loader",
+        "skeleton",
+        "lines",
+        "reveal",
+        "progress",
+        "placeholder"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-line-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-line-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-jumping-dots",
+      "type": "registry:component",
+      "title": "Loader Jumping Dots",
+      "description": "Three dots hop in turn, squashing when they land and stretching in the air, with a shadow on the ground that shrinks as they rise.",
+      "categories": [
+        "loaders",
+        "loader",
+        "dots",
+        "bounce",
+        "squash",
+        "spinner",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-jumping-dots.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-jumping-dots.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-dots-pulse",
+      "type": "registry:component",
+      "title": "Loader Dots Pulse",
+      "description": "Three dots swell and brighten one after another, with an optional text label in front, for inline waiting states.",
+      "categories": [
+        "loaders",
+        "loader",
+        "dots",
+        "pulse",
+        "typing",
+        "inline",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-dots-pulse.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-dots-pulse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-globe",
+      "type": "registry:component",
+      "title": "Hero Dot Globe",
+      "description": "A pure black hero with a huge canvas sphere of thousands of tiny dots that spins on a tilted axis, leans toward the pointer and carries a bright belt drifting the other way. Sparse mono details frame a bottom-aligned headline and an install command.",
+      "categories": [
+        "hero",
+        "hero",
+        "globe",
+        "canvas",
+        "dots",
+        "landing",
+        "developer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-globe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-globe.tsx"
+        }
+      ]
+    },
+    {
       "name": "bg-ferrofluid",
       "type": "registry:component",
       "title": "Ferrofluid",

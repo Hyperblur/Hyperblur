@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-11-04T20:11:32.034Z",
+  "generatedAt": "2026-11-04T21:00:17.957Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -8945,6 +8945,3042 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/orders-dashboard.json",
       "docs": "https://hyperblur.dev/effects/orders-dashboard",
       "file": "https://hyperblur.dev/r/orders-dashboard.json"
+    },
+    {
+      "slug": "gallery-showcase",
+      "component": "GalleryShowcase",
+      "title": "Gallery Showcase",
+      "description": "A large featured image above a row of thumbnails. Picking a thumbnail crossfades the feature with a slow settle, slides the caption in and restarts the autoplay progress.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "thumbnails",
+        "slideshow",
+        "autoplay",
+        "images",
+        "carousel"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string }[]",
+          "default": "6 built-in scenes",
+          "description": "Images to show. An entry without src renders a built-in gradient scene, so the gallery works with no assets."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled index of the featured image. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "0",
+          "description": "Initial featured image when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called when the featured image changes, by the user or by autoplay."
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Advance on a timer shown as a progress line on the active thumbnail. Pauses on hover, focus and off-screen. Off under reduced motion."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "4200",
+          "description": "Milliseconds each image stays featured during autoplay."
+        },
+        {
+          "name": "ratio",
+          "type": "string",
+          "default": "\"16 / 9\"",
+          "description": "CSS aspect ratio of the featured image."
+        },
+        {
+          "name": "thumbHeight",
+          "type": "number",
+          "default": "56",
+          "description": "Height of the thumbnail row in pixels."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the active thumbnail ring and focus outlines."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Image gallery\"",
+          "description": "Accessible name of the gallery."
+        }
+      ],
+      "usage": "<GalleryShowcase images={[{ title: \"Dune Hour\", caption: \"Erg Chebbi\" }, { title: \"Harbor Lights\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-showcase.json",
+      "docs": "https://hyperblur.dev/effects/gallery-showcase",
+      "file": "https://hyperblur.dev/r/gallery-showcase.json"
+    },
+    {
+      "slug": "gallery-archive",
+      "component": "GalleryArchive",
+      "title": "Gallery Archive",
+      "description": "A typographic archive index of year, title and type. Hovering or focusing an entry dims the other rows and shows a floating image preview that trails the pointer.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "archive",
+        "list",
+        "hover preview",
+        "portfolio",
+        "index"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string; year?: string | number; tag?: string }[]",
+          "default": "6 built-in scenes",
+          "description": "Images to show. An entry without src renders a built-in gradient scene, so the gallery works with no assets."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number | null) => void",
+          "description": "Called when the user previews another entry, with null when the preview closes."
+        },
+        {
+          "name": "onSelect",
+          "type": "(index: number) => void",
+          "description": "Called when an entry is clicked or activated with Enter."
+        },
+        {
+          "name": "idle",
+          "type": "boolean",
+          "default": "true",
+          "description": "Walk through the entries on its own until the pointer or focus arrives. Off under reduced motion."
+        },
+        {
+          "name": "previewWidth",
+          "type": "number",
+          "default": "200",
+          "description": "Width of the floating preview in pixels. It keeps a 4:3 shape."
+        },
+        {
+          "name": "showHeader",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the column header row."
+        },
+        {
+          "name": "columns",
+          "type": "[string, string, string]",
+          "default": "[\"Year\", \"Title\", \"Type\"]",
+          "description": "Labels of the header row."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the active marker and focus ring."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Archive\"",
+          "description": "Accessible name of the archive."
+        }
+      ],
+      "usage": "<GalleryArchive images={[{ title: \"Harbor Lights\", year: 2023, tag: \"City\" }]} onSelect={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-archive.json",
+      "docs": "https://hyperblur.dev/effects/gallery-archive",
+      "file": "https://hyperblur.dev/r/gallery-archive.json"
+    },
+    {
+      "slug": "gallery-backstage",
+      "component": "GalleryBackstage",
+      "title": "Gallery Backstage",
+      "description": "A dark stage with the images standing in a row. A soft spotlight cone picks out the active one while the rest wait dimmed behind; drag across the stage, click or use the arrows to move the light.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "spotlight",
+        "stage",
+        "drag",
+        "dark",
+        "images"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string }[]",
+          "default": "6 built-in scenes",
+          "description": "Images to show. An entry without src renders a built-in gradient scene, so the gallery works with no assets."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled index of the lit image. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "0",
+          "description": "Initial lit image when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called when the user moves the spotlight to another image."
+        },
+        {
+          "name": "idle",
+          "type": "boolean",
+          "default": "true",
+          "description": "Sweep the spotlight back and forth until the pointer or focus arrives. Uncontrolled only, off under reduced motion."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "2600",
+          "description": "Milliseconds between idle steps."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "320",
+          "description": "Height of the stage in pixels."
+        },
+        {
+          "name": "light",
+          "type": "string",
+          "default": "\"#fff2d6\"",
+          "description": "Color of the spotlight, its floor pool and the dust in the beam."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring color."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Gallery\"",
+          "description": "Accessible name of the gallery."
+        }
+      ],
+      "usage": "<GalleryBackstage height={360} light=\"#ffe2b0\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-backstage.json",
+      "docs": "https://hyperblur.dev/effects/gallery-backstage",
+      "file": "https://hyperblur.dev/r/gallery-backstage.json"
+    },
+    {
+      "slug": "gallery-grid-expand",
+      "component": "GalleryGridExpand",
+      "title": "Gallery Grid Expand",
+      "description": "A grid of image cards. Opening a card grows it from its own spot to fill the grid with the title and caption; Back or Escape shrinks it back into place.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "grid",
+        "expand",
+        "shared layout",
+        "lightbox",
+        "cards"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string }[]",
+          "default": "6 built-in scenes",
+          "description": "Images to show. An entry without src renders a built-in gradient scene, so the gallery works with no assets."
+        },
+        {
+          "name": "value",
+          "type": "number | null",
+          "description": "Controlled index of the open card, or null when the grid is showing. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number | null",
+          "default": "null",
+          "description": "Card open on first render when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number | null) => void",
+          "description": "Called when the user opens a card, moves to another one or closes it."
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "default": "3",
+          "description": "Number of grid columns. Drops to two in containers under 260px."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "8",
+          "description": "Space between cards in pixels."
+        },
+        {
+          "name": "ratio",
+          "type": "string",
+          "default": "\"4 / 3\"",
+          "description": "CSS aspect ratio of each card."
+        },
+        {
+          "name": "idle",
+          "type": "boolean",
+          "default": "true",
+          "description": "Open and close cards on its own until the pointer or focus arrives. Uncontrolled only, off under reduced motion."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring color."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Gallery\"",
+          "description": "Accessible name of the gallery."
+        }
+      ],
+      "usage": "<GalleryGridExpand columns={3} onChange={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-grid-expand.json",
+      "docs": "https://hyperblur.dev/effects/gallery-grid-expand",
+      "file": "https://hyperblur.dev/r/gallery-grid-expand.json"
+    },
+    {
+      "slug": "gallery-coverflow",
+      "component": "GalleryCoverflow",
+      "title": "Gallery Coverflow",
+      "description": "A classic cover flow: the center image faces you while the others turn away in 3D and stack to each side, with a soft reflection on the floor. Drag, click a side image or use the arrow keys.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "coverflow",
+        "3d",
+        "carousel",
+        "reflection",
+        "drag"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string }[]",
+          "default": "6 built-in scenes",
+          "description": "Images to show. An entry without src renders a built-in gradient scene, so the gallery works with no assets."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled index of the center image. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "middle image",
+          "description": "Initial center image when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called when the center image changes, by the user or by autoplay."
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Step back and forth on a timer. Pauses on hover, focus, drag and off-screen. Off under reduced motion."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "2600",
+          "description": "Milliseconds between autoplay steps."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "300",
+          "description": "Height of the stage in pixels. The cover size follows the height and the width."
+        },
+        {
+          "name": "angle",
+          "type": "number",
+          "default": "55",
+          "description": "Rotation of the side images in degrees."
+        },
+        {
+          "name": "reflection",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the fading floor reflection under each image."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring color."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Cover flow\"",
+          "description": "Accessible name of the carousel."
+        }
+      ],
+      "usage": "<GalleryCoverflow height={320} onChange={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-coverflow.json",
+      "docs": "https://hyperblur.dev/effects/gallery-coverflow",
+      "file": "https://hyperblur.dev/r/gallery-coverflow.json"
+    },
+    {
+      "slug": "gallery-filmstrip",
+      "component": "GalleryFilmstrip",
+      "title": "Gallery Filmstrip",
+      "description": "A strip of film with sprocket holes and edge numbers drifts under a center gate, and the frame in the gate is projected large in the viewer above.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "film",
+        "carousel",
+        "images",
+        "photography",
+        "drag"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string }[]",
+          "default": "six built-in scenes",
+          "description": "Images to show. Items without `src` fall back to a built-in gradient landscape."
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": "Controlled frame index. Pair with onChange."
+        },
+        {
+          "name": "defaultIndex",
+          "type": "number",
+          "default": "0",
+          "description": "Initial frame when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called when a new frame reaches the gate."
+        },
+        {
+          "name": "autoPlay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let the strip drift on its own while the pointer is away."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "0.35",
+          "description": "Drift speed in frames per second."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the gate marker."
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "default": "aspect-ratio 16 / 10",
+          "description": "Fixed height. When omitted the gallery keeps its aspect ratio and fills the parent width."
+        }
+      ],
+      "usage": "<GalleryFilmstrip height={360} onChange={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-filmstrip.json",
+      "docs": "https://hyperblur.dev/effects/gallery-filmstrip",
+      "file": "https://hyperblur.dev/r/gallery-filmstrip.json"
+    },
+    {
+      "slug": "gallery-rail-hang",
+      "component": "GalleryRailHang",
+      "title": "Gallery Rail Hang",
+      "description": "Prints hang from a clothes rail on small hangers and swing like pendulums when the pointer brushes past or the rail is dragged. Clicking one pulls it forward.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "hanger",
+        "pendulum",
+        "physics",
+        "images",
+        "lookbook"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string }[]",
+          "default": "six built-in scenes",
+          "description": "Images to show. Items without `src` fall back to a built-in gradient landscape."
+        },
+        {
+          "name": "value",
+          "type": "number | null",
+          "description": "Controlled index of the print pulled forward, or null when none is open."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number | null",
+          "default": "null",
+          "description": "Initially opened print when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number | null) => void",
+          "description": "Called when a print is opened or put back."
+        },
+        {
+          "name": "breeze",
+          "type": "boolean",
+          "default": "true",
+          "description": "Idle motion: slow gusts that sway the prints and a gentle pan along the rail."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring and label color."
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "default": "aspect-ratio 16 / 9",
+          "description": "Fixed height. When omitted the gallery keeps its aspect ratio and fills the parent width."
+        }
+      ],
+      "usage": "<GalleryRailHang height={320} onChange={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-rail-hang.json",
+      "docs": "https://hyperblur.dev/effects/gallery-rail-hang",
+      "file": "https://hyperblur.dev/r/gallery-rail-hang.json"
+    },
+    {
+      "slug": "gallery-coverflow-lights",
+      "component": "GalleryCoverflowLights",
+      "title": "Gallery Coverflow Lights",
+      "description": "A cover flow where the active image throws soft colored light onto the stage while the neighbors turn away into the dark.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "coverflow",
+        "carousel",
+        "3d",
+        "glow",
+        "albums"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string; color?: string }[]",
+          "default": "six built-in scenes",
+          "description": "Images to show. `color` sets the light each one casts; built-in scenes bring their own."
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": "Controlled active index. Pair with onChange."
+        },
+        {
+          "name": "defaultIndex",
+          "type": "number",
+          "default": "0",
+          "description": "Initial index when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called with the new active index."
+        },
+        {
+          "name": "autoPlay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Advance on a timer while the pointer and focus are elsewhere."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "3200",
+          "description": "Milliseconds between automatic steps."
+        },
+        {
+          "name": "glow",
+          "type": "number",
+          "default": "1",
+          "description": "Strength of the ambient light, from 0 to about 1.5."
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "default": "aspect-ratio 16 / 10",
+          "description": "Fixed height. When omitted the gallery keeps its aspect ratio and fills the parent width."
+        }
+      ],
+      "usage": "<GalleryCoverflowLights height={340} images={[{ title: \"Low Tide\", color: \"#ff7a59\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-coverflow-lights.json",
+      "docs": "https://hyperblur.dev/effects/gallery-coverflow-lights",
+      "file": "https://hyperblur.dev/r/gallery-coverflow-lights.json"
+    },
+    {
+      "slug": "gallery-scatter",
+      "component": "GalleryScatter",
+      "title": "Gallery Scatter",
+      "description": "Polaroid-style prints lie scattered at loose angles. Drag any of them to the top of the pile, or tidy the whole table into a neat grid.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "polaroid",
+        "drag",
+        "photos",
+        "grid",
+        "playful"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string }[]",
+          "default": "six built-in scenes",
+          "description": "Images to show. Items without `src` fall back to a built-in gradient landscape."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called with the index of the print brought to the front."
+        },
+        {
+          "name": "tidy",
+          "type": "boolean",
+          "description": "Controlled grid state. Pair with onTidyChange."
+        },
+        {
+          "name": "defaultTidy",
+          "type": "boolean",
+          "default": "false",
+          "description": "Start in the tidy grid when uncontrolled."
+        },
+        {
+          "name": "onTidyChange",
+          "type": "(tidy: boolean) => void",
+          "description": "Called when the Tidy up / Scatter button is pressed."
+        },
+        {
+          "name": "autoPlay",
+          "type": "boolean",
+          "default": "true",
+          "description": "While idle, lift the bottom print to the top of the pile every few seconds."
+        },
+        {
+          "name": "interval",
+          "type": "number",
+          "default": "3200",
+          "description": "Milliseconds between idle moves."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring and button icon color."
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "default": "aspect-ratio 16 / 10",
+          "description": "Fixed height. When omitted the gallery keeps its aspect ratio and fills the parent width."
+        }
+      ],
+      "usage": "<GalleryScatter height={360} onTidyChange={(tidy) => console.log(tidy)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-scatter.json",
+      "docs": "https://hyperblur.dev/effects/gallery-scatter",
+      "file": "https://hyperblur.dev/r/gallery-scatter.json"
+    },
+    {
+      "slug": "gallery-runway",
+      "component": "GalleryRunway",
+      "title": "Gallery Runway",
+      "description": "Framed images walk toward the viewer along a lit runway in 3D, growing and stepping aside as they pass. Hovering a frame stops the flow.",
+      "category": "components",
+      "tags": [
+        "gallery",
+        "3d",
+        "perspective",
+        "runway",
+        "images",
+        "showcase"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; title: string; caption?: string }[]",
+          "default": "six built-in scenes",
+          "description": "Images to show. Items without `src` fall back to a built-in gradient landscape."
+        },
+        {
+          "name": "value",
+          "type": "number | null",
+          "description": "Controlled selected index. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number | null",
+          "default": "null",
+          "description": "Initially selected index when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called when a frame is clicked, or Enter is pressed for the front frame."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "0.055",
+          "description": "How fast the frames travel, in runway lengths per second."
+        },
+        {
+          "name": "playing",
+          "type": "boolean",
+          "default": "true",
+          "description": "Set to false to hold the flow still."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Runway lights, horizon glow and selection ring color."
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "default": "aspect-ratio 16 / 10",
+          "description": "Fixed height. When omitted the gallery keeps its aspect ratio and fills the parent width."
+        }
+      ],
+      "usage": "<GalleryRunway height={380} onChange={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/gallery-runway.json",
+      "docs": "https://hyperblur.dev/effects/gallery-runway",
+      "file": "https://hyperblur.dev/r/gallery-runway.json"
+    },
+    {
+      "slug": "carousel-lightbox",
+      "component": "CarouselLightbox",
+      "title": "Carousel Lightbox",
+      "description": "A thumbnail strip where each image opens in a lightbox. The picture zooms out of its thumbnail and flies back on close, with previous and next, Escape and a focus trap.",
+      "category": "components",
+      "tags": [
+        "carousel",
+        "lightbox",
+        "gallery",
+        "thumbnails",
+        "zoom",
+        "modal"
+      ],
+      "props": [
+        {
+          "name": "images",
+          "type": "{ src?: string; alt?: string; caption?: string }[]",
+          "description": "Images to show. Entries without a src render a built-in gradient scene. Eight scenes are used when omitted."
+        },
+        {
+          "name": "thumbWidth",
+          "type": "number",
+          "default": "112",
+          "description": "Thumbnail width in pixels. Height follows a 4:3 ratio."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring color."
+        }
+      ],
+      "usage": "<CarouselLightbox images={[{ src: \"/coast.jpg\", alt: \"Coast\", caption: \"Coast at dawn\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/carousel-lightbox.json",
+      "docs": "https://hyperblur.dev/effects/carousel-lightbox",
+      "file": "https://hyperblur.dev/r/carousel-lightbox.json"
+    },
+    {
+      "slug": "carousel-page-count",
+      "component": "CarouselPageCount",
+      "title": "Carousel Page Count",
+      "description": "A swipeable carousel with a rolling two-digit page counter, a progress hairline and arrow buttons that disable at both ends.",
+      "category": "components",
+      "tags": [
+        "carousel",
+        "counter",
+        "pagination",
+        "slides",
+        "arrows",
+        "swipe"
+      ],
+      "props": [
+        {
+          "name": "slides",
+          "type": "{ title: string; caption?: string; src?: string; from?: string; to?: string }[]",
+          "description": "Slides to show. Without a src a gradient from `from` to `to` is used. Eight slides are used when omitted."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled zero-based slide index. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "0",
+          "description": "Initial slide index when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called when the slide changes by arrow, key or swipe."
+        },
+        {
+          "name": "autoPlay",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between automatic advances. 0 turns it off. Pauses on hover and focus and rewinds after the last slide."
+        },
+        {
+          "name": "ratio",
+          "type": "string",
+          "default": "\"16 / 9\"",
+          "description": "CSS aspect ratio of the slide area."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Progress bar and focus ring color."
+        }
+      ],
+      "usage": "<CarouselPageCount slides={[{ title: \"Morning ferry\", caption: \"Cold light\" }, { title: \"Salt flats\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/carousel-page-count.json",
+      "docs": "https://hyperblur.dev/effects/carousel-page-count",
+      "file": "https://hyperblur.dev/r/carousel-page-count.json"
+    },
+    {
+      "slug": "carousel-scrubber",
+      "component": "CarouselScrubber",
+      "title": "Carousel Scrubber",
+      "description": "A card carousel with a draggable scrubber under it. Dragging moves the track continuously and releases onto the nearest stop. Arrow keys step between stops.",
+      "category": "components",
+      "tags": [
+        "carousel",
+        "scrubber",
+        "slider",
+        "drag",
+        "timeline",
+        "snap"
+      ],
+      "props": [
+        {
+          "name": "slides",
+          "type": "{ title: string; meta?: string; from?: string; to?: string }[]",
+          "description": "Cards to show. Eight chapters are used when omitted."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled zero-based stop index. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "0",
+          "description": "Initial stop index when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(stop: number) => void",
+          "description": "Called when the track settles on a different stop."
+        },
+        {
+          "name": "autoPlay",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between automatic steps. 0 turns it off. Pauses while the pointer is over the component."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Active tick and focus color."
+        }
+      ],
+      "usage": "<CarouselScrubber slides={[{ title: \"Overture\", meta: \"00:00\" }, { title: \"First light\", meta: \"01:12\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/carousel-scrubber.json",
+      "docs": "https://hyperblur.dev/effects/carousel-scrubber",
+      "file": "https://hyperblur.dev/r/carousel-scrubber.json"
+    },
+    {
+      "slug": "card-stack-expand",
+      "component": "CardStackExpand",
+      "title": "Card Stack Expand",
+      "description": "Notification cards stacked with depth. Hover, focus or the Expand button spreads them into a list, and each card dismisses with a swipe or its close button. New cards drop in from the top.",
+      "category": "components",
+      "tags": [
+        "stack",
+        "notifications",
+        "cards",
+        "swipe",
+        "dismiss",
+        "expand"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; title: string; body?: string; time?: string; color?: string; mark?: string }[]",
+          "description": "Controlled list, newest first. Pair with onChange."
+        },
+        {
+          "name": "defaultItems",
+          "type": "StackNotification[]",
+          "description": "Initial list when uncontrolled. Four sample notifications are used when omitted."
+        },
+        {
+          "name": "onChange",
+          "type": "(items: StackNotification[]) => void",
+          "description": "Called after a card is dismissed or added."
+        },
+        {
+          "name": "incoming",
+          "type": "StackNotification[]",
+          "description": "Pool the New button draws from, in order. Four samples are used when omitted."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Notifications\"",
+          "description": "Header title."
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "4",
+          "description": "Most cards shown when expanded. The rest stay tucked under the stack."
+        },
+        {
+          "name": "cardHeight",
+          "type": "number",
+          "default": "52",
+          "description": "Height of each card in pixels."
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "default": "8",
+          "description": "Space between cards when expanded, in pixels."
+        },
+        {
+          "name": "autoPeek",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between short automatic expansions while nothing is hovered or focused. 0 turns it off."
+        },
+        {
+          "name": "reserveSpace",
+          "type": "boolean",
+          "default": "false",
+          "description": "Keep the expanded height reserved so the content below does not move."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring color."
+        }
+      ],
+      "usage": "<CardStackExpand defaultItems={[{ id: \"1\", title: \"Deploy finished\", body: \"web-app is live\", time: \"now\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/card-stack-expand.json",
+      "docs": "https://hyperblur.dev/effects/card-stack-expand",
+      "file": "https://hyperblur.dev/r/card-stack-expand.json"
+    },
+    {
+      "slug": "menu-context",
+      "component": "MenuContext",
+      "title": "Context Menu",
+      "description": "A right-click and long-press menu that opens at the pointer and flips at the edges. It has icons, shortcuts, a submenu, a danger item and full keyboard control.",
+      "category": "micro",
+      "tags": [
+        "context menu",
+        "right click",
+        "long press",
+        "submenu",
+        "popover",
+        "keyboard"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; label?: string; icon?: ReactNode | IconName; shortcut?: string; danger?: boolean; disabled?: boolean; separator?: boolean; items?: ContextMenuItem[] }[]",
+          "description": "Menu entries. Built-in icon names are open, copy, cut, paste, edit, share, trash, star, link, folder, download, mail and chat. An entry with `items` opens a submenu."
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "description": "Called with the id of the chosen entry."
+        },
+        {
+          "name": "boundary",
+          "type": "\"viewport\" | \"container\"",
+          "default": "\"viewport\"",
+          "description": "Where the menu is placed and kept inside. Viewport uses a portal and fixed position. Container renders inside the component and flips against its box."
+        },
+        {
+          "name": "longPress",
+          "type": "number",
+          "default": "520",
+          "description": "Milliseconds of touch press that open the menu. 0 turns long press off."
+        },
+        {
+          "name": "autoDemo",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between automatic demo openings while the pointer is away. Only works with boundary container."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false",
+          "description": "Turn the menu off."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Highlight color of the active entry."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "The area that responds to right-click. A dashed hint box is shown when omitted."
+        }
+      ],
+      "usage": "<MenuContext onSelect={(id) => console.log(id)}><div>Right-click me</div></MenuContext>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-context.json",
+      "docs": "https://hyperblur.dev/effects/menu-context",
+      "file": "https://hyperblur.dev/r/menu-context.json"
+    },
+    {
+      "slug": "list-todo-animated",
+      "component": "ListTodoAnimated",
+      "title": "Animated Todo List",
+      "description": "A task list with an add field, a check mark that draws itself, a strike-through that sweeps across the text, collapsing delete and up and down reordering that glides into place.",
+      "category": "components",
+      "tags": [
+        "todo",
+        "list",
+        "checkbox",
+        "reorder",
+        "tasks",
+        "animation"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; text: string; done?: boolean }[]",
+          "description": "Controlled list. Pair with onChange."
+        },
+        {
+          "name": "defaultItems",
+          "type": "TodoItem[]",
+          "description": "Initial list when uncontrolled. Three sample tasks are used when omitted."
+        },
+        {
+          "name": "onChange",
+          "type": "(items: TodoItem[]) => void",
+          "description": "Called after every add, toggle, delete, reorder or clear."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Add a task and press Enter\"",
+          "description": "Placeholder of the add field."
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "description": "Maximum list height in pixels. The list scrolls beyond it."
+        },
+        {
+          "name": "autoDemo",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between automatic check and uncheck steps while nothing is hovered or focused. 0 turns it off."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Checkbox and progress color."
+        }
+      ],
+      "usage": "<ListTodoAnimated defaultItems={[{ id: \"1\", text: \"Review the pricing page\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/list-todo-animated.json",
+      "docs": "https://hyperblur.dev/effects/list-todo-animated",
+      "file": "https://hyperblur.dev/r/list-todo-animated.json"
+    },
+    {
+      "slug": "modal-shared-layout",
+      "component": "ModalSharedLayout",
+      "title": "Shared Layout Modal",
+      "description": "Cards that grow into a modal and shrink back into the same spot. The card morphs by measuring its box, the content crossfades, and everything stays inside its own frame.",
+      "category": "components",
+      "tags": [
+        "modal",
+        "shared layout",
+        "morph",
+        "card",
+        "transition",
+        "dialog"
+      ],
+      "props": [
+        {
+          "name": "cards",
+          "type": "{ id: string; eyebrow?: string; title: string; from?: string; to?: string; body?: ReactNode; action?: string }[]",
+          "description": "Cards to show. Two sample cards are used when omitted."
+        },
+        {
+          "name": "value",
+          "type": "string | null",
+          "description": "Controlled id of the open card, or null. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string | null",
+          "default": "null",
+          "description": "Initially open card when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string | null) => void",
+          "description": "Called when a card opens or the modal closes."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "200",
+          "description": "Height of the frame in pixels."
+        },
+        {
+          "name": "autoDemo",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between automatic open and close cycles while nothing is hovered or focused. Uncontrolled only. 0 turns it off."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring color."
+        }
+      ],
+      "usage": "<ModalSharedLayout height={220} cards={[{ id: \"a\", title: \"A slow weekend\", body: \"Start with coffee.\", action: \"Save\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/modal-shared-layout.json",
+      "docs": "https://hyperblur.dev/effects/modal-shared-layout",
+      "file": "https://hyperblur.dev/r/modal-shared-layout.json"
+    },
+    {
+      "slug": "view-direction-switch",
+      "component": "ViewDirectionSwitch",
+      "title": "Direction Switch",
+      "description": "Switches between views with tabs or steps. Moving forward slides content to the left, moving back slides it to the right, and the container height eases to the new view.",
+      "category": "components",
+      "tags": [
+        "tabs",
+        "steps",
+        "transition",
+        "direction",
+        "slide",
+        "height"
+      ],
+      "props": [
+        {
+          "name": "views",
+          "type": "{ id: string; label: string; content: ReactNode }[]",
+          "description": "Views in order. Direction follows their position. Three billing views are used when omitted."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Controlled id of the visible view. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "Initial view id when uncontrolled. Defaults to the first view."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when the user picks another view."
+        },
+        {
+          "name": "controls",
+          "type": "\"tabs\" | \"steps\" | \"none\"",
+          "default": "\"tabs\"",
+          "description": "Built-in controls. Use none to drive the view with value from your own UI."
+        },
+        {
+          "name": "autoPlay",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between automatic view changes. 0 turns it off. Pauses on hover and focus and wraps after the last view."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "440",
+          "description": "Slide and height animation time in milliseconds."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Active dot, bar and focus color."
+        }
+      ],
+      "usage": "<ViewDirectionSwitch controls=\"steps\" views={[{ id: \"a\", label: \"Connect\", content: <p>Connect a repo</p> }, { id: \"b\", label: \"Launch\", content: <p>Ship it</p> }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/view-direction-switch.json",
+      "docs": "https://hyperblur.dev/effects/view-direction-switch",
+      "file": "https://hyperblur.dev/r/view-direction-switch.json"
+    },
+    {
+      "slug": "footer-reveal-under",
+      "component": "FooterRevealUnder",
+      "title": "Footer Reveal Under",
+      "description": "A footer that sits beneath the page and is uncovered as the content above scrolls away, with a gradient wordmark that follows the pointer, link columns and a newsletter field. Wrap the page above it in FooterRevealUnderPage so it covers the footer.",
+      "category": "footer",
+      "tags": [
+        "footer",
+        "reveal",
+        "sticky",
+        "wordmark",
+        "newsletter",
+        "scroll"
+      ],
+      "props": [
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Fieldnote\"",
+          "description": "Brand name shown next to the logo mark and used for the copyright line."
+        },
+        {
+          "name": "wordmark",
+          "type": "string",
+          "description": "Text of the oversized wordmark. Falls back to the brand name. Always rendered in capitals and stretched to the full width."
+        },
+        {
+          "name": "tagline",
+          "type": "string",
+          "default": "\"Notes that organize themselves, wherever you happen to write them.\"",
+          "description": "Short description under the brand."
+        },
+        {
+          "name": "columns",
+          "type": "{ title: string; links: { label: string; href: string }[] }[]",
+          "default": "Product, Company, Resources",
+          "description": "Link columns on the right."
+        },
+        {
+          "name": "socials",
+          "type": "{ label: string; href: string }[]",
+          "default": "X, GitHub, LinkedIn",
+          "description": "Links in the bottom bar."
+        },
+        {
+          "name": "legal",
+          "type": "{ label: string; href: string }[]",
+          "default": "Privacy, Terms",
+          "description": "Legal links in the bottom bar."
+        },
+        {
+          "name": "newsletterTitle",
+          "type": "string",
+          "default": "\"A monthly letter, no noise\"",
+          "description": "Label of the email field."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"you@studio.com\"",
+          "description": "Placeholder of the email field."
+        },
+        {
+          "name": "buttonLabel",
+          "type": "string",
+          "default": "\"Subscribe\"",
+          "description": "Label of the submit button."
+        },
+        {
+          "name": "successMessage",
+          "type": "string",
+          "default": "\"You are on the list. See you next month.\"",
+          "description": "Message announced after a successful submit."
+        },
+        {
+          "name": "onSubscribe",
+          "type": "(email: string) => void",
+          "description": "Called with the email when the form is submitted."
+        },
+        {
+          "name": "copyright",
+          "type": "string",
+          "description": "Text after the copyright sign. Defaults to the brand name followed by All rights reserved."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color for the logo mark, wordmark highlight, focus rings and link underlines."
+        },
+        {
+          "name": "showBackdrop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Render a decorative page stub on top that slides away on a loop. Use it for previews; in a real page leave it off."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra class for the root footer."
+        }
+      ],
+      "usage": "<><FooterRevealUnderPage><main>Page content</main></FooterRevealUnderPage><FooterRevealUnder brand=\"Fieldnote\" accent=\"#2f7bff\" /></>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/footer-reveal-under.json",
+      "docs": "https://hyperblur.dev/effects/footer-reveal-under",
+      "file": "https://hyperblur.dev/r/footer-reveal-under.json"
+    },
+    {
+      "slug": "scroll-image-reveal",
+      "component": "ScrollImageReveal",
+      "title": "Scroll Image Reveal",
+      "description": "An image that opens from a thin glowing slit to full size when it scrolls into view, while it settles from a 1.3x zoom and its caption slides up line by line.",
+      "category": "motion",
+      "tags": [
+        "scroll",
+        "image",
+        "reveal",
+        "clip-path",
+        "caption",
+        "gallery"
+      ],
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "description": "Image URL. A built-in gradient landscape is used when omitted."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Alternative text for the image."
+        },
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Plate 07 / Dawn\"",
+          "description": "Small uppercase line above the caption. Hidden when empty."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"Salt flats before the heat\"",
+          "description": "Main caption line."
+        },
+        {
+          "name": "detail",
+          "type": "string",
+          "default": "\"Uyuni, Bolivia. Shot at 05:42, thirty minutes ahead of sunrise.\"",
+          "description": "Secondary caption line."
+        },
+        {
+          "name": "aspect",
+          "type": "string",
+          "default": "\"4 / 3\"",
+          "description": "CSS aspect-ratio of the frame."
+        },
+        {
+          "name": "axis",
+          "type": "\"vertical\" | \"horizontal\"",
+          "default": "\"vertical\"",
+          "description": "Direction the slit opens: top and bottom, or left and right."
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "default": "20",
+          "description": "Corner radius of the open frame, in pixels."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1400",
+          "description": "Duration of the opening in milliseconds."
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "0.25",
+          "description": "Share of the frame that must be visible before it opens."
+        },
+        {
+          "name": "once",
+          "type": "boolean",
+          "default": "true",
+          "description": "Open once. When false the image closes again when it leaves the viewport."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Open and close repeatedly while visible. Meant for previews."
+        },
+        {
+          "name": "loopHold",
+          "type": "number",
+          "default": "2800",
+          "description": "Milliseconds the frame stays open per cycle when looping."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff9f6e\"",
+          "description": "Color of the glow around the slit and the eyebrow line."
+        }
+      ],
+      "usage": "<ScrollImageReveal src=\"/photos/salt-flats.jpg\" alt=\"Salt flats at dawn\" caption=\"Salt flats before the heat\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/scroll-image-reveal.json",
+      "docs": "https://hyperblur.dev/effects/scroll-image-reveal",
+      "file": "https://hyperblur.dev/r/scroll-image-reveal.json"
+    },
+    {
+      "slug": "cursor-magnetic-filings",
+      "component": "CursorMagneticFilings",
+      "title": "Cursor Magnetic Filings",
+      "description": "A canvas field of iron-filing needles that swing into the field lines of a dipole magnet. A hidden magnet drifts on its own until the pointer takes over.",
+      "category": "hover",
+      "tags": [
+        "cursor",
+        "magnet",
+        "canvas",
+        "particles",
+        "field",
+        "interactive"
+      ],
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Color of needles that are fully aligned to the field. Hex only."
+        },
+        {
+          "name": "baseColor",
+          "type": "string",
+          "default": "\"#3b4150\"",
+          "description": "Color of resting needles far from the magnet. Hex only."
+        },
+        {
+          "name": "spacing",
+          "type": "number",
+          "default": "13",
+          "description": "Distance between needles in pixels. Raised automatically on large areas to cap the count."
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "default": "9",
+          "description": "Needle length in pixels."
+        },
+        {
+          "name": "thickness",
+          "type": "number",
+          "default": "1.3",
+          "description": "Needle stroke width in pixels."
+        },
+        {
+          "name": "strength",
+          "type": "number",
+          "default": "1",
+          "description": "Scales how far the magnetic field reaches."
+        },
+        {
+          "name": "idle",
+          "type": "boolean",
+          "default": "true",
+          "description": "Let a hidden magnet orbit when the pointer is away. When false the needles rest until you move over them."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content drawn above the canvas. It ignores pointer events except on interactive children."
+        }
+      ],
+      "usage": "<div style={{ height: 320 }}><CursorMagneticFilings color=\"#7fb3ff\" strength={1.1} /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/cursor-magnetic-filings.json",
+      "docs": "https://hyperblur.dev/effects/cursor-magnetic-filings",
+      "file": "https://hyperblur.dev/r/cursor-magnetic-filings.json"
+    },
+    {
+      "slug": "cursor-trail-velocity",
+      "component": "CursorTrailVelocity",
+      "title": "Cursor Trail Velocity",
+      "description": "A canvas cursor trail that reads pointer speed: slow moves leave small round dots, fast flicks stretch into long thin streaks that shift in hue.",
+      "category": "hover",
+      "tags": [
+        "cursor",
+        "trail",
+        "velocity",
+        "canvas",
+        "streak",
+        "pointer"
+      ],
+      "props": [
+        {
+          "name": "slowHue",
+          "type": "number",
+          "default": "200",
+          "description": "HSL hue in degrees used when the pointer is slow."
+        },
+        {
+          "name": "fastHue",
+          "type": "number",
+          "default": "330",
+          "description": "HSL hue in degrees used at full speed."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "5",
+          "description": "Base dot size in pixels."
+        },
+        {
+          "name": "life",
+          "type": "number",
+          "default": "650",
+          "description": "Base lifetime of a dot in milliseconds. Fast strokes live up to three times longer."
+        },
+        {
+          "name": "maxSpeed",
+          "type": "number",
+          "default": "1400",
+          "description": "Pointer speed in pixels per second that counts as full speed."
+        },
+        {
+          "name": "idle",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draw a scripted path with changing speed until the pointer enters."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content drawn above the canvas. It ignores pointer events except on interactive children."
+        }
+      ],
+      "usage": "<div style={{ height: 320 }}><CursorTrailVelocity slowHue={200} fastHue={330} /></div>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/cursor-trail-velocity.json",
+      "docs": "https://hyperblur.dev/effects/cursor-trail-velocity",
+      "file": "https://hyperblur.dev/r/cursor-trail-velocity.json"
+    },
+    {
+      "slug": "chart-line-graph",
+      "component": "ChartLineGraph",
+      "title": "Chart Line Graph",
+      "description": "A responsive line graph that draws its path when it scrolls into view, with gradient area fill, gridlines, a pulsing end point and a crosshair tooltip you can drive with the pointer or the arrow keys.",
+      "category": "charts",
+      "tags": [
+        "chart",
+        "line",
+        "graph",
+        "tooltip",
+        "keyboard",
+        "svg"
+      ],
+      "props": [
+        {
+          "name": "data",
+          "type": "{ label: string; value: number }[]",
+          "default": "12 weeks of sample data",
+          "description": "Points to plot, left to right. Labels appear on the x axis and in the tooltip."
+        },
+        {
+          "name": "format",
+          "type": "(value: number) => string",
+          "default": "v => v.toLocaleString(\"en-US\")",
+          "description": "Formats values in the tooltip and the slider text."
+        },
+        {
+          "name": "axisFormat",
+          "type": "(value: number) => string",
+          "default": "compact, for example 1.5k",
+          "description": "Formats the y axis labels."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "240",
+          "description": "Plot height in pixels. The width follows the container."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Line, area, crosshair and end point color."
+        },
+        {
+          "name": "curve",
+          "type": "boolean",
+          "default": "true",
+          "description": "Smooth the line with a monotone curve. When false the points are joined by straight segments."
+        },
+        {
+          "name": "sweep",
+          "type": "boolean",
+          "default": "false",
+          "description": "Move the crosshair along the data on its own until the pointer or keyboard takes over. Meant for previews."
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "default": "\"Line graph\"",
+          "description": "Accessible name of the focusable plot. Use the left and right arrow keys, Home and End to move between points, Escape to clear."
+        }
+      ],
+      "usage": "<ChartLineGraph data={[{ label: \"Mon\", value: 12 }, { label: \"Tue\", value: 18 }, { label: \"Wed\", value: 15 }]} format={(v) => `${v} orders`} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/chart-line-graph.json",
+      "docs": "https://hyperblur.dev/effects/chart-line-graph",
+      "file": "https://hyperblur.dev/r/chart-line-graph.json"
+    },
+    {
+      "slug": "hero-stagger-intro",
+      "component": "HeroStaggerIntro",
+      "title": "Hero Stagger Intro",
+      "description": "A hero section whose eyebrow, headline lines, subtitle, buttons and product visual enter one after another with a rise, blur and fade. Change the replay key to play it again.",
+      "category": "motion",
+      "tags": [
+        "hero",
+        "intro",
+        "stagger",
+        "blur",
+        "entrance",
+        "sequence"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Plume 2.0 is live\"",
+          "description": "Pill above the headline. Hidden when empty."
+        },
+        {
+          "name": "lines",
+          "type": "string[]",
+          "default": "[\"Know what broke\", \"before users do.\"]",
+          "description": "Headline lines. Each line enters on its own and the last one gets the gradient."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Plume watches every endpoint, trace and deploy, then tells you what changed in plain words.\"",
+          "description": "Paragraph under the headline. Hidden when empty."
+        },
+        {
+          "name": "primary",
+          "type": "{ label: string; href: string }",
+          "default": "{ label: \"Start free\", href: \"#\" }",
+          "description": "Main call to action."
+        },
+        {
+          "name": "secondary",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Watch the demo\", href: \"#\" }",
+          "description": "Second call to action. Pass null to hide it."
+        },
+        {
+          "name": "visual",
+          "type": "ReactNode | null",
+          "description": "Content for the right column. A built-in dashboard mock is used when omitted; pass null for a single text column."
+        },
+        {
+          "name": "replay",
+          "type": "string | number",
+          "default": "0",
+          "description": "Change this value to remount the content and play the sequence again."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "120",
+          "description": "Delay between consecutive items in milliseconds."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "900",
+          "description": "Duration of each item's entrance in milliseconds."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#3ddc97\"",
+          "description": "Accent color for the glow, status dot, gradient and primary button."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra class for the root section."
+        }
+      ],
+      "usage": "<HeroStaggerIntro replay={runId} lines={[\"Ship the quiet parts\", \"first.\"]} primary={{ label: \"Get started\", href: \"/signup\" }} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-stagger-intro.json",
+      "docs": "https://hyperblur.dev/effects/hero-stagger-intro",
+      "file": "https://hyperblur.dev/r/hero-stagger-intro.json"
+    },
+    {
+      "slug": "curtain-blinds",
+      "component": "CurtainBlinds",
+      "title": "Curtain Blinds",
+      "description": "Venetian blind slats that tilt open one after another in 3D to reveal the content, and tilt shut in reverse order.",
+      "category": "transitions",
+      "tags": [
+        "curtain",
+        "blinds",
+        "reveal",
+        "transition",
+        "3d",
+        "stagger"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "built-in scene",
+          "description": "Content revealed behind the curtain."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. True means the curtain is open and the content visible. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called whenever the curtain opens or closes, including trigger, closeAfter and loop changes."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"manual\"",
+          "default": "\"mount\"",
+          "description": "When the curtain opens by itself: after mount, when it scrolls into view, or never (drive it with open)."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "700",
+          "description": "Tilt time of each slat in milliseconds."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#171717\"",
+          "description": "Slat color."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the thin highlight along each slat edge."
+        },
+        {
+          "name": "direction",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Horizontal slats tilt on the X axis, vertical slats on the Y axis."
+        },
+        {
+          "name": "slats",
+          "type": "number",
+          "default": "8",
+          "description": "Number of slats, from 2 to 40."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "55",
+          "description": "Delay between consecutive slats in milliseconds."
+        },
+        {
+          "name": "replay",
+          "type": "string | number",
+          "description": "Change this value to snap the curtain shut and play the reveal again."
+        },
+        {
+          "name": "closeAfter",
+          "type": "number",
+          "description": "Milliseconds to stay open before closing again. Leave unset to stay open."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Reopen after closing, for a continuous open, hold, close cycle. Use with closeAfter."
+        }
+      ],
+      "usage": "<CurtainBlinds trigger=\"view\" slats={10}><img src=\"/poster.jpg\" alt=\"\" /></CurtainBlinds>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/curtain-blinds.json",
+      "docs": "https://hyperblur.dev/effects/curtain-blinds",
+      "file": "https://hyperblur.dev/r/curtain-blinds.json"
+    },
+    {
+      "slug": "curtain-clip-wipe",
+      "component": "CurtainClipWipe",
+      "title": "Curtain Clip Wipe",
+      "description": "A crisp clip-path wipe that pulls the curtain away with a bright leading edge and a soft trailing glow, in five directions.",
+      "category": "transitions",
+      "tags": [
+        "curtain",
+        "wipe",
+        "clip-path",
+        "reveal",
+        "transition",
+        "edge"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "built-in scene",
+          "description": "Content revealed behind the curtain."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. True means the curtain is open and the content visible. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called whenever the curtain opens or closes, including trigger, closeAfter and loop changes."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"manual\"",
+          "default": "\"mount\"",
+          "description": "When the curtain opens by itself: after mount, when it scrolls into view, or never (drive it with open)."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "900",
+          "description": "Wipe time in milliseconds."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#171717\"",
+          "description": "Curtain color."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the leading edge and its glow."
+        },
+        {
+          "name": "direction",
+          "type": "\"left\" | \"right\" | \"up\" | \"down\" | \"diagonal\"",
+          "default": "\"right\"",
+          "description": "Direction the edge travels."
+        },
+        {
+          "name": "replay",
+          "type": "string | number",
+          "description": "Change this value to snap the curtain shut and play the reveal again."
+        },
+        {
+          "name": "closeAfter",
+          "type": "number",
+          "description": "Milliseconds to stay open before closing again. Leave unset to stay open."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Reopen after closing, for a continuous open, hold, close cycle. Use with closeAfter."
+        }
+      ],
+      "usage": "<CurtainClipWipe direction=\"diagonal\" trigger=\"view\"><ProductCard /></CurtainClipWipe>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/curtain-clip-wipe.json",
+      "docs": "https://hyperblur.dev/effects/curtain-clip-wipe",
+      "file": "https://hyperblur.dev/r/curtain-clip-wipe.json"
+    },
+    {
+      "slug": "curtain-doors",
+      "component": "CurtainDoors",
+      "title": "Curtain Doors",
+      "description": "Two doors swing open from the center in 3D with shading that deepens as they turn, while the room behind brightens into view.",
+      "category": "transitions",
+      "tags": [
+        "curtain",
+        "doors",
+        "3d",
+        "reveal",
+        "transition",
+        "perspective"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "built-in scene",
+          "description": "Content revealed behind the curtain."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. True means the curtain is open and the content visible. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called whenever the curtain opens or closes, including trigger, closeAfter and loop changes."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"manual\"",
+          "default": "\"mount\"",
+          "description": "When the curtain opens by itself: after mount, when it scrolls into view, or never (drive it with open)."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1100",
+          "description": "Swing time in milliseconds."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#1c1c1f\"",
+          "description": "Door color."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the handles and the light in the seam."
+        },
+        {
+          "name": "direction",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Left and right doors, or top and bottom doors."
+        },
+        {
+          "name": "angle",
+          "type": "number",
+          "default": "96",
+          "description": "How far each door swings, in degrees."
+        },
+        {
+          "name": "replay",
+          "type": "string | number",
+          "description": "Change this value to snap the curtain shut and play the reveal again."
+        },
+        {
+          "name": "closeAfter",
+          "type": "number",
+          "description": "Milliseconds to stay open before closing again. Leave unset to stay open."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Reopen after closing, for a continuous open, hold, close cycle. Use with closeAfter."
+        }
+      ],
+      "usage": "<CurtainDoors trigger=\"view\"><EventTicket /></CurtainDoors>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/curtain-doors.json",
+      "docs": "https://hyperblur.dev/effects/curtain-doors",
+      "file": "https://hyperblur.dev/r/curtain-doors.json"
+    },
+    {
+      "slug": "curtain-mixed",
+      "component": "CurtainMixed",
+      "title": "Curtain Mixed",
+      "description": "A mosaic of tiles that wipe away row by row, each row in the opposite direction of the one before, in a snaking order.",
+      "category": "transitions",
+      "tags": [
+        "curtain",
+        "tiles",
+        "mosaic",
+        "wipe",
+        "reveal",
+        "stagger"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "built-in scene",
+          "description": "Content revealed behind the curtain."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. True means the curtain is open and the content visible. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called whenever the curtain opens or closes, including trigger, closeAfter and loop changes."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"manual\"",
+          "default": "\"mount\"",
+          "description": "When the curtain opens by itself: after mount, when it scrolls into view, or never (drive it with open)."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "650",
+          "description": "Wipe time of each tile in milliseconds."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#141416\"",
+          "description": "Base tile color. Tiles vary slightly around it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color mixed into a few tiles of the mosaic."
+        },
+        {
+          "name": "direction",
+          "type": "\"horizontal\" | \"vertical\"",
+          "default": "\"horizontal\"",
+          "description": "Alternate wipe direction per row, or per column."
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "default": "4",
+          "description": "Number of tile rows, from 1 to 16."
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "default": "6",
+          "description": "Number of tile columns, from 1 to 16."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "45",
+          "description": "Delay between neighboring tiles in milliseconds."
+        },
+        {
+          "name": "replay",
+          "type": "string | number",
+          "description": "Change this value to snap the curtain shut and play the reveal again."
+        },
+        {
+          "name": "closeAfter",
+          "type": "number",
+          "description": "Milliseconds to stay open before closing again. Leave unset to stay open."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Reopen after closing, for a continuous open, hold, close cycle. Use with closeAfter."
+        }
+      ],
+      "usage": "<CurtainMixed rows={4} cols={7} trigger=\"view\"><Cover /></CurtainMixed>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/curtain-mixed.json",
+      "docs": "https://hyperblur.dev/effects/curtain-mixed",
+      "file": "https://hyperblur.dev/r/curtain-mixed.json"
+    },
+    {
+      "slug": "curtain-iris",
+      "component": "CurtainIris",
+      "title": "Curtain Iris",
+      "description": "A scope-style iris that opens a circle from a chosen point, with a bright ring at its edge. In pointer mode a click picks the point.",
+      "category": "transitions",
+      "tags": [
+        "curtain",
+        "iris",
+        "circle",
+        "scope",
+        "reveal",
+        "clip-path"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "built-in scene",
+          "description": "Content revealed behind the curtain."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. True means the curtain is open and the content visible. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called whenever the curtain opens or closes, including trigger, closeAfter and loop changes."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"manual\"",
+          "default": "\"mount\"",
+          "description": "When the curtain opens by itself: after mount, when it scrolls into view, or never (drive it with open)."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1000",
+          "description": "Opening time in milliseconds."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#0b0c10\"",
+          "description": "Color of the scope behind the content."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the ring, crosshair and glow."
+        },
+        {
+          "name": "origin",
+          "type": "\"center\" | \"pointer\" | { x: number; y: number }",
+          "default": "\"center\"",
+          "description": "Where the iris opens. Pointer lets a click or Enter choose the point and cycles through preset points when looping; an object sets it in percent."
+        },
+        {
+          "name": "replay",
+          "type": "string | number",
+          "description": "Change this value to snap the curtain shut and play the reveal again."
+        },
+        {
+          "name": "closeAfter",
+          "type": "number",
+          "description": "Milliseconds to stay open before closing again. Leave unset to stay open."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Reopen after closing, for a continuous open, hold, close cycle. Use with closeAfter."
+        }
+      ],
+      "usage": "<CurtainIris origin=\"pointer\" trigger=\"manual\"><Headline /></CurtainIris>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/curtain-iris.json",
+      "docs": "https://hyperblur.dev/effects/curtain-iris",
+      "file": "https://hyperblur.dev/r/curtain-iris.json"
+    },
+    {
+      "slug": "curtain-stagger-wipe",
+      "component": "CurtainStaggerWipe",
+      "title": "Curtain Stagger Wipe",
+      "description": "Vertical bars sweep off one after another, each trailed by a colored layer, then drop back in reverse to cover the content.",
+      "category": "transitions",
+      "tags": [
+        "curtain",
+        "bars",
+        "stagger",
+        "wipe",
+        "reveal",
+        "transition"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "built-in scene",
+          "description": "Content revealed behind the curtain."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. True means the curtain is open and the content visible. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called whenever the curtain opens or closes, including trigger, closeAfter and loop changes."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"manual\"",
+          "default": "\"mount\"",
+          "description": "When the curtain opens by itself: after mount, when it scrolls into view, or never (drive it with open)."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "750",
+          "description": "Travel time of each bar in milliseconds."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#111111\"",
+          "description": "Color of the front layer of each bar."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the glowing line on the leading edge."
+        },
+        {
+          "name": "colors",
+          "type": "string[]",
+          "default": "[\"#2f7bff\", \"#7fb3ff\", \"#ededed\", \"#5b5bff\", \"#1d4ed8\"]",
+          "description": "Colors of the trailing layers, used in order and repeated."
+        },
+        {
+          "name": "direction",
+          "type": "\"up\" | \"down\"",
+          "default": "\"up\"",
+          "description": "Direction the bars travel when opening."
+        },
+        {
+          "name": "bars",
+          "type": "number",
+          "default": "5",
+          "description": "Number of bars, from 1 to 24."
+        },
+        {
+          "name": "stagger",
+          "type": "number",
+          "default": "70",
+          "description": "Delay between bars in milliseconds."
+        },
+        {
+          "name": "replay",
+          "type": "string | number",
+          "description": "Change this value to snap the curtain shut and play the reveal again."
+        },
+        {
+          "name": "closeAfter",
+          "type": "number",
+          "description": "Milliseconds to stay open before closing again. Leave unset to stay open."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Reopen after closing, for a continuous open, hold, close cycle. Use with closeAfter."
+        }
+      ],
+      "usage": "<CurtainStaggerWipe bars={6} trigger=\"view\"><Hero /></CurtainStaggerWipe>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/curtain-stagger-wipe.json",
+      "docs": "https://hyperblur.dev/effects/curtain-stagger-wipe",
+      "file": "https://hyperblur.dev/r/curtain-stagger-wipe.json"
+    },
+    {
+      "slug": "curtain-wipe",
+      "component": "CurtainWipe",
+      "title": "Curtain Wipe",
+      "description": "One soft curtain that glides away with a glowing gradient edge, feathering wider as it travels across.",
+      "category": "transitions",
+      "tags": [
+        "curtain",
+        "wipe",
+        "gradient",
+        "feather",
+        "reveal",
+        "transition"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "default": "built-in scene",
+          "description": "Content revealed behind the curtain."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state. True means the curtain is open and the content visible. Pair with onOpenChange."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called whenever the curtain opens or closes, including trigger, closeAfter and loop changes."
+        },
+        {
+          "name": "trigger",
+          "type": "\"mount\" | \"view\" | \"manual\"",
+          "default": "\"mount\"",
+          "description": "When the curtain opens by itself: after mount, when it scrolls into view, or never (drive it with open)."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "1200",
+          "description": "Wipe time in milliseconds."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#111111\"",
+          "description": "Curtain color."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Tint and glow color of the feathered edge."
+        },
+        {
+          "name": "direction",
+          "type": "\"left\" | \"right\" | \"up\" | \"down\"",
+          "default": "\"right\"",
+          "description": "Direction the curtain travels."
+        },
+        {
+          "name": "feather",
+          "type": "number",
+          "default": "0.4",
+          "description": "Width of the soft edge at the end of the wipe, from 0.08 to 0.9 of the box."
+        },
+        {
+          "name": "replay",
+          "type": "string | number",
+          "description": "Change this value to snap the curtain shut and play the reveal again."
+        },
+        {
+          "name": "closeAfter",
+          "type": "number",
+          "description": "Milliseconds to stay open before closing again. Leave unset to stay open."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Reopen after closing, for a continuous open, hold, close cycle. Use with closeAfter."
+        }
+      ],
+      "usage": "<CurtainWipe direction=\"up\" trigger=\"view\"><WeatherCard /></CurtainWipe>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/curtain-wipe.json",
+      "docs": "https://hyperblur.dev/effects/curtain-wipe",
+      "file": "https://hyperblur.dev/r/curtain-wipe.json"
+    },
+    {
+      "slug": "text-scramble-view",
+      "component": "TextScrambleView",
+      "title": "Text Scramble View",
+      "description": "Text that churns through random glyphs and settles left to right when it scrolls into view. Click or press Enter to replay it.",
+      "category": "text",
+      "tags": [
+        "text",
+        "scramble",
+        "decode",
+        "reveal",
+        "in-view",
+        "headline"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "The text to resolve. Also the accessible name of the element."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "45",
+          "description": "Milliseconds between one letter settling and the next. Lower is faster."
+        },
+        {
+          "name": "charset",
+          "type": "string",
+          "default": "\"!<>-_/[]{}=+*^?#%&$01\"",
+          "description": "Characters the unresolved letters cycle through."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Color of the glyphs while they are still scrambling."
+        },
+        {
+          "name": "replay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Replay the effect on click and on Enter or Space. Turns the element into a focusable button."
+        }
+      ],
+      "usage": "<TextScrambleView text=\"Faster builds, fewer surprises\" className=\"text-3xl font-semibold\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/text-scramble-view.json",
+      "docs": "https://hyperblur.dev/effects/text-scramble-view",
+      "file": "https://hyperblur.dev/r/text-scramble-view.json"
+    },
+    {
+      "slug": "text-scramble-center",
+      "component": "TextScrambleCenter",
+      "title": "Text Scramble Center",
+      "description": "Scrambled text that locks in from the middle outward. Each letter flares with a soft glow the moment it resolves.",
+      "category": "text",
+      "tags": [
+        "text",
+        "scramble",
+        "glow",
+        "center",
+        "reveal",
+        "headline"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "The text to resolve. Also the accessible name of the element."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "70",
+          "description": "Milliseconds of delay added for every letter of distance from the center."
+        },
+        {
+          "name": "charset",
+          "type": "string",
+          "default": "\"!<>-_/[]{}=+*^?#%&$01\"",
+          "description": "Characters the unresolved letters cycle through."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Color of the scrambling glyphs and of the glow at the resolving edge."
+        },
+        {
+          "name": "glow",
+          "type": "number",
+          "default": "1",
+          "description": "Strength of the glow on freshly resolved letters. 0 turns it off."
+        },
+        {
+          "name": "replay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Replay the effect on click and on Enter or Space. Turns the element into a focusable button."
+        }
+      ],
+      "usage": "<TextScrambleCenter text=\"SIGNAL ACQUIRED\" className=\"text-2xl font-bold tracking-widest text-center\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/text-scramble-center.json",
+      "docs": "https://hyperblur.dev/effects/text-scramble-center",
+      "file": "https://hyperblur.dev/r/text-scramble-center.json"
+    },
+    {
+      "slug": "typewriter-human",
+      "component": "TypewriterHuman",
+      "title": "Typewriter Human",
+      "description": "A typewriter with uneven rhythm: longer beats after punctuation, the occasional wrong key noticed late and backspaced. The sequence is seeded, so it is identical on every render.",
+      "category": "text",
+      "tags": [
+        "text",
+        "typewriter",
+        "typing",
+        "typo",
+        "human",
+        "caret"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "The text to type. Space for the full text is reserved up front so the layout never jumps."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "75",
+          "description": "Average milliseconds per keystroke. Each key varies around this value."
+        },
+        {
+          "name": "typos",
+          "type": "number",
+          "default": "0.05",
+          "description": "Chance from 0 to 1 that a letter is mistyped, then corrected with backspace. 0 disables mistakes."
+        },
+        {
+          "name": "seed",
+          "type": "number",
+          "default": "3",
+          "description": "Integer that selects which keystrokes get delays and typos. The same seed always gives the same performance."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Clear the text and type it again after the pause."
+        },
+        {
+          "name": "pause",
+          "type": "number",
+          "default": "2600",
+          "description": "Milliseconds to hold the finished text before looping."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Caret color."
+        }
+      ],
+      "usage": "<TypewriterHuman text=\"Hey Maya, quick update: staging is green.\" className=\"text-lg\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/typewriter-human.json",
+      "docs": "https://hyperblur.dev/effects/typewriter-human",
+      "file": "https://hyperblur.dev/r/typewriter-human.json"
+    },
+    {
+      "slug": "typewriter-swap",
+      "component": "TypewriterSwap",
+      "title": "Typewriter Swap",
+      "description": "Types a phrase, holds it, then deletes only what differs before typing the next one. A shared opening stays on screen and is dimmed while the rest is erased.",
+      "category": "text",
+      "tags": [
+        "text",
+        "typewriter",
+        "rotating",
+        "phrases",
+        "diff",
+        "caret"
+      ],
+      "props": [
+        {
+          "name": "phrases",
+          "type": "string[]",
+          "required": true,
+          "description": "Phrases to cycle through. Phrases that start the same way keep that start when swapping."
+        },
+        {
+          "name": "typeSpeed",
+          "type": "number",
+          "default": "62",
+          "description": "Average milliseconds per typed letter."
+        },
+        {
+          "name": "deleteSpeed",
+          "type": "number",
+          "default": "30",
+          "description": "Milliseconds per deleted letter."
+        },
+        {
+          "name": "hold",
+          "type": "number",
+          "default": "1700",
+          "description": "Milliseconds a finished phrase stays before it is swapped."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Return to the first phrase after the last. When false it stops on the last phrase."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Caret color."
+        }
+      ],
+      "usage": "<TypewriterSwap phrases={[\"invoices from March\", \"invoices from Acme\", \"invoices overdue\"]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/typewriter-swap.json",
+      "docs": "https://hyperblur.dev/effects/typewriter-swap",
+      "file": "https://hyperblur.dev/r/typewriter-swap.json"
+    },
+    {
+      "slug": "ticker-vertical",
+      "component": "TickerVertical",
+      "title": "Ticker Vertical",
+      "description": "A news ticker that scrolls upward in a loop. The row passing through the middle lights up, the edges fade out, and hover or focus pauses it. Two columns scroll in opposite directions.",
+      "category": "motion",
+      "tags": [
+        "ticker",
+        "news",
+        "scroll",
+        "marquee",
+        "vertical",
+        "feed"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ text: string; meta?: string; tag?: string }[]",
+          "required": true,
+          "description": "Rows to show. Text is truncated with an ellipsis; tag renders as a small label and meta as a muted trailing value."
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "default": "5",
+          "description": "Rows visible at once. The highlight sits on the middle one."
+        },
+        {
+          "name": "rowHeight",
+          "type": "number",
+          "default": "34",
+          "description": "Height of one row in pixels."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "24",
+          "description": "Scroll speed in pixels per second."
+        },
+        {
+          "name": "columns",
+          "type": "1 | 2",
+          "default": "1",
+          "description": "With 2, a second column scrolls the opposite way starting from a different item."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the highlight band and its tags."
+        }
+      ],
+      "usage": "<TickerVertical items={[{ tag: \"FED\", text: \"Fed holds rates steady\", meta: \"09:42\" }]} rows={5} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/ticker-vertical.json",
+      "docs": "https://hyperblur.dev/effects/ticker-vertical",
+      "file": "https://hyperblur.dev/r/ticker-vertical.json"
+    },
+    {
+      "slug": "loader-fill-text",
+      "component": "LoaderFillText",
+      "title": "Loader Fill Text",
+      "description": "An outlined word that fills with color from the bottom up behind a rolling wave surface. Drive it with a value or let it loop.",
+      "category": "loaders",
+      "tags": [
+        "loader",
+        "text",
+        "fill",
+        "wave",
+        "progress",
+        "splash"
+      ],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "The word to fill. Also the accessible name."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Progress from 0 to 100. Leave it out to run a looping demo animation."
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "56",
+          "description": "Font size in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Fill color. The top of the fill is lightened automatically."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "3.6",
+          "description": "Seconds for one fill cycle in the looping mode."
+        }
+      ],
+      "usage": "<LoaderFillText text=\"Fernhill\" value={64} size={48} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/loader-fill-text.json",
+      "docs": "https://hyperblur.dev/effects/loader-fill-text",
+      "file": "https://hyperblur.dev/r/loader-fill-text.json"
+    },
+    {
+      "slug": "loader-line-reveal",
+      "component": "LoaderLineReveal",
+      "title": "Loader Line Reveal",
+      "description": "Thin lines draw across one after another, and the title and placeholder bars beneath each line wipe in behind it as loading completes.",
+      "category": "loaders",
+      "tags": [
+        "loader",
+        "skeleton",
+        "lines",
+        "reveal",
+        "progress",
+        "placeholder"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Untitled\"",
+          "description": "Headline revealed by the first line."
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "default": "3",
+          "description": "Number of placeholder bars under the title."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Progress from 0 to 100. Leave it out to run a looping demo animation."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "4.2",
+          "description": "Seconds for one cycle in the looping mode."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the drawing lines."
+        }
+      ],
+      "usage": "<LoaderLineReveal title=\"Q3 Retention Review\" rows={3} value={55} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/loader-line-reveal.json",
+      "docs": "https://hyperblur.dev/effects/loader-line-reveal",
+      "file": "https://hyperblur.dev/r/loader-line-reveal.json"
+    },
+    {
+      "slug": "loader-jumping-dots",
+      "component": "LoaderJumpingDots",
+      "title": "Loader Jumping Dots",
+      "description": "Three dots hop in turn, squashing when they land and stretching in the air, with a shadow on the ground that shrinks as they rise.",
+      "category": "loaders",
+      "tags": [
+        "loader",
+        "dots",
+        "bounce",
+        "squash",
+        "spinner",
+        "css"
+      ],
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "16",
+          "description": "Dot diameter in pixels."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "30",
+          "description": "How high the dots jump, in pixels."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Dot color. Highlight and shadow derive from it."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "0.9",
+          "description": "Seconds for one jump."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Loading\"",
+          "description": "Text announced to screen readers."
+        }
+      ],
+      "usage": "<LoaderJumpingDots size={18} height={34} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/loader-jumping-dots.json",
+      "docs": "https://hyperblur.dev/effects/loader-jumping-dots",
+      "file": "https://hyperblur.dev/r/loader-jumping-dots.json"
+    },
+    {
+      "slug": "loader-dots-pulse",
+      "component": "LoaderDotsPulse",
+      "title": "Loader Dots Pulse",
+      "description": "Three dots swell and brighten one after another, with an optional text label in front, for inline waiting states.",
+      "category": "loaders",
+      "tags": [
+        "loader",
+        "dots",
+        "pulse",
+        "typing",
+        "inline",
+        "css"
+      ],
+      "props": [
+        {
+          "name": "size",
+          "type": "number",
+          "default": "10",
+          "description": "Dot diameter in pixels at full size."
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "\"#3a6fcf\"",
+          "description": "Resting dot color."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Color and glow of a dot at its peak."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1.3",
+          "description": "Seconds for one pulse."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Visible text shown before the dots. Without it Loading is announced to screen readers only."
+        }
+      ],
+      "usage": "<LoaderDotsPulse label=\"Sam is typing\" size={8} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/loader-dots-pulse.json",
+      "docs": "https://hyperblur.dev/effects/loader-dots-pulse",
+      "file": "https://hyperblur.dev/r/loader-dots-pulse.json"
+    },
+    {
+      "slug": "hero-dot-globe",
+      "component": "HeroDotGlobe",
+      "title": "Hero Dot Globe",
+      "description": "A pure black hero with a huge canvas sphere of thousands of tiny dots that spins on a tilted axis, leans toward the pointer and carries a bright belt drifting the other way. Sparse mono details frame a bottom-aligned headline and an install command.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "globe",
+        "canvas",
+        "dots",
+        "landing",
+        "developer"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Build interfaces that move people.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Motion-ready React components you install with one command and own as plain source. No runtime, no lock-in.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"v3.2 · 240+ components · MIT licensed\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-globe\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Get started\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Orbitkit\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Docs\", href: \"#\" }, { label: \"Examples\", href: \"#\" }, { label: \"Kit\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Sign in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Learn more\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ffb84d\"",
+          "description": "Rim color of the sphere, the belt glow, the caption details and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of points (about 7,900 at 1). Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the rotation and belt drift. 0 keeps the sphere still but still tilting toward the pointer."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotGlobe title=\"Ship motion without the math.\" command=\"npx hyperblur add hero-dot-globe\" accent=\"#7fb3ff\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-globe.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-globe",
+      "file": "https://hyperblur.dev/r/hero-dot-globe.json"
     },
     {
       "slug": "bg-ferrofluid",

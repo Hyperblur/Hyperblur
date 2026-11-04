@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { effects, getEffect, installCommand, agentPrompt } from "@/registry/meta";
 import { demos } from "@/registry/demos";
 import { CopyButton } from "@/components/site/copy-button";
+import { NewBadge } from "@/components/site/new-badge";
 import { CodeBlock } from "@/components/site/code-block";
 import { EffectTabs } from "@/components/site/effect-tabs";
 
@@ -74,7 +75,10 @@ async function EffectContent({ params }: { params: Params }) {
 
       <header className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0">
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{meta.title}</h1>
+          <h1 className="flex flex-wrap items-center gap-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            {meta.title}
+            {meta.isNew && <NewBadge className="hb-new-lg" />}
+          </h1>
           <p className="mt-2 max-w-2xl text-muted">{meta.description}</p>
         </div>
         <CopyButton value={prompt} label="Copy prompt" variant="primary" />
