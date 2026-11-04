@@ -26,6 +26,7 @@ export interface EffectMeta {
   props: EffectProp[];
   usage: string;
   dependencies?: string[];
+  isNew?: boolean;
 }
 
 export const SITE_URL =
@@ -99,6 +100,13 @@ import { listsMeta } from "./parts/lists.meta.ts";
 import { sidebarsMeta } from "./parts/sidebars.meta.ts";
 import { effectsMeta } from "./parts/effects.meta.ts";
 import { dashboardsMeta } from "./parts/dashboards.meta.ts";
+import { qwMeta } from "./parts/qw.meta.ts";
+import { qxMeta } from "./parts/qx.meta.ts";
+import { raMeta } from "./parts/ra.meta.ts";
+import { rbMeta } from "./parts/rb.meta.ts";
+import { qyMeta } from "./parts/qy.meta.ts";
+import { qzMeta } from "./parts/qz.meta.ts";
+import { rcMeta } from "./parts/rc.meta.ts";
 import { qpMeta } from "./parts/qp.meta.ts";
 import { quMeta } from "./parts/qu.meta.ts";
 import { qoMeta } from "./parts/qo.meta.ts";
@@ -1204,7 +1212,7 @@ const baseEffects: EffectMeta[] = [
   },
 ];
 
-export const effects: EffectMeta[] = [
+const allEffects: EffectMeta[] = [
   ...baseEffects,
   ...buttonsMeta,
   ...transitionsMeta,
@@ -1219,6 +1227,13 @@ export const effects: EffectMeta[] = [
   ...sidebarsMeta,
   ...effectsMeta,
   ...dashboardsMeta,
+  ...qwMeta,
+  ...qxMeta,
+  ...raMeta,
+  ...rbMeta,
+  ...qyMeta,
+  ...qzMeta,
+  ...rcMeta,
   ...qpMeta,
   ...quMeta,
   ...qoMeta,
@@ -1254,6 +1269,12 @@ export const effects: EffectMeta[] = [
   ...heroesBMeta,
   ...heroesAMeta,
 ];
+
+const newBatches: EffectMeta[][] = [qwMeta, qxMeta, qyMeta, qzMeta, raMeta, rbMeta, rcMeta];
+
+const newSlugs = new Set(newBatches.flat().map((e) => e.slug));
+
+export const effects: EffectMeta[] = allEffects.map((e) => (newSlugs.has(e.slug) ? { ...e, isNew: true } : e));
 
 export function getEffect(slug: string): EffectMeta | undefined {
   return effects.find((e) => e.slug === slug);
