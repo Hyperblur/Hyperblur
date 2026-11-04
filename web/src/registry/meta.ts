@@ -1276,6 +1276,13 @@ const newSlugs = new Set(newBatches.flat().map((e) => e.slug));
 
 export const effects: EffectMeta[] = allEffects.map((e) => (newSlugs.has(e.slug) ? { ...e, isNew: true } : e));
 
+const catalogOrder: EffectMeta[] = categories.flatMap((c) => effects.filter((e) => e.category === c.id));
+
+export function getNeighbors(slug: string): { prev?: EffectMeta; next?: EffectMeta; position: number; total: number } {
+  const i = catalogOrder.findIndex((e) => e.slug === slug);
+  return { prev: catalogOrder[i - 1], next: catalogOrder[i + 1], position: i + 1, total: catalogOrder.length };
+}
+
 export function getEffect(slug: string): EffectMeta | undefined {
   return effects.find((e) => e.slug === slug);
 }
