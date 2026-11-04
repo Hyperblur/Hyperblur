@@ -41,13 +41,13 @@ export function EffectsSidebar() {
           })}
         </ul>
       </div>
-      <div className="mb-3 grid grid-cols-3 gap-1 rounded-lg border border-line bg-surface p-1 text-xs">
+      <div className="mb-3 flex gap-1 rounded-lg border border-line bg-surface p-1 text-xs">
         {groups.map((g) => (
           <Link
             key={g.id}
             href={g.href}
             aria-current={g.id === group ? "page" : undefined}
-            className={`rounded-md px-2 py-1.5 text-center transition-colors ${
+            className={`flex-auto whitespace-nowrap rounded-md px-1.5 py-1.5 text-center transition-colors ${
               g.id === group ? "bg-surface-2 text-ink" : "text-muted hover:text-ink"
             }`}
           >
