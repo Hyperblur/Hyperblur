@@ -4,10 +4,11 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { effects, getEffect, installCommand, agentPrompt } from "@/registry/meta";
+import { categories, effects, getEffect, getNeighbors, groups, installCommand, agentPrompt } from "@/registry/meta";
 import { demos } from "@/registry/demos";
 import { CopyButton } from "@/components/site/copy-button";
 import { NewBadge } from "@/components/site/new-badge";
+import { PagerBottom, PagerMobileBar, PagerTop } from "@/components/site/item-pager";
 import { CodeBlock } from "@/components/site/code-block";
 import { EffectTabs } from "@/components/site/effect-tabs";
 
@@ -59,19 +60,21 @@ async function EffectContent({ params }: { params: Params }) {
   const install = installCommand(meta);
   const prompt = agentPrompt(meta);
   const importLine = `import { ${meta.component} } from "@/components/hyperblur/${meta.slug}"`;
-  const index = effects.findIndex((e) => e.slug === meta.slug);
-  const prev = effects[index - 1];
-  const next = effects[index + 1];
+  const nav = getNeighbors(meta.slug);
+  const group = groups.find((g) => g.id === categories.find((c) => c.id === meta.category)?.group);
 
   return (
     <>
-      <nav className="mb-5 text-sm text-muted">
-        <Link href="/effects" className="hover:text-ink">
-          Effects
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-ink">{meta.title}</span>
-      </nav>
+      <div className="mb-5 flex items-center justify-between gap-3">
+        <nav className="min-w-0 truncate text-sm text-muted">
+          <Link href={group?.href ?? "/effects"} className="hover:text-ink">
+            {group?.label ?? "Effects"}
+          </Link>
+          <span className="mx-2">/</span>
+          <span className="text-ink">{meta.title}</span>
+        </nav>
+        <PagerTop {...nav} />
+      </div>
 
       <header className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0">
@@ -130,22 +133,9 @@ async function EffectContent({ params }: { params: Params }) {
         </div>
       </section>
 
-      <div className="mt-12 flex items-center justify-between border-t border-line pt-6 text-sm">
-        {prev ? (
-          <Link href={`/effects/${prev.slug}`} className="text-muted hover:text-ink">
-            ← {prev.title}
-          </Link>
-        ) : (
-          <span />
-        )}
-        {next ? (
-          <Link href={`/effects/${next.slug}`} className="text-muted hover:text-ink">
-            {next.title} →
-          </Link>
-        ) : (
-          <span />
-        )}
-      </div>
+      <PagerBottom {...nav} />
+      <div className="h-20 sm:hidden" aria-hidden="true" />
+      <PagerMobileBar {...nav} />
     </>
   );
 }

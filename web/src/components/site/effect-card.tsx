@@ -9,12 +9,12 @@ const card =
 const preview =
   "hb-card-preview relative flex items-center justify-center overflow-hidden rounded-xl border border-white/[0.04] bg-[#0a0a0a]";
 
-export function EffectCard({ meta, demo }: { meta: EffectMeta; demo: ReactNode }) {
+export function EffectCard({ meta, demo, large = false }: { meta: EffectMeta; demo: ReactNode; large?: boolean }) {
   const href = `/effects/${meta.slug}`;
   const isBlock = meta.category === "dashboards" || sectionCategoryIds.includes(meta.category);
   return (
     <div className={card}>
-      <div className={`${preview} ${meta.category === "sidebars" ? "h-[22rem]" : "h-52"}`} aria-hidden={isBlock ? "true" : undefined}>
+      <div className={`${preview} ${large ? "h-[26rem]" : meta.category === "sidebars" ? "h-[22rem]" : "h-52"}`} aria-hidden={isBlock ? "true" : undefined}>
         {isBlock ? <div className="pointer-events-none h-full w-full">{demo}</div> : <PreviewStage>{demo}</PreviewStage>}
       </div>
       <Link

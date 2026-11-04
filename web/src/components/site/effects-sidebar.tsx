@@ -9,6 +9,10 @@ import { NewBadge } from "./new-badge";
 function activeGroup(pathname: string): EffectGroup {
   if (pathname.startsWith("/components")) return "components";
   if (pathname.startsWith("/blocks")) return "blocks";
+  if (pathname.startsWith("/category/")) {
+    const id = pathname.slice("/category/".length);
+    return categories.find((c) => c.id === id)?.group ?? "effects";
+  }
   const slug = pathname.startsWith("/effects/") ? pathname.slice("/effects/".length) : null;
   const category = slug ? effects.find((e) => e.slug === slug)?.category : null;
   const group = category ? categories.find((c) => c.id === category)?.group : null;
@@ -69,7 +73,17 @@ export function EffectsSidebar() {
         if (items.length === 0) return null;
         return (
           <div key={cat.id} className="mb-6">
-            <h3 className="mb-2 px-3 text-xs font-medium uppercase tracking-wide text-muted">{cat.label}</h3>
+            <h3 className="mb-2">
+              <Link
+                href={`/category/${cat.id}`}
+                className={`flex items-center justify-between rounded-md px-3 py-1 text-xs font-medium uppercase tracking-wide transition-colors hover:text-ink ${
+                  pathname === `/category/${cat.id}` ? "bg-surface-2 text-ink" : "text-muted"
+                }`}
+              >
+                {cat.label}
+                <span className="font-mono normal-case opacity-70">{items.length}</span>
+              </Link>
+            </h3>
             <ul className="space-y-0.5">
               {items.map((e) => {
                 const active = pathname === `/effects/${e.slug}`;

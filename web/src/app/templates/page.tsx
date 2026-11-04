@@ -115,7 +115,12 @@ export default function TemplatesIndex() {
             key={t.slug}
             className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-colors hover:border-line-2"
           >
-            <Link href={`/templates/${t.slug}`} className={`block h-36 bg-gradient-to-br ${t.tone} opacity-80`} aria-hidden="true" />
+            <Link
+              href={`/templates/${t.slug}`}
+              aria-label={`Open the ${t.title} template`}
+              className={`block aspect-video border-b border-line bg-gradient-to-br bg-cover bg-top transition-opacity hover:opacity-90 ${t.tone}`}
+              style={{ backgroundImage: `url(/templates/${t.slug}.jpg)` }}
+            />
             <div className="flex flex-1 flex-col justify-between p-6">
               <div>
                 <p className="text-xs font-medium uppercase tracking-wide text-muted">{t.kind}</p>

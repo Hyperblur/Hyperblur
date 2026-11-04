@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, effects } from "@/registry/meta";
+import { SITE_URL, categories, effects } from "@/registry/meta";
 
 const staticRoutes = [
   "",
@@ -32,6 +32,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}${path}`,
       changeFrequency: "weekly" as const,
       priority: path === "" ? 1 : 0.8,
+    })),
+    ...categories.map((c) => ({
+      url: `${SITE_URL}/category/${c.id}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     })),
     ...effects.map((effect) => ({
       url: `${SITE_URL}/effects/${effect.slug}`,
