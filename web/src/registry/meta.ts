@@ -6,7 +6,7 @@ export type EffectCategory =
   | "hero" | "features" | "bento" | "social-proof" | "contact" | "footer" | "comparison" | "navigation" | "auth"
   | "cta" | "faq" | "pricing" | "stats" | "not-found" | "profile" | "about" | "waitlist" | "showcase"
   | "how-it-works" | "download" | "blog" | "ecommerce"
-  | "loaders" | "payments" | "checkout";
+  | "loaders" | "payments" | "checkout" | "hud" | "maps" | "local";
 
 export interface EffectProp {
   name: string;
@@ -60,6 +60,8 @@ export const categories: { id: EffectCategory; label: string; group: EffectGroup
   { id: "agent-kit", label: "Agent kit", group: "components" },
   { id: "social", label: "Social & feedback", group: "components" },
   { id: "payments", label: "Payments", group: "components" },
+  { id: "hud", label: "HUD & carousels", group: "components" },
+  { id: "maps", label: "Maps & geo", group: "components" },
   { id: "hero", label: "Hero sections", group: "blocks" },
   { id: "features", label: "Features", group: "blocks" },
   { id: "bento", label: "Bento", group: "blocks" },
@@ -83,6 +85,7 @@ export const categories: { id: EffectCategory; label: string; group: EffectGroup
   { id: "blog", label: "Blog", group: "blocks" },
   { id: "ecommerce", label: "Ecommerce", group: "blocks" },
   { id: "checkout", label: "Checkout & billing", group: "blocks" },
+  { id: "local", label: "Local business", group: "blocks" },
 ];
 
 export const sectionCategoryIds = categories.filter((c) => c.group === "blocks").map((c) => c.id);
@@ -100,6 +103,9 @@ import { listsMeta } from "./parts/lists.meta.ts";
 import { sidebarsMeta } from "./parts/sidebars.meta.ts";
 import { effectsMeta } from "./parts/effects.meta.ts";
 import { dashboardsMeta } from "./parts/dashboards.meta.ts";
+import { mapsAMeta } from "./parts/mapsA.meta.ts";
+import { hudAMeta } from "./parts/hudA.meta.ts";
+import { localAMeta } from "./parts/localA.meta.ts";
 import { sectionsYHMeta } from "./parts/sectionsYH.meta.ts";
 import { sectionsYIMeta } from "./parts/sectionsYI.meta.ts";
 import { ydMeta } from "./parts/yd.meta.ts";
@@ -1237,6 +1243,9 @@ const allEffects: EffectMeta[] = [
   ...sidebarsMeta,
   ...effectsMeta,
   ...dashboardsMeta,
+  ...mapsAMeta,
+  ...hudAMeta,
+  ...localAMeta,
   ...sectionsYHMeta,
   ...sectionsYIMeta,
   ...ydMeta,
@@ -1291,7 +1300,7 @@ const allEffects: EffectMeta[] = [
 ];
 
 const newBatches: EffectMeta[][] = [
-  yaMeta, ybMeta, ycMeta, ydMeta, yeMeta, yfMeta, sectionsYGMeta, sectionsYHMeta, sectionsYIMeta, sectionsYJMeta,
+  hudAMeta, mapsAMeta, localAMeta,
 ];
 
 const newSlugs = new Set(newBatches.flat().map((e) => e.slug));

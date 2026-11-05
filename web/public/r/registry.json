@@ -3121,6 +3121,534 @@
       ]
     },
     {
+      "name": "map-route-replay",
+      "type": "registry:component",
+      "title": "Map Route Replay",
+      "description": "A procedural isometric city on canvas where a run replays as a glowing runner with a fading trail and kilometre markers. A time-of-day slider moves the sun, its shadows and the sky tint.",
+      "categories": [
+        "maps",
+        "map",
+        "route",
+        "replay",
+        "isometric",
+        "running",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/map-route-replay.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/map-route-replay.tsx"
+        }
+      ]
+    },
+    {
+      "name": "map-city-blocks",
+      "type": "registry:component",
+      "title": "Map City Blocks",
+      "description": "An extruded procedural city on canvas that slowly turns on its own, rotates with drag and inertia, and switches to a night view with lit windows and street lamps.",
+      "categories": [
+        "maps",
+        "map",
+        "city",
+        "3d",
+        "isometric",
+        "night mode",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/map-city-blocks.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/map-city-blocks.tsx"
+        }
+      ]
+    },
+    {
+      "name": "map-pin-board",
+      "type": "registry:component",
+      "title": "Map Pin Board",
+      "description": "A flat stylized map with pulsing pins. Hovering or focusing a pin raises a floating card with its details; arrow keys move between pins.",
+      "categories": [
+        "maps",
+        "map",
+        "pins",
+        "markers",
+        "tooltip",
+        "places",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/map-pin-board.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/map-pin-board.tsx"
+        }
+      ]
+    },
+    {
+      "name": "map-store-locator",
+      "type": "registry:component",
+      "title": "Map Store Locator",
+      "description": "A location list beside a stylized map. Choosing a store pans and zooms the map to its pin, and clicking a pin selects the store. Stacks into a map with a swipeable card row below 520px.",
+      "categories": [
+        "maps",
+        "map",
+        "store locator",
+        "locations",
+        "list",
+        "zoom",
+        "responsive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/map-store-locator.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/map-store-locator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "map-heat-dots",
+      "type": "registry:component",
+      "title": "Map Heat Dots",
+      "description": "A dot-density heat map over a coastal city silhouette with a slow shimmer. Hovering or moving with the arrow keys reads the value and district of a dot.",
+      "categories": [
+        "maps",
+        "map",
+        "heat map",
+        "dot density",
+        "data viz",
+        "tooltip",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/map-heat-dots.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/map-heat-dots.tsx"
+        }
+      ]
+    },
+    {
+      "name": "map-route-stats",
+      "type": "registry:component",
+      "title": "Map Route Stats",
+      "description": "An activity card with a route outline, four stats and an elevation and pace profile. Hovering or scrubbing the profile moves a dot along the route in sync.",
+      "categories": [
+        "maps",
+        "map",
+        "route",
+        "activity",
+        "elevation",
+        "pace",
+        "stats"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/map-route-stats.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/map-route-stats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel-ring-3d",
+      "type": "registry:component",
+      "title": "Carousel Ring 3D",
+      "description": "Cards standing on a circular orbit in real CSS perspective. Drag or swipe with inertia and snap, use the arrow keys or the buttons, or let it autoplay.",
+      "categories": [
+        "hud",
+        "carousel",
+        "3d",
+        "ring",
+        "orbit",
+        "slider",
+        "hud"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/carousel-ring-3d.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/carousel-ring-3d.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-frame",
+      "type": "registry:component",
+      "title": "HUD Frame",
+      "description": "A panel with corner brackets, a monospace header with a status chip and an optional scanning line over its content.",
+      "categories": [
+        "hud",
+        "hud",
+        "panel",
+        "frame",
+        "brackets",
+        "sci-fi",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-frame.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-frame.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-boot-screen",
+      "type": "registry:component",
+      "title": "HUD Boot Screen",
+      "description": "A boot sequence with a logo, a segmented progress bar and status rows that resolve one by one from WAIT to READY. Click to replay.",
+      "categories": [
+        "hud",
+        "boot",
+        "loader",
+        "progress",
+        "hud",
+        "splash",
+        "status"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-boot-screen.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-boot-screen.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-shelf-slider",
+      "type": "registry:component",
+      "title": "HUD Shelf Slider",
+      "description": "A stepped horizontal slider with tick marks, a diamond thumb, a 03 / 09 counter and the name of the current step.",
+      "categories": [
+        "hud",
+        "slider",
+        "range",
+        "steps",
+        "hud",
+        "ticks",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-shelf-slider.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-shelf-slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-filter-chips",
+      "type": "registry:component",
+      "title": "HUD Filter Chips",
+      "description": "A row of bracket-cornered filter chips with single or multiple selection, an All option and arrow key navigation.",
+      "categories": [
+        "hud",
+        "filter",
+        "chips",
+        "tags",
+        "toggle",
+        "hud",
+        "toolbar"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-filter-chips.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-filter-chips.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-status-bar",
+      "type": "registry:component",
+      "title": "HUD Status Bar",
+      "description": "A bottom bar with a key label, meta values split by hairlines and keyboard hints. Values tick up when they change.",
+      "categories": [
+        "hud",
+        "status bar",
+        "footer",
+        "hud",
+        "meta",
+        "shortcuts",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-status-bar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-status-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-detail-panel",
+      "type": "registry:component",
+      "title": "HUD Detail Panel",
+      "description": "A framed detail card with a kicker, a large title, a short description, a meta grid and a row of bracket buttons.",
+      "categories": [
+        "hud",
+        "detail",
+        "panel",
+        "card",
+        "hud",
+        "meta",
+        "actions"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-detail-panel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-detail-panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-search-field",
+      "type": "registry:component",
+      "title": "HUD Search Field",
+      "description": "A search input with a slash shortcut that focuses it from anywhere, a clear button, bracket corners that open on focus and a results readout.",
+      "categories": [
+        "hud",
+        "search",
+        "input",
+        "shortcut",
+        "hud",
+        "filter",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-search-field.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-search-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-orbit-backdrop",
+      "type": "registry:component",
+      "title": "HUD Orbit Backdrop",
+      "description": "A decorative backdrop of dotted orbits seen in perspective over a faint grid, with small nodes travelling along the rings. Pure CSS.",
+      "categories": [
+        "hud",
+        "background",
+        "orbit",
+        "hud",
+        "grid",
+        "perspective",
+        "decorative"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-orbit-backdrop.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-orbit-backdrop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hud-toggle-switch",
+      "type": "registry:component",
+      "title": "HUD Toggle Switch",
+      "description": "A compact labelled switch like SND ON with bracket corners, a status dot and a flash on every click.",
+      "categories": [
+        "hud",
+        "toggle",
+        "switch",
+        "hud",
+        "settings",
+        "sound",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hud-toggle-switch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hud-toggle-switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "local-booking-card",
+      "type": "registry:component",
+      "title": "Local Booking Card",
+      "description": "A clinic hero with an appointment card beside it: pick a service, a date chip and a time slot, then confirm to see a booking ticket.",
+      "categories": [
+        "local",
+        "booking",
+        "appointment",
+        "clinic",
+        "dental",
+        "calendar",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/local-booking-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/local-booking-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "local-menu-board",
+      "type": "registry:component",
+      "title": "Local Menu Board",
+      "description": "A restaurant menu with tabs for each course, dotted price leaders and a featured dish card with an illustrated plate.",
+      "categories": [
+        "local",
+        "menu",
+        "restaurant",
+        "tabs",
+        "food",
+        "prices",
+        "cafe"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/local-menu-board.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/local-menu-board.tsx"
+        }
+      ]
+    },
+    {
+      "name": "local-hours-map",
+      "type": "registry:component",
+      "title": "Local Hours and Map",
+      "description": "Opening hours with today highlighted and an Open now badge, next to an illustrated street map with a dropping pin and a Get directions button.",
+      "categories": [
+        "local",
+        "hours",
+        "map",
+        "location",
+        "directions",
+        "address",
+        "store"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/local-hours-map.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/local-hours-map.tsx"
+        }
+      ]
+    },
+    {
+      "name": "local-team-grid",
+      "type": "registry:component",
+      "title": "Local Team Grid",
+      "description": "Practitioner cards with illustrated portraits, years of experience, specialty chips and a booking link that lift on hover.",
+      "categories": [
+        "local",
+        "team",
+        "staff",
+        "salon",
+        "stylists",
+        "portraits",
+        "about"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/local-team-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/local-team-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "local-services-price-list",
+      "type": "registry:component",
+      "title": "Local Services Price List",
+      "description": "Services in columns with duration and price, a shimmering popular marker and a bold package offer underneath.",
+      "categories": [
+        "local",
+        "pricing",
+        "services",
+        "gym",
+        "price list",
+        "package",
+        "fitness"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/local-services-price-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/local-services-price-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "local-reservation-bar",
+      "type": "registry:component",
+      "title": "Local Reservation Bar",
+      "description": "A wide reservation bar with date, time and a guest stepper over a warm sunset street scene, with live availability dots around the chosen time.",
+      "categories": [
+        "local",
+        "reservation",
+        "restaurant",
+        "booking",
+        "table",
+        "availability",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/local-reservation-bar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/local-reservation-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "local-before-after",
+      "type": "registry:component",
+      "title": "Local Before and After",
+      "description": "A draggable, keyboard accessible before and after slider with two illustrated kitchen scenes, caption chips and a strip of project results.",
+      "categories": [
+        "local",
+        "before after",
+        "compare",
+        "slider",
+        "renovation",
+        "results",
+        "portfolio"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/local-before-after.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/local-before-after.tsx"
+        }
+      ]
+    },
+    {
+      "name": "local-reviews-wall",
+      "type": "registry:component",
+      "title": "Local Reviews Wall",
+      "description": "A rating summary with a star distribution beside two columns of review cards that drift slowly in opposite directions and pause on hover.",
+      "categories": [
+        "local",
+        "reviews",
+        "testimonials",
+        "rating",
+        "marquee",
+        "social proof",
+        "bakery"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/local-reviews-wall.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/local-reviews-wall.tsx"
+        }
+      ]
+    },
+    {
       "name": "comparison-tiers",
       "type": "registry:component",
       "title": "Comparison Tiers",

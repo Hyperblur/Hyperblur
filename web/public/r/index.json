@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-11-04T22:52:46.169Z",
+  "generatedAt": "2026-11-05T14:35:51.484Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -8945,6 +8945,1844 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/orders-dashboard.json",
       "docs": "https://hyperblur.dev/effects/orders-dashboard",
       "file": "https://hyperblur.dev/r/orders-dashboard.json"
+    },
+    {
+      "slug": "map-route-replay",
+      "component": "MapRouteReplay",
+      "title": "Map Route Replay",
+      "description": "A procedural isometric city on canvas where a run replays as a glowing runner with a fading trail and kilometre markers. A time-of-day slider moves the sun, its shadows and the sky tint.",
+      "category": "maps",
+      "tags": [
+        "map",
+        "route",
+        "replay",
+        "isometric",
+        "running",
+        "canvas"
+      ],
+      "props": [
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Runner, trail, marker and control color."
+        },
+        {
+          "name": "routeSeed",
+          "type": "number",
+          "default": "7",
+          "description": "Seed for the city layout and the route. Same seed, same city."
+        },
+        {
+          "name": "distanceKm",
+          "type": "number",
+          "default": "8",
+          "description": "Distance the route represents. One marker is placed at every whole kilometre."
+        },
+        {
+          "name": "durationSec",
+          "type": "number",
+          "default": "18",
+          "description": "Seconds the replay takes from start to finish."
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean",
+          "default": "true",
+          "description": "Start playing on mount. Ignored when the user prefers reduced motion."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "true",
+          "description": "Restart the replay after a short pause at the finish."
+        },
+        {
+          "name": "paceSecPerKm",
+          "type": "number",
+          "default": "312",
+          "description": "Pace used for the elapsed time readout, in seconds per kilometre."
+        },
+        {
+          "name": "hour",
+          "type": "number",
+          "description": "Controlled time of day from 5 to 21. Pair with onHourChange."
+        },
+        {
+          "name": "defaultHour",
+          "type": "number",
+          "default": "17.5",
+          "description": "Initial time of day when uncontrolled."
+        },
+        {
+          "name": "onHourChange",
+          "type": "(hour: number) => void",
+          "description": "Called when the time-of-day slider moves."
+        },
+        {
+          "name": "onProgress",
+          "type": "(progress: number, km: number) => void",
+          "description": "Called while the replay plays or is scrubbed, with progress from 0 to 1 and the distance covered."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Route replay\"",
+          "description": "Small label above the distance readout."
+        }
+      ],
+      "usage": "<MapRouteReplay distanceKm={10} durationSec={20} defaultHour={7} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/map-route-replay.json",
+      "docs": "https://hyperblur.dev/effects/map-route-replay",
+      "file": "https://hyperblur.dev/r/map-route-replay.json"
+    },
+    {
+      "slug": "map-city-blocks",
+      "component": "MapCityBlocks",
+      "title": "Map City Blocks",
+      "description": "An extruded procedural city on canvas that slowly turns on its own, rotates with drag and inertia, and switches to a night view with lit windows and street lamps.",
+      "category": "maps",
+      "tags": [
+        "map",
+        "city",
+        "3d",
+        "isometric",
+        "night mode",
+        "canvas"
+      ],
+      "props": [
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Rooftop beacons, compass needle and focus ring color."
+        },
+        {
+          "name": "seed",
+          "type": "number",
+          "default": "12",
+          "description": "Seed for the street grid, river, park and building heights."
+        },
+        {
+          "name": "autoRotate",
+          "type": "boolean",
+          "default": "true",
+          "description": "Turn slowly when idle. Disabled under reduced motion."
+        },
+        {
+          "name": "night",
+          "type": "boolean",
+          "description": "Controlled night mode. Pair with onNightChange."
+        },
+        {
+          "name": "defaultNight",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial night mode when uncontrolled."
+        },
+        {
+          "name": "onNightChange",
+          "type": "(night: boolean) => void",
+          "description": "Called when the Day and Night toggle is pressed."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"District 07\"",
+          "description": "District name in the top left panel."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"Live model\"",
+          "description": "Small caption shown next to the building count."
+        }
+      ],
+      "usage": "<MapCityBlocks seed={21} defaultNight />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/map-city-blocks.json",
+      "docs": "https://hyperblur.dev/effects/map-city-blocks",
+      "file": "https://hyperblur.dev/r/map-city-blocks.json"
+    },
+    {
+      "slug": "map-pin-board",
+      "component": "MapPinBoard",
+      "title": "Map Pin Board",
+      "description": "A flat stylized map with pulsing pins. Hovering or focusing a pin raises a floating card with its details; arrow keys move between pins.",
+      "category": "maps",
+      "tags": [
+        "map",
+        "pins",
+        "markers",
+        "tooltip",
+        "places",
+        "svg"
+      ],
+      "props": [
+        {
+          "name": "pins",
+          "type": "MapPin[]",
+          "default": "defaultMapPins",
+          "description": "Pins with id, x and y in percent, title, and optional subtitle, rating, meta and color."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Default pin color. A pin can override it with its own color."
+        },
+        {
+          "name": "selectedId",
+          "type": "string | null",
+          "description": "Controlled selected pin. Its card stays open when nothing is hovered."
+        },
+        {
+          "name": "defaultSelectedId",
+          "type": "string | null",
+          "default": "null",
+          "description": "Initially selected pin when uncontrolled."
+        },
+        {
+          "name": "onPinSelect",
+          "type": "(pin: MapPin) => void",
+          "description": "Called when a pin is clicked or activated with the keyboard."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Places nearby\"",
+          "description": "Chip text in the corner and accessible name of the map."
+        },
+        {
+          "name": "seed",
+          "type": "number",
+          "default": "4",
+          "description": "Seed for the block layout, park and river."
+        }
+      ],
+      "usage": "<MapPinBoard onPinSelect={(pin) => console.log(pin.title)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/map-pin-board.json",
+      "docs": "https://hyperblur.dev/effects/map-pin-board",
+      "file": "https://hyperblur.dev/r/map-pin-board.json"
+    },
+    {
+      "slug": "map-store-locator",
+      "component": "MapStoreLocator",
+      "title": "Map Store Locator",
+      "description": "A location list beside a stylized map. Choosing a store pans and zooms the map to its pin, and clicking a pin selects the store. Stacks into a map with a swipeable card row below 520px.",
+      "category": "maps",
+      "tags": [
+        "map",
+        "store locator",
+        "locations",
+        "list",
+        "zoom",
+        "responsive"
+      ],
+      "props": [
+        {
+          "name": "locations",
+          "type": "StoreLocation[]",
+          "default": "defaultStoreLocations",
+          "description": "Stores with id, name, address, hours, status, distance, and x and y in percent of the map."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Controlled selected store id. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "Initially selected store id when uncontrolled. Defaults to the first store."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string, location: StoreLocation) => void",
+          "description": "Called when a store is chosen from the list or the map."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Selected pin, route and list highlight color."
+        },
+        {
+          "name": "zoom",
+          "type": "number",
+          "default": "2",
+          "description": "Zoom factor used when the map focuses a store."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Brightwater Coffee\"",
+          "description": "Brand name above the list."
+        }
+      ],
+      "usage": "<MapStoreLocator onChange={(id) => console.log(id)} style={{ height: 420 }} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/map-store-locator.json",
+      "docs": "https://hyperblur.dev/effects/map-store-locator",
+      "file": "https://hyperblur.dev/r/map-store-locator.json"
+    },
+    {
+      "slug": "map-heat-dots",
+      "component": "MapHeatDots",
+      "title": "Map Heat Dots",
+      "description": "A dot-density heat map over a coastal city silhouette with a slow shimmer. Hovering or moving with the arrow keys reads the value and district of a dot.",
+      "category": "maps",
+      "tags": [
+        "map",
+        "heat map",
+        "dot density",
+        "data viz",
+        "tooltip",
+        "canvas"
+      ],
+      "props": [
+        {
+          "name": "metric",
+          "type": "\"footfall\" | \"temperature\" | \"noise\" | \"signal\"",
+          "default": "\"footfall\"",
+          "description": "Which reading the dots represent. Sets the title, unit, range and legend."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Hot end of the color ramp."
+        },
+        {
+          "name": "coldColor",
+          "type": "string",
+          "default": "\"#2c4270\"",
+          "description": "Cold end of the color ramp."
+        },
+        {
+          "name": "seed",
+          "type": "number",
+          "default": "3",
+          "description": "Seed for the coastline and the hotspots."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "58",
+          "description": "Approximate number of dot columns across the width."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Heading. Defaults to the metric name."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": "Small caption under the heading. Defaults to a period for the metric."
+        }
+      ],
+      "usage": "<MapHeatDots metric=\"temperature\" accent=\"#ff8a3d\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/map-heat-dots.json",
+      "docs": "https://hyperblur.dev/effects/map-heat-dots",
+      "file": "https://hyperblur.dev/r/map-heat-dots.json"
+    },
+    {
+      "slug": "map-route-stats",
+      "component": "MapRouteStats",
+      "title": "Map Route Stats",
+      "description": "An activity card with a route outline, four stats and an elevation and pace profile. Hovering or scrubbing the profile moves a dot along the route in sync.",
+      "category": "maps",
+      "tags": [
+        "map",
+        "route",
+        "activity",
+        "elevation",
+        "pace",
+        "stats"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Riverside loop\"",
+          "description": "Activity name."
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "default": "\"Sat, Nov 1 · 07:12\"",
+          "description": "Date and time text in the header."
+        },
+        {
+          "name": "distanceKm",
+          "type": "number",
+          "default": "10.42",
+          "description": "Total distance in kilometres."
+        },
+        {
+          "name": "movingTimeSec",
+          "type": "number",
+          "default": "3138",
+          "description": "Moving time in seconds. The average pace is derived from it."
+        },
+        {
+          "name": "elevationGain",
+          "type": "number",
+          "default": "186",
+          "description": "Elevation gain in metres. Also scales the profile."
+        },
+        {
+          "name": "seed",
+          "type": "number",
+          "default": "5",
+          "description": "Seed for the route shape and the profile."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Route, elevation and marker color."
+        },
+        {
+          "name": "paceColor",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Color of the dashed pace line and pace readout."
+        },
+        {
+          "name": "onScrub",
+          "type": "(fraction: number, km: number) => void",
+          "description": "Called while the profile is hovered, dragged or moved with the arrow keys."
+        }
+      ],
+      "usage": "<MapRouteStats title=\"Hill repeats\" distanceKm={7.8} movingTimeSec={2460} elevationGain={312} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/map-route-stats.json",
+      "docs": "https://hyperblur.dev/effects/map-route-stats",
+      "file": "https://hyperblur.dev/r/map-route-stats.json"
+    },
+    {
+      "slug": "carousel-ring-3d",
+      "component": "CarouselRing3d",
+      "title": "Carousel Ring 3D",
+      "description": "Cards standing on a circular orbit in real CSS perspective. Drag or swipe with inertia and snap, use the arrow keys or the buttons, or let it autoplay.",
+      "category": "hud",
+      "tags": [
+        "carousel",
+        "3d",
+        "ring",
+        "orbit",
+        "slider",
+        "hud"
+      ],
+      "props": [
+        {
+          "name": "items",
+          "type": "{ id: string; title: string; kicker?: string; text?: string; tag?: string }[]",
+          "default": "built-in set of 7",
+          "description": "Cards on the ring. The description is hidden automatically when cards get narrow."
+        },
+        {
+          "name": "index",
+          "type": "number",
+          "description": "Controlled front card. The ring turns the shortest way to it. Pair with onActiveChange."
+        },
+        {
+          "name": "defaultIndex",
+          "type": "number",
+          "default": "0",
+          "description": "Front card on first render when uncontrolled."
+        },
+        {
+          "name": "onActiveChange",
+          "type": "(index: number, item: CarouselRing3dItem) => void",
+          "description": "Called whenever a new card reaches the front, including while dragging."
+        },
+        {
+          "name": "autoplay",
+          "type": "number",
+          "default": "0",
+          "description": "Milliseconds between automatic steps. 0 turns it off. Pauses on hover, focus and drag."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "340",
+          "description": "Total height in pixels. Card size and type scale with it."
+        },
+        {
+          "name": "spread",
+          "type": "number",
+          "default": "0.36",
+          "description": "Ring radius as a fraction of the component width."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Color of the active card glow, brackets, orbit ticks and counter."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Experiments\"",
+          "description": "Accessible name of the carousel region."
+        },
+        {
+          "name": "showControls",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the previous and next buttons with the counter and progress dashes."
+        }
+      ],
+      "usage": "<CarouselRing3d autoplay={4000} onActiveChange={(i, item) => console.log(i, item.title)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/carousel-ring-3d.json",
+      "docs": "https://hyperblur.dev/effects/carousel-ring-3d",
+      "file": "https://hyperblur.dev/r/carousel-ring-3d.json"
+    },
+    {
+      "slug": "hud-frame",
+      "component": "HudFrame",
+      "title": "HUD Frame",
+      "description": "A panel with corner brackets, a monospace header with a status chip and an optional scanning line over its content.",
+      "category": "hud",
+      "tags": [
+        "hud",
+        "panel",
+        "frame",
+        "brackets",
+        "sci-fi",
+        "card"
+      ],
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Telemetry\"",
+          "description": "Micro label at the left of the header."
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "default": "\"SYS-04\"",
+          "description": "Dim code shown after the label. Hidden when empty."
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "default": "\"Live\"",
+          "description": "Text of the status chip. Hidden when empty."
+        },
+        {
+          "name": "tone",
+          "type": "\"live\" | \"idle\" | \"warn\"",
+          "default": "\"live\"",
+          "description": "Chip style. Live blinks the dot in the accent color, warn turns it amber."
+        },
+        {
+          "name": "scan",
+          "type": "boolean",
+          "default": "true",
+          "description": "Run a slow scanning line down the panel."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Bracket, scan line and live dot color."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Panel content."
+        }
+      ],
+      "usage": "<HudFrame label=\"Render queue\" status=\"Live\"><p>48,210 frames</p></HudFrame>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-frame.json",
+      "docs": "https://hyperblur.dev/effects/hud-frame",
+      "file": "https://hyperblur.dev/r/hud-frame.json"
+    },
+    {
+      "slug": "hud-boot-screen",
+      "component": "HudBootScreen",
+      "title": "HUD Boot Screen",
+      "description": "A boot sequence with a logo, a segmented progress bar and status rows that resolve one by one from WAIT to READY. Click to replay.",
+      "category": "hud",
+      "tags": [
+        "boot",
+        "loader",
+        "progress",
+        "hud",
+        "splash",
+        "status"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Vector Lab\"",
+          "description": "Title next to the logo."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Boot sequence 2.4\"",
+          "description": "Monospace line under the title."
+        },
+        {
+          "name": "logo",
+          "type": "ReactNode",
+          "description": "Logo slot. A bracketed mark is shown when missing."
+        },
+        {
+          "name": "rows",
+          "type": "{ label: string; value?: string }[]",
+          "default": "Core, Shaders, Audio, Input",
+          "description": "Status rows. Each shows its value, or readyLabel, once the bar passes its share."
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "3200",
+          "description": "Length of the sequence in milliseconds."
+        },
+        {
+          "name": "autoStart",
+          "type": "boolean",
+          "default": "true",
+          "description": "Start on mount. When false a Start button waits for a click."
+        },
+        {
+          "name": "waitLabel",
+          "type": "string",
+          "default": "\"Wait\"",
+          "description": "Text of a row that has not resolved yet."
+        },
+        {
+          "name": "readyLabel",
+          "type": "string",
+          "default": "\"Ready\"",
+          "description": "Text of a resolved row without its own value."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Progress bar, logo and ready marker color."
+        },
+        {
+          "name": "onComplete",
+          "type": "() => void",
+          "description": "Called when the bar reaches 100%."
+        }
+      ],
+      "usage": "<HudBootScreen title=\"Vector Lab\" onComplete={() => console.log(\"ready\")} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-boot-screen.json",
+      "docs": "https://hyperblur.dev/effects/hud-boot-screen",
+      "file": "https://hyperblur.dev/r/hud-boot-screen.json"
+    },
+    {
+      "slug": "hud-shelf-slider",
+      "component": "HudShelfSlider",
+      "title": "HUD Shelf Slider",
+      "description": "A stepped horizontal slider with tick marks, a diamond thumb, a 03 / 09 counter and the name of the current step.",
+      "category": "hud",
+      "tags": [
+        "slider",
+        "range",
+        "steps",
+        "hud",
+        "ticks",
+        "input"
+      ],
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "9",
+          "description": "Number of steps."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled step, zero based. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "2",
+          "description": "Initial step when uncontrolled, zero based."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called with the new zero based step on drag, click and keyboard."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Shelf\"",
+          "description": "Micro label and accessible name of the slider."
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "description": "Name of each step, shown next to the label and read by screen readers."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Thumb, fill and counter color."
+        }
+      ],
+      "usage": "<HudShelfSlider count={9} labels={[\"Ion Drift\", \"Night Grid\"]} onChange={(i) => console.log(i)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-shelf-slider.json",
+      "docs": "https://hyperblur.dev/effects/hud-shelf-slider",
+      "file": "https://hyperblur.dev/r/hud-shelf-slider.json"
+    },
+    {
+      "slug": "hud-filter-chips",
+      "component": "HudFilterChips",
+      "title": "HUD Filter Chips",
+      "description": "A row of bracket-cornered filter chips with single or multiple selection, an All option and arrow key navigation.",
+      "category": "hud",
+      "tags": [
+        "filter",
+        "chips",
+        "tags",
+        "toggle",
+        "hud",
+        "toolbar"
+      ],
+      "props": [
+        {
+          "name": "options",
+          "type": "{ id: string; label: string; count?: number }[]",
+          "default": "All, XR, Map, Tool, Graphics",
+          "description": "Chips to show. A count renders as a dim number after the label."
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "description": "Controlled selected ids. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string[]",
+          "default": "[\"all\"]",
+          "description": "Initial selection when uncontrolled. Falls back to the All option or the first chip."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string[]) => void",
+          "description": "Called with the new list of selected ids."
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": "false",
+          "description": "Allow several chips at once. Picking All clears the others, clearing everything returns to All."
+        },
+        {
+          "name": "allId",
+          "type": "string",
+          "default": "\"all\"",
+          "description": "Id of the chip that means no filter."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Filter\"",
+          "description": "Accessible name of the toolbar."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Glow and bracket color of active chips."
+        }
+      ],
+      "usage": "<HudFilterChips multiple onChange={(ids) => console.log(ids)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-filter-chips.json",
+      "docs": "https://hyperblur.dev/effects/hud-filter-chips",
+      "file": "https://hyperblur.dev/r/hud-filter-chips.json"
+    },
+    {
+      "slug": "hud-status-bar",
+      "component": "HudStatusBar",
+      "title": "HUD Status Bar",
+      "description": "A bottom bar with a key label, meta values split by hairlines and keyboard hints. Values tick up when they change.",
+      "category": "hud",
+      "tags": [
+        "status bar",
+        "footer",
+        "hud",
+        "meta",
+        "shortcuts",
+        "keyboard"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Ion Drift\"",
+          "description": "Key label at the left."
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "default": "\"EXP 014\"",
+          "description": "Dim code after the title. Hidden on narrow widths."
+        },
+        {
+          "name": "items",
+          "type": "{ label: string; value: string }[]",
+          "default": "Stack, Licence, Status, Added",
+          "description": "Meta values. Extra items drop off as the bar gets narrower."
+        },
+        {
+          "name": "hints",
+          "type": "{ keys: string; label: string }[]",
+          "default": "Browse, Search, Open",
+          "description": "Keyboard hints at the right. Only the first stays on narrow widths."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Key marker and tick-up flash color."
+        }
+      ],
+      "usage": "<HudStatusBar title=\"Night Grid\" items={[{ label: \"Stack\", value: \"Shader\" }, { label: \"Status\", value: \"Live\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-status-bar.json",
+      "docs": "https://hyperblur.dev/effects/hud-status-bar",
+      "file": "https://hyperblur.dev/r/hud-status-bar.json"
+    },
+    {
+      "slug": "hud-detail-panel",
+      "component": "HudDetailPanel",
+      "title": "HUD Detail Panel",
+      "description": "A framed detail card with a kicker, a large title, a short description, a meta grid and a row of bracket buttons.",
+      "category": "hud",
+      "tags": [
+        "detail",
+        "panel",
+        "card",
+        "hud",
+        "meta",
+        "actions"
+      ],
+      "props": [
+        {
+          "name": "kicker",
+          "type": "string",
+          "default": "\"Experiment / Shader\"",
+          "description": "Accent micro label above the title."
+        },
+        {
+          "name": "index",
+          "type": "string",
+          "default": "\"014\"",
+          "description": "Number at the top right. Hidden when empty."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Ion Drift\"",
+          "description": "Main title."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Short text under the title, clamped to two lines."
+        },
+        {
+          "name": "meta",
+          "type": "{ label: string; value: string }[]",
+          "default": "Stack, Licence, Status, Added",
+          "description": "Meta grid. Two columns, four on wide panels."
+        },
+        {
+          "name": "actions",
+          "type": "{ id: string; label: string; primary?: boolean }[]",
+          "default": "Open, Source, Share",
+          "description": "Buttons. A primary one is filled with the accent."
+        },
+        {
+          "name": "onAction",
+          "type": "(id: string) => void",
+          "description": "Called with the id of the clicked button."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Kicker, corner and primary button color."
+        }
+      ],
+      "usage": "<HudDetailPanel title=\"Night Grid\" onAction={(id) => console.log(id)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-detail-panel.json",
+      "docs": "https://hyperblur.dev/effects/hud-detail-panel",
+      "file": "https://hyperblur.dev/r/hud-detail-panel.json"
+    },
+    {
+      "slug": "hud-search-field",
+      "component": "HudSearchField",
+      "title": "HUD Search Field",
+      "description": "A search input with a slash shortcut that focuses it from anywhere, a clear button, bracket corners that open on focus and a results readout.",
+      "category": "hud",
+      "tags": [
+        "search",
+        "input",
+        "shortcut",
+        "hud",
+        "filter",
+        "field"
+      ],
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Controlled query. Pair with onChange."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Initial query when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "description": "Called with the new query on typing, clear and Escape."
+        },
+        {
+          "name": "resultCount",
+          "type": "number",
+          "description": "Number of matches shown in the readout. Hidden when undefined."
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "description": "Total items, shown as 03 / 34 next to the count."
+        },
+        {
+          "name": "shortcut",
+          "type": "string",
+          "default": "\"/\"",
+          "description": "Key that focuses the field from anywhere on the page. Empty string turns it off."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Search\"",
+          "description": "Accessible name of the input."
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "\"Search experiments\"",
+          "description": "Placeholder text."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Focus glow, caret and bracket color."
+        }
+      ],
+      "usage": "<HudSearchField resultCount={12} total={34} onChange={(q) => console.log(q)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-search-field.json",
+      "docs": "https://hyperblur.dev/effects/hud-search-field",
+      "file": "https://hyperblur.dev/r/hud-search-field.json"
+    },
+    {
+      "slug": "hud-orbit-backdrop",
+      "component": "HudOrbitBackdrop",
+      "title": "HUD Orbit Backdrop",
+      "description": "A decorative backdrop of dotted orbits seen in perspective over a faint grid, with small nodes travelling along the rings. Pure CSS.",
+      "category": "hud",
+      "tags": [
+        "background",
+        "orbit",
+        "hud",
+        "grid",
+        "perspective",
+        "decorative"
+      ],
+      "props": [
+        {
+          "name": "rings",
+          "type": "number",
+          "default": "5",
+          "description": "Number of concentric orbits, up to 12."
+        },
+        {
+          "name": "nodes",
+          "type": "number",
+          "default": "6",
+          "description": "Number of travelling nodes. Every third one glows in the accent."
+        },
+        {
+          "name": "tilt",
+          "type": "number",
+          "default": "68",
+          "description": "Tilt of the orbit plane in degrees. 0 is flat circles, 80 is nearly edge-on."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Animation speed multiplier."
+        },
+        {
+          "name": "grid",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the faint drifting grid behind the orbits."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Hot ring, core glow and node color."
+        },
+        {
+          "name": "minHeight",
+          "type": "number",
+          "default": "280",
+          "description": "Minimum height in pixels."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "description": "Content centered on top of the backdrop."
+        }
+      ],
+      "usage": "<HudOrbitBackdrop minHeight={360}><h2>Vector Lab</h2></HudOrbitBackdrop>",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-orbit-backdrop.json",
+      "docs": "https://hyperblur.dev/effects/hud-orbit-backdrop",
+      "file": "https://hyperblur.dev/r/hud-orbit-backdrop.json"
+    },
+    {
+      "slug": "hud-toggle-switch",
+      "component": "HudToggleSwitch",
+      "title": "HUD Toggle Switch",
+      "description": "A compact labelled switch like SND ON with bracket corners, a status dot and a flash on every click.",
+      "category": "hud",
+      "tags": [
+        "toggle",
+        "switch",
+        "hud",
+        "settings",
+        "sound",
+        "button"
+      ],
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Snd\"",
+          "description": "Short label before the state."
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "description": "Controlled state. Pair with onChange."
+        },
+        {
+          "name": "defaultChecked",
+          "type": "boolean",
+          "default": "true",
+          "description": "Initial state when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(checked: boolean) => void",
+          "description": "Called with the new state on every click."
+        },
+        {
+          "name": "onLabel",
+          "type": "string",
+          "default": "\"On\"",
+          "description": "State text when on."
+        },
+        {
+          "name": "offLabel",
+          "type": "string",
+          "default": "\"Off\"",
+          "description": "State text when off."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4d4d\"",
+          "description": "Dot, border and flash color when on."
+        }
+      ],
+      "usage": "<HudToggleSwitch label=\"Snd\" onChange={(on) => console.log(on)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hud-toggle-switch.json",
+      "docs": "https://hyperblur.dev/effects/hud-toggle-switch",
+      "file": "https://hyperblur.dev/r/hud-toggle-switch.json"
+    },
+    {
+      "slug": "local-booking-card",
+      "component": "LocalBookingCard",
+      "title": "Local Booking Card",
+      "description": "A clinic hero with an appointment card beside it: pick a service, a date chip and a time slot, then confirm to see a booking ticket.",
+      "category": "local",
+      "tags": [
+        "booking",
+        "appointment",
+        "clinic",
+        "dental",
+        "calendar",
+        "hero"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Accepting new patients in Park Slope\"",
+          "description": "Pill above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"A calmer kind of dental visit.\"",
+          "description": "Heading. The last word is set in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Same-week appointments, ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "highlights",
+          "type": "string[]",
+          "default": "3 items",
+          "description": "Checklist under the paragraph."
+        },
+        {
+          "name": "services",
+          "type": "{ id: string; name: string; duration: string; price: string }[]",
+          "default": "4 dental services",
+          "description": "Options of the service select."
+        },
+        {
+          "name": "days",
+          "type": "{ weekday: string; date: string; month: string; full?: boolean }[]",
+          "default": "Mon 10 to Sun 16 Nov",
+          "description": "Date chips. Days with full set are disabled."
+        },
+        {
+          "name": "slots",
+          "type": "string[]",
+          "default": "12 times",
+          "description": "Time slots shown in the grid."
+        },
+        {
+          "name": "bookedSlots",
+          "type": "string[]",
+          "default": "[\"9:15\", \"11:30\", \"2:45\", \"5:00\"]",
+          "description": "Slots that are always taken. A few more are taken per day for realism."
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "default": "\"(718) 555-0142\"",
+          "description": "Phone link under the checklist. Empty hides it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#0f9488\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(request: { service; day; time }) => void",
+          "description": "Called when the booking is confirmed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<LocalBookingCard onSubmit={(r) => console.log(r.service.name, r.day.date, r.time)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/local-booking-card.json",
+      "docs": "https://hyperblur.dev/effects/local-booking-card",
+      "file": "https://hyperblur.dev/r/local-booking-card.json"
+    },
+    {
+      "slug": "local-menu-board",
+      "component": "LocalMenuBoard",
+      "title": "Local Menu Board",
+      "description": "A restaurant menu with tabs for each course, dotted price leaders and a featured dish card with an illustrated plate.",
+      "category": "local",
+      "tags": [
+        "menu",
+        "restaurant",
+        "tabs",
+        "food",
+        "prices",
+        "cafe"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Osteria Rosa · Carroll Gardens\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Tonight's menu\"",
+          "description": "Heading. The last word is set in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Seasonal Italian cooking ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "sections",
+          "type": "{ id: string; label: string; note?: string; dishes: Dish[]; featured?: Dish }[]",
+          "default": "Starters, Mains, Desserts, Drinks",
+          "description": "Menu tabs. A dish is { name, description, price, tags? }; the price is a number string without the dollar sign."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Controlled active section id."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "Initial section id when uncontrolled. Defaults to the first section."
+        },
+        {
+          "name": "onChange",
+          "type": "(id: string) => void",
+          "description": "Called when a tab is selected."
+        },
+        {
+          "name": "cta",
+          "type": "{ label: string; href: string }",
+          "default": "{ label: \"Reserve a table\", href: \"#reserve\" }",
+          "description": "Button on the featured dish card."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#c4572f\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<LocalMenuBoard defaultValue=\"mains\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/local-menu-board.json",
+      "docs": "https://hyperblur.dev/effects/local-menu-board",
+      "file": "https://hyperblur.dev/r/local-menu-board.json"
+    },
+    {
+      "slug": "local-hours-map",
+      "component": "LocalHoursMap",
+      "title": "Local Hours and Map",
+      "description": "Opening hours with today highlighted and an Open now badge, next to an illustrated street map with a dropping pin and a Get directions button.",
+      "category": "local",
+      "tags": [
+        "hours",
+        "map",
+        "location",
+        "directions",
+        "address",
+        "store"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Visit the shop\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Come say hello on Larch Street.\"",
+          "description": "Heading."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Plants, pots and repotting help, ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"Fern & Field\"",
+          "description": "Business name on the hours card."
+        },
+        {
+          "name": "address",
+          "type": "string[]",
+          "default": "[\"214 Larch Street\", \"Portland, OR 97214\"]",
+          "description": "Address lines."
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "default": "\"(503) 555-0187\"",
+          "description": "Phone link. Empty hides it."
+        },
+        {
+          "name": "hours",
+          "type": "{ day: string; hours: string; note?: string }[]",
+          "default": "Monday to Sunday",
+          "description": "Rows of the hours table. Write Closed as the hours to show it in red."
+        },
+        {
+          "name": "todayIndex",
+          "type": "number",
+          "default": "3",
+          "description": "Row highlighted as today. Set it from the server or a client effect; the block never reads the clock."
+        },
+        {
+          "name": "openNow",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the green Open now badge, or Closed now when false."
+        },
+        {
+          "name": "statusText",
+          "type": "string",
+          "description": "Overrides the badge text. By default it reads the closing time from today's row."
+        },
+        {
+          "name": "directions",
+          "type": "{ label: string; href: string }",
+          "default": "{ label: \"Get directions\", href: \"https://maps.google.com/?q=...\" }",
+          "description": "Button on the map. Opens in a new tab."
+        },
+        {
+          "name": "streets",
+          "type": "string[]",
+          "default": "[\"Larch St\", \"Clinton St\", \"Hawthorne Blvd\"]",
+          "description": "Street names printed on the map."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f5d3a\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<LocalHoursMap name=\"Fern & Field\" todayIndex={5} openNow />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/local-hours-map.json",
+      "docs": "https://hyperblur.dev/effects/local-hours-map",
+      "file": "https://hyperblur.dev/r/local-hours-map.json"
+    },
+    {
+      "slug": "local-team-grid",
+      "component": "LocalTeamGrid",
+      "title": "Local Team Grid",
+      "description": "Practitioner cards with illustrated portraits, years of experience, specialty chips and a booking link that lift on hover.",
+      "category": "local",
+      "tags": [
+        "team",
+        "staff",
+        "salon",
+        "stylists",
+        "portraits",
+        "about"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"The chairs at Maison Rose\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Meet the hands behind your hair.\"",
+          "description": "Heading. The last two words are set in italic accent."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Four stylists, ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "members",
+          "type": "{ name: string; role: string; specialties: string[]; years: number; colors?: [string, string]; href?: string }[]",
+          "default": "4 stylists",
+          "description": "Team cards. colors sets the portrait background gradient; href adds the booking link."
+        },
+        {
+          "name": "bookLabel",
+          "type": "string",
+          "default": "\"Book with\"",
+          "description": "Text before the first name on each booking link."
+        },
+        {
+          "name": "cta",
+          "type": "{ label: string; href: string }",
+          "default": "{ label: \"Book a chair\", href: \"#book\" }",
+          "description": "Button next to the heading."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#d0667a\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<LocalTeamGrid members={[{ name: \"Ana Silva\", role: \"Dentist\", specialties: [\"Implants\"], years: 12 }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/local-team-grid.json",
+      "docs": "https://hyperblur.dev/effects/local-team-grid",
+      "file": "https://hyperblur.dev/r/local-team-grid.json"
+    },
+    {
+      "slug": "local-services-price-list",
+      "component": "LocalServicesPriceList",
+      "title": "Local Services Price List",
+      "description": "Services in columns with duration and price, a shimmering popular marker and a bold package offer underneath.",
+      "category": "local",
+      "tags": [
+        "pricing",
+        "services",
+        "gym",
+        "price list",
+        "package",
+        "fitness"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Ironbark Strength · Pricing\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Train hard. Pay fair.\"",
+          "description": "Heading. The last two words are set in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"No sign-up fees ...\"",
+          "description": "Paragraph beside the heading."
+        },
+        {
+          "name": "groups",
+          "type": "{ title: string; caption?: string; services: { name; duration; price; detail?; popular? }[] }[]",
+          "default": "Personal training, Classes, Recovery",
+          "description": "Columns of services."
+        },
+        {
+          "name": "packageOffer",
+          "type": "{ label; title; description; price; was?; includes: string[]; cta: { label; href } } | null",
+          "default": "New member starter",
+          "description": "Package callout under the columns. Pass null to hide it."
+        },
+        {
+          "name": "popularLabel",
+          "type": "string",
+          "default": "\"Popular\"",
+          "description": "Text of the marker on popular services."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#c6f432\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<LocalServicesPriceList packageOffer={null} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/local-services-price-list.json",
+      "docs": "https://hyperblur.dev/effects/local-services-price-list",
+      "file": "https://hyperblur.dev/r/local-services-price-list.json"
+    },
+    {
+      "slug": "local-reservation-bar",
+      "component": "LocalReservationBar",
+      "title": "Local Reservation Bar",
+      "description": "A wide reservation bar with date, time and a guest stepper over a warm sunset street scene, with live availability dots around the chosen time.",
+      "category": "local",
+      "tags": [
+        "reservation",
+        "restaurant",
+        "booking",
+        "table",
+        "availability",
+        "hero"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Lantern House · Mission District\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Dinner under the string lights.\"",
+          "description": "Heading."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Wood-fired plates, ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "dates",
+          "type": "string[]",
+          "default": "6 dates",
+          "description": "Options of the date select."
+        },
+        {
+          "name": "times",
+          "type": "string[]",
+          "default": "5:30 pm to 9:30 pm",
+          "description": "Options of the time select and the availability row."
+        },
+        {
+          "name": "defaultTime",
+          "type": "string",
+          "default": "\"7:30 pm\"",
+          "description": "Initially selected time."
+        },
+        {
+          "name": "defaultParty",
+          "type": "number",
+          "default": "2",
+          "description": "Initial number of guests."
+        },
+        {
+          "name": "minParty",
+          "type": "number",
+          "default": "1",
+          "description": "Smallest party size."
+        },
+        {
+          "name": "maxParty",
+          "type": "number",
+          "default": "12",
+          "description": "Largest party size."
+        },
+        {
+          "name": "submitLabel",
+          "type": "string",
+          "default": "\"Find a table\"",
+          "description": "Submit button text."
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "default": "\"Parties over 8? ...\"",
+          "description": "Small line under the bar. Empty hides it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#e0673a\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(query: { date: string; time: string; party: number }) => void",
+          "description": "Called when Find a table is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<LocalReservationBar onSubmit={(q) => console.log(q.date, q.time, q.party)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/local-reservation-bar.json",
+      "docs": "https://hyperblur.dev/effects/local-reservation-bar",
+      "file": "https://hyperblur.dev/r/local-reservation-bar.json"
+    },
+    {
+      "slug": "local-before-after",
+      "component": "LocalBeforeAfter",
+      "title": "Local Before and After",
+      "description": "A draggable, keyboard accessible before and after slider with two illustrated kitchen scenes, caption chips and a strip of project results.",
+      "category": "local",
+      "tags": [
+        "before after",
+        "compare",
+        "slider",
+        "renovation",
+        "results",
+        "portfolio"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Hollis & Co. Renovation\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Same kitchen. Whole new morning.\"",
+          "description": "Heading."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"A 1987 galley kitchen ...\"",
+          "description": "Paragraph beside the heading."
+        },
+        {
+          "name": "beforeLabel",
+          "type": "string",
+          "default": "\"1987 original\"",
+          "description": "Caption on the before side."
+        },
+        {
+          "name": "afterLabel",
+          "type": "string",
+          "default": "\"Six weeks later\"",
+          "description": "Caption on the after side."
+        },
+        {
+          "name": "before",
+          "type": "ReactNode",
+          "description": "Custom before layer, such as an img with object-fit cover. Defaults to the illustrated old kitchen."
+        },
+        {
+          "name": "after",
+          "type": "ReactNode",
+          "description": "Custom after layer. Defaults to the illustrated new kitchen."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "Controlled divider position from 0 to 100."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number",
+          "default": "46",
+          "description": "Initial divider position when uncontrolled."
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number) => void",
+          "description": "Called while dragging or using the arrow keys."
+        },
+        {
+          "name": "stats",
+          "type": "{ value: string; label: string }[]",
+          "default": "4 results",
+          "description": "Results strip under the slider. Empty hides it."
+        },
+        {
+          "name": "cta",
+          "type": "{ label: string; href: string }",
+          "default": "{ label: \"Book a free home visit\", href: \"#visit\" }",
+          "description": "Button beside the heading."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#d9a35b\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<LocalBeforeAfter defaultValue={50} beforeLabel=\"Day one\" afterLabel=\"Week six\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/local-before-after.json",
+      "docs": "https://hyperblur.dev/effects/local-before-after",
+      "file": "https://hyperblur.dev/r/local-before-after.json"
+    },
+    {
+      "slug": "local-reviews-wall",
+      "component": "LocalReviewsWall",
+      "title": "Local Reviews Wall",
+      "description": "A rating summary with a star distribution beside two columns of review cards that drift slowly in opposite directions and pause on hover.",
+      "category": "local",
+      "tags": [
+        "reviews",
+        "testimonials",
+        "rating",
+        "marquee",
+        "social proof",
+        "bakery"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Juniper Bakehouse · Reviews\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Loved by the whole neighbourhood.\"",
+          "description": "Heading."
+        },
+        {
+          "name": "rating",
+          "type": "number",
+          "default": "4.9",
+          "description": "Average rating shown large."
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "default": "1386",
+          "description": "Number of reviews under the score."
+        },
+        {
+          "name": "distribution",
+          "type": "[number, number, number, number, number]",
+          "default": "[1201, 142, 28, 9, 6]",
+          "description": "Review counts from five stars down to one."
+        },
+        {
+          "name": "reviews",
+          "type": "{ name: string; rating: number; text: string; source: string; date: string; detail?: string }[]",
+          "default": "8 reviews",
+          "description": "Cards split across the two drifting columns."
+        },
+        {
+          "name": "sources",
+          "type": "{ name: string; rating: string; color: string }[]",
+          "default": "Google, Yelp, Tripadvisor",
+          "description": "Source pills. A review badge takes the color of its matching source."
+        },
+        {
+          "name": "cta",
+          "type": "{ label: string; href: string }",
+          "default": "{ label: \"Order for pickup\", href: \"#order\" }",
+          "description": "Button under the summary."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Drift speed multiplier."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#e2a03f\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<LocalReviewsWall rating={4.8} total={642} speed={0.8} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/local-reviews-wall.json",
+      "docs": "https://hyperblur.dev/effects/local-reviews-wall",
+      "file": "https://hyperblur.dev/r/local-reviews-wall.json"
     },
     {
       "slug": "comparison-tiers",
