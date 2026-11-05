@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-gears",
+  "type": "registry:component",
+  "title": "Loader Gears",
+  "description": "Three toothed gears mesh and turn in opposite directions, each at the right speed for its tooth count.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "loaders",
+    "loader",
+    "spinner",
+    "gears",
+    "settings",
+    "mechanical",
+    "svg"
+  ],
+  "docs": "https://hyperblur.dev/effects/loader-gears",
+  "files": [
+    {
+      "path": "registry/hyperblur/loader-gears.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/loader-gears.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface LoaderGearsProps extends React.HTMLAttributes<HTMLSpanElement> {\n  size?: number;\n  color?: string;\n  accent?: string;\n  speed?: number;\n  label?: string;\n}\n\ninterface GearSpec {\n  n: number;\n  cx: number;\n  cy: number;\n  off: number;\n}\n\nconst K = Math.PI / 180;\n\nfunction mesh(a: GearSpec, nb: number, theta: number): number {\n  const rb = nb * 2;\n  const xa = a.n * 2 * (a.off - theta) * K;\n  const raw = theta + 180 - (xa + 2 * Math.PI) / (rb * K);\n  const pitch = 360 / nb;\n  return ((raw % pitch) + pitch) % pitch;\n}\n\nconst BIG: GearSpec = { n: 12, cx: 32, cy: 50, off: 0 };\n\nfunction place(theta: number, n: number): GearSpec {\n  return {\n    n,\n    cx: BIG.cx + 40 * Math.cos(theta * K),\n    cy: BIG.cy + 40 * Math.sin(theta * K),\n    off: mesh(BIG, n, theta),\n  };\n}\n\nfunction gearPath(g: GearSpec): string {\n  const r = g.n * 2;\n  const root = r - 2.6;\n  const tip = r + 2.4;\n  const pitch = 360 / g.n;\n  const pt = (rad: number, deg: number) =>\n    `${(g.cx + rad * Math.cos(deg * K)).toFixed(2)} ${(g.cy + rad * Math.sin(deg * K)).toFixed(2)}`;\n  const arc = `A ${root.toFixed(2)} ${root.toFixed(2)} 0 0 1`;\n  let d = \"\";\n  for (let i = 0; i < g.n; i++) {\n    const c = g.off + i * pitch;\n    d += `${i === 0 ? \"M\" : arc} ${pt(root, c - pitch * 0.27)} `;\n    d += `L ${pt(tip, c - pitch * 0.15)} L ${pt(tip, c + pitch * 0.15)} L ${pt(root, c + pitch * 0.27)} `;\n  }\n  d += `${arc} ${pt(root, g.off - pitch * 0.27)} Z `;\n  const hr = r * 0.3;\n  d += `M ${(g.cx - hr).toFixed(2)} ${g.cy.toFixed(2)} a ${hr.toFixed(2)} ${hr.toFixed(2)} 0 1 0 ${(hr * 2).toFixed(2)} 0 a ${hr.toFixed(2)} ${hr.toFixed(2)} 0 1 0 ${(-hr * 2).toFixed(2)} 0 Z`;\n  return d;\n}\n\nconst GEARS = [\n  { spec: BIG, tone: 0, reverse: false },\n  { spec: place(-35, 8), tone: 1, reverse: true },\n  { spec: place(40, 8), tone: 0, reverse: true },\n].map((g) => ({ ...g, d: gearPath(g.spec) }));\n\nconst css = `\n.hb-yb1 {\n  position: relative;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 8px;\n  vertical-align: middle;\n  box-sizing: border-box;\n  font-family: inherit;\n}\n.hb-yb1 *, .hb-yb1 *::before, .hb-yb1 *::after { box-sizing: border-box; }\n.hb-yb1-svg {\n  display: block;\n  flex: none;\n  width: var(--hb-yb1-s);\n  height: var(--hb-yb1-s);\n  overflow: visible;\n}\n.hb-yb1-g {\n  transform-box: fill-box;\n  transform-origin: 50% 50%;\n  animation: hb-yb1-turn var(--hb-yb1-d) linear infinite;\n}\n.hb-yb1-g[data-rev] { animation-direction: reverse; }\n.hb-yb1-l {\n  font-size: 12px;\n  line-height: 1.2;\n  letter-spacing: 0.01em;\n  color: inherit;\n  opacity: 0.72;\n  white-space: nowrap;\n}\n.hb-yb1-sr {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  margin: -1px;\n  padding: 0;\n  overflow: hidden;\n  clip-path: inset(50%);\n  white-space: nowrap;\n  border: 0;\n}\n@keyframes hb-yb1-turn {\n  to { transform: rotate(360deg); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-yb1-g { animation: none; }\n}\n`;\n\nexport function LoaderGears({\n  size = 56,\n  color = \"#2f7bff\",\n  accent = \"#7fb3ff\",\n  speed = 3,\n  label,\n  className = \"\",\n  style,\n  ...rest\n}: LoaderGearsProps) {\n  const base = speed > 0 ? speed : 3;\n  const vars = { \"--hb-yb1-s\": `${size}px`, ...style } as React.CSSProperties;\n\n  return (\n    <span role=\"status\" className={`hb-yb1 ${className}`} style={vars} {...rest}>\n      <style href=\"hb-loader-gears\" precedence=\"default\">{css}</style>\n      <svg className=\"hb-yb1-svg\" viewBox=\"-3 4 94 94\" aria-hidden=\"true\" focusable=\"false\">\n        {GEARS.map((g, i) => (\n          <path\n            key={i}\n            className=\"hb-yb1-g\"\n            d={g.d}\n            fill={g.tone === 0 ? color : accent}\n            fillRule=\"evenodd\"\n            data-rev={g.reverse ? \"\" : undefined}\n            style={{ \"--hb-yb1-d\": `${((base * g.spec.n) / 12).toFixed(3)}s` } as React.CSSProperties}\n          />\n        ))}\n      </svg>\n      <span className={label ? \"hb-yb1-l\" : \"hb-yb1-sr\"}>{label ?? \"Loading\"}</span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

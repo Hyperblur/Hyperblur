@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -18,7 +19,23 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return { title: cat.label, description: `Every ${cat.label.toLowerCase()} item in the Hyperblur catalog.` };
 }
 
-export default async function CategoryPage({ params }: PageProps<"/category/[id]">) {
+export default function CategoryPage({ params }: PageProps<"/category/[id]">) {
+  return (
+    <Suspense
+      fallback={
+        <div aria-hidden="true" className="animate-pulse">
+          <div className="h-4 w-40 rounded bg-surface-2" />
+          <div className="mt-6 h-9 w-56 rounded bg-surface-2" />
+          <div className="mx-auto mt-8 h-96 max-w-3xl rounded-2xl border border-line bg-surface" />
+        </div>
+      }
+    >
+      <CategoryContent params={params} />
+    </Suspense>
+  );
+}
+
+async function CategoryContent({ params }: { params: Params }) {
   const { id } = await params;
   const index = categories.findIndex((c) => c.id === id);
   if (index < 0) notFound();
