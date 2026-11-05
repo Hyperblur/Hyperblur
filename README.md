@@ -1,3 +1,13 @@
+<p align="center">
+  <a href="https://hyperblur.vercel.app">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="brand/hyperblur-logo-dark-bg.svg">
+      <source media="(prefers-color-scheme: light)" srcset="brand/hyperblur-logo-light-bg.svg">
+      <img alt="Hyperblur" src="brand/hyperblur-logo-dark-bg.svg" width="420">
+    </picture>
+  </a>
+</p>
+
 # Hyperblur
 
 Visual effects for React, one command away. Copy-paste components that install with one shadcn command, or through a prompt you hand to your coding agent.
