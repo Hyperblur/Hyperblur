@@ -10,7 +10,7 @@ export const buttonsDemos: Record<string, ReactNode> = {
   "shimmer-button": (
     <div className="flex w-full max-w-sm flex-col items-center gap-4 px-4 text-center">
       <div>
-        <div className="font-serif text-3xl leading-none text-white">Ship the quiet parts.</div>
+        <div className="font-sans text-3xl leading-none text-white">Ship the quiet parts.</div>
         <div className="mt-2 font-grotesk text-xs text-white/50">Components you copy, own and never update.</div>
       </div>
       <div className="flex items-center gap-4">
@@ -34,7 +34,7 @@ export const buttonsDemos: Record<string, ReactNode> = {
   "liquid-button": (
     <div className="flex w-full max-w-sm flex-col items-center gap-4 px-4 text-center">
       <div>
-        <div className="font-serif text-2xl leading-tight text-white">Letters from the lab</div>
+        <div className="font-sans text-2xl leading-tight text-white">Letters from the lab</div>
         <div className="mt-1.5 font-mono text-[11px] text-white/45">one email a week, no spam</div>
       </div>
       <LiquidButton color="#19c3f5">Join the list</LiquidButton>
@@ -65,7 +65,7 @@ export const buttonsDemos: Record<string, ReactNode> = {
     <div className="flex w-full max-w-sm flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4">
       <div className="flex items-baseline justify-between">
         <div>
-          <div className="font-serif text-xl leading-none text-white">Aurora Pro</div>
+          <div className="font-sans text-xl leading-none text-white">Aurora Pro</div>
           <div className="mt-1.5 font-mono text-[11px] text-white/45">annual, cancel anytime</div>
         </div>
         <div className="font-grotesk text-lg text-white/85">$29.00</div>

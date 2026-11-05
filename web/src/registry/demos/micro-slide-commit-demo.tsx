@@ -20,7 +20,7 @@ export function SlideCommitDemo() {
           style={{ background: "linear-gradient(135deg, #3b1d28 0%, #ff4d5e 120%)" }}
         />
         <div className="min-w-0">
-          <p className="font-serif m-0 truncate text-xl leading-6">northwind-docs</p>
+          <p className="font-sans m-0 truncate text-xl leading-6">northwind-docs</p>
           <p className="m-0 text-xs text-[#8f8f8f]">{done ? "Project deleted" : "214 files, 3 live deploys"}</p>
         </div>
       </div>

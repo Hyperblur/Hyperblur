@@ -30,7 +30,7 @@ export function NavCardExpandDemo() {
           />
         </div>
         <div className="absolute inset-x-0 bottom-0 px-5 pb-4">
-          <p className="font-serif m-0 text-[30px] leading-[0.98] text-[#ededed]">
+          <p className="font-sans m-0 text-[30px] leading-[0.98] text-[#ededed]">
             Ship the interface
             <br />
             your product deserves.

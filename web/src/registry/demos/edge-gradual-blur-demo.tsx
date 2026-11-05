@@ -5,9 +5,9 @@ import { EdgeGradualBlur } from "@/registry/hyperblur/edge-gradual-blur";
 
 function Article() {
   return (
-    <div className="font-serif box-border px-5 py-4 text-[#d6d6d6]">
+    <div className="font-sans box-border px-5 py-4 text-[#d6d6d6]">
       <p className="m-0 text-[11px] uppercase tracking-[0.14em] text-[#8f8f8f]">Field notes / No. 14</p>
-      <h3 className="m-0 mt-2 text-[26px] font-normal italic leading-8 text-[#f2f2f2]">The quiet craft of edges</h3>
+      <h3 className="m-0 mt-2 text-[26px] font-normal leading-8 text-[#f2f2f2]">The quiet craft of edges</h3>
       <p className="m-0 mt-3 text-[16px] leading-6">
         Every page ends somewhere. The best interfaces do not cut their content off with a hard line, they let it
         dissolve into the margin so the eye knows there is more without being told.

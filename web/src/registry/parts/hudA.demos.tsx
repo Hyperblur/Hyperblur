@@ -82,7 +82,7 @@ export const hudADemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="box-border flex w-full max-w-[320px] flex-col gap-3 border border-white/[0.12] bg-white/[0.025] p-4">
         <div className="flex items-baseline justify-between gap-3">
-          <span className="font-serif text-[22px] italic leading-none text-[#ededed]">The experiments shelf</span>
+          <span className="font-sans text-[22px] leading-none text-[#ededed]">The experiments shelf</span>
           <span className={`${mono} text-[#5f5f5f]`}>2026</span>
         </div>
         <HudShelfSlider
@@ -129,7 +129,7 @@ export const hudADemos: Record<string, ReactNode> = {
       <HudOrbitBackdrop minHeight={184} className="max-w-[340px] border border-white/[0.1]">
         <div className="flex flex-col items-center gap-1.5 text-center">
           <span className={`${mono} text-[#ff4d4d]`}>Vector Lab</span>
-          <span className="font-serif text-[34px] italic leading-none text-[#ededed]">Experiments in orbit</span>
+          <span className="font-sans text-[34px] leading-none text-[#ededed]">Experiments in orbit</span>
           <span className={`${mono} text-[#8f8f8f]`}>34 pieces / 6 orbits</span>
         </div>
       </HudOrbitBackdrop>

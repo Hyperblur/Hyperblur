@@ -204,7 +204,7 @@ const css = `
 .hb-ke4-art { max-width: 720px; margin: 0 auto; padding: 72px 24px 0; opacity: .6; }
 .hb-ke4-meta { display: flex; gap: 10px; color: #8a877e; font-size: 13px; }
 .hb-ke4-meta b { color: var(--hb-ke4-accent); font-weight: 600; }
-.hb-ke4-h { margin: 14px 0 18px; font-family: var(--font-serif, Georgia, serif); font-size: clamp(34px, 5.6cqi, 56px); font-weight: 400; letter-spacing: -.02em; line-height: 1.04; }
+.hb-ke4-h { margin: 14px 0 18px; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: clamp(34px, 5.6cqi, 56px); font-weight: 400; letter-spacing: -.02em; line-height: 1.04; }
 .hb-ke4-p { height: 12px; margin-top: 12px; border-radius: 6px; background: rgba(23,23,26,.08); }
 .hb-ke4-sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @keyframes hb-ke4-sweep { 0% { transform: translateX(-100%); } 40%, 100% { transform: translateX(100%); } }

@@ -37,7 +37,7 @@ export function MenuStaggeredDemo() {
             <p className="m-0 text-[10px] font-medium uppercase tracking-[0.16em] text-[#7fb3ff]">
               Copenhagen / Est. 2014
             </p>
-            <p className="font-serif m-0 mt-1.5 text-[38px] leading-[0.95] text-[#ededed]">
+            <p className="font-sans m-0 mt-1.5 text-[38px] leading-[0.95] text-[#ededed]">
               Rooms that
               <br />
               breathe.

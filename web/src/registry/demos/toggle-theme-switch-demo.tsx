@@ -26,7 +26,7 @@ export function ToggleThemeSwitchDemo() {
         >
           <div className="flex items-center justify-between">
             <p
-              className="font-serif m-0 text-lg italic leading-5"
+              className="font-sans m-0 text-lg leading-5"
               style={{ color: dark ? "#f2efe8" : "#1d1b16", transition: "color 0.5s ease" }}
             >
               {dark ? "Good evening" : "Good morning"}

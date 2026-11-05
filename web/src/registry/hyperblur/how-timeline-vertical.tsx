@@ -37,7 +37,7 @@ const css = `
   --hb-kh3-ink: #1b1915;
   --hb-kh3-muted: #6f6a61;
   --hb-kh3-line: rgba(27, 25, 21, 0.12);
-  --hb-kh3-serif: var(--font-serif, ui-serif), "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --hb-kh3-serif: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -90,14 +90,14 @@ const css = `
 }
 .hb-kh3-title {
   margin: 16px 0 0;
-  font-family: var(--hb-kh3-serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(36px, 5.6cqw, 58px);
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
-.hb-kh3-title em { color: var(--hb-kh3-accent); font-style: italic; }
+.hb-kh3-title em { font-style: normal; color: var(--hb-kh3-accent); }
 .hb-kh3-sub {
   max-width: 500px;
   margin: 16px auto 0;
@@ -211,7 +211,7 @@ const css = `
 }
 .hb-kh3-name {
   margin: 10px 0 0;
-  font-family: var(--hb-kh3-serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(26px, 3cqw, 32px);
   font-weight: 400;
   line-height: 1.08;
@@ -324,10 +324,9 @@ const css = `
   .hb-kh3-item[data-side="left"] .hb-kh3-aside { grid-column: 3; align-items: flex-start; padding: 14px 0 0 8px; }
   .hb-kh3-item[data-state="active"] .hb-kh3-aside, .hb-kh3-item[data-state="done"] .hb-kh3-aside { color: rgba(27, 25, 21, 0.55); }
   .hb-kh3-num {
-    font-family: var(--hb-kh3-serif);
+    font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
     font-size: 64px;
-    font-style: italic;
-    line-height: 1;
+        line-height: 1;
   }
   .hb-kh3-item[data-state="active"] .hb-kh3-num { color: var(--hb-kh3-accent); }
   .hb-kh3-asidetxt {

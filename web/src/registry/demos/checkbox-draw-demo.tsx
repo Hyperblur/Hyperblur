@@ -18,7 +18,7 @@ export function CheckboxDrawDemo() {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="box-border flex w-full max-w-[340px] flex-col gap-2 rounded-2xl border border-[#262626] bg-[#111111] p-4 text-left text-[#ededed]">
         <div className="flex items-baseline justify-between">
-          <p className="font-serif m-0 text-xl italic leading-6">Export fields</p>
+          <p className="font-sans m-0 text-xl leading-6">Export fields</p>
           <span className="font-mono text-[11px] text-[#8f8f8f]">
             {picked.length} of {fields.length}
           </span>

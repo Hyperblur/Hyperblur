@@ -20,7 +20,7 @@ export function LikeHeartFillDemo() {
         />
         <div className="mt-2 flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <p className="font-serif m-0 truncate text-xl italic leading-6">Burnt honey tart</p>
+            <p className="font-sans m-0 truncate text-xl leading-6">Burnt honey tart</p>
             <p className="font-grotesk m-0 text-[11px] uppercase leading-4 tracking-[0.08em] text-[#8f8f8f]">
               Pastry / 45 min
             </p>

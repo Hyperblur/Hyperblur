@@ -85,7 +85,7 @@ const css = `
   color: var(--hb-qr3-a);
 }
 .hb-qr3-c[data-v="0"] .hb-qr3-w { font-weight: 700; letter-spacing: -0.02em; }
-.hb-qr3-c[data-v="1"] .hb-qr3-w { font-family: ui-serif, Georgia, "Times New Roman", serif; font-style: italic; font-size: 16px; }
+.hb-qr3-c[data-v="1"] .hb-qr3-w { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 16px; }
 .hb-qr3-c[data-v="2"] .hb-qr3-w { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
 .hb-qr3-c[data-v="3"] .hb-qr3-w { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; letter-spacing: -0.02em; }
 .hb-qr3-c[data-v="4"] .hb-qr3-w { font-weight: 300; font-size: 16px; letter-spacing: 0.02em; }

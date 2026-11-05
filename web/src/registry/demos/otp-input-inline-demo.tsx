@@ -22,7 +22,7 @@ export function OtpInputInlineDemo() {
   return (
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="box-border flex w-full max-w-[340px] flex-col rounded-2xl border border-[#262626] bg-[#111111] p-4 text-left text-[#ededed]">
-        <p className="font-serif m-0 text-2xl italic leading-7">Check your inbox</p>
+        <p className="font-sans m-0 text-2xl leading-7">Check your inbox</p>
         <p className="m-0 text-[13px] leading-5 text-[#8f8f8f]">We sent a 6-digit code to ada@fernhill.co</p>
         <div
           className="mt-4"

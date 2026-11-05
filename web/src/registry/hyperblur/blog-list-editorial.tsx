@@ -112,13 +112,13 @@ const css = `
 }
 .hb-ki2-title {
   margin: 0;
-  font-family: var(--font-serif, "Instrument Serif", "Iowan Old Style", Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(44px, 8cqi, 88px);
   font-weight: 400;
   line-height: .95;
   letter-spacing: -.02em;
 }
-.hb-ki2-title em { color: var(--hb-ki2-accent); font-style: italic; }
+.hb-ki2-title em { font-style: normal; color: var(--hb-ki2-accent); }
 .hb-ki2-sub {
   margin: 0;
   max-width: 380px;
@@ -214,7 +214,7 @@ const css = `
 }
 .hb-ki2-day {
   color: var(--hb-ki2-ink);
-  font-family: var(--font-serif, "Instrument Serif", "Iowan Old Style", Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 22px;
   line-height: 1;
   letter-spacing: 0;
@@ -235,7 +235,7 @@ const css = `
 .hb-ki2-read { color: var(--hb-ki2-muted); font-weight: 500; letter-spacing: .04em; }
 .hb-ki2-ptitle {
   margin: 0;
-  font-family: var(--font-serif, "Instrument Serif", "Iowan Old Style", Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(24px, 3.2cqi, 34px);
   font-weight: 400;
   line-height: 1.08;
@@ -280,7 +280,7 @@ const css = `
 .hb-ki2-empty {
   padding: 56px 0;
   color: var(--hb-ki2-muted);
-  font-family: var(--font-serif, "Instrument Serif", "Iowan Old Style", Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 24px;
   text-align: center;
 }

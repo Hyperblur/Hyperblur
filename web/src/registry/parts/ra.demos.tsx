@@ -22,7 +22,7 @@ export const raDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="w-full max-w-[340px]">
         <div className="mb-2 flex items-baseline justify-between px-1">
-          <p className="font-serif m-0 text-xl italic leading-6 text-[#ededed]">Coastal route</p>
+          <p className="font-sans m-0 text-xl leading-6 text-[#ededed]">Coastal route</p>
           <span className="font-grotesk text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">8 photos</span>
         </div>
         <CarouselLightbox thumbWidth={118} />
@@ -126,7 +126,7 @@ export const raDemos: Record<string, ReactNode> = {
               label: "Connect",
               content: (
                 <div className={stepCard}>
-                  <p className="font-serif m-0 text-xl leading-6 text-[#ededed]">Connect a repository</p>
+                  <p className="font-sans m-0 text-xl leading-6 text-[#ededed]">Connect a repository</p>
                   <p className="m-0 mt-0.5 text-[12px] text-[#8f8f8f]">Pick where your site lives.</p>
                   <div className="mt-2.5 flex flex-col gap-1.5">
                     {["fernhill/storefront", "fernhill/journal"].map((r, i) => (
@@ -144,7 +144,7 @@ export const raDemos: Record<string, ReactNode> = {
               label: "Configure",
               content: (
                 <div className={stepCard}>
-                  <p className="font-serif m-0 text-xl leading-6 text-[#ededed]">Set up the build</p>
+                  <p className="font-sans m-0 text-xl leading-6 text-[#ededed]">Set up the build</p>
                   <p className="m-0 mt-0.5 text-[12px] text-[#8f8f8f]">We found a Next.js project.</p>
                   <div className="mt-2.5 flex flex-col gap-1.5 font-mono text-[11px]">
                     {[
@@ -167,7 +167,7 @@ export const raDemos: Record<string, ReactNode> = {
               label: "Launch",
               content: (
                 <div className={stepCard}>
-                  <p className="font-serif m-0 text-xl leading-6 text-[#ededed]">Ready to go live</p>
+                  <p className="font-sans m-0 text-xl leading-6 text-[#ededed]">Ready to go live</p>
                   <p className="m-0 mt-0.5 text-[12px] text-[#8f8f8f]">Your first deploy takes about a minute.</p>
                   <div className="mt-2 flex items-center gap-2 rounded-lg bg-[#171717] px-2.5 py-1.5 text-[12px] text-[#4cd08a]">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#4cd08a]" />

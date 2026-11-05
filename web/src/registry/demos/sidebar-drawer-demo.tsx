@@ -58,7 +58,7 @@ export function SidebarDrawerDemo() {
         />
       </div>
       <div className="w-[130px] shrink-0">
-        <p className="font-serif m-0 text-[22px] italic leading-6 text-[#ededed]">Mobile drawer</p>
+        <p className="font-sans m-0 text-[22px] leading-6 text-[#ededed]">Mobile drawer</p>
         <p className="m-0 mt-1 text-[11px] leading-4 text-[#8f8f8f]">Esc, the scrim or the close button dismiss it.</p>
         <button
           type="button"

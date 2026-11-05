@@ -45,7 +45,7 @@ const css = `
 .hb-kl7-wrap { max-width: 1120px; margin: 0 auto; padding: 88px 24px 96px; }
 .hb-kl7-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 32px; align-items: end; margin-bottom: 36px; }
 .hb-kl7-eyebrow { margin: 0 0 14px; color: var(--hb-kl7-accent); font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
-.hb-kl7-title { margin: 0; font-family: var(--font-serif, Georgia, serif); font-weight: 400; font-size: clamp(38px, 5.4cqw, 62px); line-height: 1; letter-spacing: -.02em; color: #f4efe7; text-wrap: balance; }
+.hb-kl7-title { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: clamp(38px, 5.4cqw, 62px); line-height: 1; letter-spacing: -.02em; color: #f4efe7; text-wrap: balance; }
 .hb-kl7-side { color: #a39d93; font-size: 16px; line-height: 1.6; }
 .hb-kl7-side p { margin: 0 0 18px; }
 .hb-kl7-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; background: #f4efe7; color: #121110; font-size: 14.5px; font-weight: 600; text-decoration: none; transition: background .2s, transform .2s; }
@@ -70,7 +70,7 @@ const css = `
 .hb-kl7-stats { margin: 16px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; border-radius: 18px; overflow: hidden; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.08); }
 .hb-kl7-stat { min-width: 0; padding: 20px 22px; background: #161513; animation: hb-kl7-in .6s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--hb-kl7-i) * 90ms + .2s); }
 @keyframes hb-kl7-in { from { opacity: 0; transform: translateY(10px); } }
-.hb-kl7-stat b { display: block; font-family: var(--font-serif, Georgia, serif); font-weight: 400; font-size: 32px; line-height: 1; color: #f4efe7; }
+.hb-kl7-stat b { display: block; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: 32px; line-height: 1; color: #f4efe7; }
 .hb-kl7-stat span { display: block; margin-top: 8px; color: #8f8a82; font-size: 13.5px; line-height: 1.4; }
 @container (max-width: 820px) {
   .hb-kl7-head { grid-template-columns: minmax(0, 1fr); }

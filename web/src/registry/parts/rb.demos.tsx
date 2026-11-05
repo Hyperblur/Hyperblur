@@ -33,7 +33,7 @@ export const rbDemos: Record<string, ReactNode> = {
           <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/60">Dipole 0.8 T</span>
         </div>
         <div className="absolute bottom-4 left-4 flex flex-col gap-0.5">
-          <span className="font-serif text-3xl italic leading-8 text-white/90">Field lines</span>
+          <span className="font-sans text-3xl leading-8 text-white/90">Field lines</span>
           <span className="text-[11px] text-white/45">drag the magnet with your cursor</span>
         </div>
       </CursorMagneticFilings>

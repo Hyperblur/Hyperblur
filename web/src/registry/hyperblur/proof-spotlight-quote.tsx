@@ -106,7 +106,7 @@ const css = `
 }
 .hb-kd2-quote {
   margin: 0;
-  font-family: var(--font-serif, ui-serif, Georgia, "Times New Roman", serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(28px, 5.2cqi, 54px);
   font-weight: 400;
   line-height: 1.12;

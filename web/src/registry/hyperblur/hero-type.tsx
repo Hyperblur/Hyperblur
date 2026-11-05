@@ -105,9 +105,8 @@ const css = `
   overflow: hidden;
   vertical-align: top;
   color: var(--hb-hrt-accent);
-  font-family: var(--font-serif, Georgia, "Times New Roman", serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+    font-weight: 400;
   letter-spacing: -.03em;
 }
 .hb-hrt-w {

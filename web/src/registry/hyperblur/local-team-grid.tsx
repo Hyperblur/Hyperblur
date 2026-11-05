@@ -47,7 +47,7 @@ const css = `
 .hb-kl4-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
 .hb-kl4-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 14px; color: #8a6c6a; font-size: 13px; font-weight: 500; letter-spacing: .02em; }
 .hb-kl4-eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--hb-kl4-accent); }
-.hb-kl4-title { margin: 0; max-width: 560px; font-family: var(--font-serif, Georgia, serif); font-weight: 400; font-size: clamp(38px, 5.2cqw, 60px); line-height: 1; letter-spacing: -.02em; color: #221b1a; text-wrap: balance; }
+.hb-kl4-title { margin: 0; max-width: 560px; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: clamp(38px, 5.2cqw, 60px); line-height: 1; letter-spacing: -.02em; color: #221b1a; text-wrap: balance; }
 .hb-kl4-title i { color: var(--hb-kl4-accent); }
 .hb-kl4-sub { margin: 14px 0 0; max-width: 460px; color: #6f5f5d; font-size: 16px; line-height: 1.6; }
 .hb-kl4-cta { display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 999px; background: #26201f; color: #fbf3f1; font-size: 14.5px; font-weight: 600; text-decoration: none; transition: background .2s, transform .2s; }
@@ -74,7 +74,7 @@ const css = `
 .hb-kl4-card:hover .hb-kl4-art svg { transform: scale(1.05); }
 .hb-kl4-years { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 999px; background: rgba(255, 250, 248, .85); backdrop-filter: blur(6px); color: #26201f; font-size: 12px; font-weight: 600; }
 .hb-kl4-info { padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
-.hb-kl4-name { margin: 0; font-family: var(--font-serif, Georgia, serif); font-weight: 400; font-size: 24px; line-height: 1.1; color: #221b1a; }
+.hb-kl4-name { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: 24px; line-height: 1.1; color: #221b1a; }
 .hb-kl4-role { margin: 4px 0 14px; color: #8a6c6a; font-size: 13.5px; }
 .hb-kl4-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 .hb-kl4-chip { padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--hb-kl4-accent) 10%, #fff); color: color-mix(in srgb, var(--hb-kl4-accent) 75%, #2a1010); font-size: 12px; font-weight: 500; }

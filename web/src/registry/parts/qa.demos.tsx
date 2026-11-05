@@ -83,7 +83,7 @@ export const qaDemos: Record<string, ReactNode> = {
         }}
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#c58ac2]">Fri 14 Nov, Warehouse 9</span>
-        <p className="font-serif m-0 text-[34px] italic leading-none">Aurora Nights</p>
+        <p className="font-sans m-0 text-[34px] leading-none">Aurora Nights</p>
         <p className="m-0 text-xs text-[#a1a1a1]">Eight hours, three rooms, one sunrise set.</p>
         <div className="mt-1">
           <ButtonNeonPulse size="sm">Get tickets</ButtonNeonPulse>
@@ -158,9 +158,9 @@ export const qaDemos: Record<string, ReactNode> = {
   ),
   "button-stacked-text": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} items-start gap-2 font-serif`}>
+      <div className={`${card} items-start gap-2 font-sans`}>
         <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#8f8f8f]">Brand and web studio, Lisbon</span>
-        <p className="m-0 text-[32px] italic leading-none">Atlas &amp; Oak</p>
+        <p className="m-0 text-[32px] leading-none">Atlas &amp; Oak</p>
         <p className="font-sans m-0 text-xs leading-snug text-[#a1a1a1]">We take on six projects a year and answer every email.</p>
         <div className="mt-1">
           <ButtonStackedText size="sm" hoverLabel="Book a call">Start a project</ButtonStackedText>

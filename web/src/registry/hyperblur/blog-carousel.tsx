@@ -220,7 +220,7 @@ const css = `
   right: 16px;
   bottom: 6px;
   color: rgba(255,255,255,.9);
-  font-family: var(--font-serif, "Instrument Serif", Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 92px;
   line-height: 1;
   letter-spacing: -.04em;

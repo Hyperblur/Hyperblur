@@ -98,9 +98,8 @@ const css = `
 .hb-ss-prev .hb-ss-copy { animation: hb-ss-out 0.35s ease forwards; }
 .hb-ss-title {
   margin: 0;
-  font-family: var(--font-serif, Georgia, "Times New Roman", serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+    font-weight: 400;
   font-size: clamp(20px, 5.4cqw, 44px);
   line-height: 1.05;
   letter-spacing: -0.01em;

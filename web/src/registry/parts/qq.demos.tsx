@@ -19,7 +19,7 @@ export const qqDemos: Record<string, ReactNode> = {
       <BgGalaxy stars={3600}>
         <div className="pointer-events-none flex h-full w-full flex-col justify-end p-5">
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50">Field guide · Chapter 4</span>
-          <h3 className="m-0 mt-1 font-serif text-[30px] italic leading-none text-white">Two arms, one light</h3>
+          <h3 className="m-0 mt-1 font-sans text-[30px] leading-none text-white">Two arms, one light</h3>
           <span className="mt-1.5 text-[12px] text-white/60">A slow tour of a barred spiral, 52 million years away.</span>
         </div>
       </BgGalaxy>

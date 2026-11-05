@@ -104,7 +104,7 @@ const css = `
 @keyframes hb-kl1-pulse { 50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--hb-kl1-accent) 6%, transparent); } }
 .hb-kl1-title {
   margin: 0;
-  font-family: var(--font-serif, Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-weight: 400;
   font-size: clamp(38px, 5.4cqw, 60px);
   line-height: 1.02;
@@ -112,7 +112,7 @@ const css = `
   color: #0b2724;
   text-wrap: balance;
 }
-.hb-kl1-title em { font-style: italic; color: var(--hb-kl1-accent); }
+.hb-kl1-title em { font-style: normal; color: var(--hb-kl1-accent); }
 .hb-kl1-sub { margin: 18px 0 0; max-width: 440px; color: #4b6a66; font-size: 16.5px; line-height: 1.6; }
 .hb-kl1-list { margin: 26px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
 .hb-kl1-list li { display: flex; align-items: center; gap: 10px; color: #234a46; font-size: 14.5px; }
@@ -213,7 +213,7 @@ const css = `
 .hb-kl1-badge { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, var(--hb-kl1-accent) 14%, #fff); color: var(--hb-kl1-accent); margin-bottom: 18px; }
 .hb-kl1-badge path { stroke-dasharray: 30; stroke-dashoffset: 30; animation: hb-kl1-draw .6s .2s ease forwards; }
 @keyframes hb-kl1-draw { to { stroke-dashoffset: 0; } }
-.hb-kl1-done h3 { margin: 0; font-family: var(--font-serif, Georgia, serif); font-weight: 400; font-size: 30px; color: #0b2724; }
+.hb-kl1-done h3 { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: 30px; color: #0b2724; }
 .hb-kl1-done p { margin: 10px 0 0; color: #4b6a66; font-size: 15px; line-height: 1.55; max-width: 340px; }
 .hb-kl1-ticket { width: 100%; margin: 22px 0; padding: 16px; border-radius: 14px; background: #f5fbfa; border: 1px solid #e1efed; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; text-align: left; }
 .hb-kl1-ticket span { display: block; color: #6b8985; font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; }

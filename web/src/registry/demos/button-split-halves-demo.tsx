@@ -25,10 +25,10 @@ export function ButtonSplitHalvesDemo() {
 
   return (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className="box-border flex w-full max-w-[340px] flex-col items-start gap-3 rounded-2xl border border-[#262626] bg-[#0f0f0f] p-5 font-serif text-[#ededed]">
+      <div className="box-border flex w-full max-w-[340px] flex-col items-start gap-3 rounded-2xl border border-[#262626] bg-[#0f0f0f] p-5 font-sans text-[#ededed]">
         <span className="font-sans text-[10px] uppercase tracking-[0.16em] text-[#8f8f8f]">Careers at Lumen</span>
         <p className="m-0 text-[28px] leading-[1.05] tracking-tight">
-          Build the quiet <em className="text-[#7fb3ff]">side</em> of the web.
+          Build the quiet <em className="not-italic text-[#7fb3ff]">side</em> of the web.
         </p>
         <div
           className="font-sans"

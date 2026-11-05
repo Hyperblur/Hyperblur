@@ -29,7 +29,7 @@ export const qkDemos: Record<string, ReactNode> = {
   ),
   "card-pixel-hover": (
     <div className={stage}>
-      <div className="font-serif w-[300px]">
+      <div className="font-sans w-[300px]">
         <CardPixelHover />
       </div>
     </div>
@@ -55,7 +55,7 @@ export const qkDemos: Record<string, ReactNode> = {
   ),
   "card-bounce-stack": (
     <div className={stage}>
-      <div className="font-serif w-full max-w-[340px]">
+      <div className="font-sans w-full max-w-[340px]">
         <CardBounceStack />
       </div>
     </div>
@@ -83,7 +83,7 @@ export const qkDemos: Record<string, ReactNode> = {
   ),
   "card-stack-drag": (
     <div className={stage}>
-      <div className="font-serif w-[300px]">
+      <div className="font-sans w-[300px]">
         <CardStackDrag />
       </div>
     </div>

@@ -101,7 +101,7 @@ export const siteBDemos: Record<string, ReactNode> = {
           illustration="folder"
           style={{ padding: 14 }}
           className="[&_.hb-emp-art]:h-[62px]! [&_.hb-emp-art]:w-[82px]!"
-          title={<span className="font-serif text-[22px] font-normal italic leading-none">No saved homes yet</span>}
+          title={<span className="font-sans text-[22px] font-normal leading-none">No saved homes yet</span>}
           description="Saved listings will show up here."
           primaryAction={{ label: "Browse listings" }}
           secondaryAction={{ label: "Set up alerts" }}

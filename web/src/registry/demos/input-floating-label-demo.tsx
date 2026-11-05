@@ -25,7 +25,7 @@ export function InputFloatingLabelDemo() {
   return (
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="flex w-full max-w-[340px] flex-col gap-2 text-left text-[#ededed]">
-        <p className="font-serif m-0 text-2xl italic leading-7">Get early access</p>
+        <p className="font-sans m-0 text-2xl leading-7">Get early access</p>
         <InputFloatingLabel
           label="Full name"
           icon={userIcon}
