@@ -1,0 +1,170 @@
+import type { EffectMeta } from "@/registry/meta";
+
+const size = (def: string, what: string) => ({
+  name: "size",
+  type: "number",
+  default: def,
+  description: what,
+});
+const color = (def: string, what: string) => ({
+  name: "color",
+  type: "string",
+  default: `"${def}"`,
+  description: what,
+});
+const accent = (def: string, what: string) => ({
+  name: "accent",
+  type: "string",
+  default: `"${def}"`,
+  description: what,
+});
+const speed = (def: string, what: string) => ({
+  name: "speed",
+  type: "number",
+  default: def,
+  description: what,
+});
+const label = (what: string) => ({
+  name: "label",
+  type: "string",
+  description: what,
+});
+
+const caption = "Visible caption under the loader. Without it, Loading is announced to screen readers only.";
+
+export const ybMeta: EffectMeta[] = [
+  {
+    slug: "loader-gears",
+    component: "LoaderGears",
+    title: "Loader Gears",
+    description: "Three toothed gears mesh and turn in opposite directions, each at the right speed for its tooth count.",
+    category: "loaders",
+    tags: ["loader", "spinner", "gears", "settings", "mechanical", "svg"],
+    props: [
+      size("56", "Height and width of the loader in pixels."),
+      color("#2f7bff", "Fill of the large gear and the lower gear."),
+      accent("#7fb3ff", "Fill of the upper small gear."),
+      speed("3", "Seconds for the large gear to complete one turn. The small gears turn faster."),
+      label(caption),
+    ],
+    usage: '<LoaderGears size={64} label="Rebuilding index" />',
+  },
+  {
+    slug: "loader-hourglass",
+    component: "LoaderHourglass",
+    title: "Loader Hourglass",
+    description: "An hourglass whose sand drains through the neck, then flips over and refills for the next round.",
+    category: "loaders",
+    tags: ["loader", "hourglass", "timer", "waiting", "sand", "svg"],
+    props: [
+      size("56", "Height of the loader in pixels. Width is two thirds of it."),
+      color("#7fb3ff", "Color of the sand and the falling stream."),
+      accent("#2f7bff", "Color of the glass outline and the caps."),
+      speed("3.6", "Seconds for one full cycle of draining and flipping."),
+      label(caption),
+    ],
+    usage: '<LoaderHourglass size={64} label="Reserving your table" />',
+  },
+  {
+    slug: "loader-dna-helix",
+    component: "LoaderDnaHelix",
+    title: "Loader DNA Helix",
+    description: "A double helix of dots twists in sine motion, with depth shading and rungs that stretch between the strands.",
+    category: "loaders",
+    tags: ["loader", "helix", "dna", "science", "3d", "css"],
+    props: [
+      size("48", "Height of the helix in pixels. Dot size and width follow from it."),
+      color("#2f7bff", "Color of the first strand and the top of each rung."),
+      accent("#ff6b9a", "Color of the second strand and the bottom of each rung."),
+      speed("2.4", "Seconds for the helix to complete one full twist."),
+      { name: "rungs", type: "number", default: "10", description: "Number of dot pairs along the helix, from 4 to 20." },
+      label(caption),
+    ],
+    usage: '<LoaderDnaHelix size={48} rungs={9} label="Sequencing sample" />',
+  },
+  {
+    slug: "loader-battery-fill",
+    component: "LoaderBatteryFill",
+    title: "Loader Battery Fill",
+    description: "A battery icon fills with segments, pulses when full and starts over. Pass a value to show a fixed charge level instead.",
+    category: "loaders",
+    tags: ["loader", "battery", "charging", "progress", "device", "css"],
+    props: [
+      size("56", "Width of the battery body in pixels. Height is half of it."),
+      color("#2f7bff", "Fill and glow color."),
+      accent("#7fb3ff", "Outline, terminal and highlight color."),
+      speed("2.8", "Seconds for one charging loop. Ignored when value is set."),
+      { name: "segments", type: "number", default: "4", description: "Number of fill segments, from 2 to 8." },
+      { name: "value", type: "number", description: "Charge level from 0 to 100, rounded to whole segments. Leave undefined to loop. At 100 the battery pulses." },
+      label("Visible caption under the battery. Without it, Charging is announced to screen readers only, followed by the value when set."),
+    ],
+    usage: '<LoaderBatteryFill size={56} value={75} label="Fern Watch" />',
+  },
+  {
+    slug: "loader-signal-bars",
+    component: "LoaderSignalBars",
+    title: "Loader Signal Bars",
+    description: "Signal bars of growing height light up one after another, like a device searching for a connection.",
+    category: "loaders",
+    tags: ["loader", "signal", "wifi", "network", "connection", "css"],
+    props: [
+      size("36", "Height of the tallest bar in pixels."),
+      color("#2f7bff", "Color at the base of each bar."),
+      accent("#7fb3ff", "Color at the top of each bar."),
+      speed("1.8", "Seconds for one pass of the sequence."),
+      { name: "bars", type: "number", default: "4", description: "Number of bars, from 3 to 7." },
+      label(caption),
+    ],
+    usage: '<LoaderSignalBars size={36} label="Searching for networks" />',
+  },
+  {
+    slug: "loader-book-flip",
+    component: "LoaderBookFlip",
+    title: "Loader Book Flip",
+    description: "An open book whose pages turn one after another in 3D, then return to the right-hand stack.",
+    category: "loaders",
+    tags: ["loader", "book", "pages", "3d", "reading", "css"],
+    props: [
+      size("56", "Width of the open book in pixels. Height is 70% of it."),
+      color("#2f7bff", "Cover color."),
+      accent("#ece8df", "Page color."),
+      speed("3.2", "Seconds for one full round of page turns."),
+      { name: "pages", type: "number", default: "5", description: "Number of flipping pages, from 3 to 8." },
+      label(caption),
+    ],
+    usage: '<LoaderBookFlip size={64} label="Opening your library" />',
+  },
+  {
+    slug: "loader-bouncing-balls",
+    component: "LoaderBouncingBalls",
+    title: "Loader Bouncing Balls",
+    description: "Three balls of different colors bounce out of phase, squashing on impact above a soft ground shadow.",
+    category: "loaders",
+    tags: ["loader", "balls", "bounce", "squash", "playful", "css"],
+    props: [
+      size("44", "Height of the bounce area in pixels. Ball size is about a quarter of it."),
+      color("#2f7bff", "Color of the first ball."),
+      accent("#7fb3ff", "Color of the second ball."),
+      { name: "tint", type: "string", default: '"#ff6b9a"', description: "Color of the third ball." },
+      speed("0.9", "Seconds for one bounce."),
+      label(caption),
+    ],
+    usage: '<LoaderBouncingBalls size={48} label="Finding players" />',
+  },
+  {
+    slug: "loader-rocket-trail",
+    component: "LoaderRocketTrail",
+    title: "Loader Rocket Trail",
+    description: "A small rocket accelerates along a curved path and leaves a trail that fades behind it, then launches again.",
+    category: "loaders",
+    tags: ["loader", "rocket", "launch", "deploy", "trail", "svg"],
+    props: [
+      size("72", "Width of the flight area in pixels. Height is 80% of it."),
+      color("#2f7bff", "Color of the trail, the dotted guide and the nose cone."),
+      accent("#ff8a4c", "Color of the fins and the flame."),
+      speed("2.4", "Seconds for one launch."),
+      label(caption),
+    ],
+    usage: '<LoaderRocketTrail size={96} label="Deploying to production" />',
+  },
+];
