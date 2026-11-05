@@ -3121,6 +3121,2030 @@
       ]
     },
     {
+      "name": "comparison-tiers",
+      "type": "registry:component",
+      "title": "Comparison Tiers",
+      "description": "Plan cards side by side that list the same feature rows, so checks, dashes and values line up across tiers. The recommended plan gets a rotating beam border and a badge, and hovering a row highlights it in every card.",
+      "categories": [
+        "comparison",
+        "pricing",
+        "plans",
+        "feature comparison",
+        "checks",
+        "highlighted plan",
+        "cards"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/comparison-tiers.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/comparison-tiers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "comparison-scorecard",
+      "type": "registry:component",
+      "title": "Comparison Scorecard",
+      "description": "An us versus them scorecard with two overall score rings and a list of benchmark metrics, each with paired bars that grow in and numbers that count up, plus a delta chip per row.",
+      "categories": [
+        "comparison",
+        "benchmark",
+        "versus",
+        "scorecard",
+        "animated bars",
+        "count up",
+        "competitors"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/comparison-scorecard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/comparison-scorecard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "comparison-calculator",
+      "type": "registry:component",
+      "title": "Comparison Calculator",
+      "description": "A light pricing calculator where sliders for seats and contacts and a monthly or yearly switch update a bar chart of your price against competitors, with the yearly savings counting to the new value.",
+      "categories": [
+        "comparison",
+        "pricing calculator",
+        "sliders",
+        "savings",
+        "bar chart",
+        "competitors",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/comparison-calculator.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/comparison-calculator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-tab-bar",
+      "type": "registry:component",
+      "title": "Nav Tab Bar",
+      "description": "A mobile bottom tab bar with a glowing blob that springs and squashes to the active tab, count and dot badges, and arrow key support. The preview shows it inside a phone whose screens slide with the selection.",
+      "categories": [
+        "navigation",
+        "tab bar",
+        "mobile",
+        "bottom navigation",
+        "badges",
+        "spring",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-tab-bar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-tab-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-app-header",
+      "type": "registry:component",
+      "title": "Nav App Header",
+      "description": "A light app header with a workspace breadcrumb and live status, a search button with a Cmd K shortcut, notifications and an account menu, over a row of tabs with counts and a sliding underline.",
+      "categories": [
+        "navigation",
+        "app header",
+        "breadcrumb",
+        "tabs",
+        "command k",
+        "user menu",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-app-header.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-app-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-side-dock",
+      "type": "registry:component",
+      "title": "Nav Side Dock",
+      "description": "A vertical icon dock pinned to the side of an app. Icons swell as the pointer passes over them, a slow wave runs through the dock while idle, and tooltips, badges and an active indicator sit beside each icon.",
+      "categories": [
+        "navigation",
+        "dock",
+        "magnify",
+        "sidebar",
+        "icons",
+        "tooltip",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/nav-side-dock.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/nav-side-dock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "showcase-bento-gallery",
+      "type": "registry:component",
+      "title": "Showcase Bento Gallery",
+      "description": "A bento grid of product screens that reveal with a staggered wipe. On hover or focus each screenshot zooms and a caption slides up with a short description and an arrow.",
+      "categories": [
+        "showcase",
+        "bento",
+        "gallery",
+        "screenshots",
+        "hover zoom",
+        "caption",
+        "product tour"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/showcase-bento-gallery.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/showcase-bento-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "showcase-before-after",
+      "type": "registry:component",
+      "title": "Showcase Before After",
+      "description": "A light redesign showcase: a browser frame holds the old and new screen, split by a draggable divider that also works with arrow keys. It sweeps once on load to hint that it moves, with result stats underneath.",
+      "categories": [
+        "showcase",
+        "before after",
+        "redesign",
+        "slider",
+        "draggable",
+        "mockup",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/showcase-before-after.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/showcase-before-after.tsx"
+        }
+      ]
+    },
+    {
+      "name": "showcase-device-tabs",
+      "type": "registry:component",
+      "title": "Showcase Device Tabs",
+      "description": "A feature carousel with a list of tabs beside a large laptop. Each tab swaps the screen with a staggered build, and a progress line advances the tour on its own, pausing on hover or focus.",
+      "categories": [
+        "showcase",
+        "feature tabs",
+        "carousel",
+        "laptop",
+        "autoplay",
+        "product tour",
+        "device"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/showcase-device-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/showcase-device-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "download-changelog",
+      "type": "registry:component",
+      "title": "Download Changelog",
+      "description": "A release section with the latest version card, highlights and download buttons per platform, next to a changelog timeline that draws in, with collapsible releases, typed notes and filters for new, improved and fixed.",
+      "categories": [
+        "download",
+        "changelog",
+        "release notes",
+        "download",
+        "timeline",
+        "versions",
+        "accordion"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/download-changelog.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/download-changelog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "download-requirements",
+      "type": "registry:component",
+      "title": "Download Requirements",
+      "description": "A light system requirements block with macOS, Windows and Linux tabs on a sliding pill. Each tab shows a minimum versus recommended table with meters, plus the installer, its checksum with copy, and other formats.",
+      "categories": [
+        "download",
+        "system requirements",
+        "tabs",
+        "table",
+        "checksum",
+        "download",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/download-requirements.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/download-requirements.tsx"
+        }
+      ]
+    },
+    {
+      "name": "download-qr-handoff",
+      "type": "registry:component",
+      "title": "Download QR Handoff",
+      "description": "A continue on your phone card with a QR pattern built from the link, a scan line sweeping over it and a countdown that refreshes the code. A text me a link form and a phone preview of the session sit alongside.",
+      "categories": [
+        "download",
+        "qr code",
+        "handoff",
+        "mobile",
+        "scan",
+        "sms link",
+        "download"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/download-qr-handoff.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/download-qr-handoff.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-booking-calendar",
+      "type": "registry:component",
+      "title": "Contact Booking Calendar",
+      "description": "A light booking section: host card, a month calendar with open days, time slots that cascade in, then a validated details form with loading and confirmation states.",
+      "categories": [
+        "contact",
+        "contact",
+        "booking",
+        "calendar",
+        "schedule",
+        "form",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/contact-booking-calendar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/contact-booking-calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-chat-widget",
+      "type": "registry:component",
+      "title": "Contact Chat Widget",
+      "description": "A dark contact section with a support chat card: the greeting types in, quick replies stream an answer, and an inline email card validates, loads and confirms.",
+      "categories": [
+        "contact",
+        "contact",
+        "chat",
+        "support",
+        "quick replies",
+        "typing",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/contact-chat-widget.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/contact-chat-widget.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-newsletter-first",
+      "type": "registry:component",
+      "title": "Footer Newsletter First",
+      "description": "A paper toned footer led by a large newsletter signup with a light beam circling the email field, followed by a five column sitemap and a status bar.",
+      "categories": [
+        "footer",
+        "footer",
+        "newsletter",
+        "signup",
+        "sitemap",
+        "light",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/footer-newsletter-first.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/footer-newsletter-first.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-app-download",
+      "type": "registry:component",
+      "title": "Footer App Download",
+      "description": "An app footer with a promo card, generic platform download badges, a drawn QR code, a floating phone with a scrolling feed, link columns, a language select and a theme switch that recolors the footer.",
+      "categories": [
+        "footer",
+        "footer",
+        "app",
+        "download",
+        "qr code",
+        "theme toggle",
+        "language"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/footer-app-download.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/footer-app-download.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-rotating-band",
+      "type": "registry:component",
+      "title": "CTA Rotating Band",
+      "description": "A full width band over a drifting gradient mesh with grain, a headline whose middle word rotates with a blur slide and an underline timer, and two buttons.",
+      "categories": [
+        "cta",
+        "cta",
+        "gradient",
+        "rotating text",
+        "band",
+        "mesh",
+        "buttons"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cta-rotating-band.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cta-rotating-band.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-sticky-dock",
+      "type": "registry:component",
+      "title": "CTA Sticky Dock",
+      "description": "A glass dock bar that springs up and sticks to the bottom of a framed page, shrinks while you scroll down, expands on the way up, and can be dismissed and restored.",
+      "categories": [
+        "cta",
+        "cta",
+        "sticky",
+        "dock",
+        "announcement",
+        "dismiss",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cta-sticky-dock.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cta-sticky-dock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-chat-thread",
+      "type": "registry:component",
+      "title": "FAQ Chat Thread",
+      "description": "FAQ as a conversation: questions become visitor bubbles and the answers type out with a cursor. A numbered question list sits beside the thread, chips replace it on narrow containers.",
+      "categories": [
+        "faq",
+        "faq",
+        "chat",
+        "typewriter",
+        "questions",
+        "conversation",
+        "support"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/faq-chat-thread.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/faq-chat-thread.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-flip-cards",
+      "type": "registry:component",
+      "title": "FAQ Flip Cards",
+      "description": "A white grid of question cards that flip in 3D to reveal the answer, with a reveal all toggle, an open counter and a hint wobble on the first card.",
+      "categories": [
+        "faq",
+        "faq",
+        "flip",
+        "cards",
+        "3d",
+        "grid",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/faq-flip-cards.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/faq-flip-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-seats-slider",
+      "type": "registry:component",
+      "title": "Pricing Seats Slider",
+      "description": "Per seat pricing on paper: a team size slider with a filling crowd of dots, volume bands, and three plans whose totals roll digit by digit with a per seat breakdown.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "seats",
+        "slider",
+        "volume discount",
+        "calculator",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-seats-slider.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-seats-slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-feature-table",
+      "type": "registry:component",
+      "title": "Pricing Feature Table",
+      "description": "A dark comparison table with a sticky blurred header of plans and prices, collapsible feature groups, a monthly or yearly switch that flips the prices, and plan tabs on narrow containers.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "comparison",
+        "table",
+        "sticky header",
+        "toggle",
+        "features"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-feature-table.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-feature-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-mosaic",
+      "type": "registry:component",
+      "title": "Stats Mosaic",
+      "description": "A by the numbers bento: counting figures in tiles that each carry a different animated mini visual, from a drawing area chart and uptime bars to a dot field, gauge, avatar marquee and star fill.",
+      "categories": [
+        "stats",
+        "stats",
+        "numbers",
+        "bento",
+        "count up",
+        "mini charts",
+        "metrics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stats-mosaic.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stats-mosaic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-before-after",
+      "type": "registry:component",
+      "title": "Stats Before After",
+      "description": "A light case study block that plays numbers from before to after, with a draggable timeline, Before and After buttons, delta pills whose arrows flip, comparison bars and a customer quote.",
+      "categories": [
+        "stats",
+        "stats",
+        "before after",
+        "comparison",
+        "case study",
+        "counter",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/stats-before-after.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/stats-before-after.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-crypto",
+      "type": "registry:component",
+      "title": "Crypto Portfolio Dashboard",
+      "description": "A portfolio screen with a scrolling price ticker, total balance with a sparkline, an allocation donut, a candlestick chart with volume and range tabs, recent activity and a sortable holdings table. Selecting an asset charts it.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "crypto",
+        "portfolio",
+        "candlestick",
+        "ticker",
+        "donut"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dashboard-crypto.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dashboard-crypto.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-hr",
+      "type": "registry:component",
+      "title": "HR People Dashboard",
+      "description": "A light people operations screen on warm paper: headcount by team as stacked columns, a hiring pipeline funnel, a November time-off heatmap with day details, upcoming reviews and a team directory, all filtered by team.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "hr",
+        "people",
+        "hiring",
+        "heatmap",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dashboard-hr.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dashboard-hr.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-support",
+      "type": "registry:component",
+      "title": "Customer Support Dashboard",
+      "description": "A help desk overview with segmented KPI meters, ticket volume by hour against last week and a forecast, an SLA gauge with a target marker, a queue with priority pills, assignees and SLA countdowns, a CSAT trend and a live activity feed.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "support",
+        "tickets",
+        "sla",
+        "gauge",
+        "queue"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dashboard-support.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dashboard-support.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-marketing",
+      "type": "registry:component",
+      "title": "Marketing Campaigns Dashboard",
+      "description": "A campaign report with a KPI band, a sortable channel table with inline spend and ROAS bars, a flowing conversion funnel, budget burn rings with pacing, top regions and gradient creative thumbnails ranked by CTR.",
+      "categories": [
+        "dashboards",
+        "dashboard",
+        "marketing",
+        "campaigns",
+        "funnel",
+        "roas",
+        "creatives"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dashboard-marketing.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dashboard-marketing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notfound-maze",
+      "type": "registry:component",
+      "title": "404 Maze",
+      "description": "A dark 404 section where a tiny pixel explorer wanders a grid maze looking for the exit. Point anywhere on the grid, or use the arrow keys, and it finds a path toward you.",
+      "categories": [
+        "not-found",
+        "404",
+        "maze",
+        "pixel",
+        "interactive",
+        "pointer",
+        "game"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/notfound-maze.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/notfound-maze.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notfound-letter",
+      "type": "registry:component",
+      "title": "404 Apology Letter",
+      "description": "A light 404 page written as a typed letter on airmail paper. The apology types itself out, then a red 404 return to sender stamp thumps onto the sheet.",
+      "categories": [
+        "not-found",
+        "404",
+        "letter",
+        "typewriter",
+        "paper",
+        "stamp",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/notfound-letter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/notfound-letter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "proof-case-studies",
+      "type": "registry:component",
+      "title": "Case Study Cards",
+      "description": "Three case study cards with a wordmark, an industry tag and one big result that counts up on scroll. Hovering a card lifts the number and slides the customer quote up from below.",
+      "categories": [
+        "social-proof",
+        "case studies",
+        "metrics",
+        "count up",
+        "testimonials",
+        "hover",
+        "cards"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/proof-case-studies.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/proof-case-studies.tsx"
+        }
+      ]
+    },
+    {
+      "name": "proof-live-activity",
+      "type": "registry:component",
+      "title": "Live Activity Proof",
+      "description": "A light social proof section pairing a rating summary with a live feed of recent sign ups. New activity toasts slide in at the top every few seconds while older ones drift down and fade.",
+      "categories": [
+        "social-proof",
+        "social proof",
+        "live",
+        "toasts",
+        "rating",
+        "activity",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/proof-live-activity.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/proof-live-activity.tsx"
+        }
+      ]
+    },
+    {
+      "name": "how-stepper-screens",
+      "type": "registry:component",
+      "title": "Stepper With Screens",
+      "description": "A how it works section with a vertical stepper beside a mock app window. Each step swaps the screen with a blur and slide, and the steps advance on their own with a progress bar.",
+      "categories": [
+        "how-it-works",
+        "how it works",
+        "stepper",
+        "tabs",
+        "product tour",
+        "autoplay",
+        "screens"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/how-stepper-screens.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/how-stepper-screens.tsx"
+        }
+      ]
+    },
+    {
+      "name": "how-dashed-path",
+      "type": "registry:component",
+      "title": "Dashed Path Steps",
+      "description": "Four numbered cards on paper, joined by a marching dashed route. A dot travels the path and each card lights up as the dot reaches it; on narrow screens the route turns vertical.",
+      "categories": [
+        "how-it-works",
+        "how it works",
+        "steps",
+        "path",
+        "timeline",
+        "motion",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/how-dashed-path.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/how-dashed-path.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blog-newsletter-issues",
+      "type": "registry:component",
+      "title": "Newsletter Issue List",
+      "description": "A newsletter archive section: numbered issues with date, topics and reading time that reveal an excerpt on hover, beside a subscribe card with a rotating border and email validation.",
+      "categories": [
+        "blog",
+        "blog",
+        "newsletter",
+        "subscribe",
+        "issues",
+        "archive",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/blog-newsletter-issues.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/blog-newsletter-issues.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blog-category-tiles",
+      "type": "registry:component",
+      "title": "Blog Category Tiles",
+      "description": "A light blog index with six topic tiles, each with its own color, floating shape and post count, followed by a dark featured post strip with a zooming cover.",
+      "categories": [
+        "blog",
+        "blog",
+        "categories",
+        "topics",
+        "featured",
+        "tiles",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/blog-category-tiles.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/blog-category-tiles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shop-reviews",
+      "type": "registry:component",
+      "title": "Product Reviews",
+      "description": "A light product reviews section with an average score, a clickable rating histogram, a recommend ring, filter chips and review cards with verified badges and helpful votes.",
+      "categories": [
+        "ecommerce",
+        "ecommerce",
+        "reviews",
+        "ratings",
+        "histogram",
+        "filters",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shop-reviews.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shop-reviews.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shop-category-mosaic",
+      "type": "registry:component",
+      "title": "Category Mosaic",
+      "description": "A mosaic of shop categories with gradient scenes and product silhouettes. Tiles wipe in on scroll and zoom their image on hover while an arrow and tagline slide in.",
+      "categories": [
+        "ecommerce",
+        "ecommerce",
+        "categories",
+        "mosaic",
+        "grid",
+        "hover zoom",
+        "collections"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shop-category-mosaic.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shop-category-mosaic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shop-order-tracking",
+      "type": "registry:component",
+      "title": "Order Tracking",
+      "description": "An order status section with a stylized city map where a courier van drives the route to a pulsing pin, an ETA card, a delivery timeline and the items in the parcel.",
+      "categories": [
+        "ecommerce",
+        "ecommerce",
+        "order tracking",
+        "delivery",
+        "map",
+        "timeline",
+        "eta"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/shop-order-tracking.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/shop-order-tracking.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-settings-page",
+      "type": "registry:component",
+      "title": "App Settings Page",
+      "description": "An account settings screen with vertical tabs for profile, notifications, security and billing. A save bar slides up as soon as anything changes.",
+      "categories": [
+        "app-ui",
+        "settings",
+        "account",
+        "form",
+        "tabs",
+        "toggle",
+        "save bar"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/app-settings-page.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/app-settings-page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-notifications-center",
+      "type": "registry:component",
+      "title": "App Notifications Center",
+      "description": "A full notifications inbox with All, Mentions and Unread filters, day groups, mark as read, a snooze menu with undo, an empty state and a detail pane.",
+      "categories": [
+        "app-ui",
+        "notifications",
+        "inbox",
+        "filters",
+        "snooze",
+        "empty state",
+        "list"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/app-notifications-center.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/app-notifications-center.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-calendar-month",
+      "type": "registry:component",
+      "title": "App Calendar Month",
+      "description": "A month calendar with colored event chips, a highlighted today, an event popover, sliding month changes and an agenda panel for the selected day.",
+      "categories": [
+        "app-ui",
+        "calendar",
+        "month",
+        "events",
+        "agenda",
+        "schedule",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/app-calendar-month.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/app-calendar-month.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-file-manager",
+      "type": "registry:component",
+      "title": "App File Manager",
+      "description": "A file browser with breadcrumbs, grid and list views, checkbox selection with a bulk action bar, a storage meter and a drag-over upload overlay.",
+      "categories": [
+        "app-ui",
+        "files",
+        "file manager",
+        "upload",
+        "drag and drop",
+        "selection",
+        "storage"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/app-file-manager.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/app-file-manager.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-chat-inbox",
+      "type": "registry:component",
+      "title": "App Chat Inbox",
+      "description": "A team chat screen with channels and direct messages, grouped bubbles with day dividers, a composer with attachment chips and a live typing indicator.",
+      "categories": [
+        "app-ui",
+        "chat",
+        "messages",
+        "inbox",
+        "composer",
+        "typing",
+        "team"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/app-chat-inbox.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/app-chat-inbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-profile-editor",
+      "type": "registry:component",
+      "title": "App Profile Editor",
+      "description": "A portfolio profile editor with a live preview card beside the form, a photo upload, link rows you can add and remove, skill chips and a card color picker.",
+      "categories": [
+        "app-ui",
+        "profile",
+        "editor",
+        "form",
+        "preview",
+        "tags",
+        "portfolio"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/app-profile-editor.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/app-profile-editor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-onboarding-checklist",
+      "type": "registry:component",
+      "title": "App Onboarding Checklist",
+      "description": "A light getting-started screen with a progress ring, expandable checklist steps, a confetti burst when everything is done, plus Skip for now and dismiss.",
+      "categories": [
+        "app-ui",
+        "onboarding",
+        "checklist",
+        "progress",
+        "getting started",
+        "confetti",
+        "setup"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/app-onboarding-checklist.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/app-onboarding-checklist.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-mail-folders",
+      "type": "registry:component",
+      "title": "Sidebar Mail Folders",
+      "description": "A mail app sidebar with a compose button, folders with unread counts, colored labels and a storage meter that fills on mount.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "mail",
+        "folders",
+        "labels",
+        "inbox",
+        "storage"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-mail-folders.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-mail-folders.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-chat-channels",
+      "type": "registry:component",
+      "title": "Sidebar Chat Channels",
+      "description": "A team chat sidebar with channels and direct messages in two collapsible sections, presence dots and bold unread rows.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "chat",
+        "channels",
+        "presence",
+        "messages",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-chat-channels.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-chat-channels.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-icon-labels",
+      "type": "registry:component",
+      "title": "Sidebar Icon Labels",
+      "description": "A narrow icon rail that expands on hover or focus into a labeled sidebar floating over the content, with a sliding active indicator.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "rail",
+        "icons",
+        "expand",
+        "hover",
+        "overlay"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-icon-labels.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-icon-labels.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-sections-accordion",
+      "type": "registry:component",
+      "title": "Sidebar Sections Accordion",
+      "description": "Grouped sidebar sections that expand with animated height, stagger their items in and can remember which ones were open.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "accordion",
+        "sections",
+        "groups",
+        "badges",
+        "persist"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-sections-accordion.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-sections-accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-settings-nav",
+      "type": "registry:component",
+      "title": "Sidebar Settings Nav",
+      "description": "A settings sidebar with a back link, grouped items and a search field that filters items live and highlights the match.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "settings",
+        "search",
+        "filter",
+        "navigation",
+        "preferences"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-settings-nav.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-settings-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "list-timeline-vertical",
+      "type": "registry:component",
+      "title": "List Timeline Vertical",
+      "description": "A vertical timeline of events with icon nodes, a connecting line that draws in, relative timestamps and expandable details.",
+      "categories": [
+        "lists",
+        "timeline",
+        "events",
+        "tracking",
+        "history",
+        "steps",
+        "expand"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/list-timeline-vertical.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/list-timeline-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "list-notifications-grouped",
+      "type": "registry:component",
+      "title": "List Notifications Grouped",
+      "description": "Notifications grouped by day with unread dots, a mark all as read button and hover actions to toggle read or dismiss a row.",
+      "categories": [
+        "lists",
+        "notifications",
+        "inbox",
+        "unread",
+        "groups",
+        "dismiss",
+        "activity"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/list-notifications-grouped.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/list-notifications-grouped.tsx"
+        }
+      ]
+    },
+    {
+      "name": "list-pinned-reorder",
+      "type": "registry:component",
+      "title": "List Pinned Reorder",
+      "description": "A list where items pin to the top and move up or down with buttons or Alt and arrow keys, animated with a FLIP transition.",
+      "categories": [
+        "lists",
+        "list",
+        "pin",
+        "reorder",
+        "flip",
+        "sortable",
+        "favorites"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/list-pinned-reorder.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/list-pinned-reorder.tsx"
+        }
+      ]
+    },
+    {
+      "name": "list-expandable-rows",
+      "type": "registry:component",
+      "title": "List Expandable Rows",
+      "description": "Rows that open in place to reveal details with a smooth height transition, one at a time or several at once.",
+      "categories": [
+        "lists",
+        "list",
+        "expand",
+        "rows",
+        "accordion",
+        "details",
+        "invoices"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/list-expandable-rows.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/list-expandable-rows.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-trace-timeline",
+      "type": "registry:component",
+      "title": "Agent Trace Timeline",
+      "description": "A vertical trace of an agent run. Each span shows a status icon, a nested name and a bar sized to its start and duration, and spans with a payload expand in place.",
+      "categories": [
+        "agent-kit",
+        "agent",
+        "trace",
+        "timeline",
+        "spans",
+        "observability",
+        "debug"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/agent-trace-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/agent-trace-timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-approval-card",
+      "type": "registry:component",
+      "title": "Agent Approval Card",
+      "description": "A human-in-the-loop card for a proposed agent action, with a before and after summary, an Approve step that asks for confirmation, inline editing and a countdown that rejects on its own.",
+      "categories": [
+        "agent-kit",
+        "agent",
+        "approval",
+        "human in the loop",
+        "confirm",
+        "countdown",
+        "tool call"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/agent-approval-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/agent-approval-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-memory-panel",
+      "type": "registry:component",
+      "title": "Agent Memory Panel",
+      "description": "A list of facts the agent remembers, each with a source chip and a confidence meter. Facts can be edited in place or forgotten with an animated removal.",
+      "categories": [
+        "agent-kit",
+        "agent",
+        "memory",
+        "facts",
+        "confidence",
+        "privacy",
+        "settings"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/agent-memory-panel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/agent-memory-panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-model-picker",
+      "type": "registry:component",
+      "title": "Agent Model Picker",
+      "description": "A model selector with capability tags and speed and cost meters. It follows the listbox pattern with arrow keys, Home, End, typeahead and Escape.",
+      "categories": [
+        "agent-kit",
+        "agent",
+        "model",
+        "select",
+        "dropdown",
+        "picker",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/agent-model-picker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/agent-model-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-file-diff",
+      "type": "registry:component",
+      "title": "Agent File Diff",
+      "description": "A compact unified diff viewer with line numbers, hunk headers, added and removed lines, collapsible unchanged context and a button that copies the patch.",
+      "categories": [
+        "agent-kit",
+        "agent",
+        "diff",
+        "patch",
+        "code",
+        "review",
+        "git"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/agent-file-diff.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/agent-file-diff.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-composer-attachments",
+      "type": "registry:component",
+      "title": "Agent Composer with Attachments",
+      "description": "A message composer with animated attachment chips, a slash-command menu that opens on \"/\" and a send button with idle, ready, sending and sent states.",
+      "categories": [
+        "agent-kit",
+        "agent",
+        "composer",
+        "attachments",
+        "slash commands",
+        "chat",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/agent-composer-attachments.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/agent-composer-attachments.tsx"
+        }
+      ]
+    },
+    {
+      "name": "site-toc-scrollspy",
+      "type": "registry:component",
+      "title": "Table of Contents Scrollspy",
+      "description": "A sticky table of contents whose active item follows the page as you scroll, marked by an indicator that slides between entries. Clicking an entry scrolls to its section.",
+      "categories": [
+        "site",
+        "toc",
+        "scrollspy",
+        "navigation",
+        "docs",
+        "sticky",
+        "intersection observer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/site-toc-scrollspy.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/site-toc-scrollspy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "site-promo-modal",
+      "type": "registry:component",
+      "title": "Promo Modal",
+      "description": "A promotional popup with a gradient artwork side, a delayed entrance and a don't-show-again checkbox. It closes with Escape or a click on the backdrop, and renders inside its own relative frame.",
+      "categories": [
+        "site",
+        "popup",
+        "modal",
+        "promo",
+        "offer",
+        "dialog",
+        "marketing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/site-promo-modal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/site-promo-modal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "site-hotspot-tour",
+      "type": "registry:component",
+      "title": "Hotspot Tour",
+      "description": "A product tour made of pulsing hotspots laid over a mock interface, with a step popover that offers Next, Back and Skip and works with the arrow keys.",
+      "categories": [
+        "site",
+        "tour",
+        "onboarding",
+        "hotspot",
+        "product tour",
+        "popover",
+        "walkthrough"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/site-hotspot-tour.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/site-hotspot-tour.tsx"
+        }
+      ]
+    },
+    {
+      "name": "site-announcement-ticker",
+      "type": "registry:component",
+      "title": "Announcement Ticker",
+      "description": "A thin announcement bar that rotates several messages vertically, with a progress hairline, a counter, pause on hover and focus, and a dismiss button.",
+      "categories": [
+        "site",
+        "announcement",
+        "banner",
+        "ticker",
+        "rotating",
+        "header",
+        "promo bar"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/site-announcement-ticker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/site-announcement-ticker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "about-team-filter",
+      "type": "registry:component",
+      "title": "About Team Filter",
+      "description": "A team grid with filter chips per team. Hovering or focusing a card lifts the avatar and slides up a bio panel with location, and cards stagger back in whenever the filter changes.",
+      "categories": [
+        "about",
+        "about",
+        "team",
+        "filter",
+        "bio",
+        "hover reveal",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/about-team-filter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/about-team-filter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "about-timeline-scroll",
+      "type": "registry:component",
+      "title": "About Timeline Scroll",
+      "description": "A light, horizontal company timeline with snap scrolling. A year rail above fills as you scroll, the active year lights up, and arrow buttons, year markers and the keyboard all move between milestones.",
+      "categories": [
+        "about",
+        "about",
+        "timeline",
+        "horizontal scroll",
+        "scroll snap",
+        "history",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/about-timeline-scroll.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/about-timeline-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "about-mission-split",
+      "type": "registry:component",
+      "title": "About Mission Split",
+      "description": "A huge mission statement on the left that reveals word by word with highlighted words, and three numbered principle cards on the right whose metrics count up when they scroll into view.",
+      "categories": [
+        "about",
+        "about",
+        "mission",
+        "principles",
+        "count up",
+        "statement",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/about-mission-split.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/about-mission-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "about-press-wall",
+      "type": "registry:component",
+      "title": "About Press Wall",
+      "description": "A white press section with two marquee rows of typographic wordmark chips moving in opposite directions, a rotating serif press quote with progress dots, a row of award cards with laurels and a press kit link.",
+      "categories": [
+        "about",
+        "about",
+        "press",
+        "awards",
+        "marquee",
+        "quote",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/about-press-wall.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/about-press-wall.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-inline-pill",
+      "type": "registry:component",
+      "title": "Waitlist Inline Pill",
+      "description": "A minimal dark waitlist with one inline email field over a breathing halo. Invalid input shakes the field, the button shows a spinner while saving, and the form morphs into a success pill with a drawn check.",
+      "categories": [
+        "waitlist",
+        "waitlist",
+        "email",
+        "inline form",
+        "success state",
+        "minimal",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/waitlist-inline-pill.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/waitlist-inline-pill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-referral-board",
+      "type": "registry:component",
+      "title": "Waitlist Referral Board",
+      "description": "A referral waitlist with a name and email form, reward tiers and a live leaderboard of top referrers with animated bars. After joining, your spot counts up, a referral link appears with a copy button and you join the board.",
+      "categories": [
+        "waitlist",
+        "waitlist",
+        "referral",
+        "leaderboard",
+        "copy link",
+        "position",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/waitlist-referral-board.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/waitlist-referral-board.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-teaser-unlock",
+      "type": "registry:component",
+      "title": "Waitlist Teaser Unlock",
+      "description": "A light split waitlist with a blurred product preview behind a lock badge and a scanning shimmer. Joining with email and team size sharpens the preview into focus and swaps the form for a confirmation.",
+      "categories": [
+        "waitlist",
+        "waitlist",
+        "teaser",
+        "blur reveal",
+        "product preview",
+        "form",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/waitlist-teaser-unlock.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/waitlist-teaser-unlock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-capacity-countdown",
+      "type": "registry:component",
+      "title": "Waitlist Capacity Countdown",
+      "description": "A dark launch panel with a rolling four-unit countdown, a striped capacity bar that fills toward the seat limit, a spots-left counter that ticks as people join and an email form that reserves a numbered seat.",
+      "categories": [
+        "waitlist",
+        "waitlist",
+        "countdown",
+        "capacity",
+        "progress bar",
+        "scarcity",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/waitlist-capacity-countdown.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/waitlist-capacity-countdown.tsx"
+        }
+      ]
+    },
+    {
+      "name": "profile-settings-card",
+      "type": "registry:component",
+      "title": "Profile Settings Card",
+      "description": "A light settings page with a section nav and a profile card: avatar color swatches tint the cover, fields validate inline, edited fields get a dot, and a footer tracks unsaved changes with reset, saving and saved states.",
+      "categories": [
+        "profile",
+        "profile",
+        "settings",
+        "form",
+        "validation",
+        "save state",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/profile-settings-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/profile-settings-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "profile-team-presence",
+      "type": "registry:component",
+      "title": "Profile Team Presence",
+      "description": "A grid of teammate cards with presence dots that pulse when online, status notes, a typing indicator, local times and message and call actions, filtered by a status switch and a search field.",
+      "categories": [
+        "profile",
+        "profile",
+        "team",
+        "presence",
+        "status",
+        "directory",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/profile-team-presence.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/profile-team-presence.tsx"
+        }
+      ]
+    },
+    {
+      "name": "profile-resume-timeline",
+      "type": "registry:component",
+      "title": "Profile Resume Timeline",
+      "description": "A resume profile with a sticky card holding the person, availability, summary and animated skill bars, beside an experience timeline whose line draws down and whose current role pulses, plus education.",
+      "categories": [
+        "profile",
+        "profile",
+        "resume",
+        "timeline",
+        "skills",
+        "portfolio",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/profile-resume-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/profile-resume-timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-gears",
+      "type": "registry:component",
+      "title": "Loader Gears",
+      "description": "Three toothed gears mesh and turn in opposite directions, each at the right speed for its tooth count.",
+      "categories": [
+        "loaders",
+        "loader",
+        "spinner",
+        "gears",
+        "settings",
+        "mechanical",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-gears.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-gears.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-hourglass",
+      "type": "registry:component",
+      "title": "Loader Hourglass",
+      "description": "An hourglass whose sand drains through the neck, then flips over and refills for the next round.",
+      "categories": [
+        "loaders",
+        "loader",
+        "hourglass",
+        "timer",
+        "waiting",
+        "sand",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-hourglass.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-hourglass.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-dna-helix",
+      "type": "registry:component",
+      "title": "Loader DNA Helix",
+      "description": "A double helix of dots twists in sine motion, with depth shading and rungs that stretch between the strands.",
+      "categories": [
+        "loaders",
+        "loader",
+        "helix",
+        "dna",
+        "science",
+        "3d",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-dna-helix.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-dna-helix.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-battery-fill",
+      "type": "registry:component",
+      "title": "Loader Battery Fill",
+      "description": "A battery icon fills with segments, pulses when full and starts over. Pass a value to show a fixed charge level instead.",
+      "categories": [
+        "loaders",
+        "loader",
+        "battery",
+        "charging",
+        "progress",
+        "device",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-battery-fill.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-battery-fill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-signal-bars",
+      "type": "registry:component",
+      "title": "Loader Signal Bars",
+      "description": "Signal bars of growing height light up one after another, like a device searching for a connection.",
+      "categories": [
+        "loaders",
+        "loader",
+        "signal",
+        "wifi",
+        "network",
+        "connection",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-signal-bars.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-signal-bars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-book-flip",
+      "type": "registry:component",
+      "title": "Loader Book Flip",
+      "description": "An open book whose pages turn one after another in 3D, then return to the right-hand stack.",
+      "categories": [
+        "loaders",
+        "loader",
+        "book",
+        "pages",
+        "3d",
+        "reading",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-book-flip.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-book-flip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-bouncing-balls",
+      "type": "registry:component",
+      "title": "Loader Bouncing Balls",
+      "description": "Three balls of different colors bounce out of phase, squashing on impact above a soft ground shadow.",
+      "categories": [
+        "loaders",
+        "loader",
+        "balls",
+        "bounce",
+        "squash",
+        "playful",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-bouncing-balls.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-bouncing-balls.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-rocket-trail",
+      "type": "registry:component",
+      "title": "Loader Rocket Trail",
+      "description": "A small rocket accelerates along a curved path and leaves a trail that fades behind it, then launches again.",
+      "categories": [
+        "loaders",
+        "loader",
+        "rocket",
+        "launch",
+        "deploy",
+        "trail",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-rocket-trail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-rocket-trail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-ink-ripple",
+      "type": "registry:component",
+      "title": "Button Ink Ripple",
+      "description": "A button whose click ripple spreads from the exact pointer position and takes its ink color from the variant. Keyboard activation ripples from the center.",
+      "categories": [
+        "buttons",
+        "button",
+        "ripple",
+        "ink",
+        "click",
+        "material",
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-ink-ripple.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-ink-ripple.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-border-spin",
+      "type": "registry:component",
+      "title": "Button Border Spin",
+      "description": "A pill button with a conic gradient comet orbiting its edge around a solid inner face. The border spins all the time or only on hover.",
+      "categories": [
+        "buttons",
+        "button",
+        "border",
+        "gradient",
+        "conic",
+        "spin",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-border-spin.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-border-spin.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-icon-slide-expand",
+      "type": "registry:component",
+      "title": "Button Icon Slide Expand",
+      "description": "A round icon button that grows to reveal its label on hover or focus. The width animates, so neighboring items in a flex row glide aside.",
+      "categories": [
+        "buttons",
+        "button",
+        "icon",
+        "expand",
+        "toolbar",
+        "label",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-icon-slide-expand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-icon-slide-expand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-split-halves",
+      "type": "registry:component",
+      "title": "Button Split Halves",
+      "description": "The label is cut in two and the halves slide apart on hover, uncovering an alternate label or icon underneath.",
+      "categories": [
+        "buttons",
+        "button",
+        "split",
+        "reveal",
+        "hover",
+        "label",
+        "swap"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-split-halves.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-split-halves.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-countdown-confirm",
+      "type": "registry:component",
+      "title": "Button Countdown Confirm",
+      "description": "A destructive button that arms on the first press, drains a countdown ring next to a Cancel button and confirms on its own at zero.",
+      "categories": [
+        "buttons",
+        "button",
+        "confirm",
+        "countdown",
+        "destructive",
+        "undo",
+        "delete"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-countdown-confirm.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-countdown-confirm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-tilt-glare",
+      "type": "registry:component",
+      "title": "Button Tilt Glare",
+      "description": "A chunky 3D button that tilts toward the pointer with a moving glare and a shadow that shifts opposite the tilt. It sways on its own until touched.",
+      "categories": [
+        "buttons",
+        "button",
+        "tilt",
+        "3d",
+        "glare",
+        "shadow",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-tilt-glare.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-tilt-glare.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-underline-grow",
+      "type": "registry:component",
+      "title": "Button Underline Grow",
+      "description": "A text link or button whose underline grows from the center while an arrow nudges forward. After it is used, the text shifts to a visited color.",
+      "categories": [
+        "buttons",
+        "link",
+        "underline",
+        "arrow",
+        "text",
+        "visited",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-underline-grow.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-underline-grow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-bubbles-pop",
+      "type": "registry:component",
+      "title": "Button Bubbles Pop",
+      "description": "A button that squashes on press, rebounds and releases a handful of bubbles that float up and pop. The scatter is deterministic.",
+      "categories": [
+        "buttons",
+        "button",
+        "bubbles",
+        "particles",
+        "squash",
+        "press",
+        "playful"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-bubbles-pop.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-bubbles-pop.tsx"
+        }
+      ]
+    },
+    {
       "name": "gallery-showcase",
       "type": "registry:component",
       "title": "Gallery Showcase",

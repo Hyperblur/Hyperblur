@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-bouncing-balls",
+  "type": "registry:component",
+  "title": "Loader Bouncing Balls",
+  "description": "Three balls of different colors bounce out of phase, squashing on impact above a soft ground shadow.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "loaders",
+    "loader",
+    "balls",
+    "bounce",
+    "squash",
+    "playful",
+    "css"
+  ],
+  "docs": "https://hyperblur.dev/effects/loader-bouncing-balls",
+  "files": [
+    {
+      "path": "registry/hyperblur/loader-bouncing-balls.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/loader-bouncing-balls.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface LoaderBouncingBallsProps extends React.HTMLAttributes<HTMLSpanElement> {\n  size?: number;\n  color?: string;\n  accent?: string;\n  tint?: string;\n  speed?: number;\n  label?: string;\n}\n\nconst css = `\n.hb-yb7 {\n  position: relative;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 8px;\n  vertical-align: middle;\n  box-sizing: border-box;\n  font-family: inherit;\n}\n.hb-yb7 *, .hb-yb7 *::before, .hb-yb7 *::after { box-sizing: border-box; }\n.hb-yb7-row {\n  display: flex;\n  flex: none;\n  align-items: flex-end;\n  gap: calc(var(--hb-yb7-s) * 0.22);\n  height: var(--hb-yb7-s);\n}\n.hb-yb7-cell {\n  position: relative;\n  flex: none;\n  width: var(--hb-yb7-p);\n  height: 100%;\n}\n.hb-yb7-sh {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: calc(var(--hb-yb7-p) * 0.26);\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.55);\n  filter: blur(1px);\n  transform: scale(1.1);\n  animation: hb-yb7-shadow var(--hb-yb7-d) linear infinite;\n  animation-delay: calc(var(--hb-yb7-i) * var(--hb-yb7-d) * -0.17);\n}\n.hb-yb7-up {\n  position: absolute;\n  left: 0;\n  bottom: calc(var(--hb-yb7-p) * 0.1);\n  width: 100%;\n  height: var(--hb-yb7-p);\n  animation: hb-yb7-hop var(--hb-yb7-d) linear infinite;\n  animation-delay: calc(var(--hb-yb7-i) * var(--hb-yb7-d) * -0.17);\n}\n.hb-yb7-ball {\n  display: block;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.6), transparent 46%), var(--hb-yb7-k);\n  box-shadow: 0 0 calc(var(--hb-yb7-p) * 0.6) -2px var(--hb-yb7-k);\n  transform-origin: 50% 100%;\n  animation: hb-yb7-squash var(--hb-yb7-d) linear infinite;\n  animation-delay: calc(var(--hb-yb7-i) * var(--hb-yb7-d) * -0.17);\n}\n.hb-yb7-l {\n  font-size: 12px;\n  line-height: 1.2;\n  letter-spacing: 0.01em;\n  color: inherit;\n  opacity: 0.72;\n  white-space: nowrap;\n}\n.hb-yb7-sr {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  margin: -1px;\n  padding: 0;\n  overflow: hidden;\n  clip-path: inset(50%);\n  white-space: nowrap;\n  border: 0;\n}\n@keyframes hb-yb7-hop {\n  0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.22, 0.6, 0.36, 1); }\n  50% { transform: translateY(calc(var(--hb-yb7-h) * -1)); animation-timing-function: cubic-bezier(0.64, 0, 0.78, 0.4); }\n}\n@keyframes hb-yb7-squash {\n  0%, 100% { transform: scale(1.22, 0.78); }\n  9% { transform: scale(0.92, 1.1); }\n  22%, 78% { transform: scale(1, 1); }\n  91% { transform: scale(0.94, 1.08); }\n}\n@keyframes hb-yb7-shadow {\n  0%, 100% { transform: scale(1.12); opacity: 0.55; animation-timing-function: cubic-bezier(0.22, 0.6, 0.36, 1); }\n  50% { transform: scale(0.45); opacity: 0.16; animation-timing-function: cubic-bezier(0.64, 0, 0.78, 0.4); }\n}\n@media (prefers-reduced-motion: reduce) {\n  .hb-yb7-sh, .hb-yb7-up, .hb-yb7-ball { animation-play-state: paused; }\n}\n`;\n\nexport function LoaderBouncingBalls({\n  size = 44,\n  color = \"#2f7bff\",\n  accent = \"#7fb3ff\",\n  tint = \"#ff6b9a\",\n  speed = 0.9,\n  label,\n  className = \"\",\n  style,\n  ...rest\n}: LoaderBouncingBallsProps) {\n  const ball = Math.max(6, size * 0.26);\n  const vars = {\n    \"--hb-yb7-s\": `${size}px`,\n    \"--hb-yb7-p\": `${ball.toFixed(2)}px`,\n    \"--hb-yb7-h\": `${(size - ball * 1.4).toFixed(2)}px`,\n    \"--hb-yb7-d\": `${(speed > 0 ? speed : 0.9).toFixed(3)}s`,\n    ...style,\n  } as React.CSSProperties;\n  const tones = [color, accent, tint];\n\n  return (\n    <span role=\"status\" className={`hb-yb7 ${className}`} style={vars} {...rest}>\n      <style href=\"hb-loader-bouncing-balls\" precedence=\"default\">{css}</style>\n      <span className=\"hb-yb7-row\" aria-hidden=\"true\">\n        {tones.map((tone, i) => {\n          const at = { \"--hb-yb7-i\": i, \"--hb-yb7-k\": tone } as React.CSSProperties;\n          return (\n            <span key={i} className=\"hb-yb7-cell\" style={at}>\n              <span className=\"hb-yb7-sh\" />\n              <span className=\"hb-yb7-up\">\n                <span className=\"hb-yb7-ball\" />\n              </span>\n            </span>\n          );\n        })}\n      </span>\n      <span className={label ? \"hb-yb7-l\" : \"hb-yb7-sr\"}>{label ?? \"Loading\"}</span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

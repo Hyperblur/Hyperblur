@@ -240,6 +240,16 @@ import { listsDemos } from "@/registry/parts/lists.demos";
 import { sidebarsDemos } from "@/registry/parts/sidebars.demos";
 import { effectsDemos } from "@/registry/parts/effects.demos";
 import { dashboardsDemos } from "@/registry/parts/dashboards.demos";
+import { sectionsYHDemos } from "@/registry/parts/sectionsYH.demos";
+import { sectionsYIDemos } from "@/registry/parts/sectionsYI.demos";
+import { ydDemos } from "@/registry/parts/yd.demos";
+import { sectionsYJDemos } from "@/registry/parts/sectionsYJ.demos";
+import { yeDemos } from "@/registry/parts/ye.demos";
+import { ycDemos } from "@/registry/parts/yc.demos";
+import { yfDemos } from "@/registry/parts/yf.demos";
+import { sectionsYGDemos } from "@/registry/parts/sectionsYG.demos";
+import { ybDemos } from "@/registry/parts/yb.demos";
+import { yaDemos } from "@/registry/parts/ya.demos";
 import { qwDemos } from "@/registry/parts/qw.demos";
 import { qxDemos } from "@/registry/parts/qx.demos";
 import { raDemos } from "@/registry/parts/ra.demos";
@@ -1353,6 +1363,16 @@ export const demos: Record<string, ReactNode> = {
   ...sidebarsDemos,
   ...effectsDemos,
   ...dashboardsDemos,
+  ...sectionsYHDemos,
+  ...sectionsYIDemos,
+  ...ydDemos,
+  ...sectionsYJDemos,
+  ...yeDemos,
+  ...ycDemos,
+  ...yfDemos,
+  ...sectionsYGDemos,
+  ...ybDemos,
+  ...yaDemos,
   ...qwDemos,
   ...qxDemos,
   ...raDemos,
