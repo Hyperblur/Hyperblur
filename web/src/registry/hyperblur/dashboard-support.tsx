@@ -116,7 +116,7 @@ const css = `
 .hb-yd3-hb span { position: absolute; right: 0; bottom: 0; left: 0; height: var(--h); border-radius: 4px 4px 1px 1px; background: linear-gradient(180deg, var(--a), color-mix(in srgb, var(--a) 55%, #0b0b0d)); transform-origin: bottom; animation: hb-yd3-grow .7s cubic-bezier(.3, .7, .2, 1) both; transition: filter .15s ease; }
 .hb-yd3-hb[data-fc="true"] span { background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--a) 40%, transparent) 0 2px, transparent 2px 5px); box-shadow: 0 0 0 1px color-mix(in srgb, var(--a) 35%, transparent) inset; }
 .hb-yd3-hb[data-now="true"] span { box-shadow: 0 0 18px -2px var(--a); }
-.hb-yd3-hb em { position: absolute; right: -1px; left: -1px; bottom: var(--l); height: 2px; border-radius: 2px; background: #c7c8cf; opacity: .75; }
+.hb-yd3-hb em { font-style: normal; position: absolute; right: -1px; left: -1px; bottom: var(--l); height: 2px; border-radius: 2px; background: #c7c8cf; opacity: .75; }
 .hb-yd3-hb:hover span, .hb-yd3-hb:focus-visible span { filter: brightness(1.3); }
 .hb-yd3-hx { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 4px; padding-top: 7px; color: #66676e; font-size: 10.5px; text-align: center; }
 .hb-yd3-hx span:nth-child(3n + 2), .hb-yd3-hx span:nth-child(3n) { visibility: hidden; }

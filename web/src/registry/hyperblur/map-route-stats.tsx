@@ -175,7 +175,7 @@ const css = `
   color: #a1a1a1;
 }
 .hb-ub6-rd em { font-style: normal; color: #ededed; }
-.hb-ub6-rd .hb-ub6-rp, .hb-ub6-rd .hb-ub6-rp em { color: var(--hb-ub6-pc); }
+.hb-ub6-rd .hb-ub6-rp, .hb-ub6-rd .hb-ub6-rp em { font-style: normal; color: var(--hb-ub6-pc); }
 @container (min-width: 520px) {
   .hb-ub6 { padding: 14px; gap: 12px; }
   .hb-ub6-tt { font-size: 15px; }

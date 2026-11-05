@@ -164,7 +164,7 @@ const css = `
 }
 .hb-ki7-title {
   margin: 0;
-  font-family: var(--font-serif, "Instrument Serif", "Iowan Old Style", Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(56px, 9cqi, 104px);
   font-weight: 400;
   line-height: .9;
@@ -175,7 +175,7 @@ const css = `
   animation: hb-ki7-rise .9s cubic-bezier(.2,.7,.2,1) both;
   animation-delay: var(--hb-ki7-d, 0ms);
 }
-.hb-ki7-title em { font-style: italic; color: color-mix(in srgb, var(--hb-ki7-accent) 85%, #000); }
+.hb-ki7-title em { font-style: normal; color: color-mix(in srgb, var(--hb-ki7-accent) 85%, #000); }
 .hb-ki7-sub {
   margin: 16px 0 0;
   max-width: 400px;

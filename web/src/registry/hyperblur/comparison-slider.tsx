@@ -201,7 +201,7 @@ const css = `
   .hb-kc7-track { height: 46px; }
   .hb-kc7-seg { top: 13px; height: 20px; }
   .hb-kc7-label { top: 18px; height: 28px; font-size: 12px; }
-  .hb-kc7-label em { display: inline; }
+  .hb-kc7-label em { font-style: normal; display: inline; }
   .hb-kc7-label[data-k="before"] { left: 20px; }
   .hb-kc7-label[data-k="after"] { right: 20px; }
   .hb-kc7-total { font-size: 13.5px; }

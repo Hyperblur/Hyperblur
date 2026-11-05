@@ -98,8 +98,8 @@ const css = `
 .hb-kl2-wrap { max-width: 1120px; margin: 0 auto; padding: 88px 24px 100px; }
 .hb-kl2-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 36px; flex-wrap: wrap; }
 .hb-kl2-eyebrow { margin: 0 0 12px; color: var(--hb-kl2-accent); font-size: 12.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
-.hb-kl2-title { margin: 0; font-family: var(--font-serif, Georgia, serif); font-weight: 400; font-size: clamp(40px, 6cqw, 68px); line-height: .98; letter-spacing: -.02em; color: #2a1a10; }
-.hb-kl2-title em { color: var(--hb-kl2-accent); }
+.hb-kl2-title { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: clamp(40px, 6cqw, 68px); line-height: .98; letter-spacing: -.02em; color: #2a1a10; }
+.hb-kl2-title em { font-style: normal; color: var(--hb-kl2-accent); }
 .hb-kl2-sub { margin: 14px 0 0; max-width: 420px; color: #6e5646; font-size: 16px; line-height: 1.6; }
 .hb-kl2-tabs { display: inline-flex; padding: 5px; gap: 4px; border-radius: 999px; background: #efe4d3; border: 1px solid #e3d3bc; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 .hb-kl2-tab {
@@ -121,13 +121,13 @@ const css = `
 .hb-kl2-tab:focus-visible, .hb-kl2-cta:focus-visible { outline: 2px solid var(--hb-kl2-accent); outline-offset: 2px; }
 .hb-kl2-body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .9fr); gap: 40px; align-items: start; }
 .hb-kl2-panel { min-width: 0; }
-.hb-kl2-note { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; color: #8a705e; font-style: italic; font-family: var(--font-serif, Georgia, serif); font-size: 17px; }
+.hb-kl2-note { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; color: #8a705e; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 17px; }
 .hb-kl2-note::after { content: ""; flex: 1; height: 1px; background: #e0cfb7; }
 .hb-kl2-list { margin: 0; padding: 0; list-style: none; }
 .hb-kl2-item { padding: 18px 0; border-bottom: 1px solid #e8dac6; animation: hb-kl2-in .55s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--hb-kl2-i) * 70ms); }
 @keyframes hb-kl2-in { from { opacity: 0; transform: translateY(10px); } }
 .hb-kl2-row { display: flex; align-items: baseline; gap: 10px; }
-.hb-kl2-name { font-family: var(--font-serif, Georgia, serif); font-size: 23px; line-height: 1.2; color: #2a1a10; }
+.hb-kl2-name { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 23px; line-height: 1.2; color: #2a1a10; }
 .hb-kl2-tag { display: inline-block; margin-left: 8px; padding: 1px 7px; border: 1px solid #d9c3a6; border-radius: 999px; color: #8a6a4f; font-family: inherit; font-size: 10.5px; font-weight: 600; letter-spacing: .04em; vertical-align: 4px; }
 .hb-kl2-leader { flex: 1; min-width: 20px; border-bottom: 2px dotted #cdb79b; transform: translateY(-5px); }
 .hb-kl2-price { font-variant-numeric: tabular-nums; font-size: 17px; font-weight: 600; color: #2a1a10; }
@@ -148,10 +148,10 @@ const css = `
 .hb-kl2-spin { transform-origin: 120px 120px; animation: hb-kl2-turn 40s linear infinite; }
 @keyframes hb-kl2-turn { to { transform: rotate(360deg); } }
 .hb-kl2-ribbon { display: inline-block; margin-bottom: 10px; padding: 5px 12px; border-radius: 999px; background: var(--hb-kl2-accent); color: #fff8ef; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-.hb-kl2-fname { margin: 0; font-family: var(--font-serif, Georgia, serif); font-weight: 400; font-size: 30px; line-height: 1.1; color: #2a1a10; }
+.hb-kl2-fname { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: 30px; line-height: 1.1; color: #2a1a10; }
 .hb-kl2-fdesc { margin: 10px 0 0; color: #6e5646; font-size: 15px; line-height: 1.55; }
 .hb-kl2-ffoot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }
-.hb-kl2-fprice { font-family: var(--font-serif, Georgia, serif); font-size: 34px; color: var(--hb-kl2-accent); }
+.hb-kl2-fprice { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 34px; color: var(--hb-kl2-accent); }
 .hb-kl2-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; background: #2a1a10; color: #fff8ef; font-size: 14px; font-weight: 600; text-decoration: none; transition: background .2s, transform .2s; }
 .hb-kl2-cta:hover { background: var(--hb-kl2-accent); transform: translateY(-1px); }
 @container (max-width: 820px) {

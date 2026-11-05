@@ -25,7 +25,7 @@ export function HudStatusBarDemo() {
         }}
       >
         <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-[#8f8f8f]">Now viewing</span>
-        <span key={s.title} className="font-serif text-[30px] italic leading-[1.05] text-[#ededed]">
+        <span key={s.title} className="font-sans text-[30px] leading-[1.05] text-[#ededed]">
           {s.title}
         </span>
       </div>

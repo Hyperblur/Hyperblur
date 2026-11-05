@@ -74,7 +74,7 @@ const css = `
 .hb-kd8-statement {
   margin: 28px 0 0;
   max-width: 980px;
-  font-family: var(--font-serif, ui-serif, Georgia, "Times New Roman", serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(34px, 6.2cqi, 74px);
   font-weight: 400;
   line-height: 1.04;
@@ -83,8 +83,8 @@ const css = `
   text-wrap: balance;
 }
 .hb-kd8-hl {
-  font-style: italic;
-  color: var(--hb-kd8-accent);
+  font-style: normal;
+    color: var(--hb-kd8-accent);
   background: linear-gradient(90deg, var(--hb-kd8-accent), color-mix(in srgb, var(--hb-kd8-accent) 55%, #fff));
   -webkit-background-clip: text;
   background-clip: text;
@@ -192,7 +192,7 @@ const css = `
 .hb-kd8-note-text {
   margin: 18px 0 0;
   color: #e4e1da;
-  font-family: var(--font-serif, ui-serif, Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(20px, 2.3cqi, 25px);
   line-height: 1.35;
 }
@@ -219,10 +219,9 @@ const css = `
 .hb-kd8-name {
   display: block;
   color: #f4f1ea;
-  font-family: var(--font-serif, ui-serif, Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 24px;
-  font-style: italic;
-  line-height: 1.1;
+    line-height: 1.1;
 }
 .hb-kd8-role { display: block; margin-top: 3px; color: #8f8f8f; font-size: 13px; }
 @container (max-width: 860px) {

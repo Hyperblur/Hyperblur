@@ -57,7 +57,7 @@ const css = `
 .hb-kl6-wrap { position: relative; max-width: 1120px; margin: 0 auto; padding: 104px 24px 200px; text-align: center; }
 .hb-kl6-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px; color: #ffd9b8; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; }
 .hb-kl6-eyebrow::before, .hb-kl6-eyebrow::after { content: ""; width: 24px; height: 1px; background: currentColor; opacity: .6; }
-.hb-kl6-title { margin: 0 auto; max-width: 760px; font-family: var(--font-serif, Georgia, serif); font-weight: 400; font-size: clamp(40px, 6.4cqw, 76px); line-height: .98; letter-spacing: -.02em; text-wrap: balance; text-shadow: 0 2px 30px rgba(60, 20, 10, .4); }
+.hb-kl6-title { margin: 0 auto; max-width: 760px; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: clamp(40px, 6.4cqw, 76px); line-height: .98; letter-spacing: -.02em; text-wrap: balance; text-shadow: 0 2px 30px rgba(60, 20, 10, .4); }
 .hb-kl6-sub { margin: 18px auto 0; max-width: 520px; color: #ffe3cc; font-size: 16.5px; line-height: 1.6; }
 .hb-kl6-bar {
   margin: 40px auto 0;

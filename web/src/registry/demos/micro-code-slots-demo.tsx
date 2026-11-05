@@ -16,7 +16,7 @@ export function CodeSlotsDemo() {
   return (
     <div className="box-border flex w-full max-w-[340px] flex-col items-center gap-3 rounded-2xl border border-[#262626] bg-[#111111] px-4 py-5 text-center text-[#ededed]">
       <div>
-        <p className="font-serif m-0 text-2xl leading-7">Check your inbox</p>
+        <p className="font-sans m-0 text-2xl leading-7">Check your inbox</p>
         <p className="m-0 text-xs text-[#8f8f8f]">We sent a 6 digit code to ada@fernhill.example</p>
       </div>
       <CodeSlots value={codes[index]} size={32} duration={1500} stagger={130} />

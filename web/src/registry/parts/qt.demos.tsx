@@ -26,7 +26,7 @@ export const qtDemos: Record<string, ReactNode> = {
           text="Midnight Sun"
           replayEvery={4.5}
           shuffles={5}
-          className="font-serif text-[54px] leading-none tracking-tight text-[#f4f1ea]"
+          className="font-sans text-[54px] leading-none tracking-tight text-[#f4f1ea]"
         />
         <div className="flex items-center justify-between font-sans text-xs text-[#a1a1a1]">
           <span>Three nights, 28 artists</span>
@@ -64,7 +64,7 @@ export const qtDemos: Record<string, ReactNode> = {
         <TextScrollWords
           text="Every great product starts as a quiet idea, then the small details catch the light one word at a time."
           loop
-          className="font-serif text-[22px] leading-[1.28] text-[#f2efe8]"
+          className="font-sans text-[22px] leading-[1.28] text-[#f2efe8]"
         />
         <div className="h-0.5 w-full overflow-hidden rounded-full bg-[#262626]">
           <div className="h-full w-2/5 rounded-full bg-[#7fb3ff]" />
@@ -89,7 +89,7 @@ export const qtDemos: Record<string, ReactNode> = {
           </svg>
         </TextCircular>
         <div className="flex min-w-0 flex-1 flex-col gap-1.5">
-          <p className="font-serif m-0 text-[26px] italic leading-none">Ember &amp; Oak</p>
+          <p className="font-sans m-0 text-[26px] leading-none">Ember &amp; Oak</p>
           <p className="m-0 font-sans text-xs leading-snug text-[#a1a1a1]">Roasted in Lisbon, shipped within two days of the roast.</p>
           <span className="mt-1 w-fit rounded-full bg-[#ededed] px-3 py-1 font-sans text-[11px] font-medium text-[#0a0a0a]">Shop beans</span>
         </div>

@@ -141,12 +141,12 @@ const css = `
 .hb-kd3-tile:hover .hb-kd3-glyph, .hb-kd3-tile:focus-visible .hb-kd3-glyph { color: var(--hb-kd3-c); transform: rotate(-8deg) scale(1.08); }
 .hb-kd3-word { position: relative; white-space: nowrap; line-height: 1; font-size: 19px; }
 .hb-kd3-word[data-style="0"] { font-weight: 700; letter-spacing: -.04em; }
-.hb-kd3-word[data-style="1"] { font-family: var(--font-serif, ui-serif, Georgia, serif); font-size: 23px; font-style: italic; letter-spacing: -.01em; }
+.hb-kd3-word[data-style="1"] { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 23px; letter-spacing: -.01em; }
 .hb-kd3-word[data-style="2"] { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 16px; font-weight: 600; letter-spacing: .02em; text-transform: lowercase; }
 .hb-kd3-word[data-style="3"] { font-size: 14px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; }
 .hb-kd3-word[data-style="4"] { font-weight: 300; font-size: 21px; letter-spacing: -.02em; }
-.hb-kd3-word[data-style="5"] { font-weight: 800; font-size: 18px; letter-spacing: -.02em; text-transform: uppercase; font-style: italic; }
-.hb-kd3-word[data-style="6"] { font-family: var(--font-serif, ui-serif, Georgia, serif); font-size: 22px; letter-spacing: .01em; }
+.hb-kd3-word[data-style="5"] { font-weight: 800; font-size: 18px; letter-spacing: -.02em; text-transform: uppercase; }
+.hb-kd3-word[data-style="6"] { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 22px; letter-spacing: .01em; }
 .hb-kd3-word[data-style="7"] { font-weight: 600; font-size: 18px; letter-spacing: -.01em; }
 .hb-kd3-rating {
   display: flex;

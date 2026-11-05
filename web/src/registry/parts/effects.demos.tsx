@@ -137,7 +137,7 @@ export const effectsDemos: Record<string, ReactNode> = {
       </svg>
       <span className="absolute left-4 top-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">Perseids · peak tonight</span>
       <div className="absolute inset-x-0 top-0 bottom-12 flex flex-col items-center justify-center gap-2 px-8 text-center">
-        <p className="m-0 max-w-[290px] font-serif text-[22px] italic leading-[1.15] text-white">
+        <p className="m-0 max-w-[290px] font-sans text-[22px] leading-[1.15] text-white">
           “We are all in the gutter, but some of us are looking at the stars.”
         </p>
         <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">Oscar Wilde · 1892</span>
@@ -270,7 +270,7 @@ export const effectsDemos: Record<string, ReactNode> = {
       </div>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_90%_at_50%_50%,rgba(7,7,9,0)_55%,rgba(7,7,9,0.85)_100%)]" />
       <div className="pointer-events-none absolute bottom-4 left-4 rounded-xl border border-white/10 bg-black/65 px-4 py-3 backdrop-blur-md">
-        <div className="font-serif text-[19px] leading-none text-white">Every signal, felt.</div>
+        <div className="font-sans text-[19px] leading-none text-white">Every signal, felt.</div>
         <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">Click or hover the grid</div>
       </div>
     </Scene>

@@ -60,14 +60,14 @@ const css = `
 .hb-ka4-eyebrow::before { content: ""; width: 20px; height: 1px; background: var(--hb-ka4-accent); }
 .hb-ka4-title {
   margin: 0;
-  font-family: var(--font-serif, "Instrument Serif", Georgia, "Times New Roman", serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(40px, 6.4cqw, 72px);
   font-weight: 400;
   line-height: .98;
   letter-spacing: -.02em;
   text-wrap: balance;
 }
-.hb-ka4-title em { color: var(--hb-ka4-accent); font-style: italic; }
+.hb-ka4-title em { font-style: normal; color: var(--hb-ka4-accent); }
 .hb-ka4-sub { margin: 0; color: #6b675e; font-size: 16px; line-height: 1.6; }
 .hb-ka4-body {
   display: grid;
@@ -146,7 +146,7 @@ const css = `
 .hb-ka4-label { margin: 0; color: #6b675e; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .hb-ka4-value {
   margin: 10px 0 0;
-  font-family: var(--font-serif, "Instrument Serif", Georgia, "Times New Roman", serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 64px;
   font-weight: 400;
   line-height: .95;

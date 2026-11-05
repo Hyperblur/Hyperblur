@@ -128,7 +128,7 @@ const css = `
   border-radius: 50%;
   background: radial-gradient(circle at 30% 25%, #ffe1c7, #f3a683 45%, #b6577a);
   color: #3a1420;
-  font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 40px;
 }
 .hb-kg6-name {
@@ -136,7 +136,7 @@ const css = `
   align-items: center;
   gap: 8px;
   margin: 18px 0 0;
-  font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(34px, 5cqi, 44px);
   font-weight: 400;
   line-height: 1;

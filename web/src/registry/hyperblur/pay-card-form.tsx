@@ -147,8 +147,7 @@ const css = `
   color: #14151a;
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 5cqw;
-  font-style: italic;
-  font-weight: 600;
+    font-weight: 600;
   letter-spacing: 0.1em;
   text-align: right;
 }

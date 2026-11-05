@@ -22,7 +22,7 @@ export const qoDemos: Record<string, ReactNode> = {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_70%_at_50%_50%,rgba(11,11,14,0.9)_25%,rgba(11,11,14,0)_85%)]" />
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-1.5 px-6 text-center">
         <span className="font-grotesk text-[10px] uppercase tracking-[0.2em] text-white/50">Loom &amp; Line · Autumn 26</span>
-        <p className="m-0 font-serif text-[32px] leading-none text-white">Woven in motion</p>
+        <p className="m-0 font-sans text-[32px] leading-none text-white">Woven in motion</p>
         <span className="text-[12px] text-white/60">Twelve new textiles, cut to order</span>
       </div>
     </Scene>
@@ -90,7 +90,7 @@ export const qoDemos: Record<string, ReactNode> = {
     <Scene style={{ background: "#09090b" }}>
       <BgWebThreads spokes={13} rings={7} />
       <div className="pointer-events-none absolute bottom-4 left-4 max-w-[220px] rounded-xl border border-white/10 bg-black/75 px-3.5 py-2.5 backdrop-blur-md">
-        <p className="m-0 font-serif text-[22px] italic leading-none text-white">Every thread counts</p>
+        <p className="m-0 font-sans text-[22px] leading-none text-white">Every thread counts</p>
         <p className="m-0 mt-1 text-[11px] text-white/55">Map how your team really connects</p>
       </div>
     </Scene>

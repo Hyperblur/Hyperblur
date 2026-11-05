@@ -68,7 +68,7 @@ export const qsDemos: Record<string, ReactNode> = {
       <div className="flex max-w-[340px] flex-col items-center gap-3 text-center text-[#ededed]">
         <p className="font-mono m-0 text-[10px] uppercase tracking-[0.18em] text-[#8f8f8f]">Field notes / No. 12</p>
         <TextFold
-          className="font-serif text-[32px] italic"
+          className="font-sans text-[32px]"
           lines={["Fold the page.", "Keep the crease.", "Read between lines."]}
           replayEvery={7000}
         />
