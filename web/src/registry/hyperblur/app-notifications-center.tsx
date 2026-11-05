@@ -1,0 +1,436 @@
+"use client";
+
+import * as React from "react";
+
+export type AppNotificationKind = "mention" | "comment" | "assign" | "deploy" | "invite";
+
+export interface AppNotification {
+  id: string;
+  actor: string;
+  action: string;
+  target: string;
+  group: string;
+  time: string;
+  kind: AppNotificationKind;
+  unread?: boolean;
+  excerpt?: string;
+  project?: string;
+}
+
+export type AppNotificationFilter = "all" | "mentions" | "unread";
+
+export interface AppNotificationsCenterProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
+  items?: AppNotification[];
+  defaultFilter?: AppNotificationFilter;
+  defaultSelectedId?: string;
+  accent?: string;
+  onMarkRead?: (id: string, read: boolean) => void;
+  onSnooze?: (id: string, until: string) => void;
+  onOpenItem?: (item: AppNotification) => void;
+}
+
+const defaultItems: AppNotification[] = [
+  { id: "n1", actor: "Lena Park", action: "mentioned you in", target: "Q4 pricing experiment", group: "Today", time: "9:42 AM", kind: "mention", unread: true, project: "Growth", excerpt: "@maya can you sanity check the annual discount copy before we ship the variant to 20% of traffic?" },
+  { id: "n2", actor: "Diego Ramos", action: "assigned you", target: "Fix chart tooltip clipping on Safari", group: "Today", time: "8:15 AM", kind: "assign", unread: true, project: "Web app", excerpt: "Priority high, due Friday. Repro steps are in the issue, it only happens with the sidebar collapsed." },
+  { id: "n3", actor: "Release bot", action: "deployed", target: "web-app v2.14.0 to production", group: "Today", time: "7:58 AM", kind: "deploy", unread: false, project: "Web app", excerpt: "38 commits, 3 migrations. Build finished in 2m 41s and all 412 checks passed." },
+  { id: "n4", actor: "Amara Chen", action: "commented on", target: "Onboarding flow v3", group: "Yesterday", time: "6:20 PM", kind: "comment", unread: true, project: "Design", excerpt: "Love the progress ring. Could the skip button be less prominent on step two? People bail there." },
+  { id: "n5", actor: "Tom Whitaker", action: "mentioned you in", target: "Weekly metrics review", group: "Yesterday", time: "2:04 PM", kind: "mention", unread: false, project: "Growth", excerpt: "@maya activation is up 4.2 points, nice work on the checklist." },
+  { id: "n6", actor: "Sofia Lind", action: "invited you to", target: "Brand refresh workspace", group: "Earlier this week", time: "Mon", kind: "invite", unread: false, project: "Brand", excerpt: "Join to review the new logo lockups and the type scale before Thursday." },
+  { id: "n7", actor: "Kenji Mori", action: "commented on", target: "API rate limits doc", group: "Earlier this week", time: "Mon", kind: "comment", unread: false, project: "Platform", excerpt: "Should we document the burst window separately? Support gets this question twice a week." },
+];
+
+const snoozeOptions = ["In 1 hour", "Tomorrow, 9:00", "Next Monday", "Next week"];
+
+const kindIcon: Record<AppNotificationKind, string> = {
+  mention: "M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm0 0v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-4 7.5",
+  comment: "M4 5h16v11H9l-5 4V5Z",
+  assign: "M9 11l3 3 8-8M20 12v7H4V5h11",
+  deploy: "M12 3c3 2 5 5 5 9l-2 4H9l-2-4c0-4 2-7 5-9Zm0 6v.01M9 16l-2 4M15 16l2 4",
+  invite: "M15 19a6 6 0 0 0-12 0M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm10-3v6m3-3h-6",
+};
+
+const kindColor: Record<AppNotificationKind, string> = {
+  mention: "#7fb3ff",
+  comment: "#c4a5ff",
+  assign: "#f5a524",
+  deploy: "#3ccf91",
+  invite: "#ff8f6b",
+};
+
+const palette = ["#2f7bff", "#9b6bff", "#ff7a59", "#22b07d", "#e0a526", "#e5508a", "#16a3b8"];
+
+function hash(s: string) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return h >>> 0;
+}
+
+function initials(name: string) {
+  const p = name.split(/\s+/).filter(Boolean);
+  return ((p[0]?.[0] ?? "") + (p[1]?.[0] ?? "")).toUpperCase();
+}
+
+const css = `
+.hb-ye2 {
+  --hb-ye2-accent: #2f7bff;
+  container-type: inline-size;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 600px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  background: #0a0a0a;
+  color: #ededed;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.hb-ye2 *, .hb-ye2 *::before, .hb-ye2 *::after { box-sizing: border-box; }
+.hb-ye2-shell { display: grid; grid-template-columns: 1fr; min-height: 600px; }
+.hb-ye2-listcol { display: flex; flex-direction: column; min-width: 0; }
+.hb-ye2-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 18px 12px; }
+.hb-ye2-title { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
+.hb-ye2-link { margin: 0; padding: 4px 6px; border: 0; border-radius: 6px; background: transparent; color: #8f8f8f; font: inherit; font-size: 12.5px; cursor: pointer; }
+.hb-ye2-link:hover { color: #ededed; }
+.hb-ye2-link:focus-visible, .hb-ye2-filter:focus-visible, .hb-ye2-act:focus-visible, .hb-ye2-opt:focus-visible, .hb-ye2-btn:focus-visible, .hb-ye2-row:focus-visible { outline: 2px solid var(--hb-ye2-accent); outline-offset: 1px; }
+.hb-ye2-filters { display: flex; gap: 4px; margin: 0 18px 8px; padding: 3px; border: 1px solid rgba(255,255,255,.07); border-radius: 10px; background: #0f0f0f; }
+.hb-ye2-filter { display: inline-flex; flex: 1; align-items: center; justify-content: center; gap: 6px; height: 30px; margin: 0; border: 0; border-radius: 7px; background: transparent; color: #a1a1a1; font: inherit; font-size: 13px; cursor: pointer; transition: background-color .15s ease, color .15s ease; }
+.hb-ye2-filter[aria-checked="true"] { background: #1c1c1c; color: #ededed; box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 1px 2px rgba(0,0,0,.4); }
+.hb-ye2-filter b { min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: #262626; color: #d4d4d4; font-size: 11px; font-weight: 600; line-height: 18px; }
+.hb-ye2-filter[aria-checked="true"] b { background: var(--hb-ye2-accent); color: #fff; }
+.hb-ye2-scroll { flex: 1; overflow: auto; padding: 0 8px 12px; scrollbar-width: thin; scrollbar-color: #262626 transparent; }
+.hb-ye2-group { padding: 14px 10px 6px; color: #737373; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.hb-ye2-row { position: relative; display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: start; padding: 11px 10px; border-radius: 10px; cursor: pointer; animation: hb-ye2-in .35s cubic-bezier(.2,.8,.2,1) both; transition: background-color .15s ease; }
+.hb-ye2-row:hover { background: #121212; }
+.hb-ye2-row[aria-selected="true"] { background: #161616; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+.hb-ye2-av { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 999px; color: #fff; font-size: 12.5px; font-weight: 600; }
+.hb-ye2-kind { position: absolute; right: -3px; bottom: -3px; display: grid; place-items: center; width: 17px; height: 17px; border: 2px solid #0a0a0a; border-radius: 999px; background: #1a1a1a; }
+.hb-ye2-kind svg { width: 10px; height: 10px; }
+.hb-ye2-text { min-width: 0; color: #a1a1a1; font-size: 13.5px; }
+.hb-ye2-text strong { color: #ededed; font-weight: 600; }
+.hb-ye2-text em { color: #d4d4d4; font-style: normal; font-weight: 500; }
+.hb-ye2-row[data-unread="true"] .hb-ye2-text em { color: #ededed; }
+.hb-ye2-meta { display: flex; gap: 6px; margin-top: 3px; color: #737373; font-size: 12px; }
+.hb-ye2-side { display: flex; align-items: center; gap: 4px; min-height: 36px; }
+.hb-ye2-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--hb-ye2-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--hb-ye2-accent) 22%, transparent); }
+.hb-ye2-acts { display: flex; gap: 2px; opacity: 0; transition: opacity .15s ease; }
+.hb-ye2-row:hover .hb-ye2-acts, .hb-ye2-row:focus-within .hb-ye2-acts, .hb-ye2-acts[data-open="true"] { opacity: 1; }
+.hb-ye2-act { display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 1px solid #262626; border-radius: 7px; background: #141414; color: #a1a1a1; cursor: pointer; }
+.hb-ye2-act:hover { color: #ededed; border-color: #3a3a3a; }
+.hb-ye2-act svg { width: 15px; height: 15px; }
+.hb-ye2-menu { position: absolute; right: 10px; top: 46px; z-index: 5; min-width: 180px; padding: 5px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; background: #171717; box-shadow: 0 16px 36px rgba(0,0,0,.55); animation: hb-ye2-pop .16s ease-out both; }
+.hb-ye2-menu-label { padding: 6px 9px 4px; color: #737373; font-size: 11.5px; }
+.hb-ye2-opt { display: flex; width: 100%; margin: 0; padding: 7px 9px; border: 0; border-radius: 6px; background: transparent; color: #ededed; font: inherit; font-size: 13px; text-align: left; cursor: pointer; }
+.hb-ye2-opt:hover, .hb-ye2-opt:focus { background: #222; outline: none; }
+.hb-ye2-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 64px 24px; text-align: center; animation: hb-ye2-in .4s ease both; }
+.hb-ye2-empty svg { width: 120px; height: 90px; margin-bottom: 10px; }
+.hb-ye2-empty-title { font-size: 15px; font-weight: 600; }
+.hb-ye2-empty-text { max-width: 260px; color: #8f8f8f; font-size: 13px; }
+.hb-ye2-detail { display: none; min-width: 0; border-left: 1px solid rgba(255,255,255,.08); background: radial-gradient(90% 60% at 100% 0%, color-mix(in srgb, var(--hb-ye2-accent) 9%, transparent), transparent 60%), #0d0d0d; }
+.hb-ye2-detail-in { display: flex; flex-direction: column; gap: 18px; padding: 26px 28px; animation: hb-ye2-in .3s ease both; }
+.hb-ye2-crumb { display: flex; align-items: center; gap: 8px; color: #8f8f8f; font-size: 12.5px; }
+.hb-ye2-pill { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 9px; border: 1px solid rgba(255,255,255,.08); border-radius: 999px; background: #141414; color: #d4d4d4; font-size: 12px; }
+.hb-ye2-pill i { width: 6px; height: 6px; border-radius: 999px; }
+.hb-ye2-h { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.015em; line-height: 1.25; }
+.hb-ye2-who { display: flex; align-items: center; gap: 10px; color: #a1a1a1; font-size: 13px; }
+.hb-ye2-who .hb-ye2-av { width: 28px; height: 28px; font-size: 11px; }
+.hb-ye2-quote { margin: 0; padding: 14px 16px; border: 1px solid rgba(255,255,255,.08); border-left: 2px solid var(--hb-ye2-accent); border-radius: 4px 12px 12px 4px; background: #121212; color: #d4d4d4; font-size: 14px; line-height: 1.6; }
+.hb-ye2-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.hb-ye2-btn { display: inline-flex; align-items: center; gap: 6px; height: 32px; margin: 0; padding: 0 12px; border: 1px solid #262626; border-radius: 8px; background: #141414; color: #ededed; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; }
+.hb-ye2-btn:hover { border-color: #3a3a3a; }
+.hb-ye2-btn[data-tone="primary"] { border-color: transparent; background: var(--hb-ye2-accent); color: #fff; }
+.hb-ye2-timeline { display: flex; flex-direction: column; gap: 12px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,.06); }
+.hb-ye2-tl { display: flex; gap: 10px; color: #8f8f8f; font-size: 12.5px; }
+.hb-ye2-tl i { width: 7px; height: 7px; margin-top: 6px; flex: none; border-radius: 999px; background: #333; }
+.hb-ye2-toast { position: absolute; left: 50%; bottom: 18px; z-index: 6; display: flex; align-items: center; gap: 12px; padding: 9px 10px 9px 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; background: #1a1a1a; box-shadow: 0 14px 30px rgba(0,0,0,.5); font-size: 13px; transform: translateX(-50%); animation: hb-ye2-up .3s cubic-bezier(.2,.9,.2,1) both; white-space: nowrap; }
+@keyframes hb-ye2-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@keyframes hb-ye2-pop { from { opacity: 0; transform: translateY(-4px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes hb-ye2-up { from { opacity: 0; transform: translate(-50%, 12px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@container (min-width: 720px) {
+  .hb-ye2-shell { grid-template-columns: minmax(340px, 420px) 1fr; }
+  .hb-ye2-detail { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hb-ye2 *, .hb-ye2 *::before, .hb-ye2 *::after { animation: none !important; transition: none !important; }
+}
+`;
+
+function Icon({ d, color }: { d: string; color?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke={color ?? "currentColor"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={d} />
+    </svg>
+  );
+}
+
+function Avatar({ name, kind }: { name: string; kind?: AppNotificationKind }) {
+  return (
+    <span className="hb-ye2-av" style={{ background: palette[hash(name) % palette.length] }} aria-hidden="true">
+      {initials(name)}
+      {kind && (
+        <span className="hb-ye2-kind">
+          <Icon d={kindIcon[kind]} color={kindColor[kind]} />
+        </span>
+      )}
+    </span>
+  );
+}
+
+export function AppNotificationsCenter({
+  items = defaultItems,
+  defaultFilter = "all",
+  defaultSelectedId,
+  accent = "#2f7bff",
+  onMarkRead,
+  onSnooze,
+  onOpenItem,
+  className,
+  style,
+  ...rest
+}: AppNotificationsCenterProps) {
+  const [filter, setFilter] = React.useState<AppNotificationFilter>(defaultFilter);
+  const [read, setRead] = React.useState<Record<string, boolean>>(() => Object.fromEntries(items.map((n) => [n.id, !n.unread])));
+  const [snoozed, setSnoozed] = React.useState<Record<string, string>>({});
+  const [selected, setSelected] = React.useState<string | undefined>(defaultSelectedId ?? items[0]?.id);
+  const [menu, setMenu] = React.useState<string | null>(null);
+  const [toast, setToast] = React.useState<{ id: string; until: string } | null>(null);
+  const menuRef = React.useRef<HTMLDivElement>(null);
+  const rowRefs = React.useRef<Map<string, HTMLDivElement>>(new Map());
+
+  React.useEffect(() => {
+    if (!toast) return;
+    const t = window.setTimeout(() => setToast(null), 4000);
+    return () => window.clearTimeout(t);
+  }, [toast]);
+
+  React.useEffect(() => {
+    if (!menu) return;
+    menuRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
+    const close = (e: PointerEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenu(null);
+    };
+    document.addEventListener("pointerdown", close);
+    return () => document.removeEventListener("pointerdown", close);
+  }, [menu]);
+
+  const live = items.filter((n) => !snoozed[n.id]);
+  const unreadCount = live.filter((n) => !read[n.id]).length;
+  const mentionCount = live.filter((n) => n.kind === "mention").length;
+  const visible = live.filter((n) => (filter === "mentions" ? n.kind === "mention" : filter === "unread" ? !read[n.id] : true));
+  const groups: { name: string; list: AppNotification[] }[] = [];
+  for (const n of visible) {
+    const g = groups.find((x) => x.name === n.group);
+    if (g) g.list.push(n);
+    else groups.push({ name: n.group, list: [n] });
+  }
+  const active = live.find((n) => n.id === selected);
+
+  const markRead = (id: string, value: boolean) => {
+    setRead((r) => ({ ...r, [id]: value }));
+    onMarkRead?.(id, value);
+  };
+
+  const open = (n: AppNotification) => {
+    setSelected(n.id);
+    if (!read[n.id]) markRead(n.id, true);
+    onOpenItem?.(n);
+  };
+
+  const snooze = (id: string, until: string) => {
+    setSnoozed((s) => ({ ...s, [id]: until }));
+    setMenu(null);
+    setToast({ id, until });
+    onSnooze?.(id, until);
+    if (selected === id) setSelected(undefined);
+  };
+
+  const undo = () => {
+    if (!toast) return;
+    setSnoozed((s) => {
+      const next = { ...s };
+      delete next[toast.id];
+      return next;
+    });
+    setToast(null);
+  };
+
+  const markAll = () => {
+    const next: Record<string, boolean> = { ...read };
+    for (const n of live) next[n.id] = true;
+    setRead(next);
+    for (const n of live) if (!read[n.id]) onMarkRead?.(n.id, true);
+  };
+
+  const onRowKey = (e: React.KeyboardEvent<HTMLDivElement>, n: AppNotification, index: number) => {
+    if (e.target !== e.currentTarget) return;
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      open(n);
+    } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      const next = visible[index + (e.key === "ArrowDown" ? 1 : -1)];
+      if (next) rowRefs.current.get(next.id)?.focus();
+    } else if (e.key.toLowerCase() === "u") {
+      markRead(n.id, !read[n.id]);
+    }
+  };
+
+  const onMenuKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const buttons = Array.from(e.currentTarget.querySelectorAll<HTMLButtonElement>("button"));
+    const i = buttons.indexOf(document.activeElement as HTMLButtonElement);
+    if (e.key === "ArrowDown") { e.preventDefault(); buttons[(i + 1) % buttons.length]?.focus(); }
+    if (e.key === "ArrowUp") { e.preventDefault(); buttons[(i - 1 + buttons.length) % buttons.length]?.focus(); }
+    if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); const id = menu; setMenu(null); if (id) rowRefs.current.get(id)?.focus(); }
+  };
+
+  const filters: { id: AppNotificationFilter; label: string; count?: number }[] = [
+    { id: "all", label: "All" },
+    { id: "mentions", label: "Mentions", count: mentionCount },
+    { id: "unread", label: "Unread", count: unreadCount },
+  ];
+
+  let index = -1;
+
+  return (
+    <div className={["hb-ye2", className].filter(Boolean).join(" ")} style={{ "--hb-ye2-accent": accent, ...style } as React.CSSProperties} {...rest}>
+      <style href="hb-app-notifications-center" precedence="default">{css}</style>
+      <div className="hb-ye2-shell">
+        <section className="hb-ye2-listcol" aria-label="Notifications">
+          <div className="hb-ye2-top">
+            <h2 className="hb-ye2-title">Notifications</h2>
+            <button type="button" className="hb-ye2-link" onClick={markAll} disabled={!unreadCount}>Mark all as read</button>
+          </div>
+          <div className="hb-ye2-filters" role="radiogroup" aria-label="Filter notifications">
+            {filters.map((f) => (
+              <button
+                key={f.id}
+                type="button"
+                role="radio"
+                aria-checked={filter === f.id}
+                className="hb-ye2-filter"
+                onClick={() => setFilter(f.id)}
+                onKeyDown={(e) => {
+                  const i = filters.findIndex((x) => x.id === filter);
+                  if (e.key === "ArrowRight") { e.preventDefault(); setFilter(filters[(i + 1) % filters.length].id); }
+                  if (e.key === "ArrowLeft") { e.preventDefault(); setFilter(filters[(i - 1 + filters.length) % filters.length].id); }
+                }}
+                tabIndex={filter === f.id ? 0 : -1}
+              >
+                {f.label}
+                {f.count ? <b>{f.count}</b> : null}
+              </button>
+            ))}
+          </div>
+          <div className="hb-ye2-scroll" role="listbox" aria-label="Notification list">
+            {groups.length === 0 && (
+              <div className="hb-ye2-empty" role="status">
+                <svg viewBox="0 0 120 90" fill="none" aria-hidden="true">
+                  <rect x="20" y="22" width="80" height="54" rx="10" fill="#141414" stroke="#2a2a2a" />
+                  <rect x="30" y="34" width="40" height="6" rx="3" fill="#262626" />
+                  <rect x="30" y="46" width="58" height="5" rx="2.5" fill="#1f1f1f" />
+                  <rect x="30" y="56" width="48" height="5" rx="2.5" fill="#1f1f1f" />
+                  <circle cx="92" cy="22" r="13" fill={accent} />
+                  <path d="M86 22.5l4 4 8-8.5" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <div className="hb-ye2-empty-title">You are all caught up</div>
+                <div className="hb-ye2-empty-text">
+                  {filter === "mentions" ? "Nobody has mentioned you lately." : filter === "unread" ? "Every notification has been read." : "New activity will show up here."}
+                </div>
+              </div>
+            )}
+            {groups.map((g) => (
+              <div key={g.name} role="group" aria-label={g.name}>
+                <div className="hb-ye2-group" aria-hidden="true">{g.name}</div>
+                {g.list.map((n) => {
+                  index += 1;
+                  const i = index;
+                  const isRead = read[n.id];
+                  return (
+                    <div
+                      key={n.id}
+                      ref={(el) => { if (el) rowRefs.current.set(n.id, el); else rowRefs.current.delete(n.id); }}
+                      role="option"
+                      aria-selected={selected === n.id}
+                      tabIndex={0}
+                      className="hb-ye2-row"
+                      data-unread={!isRead}
+                      style={{ animationDelay: `${(i * 0.04).toFixed(2)}s` }}
+                      onClick={() => open(n)}
+                      onKeyDown={(e) => onRowKey(e, n, i)}
+                    >
+                      <Avatar name={n.actor} kind={n.kind} />
+                      <div className="hb-ye2-text">
+                        <strong>{n.actor}</strong> {n.action} <em>{n.target}</em>
+                        <div className="hb-ye2-meta"><span>{n.time}</span>{n.project && <span>· {n.project}</span>}</div>
+                      </div>
+                      <div className="hb-ye2-side">
+                        <div className="hb-ye2-acts" data-open={menu === n.id}>
+                          <button type="button" className="hb-ye2-act" aria-label={isRead ? "Mark as unread" : "Mark as read"} title={isRead ? "Mark as unread" : "Mark as read"} onClick={(e) => { e.stopPropagation(); markRead(n.id, !isRead); }}>
+                            <Icon d={isRead ? "M4 6h16v12H4V6Zm0 0 8 7 8-7" : "M5 12.5l4.5 4.5L19 7.5"} />
+                          </button>
+                          <button type="button" className="hb-ye2-act" aria-label="Snooze" aria-haspopup="menu" aria-expanded={menu === n.id} onClick={(e) => { e.stopPropagation(); setMenu(menu === n.id ? null : n.id); }}>
+                            <Icon d="M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm0-12v4l3 2M5 3 2 6m17-3 3 3" />
+                          </button>
+                        </div>
+                        {!isRead && <span className="hb-ye2-dot" aria-label="Unread" />}
+                      </div>
+                      {menu === n.id && (
+                        <div className="hb-ye2-menu" role="menu" aria-label="Snooze until" ref={menuRef} onKeyDown={onMenuKey} onClick={(e) => e.stopPropagation()}>
+                          <div className="hb-ye2-menu-label">Snooze until</div>
+                          {snoozeOptions.map((o) => (
+                            <button key={o} type="button" role="menuitem" className="hb-ye2-opt" onClick={() => snooze(n.id, o)}>{o}</button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+        </section>
+        <aside className="hb-ye2-detail" aria-label="Notification details">
+          {active ? (
+            <div className="hb-ye2-detail-in" key={active.id}>
+              <div className="hb-ye2-crumb">
+                <span className="hb-ye2-pill"><i style={{ background: kindColor[active.kind] }} />{active.kind.charAt(0).toUpperCase() + active.kind.slice(1)}</span>
+                {active.project && <span>{active.project}</span>}
+                <span>·</span>
+                <span>{active.group}, {active.time}</span>
+              </div>
+              <h3 className="hb-ye2-h">{active.target}</h3>
+              <div className="hb-ye2-who"><Avatar name={active.actor} /> <span><strong style={{ color: "#ededed", fontWeight: 600 }}>{active.actor}</strong> {active.action} this</span></div>
+              {active.excerpt && <blockquote className="hb-ye2-quote">{active.excerpt}</blockquote>}
+              <div className="hb-ye2-btns">
+                <button type="button" className="hb-ye2-btn" data-tone="primary">{active.kind === "invite" ? "Accept invite" : active.kind === "deploy" ? "View release" : "Reply"}</button>
+                <button type="button" className="hb-ye2-btn">Open {active.kind === "assign" ? "issue" : "thread"}</button>
+                <button type="button" className="hb-ye2-btn" onClick={() => markRead(active.id, !read[active.id])}>{read[active.id] ? "Mark unread" : "Mark read"}</button>
+              </div>
+              <div className="hb-ye2-timeline">
+                <div className="hb-ye2-tl"><i />{active.actor} opened the thread · {active.time}</div>
+                <div className="hb-ye2-tl"><i />2 people are following this</div>
+                <div className="hb-ye2-tl"><i />You will be notified about new replies</div>
+              </div>
+            </div>
+          ) : (
+            <div className="hb-ye2-empty">
+              <div className="hb-ye2-empty-title">Nothing selected</div>
+              <div className="hb-ye2-empty-text">Pick a notification to see the full context.</div>
+            </div>
+          )}
+        </aside>
+      </div>
+      {toast && (
+        <div className="hb-ye2-toast" role="status">
+          <span>Snoozed · {toast.until}</span>
+          <button type="button" className="hb-ye2-btn" onClick={undo}>Undo</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default AppNotificationsCenter;

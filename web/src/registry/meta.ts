@@ -100,6 +100,16 @@ import { listsMeta } from "./parts/lists.meta.ts";
 import { sidebarsMeta } from "./parts/sidebars.meta.ts";
 import { effectsMeta } from "./parts/effects.meta.ts";
 import { dashboardsMeta } from "./parts/dashboards.meta.ts";
+import { sectionsYHMeta } from "./parts/sectionsYH.meta.ts";
+import { sectionsYIMeta } from "./parts/sectionsYI.meta.ts";
+import { ydMeta } from "./parts/yd.meta.ts";
+import { sectionsYJMeta } from "./parts/sectionsYJ.meta.ts";
+import { yeMeta } from "./parts/ye.meta.ts";
+import { ycMeta } from "./parts/yc.meta.ts";
+import { yfMeta } from "./parts/yf.meta.ts";
+import { sectionsYGMeta } from "./parts/sectionsYG.meta.ts";
+import { ybMeta } from "./parts/yb.meta.ts";
+import { yaMeta } from "./parts/ya.meta.ts";
 import { qwMeta } from "./parts/qw.meta.ts";
 import { qxMeta } from "./parts/qx.meta.ts";
 import { raMeta } from "./parts/ra.meta.ts";
@@ -1227,6 +1237,16 @@ const allEffects: EffectMeta[] = [
   ...sidebarsMeta,
   ...effectsMeta,
   ...dashboardsMeta,
+  ...sectionsYHMeta,
+  ...sectionsYIMeta,
+  ...ydMeta,
+  ...sectionsYJMeta,
+  ...yeMeta,
+  ...ycMeta,
+  ...yfMeta,
+  ...sectionsYGMeta,
+  ...ybMeta,
+  ...yaMeta,
   ...qwMeta,
   ...qxMeta,
   ...raMeta,
@@ -1270,7 +1290,9 @@ const allEffects: EffectMeta[] = [
   ...heroesAMeta,
 ];
 
-const newBatches: EffectMeta[][] = [qwMeta, qxMeta, qyMeta, qzMeta, raMeta, rbMeta, rcMeta];
+const newBatches: EffectMeta[][] = [
+  yaMeta, ybMeta, ycMeta, ydMeta, yeMeta, yfMeta, sectionsYGMeta, sectionsYHMeta, sectionsYIMeta, sectionsYJMeta,
+];
 
 const newSlugs = new Set(newBatches.flat().map((e) => e.slug));
 
