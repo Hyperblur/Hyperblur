@@ -16,7 +16,7 @@ export const qeDemos: Record<string, ReactNode> = {
       <div className="box-border w-full max-w-[330px] rounded-2xl border border-[#262626] bg-[#111111] p-2 text-[#ededed]">
         <ImageWipeSlider height={128} style={{ borderRadius: 10 }} />
         <div className="flex items-baseline justify-between px-1.5 pb-1 pt-2">
-          <p className="font-serif m-0 text-lg italic leading-6">Algarve in October</p>
+          <p className="font-sans m-0 text-lg leading-6">Algarve in October</p>
           <span className="font-grotesk text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">4 photos</span>
         </div>
       </div>
@@ -39,7 +39,7 @@ export const qeDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="relative w-full max-w-[320px]">
         <ImageLiquidDistort aspect="16 / 9" />
-        <p className="font-serif pointer-events-none absolute left-4 top-3 z-10 m-0 text-3xl italic leading-9 text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.45)]">
+        <p className="font-sans pointer-events-none absolute left-4 top-3 z-10 m-0 text-3xl leading-9 text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.45)]">
           Tidewater
         </p>
         <span className="font-mono pointer-events-none absolute bottom-3 right-3 z-10 rounded-full bg-black/45 px-2.5 py-1 text-[10px] uppercase tracking-[0.1em] text-white backdrop-blur">
@@ -81,7 +81,7 @@ export const qeDemos: Record<string, ReactNode> = {
         <ImageParallaxTilt aspect="4 / 3" />
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-1.5 text-[#ededed]">
-        <p className="font-serif m-0 text-2xl leading-7">Layered scenes</p>
+        <p className="font-sans m-0 text-2xl leading-7">Layered scenes</p>
         <p className="m-0 text-[11px] leading-4 text-[#a1a1a1]">Sky, skyline and street shift at different depths as the card tilts.</p>
         <span className="font-mono w-fit rounded-full border border-[#262626] bg-[#111111] px-2 py-0.5 text-[10px] text-[#8f8f8f]">
           depth 14px
@@ -96,7 +96,7 @@ export const qeDemos: Record<string, ReactNode> = {
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-2 text-[#ededed]">
         <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.14em] text-[#7fb3ff]">Stories</span>
-        <p className="font-serif m-0 text-2xl leading-7">Weekend in Lisbon</p>
+        <p className="font-sans m-0 text-2xl leading-7">Weekend in Lisbon</p>
         <p className="m-0 text-xs leading-4 text-[#a1a1a1]">Four photos, four seconds each. Tap the sides to skip.</p>
         <span className="font-mono text-[10px] text-[#8f8f8f]">0:16 total</span>
       </div>

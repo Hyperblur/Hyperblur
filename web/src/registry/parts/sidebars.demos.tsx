@@ -156,7 +156,7 @@ export const sidebarsDemos: Record<string, ReactNode> = {
           ]}
         />
         <div className="min-w-0 flex-1 px-4 py-4">
-          <p className="font-serif m-0 text-[24px] italic leading-7">Projects</p>
+          <p className="font-sans m-0 text-[24px] leading-7">Projects</p>
           <div className="mt-3 grid grid-cols-2 gap-2">
             <div className="h-[72px] rounded-lg border border-[#1f1f1f] bg-[#111111]" />
             <div className="h-[72px] rounded-lg border border-[#1f1f1f] bg-[#111111]" />
@@ -196,7 +196,7 @@ export const sidebarsDemos: Record<string, ReactNode> = {
           ]}
         />
         <div className="min-w-0 flex-1 px-4 py-4">
-          <p className="font-serif m-0 text-[24px] leading-7">Installation</p>
+          <p className="font-sans m-0 text-[24px] leading-7">Installation</p>
           <p className="m-0 mt-1 text-[11px] leading-4 text-[#8f8f8f]">Add the package to your project.</p>
           <div className="font-mono mt-3 rounded-lg border border-[#1f1f1f] bg-[#111111] px-2 py-1.5 text-[10px] leading-4 text-[#a8a8a8]">
             npm i fernhill

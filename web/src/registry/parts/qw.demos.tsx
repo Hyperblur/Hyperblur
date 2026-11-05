@@ -27,7 +27,7 @@ export const qwDemos: Record<string, ReactNode> = {
   ),
   "gallery-archive": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className="font-serif w-full max-w-[330px] text-[12px]">
+      <div className="font-sans w-full max-w-[330px] text-[12px]">
         <GalleryArchive
           previewWidth={118}
           columns={["Year", "Selected work", "Type"]}

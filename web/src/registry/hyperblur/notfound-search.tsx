@@ -99,14 +99,14 @@ const css = `
 .hb-kg3-chip b { color: var(--hb-kg3-accent); font-weight: 600; }
 .hb-kg3-title {
   margin: 20px 0 0;
-  font-family: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(50px, 8.2cqi, 92px);
   font-weight: 400;
   line-height: .95;
   letter-spacing: -.025em;
   text-wrap: balance;
 }
-.hb-kg3-title em { font-style: italic; color: var(--hb-kg3-accent); }
+.hb-kg3-title em { font-style: normal; color: var(--hb-kg3-accent); }
 .hb-kg3-sub {
   margin: 18px 0 0;
   max-width: 420px;
@@ -226,7 +226,7 @@ const css = `
   border-radius: 10px;
   background: #faf8f3;
   color: var(--hb-kg3-ink);
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 18px;
 }
 .hb-kg3-text { display: grid; min-width: 0; flex: 1; }
@@ -254,10 +254,9 @@ const css = `
   position: absolute;
   left: 0;
   top: 0;
-  font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 21px;
-  font-style: italic;
-  white-space: nowrap;
+    white-space: nowrap;
   transform: rotate(-6deg);
   opacity: 0;
   animation: hb-kg3-fade .5s ease .3s forwards;

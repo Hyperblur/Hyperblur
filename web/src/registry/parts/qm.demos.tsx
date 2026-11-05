@@ -14,7 +14,7 @@ const frame =
 export const qmDemos: Record<string, ReactNode> = {
   "scroll-progress-bar": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${frame} font-serif`}>
+      <div className={`${frame} font-sans`}>
         <ScrollProgressBar height={188} autoplay accentTo="#a5c8ff">
           <article className="px-4 pb-6 pt-8">
             <p className="font-grotesk m-0 text-[10px] uppercase tracking-[0.14em] text-[#8f8f8f]">
@@ -60,7 +60,7 @@ export const qmDemos: Record<string, ReactNode> = {
               <p className="m-0 text-[10px] uppercase tracking-[0.14em] text-[#8f8f8f]">
                 Field notes / Day 4
               </p>
-              <p className="font-serif m-0 mt-1 text-[22px] leading-6 text-[#f4f4f4]">
+              <p className="font-sans m-0 mt-1 text-[22px] leading-6 text-[#f4f4f4]">
                 Leaving the valley before sunrise
               </p>
             </div>
@@ -75,7 +75,7 @@ export const qmDemos: Record<string, ReactNode> = {
           }
         >
           <div>
-            <p className="font-serif m-0 text-[28px] italic leading-8">Above the treeline</p>
+            <p className="font-sans m-0 text-[28px] leading-8">Above the treeline</p>
             <p className="m-0 mt-1 text-[10px] uppercase tracking-[0.18em] text-white/70">
               2,640 m
             </p>
@@ -105,7 +105,7 @@ export const qmDemos: Record<string, ReactNode> = {
               <p className="m-0 text-[10px] uppercase tracking-[0.14em] text-[#8f8f8f]">
                 Spring collection
               </p>
-              <p className="font-serif m-0 mt-1 text-[26px] leading-7 text-[#f4f4f4]">
+              <p className="font-sans m-0 mt-1 text-[26px] leading-7 text-[#f4f4f4]">
                 Eight colorways, one weekend
               </p>
             </div>
@@ -117,7 +117,7 @@ export const qmDemos: Record<string, ReactNode> = {
   ),
   "scroll-zoom-reveal": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${frame} font-serif text-[13px]`}>
+      <div className={`${frame} font-sans text-[13px]`}>
         <ScrollZoomReveal
           height={188}
           autoplay

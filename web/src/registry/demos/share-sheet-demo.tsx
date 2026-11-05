@@ -32,7 +32,7 @@ export function ShareSheetDemo() {
               />
               <div className="flex items-start justify-between gap-3 px-4 pt-3">
                 <div className="min-w-0">
-                  <p className="font-serif m-0 text-xl italic leading-6">Repotting a rootbound fern</p>
+                  <p className="font-sans m-0 text-xl leading-6">Repotting a rootbound fern</p>
                   <p className="font-grotesk m-0 text-[11px] uppercase leading-4 tracking-[0.08em] text-[#8f8f8f]">
                     Journal / 6 min
                   </p>

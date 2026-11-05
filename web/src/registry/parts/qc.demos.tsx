@@ -77,7 +77,7 @@ export const qcDemos: Record<string, ReactNode> = {
             }}
           />
           <div className="min-w-0 flex-1">
-            <p className="font-serif m-0 truncate text-2xl italic leading-7">Midnight Drive</p>
+            <p className="font-sans m-0 truncate text-2xl leading-7">Midnight Drive</p>
             <p className="font-grotesk m-0 text-xs uppercase tracking-[0.08em] text-[#8f8f8f]">Velvet Static</p>
           </div>
           <LoaderEqualizer size={26} />
@@ -148,7 +148,7 @@ export const qcDemos: Record<string, ReactNode> = {
           <LoaderMorphShapes size={64} />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-serif m-0 text-[26px] leading-[1.05]">Building your workspace</p>
+          <p className="font-sans m-0 text-[26px] leading-[1.05]">Building your workspace</p>
           <p className="m-0 mt-1.5 text-xs leading-4 text-[#8f8f8f]">Templates, roles and a sample project.</p>
           <div className="mt-2.5 flex gap-1.5 text-[11px] text-[#a1a1a1]">
             <span className="rounded-full border border-[#262626] px-2 py-0.5">Step 2 of 3</span>

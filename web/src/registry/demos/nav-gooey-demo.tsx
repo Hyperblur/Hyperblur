@@ -47,7 +47,7 @@ export function NavGooeyDemo() {
       <div className="box-border flex w-full max-w-[340px] flex-col gap-4 rounded-2xl border border-[#262626] bg-[#0f0f0f] p-3.5 text-[#ededed]">
         <NavGooey items={items} value={value} onChange={setValue} label="Project sections" style={{ fontSize: 13 }} />
         <div className="px-1.5 pb-1">
-          <p className="font-serif m-0 text-[28px] italic leading-8">{head.title}</p>
+          <p className="font-sans m-0 text-[28px] leading-8">{head.title}</p>
           <p className="font-grotesk m-0 mt-1 text-[12px] text-[#8f8f8f]">{head.note}</p>
         </div>
       </div>

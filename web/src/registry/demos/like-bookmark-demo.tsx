@@ -14,10 +14,10 @@ export function LikeBookmarkDemo() {
         <p className="font-grotesk m-0 text-[10px] font-medium uppercase leading-3 tracking-[0.14em] text-[#7fb3ff]">
           Essay / 8 min read
         </p>
-        <p className="font-serif m-0 mt-1.5 text-[26px] leading-[1.05]">In praise of slow software</p>
+        <p className="font-sans m-0 mt-1.5 text-[26px] leading-[1.05]">In praise of slow software</p>
         <p className="m-0 mt-2 text-xs leading-[18px] text-[#8f8f8f]">Why great tools feel unhurried.</p>
         <div className="mt-3.5 flex items-center justify-between gap-3">
-          <span className="font-serif text-sm italic text-[#a1a1a1]">By Lena Okoro</span>
+          <span className="font-sans text-sm text-[#a1a1a1]">By Lena Okoro</span>
           <LikeBookmark
             count={1204}
             size={18}

@@ -68,7 +68,7 @@ export const qxDemos: Record<string, ReactNode> = {
   "gallery-coverflow-lights": (
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="w-full max-w-[340px]">
-        <GalleryCoverflowLights className="font-serif" images={albums} height={184} interval={2800} />
+        <GalleryCoverflowLights className="font-sans" images={albums} height={184} interval={2800} />
       </div>
     </div>
   ),

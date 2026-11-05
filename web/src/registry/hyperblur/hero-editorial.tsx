@@ -104,7 +104,7 @@ const css = `
 }
 .hb-hre-title {
   margin: 0;
-  font-family: var(--font-serif, Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(42px, 6.9cqi, 84px);
   font-weight: 400;
   line-height: .98;
@@ -114,8 +114,7 @@ const css = `
 .hb-hre-mark {
   position: relative;
   display: inline-block;
-  font-style: italic;
-  color: var(--hb-hre-ink);
+    color: var(--hb-hre-ink);
   white-space: nowrap;
 }
 .hb-hre-line {
@@ -241,7 +240,7 @@ const css = `
 .hb-hre-tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--hb-hre-accent); }
 .hb-hre-doc-title {
   margin: 12px 0 10px;
-  font-family: var(--font-serif, Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 23px;
   line-height: 1.05;
 }
@@ -287,11 +286,11 @@ const css = `
 }
 .hb-hre-note p {
   margin: 8px 0 0;
-  font-family: var(--font-serif, Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 20px;
   line-height: 1.08;
 }
-.hb-hre-note p em { white-space: nowrap; color: color-mix(in srgb, var(--hb-hre-accent) 70%, #fff); }
+.hb-hre-note p em { font-style: normal; white-space: nowrap; color: color-mix(in srgb, var(--hb-hre-accent) 70%, #fff); }
 .hb-hre-stack { display: flex; margin-top: 10px; }
 .hb-hre-stack .hb-hre-av + .hb-hre-av { margin-left: -8px; }
 .hb-hre-ok {
@@ -309,7 +308,7 @@ const css = `
   align-items: baseline;
   gap: 6px;
   margin-top: 2px;
-  font-family: var(--font-serif, Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 34px;
   line-height: 1;
 }
@@ -370,9 +369,9 @@ const css = `
   font-size: 15px;
   white-space: nowrap;
 }
-.hb-hre-group li[data-style="0"] { font-family: var(--font-serif, Georgia, serif); font-size: 19px; font-style: italic; }
+.hb-hre-group li[data-style="0"] { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 19px; }
 .hb-hre-group li[data-style="1"] { font-weight: 700; letter-spacing: .16em; text-transform: uppercase; font-size: 12.5px; }
-.hb-hre-group li[data-style="2"] { font-family: var(--font-serif, Georgia, serif); font-size: 19px; }
+.hb-hre-group li[data-style="2"] { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 19px; }
 .hb-hre-group li[data-style="3"] { font-weight: 600; letter-spacing: -.02em; font-size: 16px; }
 @container (max-width: 760px) {
   .hb-hre-main { grid-template-columns: minmax(0, 1fr); }

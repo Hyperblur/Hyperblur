@@ -112,7 +112,7 @@ const css = `
 .hb-ye2-text { min-width: 0; color: #a1a1a1; font-size: 13.5px; }
 .hb-ye2-text strong { color: #ededed; font-weight: 600; }
 .hb-ye2-text em { color: #d4d4d4; font-style: normal; font-weight: 500; }
-.hb-ye2-row[data-unread="true"] .hb-ye2-text em { color: #ededed; }
+.hb-ye2-row[data-unread="true"] .hb-ye2-text em { font-style: normal; color: #ededed; }
 .hb-ye2-meta { display: flex; gap: 6px; margin-top: 3px; color: #737373; font-size: 12px; }
 .hb-ye2-side { display: flex; align-items: center; gap: 4px; min-height: 36px; }
 .hb-ye2-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--hb-ye2-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--hb-ye2-accent) 22%, transparent); }
