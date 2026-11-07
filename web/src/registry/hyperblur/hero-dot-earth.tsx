@@ -514,7 +514,6 @@ export function HeroDotEarth({
     const pace = Math.max(0, Number.isFinite(speed) ? speed : 1);
 
     const nGen = Math.round(14000 * mult);
-    const nBand = Math.round(1500 * mult);
     const nDust = Math.round(240 * Math.min(1.4, mult));
     const mask = landMask();
     const gx = new Float32Array(nGen);
@@ -537,7 +536,7 @@ export function HeroDotEarth({
       kept++;
     }
     const nBase = kept;
-    const total = nBase + nBand;
+    const total = nBase;
 
     const bx = gx;
     const by = gy;
@@ -545,14 +544,6 @@ export function HeroDotEarth({
     const bl = gl;
     const bs = new Float32Array(total);
     for (let i = 0; i < nBase; i++) bs[i] = 0.75 + hash(i, 3) * 0.45;
-    const lat = new Float32Array(nBand);
-    const lon = new Float32Array(nBand);
-    for (let j = 0; j < nBand; j++) {
-      const g = hash(j, 21) + hash(j, 22) + hash(j, 23) - 1.5;
-      lat[j] = g * 0.16;
-      lon[j] = hash(j, 24) * TAU;
-      bs[nBase + j] = 0.8 + hash(j, 25) * 0.5;
-    }
     const da = new Float32Array(nDust);
     const dr = new Float32Array(nDust);
     const dz = new Float32Array(nDust);
@@ -637,7 +628,6 @@ export function HeroDotEarth({
       ctx.fillRect(0, 0, w, h);
 
       const spin = -1.15 + time * 0.09 * pace + curX * 0.45;
-      const drift = -time * 0.16 * pace;
       const tiltX = 0.34 + curY * 0.3;
       const tiltZ = 0.4;
       const cY = Math.cos(spin);
@@ -651,23 +641,9 @@ export function HeroDotEarth({
 
       counts.fill(0);
       for (let i = 0; i < total; i++) {
-        let x: number;
-        let y: number;
-        let z: number;
-        let band = 0;
-        if (i < nBase) {
-          x = bx[i];
-          y = by[i];
-          z = bz[i];
-        } else {
-          const j = i - nBase;
-          const lo = lon[j] + drift;
-          const cl = Math.cos(lat[j]);
-          x = Math.cos(lo) * cl;
-          y = Math.sin(lat[j]);
-          z = Math.sin(lo) * cl;
-          band = 1 - Math.min(1, Math.abs(lat[j]) / 0.16);
-        }
+        const x = bx[i];
+        const y = by[i];
+        const z = bz[i];
         const x1 = x * cY + z * sY;
         const z1 = -x * sY + z * cY;
         const y2 = y * cX - z1 * sX;
@@ -679,15 +655,14 @@ export function HeroDotEarth({
         sy[i] = cy + oy - y3 * R * p;
         const front = (z2 + 1) * 0.5;
         const rim = z2 > -0.08 ? Math.exp(-(z2 * z2) / 0.01) : 0;
-        let b = 0.04 + 0.62 * front * front + 0.5 * rim + band * (0.18 + 0.32 * front);
-        if (i < nBase) b = bl[i] ? 0.34 + 0.5 * front + 0.5 * rim : b * 0.3;
+        let b = bl[i] ? 0.34 + 0.5 * front + 0.5 * rim : (0.04 + 0.62 * front * front + 0.5 * rim) * 0.3;
         if (b > 0.999) b = 0.999;
         const bi = Math.floor(b * ALPHAS.length);
         const rr = x3 * x3 + y3 * y3;
         let ti = Math.floor(rr * rr * TONES);
         if (ti >= TONES) ti = TONES - 1;
         let s = bs[i] * (0.62 + 0.55 * front + 0.25 * rim);
-        if (i < nBase) s *= bl[i] ? 1.18 : 0.8;
+        s *= bl[i] ? 1.18 : 0.8;
         if (s > 1.4) s = 1.4;
         if (s < 0.6) s = 0.6;
         ss[i] = s;
