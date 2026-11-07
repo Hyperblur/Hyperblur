@@ -6,7 +6,6 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { TerminalBoot } from "@/components/site/terminal-boot";
 import { themesEnabled } from "@/components/site/theme-flag";
 import { SITE_URL, effects } from "@/registry/meta";
-import { Analytics } from "@vercel/analytics/next";
 
 const chakra = Chakra_Petch({
   variable: "--font-chakra",
@@ -84,7 +83,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <SiteFooter />
         {themesEnabled ? <TerminalBoot count={effects.length} /> : null}
-        <Analytics />
       </body>
     </html>
   );
