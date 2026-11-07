@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://hyperblur.vercel.app">
+  <a href="https://hyperblur.dev">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="brand/hyperblur-logo-dark-bg.svg">
       <source media="(prefers-color-scheme: light)" srcset="brand/hyperblur-logo-light-bg.svg">

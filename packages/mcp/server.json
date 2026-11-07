@@ -3,7 +3,7 @@
   "name": "io.github.Hyperblur/mcp",
   "title": "Hyperblur",
   "description": "Search, inspect and install copy-paste React effects, components and page blocks.",
-  "websiteUrl": "https://hyperblur.vercel.app",
+  "websiteUrl": "https://hyperblur.dev",
   "repository": {
     "url": "https://github.com/Hyperblur/Hyperblur",
     "source": "github",
@@ -21,11 +21,11 @@
       "environmentVariables": [
         {
           "name": "HYPERBLUR_SITE_URL",
-          "description": "Site that serves the catalog. Defaults to https://hyperblur.vercel.app.",
+          "description": "Site that serves the catalog. Defaults to https://hyperblur.dev.",
           "isRequired": false,
           "isSecret": false,
           "format": "string",
-          "default": "https://hyperblur.vercel.app"
+          "default": "https://hyperblur.dev"
         }
       ]
     }
