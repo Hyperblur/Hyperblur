@@ -240,6 +240,13 @@ import { listsDemos } from "@/registry/parts/lists.demos";
 import { sidebarsDemos } from "@/registry/parts/sidebars.demos";
 import { effectsDemos } from "@/registry/parts/effects.demos";
 import { dashboardsDemos } from "@/registry/parts/dashboards.demos";
+import { ordDDemos } from "@/registry/parts/ordD.demos";
+import { ordCDemos } from "@/registry/parts/ordC.demos";
+import { ordBDemos } from "@/registry/parts/ordB.demos";
+import { ordADemos } from "@/registry/parts/ordA.demos";
+import { menusCDemos } from "@/registry/parts/menusC.demos";
+import { menusBDemos } from "@/registry/parts/menusB.demos";
+import { menusADemos } from "@/registry/parts/menusA.demos";
 import { mapsADemos } from "@/registry/parts/mapsA.demos";
 import { hudADemos } from "@/registry/parts/hudA.demos";
 import { localADemos } from "@/registry/parts/localA.demos";
@@ -1366,6 +1373,13 @@ export const demos: Record<string, ReactNode> = {
   ...sidebarsDemos,
   ...effectsDemos,
   ...dashboardsDemos,
+  ...ordDDemos,
+  ...ordCDemos,
+  ...ordBDemos,
+  ...ordADemos,
+  ...menusCDemos,
+  ...menusBDemos,
+  ...menusADemos,
   ...mapsADemos,
   ...hudADemos,
   ...localADemos,
