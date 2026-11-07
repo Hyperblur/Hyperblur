@@ -92,6 +92,20 @@ const templates = [
     tone: "from-[#3b1f2b] to-[#d9577a]",
   },
   {
+    slug: "landing-burger",
+    kind: "Local business",
+    title: "Burger joint",
+    text: "Smash & Co.: a loud, dark page with a quick-order hero, a specials ticker, a full menu with a working bag and delivery or pickup checkout.",
+    tone: "from-[#0b0b0b] to-[#ff3b2f]",
+  },
+  {
+    slug: "landing-menu",
+    kind: "Local business",
+    title: "Digital menu restaurant",
+    text: "Verde: a menu-first site with lunch, dinner, drinks and kids menus, dietary filters, allergen info on every dish and a live reservation card.",
+    tone: "from-[#1f4d3a] to-[#f6f1e7]",
+  },
+  {
     slug: "landing-lab",
     kind: "Landing",
     title: "Experiments shelf",

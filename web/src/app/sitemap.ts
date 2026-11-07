@@ -22,6 +22,8 @@ const staticRoutes = [
   "/templates/landing-store",
   "/templates/landing-fitness",
   "/templates/landing-salon",
+  "/templates/landing-burger",
+  "/templates/landing-menu",
   "/templates/landing-lab",
   "/templates/pricing",
   "/templates/portfolio",

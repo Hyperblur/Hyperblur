@@ -6,7 +6,7 @@ export type EffectCategory =
   | "hero" | "features" | "bento" | "social-proof" | "contact" | "footer" | "comparison" | "navigation" | "auth"
   | "cta" | "faq" | "pricing" | "stats" | "not-found" | "profile" | "about" | "waitlist" | "showcase"
   | "how-it-works" | "download" | "blog" | "ecommerce"
-  | "loaders" | "payments" | "checkout" | "hud" | "maps" | "local";
+  | "loaders" | "payments" | "checkout" | "hud" | "maps" | "local" | "menus" | "ordering";
 
 export interface EffectProp {
   name: string;
@@ -86,6 +86,8 @@ export const categories: { id: EffectCategory; label: string; group: EffectGroup
   { id: "ecommerce", label: "Ecommerce", group: "blocks" },
   { id: "checkout", label: "Checkout & billing", group: "blocks" },
   { id: "local", label: "Local business", group: "blocks" },
+  { id: "menus", label: "Menus & ordering", group: "blocks" },
+  { id: "ordering", label: "Ordering kit", group: "components" },
 ];
 
 export const sectionCategoryIds = categories.filter((c) => c.group === "blocks").map((c) => c.id);
@@ -103,6 +105,13 @@ import { listsMeta } from "./parts/lists.meta.ts";
 import { sidebarsMeta } from "./parts/sidebars.meta.ts";
 import { effectsMeta } from "./parts/effects.meta.ts";
 import { dashboardsMeta } from "./parts/dashboards.meta.ts";
+import { ordDMeta } from "./parts/ordD.meta.ts";
+import { ordCMeta } from "./parts/ordC.meta.ts";
+import { ordBMeta } from "./parts/ordB.meta.ts";
+import { ordAMeta } from "./parts/ordA.meta.ts";
+import { menusCMeta } from "./parts/menusC.meta.ts";
+import { menusBMeta } from "./parts/menusB.meta.ts";
+import { menusAMeta } from "./parts/menusA.meta.ts";
 import { mapsAMeta } from "./parts/mapsA.meta.ts";
 import { hudAMeta } from "./parts/hudA.meta.ts";
 import { localAMeta } from "./parts/localA.meta.ts";
@@ -1243,6 +1252,13 @@ const allEffects: EffectMeta[] = [
   ...sidebarsMeta,
   ...effectsMeta,
   ...dashboardsMeta,
+  ...ordDMeta,
+  ...ordCMeta,
+  ...ordBMeta,
+  ...ordAMeta,
+  ...menusCMeta,
+  ...menusBMeta,
+  ...menusAMeta,
   ...mapsAMeta,
   ...hudAMeta,
   ...localAMeta,
@@ -1300,7 +1316,7 @@ const allEffects: EffectMeta[] = [
 ];
 
 const newBatches: EffectMeta[][] = [
-  hudAMeta, mapsAMeta, localAMeta,
+  menusAMeta, menusBMeta, menusCMeta, ordAMeta, ordBMeta, ordCMeta, ordDMeta,
 ];
 
 const newSlugs = new Set(newBatches.flat().map((e) => e.slug));
