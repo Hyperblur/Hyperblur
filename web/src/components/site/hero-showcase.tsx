@@ -281,7 +281,7 @@ export function HeroShowcase() {
               Replay
             </button>
           </div>
-          <div key={key} className="hb-dots relative flex min-h-72 flex-1 items-center justify-center overflow-hidden bg-bg">
+          <div key={key} className="hb-dots hb-demo relative flex min-h-72 flex-1 items-center justify-center overflow-hidden bg-bg">
             {preset.render()}
           </div>
           <div className="flex flex-wrap gap-2 border-t border-line p-3">

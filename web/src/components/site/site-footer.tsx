@@ -4,7 +4,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <p>
           <span className="font-display font-bold uppercase tracking-wide text-ink">Hyperblur</span> · visual
-          effects for React
+          effects for React<span className="hb-term-cursor" aria-hidden="true" />
         </p>
         <p>Built with React, Tailwind and the shadcn registry. Free while in beta.</p>
       </div>

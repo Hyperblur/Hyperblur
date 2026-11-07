@@ -13,7 +13,7 @@ interface ShowcaseTileProps {
 export function ShowcaseTile({ href, title, category, children, tall = false }: ShowcaseTileProps) {
   return (
     <div className="group flex min-w-0 flex-col rounded-2xl border border-white/[0.06] bg-[#0f0f0f] p-3 transition-colors hover:border-white/[0.12]">
-      <div className={`relative flex ${tall ? "h-80" : "h-64"} items-center justify-center overflow-hidden rounded-xl border border-white/[0.04] bg-[#0a0a0a]`}>
+      <div className={`hb-demo relative flex ${tall ? "h-80" : "h-64"} items-center justify-center overflow-hidden rounded-xl border border-white/[0.04] bg-[#0a0a0a]`}>
         <PreviewStage>{children}</PreviewStage>
       </div>
       <Link href={href} className="flex items-center justify-between px-2 pb-1 pt-3">

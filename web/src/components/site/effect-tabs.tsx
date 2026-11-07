@@ -53,7 +53,7 @@ export function EffectTabs({ preview, source, sourceTitle, prompt }: EffectTabsP
         {tab === "Preview" ? (
           <div
             key={key}
-            className="hb-dots hb-full relative flex min-h-80 items-center justify-center overflow-hidden rounded-xl border border-white/[0.06] bg-[#0a0a0a]"
+            className="hb-dots hb-full hb-demo relative flex min-h-80 items-center justify-center overflow-hidden rounded-xl border border-white/[0.06] bg-[#0a0a0a]"
           >
             {preview}
           </div>

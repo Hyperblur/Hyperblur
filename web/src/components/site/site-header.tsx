@@ -1,9 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MobileMenu } from "./mobile-menu";
+import { ThemePicker } from "./theme-picker";
+import { effects } from "@/registry/meta";
 
 export function SiteHeader() {
   return (
+    <>
+    <div className="hb-term-bar" aria-hidden="true">
+      <span>Hyperblur terminal ver. 1.0</span>
+      <span>{effects.length} items</span>
+    </div>
     <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-5">
@@ -38,9 +45,10 @@ export function SiteHeader() {
         </div>
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 sm:flex">
+            <ThemePicker />
             <a
               href="https://github.com/Hyperblur/Hyperblur"
-              className="hb-btn hb-btn-ghost hb-btn-sm"
+              className="hb-btn hb-btn-ghost hb-btn-sm hidden lg:inline-flex"
               target="_blank"
               rel="noreferrer"
             >
@@ -54,5 +62,6 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
+    </>
   );
 }
