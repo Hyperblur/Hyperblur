@@ -29,11 +29,7 @@ export interface EffectMeta {
   isNew?: boolean;
 }
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "https://hyperblur.dev");
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hyperblur.dev";
 
 export const groups: { id: EffectGroup; label: string; href: string }[] = [
   { id: "effects", label: "Effects", href: "/effects" },
