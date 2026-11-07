@@ -7150,7 +7150,7 @@
       "name": "hero-dot-earth",
       "type": "registry:component",
       "title": "Hero Dot Earth",
-      "description": "A pure black hero with a huge canvas planet of thousands of tiny dots where the continents stand out bright against a sparse ocean. It spins on a tilted axis, leans toward the pointer and carries a bright belt drifting the other way, with a bottom-aligned headline and an install command.",
+      "description": "A pure black hero with a huge canvas planet of thousands of tiny dots where the continents stand out bright against a sparse ocean. It spins on a tilted axis, leans toward the pointer, with a bottom-aligned headline and an install command.",
       "categories": [
         "hero",
         "hero",

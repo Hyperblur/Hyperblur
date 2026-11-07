@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { TerminalBoot } from "@/components/site/terminal-boot";
+import { themesEnabled } from "@/components/site/theme-flag";
 import { SITE_URL, effects } from "@/registry/meta";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -76,13 +77,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${chakra.variable} ${geist.variable} ${geistMono.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable} ${rajdhani.variable} h-full antialiased`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {themesEnabled ? <script dangerouslySetInnerHTML={{ __html: themeScript }} /> : null}
       </head>
       <body className="min-h-full flex flex-col">
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
-        <TerminalBoot count={effects.length} />
+        {themesEnabled ? <TerminalBoot count={effects.length} /> : null}
         <Analytics />
       </body>
     </html>
