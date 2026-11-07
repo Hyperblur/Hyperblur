@@ -236,7 +236,7 @@ const css = `
 .hb-ki3-body p {
   margin: 0 0 20px;
   color: #c9c9c9;
-  font-family: var(--font-serif, "Instrument Serif", "Iowan Old Style", Georgia, serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(19px, 2.3cqi, 22px);
   line-height: 1.6;
   text-wrap: pretty;

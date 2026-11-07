@@ -68,8 +68,8 @@ export function SiteTocScrollspyDemo() {
         >
           {sections.map((s) => (
             <section id={s.id} key={s.id} className="min-h-[132px] pb-4">
-              <h4 className="font-serif m-0 text-[19px] leading-[1.1] text-[#ededed]">{s.title}</h4>
-              <p className="font-serif m-0 mt-1.5 text-[14px] leading-[1.35] text-[#a1a1a1]">{s.text}</p>
+              <h4 className="font-sans m-0 text-[19px] leading-[1.1] text-[#ededed]">{s.title}</h4>
+              <p className="font-sans m-0 mt-1.5 text-[14px] leading-[1.35] text-[#a1a1a1]">{s.text}</p>
             </section>
           ))}
           <div className="h-[90px]" aria-hidden="true" />

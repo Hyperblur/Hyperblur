@@ -36,11 +36,11 @@ export const ybDemos: Record<string, ReactNode> = {
   ),
   "loader-hourglass": (
     <div className={frame}>
-      <div className="box-border flex w-full max-w-[340px] items-center gap-5 rounded-2xl border border-[#2c2519] bg-[#15110b] p-5 text-left font-serif text-[#f3ead9]">
+      <div className="box-border flex w-full max-w-[340px] items-center gap-5 rounded-2xl border border-[#2c2519] bg-[#15110b] p-5 text-left font-sans text-[#f3ead9]">
         <LoaderHourglass size={72} color="#e8c46a" accent="#a9863f" />
         <div className="min-w-0 flex-1">
           <p className="m-0 font-sans text-[10px] uppercase tracking-[0.14em] text-[#b39a6a]">Maison Alba</p>
-          <p className="m-0 mt-1 text-[26px] italic leading-[1.05]">Setting your table</p>
+          <p className="m-0 mt-1 text-[26px] leading-[1.05]">Setting your table</p>
           <p className="m-0 mt-2 font-sans text-xs text-[#a89b82]">Friday, 7:30 pm &middot; 2 guests</p>
           <p className="m-0 mt-0.5 font-sans text-xs text-[#7d725e]">Usually under a minute</p>
         </div>
@@ -130,13 +130,13 @@ export const ybDemos: Record<string, ReactNode> = {
   ),
   "loader-book-flip": (
     <div className={frame}>
-      <div className="box-border flex w-full max-w-[340px] items-center gap-5 rounded-2xl border border-[#262626] bg-[#111111] p-5 text-left font-serif text-[#ededed]">
+      <div className="box-border flex w-full max-w-[340px] items-center gap-5 rounded-2xl border border-[#262626] bg-[#111111] p-5 text-left font-sans text-[#ededed]">
         <div className="flex w-[84px] flex-none justify-center">
           <LoaderBookFlip size={76} />
         </div>
         <div className="min-w-0 flex-1">
           <p className="m-0 font-sans text-[10px] uppercase tracking-[0.14em] text-[#8f8f8f]">Library</p>
-          <p className="m-0 mt-1 text-2xl italic leading-[1.05]">Opening The Long Meridian</p>
+          <p className="m-0 mt-1 text-2xl leading-[1.05]">Opening The Long Meridian</p>
           <p className="m-0 mt-2 font-sans text-xs text-[#8f8f8f]">Chapter 12 &middot; 31 min left</p>
           <div className="mt-2 h-0.5 overflow-hidden rounded-full bg-[#1f1f1f]">
             <div className="h-full w-2/5 bg-[#7fb3ff]" />

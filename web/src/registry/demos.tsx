@@ -240,6 +240,9 @@ import { listsDemos } from "@/registry/parts/lists.demos";
 import { sidebarsDemos } from "@/registry/parts/sidebars.demos";
 import { effectsDemos } from "@/registry/parts/effects.demos";
 import { dashboardsDemos } from "@/registry/parts/dashboards.demos";
+import { mapsADemos } from "@/registry/parts/mapsA.demos";
+import { hudADemos } from "@/registry/parts/hudA.demos";
+import { localADemos } from "@/registry/parts/localA.demos";
 import { sectionsYHDemos } from "@/registry/parts/sectionsYH.demos";
 import { sectionsYIDemos } from "@/registry/parts/sectionsYI.demos";
 import { ydDemos } from "@/registry/parts/yd.demos";
@@ -318,7 +321,7 @@ const baseDemos: Record<string, ReactNode> = {
     <Scene style={{ background: "radial-gradient(70% 60% at 50% 115%, rgba(47,123,255,0.4), rgba(47,123,255,0) 70%)" }}>
       <Stage className="gap-2">
         <span className="font-grotesk text-[11px] font-medium uppercase tracking-[0.32em] text-blue-soft">Model R · Launch mode</span>
-        <MotionBlurText text="2.1 seconds" direction="left" distance={60} trigger="hover" className="font-serif text-5xl italic text-white" />
+        <MotionBlurText text="2.1 seconds" direction="left" distance={60} trigger="hover" className="font-sans text-5xl text-white" />
         <span className="font-mono text-[11px] text-white/45">0–100 km/h · 1,020 hp</span>
       </Stage>
     </Scene>
@@ -342,7 +345,7 @@ const baseDemos: Record<string, ReactNode> = {
       }}
     >
       <Stage className="gap-2">
-        <NeonText text="Open late" color="#ff2fa0" className="font-serif text-6xl italic" />
+        <NeonText text="Open late" color="#ff2fa0" className="font-sans text-6xl" />
         <span className="font-grotesk text-[11px] uppercase tracking-[0.4em] text-white/55">Bar Lumen · Est. 1987</span>
       </Stage>
     </Scene>
@@ -390,7 +393,7 @@ const baseDemos: Record<string, ReactNode> = {
   "gradient-text": (
     <Scene style={{ background: "radial-gradient(60% 55% at 50% 50%, rgba(127,179,255,0.12), rgba(127,179,255,0) 70%)" }}>
       <Stage className="gap-1">
-        <span className="font-serif text-lg italic text-white/60">Introducing</span>
+        <span className="font-sans text-lg text-white/60">Introducing</span>
         <GradientText
           text="Aurora Pro"
           colors={["#2f7bff", "#19c3f5", "#ff2fa0", "#2f7bff"]}
@@ -403,11 +406,11 @@ const baseDemos: Record<string, ReactNode> = {
   "split-text": (
     <Scene style={{ background: "radial-gradient(80% 70% at 80% 100%, rgba(255,170,110,0.12), rgba(255,170,110,0) 70%), #0c0b0a" }}>
       <div className="absolute inset-x-5 top-3.5 flex items-baseline justify-between border-b border-white/10 pb-2">
-        <span className="font-serif text-base italic text-white/80">Field Notes</span>
+        <span className="font-sans text-base text-white/80">Field Notes</span>
         <Label>Issue 42 · Winter</Label>
       </div>
       <Stage className="gap-3 pt-8">
-        <SplitText text="Slow mornings" trigger="mount" stagger={0.04} className="font-serif text-5xl leading-none text-white" />
+        <SplitText text="Slow mornings" trigger="mount" stagger={0.04} className="font-sans text-5xl leading-none text-white" />
         <span className="font-grotesk text-[11px] uppercase tracking-[0.3em] text-white/45">A guide to doing less</span>
       </Stage>
     </Scene>
@@ -452,7 +455,7 @@ const baseDemos: Record<string, ReactNode> = {
     <Scene>
       <div className="absolute inset-0 flex flex-col justify-center gap-1 pb-4">
         <ScrollVelocityText text="New season drop" baseSpeed={60} gap={40} className="font-grotesk text-5xl font-bold uppercase tracking-tight text-white" />
-        <ScrollVelocityText text="Free shipping over $80" baseSpeed={45} direction={-1} gap={40} className="font-serif text-4xl italic text-blue-soft" />
+        <ScrollVelocityText text="Free shipping over $80" baseSpeed={45} direction={-1} gap={40} className="font-sans text-4xl text-blue-soft" />
       </div>
       <Label className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap">Scroll to speed up</Label>
     </Scene>
@@ -465,7 +468,7 @@ const baseDemos: Record<string, ReactNode> = {
       </div>
       <Stage className="gap-1">
         <StrokeText text="VOID" strokeWidth={1.5} color="#ffffff" fill="#2f7bff" className="font-grotesk text-[88px] font-bold leading-none tracking-tight" />
-        <span className="font-serif text-base italic text-white/55">Sculpture after absence</span>
+        <span className="font-sans text-base text-white/55">Sculpture after absence</span>
       </Stage>
       <Label className="absolute bottom-3.5 right-5">Hover to fill</Label>
     </Scene>
@@ -506,7 +509,7 @@ const baseDemos: Record<string, ReactNode> = {
           <Photo bg={bg.kyoto} className="h-[140px] w-full">
             <Hills fill="#1c0f2a" className="h-12" />
             <div className="absolute bottom-3 left-4 text-left">
-              <div className="font-serif text-2xl italic leading-tight text-white">Kyoto, 6:12 am</div>
+              <div className="font-sans text-2xl leading-tight text-white">Kyoto, 6:12 am</div>
               <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">X100V · 23 mm · f/2</div>
             </div>
           </Photo>
@@ -524,7 +527,7 @@ const baseDemos: Record<string, ReactNode> = {
             </Photo>
             <div className="min-w-0 flex-1">
               <Label className="text-blue-soft">Now playing</Label>
-              <div className="mt-0.5 truncate font-serif text-xl leading-tight text-white">Midnight Drive</div>
+              <div className="mt-0.5 truncate font-sans text-xl leading-tight text-white">Midnight Drive</div>
               <div className="truncate text-xs text-white/50">Nova Lane · Afterglow</div>
               <div className="mt-2 h-1 rounded-full bg-white/10">
                 <div className="h-full w-2/5 rounded-full bg-white" />
@@ -670,7 +673,7 @@ const baseDemos: Record<string, ReactNode> = {
       <div className="absolute inset-x-0 bottom-0 h-5 bg-black" />
       <Label className="absolute left-4 top-7 text-white/70">Scene 14 · Take 3</Label>
       <Label className="absolute right-4 top-7 text-white/70">35 mm</Label>
-      <div className="absolute inset-x-4 bottom-8 text-center font-serif text-xl italic text-[#fff3c4]" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.9)" }}>
+      <div className="absolute inset-x-4 bottom-8 text-center font-sans text-xl text-[#fff3c4]" style={{ textShadow: "0 1px 3px rgba(0,0,0,0.9)" }}>
         &ldquo;I thought we had more time.&rdquo;
       </div>
       <FilmGrain opacity={0.35} />
@@ -702,7 +705,7 @@ const baseDemos: Record<string, ReactNode> = {
       <Hills fill="#04060a" className="h-12" />
       <Stage className="gap-1 pb-6">
         <Label className="text-[#8dffd0]/80">Tromsø · 69.6° N</Label>
-        <span className="font-serif text-4xl text-white">Northern lights</span>
+        <span className="font-sans text-4xl text-white">Northern lights</span>
         <span className="font-mono text-[11px] text-white/55">Kp 6 · tonight 22:00 – 02:00</span>
       </Stage>
     </Scene>
@@ -743,11 +746,11 @@ const baseDemos: Record<string, ReactNode> = {
           className="flex h-[72px] w-[60px] items-center justify-center rounded-xl border border-white/25"
           style={{ background: "linear-gradient(160deg, rgba(255,236,200,0.6), rgba(255,180,90,0.25) 45%, rgba(120,70,20,0.55))" }}
         >
-          <span className="font-serif text-[11px] italic text-[#3a2410]">Lumière</span>
+          <span className="font-sans text-[11px] text-[#3a2410]">Lumière</span>
         </div>
       </div>
       <div className="absolute bottom-9 left-5 text-left">
-        <div className="font-serif text-[28px] leading-none text-white">Eau Lumière</div>
+        <div className="font-sans text-[28px] leading-none text-white">Eau Lumière</div>
         <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/55">50 ml · $128</div>
       </div>
     </Scene>
@@ -781,7 +784,7 @@ const baseDemos: Record<string, ReactNode> = {
       <div className="absolute inset-0 bg-[radial-gradient(70%_70%_at_50%_50%,rgba(10,10,10,0.55),rgba(10,10,10,0)_75%)]" />
       <Stage className="gap-1.5">
         <Label className="text-white/75">Autumn / Winter 26</Label>
-        <span className="font-serif text-[40px] leading-none text-white">Maison Velours</span>
+        <span className="font-sans text-[40px] leading-none text-white">Maison Velours</span>
         <span className="mt-1 text-xs tracking-wide text-white/70">The cashmere edit, now online</span>
       </Stage>
     </Scene>
@@ -859,7 +862,7 @@ const baseDemos: Record<string, ReactNode> = {
       </div>
       <Label className="absolute right-4 top-5">Zoom 100%</Label>
       <Stage className="gap-1.5">
-        <span className="font-serif text-4xl italic text-white">Infinite canvas</span>
+        <span className="font-sans text-4xl text-white">Infinite canvas</span>
         <span className="text-xs text-white/50">move the cursor across the grid</span>
       </Stage>
     </Scene>
@@ -898,7 +901,7 @@ const baseDemos: Record<string, ReactNode> = {
         <div className="flex w-full max-w-[280px] items-center gap-3 rounded-2xl border border-white/10 bg-[#111113] p-3 text-left">
           <Photo bg={bg.linen} className="h-[76px] w-[64px] shrink-0 rounded-xl" />
           <div className="min-w-0 flex-1">
-            <div className="truncate font-serif text-xl leading-tight text-white">Linen overshirt</div>
+            <div className="truncate font-sans text-xl leading-tight text-white">Linen overshirt</div>
             <div className="text-xs text-white/50">Sand · M · $64</div>
             <RippleClick color="rgba(255,255,255,0.45)" className="mt-2.5 rounded-full bg-blue">
               <span className="inline-flex cursor-pointer select-none items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white">
@@ -917,8 +920,8 @@ const baseDemos: Record<string, ReactNode> = {
       <BlobCursor color="#ff6a3d" size={56} />
       <Stage className="gap-2">
         <span className="font-grotesk text-[11px] uppercase tracking-[0.35em] text-white/50">Studio Ondine</span>
-        <span className="font-serif text-[44px] leading-none text-white">
-          Make it <span className="italic text-[#ffb08a]">move</span>
+        <span className="font-sans text-[44px] leading-none text-white">
+          Make it <span className=" text-[#ffb08a]">move</span>
         </span>
         <span className="text-xs text-white/45">move the cursor</span>
       </Stage>
@@ -931,7 +934,7 @@ const baseDemos: Record<string, ReactNode> = {
         <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ffd166]/15 text-[#ffd166]">
           <Icon d={icons.check} className="h-5 w-5" />
         </span>
-        <span className="font-serif text-3xl text-white">Order confirmed</span>
+        <span className="font-sans text-3xl text-white">Order confirmed</span>
         <span className="font-mono text-[11px] text-white/50">#HB-20931 · arrives Thursday</span>
         <Label className="mt-1">Click anywhere</Label>
       </Stage>
@@ -949,7 +952,7 @@ const baseDemos: Record<string, ReactNode> = {
         <span className="whitespace-nowrap font-mono text-[10px] text-white/55">Brush 7 px</span>
       </div>
       <Stage className="gap-1 pt-6">
-        <span className="font-serif text-4xl italic text-white/85">Draw something</span>
+        <span className="font-sans text-4xl text-white/85">Draw something</span>
         <span className="text-xs text-white/45">the cursor leaves a ribbon</span>
       </Stage>
     </Scene>
@@ -962,7 +965,7 @@ const baseDemos: Record<string, ReactNode> = {
       </div>
       <div className="absolute left-4 top-9 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-left backdrop-blur-md">
         <div className="text-[10px] text-white/70">Lisbon</div>
-        <div className="font-serif text-2xl leading-none text-white">21°</div>
+        <div className="font-sans text-2xl leading-none text-white">21°</div>
       </div>
       <div className="absolute inset-x-0 bottom-3 flex justify-center">
         <Dock
@@ -995,8 +998,8 @@ const baseDemos: Record<string, ReactNode> = {
       </div>
       <div className="absolute inset-x-5 bottom-4 text-left">
         <Label>Ondine Studio · 2019 – 2026</Label>
-        <div className="mt-1 font-serif text-[26px] leading-[1.15] text-white">
-          Selected work for <span className="italic text-blue-soft">curious</span> brands
+        <div className="mt-1 font-sans text-[26px] leading-[1.15] text-white">
+          Selected work for <span className=" text-blue-soft">curious</span> brands
         </div>
       </div>
     </Scene>
@@ -1028,7 +1031,7 @@ const baseDemos: Record<string, ReactNode> = {
             <Photo bg={bg.lisbon} className="h-full w-full rounded-2xl border border-white/10">
               <Hills fill="#2a1430" className="h-10" />
               <div className="absolute left-4 top-3 text-left">
-                <div className="font-serif text-2xl leading-tight text-white">Lisbon</div>
+                <div className="font-sans text-2xl leading-tight text-white">Lisbon</div>
                 <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/75">4 nights</div>
               </div>
               <span className="absolute right-3 top-3 rounded-full bg-black/40 px-2 py-0.5 font-mono text-[10px] text-white">from $420</span>
@@ -1036,7 +1039,7 @@ const baseDemos: Record<string, ReactNode> = {
             <Photo bg={bg.reykjavik} className="h-full w-full rounded-2xl border border-white/10">
               <Hills fill="#06121f" className="h-12" />
               <div className="absolute left-4 top-3 text-left">
-                <div className="font-serif text-2xl leading-tight text-white">Reykjavík</div>
+                <div className="font-sans text-2xl leading-tight text-white">Reykjavík</div>
                 <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/75">6 nights</div>
               </div>
               <span className="absolute right-3 top-3 rounded-full bg-black/40 px-2 py-0.5 font-mono text-[10px] text-white">from $780</span>
@@ -1044,7 +1047,7 @@ const baseDemos: Record<string, ReactNode> = {
             <Photo bg={bg.marrakesh} className="h-full w-full rounded-2xl border border-white/10">
               <Hills fill="#2a0f0b" className="h-9" />
               <div className="absolute left-4 top-3 text-left">
-                <div className="font-serif text-2xl leading-tight text-white">Marrakesh</div>
+                <div className="font-sans text-2xl leading-tight text-white">Marrakesh</div>
                 <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/75">5 nights</div>
               </div>
               <span className="absolute right-3 top-3 rounded-full bg-black/40 px-2 py-0.5 font-mono text-[10px] text-white">from $510</span>
@@ -1279,7 +1282,7 @@ const baseDemos: Record<string, ReactNode> = {
           front={
             <div className="flex flex-col items-center">
               <Avatar name="Nora Vance" color="#2f7bff" size={34} />
-              <div className="mt-2 font-serif text-2xl leading-none text-white">Nora Vance</div>
+              <div className="mt-2 font-sans text-2xl leading-none text-white">Nora Vance</div>
               <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/50">Product designer</div>
             </div>
           }
@@ -1334,7 +1337,7 @@ const baseDemos: Record<string, ReactNode> = {
             <StarRating defaultValue={4.5} precision={0.5} size={24} />
             <span className="font-grotesk text-sm font-semibold text-white">4.5</span>
           </div>
-          <p className="mt-1.5 font-serif text-[15px] italic leading-snug text-white/70">&ldquo;Warm light, zero glare. My desk finally feels calm.&rdquo;</p>
+          <p className="mt-1.5 font-sans text-[15px] leading-snug text-white/70">&ldquo;Warm light, zero glare. My desk finally feels calm.&rdquo;</p>
         </div>
       </Stage>
     </Scene>
@@ -1363,6 +1366,9 @@ export const demos: Record<string, ReactNode> = {
   ...sidebarsDemos,
   ...effectsDemos,
   ...dashboardsDemos,
+  ...mapsADemos,
+  ...hudADemos,
+  ...localADemos,
   ...sectionsYHDemos,
   ...sectionsYIDemos,
   ...ydDemos,

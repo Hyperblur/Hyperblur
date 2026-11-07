@@ -42,9 +42,9 @@ const css = `
 .hb-qh4-inner { position: relative; max-width: 1120px; margin: 0 auto; display: grid; gap: 48px; align-items: end; }
 .hb-qh4-brand { display: flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: rgba(28,26,23,.6); margin-bottom: 28px; }
 .hb-qh4-brand i { width: 8px; height: 8px; border-radius: 50%; background: var(--hb-qh4-accent); }
-.hb-qh4-greet { margin: 0; font-family: var(--font-serif, "Iowan Old Style", Georgia, serif); font-weight: 400; font-size: clamp(48px, 9cqw, 104px); line-height: .95; letter-spacing: -.02em; }
+.hb-qh4-greet { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: clamp(48px, 9cqw, 104px); line-height: .95; letter-spacing: -.02em; }
 .hb-qh4-word { display: inline-block; opacity: 0; transform: translateY(.4em); animation: hb-qh4-rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
-.hb-qh4-greet em { font-style: italic; color: var(--hb-qh4-accent); }
+.hb-qh4-greet em { font-style: normal; color: var(--hb-qh4-accent); }
 .hb-qh4-note { margin: 24px 0 0; max-width: 380px; font-size: 15px; line-height: 1.6; color: rgba(28,26,23,.62); }
 .hb-qh4-form { display: grid; gap: 30px; max-width: 420px; width: 100%; justify-self: end; }
 .hb-qh4-field { position: relative; padding-top: 18px; }
@@ -68,7 +68,7 @@ const css = `
 .hb-qh4-spin { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; animation: hb-qh4-turn .7s linear infinite; }
 .hb-qh4-alert { margin: 0; font-size: 14px; color: #b42318; }
 .hb-qh4-done { max-width: 420px; justify-self: end; animation: hb-qh4-rise .6s ease both; }
-.hb-qh4-done p { margin: 0 0 10px; font-family: var(--font-serif, Georgia, serif); font-size: 36px; line-height: 1.1; }
+.hb-qh4-done p { margin: 0 0 10px; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 36px; line-height: 1.1; }
 .hb-qh4-done span { color: rgba(28,26,23,.6); font-size: 15px; }
 .hb-qh4-bar { margin-top: 20px; height: 2px; background: rgba(28,26,23,.12); overflow: hidden; }
 .hb-qh4-bar i { display: block; height: 100%; width: 100%; background: var(--hb-qh4-accent); transform-origin: left; animation: hb-qh4-load 1.8s ease forwards; }

@@ -128,7 +128,7 @@ export const listsDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={`${card} p-3`}>
         <div className="mb-1.5 flex items-baseline justify-between">
-          <span className="font-serif text-lg italic leading-5">Today&rsquo;s focus</span>
+          <span className="font-sans text-lg leading-5">Today&rsquo;s focus</span>
           <span className="font-grotesk text-[11px] text-[#8f8f8f]">Drag to reorder</span>
         </div>
         <SortableList

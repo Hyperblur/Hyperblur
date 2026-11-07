@@ -72,7 +72,7 @@ const css = `
 .hb-yg2-title {
   max-width: 640px;
   margin: 12px 0 0;
-  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(36px, 5.6cqw, 60px);
   font-weight: 400;
   line-height: 1;
@@ -189,7 +189,7 @@ const css = `
   transform: translateY(-4px);
 }
 .hb-yg2-big {
-  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: 64px;
   line-height: 0.9;
   letter-spacing: -0.03em;

@@ -90,7 +90,7 @@ const css = `
 .hb-qga-switch button { position: relative; z-index: 1; border: 0; background: none; color: #8f8f8f; font: inherit; font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: color .25s; white-space: nowrap; }
 .hb-qga-switch button[aria-checked="true"] { color: #0a0a0a; }
 .hb-qga-switch em { font-style: normal; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 999px; background: color-mix(in srgb, var(--hb-qga-accent) 25%, transparent); color: #c7d2fe; }
-.hb-qga-switch button[aria-checked="true"] em { background: var(--hb-qga-accent); color: #fff; }
+.hb-qga-switch button[aria-checked="true"] em { font-style: normal; background: var(--hb-qga-accent); color: #fff; }
 .hb-qga-knob { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); border-radius: 999px; background: #ededed; transition: transform .35s cubic-bezier(.3,1.3,.5,1); }
 .hb-qga-switch[data-period="yearly"] .hb-qga-knob { transform: translateX(100%); }
 .hb-qga-plans { display: grid; gap: 12px; padding: 20px 24px; }

@@ -25,7 +25,7 @@ export interface CtaSplitLightProps extends Omit<React.HTMLAttributes<HTMLElemen
 const css = `
 .hb-kca {
   --hb-kca-accent: #0f8a5f;
-  --hb-kca-serif: var(--font-serif, "Instrument Serif", "Iowan Old Style", Georgia, serif);
+  --hb-kca-serif: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   container-type: inline-size;
   position: relative;
   box-sizing: border-box;
@@ -67,14 +67,14 @@ const css = `
 .hb-kca-title {
   margin: 22px 0 0;
   max-width: 560px;
-  font-family: var(--hb-kca-serif);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(42px, 7.4cqi, 76px);
   font-weight: 400;
   line-height: .98;
   letter-spacing: -.02em;
   text-wrap: balance;
 }
-.hb-kca-hl { position: relative; display: inline-block; font-style: italic; color: var(--hb-kca-accent); white-space: nowrap; }
+.hb-kca-hl { position: relative; display: inline-block; color: var(--hb-kca-accent); white-space: nowrap; }
 .hb-kca-hl svg { position: absolute; left: -4%; bottom: -.12em; width: 108%; height: .32em; overflow: visible; }
 .hb-kca-hl path { stroke-dasharray: 220; stroke-dashoffset: 220; animation: hb-kca-draw 1.2s cubic-bezier(.65, 0, .35, 1) .4s forwards; }
 .hb-kca-sub { margin: 20px 0 0; max-width: 470px; color: #5b5850; font-size: 16.5px; line-height: 1.6; text-wrap: pretty; }
@@ -176,7 +176,7 @@ const css = `
 .hb-kca-logo { display: inline-flex; align-items: center; gap: 8px; color: #6e6a61; font-size: 17px; font-weight: 700; letter-spacing: -.02em; transition: color .2s ease; }
 .hb-kca-logo:hover { color: #161512; }
 .hb-kca-logo svg { width: 20px; height: 20px; }
-.hb-kca-logo[data-v="1"] { font-family: var(--hb-kca-serif); font-weight: 400; font-size: 21px; font-style: italic; }
+.hb-kca-logo[data-v="1"] { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-weight: 400; font-size: 21px; }
 .hb-kca-logo[data-v="2"] { font-weight: 800; letter-spacing: .1em; font-size: 13.5px; text-transform: uppercase; }
 .hb-kca-logo[data-v="3"] { font-weight: 500; letter-spacing: -.01em; }
 @keyframes hb-kca-draw { to { stroke-dashoffset: 0; } }

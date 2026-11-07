@@ -5,7 +5,7 @@ import { NewsletterSignup } from "@/registry/hyperblur/newsletter-signup";
 export function NewsletterSignupDemo() {
   return (
     <NewsletterSignup
-      title={<span className="font-serif text-[24px] font-normal italic leading-[1.1] tracking-normal">Field notes, every Friday</span>}
+      title={<span className="font-sans text-[24px] font-normal leading-[1.1] tracking-normal">Field notes, every Friday</span>}
       description="Slow travel and small cameras."
       placeholder="Your email"
       buttonLabel="Join"

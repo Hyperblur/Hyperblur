@@ -78,7 +78,7 @@ export const qnDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="box-border flex w-full max-w-[340px] flex-col gap-2 rounded-2xl border border-[#262626] bg-[#0d0d0d] p-4 text-left text-[#ededed]">
         <div>
-          <p className="font-serif m-0 text-xl italic leading-6">Topics you follow</p>
+          <p className="font-sans m-0 text-xl leading-6">Topics you follow</p>
           <p className="font-grotesk m-0 text-xs text-[#8f8f8f]">Press Enter or comma to add one</p>
         </div>
         <InputTags

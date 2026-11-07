@@ -18,7 +18,7 @@ export function SitePromoModalDemo() {
         <SitePromoModal open={open} onOpenChange={setOpen} delay={700} autoFocus={false}>
           <div className="flex h-full flex-col gap-3 p-4 text-left">
             <div className="flex items-center justify-between">
-              <span className="font-serif text-[20px] italic leading-none text-[#ededed]">Fernhill</span>
+              <span className="font-sans text-[20px] leading-none text-[#ededed]">Fernhill</span>
               <span className="flex gap-3 text-[11px] text-[#8f8f8f]">
                 <span>Plants</span>
                 <span>Pots</span>
