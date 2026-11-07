@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemePicker } from "./theme-picker";
+import { themesEnabled } from "./theme-flag";
 import { EffectsSidebar } from "./effects-sidebar";
 
 const links = [
@@ -68,9 +69,11 @@ export function MobileMenu() {
               GitHub
             </a>
           </div>
-          <div className="mt-6">
-            <ThemePicker variant="inline" />
-          </div>
+          {themesEnabled ? (
+            <div className="mt-6">
+              <ThemePicker variant="inline" />
+            </div>
+          ) : null}
           <div className="mt-8">
             <EffectsSidebar />
           </div>

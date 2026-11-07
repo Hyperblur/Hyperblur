@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MobileMenu } from "./mobile-menu";
 import { ThemePicker } from "./theme-picker";
+import { themesEnabled } from "./theme-flag";
 import { effects } from "@/registry/meta";
 
 export function SiteHeader() {
@@ -45,7 +46,7 @@ export function SiteHeader() {
         </div>
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-2 sm:flex">
-            <ThemePicker />
+            {themesEnabled ? <ThemePicker /> : null}
             <a
               href="https://github.com/Hyperblur/Hyperblur"
               className="hb-btn hb-btn-ghost hb-btn-sm hidden lg:inline-flex"
