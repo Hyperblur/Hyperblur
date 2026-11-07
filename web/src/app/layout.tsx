@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Chakra_Petch, Geist, Geist_Mono, Instrument_Serif, Space_Grotesk } from "next/font/google";
+import { Chakra_Petch, Geist, Geist_Mono, Instrument_Serif, Rajdhani, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
-import { SITE_URL } from "@/registry/meta";
+import { TerminalBoot } from "@/components/site/terminal-boot";
+import { SITE_URL, effects } from "@/registry/meta";
 import { Analytics } from "@vercel/analytics/next";
 
 const chakra = Chakra_Petch({
@@ -28,6 +29,15 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: ["normal", "italic"],
 });
+
+const rajdhani = Rajdhani({
+  variable: "--font-rajdhani",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const themeScript =
+  "try{var t=localStorage.getItem('hb-theme');if(/^(red|blue|cyan|yellow|green|violet)$/.test(t)){var d=document.documentElement;d.dataset.theme='terminal';d.dataset.accent=t}}catch(e){}";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -62,12 +72,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${chakra.variable} ${geist.variable} ${geistMono.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${chakra.variable} ${geist.variable} ${geistMono.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable} ${rajdhani.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-full flex flex-col">
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <TerminalBoot count={effects.length} />
         <Analytics />
       </body>
     </html>

@@ -267,6 +267,7 @@ import { rbDemos } from "@/registry/parts/rb.demos";
 import { qyDemos } from "@/registry/parts/qy.demos";
 import { qzDemos } from "@/registry/parts/qz.demos";
 import { rcDemos } from "@/registry/parts/rc.demos";
+import { rdDemos } from "@/registry/parts/rd.demos";
 import { qpDemos } from "@/registry/parts/qp.demos";
 import { quDemos } from "@/registry/parts/qu.demos";
 import { qoDemos } from "@/registry/parts/qo.demos";
@@ -1400,6 +1401,7 @@ export const demos: Record<string, ReactNode> = {
   ...qyDemos,
   ...qzDemos,
   ...rcDemos,
+  ...rdDemos,
   ...qpDemos,
   ...quDemos,
   ...qoDemos,
