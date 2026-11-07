@@ -71,7 +71,7 @@ export const yaDemos: Record<string, ReactNode> = {
   ),
   "button-underline-grow": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className={`${card} gap-3 p-5 font-serif`}>
+      <div className={`${card} gap-3 p-5 font-sans`}>
         <p className="m-0 text-[26px] leading-none tracking-tight">From the journal</p>
         <p className="m-0 font-sans text-xs leading-snug text-[#a1a1a1]">Release notes, guides and the odd opinion about easing curves.</p>
         <div className="flex flex-col items-start gap-1.5 font-sans">

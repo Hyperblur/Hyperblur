@@ -265,7 +265,7 @@ const css = `
 .hb-hrs-logo:hover { color: #ededed; }
 .hb-hrs-logo svg { flex: none; }
 .hb-hrs-logo[data-v="1"] { font-weight: 700; letter-spacing: .06em; font-size: 14px; text-transform: uppercase; }
-.hb-hrs-logo[data-v="2"] { font-weight: 500; font-style: italic; }
+.hb-hrs-logo[data-v="2"] { font-weight: 500; }
 .hb-hrs-logo[data-v="3"] { font-weight: 800; letter-spacing: -.045em; }
 .hb-hrs-logo[data-v="4"] { font-weight: 500; letter-spacing: .02em; }
 .hb-hrs-hint {

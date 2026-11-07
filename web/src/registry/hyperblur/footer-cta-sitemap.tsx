@@ -31,7 +31,7 @@ export interface FooterCtaSitemapProps extends Omit<React.HTMLAttributes<HTMLEle
 const css = `
 .hb-ke7 {
   --hb-ke7-accent: #2f6b4f;
-  --hb-ke7-serif: var(--font-serif, "Iowan Old Style", Georgia, "Times New Roman", serif);
+  --hb-ke7-serif: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -72,8 +72,8 @@ const css = `
 }
 .hb-ke7-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0; color: rgba(244,241,232,.75); font-size: 13px; font-weight: 500; letter-spacing: .02em; }
 .hb-ke7-eyebrow i { width: 18px; height: 1px; background: rgba(244,241,232,.5); }
-.hb-ke7-h { margin: 16px 0 14px; font-family: var(--hb-ke7-serif); font-size: clamp(34px, 5cqi, 54px); font-weight: 400; letter-spacing: -.015em; line-height: 1.02; }
-.hb-ke7-h em { font-style: italic; color: #e9dcb5; }
+.hb-ke7-h { margin: 16px 0 14px; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: clamp(34px, 5cqi, 54px); font-weight: 400; letter-spacing: -.015em; line-height: 1.02; }
+.hb-ke7-h em { font-style: normal; color: #e9dcb5; }
 .hb-ke7-sub { margin: 0; max-width: 440px; color: rgba(244,241,232,.72); font-size: 15.5px; line-height: 1.6; }
 .hb-ke7-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 .hb-ke7-btn {
@@ -113,7 +113,7 @@ const css = `
   text-align: center;
   box-shadow: 0 20px 40px -20px rgba(0,0,0,.6);
 }
-.hb-ke7-score { font-family: var(--hb-ke7-serif); font-size: clamp(20px, 3cqi, 30px); line-height: 1; }
+.hb-ke7-score { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: clamp(20px, 3cqi, 30px); line-height: 1; }
 .hb-ke7-stars { display: flex; justify-content: center; gap: 1px; margin-top: 4px; }
 .hb-ke7-stars svg { width: 9px; height: 9px; fill: var(--hb-ke7-accent); }
 .hb-ke7-tip {
@@ -133,10 +133,10 @@ const css = `
 .hb-ke7-map { position: relative; background: #ede9dd; border-top: 1px solid rgba(29,28,25,.06); }
 .hb-ke7-mapin { max-width: 1120px; margin: 0 auto; padding: 164px 24px 28px; }
 .hb-ke7-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr)); gap: 32px; }
-.hb-ke7-brand { display: inline-block; color: #1d1c19; font-family: var(--hb-ke7-serif); font-size: 34px; font-style: italic; letter-spacing: -.02em; line-height: 1; text-decoration: none; }
+.hb-ke7-brand { display: inline-block; color: #1d1c19; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 34px; letter-spacing: -.02em; line-height: 1; text-decoration: none; }
 .hb-ke7-brand span { color: var(--hb-ke7-accent); }
 .hb-ke7-addr { margin: 16px 0 0; color: #6c685e; font-size: 13.5px; font-style: normal; line-height: 1.7; }
-.hb-ke7-ct { margin: 4px 0 14px; font-family: var(--hb-ke7-serif); font-size: 19px; font-style: italic; color: #1d1c19; }
+.hb-ke7-ct { margin: 4px 0 14px; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 19px; color: #1d1c19; }
 .hb-ke7-ul { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
 .hb-ke7-a {
   color: #57534a;

@@ -49,7 +49,7 @@ export const qdDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="flex w-full max-w-[340px] flex-col items-center text-center">
         <span className="font-grotesk text-[10px] uppercase tracking-[0.22em] text-[#8f8f8f]">Optics lab / no. 12</span>
-        <TextWarp text="Bend the line" className="font-serif text-[56px] italic text-[#ededed]" radius={120} strength={22} />
+        <TextWarp text="Bend the line" className="font-sans text-[56px] text-[#ededed]" radius={120} strength={22} />
         <span className="font-grotesk text-[12px] text-[#8f8f8f]">Move a lens across the headline.</span>
       </div>
     </div>
@@ -70,7 +70,7 @@ export const qdDemos: Record<string, ReactNode> = {
         <TextMaskReveal
           text={"Slow design,\nfor fast teams."}
           loop={3.5}
-          className="font-serif text-[42px] leading-[1.02] text-[#ededed]"
+          className="font-sans text-[42px] leading-[1.02] text-[#ededed]"
         />
         <span className="font-grotesk mt-3 text-[12px] text-[#a1a1a1]">By Mara Lindqvist, 6 min read</span>
       </div>
@@ -143,7 +143,7 @@ export const qdDemos: Record<string, ReactNode> = {
           text="Interfaces should feel like paper: quiet, tactile and a little bit alive."
           idleLoop
           idleDuration={5}
-          className="font-serif text-[29px] leading-[1.14]"
+          className="font-sans text-[29px] leading-[1.14]"
         />
       </div>
     </div>
@@ -159,7 +159,7 @@ export const qdDemos: Record<string, ReactNode> = {
   "text-liquid-gradient": (
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="flex w-full max-w-[340px] flex-col items-center text-center">
-        <TextLiquidGradient text="Liquid light" className="font-serif text-[60px] italic" />
+        <TextLiquidGradient text="Liquid light" className="font-sans text-[60px]" />
         <span className="font-mono mt-1 text-[11px] uppercase tracking-[0.16em] text-[#8f8f8f]">Aurora palette / 04 blobs</span>
       </div>
     </div>

@@ -46,7 +46,7 @@ export const qzDemos: Record<string, ReactNode> = {
           <span>Changelog</span>
           <span>v4.2 / Nov 3</span>
         </div>
-        <div className="font-serif">
+        <div className="font-sans">
           <TextScrambleView text="Faster builds, fewer surprises" className="text-[28px] leading-8 text-[#f4f1ea]" />
         </div>
         <p className="m-0 text-xs leading-4 text-[#a1a1a1]">Incremental caching cuts cold starts by 38%.</p>
@@ -159,7 +159,7 @@ export const qzDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={`${card} gap-2 p-4`}>
         <p className="m-0 font-mono text-[10px] uppercase leading-4 tracking-[0.12em] text-[#8f8f8f]">Report / Retention</p>
-        <div className="font-serif text-base">
+        <div className="font-sans text-base">
           <LoaderLineReveal title="Q3 Retention Review" rows={2} />
         </div>
       </div>

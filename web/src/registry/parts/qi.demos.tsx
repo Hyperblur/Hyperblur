@@ -50,8 +50,8 @@ export const qiDemos: Record<string, ReactNode> = {
       >
         <div className="flex h-full w-full flex-col items-start justify-end px-6 pb-6">
           <p className="font-mono m-0 text-[10px] uppercase tracking-[0.16em] text-[#8f8f8f]">Chapter 3 · 12 min read</p>
-          <p className="font-serif m-0 mt-1 text-[28px] italic leading-8 text-white">The house on Alder Lane</p>
-          <p className="font-serif m-0 mt-1 max-w-[300px] text-[14px] leading-5 text-[#a1a1a1]">
+          <p className="font-sans m-0 mt-1 text-[28px] leading-8 text-white">The house on Alder Lane</p>
+          <p className="font-sans m-0 mt-1 max-w-[300px] text-[14px] leading-5 text-[#a1a1a1]">
             Nobody had lived there since the winter of 1988, yet the porch light came on every night at nine.
           </p>
         </div>
@@ -104,7 +104,7 @@ export const qiDemos: Record<string, ReactNode> = {
                 style={{ background: "linear-gradient(135deg, #ff5fa2 0%, #ffb86b 55%, #7fb3ff 100%)" }}
               />
               <div className="min-w-0 flex-1">
-                <p className="font-serif m-0 truncate text-[20px] italic leading-6 text-white">Velvet Hours</p>
+                <p className="font-sans m-0 truncate text-[20px] leading-6 text-white">Velvet Hours</p>
                 <p className="m-0 truncate text-[11px] text-[#a1a1a1]">Mira Sol · Low Tide Sessions</p>
               </div>
             </div>
@@ -154,7 +154,7 @@ export const qiDemos: Record<string, ReactNode> = {
     <div className={stage}>
       <CursorImageTrail className="bg-[#0d0c0b]" size={50} spacing={40}>
         <div className="flex h-full w-full flex-col items-start justify-end px-5 pb-5">
-          <p className="font-serif m-0 text-[34px] italic leading-9 text-[#f3ede4]">Field Notes</p>
+          <p className="font-sans m-0 text-[34px] leading-9 text-[#f3ede4]">Field Notes</p>
           <div className="mt-1 flex gap-3 text-[11px] text-[#a1a1a1]">
             <span>Iceland, spring 2026</span>
             <span>142 frames</span>

@@ -70,7 +70,7 @@ export const qjDemos: Record<string, ReactNode> = {
     <Scene>
       <BgRippleWater interval={1.1} />
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-1.5 px-6 text-center">
-        <p className="m-0 font-serif text-[30px] italic leading-none text-white">Still waters</p>
+        <p className="m-0 font-sans text-[30px] leading-none text-white">Still waters</p>
         <span className="text-[12px] text-white/65">A breathing app for slow evenings</span>
         <span className="mt-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] text-white/85 backdrop-blur-sm">Begin a 5 minute session</span>
       </div>
@@ -81,7 +81,7 @@ export const qjDemos: Record<string, ReactNode> = {
       <BgLiquidEther blobSize={0.5} intensity={0.7} />
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 px-6 text-center">
         <Tag>Spring collection</Tag>
-        <p className="m-0 font-serif text-[32px] leading-[1] text-white">Colors that move</p>
+        <p className="m-0 font-sans text-[32px] leading-[1] text-white">Colors that move</p>
         <span className="rounded-full bg-white px-3.5 py-1.5 text-[11px] font-medium text-black">Shop the palette</span>
       </div>
     </Scene>

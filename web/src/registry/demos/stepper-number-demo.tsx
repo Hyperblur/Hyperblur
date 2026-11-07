@@ -20,7 +20,7 @@ export function StepperNumberDemo() {
             }}
           />
           <div className="min-w-0 flex-1">
-            <p className="font-serif m-0 truncate text-lg italic leading-5">Boston fern in clay</p>
+            <p className="font-sans m-0 truncate text-lg leading-5">Boston fern in clay</p>
             <p className="font-grotesk m-0 text-xs text-[#8f8f8f]">6 inch pot, ships Tuesday</p>
           </div>
           <span className="font-grotesk text-sm font-semibold">${price}</span>

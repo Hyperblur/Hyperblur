@@ -39,7 +39,7 @@ export const chartsDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={card}>
         <div className="mb-1.5 flex items-baseline justify-between gap-2">
-          <span className="font-serif text-[21px] italic leading-6">Checkout funnel</span>
+          <span className="font-sans text-[21px] leading-6">Checkout funnel</span>
           <span className="font-mono text-[11px] text-[#34d399]">3.6% CVR</span>
         </div>
         <FunnelChart
@@ -69,7 +69,7 @@ export const chartsDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={card}>
         <div className="mb-1 flex items-center justify-between">
-          <span className="font-serif text-[20px] italic leading-6">Today</span>
+          <span className="font-sans text-[20px] leading-6">Today</span>
           <span className="text-[11px] text-[#8f8f8f]">Sat, Oct 31</span>
         </div>
         <ProgressRings

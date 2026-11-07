@@ -19,7 +19,7 @@ export const qvDemos: Record<string, ReactNode> = {
         style={{ background: "radial-gradient(120% 90% at 50% 0%, #1b2438 0%, #0e0e10 64%)" }}
       >
         <div>
-          <p className="font-serif m-0 text-[32px] italic leading-8 text-[#ededed]">Studio plan</p>
+          <p className="font-sans m-0 text-[32px] leading-8 text-[#ededed]">Studio plan</p>
           <p className="font-grotesk m-0 mt-1.5 text-[12px] text-[#8f8f8f]">Unlimited projects, one calm price.</p>
         </div>
         <div className="flex items-center gap-2 text-[12px]">

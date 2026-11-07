@@ -40,7 +40,7 @@ const css = `
   --hb-kb5-accent: #e4572e;
   --hb-kb5-paper: #f7f5ef;
   --hb-kb5-ink: #1c1a17;
-  --hb-kb5-serif: var(--font-serif, "Iowan Old Style", Georgia, serif);
+  --hb-kb5-serif: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -57,8 +57,8 @@ const css = `
 .hb-kb5-rule { height: 1px; background: var(--hb-kb5-ink); transform-origin: left; animation: hb-kb5-rule 1s cubic-bezier(.65, 0, .35, 1) both; }
 .hb-kb5-rule + .hb-kb5-rule { margin-top: 3px; animation-delay: .12s; }
 .hb-kb5-head { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: end; gap: 20px 48px; margin: clamp(22px, 3cqi, 34px) 0 clamp(28px, 4cqi, 44px); }
-.hb-kb5-title { margin: 0; font-family: var(--hb-kb5-serif); font-size: clamp(38px, 6cqi, 70px); font-weight: 400; line-height: .98; letter-spacing: -.02em; text-wrap: balance; animation: hb-kb5-rise .8s cubic-bezier(.2, .8, .2, 1) .1s backwards; }
-.hb-kb5-title em { color: var(--hb-kb5-accent); font-style: italic; }
+.hb-kb5-title { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: clamp(38px, 6cqi, 70px); font-weight: 400; line-height: .98; letter-spacing: -.02em; text-wrap: balance; animation: hb-kb5-rise .8s cubic-bezier(.2, .8, .2, 1) .1s backwards; }
+.hb-kb5-title em { font-style: normal; color: var(--hb-kb5-accent); }
 .hb-kb5-sub { margin: 0; padding-left: 18px; border-left: 1px solid color-mix(in srgb, var(--hb-kb5-ink) 18%, transparent); color: color-mix(in srgb, var(--hb-kb5-ink) 72%, transparent); font-size: 15.5px; line-height: 1.65; text-wrap: pretty; animation: hb-kb5-rise .8s cubic-bezier(.2, .8, .2, 1) .2s backwards; }
 .hb-kb5-grid {
   display: grid;
@@ -97,18 +97,18 @@ const css = `
 .hb-kb5-cover:hover .hb-kb5-photo, .hb-kb5-feat:hover .hb-kb5-photo { transform: scale(1.05); }
 .hb-kb5-ctext { position: relative; z-index: 1; align-self: flex-end; padding: 22px; }
 .hb-kb5-kicker { display: inline-block; margin-bottom: 10px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
-.hb-kb5-ctext h3 { margin: 0; font-family: var(--hb-kb5-serif); font-size: clamp(28px, 3.4cqi, 38px); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; }
+.hb-kb5-ctext h3 { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: clamp(28px, 3.4cqi, 38px); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; }
 .hb-kb5-ctext p { margin: 10px 0 0; font-size: 12.5px; opacity: .8; }
 .hb-kb5-quote { grid-area: quote; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; padding: clamp(20px, 2.6cqi, 30px); }
 .hb-kb5-quote svg { color: var(--hb-kb5-accent); }
-.hb-kb5-quote blockquote { margin: 0; font-family: var(--hb-kb5-serif); font-size: clamp(21px, 2.5cqi, 28px); line-height: 1.22; letter-spacing: -.005em; text-wrap: pretty; }
+.hb-kb5-quote blockquote { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: clamp(21px, 2.5cqi, 28px); line-height: 1.22; letter-spacing: -.005em; text-wrap: pretty; }
 .hb-kb5-who { display: flex; align-items: center; gap: 12px; font-size: 13px; }
 .hb-kb5-who b { display: block; font-weight: 600; }
 .hb-kb5-who span { color: color-mix(in srgb, var(--hb-kb5-ink) 60%, transparent); }
-.hb-kb5-av { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #e9c59a, var(--hb-kb5-accent)); color: #fffdf8; font-family: var(--hb-kb5-serif); font-size: 16px; }
+.hb-kb5-av { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #e9c59a, var(--hb-kb5-accent)); color: #fffdf8; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 16px; }
 .hb-kb5-num { grid-area: num; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; background: var(--hb-kb5-ink); color: var(--hb-kb5-paper); border-color: transparent; }
 .hb-kb5-num small { color: color-mix(in srgb, var(--hb-kb5-paper) 60%, transparent); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-.hb-kb5-big { display: block; margin: 18px 0 6px; font-family: var(--hb-kb5-serif); font-size: clamp(64px, 9cqi, 112px); line-height: .82; letter-spacing: -.04em; animation: hb-kb5-wipe 1.1s cubic-bezier(.2, .8, .2, 1) .6s both; }
+.hb-kb5-big { display: block; margin: 18px 0 6px; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: clamp(64px, 9cqi, 112px); line-height: .82; letter-spacing: -.04em; animation: hb-kb5-wipe 1.1s cubic-bezier(.2, .8, .2, 1) .6s both; }
 .hb-kb5-big sup { margin-left: 2px; color: var(--hb-kb5-accent); font-size: .34em; vertical-align: top; }
 .hb-kb5-num p { margin: 0; font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--hb-kb5-paper) 78%, transparent); }
 .hb-kb5-tags { grid-area: tags; padding: 18px; }
@@ -125,7 +125,7 @@ const css = `
   cursor: pointer;
   transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
 }
-.hb-kb5-tag[data-s="1"] { font-family: var(--hb-kb5-serif); font-size: 15px; font-style: italic; }
+.hb-kb5-tag[data-s="1"] { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 15px; }
 .hb-kb5-tag[data-s="2"] { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
 .hb-kb5-tag:hover { border-color: var(--hb-kb5-ink); transform: translate3d(0, -1px, 0); }
 .hb-kb5-tag[aria-pressed="true"] { border-color: var(--hb-kb5-ink); background: var(--hb-kb5-ink); color: var(--hb-kb5-paper); }
@@ -141,7 +141,7 @@ const css = `
 }
 .hb-kb5-ftext { display: flex; flex-direction: column; justify-content: space-between; gap: 14px; padding: 20px; }
 .hb-kb5-ftext .hb-kb5-kicker { color: var(--hb-kb5-accent); opacity: 1; }
-.hb-kb5-ftext h3 { margin: 0; font-family: var(--hb-kb5-serif); font-size: clamp(22px, 2.5cqi, 28px); font-weight: 400; line-height: 1.08; }
+.hb-kb5-ftext h3 { margin: 0; font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: clamp(22px, 2.5cqi, 28px); font-weight: 400; line-height: 1.08; }
 .hb-kb5-ftext p { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0; color: color-mix(in srgb, var(--hb-kb5-ink) 62%, transparent); font-size: 12.5px; }
 .hb-kb5-ftext p svg { flex: none; transition: transform .25s ease; }
 .hb-kb5-feat:hover .hb-kb5-ftext p svg { transform: translate3d(4px, 0, 0); }

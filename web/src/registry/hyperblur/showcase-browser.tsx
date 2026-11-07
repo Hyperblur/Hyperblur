@@ -125,7 +125,7 @@ const css = `
 .hb-kb7-plan span { height: 5px; border-radius: 3px; background: rgba(255, 255, 255, .08); }
 .hb-kb7-plan em { margin-top: auto; padding: 5px; border-radius: 6px; background: rgba(255, 255, 255, .08); color: #ededed; font-style: normal; text-align: center; font-weight: 600; }
 .hb-kb7-plan[data-hl="true"] { border-color: color-mix(in srgb, var(--hb-kb7-accent) 60%, transparent); background: color-mix(in srgb, var(--hb-kb7-accent) 8%, #111113); }
-.hb-kb7-plan[data-hl="true"] em { background: var(--hb-kb7-accent); color: #fff; }
+.hb-kb7-plan[data-hl="true"] em { font-style: normal; background: var(--hb-kb7-accent); color: #fff; }
 .hb-kb7-foot { display: flex; gap: 6%; flex: 1; padding-top: 3%; border-top: 1px solid rgba(255, 255, 255, .05); }
 .hb-kb7-foot div { flex: 1; display: grid; align-content: start; gap: 6px; }
 .hb-kb7-foot span { height: 5px; border-radius: 3px; background: rgba(255, 255, 255, .07); }

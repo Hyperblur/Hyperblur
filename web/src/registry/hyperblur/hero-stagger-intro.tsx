@@ -154,7 +154,7 @@ const css = `
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 .hb-zb6-rows li:first-child { border-top: 0; }
-.hb-zb6-rows em { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--hb-zb6-a); }
+.hb-zb6-rows em { font-style: normal; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--hb-zb6-a); }
 .hb-zb6-rows em[data-t="slow"] { background: #ffb454; }
 .hb-zb6-rows code { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: ui-monospace, "Geist Mono", monospace; font-size: 11px; }
 .hb-zb6-rows span { flex: none; color: #8f8f8f; font-variant-numeric: tabular-nums; }

@@ -121,7 +121,7 @@ export const ycDemos: Record<string, ReactNode> = {
           brand={<span className="grid h-7 w-7 place-items-center rounded-lg bg-[#2f7bff] text-[13px] font-bold text-white">F</span>}
         />
         <div className="min-w-0 flex-1 px-4 py-4">
-          <p className="font-serif m-0 text-[30px] italic leading-8">November</p>
+          <p className="font-sans m-0 text-[30px] leading-8">November</p>
           <p className="m-0 mt-0.5 text-[11px] leading-4 text-[#77777f]">4 events this week</p>
           <ul className="m-0 mt-3 flex list-none flex-col gap-2 p-0">
             {[
@@ -293,7 +293,7 @@ export const ycDemos: Record<string, ReactNode> = {
   ),
   "list-pinned-reorder": (
     <div className="flex h-full w-full items-center justify-center px-4">
-      <div className="font-serif w-full max-w-[330px]">
+      <div className="font-sans w-full max-w-[330px]">
         <ListPinnedReorder
           rowHeight={30}
           style={{ fontSize: 15, "--hb-yc8-w": 400 } as CSSProperties}

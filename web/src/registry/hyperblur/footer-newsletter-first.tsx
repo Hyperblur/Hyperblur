@@ -54,7 +54,7 @@ const css = `
 .hb-yi3-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0; font-size: 13px; font-weight: 600; color: var(--hb-yi3-accent); }
 .hb-yi3-issue { padding: 3px 8px; border-radius: 6px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--hb-yi3-accent); }
 .hb-yi3-title { margin: 14px 0 0; font-size: clamp(34px, 6.6cqi, 76px); line-height: .98; letter-spacing: -.045em; font-weight: 600; max-width: 12ch; }
-.hb-yi3-title em { font-style: italic; font-weight: 500; color: var(--hb-yi3-accent); }
+.hb-yi3-title em { font-style: normal; font-weight: 500; color: var(--hb-yi3-accent); }
 .hb-yi3-sub { margin: 18px 0 0; max-width: 440px; font-size: 16px; line-height: 1.6; color: #5f5b4f; }
 .hb-yi3-form { align-self: end; width: 100%; }
 .hb-yi3-shell {

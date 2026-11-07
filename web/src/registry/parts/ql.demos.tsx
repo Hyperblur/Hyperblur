@@ -33,7 +33,7 @@ export const qlDemos: Record<string, ReactNode> = {
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className={`${card} gap-3`}>
         <div>
-          <p className="font-serif m-0 text-[26px] italic leading-7">Join the waitlist</p>
+          <p className="font-sans m-0 text-[26px] leading-7">Join the waitlist</p>
           <p className="m-0 mt-1 text-xs text-[#8f8f8f]">We open the doors to 200 studios every Monday.</p>
         </div>
         <MicroDodgeField label="Work email" type="email" placeholder="you@studio.co" autoComplete="off" />
@@ -92,7 +92,7 @@ export const qlDemos: Record<string, ReactNode> = {
         <div className="flex items-end justify-between">
           <div>
             <p className="font-mono m-0 text-[10px] uppercase tracking-[0.1em] text-[#8f8f8f]">Revenue</p>
-            <p className="font-serif m-0 text-[34px] leading-9">$48,210</p>
+            <p className="font-sans m-0 text-[34px] leading-9">$48,210</p>
           </div>
           <span className="font-mono rounded-full bg-[#10261a] px-2 py-0.5 text-[11px] text-[#4ade80]">+12.4%</span>
         </div>
@@ -130,7 +130,7 @@ export const qlDemos: Record<string, ReactNode> = {
         />
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <p className="font-serif m-0 truncate text-[22px] italic leading-6">Lemon tagliatelle</p>
+            <p className="font-sans m-0 truncate text-[22px] leading-6">Lemon tagliatelle</p>
             <p className="font-grotesk m-0 text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">35 min / serves 2</p>
           </div>
           <MicroPulseHeart size={44} label="Save recipe" />
@@ -164,7 +164,7 @@ export const qlDemos: Record<string, ReactNode> = {
       <div className={`${card} flex-row items-center justify-between gap-3 py-3`}>
         <div className="min-w-0">
           <p className="font-mono m-0 text-[10px] uppercase tracking-[0.1em] text-[#8f8f8f]">Thermostat</p>
-          <p className="font-serif m-0 text-[28px] italic leading-8">Living room</p>
+          <p className="font-sans m-0 text-[28px] leading-8">Living room</p>
           <p className="font-grotesk m-0 mt-2 text-xs leading-4 text-[#8f8f8f]">
             Flick the dial.
             <br />

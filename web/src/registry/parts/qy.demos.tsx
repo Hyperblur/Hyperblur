@@ -25,7 +25,7 @@ export const qyDemos: Record<string, ReactNode> = {
             <span className="rounded-full border border-white/20 px-2 py-0.5 text-[10px] text-white/80">PG-13</span>
           </div>
           <div>
-            <p className="font-serif m-0 text-[34px] italic leading-[1.05]">Midnight Ferry</p>
+            <p className="font-sans m-0 text-[34px] leading-[1.05]">Midnight Ferry</p>
             <p className="m-0 mt-1 text-[11px] text-white/65">Fri 8:40 pm · Screen 3 · 1 h 52 min</p>
           </div>
         </div>
@@ -156,7 +156,7 @@ export const qyDemos: Record<string, ReactNode> = {
           </svg>
           <div className="flex items-end justify-between">
             <div>
-              <p className="font-serif m-0 text-[30px] leading-none">Low tide</p>
+              <p className="font-sans m-0 text-[30px] leading-none">Low tide</p>
               <p className="m-0 mt-1 text-[11px] text-white/60">Sunset 4:52 pm · wind 9 kn NW</p>
             </div>
             <span className="text-xl font-semibold tabular-nums">6:42 pm</span>

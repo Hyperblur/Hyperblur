@@ -21,7 +21,7 @@ export function WheelOptionPickerDemo() {
             Wake at {hour}:{minute} {period}
           </span>
         </div>
-        <div className="font-serif mt-1 grid grid-cols-[1fr_1fr_0.8fr] gap-1">
+        <div className="font-sans mt-1 grid grid-cols-[1fr_1fr_0.8fr] gap-1">
           <WheelOptionPicker
             options={hours}
             value={hour}

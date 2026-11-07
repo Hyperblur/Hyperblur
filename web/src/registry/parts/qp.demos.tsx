@@ -25,7 +25,7 @@ export const qpDemos: Record<string, ReactNode> = {
             <span className="rounded-full border border-white/15 bg-black/50 px-2.5 py-0.5 text-[10px] text-white/70 backdrop-blur-sm">Pre-order</span>
           </div>
           <div>
-            <p className="m-0 font-serif text-[30px] italic leading-none text-white">Sound you can see</p>
+            <p className="m-0 font-sans text-[30px] leading-none text-white">Sound you can see</p>
             <span className="mt-1 block text-[11px] text-white/55">A speaker filled with living metal. Ships in March.</span>
           </div>
         </div>

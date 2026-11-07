@@ -139,10 +139,10 @@ const css = `
   transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 .hb-yg4-chip:hover { color: var(--hb-yg4-ink); background: #fff; border-color: color-mix(in srgb, var(--hb-yg4-accent) 50%, transparent); }
-.hb-yg4-s0 { font-family: "Instrument Serif", ui-serif, Georgia, serif; font-size: 23px; font-style: italic; letter-spacing: -0.01em; }
+.hb-yg4-s0 { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 23px; letter-spacing: -0.01em; }
 .hb-yg4-s1 { font-size: 13px; font-weight: 800; letter-spacing: 0.24em; }
 .hb-yg4-s2 { font-size: 21px; font-weight: 700; letter-spacing: -0.05em; }
-.hb-yg4-s3 { font-family: ui-serif, Georgia, serif; font-size: 19px; font-weight: 600; font-variant: small-caps; letter-spacing: 0.04em; }
+.hb-yg4-s3 { font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 19px; font-weight: 600; font-variant: small-caps; letter-spacing: 0.04em; }
 .hb-yg4-s4 { font-family: ui-monospace, "Geist Mono", Menlo, monospace; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; }
 .hb-yg4-s5 { font-size: 17px; font-weight: 300; letter-spacing: 0.02em; }
 .hb-yg4-s5::first-letter { font-weight: 800; }
@@ -159,7 +159,7 @@ const css = `
 }
 .hb-yg4-quote {
   margin: 14px 0 0;
-  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(26px, 3.6cqw, 38px);
   font-weight: 400;
   line-height: 1.18;

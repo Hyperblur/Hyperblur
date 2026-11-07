@@ -31,7 +31,7 @@ export const socialDemos: Record<string, ReactNode> = {
           }}
         />
         <div className="min-w-0">
-          <p className="font-serif m-0 truncate text-xl italic leading-6">Boston fern in clay</p>
+          <p className="font-sans m-0 truncate text-xl leading-6">Boston fern in clay</p>
           <p className="font-grotesk m-0 text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">
             Fernhill / Indoor plants
           </p>
@@ -66,7 +66,7 @@ export const socialDemos: Record<string, ReactNode> = {
         <p className="font-grotesk m-0 text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">
           Fernhill Plant Club
         </p>
-        <p className="font-serif m-0 text-xl italic leading-7">Grown by neighbours</p>
+        <p className="font-sans m-0 text-xl leading-7">Grown by neighbours</p>
         <div className="mt-3 flex items-center justify-between gap-3">
           <AvatarStack people={people} max={5} extra={13} size={32} />
           <span className="font-grotesk text-xs text-[#8f8f8f]">18 members</span>
@@ -80,7 +80,7 @@ export const socialDemos: Record<string, ReactNode> = {
         <p className="font-grotesk m-0 text-[11px] uppercase tracking-[0.08em] text-[#8f8f8f]">
           From the Fernhill journal
         </p>
-        <p className="font-serif m-0 text-xl italic leading-7">Repotting without tears</p>
+        <p className="font-sans m-0 text-xl leading-7">Repotting without tears</p>
         <p className="font-grotesk m-0 text-xs text-[#8f8f8f]">Share this post</p>
         <div className="mt-3">
           <ShareRow
@@ -102,7 +102,7 @@ export const socialDemos: Record<string, ReactNode> = {
   "rating-summary": (
     <div className="flex h-full w-full items-center justify-center px-4">
       <div className="box-border flex w-full max-w-[340px] flex-col gap-2 rounded-2xl border border-[#262626] bg-[#111111] p-4 text-left text-[#ededed]">
-        <p className="font-serif m-0 text-xl italic leading-6">Loved at Fernhill</p>
+        <p className="font-sans m-0 text-xl leading-6">Loved at Fernhill</p>
         <RatingSummary counts={{ 5: 1700, 4: 420, 3: 100, 2: 50, 1: 40 }} />
       </div>
     </div>
