@@ -104,7 +104,7 @@ export default function AgentsPage() {
         <h3 className="pt-2 text-base font-semibold">Configuration</h3>
         <P>
           The server reads the catalog from the site set in <Code>HYPERBLUR_SITE_URL</Code>, which defaults to{" "}
-          <Code>https://hyperblur.vercel.app</Code>. Point it at your local site while developing Hyperblur itself.
+          <Code>https://hyperblur.dev</Code>. Point it at your local site while developing Hyperblur itself.
         </P>
         <CodeBlock code={envCommand} title="terminal" />
       </DocSection>

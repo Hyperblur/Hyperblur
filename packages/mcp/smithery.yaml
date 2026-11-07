@@ -5,11 +5,11 @@ startCommand:
     properties:
       siteUrl:
         type: string
-        default: https://hyperblur.vercel.app
+        default: https://hyperblur.dev
         description: Site that serves the Hyperblur catalog.
   commandFunction: |-
     (config) => ({
       command: 'npx',
       args: ['-y', '@hyperblur/mcp'],
-      env: { HYPERBLUR_SITE_URL: config.siteUrl || 'https://hyperblur.vercel.app' }
+      env: { HYPERBLUR_SITE_URL: config.siteUrl || 'https://hyperblur.dev' }
     })

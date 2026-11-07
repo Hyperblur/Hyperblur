@@ -6,7 +6,7 @@ import { CopyButton } from "@/components/site/copy-button";
 import { demos } from "@/registry/demos";
 
 const quickPrompt =
-  "Browse https://hyperblur.vercel.app for copy-paste visual effects. Each effect installs with `npx shadcn@latest add https://hyperblur.vercel.app/r/<name>.json` and ships as a single client component with no dependencies besides React. Pick the one that fits and wire it in.";
+  "Browse https://hyperblur.dev for copy-paste visual effects. Each effect installs with `npx shadcn@latest add https://hyperblur.dev/r/<name>.json` and ships as a single client component with no dependencies besides React. Pick the one that fits and wire it in.";
 
 const showcaseSlugs = [
   "neon-text",
@@ -207,7 +207,7 @@ export default function Home() {
             <div className="overflow-hidden rounded-xl border border-line bg-surface">
               <div className="border-b border-line px-4 py-2 font-mono text-xs text-muted">Terminal</div>
               <pre className="overflow-x-auto p-4 font-mono text-[13px] leading-6 text-ink/90">
-                <span className="text-muted">$</span> npx shadcn@latest add https://hyperblur.vercel.app/r/glitch-text.json{"\n"}
+                <span className="text-muted">$</span> npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json{"\n"}
                 <span className="text-[#28c840]">✔</span> Checking registry.{"\n"}
                 <span className="text-[#28c840]">✔</span> Created 1 file:{"\n"}
                 {"  "}- components/hyperblur/glitch-text.tsx
