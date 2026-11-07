@@ -2,23 +2,22 @@
 
 All copy is in English. Facts only: 609 items in 47 categories across three groups: effects, components and page blocks (heroes, features, bento, pricing, footers, auth, blog, ecommerce and more), MIT license, effects have no dependency besides React, installed with the shadcn CLI, MCP server `@hyperblur/mcp` (stdio), Claude Code plugin `hyperblur`.
 
-When hyperblur.dev is live, replace `hyperblur.vercel.app` everywhere.
 
 ## Shared facts
 
 | Field | Value |
 | --- | --- |
 | Name | Hyperblur |
-| Site | https://hyperblur.vercel.app |
-| Docs | https://hyperblur.vercel.app/docs/introduction |
-| Catalog | https://hyperblur.vercel.app/effects |
-| Agents docs | https://hyperblur.vercel.app/docs/agents |
+| Site | https://hyperblur.dev |
+| Docs | https://hyperblur.dev/docs/introduction |
+| Catalog | https://hyperblur.dev/effects |
+| Agents docs | https://hyperblur.dev/docs/agents |
 | Repository | https://github.com/Hyperblur/Hyperblur |
 | npm (MCP server) | https://www.npmjs.com/package/@hyperblur/mcp |
-| Registry index | https://hyperblur.vercel.app/r/registry.json |
+| Registry index | https://hyperblur.dev/r/registry.json |
 | License | MIT |
 | Maintainer | andersmonteiro (GitHub organization: Hyperblur) |
-| Install one item | `npx shadcn@latest add https://hyperblur.vercel.app/r/glitch-text.json` |
+| Install one item | `npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json` |
 | Run the MCP server | `npx -y @hyperblur/mcp` |
 | Claude Code plugin | `claude plugin install hyperblur --marketplace Hyperblur/Hyperblur` |
 | Claude Code MCP only | `claude mcp add hyperblur -- npx -y @hyperblur/mcp` |
@@ -48,9 +47,9 @@ Fields live in `packages/mcp/server.json`. Name `io.github.Hyperblur/mcp`, title
 | Qualified name | hyperblur/mcp |
 | Display name | Hyperblur |
 | Description | Search, inspect and install Hyperblur's React effects, components and page blocks from any MCP client, through the shadcn CLI. |
-| Homepage | https://hyperblur.vercel.app |
+| Homepage | https://hyperblur.dev |
 | Repository | https://github.com/Hyperblur/Hyperblur |
-| Config option | `siteUrl` (optional): site that serves the catalog, default https://hyperblur.vercel.app |
+| Config option | `siteUrl` (optional): site that serves the catalog, default https://hyperblur.dev |
 
 ## mcp.so
 
@@ -120,8 +119,8 @@ The `logo` is the Hyperblur mark as inline SVG with `fill='var(--foreground)'`, 
 ```json
 {
   "name": "@hyperblur",
-  "homepage": "https://hyperblur.vercel.app",
-  "url": "https://hyperblur.vercel.app/r/{name}.json",
+  "homepage": "https://hyperblur.dev",
+  "url": "https://hyperblur.dev/r/{name}.json",
   "description": "Copy-paste React visual effects, components and page blocks. One shadcn command to install, MCP server for coding agents.",
   "author": "Hyperblur",
   "logo": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='var(--foreground)'><path d='M18.0 9.0 H33.0 L28.0 23.0 H13.0 Z'/><path d='M13.5 9.0 H16.1 L11.1 23.0 H8.5 Z'/><path d='M10.0 9.0 H11.6 L6.6 23.0 H5.0 Z'/><path d='M7.2 9.0 H8.1 L3.1 23.0 H2.2 Z'/></svg>"
@@ -132,7 +131,7 @@ PR title: `registry: add @hyperblur`
 
 PR body:
 
-> Adds the Hyperblur registry: 609 copy-paste React components (effects, components and page blocks). Open source, MIT. Registry index: https://hyperblur.vercel.app/r/registry.json
+> Adds the Hyperblur registry: 609 copy-paste React components (effects, components and page blocks). Open source, MIT. Registry index: https://hyperblur.dev/r/registry.json
 
 ## registry.directory
 
@@ -140,8 +139,8 @@ PR body:
 | --- | --- |
 | name | Hyperblur |
 | description | Copy-paste React visual effects, components and page blocks. One shadcn command to install, MCP server for coding agents. |
-| url | https://hyperblur.vercel.app |
-| registry_url | https://hyperblur.vercel.app/r/registry.json |
+| url | https://hyperblur.dev |
+| registry_url | https://hyperblur.dev/r/registry.json |
 | github_url | https://github.com/Hyperblur/Hyperblur |
 
 ## Product Hunt
@@ -176,13 +175,13 @@ URL: https://github.com/Hyperblur/Hyperblur (or the site; neither needs an accou
 
 First comment:
 
-> Hi HN. Hyperblur is a catalog of copy-paste React visual effects, components and page blocks (609 items today). Each one is a single file with no dependency besides React. You install it with the shadcn CLI, for example `npx shadcn@latest add https://hyperblur.vercel.app/r/glitch-text.json`, and then the file is yours to edit.
+> Hi HN. Hyperblur is a catalog of copy-paste React visual effects, components and page blocks (609 items today). Each one is a single file with no dependency besides React. You install it with the shadcn CLI, for example `npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json`, and then the file is yours to edit.
 >
 > I also wrote an MCP server (`npx -y @hyperblur/mcp`) and a Claude Code plugin. The server has five tools: list categories, search, get props and usage, get source, and install. The idea is that you ask your coding agent for "a glitch heading" and it finds, reads and installs the right item instead of inventing one.
 >
 > Things I would like to hear about: effects that are missing, props that are awkward, and anything that breaks in your setup (I have tested with Next.js and React 19). Effects respect prefers-reduced-motion and avoid random values during render, to keep server rendering and hydration consistent.
 >
-> It is MIT licensed. I plan a paid Pro tier later; nothing is for sale now. The site is on a temporary vercel.app domain until hyperblur.dev is ready.
+> It is MIT licensed. I plan a paid Pro tier later; nothing is for sale now.
 
 ## Reddit
 
@@ -194,11 +193,11 @@ Body:
 
 > I have been building Hyperblur, a catalog of copy-paste React effects, components and page blocks. 609 items so far: text effects (glitch, decode, split flap), overlays (scanlines, film grain, aurora), hover effects, reveals, a few components and some page blocks.
 >
-> How it works: each item is one file with no dependency besides React. You install it with a shadcn command, for example `npx shadcn@latest add https://hyperblur.vercel.app/r/glitch-text.json`, and then edit it as you like. Effects respect prefers-reduced-motion.
+> How it works: each item is one file with no dependency besides React. You install it with a shadcn command, for example `npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json`, and then edit it as you like. Effects respect prefers-reduced-motion.
 >
 > There is also an MCP server and a Claude Code plugin if you want your coding agent to search and install items, but you do not need either to use the catalog.
 >
-> It is free and MIT licensed. I plan a paid tier later, but nothing is for sale now. Site: https://hyperblur.vercel.app. Source: https://github.com/Hyperblur/Hyperblur
+> It is free and MIT licensed. I plan a paid tier later, but nothing is for sale now. Site: https://hyperblur.dev. Source: https://github.com/Hyperblur/Hyperblur
 >
 > What I would like to know: which effects you would use that are not there, and whether the props feel right.
 
@@ -212,8 +211,8 @@ title: "A catalog of copy-paste React effects, and an MCP server to install them
 published: false
 description: "How Hyperblur ships React effects as single-file shadcn registry items, and how an MCP server lets coding agents search and install them."
 tags: react, webdev, opensource, mcp
-cover_image: https://hyperblur.vercel.app/opengraph-image
-canonical_url: https://hyperblur.vercel.app/docs/introduction
+cover_image: https://hyperblur.dev/opengraph-image
+canonical_url: https://hyperblur.dev/docs/introduction
 ---
 ```
 
@@ -235,15 +234,15 @@ Outline:
 
 Variant 1:
 
-> Hyperblur is a catalog of 609 copy-paste React effects, components and page blocks. Each one is a single file with no dependencies besides React. Install one with a shadcn command, or let your coding agent do it through MCP. MIT. https://hyperblur.vercel.app
+> Hyperblur is a catalog of 609 copy-paste React effects, components and page blocks. Each one is a single file with no dependencies besides React. Install one with a shadcn command, or let your coding agent do it through MCP. MIT. https://hyperblur.dev
 
 Variant 2:
 
 > Want a glitch text, a magnetic hover or a pricing section without adding a package? Hyperblur gives you the source as one file you own.
 >
-> npx shadcn@latest add https://hyperblur.vercel.app/r/glitch-text.json
+> npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json
 >
-> Free, MIT. https://hyperblur.vercel.app
+> Free, MIT. https://hyperblur.dev
 
 Variant 3:
 
@@ -264,5 +263,5 @@ Title: `Hyperblur 0.2.0`
 ## GitHub repository metadata
 
 - About: `Copy-paste visual effects, components and page blocks for React. One shadcn command to install, MCP server and Claude Code plugin included.`
-- Website: https://hyperblur.vercel.app
+- Website: https://hyperblur.dev
 - Topics: react, shadcn, shadcn-ui, registry, mcp, mcp-server, model-context-protocol, claude-code, animation, ui-components, copy-paste, nextjs, typescript
