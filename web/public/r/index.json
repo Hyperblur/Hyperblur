@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-11-05T18:47:53.558Z",
+  "generatedAt": "2026-11-05T20:33:45.646Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -8945,6 +8945,2784 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/orders-dashboard.json",
       "docs": "https://hyperblur.dev/effects/orders-dashboard",
       "file": "https://hyperblur.dev/r/orders-dashboard.json"
+    },
+    {
+      "slug": "rating-review-card",
+      "component": "RatingReviewCard",
+      "title": "Rating Review Card",
+      "description": "A public reviews summary: a large average, five stars with fractional fill, the review count, a 5 to 1 distribution that animates in, a Rate us link and an optional top review.",
+      "category": "ordering",
+      "tags": [
+        "reviews",
+        "rating",
+        "stars",
+        "restaurant",
+        "social proof",
+        "summary"
+      ],
+      "props": [
+        {
+          "name": "distribution",
+          "type": "number[]",
+          "default": "[968, 214, 58, 22, 22]",
+          "description": "Review counts for 5, 4, 3, 2 and 1 stars, in that order. Drives the bars and, by default, the average and the count."
+        },
+        {
+          "name": "rating",
+          "type": "number",
+          "description": "Average shown in large type. Computed from distribution when omitted."
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "Total number of reviews. The sum of distribution when omitted."
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "default": "\"Customer reviews\"",
+          "description": "Label at the top of the card, for example the platform the reviews come from."
+        },
+        {
+          "name": "reviewUrl",
+          "type": "string",
+          "default": "\"https://cornerkitchen.example/reviews\"",
+          "description": "Where the Rate us button goes. Opens in a new tab. Empty hides the button."
+        },
+        {
+          "name": "quote",
+          "type": "{ text: string; author: string; meta?: string; rating?: number } | null",
+          "default": "A five-star review",
+          "description": "Top review under the bars. Pass null to hide it."
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Color scheme of the card."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Focus ring and avatar color."
+        },
+        {
+          "name": "starColor",
+          "type": "string",
+          "default": "\"#f5b301\"",
+          "description": "Color of the stars and the bars."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale used to format the average and the count with Intl.NumberFormat."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<{ reviews; outOf; rateUs; topReview; starsRow }>",
+          "default": "{ reviews: \"{n} reviews\", outOf: \"out of 5\", rateUs: \"Rate us\", topReview: \"Top review\", starsRow: \"{s} stars\" }",
+          "description": "Every visible string. {n} is the formatted count and {s} the star level."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<RatingReviewCard distribution={[412, 96, 21, 8, 5]} reviewUrl=\"https://example.com/review\" quote={null} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/rating-review-card.json",
+      "docs": "https://hyperblur.dev/effects/rating-review-card",
+      "file": "https://hyperblur.dev/r/rating-review-card.json"
+    },
+    {
+      "slug": "map-directions-card",
+      "component": "MapDirectionsCard",
+      "title": "Map Directions Card",
+      "description": "A location card with a locally drawn street map, a dropping pin and an animated route, the address, an hours line, a distance chip, and Open in Maps and Open in Waze links built from the address or coordinates.",
+      "category": "ordering",
+      "tags": [
+        "map",
+        "directions",
+        "location",
+        "address",
+        "waze",
+        "store"
+      ],
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"Corner Kitchen\"",
+          "description": "Business name."
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "default": "\"418 Maple Avenue, Brooklyn, NY 11215\"",
+          "description": "Address shown on the card and used as the search query of both links."
+        },
+        {
+          "name": "lat",
+          "type": "number",
+          "description": "Latitude. When given with lng, the links use the coordinates instead of the address."
+        },
+        {
+          "name": "lng",
+          "type": "number",
+          "description": "Longitude. Used together with lat."
+        },
+        {
+          "name": "hours",
+          "type": "string",
+          "default": "\"Open today · 11 am to 10 pm\"",
+          "description": "Hours line under the address. Empty hides it."
+        },
+        {
+          "name": "status",
+          "type": "\"open\" | \"closing\" | \"closed\"",
+          "default": "\"open\"",
+          "description": "Color of the dot before the hours line."
+        },
+        {
+          "name": "distance",
+          "type": "string",
+          "default": "\"1.2 mi · 6 min\"",
+          "description": "Chip over the map. Empty hides it."
+        },
+        {
+          "name": "streets",
+          "type": "string[]",
+          "default": "[\"Maple Ave\", \"Union Blvd\", \"8th St\"]",
+          "description": "Up to three street names printed on the map."
+        },
+        {
+          "name": "showRoute",
+          "type": "boolean",
+          "default": "true",
+          "description": "Draws the route from the visitor dot to the pin."
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Color scheme of the card and the map."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Pin, route and primary button color."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<{ openMaps; openWaze; mapLabel; you }>",
+          "default": "{ openMaps: \"Open in Maps\", openWaze: \"Open in Waze\", mapLabel: \"Map showing {name}\", you: \"You\" }",
+          "description": "Every visible and accessible string."
+        },
+        {
+          "name": "onDirections",
+          "type": "(app: \"maps\" | \"waze\", href: string) => void",
+          "description": "Called when one of the two links is clicked."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<MapDirectionsCard name=\"Corner Kitchen\" address=\"418 Maple Avenue, Brooklyn, NY 11215\" lat={40.6712} lng={-73.9772} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/map-directions-card.json",
+      "docs": "https://hyperblur.dev/effects/map-directions-card",
+      "file": "https://hyperblur.dev/r/map-directions-card.json"
+    },
+    {
+      "slug": "qr-generator",
+      "component": "QrGenerator",
+      "title": "QR Generator",
+      "description": "A real QR code encoder with a generator panel: pick where the code will be printed and it appends a source parameter to your link so scans can be attributed, with a live preview, Download SVG and Copy link. Also exports QrCode and encodeQr.",
+      "category": "ordering",
+      "tags": [
+        "qr code",
+        "generator",
+        "menu",
+        "table",
+        "svg",
+        "tracking"
+      ],
+      "props": [
+        {
+          "name": "baseUrl",
+          "type": "string",
+          "default": "\"https://cornerkitchen.example/menu\"",
+          "description": "Link encoded in the code. The source parameter is added to it, keeping any existing query and hash."
+        },
+        {
+          "name": "placements",
+          "type": "{ id: string; label: string; source: string; numbered?: boolean }[]",
+          "default": "Table, Bio link, Delivery bag, Flyer",
+          "description": "Choices of the placement picker. A numbered placement shows a number input and produces source-number, for example table-5."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Controlled placement id."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "description": "Initial placement id when uncontrolled. Defaults to the first placement."
+        },
+        {
+          "name": "onChange",
+          "type": "(placementId: string) => void",
+          "description": "Called when a placement is picked."
+        },
+        {
+          "name": "tableNumber",
+          "type": "number",
+          "description": "Controlled number for numbered placements."
+        },
+        {
+          "name": "defaultTableNumber",
+          "type": "number",
+          "default": "5",
+          "description": "Initial number when uncontrolled."
+        },
+        {
+          "name": "onTableNumberChange",
+          "type": "(n: number) => void",
+          "description": "Called when the number changes."
+        },
+        {
+          "name": "sourceParam",
+          "type": "string",
+          "default": "\"src\"",
+          "description": "Name of the query parameter, giving ?src=table-5, ?src=bio, ?src=bag."
+        },
+        {
+          "name": "level",
+          "type": "\"L\" | \"M\" | \"Q\" | \"H\"",
+          "default": "\"M\"",
+          "description": "Error correction level. With a logo the code uses at least Q."
+        },
+        {
+          "name": "fg",
+          "type": "string",
+          "default": "\"#0a0a0a\"",
+          "description": "Module color."
+        },
+        {
+          "name": "bg",
+          "type": "string",
+          "default": "\"#ffffff\"",
+          "description": "Background color of the code."
+        },
+        {
+          "name": "margin",
+          "type": "number",
+          "default": "1",
+          "description": "Quiet zone around the code, in modules."
+        },
+        {
+          "name": "rounded",
+          "type": "boolean",
+          "default": "true",
+          "description": "Rounded modules and finder eyes instead of square ones."
+        },
+        {
+          "name": "logo",
+          "type": "React.ReactNode",
+          "description": "Content drawn in a cleared square in the middle of the code."
+        },
+        {
+          "name": "fileName",
+          "type": "string",
+          "default": "\"menu-qr\"",
+          "description": "Prefix of the downloaded SVG file name."
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Color scheme of the panel."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Selected placement, focus rings and the source part of the link."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<{ heading; placement; tableNumber; link; download; copy; copied; caption; tableCaption }>",
+          "default": "{ heading: \"Menu QR code\", download: \"Download SVG\", copy: \"Copy link\", tableCaption: \"Table {n} · scan to order\", ... }",
+          "description": "Every visible string. {n} is the table number."
+        },
+        {
+          "name": "onUrlChange",
+          "type": "(url: string) => void",
+          "description": "Called with the final tracked link whenever it changes."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<QrGenerator baseUrl=\"https://example.com/menu\" defaultValue=\"table\" defaultTableNumber={12} level=\"Q\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/qr-generator.json",
+      "docs": "https://hyperblur.dev/effects/qr-generator",
+      "file": "https://hyperblur.dev/r/qr-generator.json"
+    },
+    {
+      "slug": "link-in-bio-card",
+      "component": "LinkInBioCard",
+      "title": "Link in Bio Card",
+      "description": "A phone-sized link page for a local business: cover, avatar, verified name, open status, bio, an Order now button, a list of icon links, native share with a copy fallback, a QR toggle and a Save contact button that downloads a vCard.",
+      "category": "ordering",
+      "tags": [
+        "link in bio",
+        "profile",
+        "links",
+        "vcard",
+        "share",
+        "mobile"
+      ],
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"Corner Kitchen\"",
+          "description": "Business name under the avatar."
+        },
+        {
+          "name": "handle",
+          "type": "string",
+          "default": "\"@cornerkitchen\"",
+          "description": "Line under the name. Empty hides it."
+        },
+        {
+          "name": "initials",
+          "type": "string",
+          "description": "Text in the avatar. The first letters of name when omitted."
+        },
+        {
+          "name": "verified",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the verified tick after the name."
+        },
+        {
+          "name": "status",
+          "type": "{ tone: \"open\" | \"closing\" | \"closed\"; label: string } | null",
+          "default": "{ tone: \"open\", label: \"Open now · until 10 pm\" }",
+          "description": "Status pill. Compute it on your side; the card never reads the clock. null hides it."
+        },
+        {
+          "name": "bio",
+          "type": "string",
+          "default": "\"Smash burgers, crispy fries ...\"",
+          "description": "Short paragraph under the status."
+        },
+        {
+          "name": "primary",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Order now\", href: \"https://cornerkitchen.example/order\" }",
+          "description": "Main button. null hides it."
+        },
+        {
+          "name": "links",
+          "type": "{ id: string; label: string; href: string; icon?: \"menu\" | \"delivery\" | \"location\" | \"chat\" | \"camera\" | \"reviews\" | \"link\"; hint?: string }[]",
+          "default": "6 links",
+          "description": "Stacked link buttons. Each opens in a new tab."
+        },
+        {
+          "name": "contact",
+          "type": "{ name; phone?; email?; url?; street?; city?; region?; postalCode?; country? } | null",
+          "default": "Corner Kitchen contact",
+          "description": "Data of the downloaded vCard. null hides the Save contact button."
+        },
+        {
+          "name": "shareUrl",
+          "type": "string",
+          "default": "\"https://cornerkitchen.example/links\"",
+          "description": "Link shared by the Share button and shown in the QR panel."
+        },
+        {
+          "name": "shareTitle",
+          "type": "string",
+          "description": "Title passed to the native share sheet. Defaults to name."
+        },
+        {
+          "name": "appearance",
+          "type": "\"light\" | \"dark\"",
+          "default": "\"light\"",
+          "description": "Color scheme."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff5a36\"",
+          "description": "Primary button, icons and the verified tick."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<{ share; copied; showQr; hideQr; qrCaption; saveContact; verified; footer }>",
+          "default": "{ share: \"Share\", copied: \"Link copied\", saveContact: \"Save contact\", ... }",
+          "description": "Every visible and accessible string. An empty footer hides it."
+        },
+        {
+          "name": "onShare",
+          "type": "(method: \"native\" | \"copy\") => void",
+          "description": "Called after a successful share or copy."
+        },
+        {
+          "name": "onLinkClick",
+          "type": "(link) => void",
+          "description": "Called when a link button is clicked."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<LinkInBioCard name=\"Corner Kitchen\" appearance=\"dark\" status={{ tone: \"open\", label: \"Open now · until 10 pm\" }} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/link-in-bio-card.json",
+      "docs": "https://hyperblur.dev/effects/link-in-bio-card",
+      "file": "https://hyperblur.dev/r/link-in-bio-card.json"
+    },
+    {
+      "slug": "orders-queue-board",
+      "component": "OrdersQueueBoard",
+      "title": "Orders Queue Board",
+      "description": "A kitchen queue with New, Preparing, Ready and Out columns. Drag cards or use the buttons and arrow keys to advance them, and hear a short chime when a new order arrives.",
+      "category": "ordering",
+      "tags": [
+        "orders",
+        "kitchen",
+        "queue",
+        "kanban",
+        "restaurant",
+        "dashboard"
+      ],
+      "props": [
+        {
+          "name": "orders",
+          "type": "QueueOrder[]",
+          "description": "Controlled list. An order is { id, number, customer, items: { name, quantity? }[], total, channel: \"delivery\" | \"pickup\" | \"table\", status, table?, elapsedMinutes?, placedAt? }. New ids with status \"new\" play the chime and slide in."
+        },
+        {
+          "name": "defaultOrders",
+          "type": "QueueOrder[]",
+          "default": "6 sample orders",
+          "description": "Initial list when uncontrolled."
+        },
+        {
+          "name": "onStatusChange",
+          "type": "(id: string, status: QueueStatus, order: QueueOrder) => void",
+          "description": "Called when an order is dragged, advanced, moved back or moved with the arrow keys. Status is \"new\" | \"preparing\" | \"ready\" | \"dispatched\"."
+        },
+        {
+          "name": "onPrint",
+          "type": "(order: QueueOrder) => void",
+          "description": "Shows a print button on each card and is called with its order."
+        },
+        {
+          "name": "soundEnabled",
+          "type": "boolean",
+          "description": "Controlled state of the Sound switch."
+        },
+        {
+          "name": "defaultSoundEnabled",
+          "type": "boolean",
+          "default": "true",
+          "description": "Initial Sound state when uncontrolled. Audio starts only after the first click or key press on the page."
+        },
+        {
+          "name": "onSoundChange",
+          "type": "(enabled: boolean) => void",
+          "description": "Called when the Sound switch is toggled."
+        },
+        {
+          "name": "lateAfter",
+          "type": "number",
+          "default": "20",
+          "description": "Minutes after which an open order is flagged as late."
+        },
+        {
+          "name": "now",
+          "type": "Date | string",
+          "description": "Fixed clock used with placedAt to compute elapsed time. Without it the clock starts after mount and ticks every 30 seconds."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"USD\"",
+          "description": "ISO currency code passed to Intl.NumberFormat."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale used to format money."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<OrdersQueueLabels>",
+          "default": "English",
+          "description": "Every visible string: column names, channels, button labels, and templates such as minutes \"{n} min\" and lateCount \"{n} late\"."
+        },
+        {
+          "name": "actions",
+          "type": "React.ReactNode",
+          "description": "Extra controls rendered in the header next to the Sound switch."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color used for buttons, focus rings and highlights."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<OrdersQueueBoard onStatusChange={(id, status) => console.log(id, status)} onPrint={(order) => console.log(order.number)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/orders-queue-board.json",
+      "docs": "https://hyperblur.dev/effects/orders-queue-board",
+      "file": "https://hyperblur.dev/r/orders-queue-board.json"
+    },
+    {
+      "slug": "receipt-80mm",
+      "component": "Receipt80mm",
+      "title": "Receipt 80mm",
+      "description": "An on-screen thermal receipt at real 80 mm or 58 mm width that feeds out of a printer slot and prints only itself with the matching page size.",
+      "category": "ordering",
+      "tags": [
+        "receipt",
+        "print",
+        "thermal",
+        "order",
+        "kitchen",
+        "pos"
+      ],
+      "props": [
+        {
+          "name": "storeName",
+          "type": "string",
+          "default": "\"Corner Kitchen\"",
+          "description": "Name at the top of the receipt."
+        },
+        {
+          "name": "storeLines",
+          "type": "string[]",
+          "default": "address and phone",
+          "description": "Lines under the store name."
+        },
+        {
+          "name": "orderNumber",
+          "type": "string | number",
+          "default": "1048",
+          "description": "Order number printed large."
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "default": "\"Nov 5, 2026 · 7:42 PM\"",
+          "description": "Preformatted date and time."
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "\"Delivery\"",
+          "description": "Order type line."
+        },
+        {
+          "name": "customer",
+          "type": "{ name: string; phone?: string; address?: string } | null",
+          "default": "Maya Thompson",
+          "description": "Customer block. Null hides it."
+        },
+        {
+          "name": "items",
+          "type": "{ name: string; price: number; quantity?: number; options?: string[]; note?: string }[]",
+          "default": "4 items",
+          "description": "Lines with unit price. Options and the note print indented under the item."
+        },
+        {
+          "name": "adjustments",
+          "type": "{ label: string; amount: number }[]",
+          "default": "delivery fee and coupon",
+          "description": "Lines between subtotal and total. Use negative amounts for discounts."
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "description": "Total to print. Defaults to the subtotal plus adjustments."
+        },
+        {
+          "name": "payment",
+          "type": "string",
+          "default": "\"Card on delivery\"",
+          "description": "Payment method line."
+        },
+        {
+          "name": "paymentNote",
+          "type": "string",
+          "default": "\"Bring the card machine\"",
+          "description": "Bold line under the payment method."
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "default": "\"Ring twice, side door on 6th St.\"",
+          "description": "Boxed order note."
+        },
+        {
+          "name": "footer",
+          "type": "string",
+          "default": "\"Thank you! See you soon.\"",
+          "description": "Closing line."
+        },
+        {
+          "name": "qrValue",
+          "type": "string",
+          "description": "Seed for the decorative code block. Defaults to the store name and order number."
+        },
+        {
+          "name": "showQr",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the code block."
+        },
+        {
+          "name": "paper",
+          "type": "\"80mm\" | \"58mm\"",
+          "default": "\"80mm\"",
+          "description": "Paper width on screen and in print."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"USD\"",
+          "description": "ISO currency code passed to Intl.NumberFormat."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale used to format money."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<ReceiptLabels>",
+          "default": "English",
+          "description": "Every visible caption, such as print, subtotal, total, payment, note and scan."
+        },
+        {
+          "name": "showToolbar",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the paper chip and the Print button."
+        },
+        {
+          "name": "showPrinter",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the printer slot above the paper."
+        },
+        {
+          "name": "animateIn",
+          "type": "boolean",
+          "default": "true",
+          "description": "Feeds the paper out of the slot on mount."
+        },
+        {
+          "name": "onPrint",
+          "type": "() => void",
+          "description": "Called right before the print dialog opens."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color used for buttons, focus rings and highlights."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<Receipt80mm orderNumber={2051} items={[{ name: \"Smash Double\", quantity: 2, price: 11.5 }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/receipt-80mm.json",
+      "docs": "https://hyperblur.dev/effects/receipt-80mm",
+      "file": "https://hyperblur.dev/r/receipt-80mm.json"
+    },
+    {
+      "slug": "install-app-banner",
+      "component": "InstallAppBanner",
+      "title": "Install App Banner",
+      "description": "An install invite for web apps: an Install button wired to the browser prompt, manual Share then Add to Home Screen steps on iPhone, and a remembered snooze.",
+      "category": "ordering",
+      "tags": [
+        "pwa",
+        "install",
+        "banner",
+        "mobile",
+        "ios",
+        "app"
+      ],
+      "props": [
+        {
+          "name": "appName",
+          "type": "string",
+          "default": "\"Corner Kitchen\"",
+          "description": "App name next to the icon."
+        },
+        {
+          "name": "meta",
+          "type": "string",
+          "default": "\"Free · Installs in seconds\"",
+          "description": "Small line under the name."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "default": "\"Reorder in two taps and track every delivery.\"",
+          "description": "Short pitch."
+        },
+        {
+          "name": "benefits",
+          "type": "string[]",
+          "default": "[\"Live order tracking\", \"Works offline\"]",
+          "description": "Checklist under the pitch."
+        },
+        {
+          "name": "icon",
+          "type": "React.ReactNode",
+          "description": "App icon slot. Defaults to a drawn bowl icon."
+        },
+        {
+          "name": "snoozeDays",
+          "type": "number",
+          "default": "7",
+          "description": "Days the banner stays hidden after it is dismissed."
+        },
+        {
+          "name": "storageKey",
+          "type": "string",
+          "default": "\"install-banner-snooze\"",
+          "description": "localStorage key used for the snooze."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "1200",
+          "description": "Milliseconds to wait before showing the banner."
+        },
+        {
+          "name": "forceVisible",
+          "type": "boolean",
+          "default": "false",
+          "description": "Always shows the banner and skips the snooze, for previews and testing."
+        },
+        {
+          "name": "mode",
+          "type": "\"auto\" | \"prompt\" | \"ios\"",
+          "default": "\"auto\"",
+          "description": "Auto picks the iPhone steps on iOS Safari and the Install button where the browser supports it."
+        },
+        {
+          "name": "placement",
+          "type": "\"fixed\" | \"inline\"",
+          "default": "\"fixed\"",
+          "description": "Fixed is a bottom sheet on phones and a corner card on wide screens. Inline renders in the flow."
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Color scheme."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<InstallAppLabels>",
+          "default": "English",
+          "description": "Every visible string, including the iPhone steps."
+        },
+        {
+          "name": "onInstall",
+          "type": "(outcome: \"accepted\" | \"dismissed\" | \"unavailable\") => void",
+          "description": "Called after the install prompt closes, or with unavailable when the browser offered no prompt."
+        },
+        {
+          "name": "onDismiss",
+          "type": "() => void",
+          "description": "Called when the banner is closed with Not now, Got it, the close button or Escape."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Accent color used for buttons, focus rings and highlights."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<InstallAppBanner appName=\"Corner Kitchen\" onInstall={(outcome) => console.log(outcome)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/install-app-banner.json",
+      "docs": "https://hyperblur.dev/effects/install-app-banner",
+      "file": "https://hyperblur.dev/r/install-app-banner.json"
+    },
+    {
+      "slug": "order-cart-bar",
+      "component": "OrderCartBar",
+      "title": "Order Cart Bar",
+      "description": "A floating View order bar that slides up once the cart has items, bumps the count when it changes and shows progress toward a free delivery threshold.",
+      "category": "ordering",
+      "tags": [
+        "cart",
+        "order",
+        "checkout",
+        "floating bar",
+        "delivery",
+        "menu"
+      ],
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "default": "3",
+          "description": "Number of items in the cart. The badge bumps whenever it changes."
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "default": "54",
+          "description": "Cart total as a number."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"USD\"",
+          "description": "ISO currency code used with Intl.NumberFormat for every amount."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale used to format amounts."
+        },
+        {
+          "name": "freeDeliveryThreshold",
+          "type": "number",
+          "default": "60",
+          "description": "Amount that unlocks free delivery. 0 hides the progress line."
+        },
+        {
+          "name": "position",
+          "type": "\"fixed\" | \"sticky\" | \"static\"",
+          "default": "\"fixed\"",
+          "description": "Fixed to the viewport bottom, sticky inside its scroll container, or static in the flow for previews."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "16",
+          "description": "Distance from the bottom edge in pixels for fixed and sticky positions."
+        },
+        {
+          "name": "hideWhenEmpty",
+          "type": "boolean",
+          "default": "true",
+          "description": "Slide the bar out of view while the count is 0."
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Color scheme of the bar."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the total button, badge and progress."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<{ view; itemsOne; itemsMany; freeDeliveryLeft; freeDeliveryUnlocked }>",
+          "default": "{ view: \"View order\", itemsMany: \"{count} items\", freeDeliveryLeft: \"Add {amount} for free delivery\", ... }",
+          "description": "Every visible string. {count} and {amount} are replaced with the item count and the formatted amount left."
+        },
+        {
+          "name": "onOpen",
+          "type": "() => void",
+          "description": "Called when the bar is pressed, usually to open the cart drawer."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<OrderCartBar count={3} total={54} freeDeliveryThreshold={60} onOpen={() => console.log(\"open cart\")} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/order-cart-bar.json",
+      "docs": "https://hyperblur.dev/effects/order-cart-bar",
+      "file": "https://hyperblur.dev/r/order-cart-bar.json"
+    },
+    {
+      "slug": "order-cart-drawer",
+      "component": "OrderCartDrawer",
+      "title": "Order Cart Drawer",
+      "description": "A cart sheet with quantity steppers, line notes, delivery or pickup, area fees from props, payment choice, a coupon field and a Send order button with a confirmation state.",
+      "category": "ordering",
+      "tags": [
+        "cart",
+        "drawer",
+        "checkout",
+        "delivery",
+        "pickup",
+        "order"
+      ],
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state of the drawer."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called when the drawer asks to open or close (close button, scrim, Escape)."
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "default": "false",
+          "description": "Render the panel in the page flow instead of a modal drawer. It fills the parent height."
+        },
+        {
+          "name": "items",
+          "type": "CartLine[]",
+          "description": "Controlled cart lines. A line is { id, name, price, quantity, options?, note?, color? }."
+        },
+        {
+          "name": "defaultItems",
+          "type": "CartLine[]",
+          "default": "3 burger joint items",
+          "description": "Initial lines when uncontrolled."
+        },
+        {
+          "name": "onItemsChange",
+          "type": "(items: CartLine[]) => void",
+          "description": "Called when a quantity, note or removal changes the lines."
+        },
+        {
+          "name": "mode",
+          "type": "\"delivery\" | \"pickup\"",
+          "description": "Controlled order mode."
+        },
+        {
+          "name": "defaultMode",
+          "type": "\"delivery\" | \"pickup\"",
+          "default": "\"delivery\"",
+          "description": "Initial mode when uncontrolled."
+        },
+        {
+          "name": "onModeChange",
+          "type": "(mode) => void",
+          "description": "Called when the Delivery / Pickup control changes."
+        },
+        {
+          "name": "areas",
+          "type": "{ id: string; label: string; fee: number; eta?: string }[]",
+          "default": "4 neighborhoods",
+          "description": "Delivery areas with a fixed fee each. The fee of the chosen area is added to the total."
+        },
+        {
+          "name": "defaultAreaId",
+          "type": "string",
+          "description": "Area selected at start. Empty asks the customer to choose."
+        },
+        {
+          "name": "store",
+          "type": "{ name: string; address: string; readyTime?: string }",
+          "default": "Corner Kitchen, 214 Grand Street",
+          "description": "Shown when Pickup is selected."
+        },
+        {
+          "name": "paymentMethods",
+          "type": "{ id: string; label: string; hint?: string; icon?: \"cash\" | \"card\" | \"instant\" | \"wallet\" }[]",
+          "default": "Pay on delivery, Card, Instant transfer",
+          "description": "Payment options shown as radio cards."
+        },
+        {
+          "name": "defaultPaymentId",
+          "type": "string",
+          "description": "Initially selected payment. Defaults to the first method."
+        },
+        {
+          "name": "onApplyCoupon",
+          "type": "(code: string, subtotal: number) => { code; discount; label? } | null | Promise<...>",
+          "description": "Validates a coupon. Return the discount amount to apply it or null to show the invalid message."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(order: CartOrder) => void | Promise<void>",
+          "description": "Called with items, mode, area, customer, address, payment, coupon and every amount. The confirmation shows when it resolves."
+        },
+        {
+          "name": "onNewOrder",
+          "type": "() => void",
+          "description": "Called from the confirmation screen. Uncontrolled lines are cleared."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"USD\"",
+          "description": "ISO currency code used with Intl.NumberFormat for every amount."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale used to format amounts."
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Color scheme of the panel."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Color of the main button, selected states and focus rings."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<OrderCartDrawerLabels>",
+          "default": "{ title: \"Your order\", submit: \"Send order\", ... }",
+          "description": "Every visible string, from the title and field names to the confirmation text."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<OrderCartDrawer defaultOpen onSubmit={(order) => console.log(order.total, order.items)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/order-cart-drawer.json",
+      "docs": "https://hyperblur.dev/effects/order-cart-drawer",
+      "file": "https://hyperblur.dev/r/order-cart-drawer.json"
+    },
+    {
+      "slug": "chat-order-button",
+      "component": "ChatOrderButton",
+      "title": "Chat Order Button",
+      "description": "A pill button with a speech bubble icon that opens a chat with a prefilled message, with a hover glow, sizes, variants and an unread dot.",
+      "category": "ordering",
+      "tags": [
+        "chat",
+        "button",
+        "order",
+        "messaging",
+        "link",
+        "contact"
+      ],
+      "props": [
+        {
+          "name": "phone",
+          "type": "string",
+          "default": "\"1 555 555 0142\"",
+          "description": "Phone number with country code. Non-digits are stripped to build the chat link."
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "default": "\"Hi! I'd like to place an order for pickup.\"",
+          "description": "Prefilled message, URL encoded into the link."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "\"Order on chat\"",
+          "description": "Button text."
+        },
+        {
+          "name": "sublabel",
+          "type": "string",
+          "description": "Optional second line, for example a reply time."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Height and text size."
+        },
+        {
+          "name": "variant",
+          "type": "\"dark\" | \"light\" | \"outline\" | \"solid\"",
+          "default": "\"dark\"",
+          "description": "Visual style of the pill."
+        },
+        {
+          "name": "unread",
+          "type": "boolean | number",
+          "default": "false",
+          "description": "Shows a pulsing dot, or a count when a number above 0 is given."
+        },
+        {
+          "name": "unreadLabel",
+          "type": "string",
+          "default": "\"unread\"",
+          "description": "Screen reader text announced with the unread dot."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#25d366\"",
+          "description": "Color of the bubble icon and hover glow."
+        },
+        {
+          "name": "newTab",
+          "type": "boolean",
+          "default": "true",
+          "description": "Open the chat in a new tab."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<ChatOrderButton phone=\"+1 555 555 0142\" message=\"Hi! I'd like to order a Smash Double.\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/chat-order-button.json",
+      "docs": "https://hyperblur.dev/effects/chat-order-button",
+      "file": "https://hyperblur.dev/r/chat-order-button.json"
+    },
+    {
+      "slug": "chat-bubble-typing",
+      "component": "ChatBubbleTyping",
+      "title": "Chat Bubble Typing",
+      "description": "A chat preview with a business avatar, a typing indicator and messages that appear word by word with a natural rhythm, followed by a reply button.",
+      "category": "ordering",
+      "tags": [
+        "chat",
+        "typing",
+        "message",
+        "preview",
+        "notification",
+        "animation"
+      ],
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "default": "\"Corner Kitchen\"",
+          "description": "Business name in the header."
+        },
+        {
+          "name": "initials",
+          "type": "string",
+          "description": "Avatar initials. Derived from the name when omitted."
+        },
+        {
+          "name": "messages",
+          "type": "string[]",
+          "default": "2 order update messages",
+          "description": "Messages typed one after another."
+        },
+        {
+          "name": "time",
+          "type": "string",
+          "default": "\"7:42 PM\"",
+          "description": "Time label shown on finished messages."
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "default": "\"1 555 555 0142\"",
+          "description": "Phone used to build the reply link."
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "default": "\"Hi! Yes, please add a lemonade.\"",
+          "description": "Prefilled reply text."
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Custom reply link. Overrides phone and message."
+        },
+        {
+          "name": "typingDuration",
+          "type": "number",
+          "default": "1300",
+          "description": "Milliseconds the typing dots show before each message."
+        },
+        {
+          "name": "wordDelay",
+          "type": "number",
+          "default": "95",
+          "description": "Base delay per word in milliseconds. Longer words and punctuation add pauses."
+        },
+        {
+          "name": "messageGap",
+          "type": "number",
+          "default": "700",
+          "description": "Pause between messages in milliseconds."
+        },
+        {
+          "name": "startDelay",
+          "type": "number",
+          "default": "400",
+          "description": "Delay before the first message starts."
+        },
+        {
+          "name": "loop",
+          "type": "boolean",
+          "default": "false",
+          "description": "Replay the conversation after it finishes."
+        },
+        {
+          "name": "loopDelay",
+          "type": "number",
+          "default": "4200",
+          "description": "Pause before replaying when loop is on."
+        },
+        {
+          "name": "showHeader",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the avatar, name and status line."
+        },
+        {
+          "name": "showReply",
+          "type": "boolean",
+          "default": "true",
+          "description": "Show the reply button after the last message."
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Color scheme."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#25d366\"",
+          "description": "Color of the online dot, typing status and reply button."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<{ online; typing; reply }>",
+          "default": "{ online: \"online\", typing: \"typing...\", reply: \"Reply on chat\" }",
+          "description": "Every visible string."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root element."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root element."
+        }
+      ],
+      "usage": "<ChatBubbleTyping name=\"Corner Kitchen\" messages={[\"Your order is ready!\", \"See you at the counter.\"]} loop />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/chat-bubble-typing.json",
+      "docs": "https://hyperblur.dev/effects/chat-bubble-typing",
+      "file": "https://hyperblur.dev/r/chat-bubble-typing.json"
+    },
+    {
+      "slug": "menu-photo-rail",
+      "component": "MenuPhotoRail",
+      "title": "Menu Photo Rail",
+      "description": "A full menu of illustrated photo cards with a sticky category rail that follows the section in view, scrolls smoothly on click and keeps the active chip centered.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "scroll-spy",
+        "sticky",
+        "restaurant",
+        "ordering",
+        "categories"
+      ],
+      "props": [
+        {
+          "name": "sections",
+          "type": "{ id: string; label: string; note?: string; items: MenuPhotoRailItem[] }[]",
+          "default": "Burgers, Sides, Pizza & bowls, Drinks, Desserts",
+          "description": "Menu sections. An item is { id, name, description, price: number, art, tint?, tag? }; art is one of burger, chicken-burger, veggie-burger, fries, loaded-fries, salad, pizza, pepperoni, bowl, soda, shake, coffee, cake, chocolate-cake."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"USD\"",
+          "description": "ISO currency code passed to Intl.NumberFormat. Prices are plain numbers."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale passed to Intl.NumberFormat for every price."
+        },
+        {
+          "name": "onAdd",
+          "type": "(item, section) => void",
+          "description": "Called when an Add button is pressed. The button also keeps a local count badge."
+        },
+        {
+          "name": "onItemOpen",
+          "type": "(item, section) => void",
+          "description": "When set, the whole card becomes a button that calls it, for example to open an item drawer."
+        },
+        {
+          "name": "stickyTop",
+          "type": "number",
+          "default": "0",
+          "description": "Offset in px where the rail sticks, for pages with a fixed header."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<{ eyebrow; title; subtitle; rail; add; added; count; countOne; open }>",
+          "default": "English copy",
+          "description": "Every visible string. count uses {count}, for example \"{count} items\"."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff6a3d\"",
+          "description": "Color of the active count, Add hover and focus rings."
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Dark or light surfaces."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuPhotoRail stickyTop={64} onAdd={(item) => console.log(item.id)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-photo-rail.json",
+      "docs": "https://hyperblur.dev/effects/menu-photo-rail",
+      "file": "https://hyperblur.dev/r/menu-photo-rail.json"
+    },
+    {
+      "slug": "order-item-drawer",
+      "component": "OrderItemDrawer",
+      "title": "Order Item Drawer",
+      "description": "A bottom sheet on narrow screens and a side drawer on wide ones for customizing one item: single and multiple choice groups, removable ingredients, quantity, a note and a live total on the add button.",
+      "category": "ordering",
+      "tags": [
+        "drawer",
+        "bottom-sheet",
+        "options",
+        "ordering",
+        "cart",
+        "food"
+      ],
+      "props": [
+        {
+          "name": "item",
+          "type": "{ id: string; name: string; description: string; price: number; badge?: string; tint?: string }",
+          "default": "Steakhouse Burger, $15.50",
+          "description": "The item being customized."
+        },
+        {
+          "name": "groups",
+          "type": "OrderItemGroup[]",
+          "default": "Doneness, side, extras, remove",
+          "description": "Option groups: { id, title, type: \"single\" | \"multiple\" | \"remove\", required?, min?, max?, options: { id, label, price?, hint? }[], defaultSelected? }. Required groups block the button until satisfied."
+        },
+        {
+          "name": "image",
+          "type": "ReactNode",
+          "description": "Hero art slot. Defaults to an illustrated burger."
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Controlled open state."
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "default": "false",
+          "description": "Initial open state when uncontrolled."
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "description": "Called on close button, Escape, backdrop click and after adding."
+        },
+        {
+          "name": "onAdd",
+          "type": "(payload: { itemId; quantity; selections: Record<string, string[]>; note; unitPrice; total }) => void",
+          "description": "Called with the configured item when the button is pressed and every required group is satisfied."
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "default": "\"USD\"",
+          "description": "ISO currency code passed to Intl.NumberFormat. Prices are plain numbers."
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "default": "\"en-US\"",
+          "description": "Locale passed to Intl.NumberFormat for every price."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<OrderItemDrawerLabels>",
+          "default": "English copy",
+          "description": "Every visible string: dialog, close, required, optional, done, chooseOne, chooseUpTo, chooseBetween, chooseAtLeast, removeHint, missing, note, notePlaceholder, quantity, decrease, increase, add, added. Rules use {min} and {max}."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff6a3d\"",
+          "description": "Color of the button, selected options and focus rings."
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Dark or light panel."
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "default": "false",
+          "description": "Render the panel in place, always open and without the overlay, to embed it in a page or preview. It fills its parent height."
+        },
+        {
+          "name": "defaultQuantity",
+          "type": "number",
+          "default": "1",
+          "description": "Quantity when the drawer opens."
+        },
+        {
+          "name": "maxQuantity",
+          "type": "number",
+          "default": "20",
+          "description": "Upper limit of the stepper."
+        },
+        {
+          "name": "noteMaxLength",
+          "type": "number",
+          "default": "140",
+          "description": "Character limit of the note."
+        },
+        {
+          "name": "closeOnAdd",
+          "type": "boolean",
+          "default": "true",
+          "description": "Close the drawer after a successful add. Inline panels show an Added state instead."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the root."
+        }
+      ],
+      "usage": "<OrderItemDrawer open={open} onOpenChange={setOpen} onAdd={(order) => addToCart(order)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/order-item-drawer.json",
+      "docs": "https://hyperblur.dev/effects/order-item-drawer",
+      "file": "https://hyperblur.dev/r/order-item-drawer.json"
+    },
+    {
+      "slug": "open-now-badge",
+      "component": "OpenNowBadge",
+      "title": "Open Now Badge",
+      "description": "A status pill that reads a weekly schedule and shows Open now, Closing soon, Opening at or Closed today, with overnight ranges, holidays and time zones. Ships a pure getOpenStatus helper.",
+      "category": "ordering",
+      "tags": [
+        "hours",
+        "status",
+        "badge",
+        "open-now",
+        "schedule",
+        "timezone"
+      ],
+      "props": [
+        {
+          "name": "hours",
+          "type": "{ day: number; open: string; close: string }[]",
+          "default": "Tue to Sun, Mondays closed",
+          "description": "Weekly ranges, day 0 is Sunday, times as HH:MM. Several ranges per day are fine, and a close earlier than the open runs past midnight."
+        },
+        {
+          "name": "closedDates",
+          "type": "string[]",
+          "description": "Dates as YYYY-MM-DD in the store time zone when the store stays closed."
+        },
+        {
+          "name": "timeZone",
+          "type": "string",
+          "description": "IANA time zone of the store, for example \"America/New_York\". Defaults to the visitor clock."
+        },
+        {
+          "name": "now",
+          "type": "Date | string",
+          "description": "Fixed moment used instead of the clock, for previews and tests."
+        },
+        {
+          "name": "soonMinutes",
+          "type": "number",
+          "default": "30",
+          "description": "Minutes before closing that switch to Closing soon."
+        },
+        {
+          "name": "hourCycle",
+          "type": "12 | 24",
+          "default": "12",
+          "description": "Time format in the label."
+        },
+        {
+          "name": "size",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "default": "\"md\"",
+          "description": "Pill size."
+        },
+        {
+          "name": "variant",
+          "type": "\"soft\" | \"outline\" | \"solid\"",
+          "default": "\"soft\"",
+          "description": "Tinted, bordered or filled style."
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "default": "\"dark\"",
+          "description": "Text color base for dark or light backgrounds."
+        },
+        {
+          "name": "compact",
+          "type": "boolean",
+          "default": "false",
+          "description": "Short labels only: Open, Closing soon, Opens 6:30 pm, Closed."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#7fb3ff\"",
+          "description": "Color of the Opening at state."
+        },
+        {
+          "name": "labels",
+          "type": "Partial<OpenNowBadgeLabels>",
+          "default": "English copy",
+          "description": "checking, open, openShort, until, closingSoon, openingAt, opensShort, closed, closedToday, opens, tomorrow, am, pm and days (7 names from Sunday). Templates use {time} and {day}."
+        },
+        {
+          "name": "onStatusChange",
+          "type": "(status, result) => void",
+          "description": "Called when the computed status changes."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the pill."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the pill."
+        }
+      ],
+      "usage": "<OpenNowBadge timeZone=\"America/New_York\" hours={[{ day: 5, open: \"18:30\", close: \"02:00\" }]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/open-now-badge.json",
+      "docs": "https://hyperblur.dev/effects/open-now-badge",
+      "file": "https://hyperblur.dev/r/open-now-badge.json"
+    },
+    {
+      "slug": "menu-dietary-filter",
+      "component": "MenuDietaryFilter",
+      "title": "Menu Dietary Filter",
+      "description": "A dark all-day menu with dietary filter chips and a search field. Dishes animate out and back in as filters change, with a live counter and an empty state.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "filter",
+        "vegan",
+        "gluten-free",
+        "search",
+        "restaurant"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Greenline Kitchen · All-day menu\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Eat the way you eat.\"",
+          "description": "Heading."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Twelve dishes, cooked to order. ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "items",
+          "type": "{ id: string; name: string; description: string; price: number; tags?: MenuDietaryTag[]; art?: \"bowl\" | \"plate\" | \"wrap\" | \"soup\"; hue?: number }[]",
+          "default": "12 dishes",
+          "description": "Menu items. Tags are vegan, vegetarian, gluten-free, spicy, new and popular. Vegan dishes also match the Vegetarian filter."
+        },
+        {
+          "name": "defaultFilters",
+          "type": "(\"vegan\" | \"vegetarian\" | \"gluten-free\" | \"spicy\" | \"under-10\")[]",
+          "default": "[]",
+          "description": "Filters active on first render. Several filters combine, so a dish must match all of them."
+        },
+        {
+          "name": "defaultQuery",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Initial search text. Matches dish names and descriptions."
+        },
+        {
+          "name": "priceLimit",
+          "type": "number",
+          "default": "10",
+          "description": "Price used by the Under filter; the chip label follows it."
+        },
+        {
+          "name": "onFilterChange",
+          "type": "(state: { filters; query; count }) => void",
+          "description": "Called whenever a chip or the search changes, with the number of matching dishes."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#34d399\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuDietaryFilter defaultFilters={[\"vegan\"]} onFilterChange={(s) => console.log(s.count)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-dietary-filter.json",
+      "docs": "https://hyperblur.dev/effects/menu-dietary-filter",
+      "file": "https://hyperblur.dev/r/menu-dietary-filter.json"
+    },
+    {
+      "slug": "menu-specials-today",
+      "component": "MenuSpecialsToday",
+      "title": "Menu Specials Today",
+      "description": "A bold street-food specials board with a looping ticker, a weekday switcher and a limited-quantity meter on each special that counts down as guests hold one for pickup.",
+      "category": "menus",
+      "tags": [
+        "specials",
+        "menu",
+        "marquee",
+        "street food",
+        "daily",
+        "limited"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Fuego Street Kitchen · 418 Mercer Ave\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Today's specials\"",
+          "description": "Heading. The last word is set in the accent color."
+        },
+        {
+          "name": "days",
+          "type": "{ day: string; short: string; theme: string; specials: MenuSpecial[] }[]",
+          "default": "Monday to Sunday",
+          "description": "One entry per weekday. A special is { id, name, description, price, was?, left, total, art, color? }; art is taco, burger, fries, skewer, bowl, pizza, hotdog or corn."
+        },
+        {
+          "name": "todayIndex",
+          "type": "number",
+          "default": "4",
+          "description": "Day selected first and labelled Today. Pass it from the server or a client effect; the block never reads the clock."
+        },
+        {
+          "name": "ticker",
+          "type": "string[]",
+          "default": "6 lines",
+          "description": "Phrases in the scrolling strip at the top. An empty array hides it."
+        },
+        {
+          "name": "onChange",
+          "type": "(index: number) => void",
+          "description": "Called when another day is selected."
+        },
+        {
+          "name": "onClaim",
+          "type": "(special: MenuSpecial, left: number) => void",
+          "description": "Called when a guest holds one, with the quantity left after it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ffc23d\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuSpecialsToday todayIndex={1} onClaim={(s, left) => console.log(s.name, left)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-specials-today.json",
+      "docs": "https://hyperblur.dev/effects/menu-specials-today",
+      "file": "https://hyperblur.dev/r/menu-specials-today.json"
+    },
+    {
+      "slug": "menu-photo-cards",
+      "component": "MenuPhotoCards",
+      "title": "Menu Photo Cards",
+      "description": "A light restaurant card grid with large illustrated dishes. Hovering lifts a card and reveals ingredients and calories; guests can save dishes and add them to a running order.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "cards",
+        "restaurant",
+        "order",
+        "hover",
+        "favorites"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Lumen Kitchen · Spring menu\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Chef's favorites this season\"",
+          "description": "Heading."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Six plates our regulars order ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "dishes",
+          "type": "{ id: string; name: string; description: string; price: number; calories: number; ingredients: string[]; art: \"pasta\" | \"salad\" | \"steak\" | \"tart\" | \"ramen\" | \"poke\"; tint?: string; badge?: string }[]",
+          "default": "6 dishes",
+          "description": "Cards in the grid. Tint is the soft background behind the dish art."
+        },
+        {
+          "name": "defaultSaved",
+          "type": "string[]",
+          "default": "[\"ramen\"]",
+          "description": "Dish ids saved with the heart on first render."
+        },
+        {
+          "name": "defaultOrder",
+          "type": "Record<string, number>",
+          "default": "{ cacio: 1, poke: 2 }",
+          "description": "Quantities already in the order on first render. Pass {} to start empty."
+        },
+        {
+          "name": "onAdd",
+          "type": "(dish: MenuPhotoDish, quantity: number) => void",
+          "description": "Called when a quantity changes, with the new quantity for that dish."
+        },
+        {
+          "name": "onSaveChange",
+          "type": "(ids: string[]) => void",
+          "description": "Called when a dish is saved or removed from saved."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff6b4a\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuPhotoCards defaultOrder={{}} onAdd={(d, q) => console.log(d.name, q)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-photo-cards.json",
+      "docs": "https://hyperblur.dev/effects/menu-photo-cards",
+      "file": "https://hyperblur.dev/r/menu-photo-cards.json"
+    },
+    {
+      "slug": "menu-brunch-list",
+      "component": "MenuBrunchList",
+      "title": "Menu Brunch List",
+      "description": "A brunch menu laid out as an open two-page book on cream paper, with line icons, dotted price leaders and a sticky ribbon that totals the dishes you tap and places the order.",
+      "category": "menus",
+      "tags": [
+        "brunch",
+        "menu",
+        "cafe",
+        "breakfast",
+        "order",
+        "book"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Sunday Table · Brunch menu\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Brunch, slowly.\"",
+          "description": "Heading."
+        },
+        {
+          "name": "hours",
+          "type": "string",
+          "default": "\"Saturday and Sunday, 9 am to 3 pm\"",
+          "description": "Serving hours under the heading."
+        },
+        {
+          "name": "pages",
+          "type": "[MenuBrunchSection[], MenuBrunchSection[]]",
+          "default": "4 sections over 2 pages",
+          "description": "Left and right page. A section is { id, title, note?, icon, items }; an item is { id, name, description, price, icon, tag? }. Icons are egg, pancake, toast, bowl, cup, juice, croissant and waffle."
+        },
+        {
+          "name": "defaultSelected",
+          "type": "string[]",
+          "default": "[\"benedict\", \"flatwhite\"]",
+          "description": "Item ids already picked on first render."
+        },
+        {
+          "name": "ctaLabel",
+          "type": "string",
+          "default": "\"Order brunch\"",
+          "description": "Label of the ribbon button."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(items: MenuBrunchItem[], total: number) => void",
+          "description": "Called when the order is placed."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#c8553d\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuBrunchList defaultSelected={[]} onSubmit={(items, total) => console.log(items.length, total)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-brunch-list.json",
+      "docs": "https://hyperblur.dev/effects/menu-brunch-list",
+      "file": "https://hyperblur.dev/r/menu-brunch-list.json"
+    },
+    {
+      "slug": "menu-qr-table",
+      "component": "MenuQrTable",
+      "title": "Menu QR Table",
+      "description": "A dine-in QR menu shown inside a phone, next to a scannable-looking table code with a sweeping scan line. Guests filter by category, add dishes and send the order to the kitchen.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "qr code",
+        "restaurant",
+        "ordering",
+        "mobile",
+        "cart"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Now live at all three locations\"",
+          "description": "Pill above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Scan, order, relax.\"",
+          "description": "Heading. The last word is set in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Every table at Saffron Lane has its own code. ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "steps",
+          "type": "{ title: string; text: string }[]",
+          "default": "3 steps",
+          "description": "Numbered steps beside the QR code."
+        },
+        {
+          "name": "restaurant",
+          "type": "string",
+          "default": "\"Saffron Lane\"",
+          "description": "Name in the phone header. It also seeds the QR pattern."
+        },
+        {
+          "name": "table",
+          "type": "string",
+          "default": "\"Table 12\"",
+          "description": "Table label on the QR card, the phone header and the order."
+        },
+        {
+          "name": "categories",
+          "type": "string[]",
+          "default": "[\"Popular\", ...item categories]",
+          "description": "Category chips. Popular shows items tagged popular; other chips match item.category."
+        },
+        {
+          "name": "items",
+          "type": "MenuQrItem[]",
+          "default": "11 Mediterranean dishes and drinks",
+          "description": "Menu items: { id, name, description, price, category, art?, tags? }. art is one of dip, fries, skewer, plate, steak, stew, knafeh, scoop, lemonade, coffee, tea; tags are vegan, vegetarian, gf, spicy, new, popular."
+        },
+        {
+          "name": "defaultOrder",
+          "type": "Record<string, number>",
+          "default": "{ shawarma: 1, feta: 1 }",
+          "description": "Initial quantities by item id."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#e8603c\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(order: { table: string; lines: { item; quantity }[]; total: number }) => void",
+          "description": "Called when the guest taps Send to kitchen."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuQrTable table=\"Table 7\" onSubmit={(o) => console.log(o.total)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-qr-table.json",
+      "docs": "https://hyperblur.dev/effects/menu-qr-table",
+      "file": "https://hyperblur.dev/r/menu-qr-table.json"
+    },
+    {
+      "slug": "menu-drinks-cafe",
+      "component": "MenuDrinksCafe",
+      "title": "Menu Drinks Cafe",
+      "description": "A pastel cafe drink list with a drink builder: hot or iced re-tints the illustrated cup, size chips change the price and scale the cup, and milk and extras add to a live total.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "cafe",
+        "coffee",
+        "drinks",
+        "customize",
+        "pastel"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Little Fern Coffee · Silver Lake\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Pour me something good.\"",
+          "description": "Heading. The last word is set in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Single-origin espresso, ceremonial matcha ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "drinks",
+          "type": "MenuDrink[]",
+          "default": "8 drinks in 3 groups",
+          "description": "Drinks: { id, name, description, price, group, color, temps?, milk?, tags? }. temps is both, hot or iced; milk false hides the milk options; color tints the drink in the cup."
+        },
+        {
+          "name": "sizes",
+          "type": "{ id: string; label: string; add: number; note?: string }[]",
+          "default": "S 8 oz, M 12 oz +0.75, L 16 oz +1.25",
+          "description": "Size chips and the amount each adds to the base price."
+        },
+        {
+          "name": "milks",
+          "type": "{ id: string; label: string; add: number }[]",
+          "default": "Whole, Oat +0.70, Almond +0.70, Skim",
+          "description": "Milk options."
+        },
+        {
+          "name": "extras",
+          "type": "{ id: string; label: string; add: number }[]",
+          "default": "Extra shot, Vanilla syrup, Cold foam, Cinnamon dust",
+          "description": "Toggleable extras."
+        },
+        {
+          "name": "defaultDrink",
+          "type": "string",
+          "default": "\"lavender\"",
+          "description": "Id of the drink selected first."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#d96c8a\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onAdd",
+          "type": "(order: { drink; temp; size; milk; extras; price }) => void",
+          "description": "Called when Add to order is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuDrinksCafe defaultDrink=\"matcha\" onAdd={(o) => console.log(o.drink.name, o.price)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-drinks-cafe.json",
+      "docs": "https://hyperblur.dev/effects/menu-drinks-cafe",
+      "file": "https://hyperblur.dev/r/menu-drinks-cafe.json"
+    },
+    {
+      "slug": "menu-tasting-courses",
+      "component": "MenuTastingCourses",
+      "title": "Menu Tasting Courses",
+      "description": "A dark fine-dining tasting menu with numbered courses on a drawn gold line, wine pairings that light up when the pairing switch is on, and a per-person total with a guest stepper.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "tasting",
+        "fine dining",
+        "wine pairing",
+        "timeline",
+        "restaurant"
+      ],
+      "props": [
+        {
+          "name": "restaurant",
+          "type": "string",
+          "default": "\"Halden\"",
+          "description": "Restaurant name above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Seven courses for late autumn.\"",
+          "description": "Heading. The last word is set in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"A single menu that follows the season, ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "chef",
+          "type": "string",
+          "default": "\"Chef Ines Marlow · Tuesday to Saturday, ...\"",
+          "description": "Chef and seating line. Its initials fill the monogram."
+        },
+        {
+          "name": "courses",
+          "type": "{ name: string; description: string; pairing: string; note?: string; tags?: (\"gf\" | \"vegetarian\" | \"new\")[] }[]",
+          "default": "7 courses",
+          "description": "Courses in order. The note expands on hover or focus."
+        },
+        {
+          "name": "price",
+          "type": "number",
+          "default": "185",
+          "description": "Menu price per person in dollars."
+        },
+        {
+          "name": "pairingPrice",
+          "type": "number",
+          "default": "95",
+          "description": "Pairing price per person, added when the switch is on."
+        },
+        {
+          "name": "pairingLabel",
+          "type": "string",
+          "default": "\"Wine pairing\"",
+          "description": "Label of the pairing switch."
+        },
+        {
+          "name": "defaultPairing",
+          "type": "boolean",
+          "default": "false",
+          "description": "Whether the pairing starts switched on."
+        },
+        {
+          "name": "defaultGuests",
+          "type": "number",
+          "default": "2",
+          "description": "Initial number of guests."
+        },
+        {
+          "name": "maxGuests",
+          "type": "number",
+          "default": "8",
+          "description": "Largest party the stepper allows."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#c9a45c\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onSubmit",
+          "type": "(request: { guests: number; pairing: boolean; perPerson: number; total: number }) => void",
+          "description": "Called when Request this menu is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuTastingCourses defaultPairing onSubmit={(r) => console.log(r.total)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-tasting-courses.json",
+      "docs": "https://hyperblur.dev/effects/menu-tasting-courses",
+      "file": "https://hyperblur.dev/r/menu-tasting-courses.json"
+    },
+    {
+      "slug": "menu-delivery-order",
+      "component": "MenuDeliveryOrder",
+      "title": "Menu Delivery Order",
+      "description": "A delivery ordering page with a searchable menu, category tabs and a cart panel with quantity steppers, a free delivery meter, tip chips, a live total and a checkout confirmation.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "delivery",
+        "cart",
+        "checkout",
+        "ordering",
+        "search"
+      ],
+      "props": [
+        {
+          "name": "restaurant",
+          "type": "string",
+          "default": "\"Lucky Bao\"",
+          "description": "Restaurant name. Its initials fill the logo."
+        },
+        {
+          "name": "tagline",
+          "type": "string",
+          "default": "\"Bao, hand-pulled noodles and rice bowls ...\"",
+          "description": "Line under the name."
+        },
+        {
+          "name": "rating",
+          "type": "string",
+          "default": "\"4.9 (2.1k)\"",
+          "description": "Rating pill."
+        },
+        {
+          "name": "eta",
+          "type": "string",
+          "default": "\"20 to 30 min\"",
+          "description": "Delivery time shown in the header and the confirmation."
+        },
+        {
+          "name": "address",
+          "type": "string",
+          "default": "\"418 Grand St, Apt 3B, Brooklyn\"",
+          "description": "Delivery address in the cart."
+        },
+        {
+          "name": "items",
+          "type": "MenuDeliveryItem[]",
+          "default": "12 dishes in 5 categories",
+          "description": "Menu items: { id, name, description, price, category, art?, tags? }. art is one of bao, noodles, ramen, rice, poke, dumplings, salad, fries, drink."
+        },
+        {
+          "name": "categories",
+          "type": "string[]",
+          "default": "categories in item order",
+          "description": "Tabs after All."
+        },
+        {
+          "name": "defaultCart",
+          "type": "Record<string, number>",
+          "default": "{ dandan: 1, porkbao: 2 }",
+          "description": "Initial quantities by item id."
+        },
+        {
+          "name": "deliveryFee",
+          "type": "number",
+          "default": "2.99",
+          "description": "Delivery fee in dollars."
+        },
+        {
+          "name": "freeDeliveryOver",
+          "type": "number",
+          "default": "35",
+          "description": "Subtotal that makes delivery free."
+        },
+        {
+          "name": "tipOptions",
+          "type": "number[]",
+          "default": "[0, 10, 15, 20]",
+          "description": "Tip percentages. 0 shows None."
+        },
+        {
+          "name": "defaultTip",
+          "type": "number",
+          "default": "15",
+          "description": "Tip selected first."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff5a36\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onCheckout",
+          "type": "(order: { lines; subtotal; deliveryFee; tip; total }) => void",
+          "description": "Called when Checkout is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuDeliveryOrder onCheckout={(o) => console.log(o.total)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-delivery-order.json",
+      "docs": "https://hyperblur.dev/effects/menu-delivery-order",
+      "file": "https://hyperblur.dev/r/menu-delivery-order.json"
+    },
+    {
+      "slug": "menu-burger-board",
+      "component": "MenuBurgerBoard",
+      "title": "Menu Burger Board",
+      "description": "A loud street-food burger menu with a category rail, illustrated item cards, quantity steppers and a floating order bar whose total bumps on every add, ending in an order confirmation.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "burger",
+        "ordering",
+        "cart",
+        "restaurant",
+        "street food"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Smash Street · Open till 2 am\"",
+          "description": "Line above the heading, with a live dot."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Loud burgers. Louder fries.\"",
+          "description": "Heading. The last word is set in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Smashed thin, seared hard, ...\"",
+          "description": "Paragraph beside the heading."
+        },
+        {
+          "name": "categories",
+          "type": "{ id: string; label: string; note?: string }[]",
+          "default": "Burgers, Fries, Shakes, Combos",
+          "description": "Tabs of the category rail."
+        },
+        {
+          "name": "items",
+          "type": "{ id; category; name; description; price: number; art; shade?; tags? }[]",
+          "default": "13 items",
+          "description": "Menu items. art is burger, double, chicken, veggie, fries, loaded, shake or combo; tags are popular, spicy, new, vegan or gluten-free."
+        },
+        {
+          "name": "defaultCategory",
+          "type": "string",
+          "description": "Category shown first. Defaults to the first category."
+        },
+        {
+          "name": "defaultOrder",
+          "type": "Record<string, number>",
+          "default": "{ \"smash-double\": 2, \"garlic-fries\": 1 }",
+          "description": "Quantities already in the order on first render, by item id."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff3b2f\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onPlaceOrder",
+          "type": "(order: { lines; count; total }) => void",
+          "description": "Called when Place order is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuBurgerBoard onPlaceOrder={(o) => console.log(o.total)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-burger-board.json",
+      "docs": "https://hyperblur.dev/effects/menu-burger-board",
+      "file": "https://hyperblur.dev/r/menu-burger-board.json"
+    },
+    {
+      "slug": "menu-pizza-sizes",
+      "component": "MenuPizzaSizes",
+      "title": "Menu Pizza Sizes",
+      "description": "A warm paper pizzeria menu where a size toggle and a crust select reprice every pizza live, while a spinning illustrated pizza grows with the chosen size.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "pizza",
+        "sizes",
+        "pricing",
+        "ordering",
+        "restaurant"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Forno Benno · Wood-fired since 2009\"",
+          "description": "Line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Pick a size. Every price follows.\"",
+          "description": "Heading. The last word is set in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Dough rested for two days, ...\"",
+          "description": "Paragraph beside the heading."
+        },
+        {
+          "name": "sizes",
+          "type": "{ id; label; inches: number; serves: string; multiplier: number }[]",
+          "default": "Small 10, Medium 12, Large 14, Party 18",
+          "description": "Size options. Each price is the medium price times multiplier, rounded to 50 cents."
+        },
+        {
+          "name": "crusts",
+          "type": "{ id: string; label: string; price: number }[]",
+          "default": "Classic, Thin, Sourdough +1.50, Gluten-free +2.50",
+          "description": "Crust options added on top of the size price."
+        },
+        {
+          "name": "pizzas",
+          "type": "{ id; name; description; price: number; toppings: string[]; art; tags? }[]",
+          "default": "6 pizzas",
+          "description": "Menu. price is the medium price; art is margherita, pepperoni, diavola, bianca, verde or sausage."
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "description": "Controlled size id."
+        },
+        {
+          "name": "defaultSize",
+          "type": "string",
+          "default": "\"large\"",
+          "description": "Initial size id when uncontrolled."
+        },
+        {
+          "name": "onSizeChange",
+          "type": "(id: string) => void",
+          "description": "Called when a size is picked."
+        },
+        {
+          "name": "defaultCrust",
+          "type": "string",
+          "default": "\"classic\"",
+          "description": "Initial crust id."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#d6452b\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onOrder",
+          "type": "(lines: MenuPizzaLine[], total: number) => void",
+          "description": "Called when Order for pickup is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuPizzaSizes defaultSize=\"medium\" onOrder={(lines, total) => console.log(total)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-pizza-sizes.json",
+      "docs": "https://hyperblur.dev/effects/menu-pizza-sizes",
+      "file": "https://hyperblur.dev/r/menu-pizza-sizes.json"
+    },
+    {
+      "slug": "menu-chalkboard",
+      "component": "MenuChalkboard",
+      "title": "Menu Chalkboard",
+      "description": "A framed bistro chalkboard with letter-spaced chalk headings, dotted price leaders in two columns and a dashed Today's special box with a slow chalk shimmer.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "chalkboard",
+        "bistro",
+        "specials",
+        "prices",
+        "cafe"
+      ],
+      "props": [
+        {
+          "name": "venue",
+          "type": "string",
+          "default": "\"Le Petit Comptoir\"",
+          "description": "Small line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"On the board today\"",
+          "description": "Board heading."
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "default": "\"Thursday · Lunch 11:30 to 3 · Dinner 5:30 to 10\"",
+          "description": "Line under the heading. Empty hides it."
+        },
+        {
+          "name": "sections",
+          "type": "{ title: string; note?: string; items: { name; description?; price: string; tags? }[] }[]",
+          "default": "Small plates, Soups & salads, Mains, Sweets",
+          "description": "Sections, split into two columns. tags are vegetarian, vegan, gluten-free, spicy or new."
+        },
+        {
+          "name": "special",
+          "type": "{ label; name; description; price; note? } | null",
+          "default": "Bouillabaisse, 32",
+          "description": "The boxed special. null hides it."
+        },
+        {
+          "name": "footnote",
+          "type": "string",
+          "default": "\"Please tell us about any allergies. ...\"",
+          "description": "Small print at the bottom of the board."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#f2d16b\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuChalkboard venue=\"Café Margaux\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-chalkboard.json",
+      "docs": "https://hyperblur.dev/effects/menu-chalkboard",
+      "file": "https://hyperblur.dev/r/menu-chalkboard.json"
+    },
+    {
+      "slug": "menu-combo-builder",
+      "component": "MenuComboBuilder",
+      "title": "Menu Combo Builder",
+      "description": "A neon combo builder: pick a main, side, drink and size through a stepper while a receipt ticket counts up the combo price and shows the savings against buying each piece alone.",
+      "category": "menus",
+      "tags": [
+        "menu",
+        "combo",
+        "stepper",
+        "ordering",
+        "receipt",
+        "fast food"
+      ],
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "default": "\"Night Owl Chicken · Combo builder\"",
+          "description": "Line above the heading."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Build your combo, keep the change.\"",
+          "description": "Heading. The last word glows in the accent color."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Four quick picks. ...\"",
+          "description": "Paragraph under the heading."
+        },
+        {
+          "name": "steps",
+          "type": "{ id; label; heading; options: { id; name; description; price: number; art; tone?; scale?; tags? }[] }[]",
+          "default": "Main, Side, Drink, Size",
+          "description": "Steps and their options. art is tenders, sandwich, wings, bowl, fries, cup, corn, drink or size."
+        },
+        {
+          "name": "defaultSelection",
+          "type": "Record<string, string>",
+          "default": "{ main: \"hot-tenders\", side: \"waffle-fries\" }",
+          "description": "Options already picked on first render, by step id."
+        },
+        {
+          "name": "defaultStep",
+          "type": "number",
+          "default": "2",
+          "description": "Index of the step shown first."
+        },
+        {
+          "name": "discount",
+          "type": "number",
+          "default": "0.18",
+          "description": "Combo discount against the separate total. The price is rounded down to 25 cents."
+        },
+        {
+          "name": "venue",
+          "type": "string",
+          "default": "\"Night Owl Chicken\"",
+          "description": "Name printed on the ticket."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff4fd8\"",
+          "description": "Accent color used for highlights, selected states and buttons."
+        },
+        {
+          "name": "onComplete",
+          "type": "(combo: { selection; separate; price; savings }) => void",
+          "description": "Called when the combo is added on the last step."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "Extra classes on the section root."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "description": "Inline styles on the section root."
+        }
+      ],
+      "usage": "<MenuComboBuilder onComplete={(c) => console.log(c.price, c.savings)} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/menu-combo-builder.json",
+      "docs": "https://hyperblur.dev/effects/menu-combo-builder",
+      "file": "https://hyperblur.dev/r/menu-combo-builder.json"
     },
     {
       "slug": "map-route-replay",
