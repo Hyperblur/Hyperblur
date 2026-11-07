@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 };
 
 const initCommand = "npx shadcn@latest init";
-const addCommand = "npx shadcn@latest add https://hyperblur.vercel.app/r/glitch-text.json";
+const addCommand = "npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json";
 const useSnippet = `import { GlitchText } from "@/components/hyperblur/glitch-text"
 
 export default function Hero() {
   return <GlitchText text="HYPERBLUR" intensity={2} />
 }`;
-const updateCommand = "npx shadcn@latest add https://hyperblur.vercel.app/r/glitch-text.json --overwrite";
+const updateCommand = "npx shadcn@latest add https://hyperblur.dev/r/glitch-text.json --overwrite";
 
 export default function InstallationPage() {
   return (
