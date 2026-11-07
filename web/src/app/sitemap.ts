@@ -32,6 +32,9 @@ const staticRoutes = [
   "/templates/shop",
   "/templates/coming-soon",
   "/pro",
+  "/terms",
+  "/privacy",
+  "/refund",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
