@@ -7,7 +7,7 @@ Legenda da coluna "Verif.": **sim** = li a página oficial ou o formulário resp
 ## Antes de começar (nesta ordem)
 
 1. **Publicar o MCP 0.2.0 no npm.** Hoje só existe a 0.1.0 no npm. O campo `mcpName` já foi adicionado em `packages/mcp/package.json`, mas ele só vale depois do publish. No terminal: `cd packages/mcp && npm publish` (pede o código do app de 2FA). Sem isso, o MCP Registry e vários diretórios rejeitam ou mostram versão velha.
-2. **Domínio hyperblur.dev.** Os textos usam hyperblur.vercel.app. Quando o domínio estiver ligado, troque `hyperblur.vercel.app` por `hyperblur.dev` nos arquivos `server.json`, `listings.md` e nos formulários. Evite enviar a Product Hunt e Hacker News antes, porque o link do lançamento fica para sempre.
+2. **Domínio hyperblur.dev.** Já ligado. Os textos, o `server.json` e o `smithery.yaml` usam hyperblur.dev; use esse endereço nos formulários de envio. Product Hunt e Hacker News só depois de conferir o site em hyperblur.dev.
 3. **Avatar na organização do GitHub** (use `launch/assets/avatar-blue-1024.png`) e **Releases/topics** do repositório (seção e).
 4. Faça login nas contas necessárias com antecedência: GitHub (já tem), npm (já tem), Product Hunt, Reddit (conta com histórico, ver aviso), X, dev.to, Hacker News.
 
@@ -67,7 +67,7 @@ Notas: a opção "MCP connector" do portal é para servidores MCP remotos. O `@h
 | Plataforma | O que é | URL de envio | O que precisa | Esforço | Verif. | Feito |
 | --- | --- | --- | --- | --- | --- | --- |
 | Diretório oficial de registries do shadcn | Lista em https://ui.shadcn.com/docs/directory. Os registries listados viram `npx shadcn add @hyperblur/glitch-text` sem configuração | PR em https://github.com/shadcn-ui/ui adicionando uma entrada em `apps/v4/registry/directory.json`. Docs: https://ui.shadcn.com/docs/registry/registry-index | Registry open source e público, JSON válido, "flat" (`registry.json` e `<item>.json` juntos), sem `content` dentro de `files` no `registry.json` (confere: o nosso não tem). Rode `pnpm validate:registries` no fork. Entrada pronta em `listings.md` | 30 min | sim | [ ] |
-| registry.directory (comunidade) | Índice comunitário de registries shadcn, busca por componente | `POST https://registry.directory/api/submit` (sem conta nem PR). Contrato: https://registry.directory/how-to-submit.md | Campos: name, description (até 300), url, registry_url (https://hyperblur.vercel.app/r/registry.json). Auditoria automática e humana, "alguns dias". Comando pronto abaixo | 10 min | sim | [ ] |
+| registry.directory (comunidade) | Índice comunitário de registries shadcn, busca por componente | `POST https://registry.directory/api/submit` (sem conta nem PR). Contrato: https://registry.directory/how-to-submit.md | Campos: name, description (até 300), url, registry_url (https://hyperblur.dev/r/registry.json). Auditoria automática e humana, "alguns dias". Comando pronto abaixo | 10 min | sim | [ ] |
 
 Comando para o registry.directory (rode no terminal quando quiser enviar; guarde o `submission_token` da resposta, ele aparece uma vez):
 
@@ -77,8 +77,8 @@ curl -X POST https://registry.directory/api/submit \
   -d '{
     "name": "Hyperblur",
     "description": "Copy-paste React visual effects, components and page blocks. One shadcn command to install, MCP server for coding agents.",
-    "url": "https://hyperblur.vercel.app",
-    "registry_url": "https://hyperblur.vercel.app/r/registry.json",
+    "url": "https://hyperblur.dev",
+    "registry_url": "https://hyperblur.dev/r/registry.json",
     "github_url": "https://github.com/Hyperblur/Hyperblur",
     "github_profile": "https://github.com/Hyperblur.png"
   }'
@@ -125,4 +125,4 @@ Avisos de autopromoção: Reddit e Hacker News toleram projeto próprio quando o
 - Smithery: a doc atual só descreve URL (HTTP) e bundle `.mcpb`. O `smithery.yaml` pode ser ignorado. Para stdio, prefira o bundle.
 - PulseMCP está fechado para envios; o caminho é o registry oficial.
 - Regras de autopromoção do Reddit e do formulário do Glama não foram lidas.
-- Os itens do catálogo e `server.json` apontam para hyperblur.vercel.app; ao ligar hyperblur.dev, atualize.
+- O catálogo, o `server.json` e o `smithery.yaml` já apontam para hyperblur.dev.
