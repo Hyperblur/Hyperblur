@@ -3121,6 +3121,578 @@
       ]
     },
     {
+      "name": "rating-review-card",
+      "type": "registry:component",
+      "title": "Rating Review Card",
+      "description": "A public reviews summary: a large average, five stars with fractional fill, the review count, a 5 to 1 distribution that animates in, a Rate us link and an optional top review.",
+      "categories": [
+        "ordering",
+        "reviews",
+        "rating",
+        "stars",
+        "restaurant",
+        "social proof",
+        "summary"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/rating-review-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/rating-review-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "map-directions-card",
+      "type": "registry:component",
+      "title": "Map Directions Card",
+      "description": "A location card with a locally drawn street map, a dropping pin and an animated route, the address, an hours line, a distance chip, and Open in Maps and Open in Waze links built from the address or coordinates.",
+      "categories": [
+        "ordering",
+        "map",
+        "directions",
+        "location",
+        "address",
+        "waze",
+        "store"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/map-directions-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/map-directions-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "qr-generator",
+      "type": "registry:component",
+      "title": "QR Generator",
+      "description": "A real QR code encoder with a generator panel: pick where the code will be printed and it appends a source parameter to your link so scans can be attributed, with a live preview, Download SVG and Copy link. Also exports QrCode and encodeQr.",
+      "categories": [
+        "ordering",
+        "qr code",
+        "generator",
+        "menu",
+        "table",
+        "svg",
+        "tracking"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/qr-generator.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/qr-generator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "link-in-bio-card",
+      "type": "registry:component",
+      "title": "Link in Bio Card",
+      "description": "A phone-sized link page for a local business: cover, avatar, verified name, open status, bio, an Order now button, a list of icon links, native share with a copy fallback, a QR toggle and a Save contact button that downloads a vCard.",
+      "categories": [
+        "ordering",
+        "link in bio",
+        "profile",
+        "links",
+        "vcard",
+        "share",
+        "mobile"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/link-in-bio-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/link-in-bio-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "orders-queue-board",
+      "type": "registry:component",
+      "title": "Orders Queue Board",
+      "description": "A kitchen queue with New, Preparing, Ready and Out columns. Drag cards or use the buttons and arrow keys to advance them, and hear a short chime when a new order arrives.",
+      "categories": [
+        "ordering",
+        "orders",
+        "kitchen",
+        "queue",
+        "kanban",
+        "restaurant",
+        "dashboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/orders-queue-board.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/orders-queue-board.tsx"
+        }
+      ]
+    },
+    {
+      "name": "receipt-80mm",
+      "type": "registry:component",
+      "title": "Receipt 80mm",
+      "description": "An on-screen thermal receipt at real 80 mm or 58 mm width that feeds out of a printer slot and prints only itself with the matching page size.",
+      "categories": [
+        "ordering",
+        "receipt",
+        "print",
+        "thermal",
+        "order",
+        "kitchen",
+        "pos"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/receipt-80mm.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/receipt-80mm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "install-app-banner",
+      "type": "registry:component",
+      "title": "Install App Banner",
+      "description": "An install invite for web apps: an Install button wired to the browser prompt, manual Share then Add to Home Screen steps on iPhone, and a remembered snooze.",
+      "categories": [
+        "ordering",
+        "pwa",
+        "install",
+        "banner",
+        "mobile",
+        "ios",
+        "app"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/install-app-banner.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/install-app-banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "order-cart-bar",
+      "type": "registry:component",
+      "title": "Order Cart Bar",
+      "description": "A floating View order bar that slides up once the cart has items, bumps the count when it changes and shows progress toward a free delivery threshold.",
+      "categories": [
+        "ordering",
+        "cart",
+        "order",
+        "checkout",
+        "floating bar",
+        "delivery",
+        "menu"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/order-cart-bar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/order-cart-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "order-cart-drawer",
+      "type": "registry:component",
+      "title": "Order Cart Drawer",
+      "description": "A cart sheet with quantity steppers, line notes, delivery or pickup, area fees from props, payment choice, a coupon field and a Send order button with a confirmation state.",
+      "categories": [
+        "ordering",
+        "cart",
+        "drawer",
+        "checkout",
+        "delivery",
+        "pickup",
+        "order"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/order-cart-drawer.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/order-cart-drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chat-order-button",
+      "type": "registry:component",
+      "title": "Chat Order Button",
+      "description": "A pill button with a speech bubble icon that opens a chat with a prefilled message, with a hover glow, sizes, variants and an unread dot.",
+      "categories": [
+        "ordering",
+        "chat",
+        "button",
+        "order",
+        "messaging",
+        "link",
+        "contact"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/chat-order-button.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/chat-order-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chat-bubble-typing",
+      "type": "registry:component",
+      "title": "Chat Bubble Typing",
+      "description": "A chat preview with a business avatar, a typing indicator and messages that appear word by word with a natural rhythm, followed by a reply button.",
+      "categories": [
+        "ordering",
+        "chat",
+        "typing",
+        "message",
+        "preview",
+        "notification",
+        "animation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/chat-bubble-typing.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/chat-bubble-typing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-photo-rail",
+      "type": "registry:component",
+      "title": "Menu Photo Rail",
+      "description": "A full menu of illustrated photo cards with a sticky category rail that follows the section in view, scrolls smoothly on click and keeps the active chip centered.",
+      "categories": [
+        "menus",
+        "menu",
+        "scroll-spy",
+        "sticky",
+        "restaurant",
+        "ordering",
+        "categories"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-photo-rail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-photo-rail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "order-item-drawer",
+      "type": "registry:component",
+      "title": "Order Item Drawer",
+      "description": "A bottom sheet on narrow screens and a side drawer on wide ones for customizing one item: single and multiple choice groups, removable ingredients, quantity, a note and a live total on the add button.",
+      "categories": [
+        "ordering",
+        "drawer",
+        "bottom-sheet",
+        "options",
+        "ordering",
+        "cart",
+        "food"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/order-item-drawer.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/order-item-drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "open-now-badge",
+      "type": "registry:component",
+      "title": "Open Now Badge",
+      "description": "A status pill that reads a weekly schedule and shows Open now, Closing soon, Opening at or Closed today, with overnight ranges, holidays and time zones. Ships a pure getOpenStatus helper.",
+      "categories": [
+        "ordering",
+        "hours",
+        "status",
+        "badge",
+        "open-now",
+        "schedule",
+        "timezone"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/open-now-badge.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/open-now-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-dietary-filter",
+      "type": "registry:component",
+      "title": "Menu Dietary Filter",
+      "description": "A dark all-day menu with dietary filter chips and a search field. Dishes animate out and back in as filters change, with a live counter and an empty state.",
+      "categories": [
+        "menus",
+        "menu",
+        "filter",
+        "vegan",
+        "gluten-free",
+        "search",
+        "restaurant"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-dietary-filter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-dietary-filter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-specials-today",
+      "type": "registry:component",
+      "title": "Menu Specials Today",
+      "description": "A bold street-food specials board with a looping ticker, a weekday switcher and a limited-quantity meter on each special that counts down as guests hold one for pickup.",
+      "categories": [
+        "menus",
+        "specials",
+        "menu",
+        "marquee",
+        "street food",
+        "daily",
+        "limited"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-specials-today.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-specials-today.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-photo-cards",
+      "type": "registry:component",
+      "title": "Menu Photo Cards",
+      "description": "A light restaurant card grid with large illustrated dishes. Hovering lifts a card and reveals ingredients and calories; guests can save dishes and add them to a running order.",
+      "categories": [
+        "menus",
+        "menu",
+        "cards",
+        "restaurant",
+        "order",
+        "hover",
+        "favorites"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-photo-cards.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-photo-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-brunch-list",
+      "type": "registry:component",
+      "title": "Menu Brunch List",
+      "description": "A brunch menu laid out as an open two-page book on cream paper, with line icons, dotted price leaders and a sticky ribbon that totals the dishes you tap and places the order.",
+      "categories": [
+        "menus",
+        "brunch",
+        "menu",
+        "cafe",
+        "breakfast",
+        "order",
+        "book"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-brunch-list.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-brunch-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-qr-table",
+      "type": "registry:component",
+      "title": "Menu QR Table",
+      "description": "A dine-in QR menu shown inside a phone, next to a scannable-looking table code with a sweeping scan line. Guests filter by category, add dishes and send the order to the kitchen.",
+      "categories": [
+        "menus",
+        "menu",
+        "qr code",
+        "restaurant",
+        "ordering",
+        "mobile",
+        "cart"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-qr-table.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-qr-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-drinks-cafe",
+      "type": "registry:component",
+      "title": "Menu Drinks Cafe",
+      "description": "A pastel cafe drink list with a drink builder: hot or iced re-tints the illustrated cup, size chips change the price and scale the cup, and milk and extras add to a live total.",
+      "categories": [
+        "menus",
+        "menu",
+        "cafe",
+        "coffee",
+        "drinks",
+        "customize",
+        "pastel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-drinks-cafe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-drinks-cafe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-tasting-courses",
+      "type": "registry:component",
+      "title": "Menu Tasting Courses",
+      "description": "A dark fine-dining tasting menu with numbered courses on a drawn gold line, wine pairings that light up when the pairing switch is on, and a per-person total with a guest stepper.",
+      "categories": [
+        "menus",
+        "menu",
+        "tasting",
+        "fine dining",
+        "wine pairing",
+        "timeline",
+        "restaurant"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-tasting-courses.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-tasting-courses.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-delivery-order",
+      "type": "registry:component",
+      "title": "Menu Delivery Order",
+      "description": "A delivery ordering page with a searchable menu, category tabs and a cart panel with quantity steppers, a free delivery meter, tip chips, a live total and a checkout confirmation.",
+      "categories": [
+        "menus",
+        "menu",
+        "delivery",
+        "cart",
+        "checkout",
+        "ordering",
+        "search"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-delivery-order.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-delivery-order.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-burger-board",
+      "type": "registry:component",
+      "title": "Menu Burger Board",
+      "description": "A loud street-food burger menu with a category rail, illustrated item cards, quantity steppers and a floating order bar whose total bumps on every add, ending in an order confirmation.",
+      "categories": [
+        "menus",
+        "menu",
+        "burger",
+        "ordering",
+        "cart",
+        "restaurant",
+        "street food"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-burger-board.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-burger-board.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-pizza-sizes",
+      "type": "registry:component",
+      "title": "Menu Pizza Sizes",
+      "description": "A warm paper pizzeria menu where a size toggle and a crust select reprice every pizza live, while a spinning illustrated pizza grows with the chosen size.",
+      "categories": [
+        "menus",
+        "menu",
+        "pizza",
+        "sizes",
+        "pricing",
+        "ordering",
+        "restaurant"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-pizza-sizes.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-pizza-sizes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-chalkboard",
+      "type": "registry:component",
+      "title": "Menu Chalkboard",
+      "description": "A framed bistro chalkboard with letter-spaced chalk headings, dotted price leaders in two columns and a dashed Today's special box with a slow chalk shimmer.",
+      "categories": [
+        "menus",
+        "menu",
+        "chalkboard",
+        "bistro",
+        "specials",
+        "prices",
+        "cafe"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-chalkboard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-chalkboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-combo-builder",
+      "type": "registry:component",
+      "title": "Menu Combo Builder",
+      "description": "A neon combo builder: pick a main, side, drink and size through a stepper while a receipt ticket counts up the combo price and shows the savings against buying each piece alone.",
+      "categories": [
+        "menus",
+        "menu",
+        "combo",
+        "stepper",
+        "ordering",
+        "receipt",
+        "fast food"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-combo-builder.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-combo-builder.tsx"
+        }
+      ]
+    },
+    {
       "name": "map-route-replay",
       "type": "registry:component",
       "title": "Map Route Replay",

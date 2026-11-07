@@ -1,0 +1,434 @@
+"use client";
+
+import * as React from "react";
+
+export type MenuPizzaTag = "popular" | "spicy" | "new" | "vegan" | "vegetarian" | "gluten-free";
+export type MenuPizzaArt = "margherita" | "pepperoni" | "diavola" | "bianca" | "verde" | "sausage";
+
+export interface MenuPizzaSize {
+  id: string;
+  label: string;
+  inches: number;
+  serves: string;
+  multiplier: number;
+}
+
+export interface MenuPizzaCrust {
+  id: string;
+  label: string;
+  price: number;
+}
+
+export interface MenuPizzaItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  toppings: string[];
+  art: MenuPizzaArt;
+  tags?: MenuPizzaTag[];
+}
+
+export interface MenuPizzaLine {
+  pizza: MenuPizzaItem;
+  size: MenuPizzaSize;
+  crust: MenuPizzaCrust;
+  price: number;
+  quantity: number;
+}
+
+export interface MenuPizzaSizesProps extends Omit<React.HTMLAttributes<HTMLElement>, "title"> {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  sizes?: MenuPizzaSize[];
+  crusts?: MenuPizzaCrust[];
+  pizzas?: MenuPizzaItem[];
+  size?: string;
+  defaultSize?: string;
+  onSizeChange?: (id: string) => void;
+  defaultCrust?: string;
+  accent?: string;
+  onOrder?: (lines: MenuPizzaLine[], total: number) => void;
+}
+
+const defaultSizes: MenuPizzaSize[] = [
+  { id: "small", label: "Small", inches: 10, serves: "Serves 1", multiplier: 0.78 },
+  { id: "medium", label: "Medium", inches: 12, serves: "Serves 2", multiplier: 1 },
+  { id: "large", label: "Large", inches: 14, serves: "Serves 3 to 4", multiplier: 1.24 },
+  { id: "party", label: "Party", inches: 18, serves: "Serves 6 to 8", multiplier: 1.72 },
+];
+
+const defaultCrusts: MenuPizzaCrust[] = [
+  { id: "classic", label: "Classic hand-tossed", price: 0 },
+  { id: "thin", label: "Thin and crisp", price: 0 },
+  { id: "sourdough", label: "48-hour sourdough", price: 1.5 },
+  { id: "gluten-free", label: "Gluten-free", price: 2.5 },
+];
+
+const defaultPizzas: MenuPizzaItem[] = [
+  { id: "margherita", name: "Margherita", description: "San Marzano tomato, fior di latte, torn basil, Sicilian olive oil.", price: 14, toppings: ["Tomato", "Fior di latte", "Basil"], art: "margherita", tags: ["popular", "vegetarian"] },
+  { id: "pepperoni", name: "Pepperoni Classico", description: "Cup-and-char pepperoni, low-moisture mozzarella, oregano.", price: 16.5, toppings: ["Pepperoni", "Mozzarella", "Oregano"], art: "pepperoni", tags: ["popular"] },
+  { id: "diavola", name: "Diavola", description: "Spicy soppressata, Calabrian chili, smoked mozzarella, chili oil.", price: 17.5, toppings: ["Soppressata", "Calabrian chili", "Smoked mozz"], art: "diavola", tags: ["spicy"] },
+  { id: "bianca", name: "Bianca Funghi", description: "Garlic cream, roasted cremini, fontina, thyme, lemon zest.", price: 16, toppings: ["Garlic cream", "Cremini", "Fontina"], art: "bianca", tags: ["new", "vegetarian"] },
+  { id: "verde", name: "Garden Verde", description: "Basil pesto, zucchini ribbons, blistered tomatoes, cashew mozzarella.", price: 15.5, toppings: ["Pesto", "Zucchini", "Cashew mozz"], art: "verde", tags: ["vegan"] },
+  { id: "sausage", name: "Hot Honey Sausage", description: "Fennel sausage, pickled peppers, whipped ricotta, hot honey.", price: 17, toppings: ["Fennel sausage", "Ricotta", "Hot honey"], art: "sausage", tags: ["spicy", "new"] },
+];
+
+const tagLabels: Record<MenuPizzaTag, string> = { popular: "Popular", spicy: "Spicy", new: "New", vegan: "Vegan", vegetarian: "Vegetarian", "gluten-free": "Gluten-free" };
+
+const css = `
+.hb-ma2 {
+  --hb-ma2-accent: #d6452b;
+  --hb-ma2-ink: #2b1d14;
+  --hb-ma2-muted: #7b6656;
+  --hb-ma2-line: #e7d9c4;
+  box-sizing: border-box;
+  width: 100%;
+  container-type: inline-size;
+  position: relative;
+  background: #f7efe2;
+  background-image: radial-gradient(rgba(140, 90, 40, .08) 1px, transparent 1.2px), radial-gradient(700px 360px at 0% 0%, rgba(255, 255, 255, .7), transparent 70%);
+  background-size: 16px 16px, auto;
+  color: var(--hb-ma2-ink);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+.hb-ma2 *, .hb-ma2 *::before, .hb-ma2 *::after { box-sizing: border-box; }
+.hb-ma2 em, .hb-ma2 i { font-style: normal; }
+.hb-ma2-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.hb-ma2-wrap { max-width: 1120px; margin: 0 auto; padding: 56px 24px 96px; }
+.hb-ma2-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px 40px; flex-wrap: wrap; margin-bottom: 28px; }
+.hb-ma2-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; color: var(--hb-ma2-accent); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.hb-ma2-eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: currentColor; }
+.hb-ma2-title { margin: 0; max-width: 620px; font-family: var(--font-grotesk, ui-sans-serif, system-ui, sans-serif); font-weight: 600; font-size: clamp(34px, 5.4cqw, 54px); line-height: 1; letter-spacing: -.035em; }
+.hb-ma2-title em { color: var(--hb-ma2-accent); }
+.hb-ma2-sub { margin: 0; max-width: 320px; color: var(--hb-ma2-muted); font-size: 15px; line-height: 1.55; }
+.hb-ma2-body { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 32px; align-items: start; }
+.hb-ma2-panel { position: sticky; top: 16px; min-width: 0; padding: 18px; border-radius: 28px; background: linear-gradient(180deg, #fffaf2, #fbf1e2); border: 1px solid var(--hb-ma2-line); box-shadow: 0 1px 0 #fff inset, 0 30px 60px -40px rgba(110, 55, 20, .5); }
+.hb-ma2-stage { position: relative; display: grid; place-items: center; aspect-ratio: 1.18; margin-bottom: 14px; border-radius: 20px; background: radial-gradient(circle at 50% 46%, #f3dcb8 0 36%, transparent 60%), linear-gradient(160deg, #f6e7d0, #efdcc0); overflow: hidden; }
+.hb-ma2-guide { position: absolute; width: 82%; aspect-ratio: 1; border: 1.5px dashed rgba(120, 70, 30, .28); border-radius: 50%; }
+.hb-ma2-size-tag { position: absolute; right: 12px; top: 12px; padding: 5px 10px; border-radius: 999px; background: #fffaf2; border: 1px solid var(--hb-ma2-line); color: var(--hb-ma2-ink); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hb-ma2-serves { position: absolute; left: 12px; bottom: 12px; color: var(--hb-ma2-muted); font-size: 12px; font-weight: 600; }
+.hb-ma2-scale { width: 82%; aspect-ratio: 1; transform: scale(var(--hb-ma2-scale, 1)); transition: transform .7s cubic-bezier(.3, 1.4, .5, 1); filter: drop-shadow(0 14px 18px rgba(90, 40, 10, .3)); }
+.hb-ma2-scale svg { display: block; width: 100%; height: 100%; }
+.hb-ma2-spin { transform-origin: 120px 120px; animation: hb-ma2-turn 36s linear infinite; }
+@keyframes hb-ma2-turn { to { transform: rotate(360deg); } }
+.hb-ma2-label { display: block; margin: 0 0 7px; color: var(--hb-ma2-muted); font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.hb-ma2-sizes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 4px; margin-bottom: 14px; border-radius: 16px; background: #f1e3cd; border: 1px solid var(--hb-ma2-line); }
+.hb-ma2-size { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 0; padding: 8px 4px; border: 0; border-radius: 12px; background: transparent; color: var(--hb-ma2-muted); font: inherit; cursor: pointer; transition: background .25s, color .25s, box-shadow .25s; }
+.hb-ma2-size b { font-size: 13.5px; font-weight: 700; }
+.hb-ma2-size span { font-size: 11px; font-variant-numeric: tabular-nums; }
+.hb-ma2-size:hover { color: var(--hb-ma2-ink); }
+.hb-ma2-size[aria-checked="true"] { background: #fffaf2; color: var(--hb-ma2-ink); box-shadow: 0 1px 2px rgba(90, 45, 15, .14), 0 8px 16px -10px rgba(90, 45, 15, .4); }
+.hb-ma2-size[aria-checked="true"] span { color: var(--hb-ma2-accent); }
+.hb-ma2-select { position: relative; margin-bottom: 14px; }
+.hb-ma2-select select { width: 100%; height: 44px; padding: 0 40px 0 14px; border: 1px solid var(--hb-ma2-line); border-radius: 12px; background: #fffaf2; color: var(--hb-ma2-ink); font: inherit; font-size: 14px; font-weight: 600; appearance: none; -webkit-appearance: none; cursor: pointer; }
+.hb-ma2-select svg { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--hb-ma2-muted); }
+.hb-ma2-order { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px dashed #dcc7a9; }
+.hb-ma2-order div { flex: 1; min-width: 0; }
+.hb-ma2-order b { display: block; font-family: var(--font-grotesk, ui-sans-serif, system-ui, sans-serif); font-size: 22px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.hb-ma2-order small { display: block; overflow: hidden; color: var(--hb-ma2-muted); font-size: 12px; white-space: nowrap; text-overflow: ellipsis; }
+.hb-ma2-go { flex: none; height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--hb-ma2-ink); color: #fff8ee; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: background .2s, transform .2s; }
+.hb-ma2-go:hover { background: var(--hb-ma2-accent); transform: translateY(-1px); }
+.hb-ma2-go:disabled { background: #e2d3bd; color: #9c8571; cursor: not-allowed; transform: none; }
+.hb-ma2-ok { display: flex; align-items: center; gap: 10px; padding-top: 14px; border-top: 1px dashed #dcc7a9; animation: hb-ma2-fade .4s ease both; }
+.hb-ma2-ok span:first-child { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #2f8f4e; color: #fff; }
+.hb-ma2-ok p { flex: 1; margin: 0; font-size: 13px; line-height: 1.4; }
+.hb-ma2-ok button { flex: none; border: 0; background: none; color: var(--hb-ma2-accent); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+@keyframes hb-ma2-fade { from { opacity: 0; transform: translateY(6px); } }
+.hb-ma2-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.hb-ma2-card { position: relative; display: flex; flex-direction: column; min-width: 0; padding: 16px; border-radius: 20px; background: rgba(255, 250, 242, .85); border: 1px solid var(--hb-ma2-line); transition: transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s, border-color .25s; }
+.hb-ma2-card:hover { transform: translateY(-2px); border-color: #dcc4a3; box-shadow: 0 18px 36px -24px rgba(110, 55, 20, .45); }
+.hb-ma2-top { display: flex; align-items: center; gap: 12px; }
+.hb-ma2-mini { flex: none; width: 52px; height: 52px; filter: drop-shadow(0 6px 8px rgba(90, 40, 10, .25)); transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+.hb-ma2-card:hover .hb-ma2-mini { transform: rotate(40deg); }
+.hb-ma2-info { flex: 1; min-width: 0; }
+.hb-ma2-name { margin: 0; font-family: var(--font-grotesk, ui-sans-serif, system-ui, sans-serif); font-size: 17px; font-weight: 700; letter-spacing: -.01em; line-height: 1.2; }
+.hb-ma2-desc { margin: 10px 0 0; color: var(--hb-ma2-muted); font-size: 12.5px; line-height: 1.45; }
+.hb-ma2-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+.hb-ma2-tag { display: inline-flex; align-items: center; gap: 4px; height: 21px; padding: 0 7px 0 5px; border-radius: 999px; font-size: 10.5px; font-weight: 700; }
+.hb-ma2-tag svg { width: 12px; height: 12px; }
+.hb-ma2-tag[data-tag="popular"] { background: #fde8c8; color: #9a5a0c; }
+.hb-ma2-tag[data-tag="spicy"] { background: #fbd9d2; color: #b02e17; }
+.hb-ma2-tag[data-tag="new"] { background: #dbe8fb; color: #2a5fb0; }
+.hb-ma2-tag[data-tag="vegan"], .hb-ma2-tag[data-tag="vegetarian"], .hb-ma2-tag[data-tag="gluten-free"] { background: #dcefd8; color: #2f7a3a; }
+.hb-ma2-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.hb-ma2-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #f3e6d2; color: #6e5442; font-size: 11px; font-weight: 600; }
+.hb-ma2-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--hb-ma2-dot, var(--hb-ma2-accent)); }
+.hb-ma2-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 12px; }
+.hb-ma2-price { display: inline-flex; align-items: baseline; gap: 6px; font-family: var(--font-grotesk, ui-sans-serif, system-ui, sans-serif); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; animation: hb-ma2-tick .45s cubic-bezier(.2, .8, .2, 1) both; }
+.hb-ma2-price small { color: var(--hb-ma2-muted); font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif); font-size: 11px; font-weight: 600; }
+@keyframes hb-ma2-tick { from { opacity: 0; transform: translateY(-8px); } }
+.hb-ma2-add { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px 0 9px; border: 1px solid var(--hb-ma2-ink); border-radius: 999px; background: transparent; color: var(--hb-ma2-ink); font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; transition: background .18s, color .18s, transform .18s; }
+.hb-ma2-add:hover { background: var(--hb-ma2-ink); color: #fff8ee; }
+.hb-ma2-add:active { transform: scale(.95); }
+.hb-ma2-add[data-count] { background: var(--hb-ma2-accent); border-color: var(--hb-ma2-accent); color: #fff; }
+.hb-ma2 button:focus-visible, .hb-ma2 select:focus-visible { outline: 2px solid var(--hb-ma2-accent); outline-offset: 2px; }
+@container (max-width: 860px) {
+  .hb-ma2-body { grid-template-columns: minmax(0, 1fr); }
+  .hb-ma2-panel { position: relative; top: 0; display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 0 20px; }
+  .hb-ma2-stage { grid-row: span 4; margin-bottom: 0; }
+}
+@container (max-width: 620px) {
+  .hb-ma2-wrap { padding: 44px 16px 64px; }
+  .hb-ma2-panel { display: block; }
+  .hb-ma2-stage { margin-bottom: 14px; }
+  .hb-ma2-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@container (max-width: 380px) {
+  .hb-ma2-mini { width: 44px; height: 44px; }
+  .hb-ma2-card { padding: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hb-ma2 *, .hb-ma2 *::before, .hb-ma2 *::after { animation: none !important; transition: none !important; }
+}
+`;
+
+const priceFor = (base: number, size: MenuPizzaSize, crust: MenuPizzaCrust) => Math.round(base * size.multiplier * 2) / 2 + crust.price;
+
+function TagIcon({ tag }: { tag: MenuPizzaTag }) {
+  const common = { fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  if (tag === "spicy") return <svg viewBox="0 0 24 24" aria-hidden="true"><path {...common} d="M10 6c6 0 9 5 9 9 0 3-3 5-6 3-4-2-8-5-7-9 .4-2 2-3 4-3zM10 6c0-2 1.5-3 3-2.5" /></svg>;
+  if (tag === "popular") return <svg viewBox="0 0 24 24" aria-hidden="true"><path {...common} d="M12 3c1 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-5 3-6 0 2 1 3 2 3 0-3-1-5 1-8z" /></svg>;
+  if (tag === "new") return <svg viewBox="0 0 24 24" aria-hidden="true"><path {...common} d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" /></svg>;
+  if (tag === "vegan" || tag === "vegetarian") return <svg viewBox="0 0 24 24" aria-hidden="true"><path {...common} d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14zM5 19l7-7" /></svg>;
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path {...common} d="M12 4v16M12 8l-3-2M12 8l3-2M12 12l-3-2M12 12l3-2M12 16l-3-2M12 16l3-2M4 4l16 16" /></svg>;
+}
+
+const looks: Record<MenuPizzaArt, { sauce: string; cheese: string; bits: { color: string; size: number; leaf?: boolean }[]; dots: string[] }> = {
+  margherita: { sauce: "#c93a22", cheese: "#fff3d6", bits: [{ color: "#3f8a3a", size: 7, leaf: true }], dots: ["#c93a22", "#f4e3c0", "#3f8a3a"] },
+  pepperoni: { sauce: "#c93a22", cheese: "#ffd98a", bits: [{ color: "#a3241a", size: 10 }], dots: ["#a3241a", "#ffd98a", "#6b8f3a"] },
+  diavola: { sauce: "#b8301c", cheese: "#f7d394", bits: [{ color: "#8f1d14", size: 9 }, { color: "#e8541c", size: 3.4 }], dots: ["#8f1d14", "#e8541c", "#d7b48a"] },
+  bianca: { sauce: "#f6ead3", cheese: "#fff8e8", bits: [{ color: "#8a6a4a", size: 7 }, { color: "#5f7d3a", size: 3, leaf: true }], dots: ["#f0e2c4", "#8a6a4a", "#e6c86e"] },
+  verde: { sauce: "#5e8f3a", cheese: "#f4f0de", bits: [{ color: "#e2492d", size: 6 }, { color: "#8fbf5a", size: 8, leaf: true }], dots: ["#5e8f3a", "#8fbf5a", "#f4f0de"] },
+  sausage: { sauce: "#c93a22", cheese: "#fff3d6", bits: [{ color: "#7a4a2a", size: 7 }, { color: "#f2a93b", size: 4 }], dots: ["#7a4a2a", "#fff3d6", "#f2a93b"] },
+};
+
+function Pizza({ art, sid, spin }: { art: MenuPizzaArt; sid: string; spin?: boolean }) {
+  const look = looks[art];
+  const count = 22;
+  const items = Array.from({ length: count }, (_, i) => {
+    const a = (i * 137.508 * Math.PI) / 180;
+    const r = 14 + ((i * 53) % 64);
+    const bit = look.bits[i % look.bits.length];
+    return { x: (120 + Math.cos(a) * r).toFixed(2), y: (120 + Math.sin(a) * r).toFixed(2), rot: ((i * 47) % 180).toFixed(0), bit };
+  });
+  const melts = Array.from({ length: 14 }, (_, i) => {
+    const a = (i * 97 * Math.PI) / 180;
+    const r = 20 + ((i * 29) % 56);
+    return { x: (120 + Math.cos(a) * r).toFixed(2), y: (120 + Math.sin(a) * r).toFixed(2), r: (9 + ((i * 7) % 8)).toFixed(0) };
+  });
+  return (
+    <svg viewBox="0 0 240 240" aria-hidden="true">
+      <g className={spin ? "hb-ma2-spin" : undefined}>
+        <circle cx="120" cy="120" r="112" fill={`url(#${sid}-crust)`} />
+        <circle cx="120" cy="120" r="112" fill="none" stroke="#9a5420" strokeOpacity=".35" strokeWidth="2" />
+        {[20, 70, 130, 200, 250, 310].map((d) => {
+          const a = (d * Math.PI) / 180;
+          return <ellipse key={d} cx={(120 + Math.cos(a) * 104).toFixed(2)} cy={(120 + Math.sin(a) * 104).toFixed(2)} rx="5" ry="3" fill="#7a3d14" opacity=".45" />;
+        })}
+        <circle cx="120" cy="120" r="94" fill={look.sauce} />
+        {melts.map((m, i) => <circle key={i} cx={m.x} cy={m.y} r={m.r} fill={look.cheese} opacity=".92" />)}
+        {items.map((it, i) =>
+          it.bit.leaf ? (
+            <ellipse key={i} cx={it.x} cy={it.y} rx={it.bit.size} ry={(it.bit.size * 0.45).toFixed(2)} fill={it.bit.color} transform={`rotate(${it.rot} ${it.x} ${it.y})`} />
+          ) : (
+            <g key={i}>
+              <circle cx={it.x} cy={it.y} r={it.bit.size} fill={it.bit.color} />
+              {it.bit.size > 6 ? <circle cx={it.x} cy={it.y} r={(it.bit.size * 0.55).toFixed(2)} fill="#000" opacity=".12" /> : null}
+            </g>
+          ),
+        )}
+        {[0, 60, 120].map((d) => <line key={d} x1="120" y1="12" x2="120" y2="228" stroke="#5a2a0e" strokeOpacity=".16" strokeWidth="1.5" transform={`rotate(${d} 120 120)`} />)}
+        <path d="M58 70c14-22 40-36 66-38" stroke="#fff" strokeOpacity=".3" strokeWidth="6" strokeLinecap="round" fill="none" />
+      </g>
+    </svg>
+  );
+}
+
+export function MenuPizzaSizes({
+  eyebrow = "Forno Benno · Wood-fired since 2009",
+  title = "Pick a size. Every price follows.",
+  subtitle = "Dough rested for two days, baked at 850° in ninety seconds. Choose a size and a crust, the whole menu updates.",
+  sizes = defaultSizes,
+  crusts = defaultCrusts,
+  pizzas = defaultPizzas,
+  size,
+  defaultSize = "large",
+  onSizeChange,
+  defaultCrust = "classic",
+  accent = "#d6452b",
+  onOrder,
+  className,
+  style,
+  ...rest
+}: MenuPizzaSizesProps) {
+  const uid = React.useId();
+  const sid = `hbma2${uid.replace(/[^a-zA-Z0-9]/g, "")}`;
+  const [innerSize, setInnerSize] = React.useState(defaultSize);
+  const [crustId, setCrustId] = React.useState(defaultCrust);
+  const [lines, setLines] = React.useState<MenuPizzaLine[]>([]);
+  const [done, setDone] = React.useState<string | null>(null);
+  const sizeRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
+
+  const currentSize = sizes.find((s) => s.id === (size ?? innerSize)) ?? sizes[0];
+  const crust = crusts.find((c) => c.id === crustId) ?? crusts[0];
+  const biggest = Math.max(...sizes.map((s) => s.inches));
+  const scale = 0.1 + 0.9 * (currentSize.inches / biggest);
+  const count = lines.reduce((s, l) => s + l.quantity, 0);
+  const total = lines.reduce((s, l) => s + l.quantity * l.price, 0);
+  const featured = pizzas[0]?.art ?? "margherita";
+
+  const pickSize = (id: string) => {
+    if (size === undefined) setInnerSize(id);
+    onSizeChange?.(id);
+  };
+
+  const onSizeKey = (event: React.KeyboardEvent, index: number) => {
+    let next = -1;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") next = (index + 1) % sizes.length;
+    if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = (index - 1 + sizes.length) % sizes.length;
+    if (next < 0) return;
+    event.preventDefault();
+    pickSize(sizes[next].id);
+    sizeRefs.current[next]?.focus();
+  };
+
+  const add = (pizza: MenuPizzaItem) => {
+    setDone(null);
+    const price = priceFor(pizza.price, currentSize, crust);
+    setLines((prev) => {
+      const idx = prev.findIndex((l) => l.pizza.id === pizza.id && l.size.id === currentSize.id && l.crust.id === crust.id);
+      if (idx < 0) return [...prev, { pizza, size: currentSize, crust, price, quantity: 1 }];
+      return prev.map((l, i) => (i === idx ? { ...l, quantity: l.quantity + 1 } : l));
+    });
+  };
+
+  const order = () => {
+    if (!count) return;
+    onOrder?.(lines, total);
+    setDone(`FB-${2000 + (Math.round(total * 100) % 7000)}`);
+    setLines([]);
+  };
+
+  const words = title.split(" ");
+  const last = words.pop();
+
+  return (
+    <section className={["hb-ma2", className].filter(Boolean).join(" ")} style={{ "--hb-ma2-accent": accent, ...style } as React.CSSProperties} {...rest}>
+      <style href="hb-menu-pizza-sizes" precedence="default">{css}</style>
+      <svg className="hb-ma2-defs" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id={`${sid}-crust`} cx="50%" cy="45%" r="55%">
+            <stop offset="0.78" stopColor="#f0c27a" />
+            <stop offset="0.92" stopColor="#d98f42" />
+            <stop offset="1" stopColor="#b8662a" />
+          </radialGradient>
+        </defs>
+      </svg>
+      <div className="hb-ma2-wrap">
+        <div className="hb-ma2-head">
+          <div>
+            <p className="hb-ma2-eyebrow">{eyebrow}</p>
+            <h2 className="hb-ma2-title">{words.join(" ")} <em>{last}</em></h2>
+          </div>
+          <p className="hb-ma2-sub">{subtitle}</p>
+        </div>
+
+        <div className="hb-ma2-body">
+          <div className="hb-ma2-panel">
+            <div className="hb-ma2-stage">
+              <span className="hb-ma2-guide" aria-hidden="true" />
+              <div className="hb-ma2-scale" style={{ "--hb-ma2-scale": scale.toFixed(3) } as React.CSSProperties}>
+                <Pizza art={featured} sid={sid} spin />
+              </div>
+              <span className="hb-ma2-size-tag">{currentSize.inches} in</span>
+              <span className="hb-ma2-serves">{currentSize.serves}</span>
+            </div>
+            <div>
+              <span className="hb-ma2-label" id={`${sid}-size`}>Size</span>
+              <div className="hb-ma2-sizes" role="radiogroup" aria-labelledby={`${sid}-size`}>
+                {sizes.map((s, i) => (
+                  <button
+                    key={s.id}
+                    ref={(el) => { sizeRefs.current[i] = el; }}
+                    type="button"
+                    role="radio"
+                    aria-checked={s.id === currentSize.id}
+                    tabIndex={s.id === currentSize.id ? 0 : -1}
+                    className="hb-ma2-size"
+                    onClick={() => pickSize(s.id)}
+                    onKeyDown={(e) => onSizeKey(e, i)}
+                  >
+                    <b>{s.label}</b>
+                    <span>{s.inches}&Prime;</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <label className="hb-ma2-label" htmlFor={`${sid}-crust-select`}>Crust</label>
+              <div className="hb-ma2-select">
+                <select id={`${sid}-crust-select`} value={crust.id} onChange={(e) => setCrustId(e.target.value)}>
+                  {crusts.map((c) => <option key={c.id} value={c.id}>{c.label}{c.price ? ` (+$${c.price.toFixed(2)})` : ""}</option>)}
+                </select>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </div>
+            </div>
+            <div aria-live="polite">
+              {done ? (
+                <div className="hb-ma2-ok">
+                  <span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+                  <p><strong>Order {done} confirmed.</strong> Into the oven now, ready in about 20 minutes.</p>
+                  <button type="button" onClick={() => setDone(null)}>New order</button>
+                </div>
+              ) : (
+                <div className="hb-ma2-order">
+                  <div>
+                    <b>${total.toFixed(2)}</b>
+                    <small>{count ? `${count} ${count === 1 ? "pizza" : "pizzas"} · ${lines.map((l) => `${l.quantity}× ${l.size.label} ${l.pizza.name}`).join(", ")}` : "Your order is empty"}</small>
+                  </div>
+                  <button type="button" className="hb-ma2-go" onClick={order} disabled={!count}>Order for pickup</button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <ul className="hb-ma2-grid">
+            {pizzas.map((p) => {
+              const inOrder = lines.filter((l) => l.pizza.id === p.id).reduce((s, l) => s + l.quantity, 0);
+              const price = priceFor(p.price, currentSize, crust);
+              return (
+                <li key={p.id} className="hb-ma2-card">
+                  <div className="hb-ma2-top">
+                    <span className="hb-ma2-mini"><Pizza art={p.art} sid={sid} /></span>
+                    <div className="hb-ma2-info">
+                      <h3 className="hb-ma2-name">{p.name}</h3>
+                      {p.tags?.length ? (
+                        <div className="hb-ma2-tags">
+                          {p.tags.map((t) => <span key={t} className="hb-ma2-tag" data-tag={t}><TagIcon tag={t} />{tagLabels[t]}</span>)}
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+                  <p className="hb-ma2-desc">{p.description}</p>
+                  <div className="hb-ma2-chips">
+                    {p.toppings.map((t, i) => <span key={t} className="hb-ma2-chip" style={{ "--hb-ma2-dot": looks[p.art].dots[i % 3] } as React.CSSProperties}>{t}</span>)}
+                  </div>
+                  <div className="hb-ma2-foot">
+                    <span key={`${currentSize.id}-${crust.id}`} className="hb-ma2-price">${price.toFixed(2)}<small>{currentSize.inches} in</small></span>
+                    <button type="button" className="hb-ma2-add" data-count={inOrder || undefined} onClick={() => add(p)} aria-label={`Add ${currentSize.label} ${p.name}, $${price.toFixed(2)}`}>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" /></svg>
+                      {inOrder ? `${inOrder} added` : "Add"}
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
