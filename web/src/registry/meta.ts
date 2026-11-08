@@ -160,6 +160,16 @@ import { viMeta } from "./parts/vi.meta.ts";
 import { vjMeta } from "./parts/vj.meta.ts";
 import { vkMeta } from "./parts/vk.meta.ts";
 import { vlMeta } from "./parts/vl.meta.ts";
+import { waMeta } from "./parts/wa.meta.ts";
+import { wbMeta } from "./parts/wb.meta.ts";
+import { wcMeta } from "./parts/wc.meta.ts";
+import { wdMeta } from "./parts/wd.meta.ts";
+import { weMeta } from "./parts/we.meta.ts";
+import { wfMeta } from "./parts/wf.meta.ts";
+import { wgMeta } from "./parts/wg.meta.ts";
+import { whMeta } from "./parts/wh.meta.ts";
+import { wiMeta } from "./parts/wi.meta.ts";
+import { wjMeta } from "./parts/wj.meta.ts";
 import { qpMeta } from "./parts/qp.meta.ts";
 import { quMeta } from "./parts/qu.meta.ts";
 import { qoMeta } from "./parts/qo.meta.ts";
@@ -1336,6 +1346,16 @@ const allEffects: EffectMeta[] = [
   ...vjMeta,
   ...vkMeta,
   ...vlMeta,
+  ...waMeta,
+  ...wbMeta,
+  ...wcMeta,
+  ...wdMeta,
+  ...weMeta,
+  ...wfMeta,
+  ...wgMeta,
+  ...whMeta,
+  ...wiMeta,
+  ...wjMeta,
   ...qpMeta,
   ...quMeta,
   ...qoMeta,
@@ -1373,7 +1393,7 @@ const allEffects: EffectMeta[] = [
 ];
 
 const newBatches: EffectMeta[][] = [
-  vaMeta, vbMeta, vcMeta, vdMeta, veMeta, vfMeta, vgMeta, vhMeta, viMeta, vjMeta, vkMeta, vlMeta,
+  waMeta, wbMeta, wcMeta, wdMeta, weMeta, wfMeta, wgMeta, whMeta, wiMeta, wjMeta,
 ];
 
 const newSlugs = new Set(newBatches.flat().map((e) => e.slug));
