@@ -12,16 +12,12 @@
 
 Visual effects for React, one command away. Copy-paste components that install with one shadcn command, or through a prompt you hand to your coding agent.
 
-- `web/` — the site and catalog (Next.js). Effects live in `web/src/registry/hyperblur`, one file each, no dependencies besides React.
+- `web/src/registry/` — the free catalog: every effect, component and block lives in `web/src/registry/hyperblur`, one file each, no dependencies besides React, with its metadata in `meta.ts` and its demo in `demos.tsx`.
 - `brand/` — logo, mark, favicon and avatars, with a short usage guide.
 
 ## Develop
 
-```bash
-cd web && npm install && npm run dev
-```
-
-`npm run registry` rebuilds the shadcn registry JSON in `web/public/r`. `npm run build` does it automatically before building the site.
+The website is not part of this repository. Add or edit an effect in `web/src/registry/hyperblur`, describe it in `web/src/registry/meta.ts`, and run `node web/scripts/check-css.mjs` to make sure CSS names stay unique. The registry JSON at https://hyperblur.dev/r is built from this folder.
 
 ## Agents
 
