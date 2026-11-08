@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-11-07T23:38:39.805Z",
+  "generatedAt": "2026-11-08T00:24:47.466Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -23948,6 +23948,1744 @@
       "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-earth.json",
       "docs": "https://hyperblur.dev/effects/hero-dot-earth",
       "file": "https://hyperblur.dev/r/hero-dot-earth.json"
+    },
+    {
+      "slug": "hero-dot-saturn",
+      "component": "HeroDotSaturn",
+      "title": "Hero Dot Saturn",
+      "description": "A black hero with a holographic ringed planet built from thousands of square dots: banded latitudes, three rings with gaps that pass in front of and behind the sphere, the planet shadow on the rings, a scan sweep and a dotted projector base.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "saturn",
+        "planet",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Build products with their own gravity.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Interfaces that pull people in and keep them in orbit. Ship the source, own every line, and tune the motion to your brand.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"3 rings · 15,000 dots · zero dependencies\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-saturn\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Start building\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Annulus\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Platform\", href: \"#\" }, { label: \"Pricing\", href: \"#\" }, { label: \"Changelog\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Log in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Learn more\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#c4a7ff\"",
+          "description": "Rim color of the hologram, the projector glow, the caption details and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of dots (about 15,600 at 1). Kept between 0.2 and 2. Narrow screens draw fewer dots automatically."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the motion and the scan sweep. 0 freezes the animation while the hologram still leans toward the pointer."
+        },
+        {
+          "name": "ringTilt",
+          "type": "number",
+          "default": "0.45",
+          "description": "Inclination of the ring plane toward the viewer, in radians. 0 shows the rings edge on; larger values open them up. Kept between -1.2 and 1.2."
+        },
+        {
+          "name": "bands",
+          "type": "number",
+          "default": "9",
+          "description": "Number of latitude bands on the planet. Bright and dim bands alternate. Kept between 2 and 24."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotSaturn title=\"Pull every user into orbit.\" accent=\"#ffc27a\" ringTilt={0.35} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-saturn.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-saturn",
+      "file": "https://hyperblur.dev/r/hero-dot-saturn.json"
+    },
+    {
+      "slug": "hero-dot-dna",
+      "component": "HeroDotDna",
+      "title": "Hero Dot DNA",
+      "description": "A black hero with a holographic double helix of square dots standing on a projector base. Two strands joined by base pair rungs turn about their axis while bright pulses run along the strands and light up each rung they pass.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "dna",
+        "helix",
+        "hologram",
+        "canvas",
+        "biotech"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Two strands. One source of truth.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Version every dataset and replay every experiment. A pipeline that pairs each change with its proof, from the first sample to the final figure.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"6 turns · 60 base pairs · runs in any React app\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-dna\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Run a sequence\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Strandline\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Pipelines\", href: \"#\" }, { label: \"Research\", href: \"#\" }, { label: \"Docs\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Request access\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Learn more\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#38e8c6\"",
+          "description": "Rim color of the hologram, the projector glow, the caption details and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of dots (about 10,000 at 1). Kept between 0.2 and 2. Narrow screens draw fewer dots automatically."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the motion and the scan sweep. 0 freezes the animation while the hologram still leans toward the pointer."
+        },
+        {
+          "name": "turns",
+          "type": "number",
+          "default": "6",
+          "description": "Full turns of the helix, which gives twice as many strand crossings. Ten base pair rungs are drawn per turn. Kept between 2 and 16."
+        },
+        {
+          "name": "pulses",
+          "type": "number",
+          "default": "3",
+          "description": "Number of bright pulses traveling up the strands, alternating between the two. 0 turns them off. Kept between 0 and 8."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotDna title=\"Sequence everything.\" accent=\"#7fb3ff\" pulses={4} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-dna.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-dna",
+      "file": "https://hyperblur.dev/r/hero-dot-dna.json"
+    },
+    {
+      "slug": "hero-dot-orbit",
+      "component": "HeroDotOrbit",
+      "title": "Hero Dot Orbit",
+      "description": "A black hero with a holographic atom of square dots: a glowing nucleus of clustered spheres, faint dotted orbit rings at different tilts and bright electrons with fading trails, floating over a projector base and leaning toward the pointer.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "atom",
+        "orbit",
+        "hologram",
+        "canvas",
+        "science"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"A stable core with everything in orbit.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"One small, typed nucleus and every service moving around it at its own pace. Observable from the first request, and every line is yours to change.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"1 nucleus · 5 orbits · one canvas at 60 fps\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-orbit\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Deploy the core\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Valence\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Runtime\", href: \"#\" }, { label: \"Integrations\", href: \"#\" }, { label: \"Status\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Dashboard\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Learn more\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#5aa9ff\"",
+          "description": "Rim color of the hologram, the projector glow, the caption details and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of dots (about 7,700 at 1). Kept between 0.2 and 2. Narrow screens draw fewer dots automatically."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the motion and the scan sweep. 0 freezes the animation while the hologram still leans toward the pointer."
+        },
+        {
+          "name": "orbits",
+          "type": "number",
+          "default": "5",
+          "description": "Number of orbit rings, spread evenly around the nucleus. Kept between 1 and 8."
+        },
+        {
+          "name": "electrons",
+          "type": "number",
+          "default": "1",
+          "description": "Electrons per orbit, each with a short fading trail. Kept between 1 and 3."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotOrbit title=\"Everything revolves around your core.\" orbits={3} electrons={2} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-orbit.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-orbit",
+      "file": "https://hyperblur.dev/r/hero-dot-orbit.json"
+    },
+    {
+      "slug": "hero-dot-galaxy",
+      "component": "HeroDotGalaxy",
+      "title": "Hero Dot Galaxy",
+      "description": "A black hero with a holographic spiral galaxy made of thousands of tiny square dots: a bright core, glowing arms that wind with inner stars moving faster, a sparse halo and a projector base below. A scan band sweeps up through it and it tilts toward the pointer.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "galaxy",
+        "space",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"A whole universe of effects, one command away.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Every piece is plain React you copy into your repo. No runtime to install, no account, nothing orbiting your bundle.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"3 spiral arms · 15k stars · MIT licensed\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-galaxy\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Start building\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Corvid\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Docs\", href: \"#\" }, { label: \"Gallery\", href: \"#\" }, { label: \"Changelog\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Sign in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Explore\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#a99bff\"",
+          "description": "Color of the outer arms, the projector base, the caption details and the primary button. The core stays warm white. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of stars (about 15,000 at 1, fewer on narrow screens). Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the rotation, the scan sweep and the projector rings. 0 freezes the galaxy but it still tilts toward the pointer."
+        },
+        {
+          "name": "arms",
+          "type": "number",
+          "default": "3",
+          "description": "Number of spiral arms, from 1 to 8."
+        },
+        {
+          "name": "tightness",
+          "type": "number",
+          "default": "0.35",
+          "description": "Pitch of the logarithmic spiral, from 0.12 to 1.2. Lower values wind the arms more tightly."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotGalaxy title=\"Every component in one place.\" arms={2} tightness={0.28} accent=\"#7fb3ff\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-galaxy.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-galaxy",
+      "file": "https://hyperblur.dev/r/hero-dot-galaxy.json"
+    },
+    {
+      "slug": "hero-dot-torus",
+      "component": "HeroDotTorus",
+      "title": "Hero Dot Torus",
+      "description": "A black hero with a holographic torus or Möbius band built from square dots that keep flowing across its surface, with helical light lanes, rim light and a dotted projector base. It turns slowly on two axes and leans toward the pointer.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "torus",
+        "mobius",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"One loop for every event you ship.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Stream, retry and replay through a single continuous pipeline that never stalls and scales with your traffic.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"99.99% uptime · 3 regions · MIT licensed\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-torus\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Try it free\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Loopwell\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Product\", href: \"#\" }, { label: \"Pricing\", href: \"#\" }, { label: \"Docs\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Log in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"How it works\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#3ee6c8\"",
+          "description": "Rim color of the shape, the projector base, the caption details and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of surface points (about 10,000 for the torus and 5,600 for the band at 1, fewer on narrow screens). Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the rotation, the surface flow and the scan sweep. 0 freezes the shape but it still tilts toward the pointer."
+        },
+        {
+          "name": "shape",
+          "type": "\"torus\" | \"mobius\"",
+          "default": "\"torus\"",
+          "description": "The surface to draw: a ring torus whose dots flow around the tube, or a Möbius band with a half twist whose dots slide along the strip."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotTorus shape=\"mobius\" title=\"A pipeline with no seams.\" accent=\"#ffb84d\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-torus.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-torus",
+      "file": "https://hyperblur.dev/r/hero-dot-torus.json"
+    },
+    {
+      "slug": "hero-dot-wave",
+      "component": "HeroDotWave",
+      "title": "Hero Dot Wave",
+      "description": "A black hero with a perspective field of square dots rolling as layered waves toward a dark horizon. Moving or pressing the pointer sends out expanding ripples, a scan band sweeps up the field and idle ripples keep it alive.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "wave",
+        "ripple",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"See the ripple before it becomes the outage.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Real-time observability that folds noisy telemetry into one calm surface. Every spike, traced to the line that caused it.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"120M events per minute · p99 38 ms · MIT licensed\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-wave\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Book a demo\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Tideline\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Platform\", href: \"#\" }, { label: \"Customers\", href: \"#\" }, { label: \"Docs\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Sign in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"See the platform\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#4da3ff\"",
+          "description": "Color of the far rows, the troughs, the horizon glow, the caption details and the primary button. Near crests stay cool white. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the grid (about 140 by 76 points at 1, fewer columns on narrow screens). Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the wave motion and the scan sweep. Ripples keep their own pace. 0 freezes the surface."
+        },
+        {
+          "name": "amplitude",
+          "type": "number",
+          "default": "1",
+          "description": "Height of the layered waves, from 0 (flat) to 3."
+        },
+        {
+          "name": "ripples",
+          "type": "boolean",
+          "default": "true",
+          "description": "When true, moving or pressing the pointer spawns expanding ripples, and a ripple appears on its own every few seconds while idle."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotWave title=\"Calm data, loud insights.\" amplitude={1.4} accent=\"#3ee6c8\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-wave.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-wave",
+      "file": "https://hyperblur.dev/r/hero-dot-wave.json"
+    },
+    {
+      "slug": "hero-dot-text",
+      "component": "HeroDotText",
+      "title": "Hero Dot Text",
+      "description": "A black hero where any word is drawn as extruded 3D letters made of tiny dots. The word swings like a pendulum, a scan band sweeps across it from left to right, the signal flickers now and then, and the dots part around the pointer.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "text",
+        "hologram",
+        "3d",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Type that floats off the page.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Any word becomes a hologram of extruded dots that sways, scans and leans toward the pointer. One canvas, zero dependencies.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"Any word · 5 depth layers · MIT licensed\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-text\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Try it free\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Glyphwork\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Fonts\", href: \"#\" }, { label: \"Showcase\", href: \"#\" }, { label: \"Pricing\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Sign in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Learn more\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#5ee7ff\"",
+          "description": "Rim color of the hologram, the scan line, the glow and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the point budget (up to about 18,000 points at 1 on wide screens, half that below 640px). The letters are re-sampled to fit the size of the hero. Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the swing, the scan sweep and the floating motes. 0 holds the word still while it keeps leaning toward the pointer."
+        },
+        {
+          "name": "word",
+          "type": "string",
+          "default": "\"HYPERBLUR\"",
+          "description": "The word to draw. It is rendered with the section font at weight 800 once the fonts have loaded, and re-sampled when it changes. Short words read best; an empty string draws nothing."
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "default": "0.18",
+          "description": "Extrusion depth as a share of the glyph height, from 0.02 to 1."
+        },
+        {
+          "name": "swing",
+          "type": "number",
+          "default": "32",
+          "description": "Pendulum amplitude around the vertical axis in degrees, from 0 to 80."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotText word=\"LAUNCH\" title=\"Ship words that glow.\" accent=\"#7fb3ff\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-text.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-text",
+      "file": "https://hyperblur.dev/r/hero-dot-text.json"
+    },
+    {
+      "slug": "hero-dot-logo",
+      "component": "HeroDotLogo",
+      "title": "Hero Dot Logo",
+      "description": "A black hero that turns an SVG path into a hologram of extruded dots that swings like a pendulum, with a bright front face, lit side walls, an upward scan band, brief signal flicker and pointer tilt. Defaults to the Hyperblur mark.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "logo",
+        "svg",
+        "hologram",
+        "3d",
+        "canvas"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Your mark, projected in three dimensions.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Drop in any SVG path and it turns into a swinging hologram of extruded dots, front face bright and edges lit. Plain source, no runtime.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"Any SVG path · 6 depth layers · MIT licensed\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-logo\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Upload your mark\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Slipstream\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Product\", href: \"#\" }, { label: \"Brand kit\", href: \"#\" }, { label: \"Changelog\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Sign in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Learn more\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#2f7bff\"",
+          "description": "Rim color of the hologram, the scan line, the glow and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the point budget (up to about 18,000 points at 1 on wide screens, half that below 640px). The mark is re-sampled to fit the size of the hero. Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the swing or spin, the scan sweep and the floating motes. 0 holds the mark still while it keeps tilting toward the pointer."
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "default": "\"M18.0 9.0 H33.0 L28.0 23.0 H13.0 Z M13.5 9.0 H16.1 L11.1 23.0 H8.5 Z M10.0 9.0 H11.6 L6.6 23.0 H5.0 Z M7.2 9.0 H8.1 L3.1 23.0 H2.2 Z\"",
+          "description": "SVG path data (the d attribute) of the mark, filled with the nonzero rule. Several subpaths are fine. Falls back to the default mark when the path draws nothing."
+        },
+        {
+          "name": "viewBox",
+          "type": "string",
+          "default": "\"0 0 36 32\"",
+          "description": "The viewBox the path coordinates refer to, as four numbers."
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "default": "0.35",
+          "description": "Extrusion depth as a share of the mark height, from 0.02 to 1.5."
+        },
+        {
+          "name": "swing",
+          "type": "number",
+          "default": "50",
+          "description": "Pendulum amplitude around the vertical axis in degrees, from 0 to 85. Ignored when spin is true."
+        },
+        {
+          "name": "spin",
+          "type": "boolean",
+          "default": "false",
+          "description": "Full slow turn around the vertical axis instead of the swing. The turn slows down through the front and back views and speeds through the edge-on view; back faces are dimmed."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotLogo path=\"M4 4 H28 V28 H4 Z M10 10 V22 H22 V10 Z\" viewBox=\"0 0 32 32\" accent=\"#7fb3ff\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-logo.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-logo",
+      "file": "https://hyperblur.dev/r/hero-dot-logo.json"
+    },
+    {
+      "slug": "hero-dot-silhouette",
+      "component": "HeroDotSilhouette",
+      "title": "Hero Dot Silhouette",
+      "description": "A black hero that turns an SVG or PNG into a hologram of dots: the shape comes from the alpha channel (or from dark pixels when there is none) and the depth from the image tones. It sways gently with an upward scan band. Defaults to a rocket.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "image",
+        "silhouette",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Launch day, rendered in light.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Feed it any SVG or PNG and the outline becomes a hologram of dots with relief taken from its tones. Ships as one file you own.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"SVG or PNG · luminance relief · MIT licensed\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-silhouette\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Book a launch\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Apogee\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Missions\", href: \"#\" }, { label: \"Telemetry\", href: \"#\" }, { label: \"Careers\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Sign in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Learn more\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff8a4c\"",
+          "description": "Rim color of the hologram, the scan line, the glow and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the point budget (up to about 18,000 points at 1 on wide screens, half that below 640px). The image is re-sampled to fit the size of the hero. Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the sway, the scan sweep and the floating motes. 0 holds the shape still while it keeps leaning toward the pointer."
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "default": "rocket SVG data URI",
+          "description": "Image to project: a data URI or a URL of an SVG or PNG. Transparent images use their alpha as the shape; opaque ones use dark pixels. Cross-origin images need CORS headers; if the image fails to load or cannot be read, the default rocket is shown."
+        },
+        {
+          "name": "relief",
+          "type": "number",
+          "default": "0.25",
+          "description": "Depth taken from the image tones plus a soft dome toward the middle of the shape, as a share of its height, from 0 to 1. Lighter areas come forward."
+        },
+        {
+          "name": "swing",
+          "type": "number",
+          "default": "28",
+          "description": "Sway amplitude around the vertical axis in degrees, from 0 to 80."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotSilhouette src=\"/logo-mark.png\" title=\"Your product, in light.\" accent=\"#7fb3ff\" />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-silhouette.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-silhouette",
+      "file": "https://hyperblur.dev/r/hero-dot-silhouette.json"
+    },
+    {
+      "slug": "hero-dot-worldmap",
+      "component": "HeroDotWorldmap",
+      "title": "Hero Dot Worldmap",
+      "description": "A full-width dot-matrix world map in the style of live traffic and threat maps: pulsing city nodes, lifted arcs with bright heads and fading trails, impact rings, a ticking stats panel and a live feed of the last five events. Hover a city to see its label and routes.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "world map",
+        "dots",
+        "arcs",
+        "network",
+        "canvas"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Watch the whole network breathe.\"",
+          "description": "Headline at the bottom left, over the gradient."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Live traffic and threat telemetry from 28 regions, drawn on one map. Drop it into a status page, a NOC wall or a security console.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"28 regions · live arcs · MIT licensed\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-worldmap\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Open console\", href: \"#\" }",
+          "description": "Solid accent button next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Vantage\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Network\", href: \"#\" }, { label: \"Threats\", href: \"#\" }, { label: \"Docs\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Sign in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Learn more\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#38d9c0\"",
+          "description": "Color of normal traffic arcs, coastlines, node rings and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "alert",
+          "type": "string",
+          "default": "\"#ff5a5f\"",
+          "description": "Color of hot arcs (threats), their impact rings and the threat tags in the feed."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the dot grid (about 15,000 dots at 1 on a wide desktop, fewer on small screens). Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the arcs, pulses and scan sweep. 0 freezes the map but keeps the pointer tilt and hover."
+        },
+        {
+          "name": "nodes",
+          "type": "{ name: string; lon: number; lat: number }[]",
+          "default": "28 world cities",
+          "description": "Activity nodes placed by longitude and latitude. The default list covers San Francisco, New York, Sao Paulo, London, Lagos, Johannesburg, Cairo, Dubai, Mumbai, Singapore, Tokyo, Sydney and more."
+        },
+        {
+          "name": "routes",
+          "type": "[string, string][]",
+          "default": "undefined",
+          "description": "Pairs of node names that arcs travel between, in either direction. When omitted, about three routes per node are picked pseudo-randomly."
+        },
+        {
+          "name": "rate",
+          "type": "number",
+          "default": "1.4",
+          "description": "Arcs launched per second. At 1.4 about 8 to 10 arcs are in the air at once. Markers that fall on water are moved to the nearest inland cell of the map. Kept between 0.2 and 6."
+        },
+        {
+          "name": "showFeed",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the live feed of the last 5 events at the top right. Hidden below 980px of container width, where the stats panel shows the latest event instead."
+        },
+        {
+          "name": "showStats",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the stats panel with events per second, live routes, blocked threats and the legend. Collapses to a single pill on small screens."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotWorldmap title=\"Every request, everywhere.\" accent=\"#7fb3ff\" routes={[[\"Tokyo\", \"Frankfurt\"], [\"New York\", \"London\"], [\"Sao Paulo\", \"Lagos\"]]} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-worldmap.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-worldmap",
+      "file": "https://hyperblur.dev/r/hero-dot-worldmap.json"
+    },
+    {
+      "slug": "hero-dot-brain",
+      "component": "HeroDotBrain",
+      "title": "Hero Dot Brain",
+      "description": "A black hero with a holographic brain made of tiny dots: two hemispheres with winding folds, a cerebellum and a brain stem, seen from a three-quarter angle above a projector base. Signals crawl along the folds and synapses flash while a scan band sweeps up.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "brain",
+        "hologram",
+        "neural",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"A second brain for your whole team.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Capture notes, decisions and docs in one place, then find anything in milliseconds. Local-first and end-to-end encrypted.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"12 ms search · 40k teams · SOC 2 Type II\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-brain\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Start free\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Cortexa\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Product\", href: \"#\" }, { label: \"Research\", href: \"#\" }, { label: \"Pricing\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Log in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"How it works\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#c084fc\"",
+          "description": "Rim color of the hologram, the projector glow and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of points (about 16,000 at 1, at most 24,000, fewer below 640px of width). Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the sway, the scan sweep and the animation. 0 freezes the motion but keeps the pointer tilt."
+        },
+        {
+          "name": "folds",
+          "type": "number",
+          "default": "1",
+          "description": "Depth of the folds and how strongly the dots gather along the grooves, from 0 (smooth hemispheres) to 2."
+        },
+        {
+          "name": "activity",
+          "type": "number",
+          "default": "1",
+          "description": "Amount of neural activity: crawling signal chains and synapse flashes, from 0 (none) to 3."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotBrain title=\"Think faster together.\" accent=\"#7fb3ff\" activity={1.5} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-brain.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-brain",
+      "file": "https://hyperblur.dev/r/hero-dot-brain.json"
+    },
+    {
+      "slug": "hero-dot-head",
+      "component": "HeroDotHead",
+      "title": "Hero Dot Head",
+      "description": "A black hero with a stylized holographic bust drawn as horizontal dotted contour lines: skull, brow, nose, lips, ears, dim eye hollows, neck and shoulders on a projector base. It turns its head slowly while a scan line sweeps down and makes the face features flare.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "head",
+        "bust",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Identity checks in under a second.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Verify people at a glance with liveness, document match and fraud signals in a single API call. Built for regulated teams.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"0.8 s median · 190 countries · ISO 27001\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-head\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Get API keys\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Facet\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Platform\", href: \"#\" }, { label: \"Docs\", href: \"#\" }, { label: \"Customers\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Contact sales\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"See the flow\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#5eead4\"",
+          "description": "Rim color of the hologram, the projector glow and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of points (about 8,500 at 1, fewer below 640px of width). Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the sway, the scan sweep and the animation. 0 freezes the motion but keeps the pointer tilt."
+        },
+        {
+          "name": "swing",
+          "type": "number",
+          "default": "35",
+          "description": "Half angle of the slow head turn, in degrees (0 to 90)."
+        },
+        {
+          "name": "scan",
+          "type": "boolean",
+          "default": "true",
+          "description": "Shows the scan line that sweeps from top to bottom and brightens the face features as it passes."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotHead title=\"Know who is on the other side.\" accent=\"#7fb3ff\" swing={25} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-head.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-head",
+      "file": "https://hyperblur.dev/r/hero-dot-head.json"
+    },
+    {
+      "slug": "hero-dot-hand",
+      "component": "HeroDotHand",
+      "title": "Hero Dot Hand",
+      "description": "A black hero with an open holographic hand of tiny dots, palm toward the viewer with a slight three-quarter turn, standing on a projector base with a dotted wrist cuff. The fingers roll in a slow wave and curl a little when the pointer moves toward the bottom of the hero.",
+      "category": "hero",
+      "tags": [
+        "hero",
+        "hand",
+        "gesture",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "\"Interfaces you can reach out and touch.\"",
+          "description": "Headline at the bottom left."
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "default": "\"Hand tracking for the web: 21 joints per hand at 60 fps from any webcam, with gestures you define in a few lines.\"",
+          "description": "Gray paragraph under the headline. Empty hides it."
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "default": "\"60 fps · 21 joints · runs on device\"",
+          "description": "Small mono line above the install row. Empty hides it."
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "default": "\"npx hyperblur add hero-dot-hand\"",
+          "description": "Shell command in the box with a copy button. Empty hides the box."
+        },
+        {
+          "name": "primaryCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Try the demo\", href: \"#\" }",
+          "description": "Solid accent button with a chevron next to the command. Pass null to hide it."
+        },
+        {
+          "name": "brand",
+          "type": "string",
+          "default": "\"Palmar\"",
+          "description": "Wordmark next to the logo mark in the top bar."
+        },
+        {
+          "name": "nav",
+          "type": "{ label: string; href: string }[]",
+          "default": "[{ label: \"Gestures\", href: \"#\" }, { label: \"Docs\", href: \"#\" }, { label: \"Showcase\", href: \"#\" }]",
+          "description": "Centered mono links in the top bar. Hidden below 640px of container width."
+        },
+        {
+          "name": "navCta",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Sign in\", href: \"#\" }",
+          "description": "Outlined mono button at the right of the top bar. Pass null to hide it."
+        },
+        {
+          "name": "learnMore",
+          "type": "{ label: string; href: string } | null",
+          "default": "{ label: \"Watch it move\", href: \"#\" }",
+          "description": "Small cue with a bobbing chevron at the bottom center. Pass null to hide it."
+        },
+        {
+          "name": "accent",
+          "type": "string",
+          "default": "\"#ff8a5b\"",
+          "description": "Rim color of the hologram, the projector glow and the primary button. The button text switches between dark and white for contrast when a hex color is given."
+        },
+        {
+          "name": "density",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the number of points (about 7,500 at 1, fewer below 640px of width). Kept between 0.2 and 2."
+        },
+        {
+          "name": "speed",
+          "type": "number",
+          "default": "1",
+          "description": "Multiplier for the sway, the scan sweep and the animation. 0 freezes the motion but keeps the pointer tilt."
+        },
+        {
+          "name": "wave",
+          "type": "number",
+          "default": "1",
+          "description": "Strength of the traveling finger roll, from 0 (still fingers) to 2."
+        },
+        {
+          "name": "curl",
+          "type": "boolean",
+          "default": "true",
+          "description": "Curls the fingers slightly as the pointer approaches the bottom of the hero."
+        },
+        {
+          "name": "headingAs",
+          "type": "\"h1\" | \"h2\"",
+          "default": "\"h1\"",
+          "description": "Heading level of the title. Use h2 when the page already has an h1."
+        },
+        {
+          "name": "onSearch",
+          "type": "() => void",
+          "default": "undefined",
+          "description": "Called when the search icon button in the top bar is pressed."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "\"\"",
+          "description": "Extra classes on the section."
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "default": "undefined",
+          "description": "Inline styles on the section."
+        }
+      ],
+      "usage": "<HeroDotHand title=\"Point, pinch and swipe.\" accent=\"#7fb3ff\" wave={0.6} />",
+      "dependencies": [],
+      "install": "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-hand.json",
+      "docs": "https://hyperblur.dev/effects/hero-dot-hand",
+      "file": "https://hyperblur.dev/r/hero-dot-hand.json"
     },
     {
       "slug": "bg-ferrofluid",
