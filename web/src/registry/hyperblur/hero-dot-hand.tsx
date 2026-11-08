@@ -26,6 +26,7 @@ export interface HeroDotHandProps extends Omit<React.HTMLAttributes<HTMLElement>
   onSearch?: () => void;
 }
 
+
 const css = `
 @keyframes hb-hh13-up {
   from { opacity: 0; transform: translate3d(0, 14px, 0); }
@@ -36,8 +37,9 @@ const css = `
   50% { transform: translate3d(0, 4px, 0); }
 }
 .hb-hh13 {
-  --hb-hh13-accent: #ff8a5b;
-  --hb-hh13-ink: #0d0814;
+  --hb-hh13-accent: #fff1dc;
+  --hb-hh13-ink: #4a200d;
+  --hb-hh13-cream: #fff6e8;
   --hb-hh13-mono: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
   position: relative;
   isolation: isolate;
@@ -45,13 +47,13 @@ const css = `
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 620px;
+  min-height: 640px;
   overflow: hidden;
   container-type: inline-size;
   background:
-    radial-gradient(60% 50% at 50% 42%, color-mix(in srgb, var(--hb-hh13-accent) 7%, transparent), transparent 70%),
-    #020202;
-  color: #ededed;
+    radial-gradient(70% 60% at 78% 38%, rgba(255, 226, 190, .38), transparent 70%),
+    linear-gradient(165deg, #d9b08c 0%, #c58a63 38%, #a8552f 100%);
+  color: var(--hb-hh13-cream);
   font-family: inherit;
   -webkit-font-smoothing: antialiased;
 }
@@ -65,15 +67,6 @@ const css = `
   height: 100%;
   pointer-events: none;
 }
-.hb-hh13::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 1;
-  height: 52%;
-  pointer-events: none;
-  background: linear-gradient(to top, #020202 0%, rgba(2, 2, 2, .86) 38%, rgba(2, 2, 2, 0) 100%);
-}
 .hb-hh13-bar {
   position: relative;
   z-index: 2;
@@ -82,79 +75,80 @@ const css = `
   align-items: center;
   gap: 16px;
   width: 100%;
-  max-width: 1120px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 18px 32px;
+  padding: 22px 40px;
 }
-.hb-hh13-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  justify-self: start;
-  color: #f4f4f4;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -.01em;
-  text-decoration: none;
-  border-radius: 6px;
-}
-.hb-hh13-mark { flex: none; color: var(--hb-hh13-accent); }
-.hb-hh13-links {
+.hb-hh13-side-l, .hb-hh13-side-r {
   display: flex;
   align-items: center;
   gap: 4px;
+  min-width: 0;
+}
+.hb-hh13-side-l { justify-content: flex-start; }
+.hb-hh13-side-r { justify-content: flex-end; gap: 8px; }
+.hb-hh13-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #4a200d;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.hb-hh13-mark { flex: none; color: #4a200d; }
+.hb-hh13-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .hb-hh13-link {
   display: inline-flex;
-  padding: 6px 12px;
-  border-radius: 999px;
-  color: #8f8f8f;
-  font-family: var(--hb-hh13-mono);
-  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  color: rgba(74, 32, 13, .82);
+  font-size: 13px;
+  font-weight: 500;
   letter-spacing: .02em;
   text-decoration: none;
   transition: color .2s ease, background-color .2s ease;
 }
-.hb-hh13-link:hover { color: #ededed; background: rgba(255, 255, 255, .05); }
-.hb-hh13-tools {
-  display: flex;
-  align-items: center;
-  justify-self: end;
-  gap: 8px;
-}
+.hb-hh13-link:hover { color: #2c1006; background: rgba(74, 32, 13, .1); }
 .hb-hh13-search {
   display: inline-grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   padding: 0;
   border: 0;
-  border-radius: 999px;
+  border-radius: 8px;
   background: transparent;
-  color: #8f8f8f;
+  color: rgba(74, 32, 13, .82);
   cursor: pointer;
   transition: color .2s ease, background-color .2s ease;
 }
-.hb-hh13-search:hover { color: #ededed; background: rgba(255, 255, 255, .06); }
+.hb-hh13-search:hover { color: #2c1006; background: rgba(74, 32, 13, .1); }
 .hb-hh13-outline {
   display: inline-flex;
   align-items: center;
-  height: 32px;
+  height: 34px;
   padding: 0 14px;
-  border: 1px solid rgba(255, 255, 255, .16);
-  border-radius: 999px;
-  color: #ededed;
-  font-family: var(--hb-hh13-mono);
-  font-size: 12px;
-  letter-spacing: .02em;
+  border: 1px solid rgba(74, 32, 13, .45);
+  border-radius: 8px;
+  color: #4a200d;
+  font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  transition: border-color .2s ease, background-color .2s ease;
+  transition: background-color .2s ease;
 }
-.hb-hh13-outline:hover { border-color: rgba(255, 255, 255, .34); background: rgba(255, 255, 255, .04); }
+.hb-hh13-outline:hover { background: rgba(74, 32, 13, .1); }
 .hb-hh13-stage {
   position: relative;
   z-index: 2;
@@ -165,33 +159,34 @@ const css = `
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 28px 40px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 26px;
   width: 100%;
-  max-width: 1120px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px 76px;
+  padding: 0 40px 72px;
 }
 .hb-hh13-copy { min-width: 0; }
 .hb-hh13-title {
-  max-width: 11em;
+  max-width: 8em;
   margin: 0;
-  color: #f5f5f5;
-  font-size: clamp(28px, 5.4cqi, 56px);
+  color: #fff8ee;
+  font-size: clamp(32px, 6.4cqi, 84px);
   font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -.045em;
+  line-height: .98;
+  letter-spacing: -.05em;
   text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(92, 36, 12, .35);
   animation: hb-hh13-up .8s cubic-bezier(.2, .7, .2, 1) both;
 }
 .hb-hh13-sub {
-  max-width: 34em;
-  margin: 16px 0 0;
-  color: #8f8f8f;
-  font-size: 15px;
+  max-width: 28em;
+  margin: 18px 0 0;
+  color: rgba(255, 246, 232, .9);
+  font-size: 16px;
   line-height: 1.55;
   text-wrap: pretty;
+  text-shadow: 0 1px 14px rgba(92, 36, 12, .4);
   animation: hb-hh13-up .8s .08s cubic-bezier(.2, .7, .2, 1) both;
 }
 .hb-hh13-side {
@@ -204,12 +199,11 @@ const css = `
 }
 .hb-hh13-caption {
   margin: 0;
-  color: #6f6f6f;
+  color: rgba(255, 246, 232, .78);
   font-family: var(--hb-hh13-mono);
   font-size: 11.5px;
   letter-spacing: .04em;
 }
-.hb-hh13-caption b { color: var(--hb-hh13-accent); font-weight: 500; }
 .hb-hh13-row {
   display: flex;
   align-items: stretch;
@@ -221,12 +215,11 @@ const css = `
   align-items: center;
   gap: 8px;
   min-width: 0;
-  height: 42px;
+  height: 44px;
   padding: 0 6px 0 14px;
-  border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 10px;
-  background: rgba(14, 14, 14, .82);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 246, 232, .34);
+  border-radius: 8px;
+  background: rgba(74, 32, 13, .34);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -234,7 +227,7 @@ const css = `
 .hb-hh13-code {
   min-width: 0;
   overflow: hidden;
-  color: #d6d6d6;
+  color: #fff6e8;
   font-family: var(--hb-hh13-mono);
   font-size: 12px;
   white-space: nowrap;
@@ -249,13 +242,13 @@ const css = `
   height: 30px;
   padding: 0;
   border: 0;
-  border-radius: 7px;
+  border-radius: 8px;
   background: transparent;
-  color: #8f8f8f;
+  color: rgba(255, 246, 232, .78);
   cursor: pointer;
   transition: color .2s ease, background-color .2s ease;
 }
-.hb-hh13-copybtn:hover { color: #ededed; background: rgba(255, 255, 255, .07); }
+.hb-hh13-copybtn:hover { color: #fff; background: rgba(255, 246, 232, .16); }
 .hb-hh13-copybtn[data-done="true"] { color: var(--hb-hh13-accent); }
 .hb-hh13-cta {
   display: inline-flex;
@@ -263,46 +256,44 @@ const css = `
   align-items: center;
   justify-content: center;
   gap: 6px;
-  height: 42px;
+  height: 44px;
   padding: 0 14px 0 18px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--hb-hh13-accent);
   color: var(--hb-hh13-ink);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -.01em;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 8px 28px -10px var(--hb-hh13-accent);
-  transition: filter .2s ease, transform .2s ease;
+  box-shadow: 0 10px 26px -12px rgba(74, 32, 13, .7);
+  transition: filter .2s ease;
 }
-.hb-hh13-cta:hover { filter: brightness(1.08); }
+.hb-hh13-cta:hover { filter: brightness(1.05); }
 .hb-hh13-cta svg { transition: transform .2s ease; }
 .hb-hh13-cta:hover svg { transform: translateX(2px); }
 .hb-hh13-more {
   position: absolute;
-  left: 50%;
-  bottom: 18px;
+  right: 40px;
+  bottom: 24px;
   z-index: 2;
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  color: #6f6f6f;
-  font-family: var(--hb-hh13-mono);
-  font-size: 10.5px;
-  letter-spacing: .12em;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: rgba(255, 246, 232, .88);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .1em;
   text-transform: uppercase;
   text-decoration: none;
-  transform: translateX(-50%);
-  transition: color .2s ease;
+  transition: color .2s ease, background-color .2s ease;
 }
-.hb-hh13-more:hover { color: #ededed; }
+.hb-hh13-more:hover { color: #fff; background: rgba(255, 246, 232, .14); }
 .hb-hh13-more svg { animation: hb-hh13-bob 1.8s ease-in-out infinite; }
 .hb-hh13 a:focus-visible, .hb-hh13 button:focus-visible {
-  outline: 2px solid var(--hb-hh13-accent);
+  outline: 2px solid var(--hb-hh13-cream);
   outline-offset: 2px;
 }
 .hb-hh13-sr {
@@ -313,22 +304,25 @@ const css = `
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
-@container (max-width: 760px) {
-  .hb-hh13-foot { grid-template-columns: minmax(0, 1fr); padding: 0 24px 72px; }
-  .hb-hh13-bar { padding: 16px 24px; }
+@container (max-width: 860px) {
+  .hb-hh13-bar { padding: 18px 24px; }
+  .hb-hh13-foot { padding: 0 24px 68px; }
+  .hb-hh13-more { right: 24px; }
 }
 @container (max-width: 640px) {
-  .hb-hh13-bar { grid-template-columns: 1fr auto; }
   .hb-hh13-links, .hb-hh13-search { display: none; }
-  .hb-hh13-stage { min-height: calc(80cqi + 24px); }
+  .hb-hh13-brand { font-size: 15px; }
+  .hb-hh13-stage { min-height: calc(72cqi + 24px); }
+  .hb-hh13-title { font-size: clamp(32px, 11cqi, 48px); }
   .hb-hh13-sub { font-size: 14px; }
   .hb-hh13-side, .hb-hh13-row { align-self: stretch; }
   .hb-hh13-row { flex-direction: column; }
   .hb-hh13-cta { width: 100%; }
+  .hb-hh13-more { display: none; }
 }
 @container (max-width: 360px) {
   .hb-hh13-bar { padding: 14px 18px; }
-  .hb-hh13-foot { padding: 0 18px 68px; }
+  .hb-hh13-foot { padding: 0 18px 60px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hb-hh13-title, .hb-hh13-sub, .hb-hh13-side, .hb-hh13-more svg { animation: none; }
@@ -336,6 +330,7 @@ const css = `
   .hb-hh13-cta:hover svg { transform: none; }
 }
 `;
+
 
 const defaultNav: HeroDotHandLink[] = [
   { label: "Gestures", href: "#" },
@@ -649,7 +644,7 @@ function buildHand(count: number) {
     }
     return d;
   };
-  const cloud = surface(field, [-0.95, -1.1, -0.45, 0.75, 1.6, 0.6], 0.032, count, 10000, 13, null, 0.055, 0.35);
+  const cloud = surface(field, [-0.95, -1.1, -0.45, 0.75, 1.6, 0.6], 0.03, count, 16000, 13, null, 0.055, 0.35);
   const b1 = new Uint8Array(cloud.n);
   const b2 = new Uint8Array(cloud.n);
   const bw = new Float32Array(cloud.n);
@@ -725,18 +720,15 @@ interface View {
   dpr: number;
   wave: number;
   grip: number;
+  roll: number;
 }
 
-const RING_R = [0.5, 0.76, 1.02];
-const RING_N = [70, 100, 136];
-const CUFF_N = 64;
-const BASE_Y = -1.28;
-const UNIT = 0.74;
+
 const CENTER_Y = 0.12;
 
 function createScene(count: number, acc: [number, number, number]): Scene {
   const { cloud, rest, b1, b2, bw } = buildHand(count);
-  const total = cloud.n + RING_N[0] + RING_N[1] + RING_N[2] + CUFF_N * 2;
+  const total = cloud.n;
   const bs = new Float32Array(total);
   for (let i = 0; i < total; i++) bs[i] = 0.78 + hash(i, 3) * 0.4;
   const fills: string[] = [];
@@ -775,6 +767,7 @@ function createScene(count: number, acc: [number, number, number]): Scene {
   };
 }
 
+
 function articulate(s: Scene, time: number, wave: number, grip: number) {
   const th = s.th;
   for (let f = 0; f < 5; f++) {
@@ -803,51 +796,42 @@ function articulate(s: Scene, time: number, wave: number, grip: number) {
 }
 
 function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
-  const { w, h, cx, cy, time, pace } = v;
-  const R = v.R * UNIT;
-  const acc = s.acc;
+  const { w, h, time, pace } = v;
+  const S = v.R;
   ctx.setTransform(v.dpr, 0, 0, v.dpr, 0, 0);
   ctx.clearRect(0, 0, w, h);
-  const glow = ctx.createRadialGradient(cx, cy, R * 0.2, cx, cy, R * 2.1);
-  glow.addColorStop(0, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0.11)`);
-  glow.addColorStop(1, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0)`);
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, w, h);
 
-  const yaw = 0.36 + Math.sin(time * 0.21 * pace) * 0.24 + v.curX * 0.5;
-  const pitch = 0.1 + Math.sin(time * 0.17 * pace + 0.6) * 0.04 + v.curY * 0.16;
+  const pitch = Math.max(14, Math.min(24, w / 62));
+  const t = v.still ? 0 : time * pace;
+  ctx.fillStyle = "rgba(255, 244, 226, 0.13)";
+  ctx.beginPath();
+  for (let gy = pitch / 2, row = 0; gy < h; gy += pitch, row++) {
+    for (let gx = (row % 2 ? pitch : pitch / 2); gx < w; gx += pitch) {
+      const wv = 0.5 + 0.5 * Math.sin(gx * 0.006 + t * 0.35) * Math.sin(gy * 0.007 - t * 0.28 + 1.3);
+      const edge = Math.max(0, 1 - gx / (w * 0.9));
+      const r = pitch * 0.34 * wv * (0.25 + 0.75 * (1 - edge * 0.6));
+      if (r < 0.7) continue;
+      ctx.moveTo(gx + r, gy);
+      ctx.arc(gx, gy, r, 0, TAU);
+    }
+  }
+  ctx.fill();
+
+  const yaw = 0.34 + Math.sin(time * 0.23 * pace) * 0.12 + v.curX * 0.22;
+  const pitchA = 0.06 + Math.sin(time * 0.17 * pace + 0.6) * 0.04 + v.curY * 0.1;
+  const roll = v.roll + Math.sin(time * 0.31 * pace) * 0.035 + v.curY * 0.05;
   const cY = Math.cos(yaw);
   const sY = Math.sin(yaw);
-  const cX = Math.cos(pitch);
-  const sX = Math.sin(pitch);
-  const ox = cx + v.curX * R * 0.06;
-  const oy = cy + v.curY * R * 0.05;
-
-  const baseY = oy - (BASE_Y - CENTER_Y) * cX * R;
-  const coneTop = oy + 0.7 * R;
-  const cone = ctx.createLinearGradient(0, baseY, 0, coneTop);
-  cone.addColorStop(0, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0.12)`);
-  cone.addColorStop(1, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0)`);
-  ctx.fillStyle = cone;
-  ctx.beginPath();
-  ctx.moveTo(ox - R * 1.0, baseY);
-  ctx.lineTo(ox - R * 0.45, coneTop);
-  ctx.lineTo(ox + R * 0.45, coneTop);
-  ctx.lineTo(ox + R * 1.0, baseY);
-  ctx.closePath();
-  ctx.fill();
+  const cX = Math.cos(pitchA);
+  const sX = Math.sin(pitchA);
+  const cR = Math.cos(roll);
+  const sR = Math.sin(roll);
+  const ox = v.cx;
+  const oy = v.cy;
 
   const c = s.cloud;
   const n = Math.min(c.n, v.limit);
-  const phase = ((time * pace) / 6) % 1;
-  const band = v.still ? 99 : -1.3 + phase * 3.2;
-  let flick = 1;
-  if (!v.still) {
-    const slot = Math.floor(time * 3);
-    if (hash(slot, 97) < 0.07) flick = 1 - 0.1 * Math.sin(((time * 3) % 1) * Math.PI);
-  }
-
-  articulate(s, v.still ? 0.6 : time * pace, v.wave, v.grip);
+  articulate(s, v.still ? 0.6 : time * pace * 0.7, v.wave, v.grip);
   const D = s.delta;
   for (let i = 0; i < n; i++) {
     const x = c.x[i];
@@ -861,40 +845,15 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
     s.py[i] = wa * (D[o1 + 3] * x + D[o1 + 4] * y + D[o1 + 5] * z + D[o1 + 10]) + wb * (D[o2 + 3] * x + D[o2 + 4] * y + D[o2 + 5] * z + D[o2 + 10]);
     s.pz[i] = wa * (D[o1 + 6] * x + D[o1 + 7] * y + D[o1 + 8] * z + D[o1 + 11]) + wb * (D[o2 + 6] * x + D[o2 + 7] * y + D[o2 + 8] * z + D[o2 + 11]);
   }
-  let ri = c.n;
-  for (let r = 0; r < 2; r++) {
-    const drift = time * pace * (r ? -0.35 : 0.28);
-    const yy = r ? -0.84 : -0.62;
-    for (let k = 0; k < CUFF_N; k++, ri++) {
-      const a = (k / CUFF_N) * TAU + drift;
-      s.px[ri] = Math.cos(a) * 0.4;
-      s.py[ri] = yy;
-      s.pz[ri] = Math.sin(a) * 0.3 - 0.01;
-    }
-  }
-  const ringStart = ri;
-  for (let r = 0; r < 3; r++) {
-    const rr = RING_R[r];
-    const rn = RING_N[r];
-    const drift = time * pace * (r % 2 ? -0.08 : 0.06);
-    for (let k = 0; k < rn; k++, ri++) {
-      const a = (k / rn) * TAU + drift;
-      s.px[ri] = Math.cos(a) * rr;
-      s.py[ri] = BASE_Y;
-      s.pz[ri] = Math.sin(a) * rr;
-    }
-  }
 
+  const dR = Math.max(1.3, Math.min(3.4, S * 0.0068));
+  ctx.fillStyle = "rgba(84, 30, 10, 0.2)";
+  ctx.beginPath();
   s.counts.fill(0);
   const L0 = LIGHT[0];
   const L1 = LIGHT[1];
   const L2 = LIGHT[2];
-  for (let i = 0; i < s.total; i++) {
-    if (i >= n && i < c.n) {
-      s.bucket[i] = 255;
-      continue;
-    }
-    const ring = i >= c.n;
+  for (let i = 0; i < n; i++) {
     const x = s.px[i];
     const y = s.py[i] - CENTER_Y;
     const z = s.pz[i];
@@ -902,45 +861,54 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
     const z1 = -x * sY + z * cY;
     const y2 = y * cX - z1 * sX;
     const z2 = y * sX + z1 * cX;
-    const p = 1 + z2 * 0.04;
-    s.sx[i] = ox + x1 * R * p;
-    s.sy[i] = oy - y2 * R * p;
-    const depth = Math.min(1, Math.max(0, (z2 + 1.2) / 2.4));
-    let b: number;
-    let tone: number;
-    if (ring) {
-      b = i < ringStart ? 0.45 + 0.55 * depth : 0.3 + 0.5 * depth;
-      tone = i < ringStart ? 1 : 0.75;
-    } else {
-      const o1 = s.b1[i] * 12;
-      const nx0 = c.nx[i];
-      const ny0 = c.ny[i];
-      const nz0 = c.nz[i];
-      const nx = D[o1] * nx0 + D[o1 + 1] * ny0 + D[o1 + 2] * nz0;
-      const ny = D[o1 + 3] * nx0 + D[o1 + 4] * ny0 + D[o1 + 5] * nz0;
-      const nz = D[o1 + 6] * nx0 + D[o1 + 7] * ny0 + D[o1 + 8] * nz0;
-      const nx1 = nx * cY + nz * sY;
-      const nz1 = -nx * sY + nz * cY;
-      const ny2 = ny * cX - nz1 * sX;
-      const nz2 = ny * sX + nz1 * cX;
-      const lam = Math.max(0, L0 * nx1 + L1 * ny2 + L2 * nz2);
-      const edge = 1 - Math.abs(nz2);
-      const rim = nz2 > -0.35 ? edge * edge * edge : 0;
-      const face = nz2 > 0 ? 1 : 0.28;
-      b = c.w[i] * (0.3 + 0.95 * lam * face + 0.9 * rim) * (0.42 + 0.58 * depth) * 1.6;
-      const dy = y + CENTER_Y - band;
-      b += Math.exp(-(dy * dy) / 0.006) * 0.75 * (0.4 + 0.6 * face);
-      tone = Math.min(1, rim * 1.5 + (1 - depth) * 0.35);
+    const x3 = x1 * cR - y2 * sR;
+    const y3 = x1 * sR + y2 * cR;
+    const p = 1 + z2 * 0.05;
+    const px = ox + x3 * S * p;
+    const py = oy - y3 * S * p;
+    s.sx[i] = px;
+    s.sy[i] = py;
+    if ((i & 1) === 0) {
+      const lift = 0.14 + 0.5 * Math.max(0, z2 + 0.25);
+      const shx = px + S * (0.2 + lift * 0.55) + (px - ox) * 0.05;
+      const shy = py + S * (0.12 + lift * 0.8);
+      const sr = dR * 1.15;
+      ctx.moveTo(shx + sr, shy);
+      ctx.arc(shx, shy, sr, 0, TAU);
     }
-    b *= flick;
+  }
+  ctx.fill();
+
+  for (let i = 0; i < n; i++) {
+    const x = s.px[i];
+    const y = s.py[i] - CENTER_Y;
+    const z = s.pz[i];
+    const z1 = -x * sY + z * cY;
+    const z2 = y * sX + z1 * cX;
+    const depth = Math.min(1, Math.max(0, (z2 + 1.2) / 2.4));
+    const o1 = s.b1[i] * 12;
+    const nx0 = c.nx[i];
+    const ny0 = c.ny[i];
+    const nz0 = c.nz[i];
+    const nx = D[o1] * nx0 + D[o1 + 1] * ny0 + D[o1 + 2] * nz0;
+    const ny = D[o1 + 3] * nx0 + D[o1 + 4] * ny0 + D[o1 + 5] * nz0;
+    const nz = D[o1 + 6] * nx0 + D[o1 + 7] * ny0 + D[o1 + 8] * nz0;
+    const nx1 = nx * cY + nz * sY;
+    const nz1 = -nx * sY + nz * cY;
+    const ny2 = ny * cX - nz1 * sX;
+    const nz2 = ny * sX + nz1 * cX;
+    const nx3 = nx1 * cR - ny2 * sR;
+    const ny3 = nx1 * sR + ny2 * cR;
+    const lam = Math.max(0, L0 * nx3 + L1 * ny3 + L2 * nz2);
+    const edge = 1 - Math.abs(nz2);
+    const rim = nz2 > -0.35 ? edge * edge * edge : 0;
+    const face = nz2 > 0 ? 1 : 0.4;
+    let b = c.w[i] * (0.5 + 0.9 * lam * face + 0.5 * rim) * (0.6 + 0.4 * depth) * 1.35;
     if (b > 0.999) b = 0.999;
     const bi = Math.floor(b * ALPHAS.length);
-    let ti = Math.floor(tone * TONES);
+    let ti = Math.floor(Math.min(1, rim * 1.4 + (1 - depth) * 0.3) * TONES);
     if (ti >= TONES) ti = TONES - 1;
-    let sz = s.bs[i] * (0.62 + 0.6 * depth);
-    if (sz > 1.4) sz = 1.4;
-    if (sz < 0.6) sz = 0.6;
-    s.ss[i] = sz;
+    s.ss[i] = dR * s.bs[i] * (0.8 + 0.4 * depth);
     const k = bi * TONES + ti;
     s.bucket[i] = k;
     s.counts[k]++;
@@ -950,7 +918,7 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
     s.starts[k] = run;
     run += s.counts[k];
   }
-  for (let i = 0; i < s.total; i++) if (s.bucket[i] !== 255) s.order[s.starts[s.bucket[i]]++] = i;
+  for (let i = 0; i < n; i++) s.order[s.starts[s.bucket[i]]++] = i;
   let pos = 0;
   for (let k = 0; k < s.counts.length; k++) {
     const m = s.counts[k];
@@ -959,14 +927,15 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
     ctx.beginPath();
     for (let q = pos; q < pos + m; q++) {
       const i = s.order[q];
-      const sz = s.ss[i];
-      ctx.rect(s.sx[i] - sz / 2, s.sy[i] - sz / 2, sz, sz);
+      const r = s.ss[i];
+      ctx.moveTo(s.sx[i] + r, s.sy[i]);
+      ctx.arc(s.sx[i], s.sy[i], r, 0, TAU);
     }
     ctx.fill();
     pos += m;
   }
-
 }
+
 
 function hexRgb(value: string): [number, number, number] | null {
   const m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(value.trim());
@@ -980,22 +949,23 @@ function hexRgb(value: string): [number, number, number] | null {
 function resolveRgb(value: string, ctx: CanvasRenderingContext2D): [number, number, number] {
   const direct = hexRgb(value);
   if (direct) return direct;
-  ctx.fillStyle = "#ff8a5b";
+  ctx.fillStyle = "#fff1dc";
   ctx.fillStyle = value;
   const out = String(ctx.fillStyle);
   const hex = hexRgb(out);
   if (hex) return hex;
   const nums = out.match(/[\d.]+/g);
   if (nums && nums.length >= 3) return [Number(nums[0]), Number(nums[1]), Number(nums[2])];
-  return [255, 138, 91];
+  return [255, 241, 220];
 }
 
 function inkFor(accent: string) {
   const rgb = hexRgb(accent);
-  if (!rgb) return "#0d0814";
+  if (!rgb) return "#4a200d";
   const lum = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255;
-  return lum > 0.55 ? "#0d0814" : "#ffffff";
+  return lum > 0.55 ? "#4a200d" : "#ffffff";
 }
+
 
 function Mark() {
   return (
@@ -1006,7 +976,7 @@ function Mark() {
 }
 
 export function HeroDotHand({
-  title = "Interfaces you can reach out and touch.",
+  title = "Reach out. The web reaches back.",
   subtitle = "Hand tracking for the web: 21 joints per hand at 60 fps from any webcam, with gestures you define in a few lines.",
   caption = "60 fps · 21 joints · runs on device",
   command = "npx hyperblur add hero-dot-hand",
@@ -1015,7 +985,7 @@ export function HeroDotHand({
   nav = defaultNav,
   navCta = defaultNavCta,
   learnMore = defaultMore,
-  accent = "#ff8a5b",
+  accent = "#fff1dc",
   density = 1,
   speed = 1,
   wave = 1,
@@ -1042,7 +1012,7 @@ export function HeroDotHand({
     const mult = Math.min(2, Math.max(0.2, Number.isFinite(density) ? density : 1));
     const pace = Math.max(0, Number.isFinite(speed) ? speed : 1);
     const acc = resolveRgb(accent, ctx);
-    const scene = createScene(Math.round(7500 * mult), acc);
+    const scene = createScene(Math.round(9000 * mult), acc);
     const waveAmt = Math.min(2, Math.max(0, Number.isFinite(wave) ? wave : 1));
     const view: View = {
       w: 0,
@@ -1059,6 +1029,7 @@ export function HeroDotHand({
       dpr: 1,
       wave: waveAmt,
       grip: 0,
+      roll: 1.82,
     };
     let visible = true;
     let raf = 0;
@@ -1078,15 +1049,18 @@ export function HeroDotHand({
       view.w = w;
       view.h = h;
       view.dpr = dpr;
-      view.cx = w / 2;
       if (w < 640) {
         const st = stage.getBoundingClientRect();
-        view.R = w * 0.36;
-        view.cy = st.top - rect.top + st.height / 2;
+        view.R = w * 0.62;
+        view.cx = w * 1.0;
+        view.cy = st.top - rect.top + st.height * 0.5;
+        view.roll = 1.9;
         view.limit = Math.round(scene.cloud.n * 0.6);
       } else {
-        view.R = Math.min(w * 0.27, h * 0.36);
-        view.cy = h * 0.46;
+        view.R = Math.min(w * 0.3, h * 0.46);
+        view.cx = Math.min(w * 0.9, w * 0.42 + view.R * 1.4);
+        view.cy = h * 0.37;
+        view.roll = 1.78;
         view.limit = scene.cloud.n;
       }
     }
@@ -1192,26 +1166,31 @@ export function HeroDotHand({
       <style href="hb-hero-dot-hand" precedence="default">{css}</style>
       <canvas ref={canvasRef} className="hb-hh13-canvas" aria-hidden="true" />
       <header className="hb-hh13-bar">
+        <nav className="hb-hh13-side-l" aria-label="Primary">
+          <ul className="hb-hh13-links">
+            {nav.slice(0, Math.ceil(nav.length / 2)).map((item) => (
+              <li key={item.label}>
+                <a className="hb-hh13-link" href={item.href}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <a className="hb-hh13-brand" href="#">
           <Mark />
           <span>{brand}</span>
         </a>
-        {nav.length ? (
-          <nav aria-label="Primary">
-            <ul className="hb-hh13-links">
-              {nav.map((item) => (
-                <li key={item.label}>
-                  <a className="hb-hh13-link" href={item.href}>
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ) : (
-          <span />
-        )}
-        <div className="hb-hh13-tools">
+        <div className="hb-hh13-side-r">
+          <ul className="hb-hh13-links">
+            {nav.slice(Math.ceil(nav.length / 2)).map((item) => (
+              <li key={item.label}>
+                <a className="hb-hh13-link" href={item.href}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
           <button type="button" className="hb-hh13-search" aria-label="Search" onClick={onSearch}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
               <circle cx="11" cy="11" r="6.5" />

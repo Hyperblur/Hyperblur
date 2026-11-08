@@ -28,16 +28,16 @@ export interface HeroDotHeadProps extends Omit<React.HTMLAttributes<HTMLElement>
 
 const css = `
 @keyframes hb-hh12-up {
-  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
-@keyframes hb-hh12-bob {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, 4px, 0); }
+@keyframes hb-hh12-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 .hb-hh12 {
-  --hb-hh12-accent: #5eead4;
-  --hb-hh12-ink: #0d0814;
+  --hb-hh12-accent: #39ff88;
+  --hb-hh12-ink: #02100a;
   --hb-hh12-mono: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
   position: relative;
   isolation: isolate;
@@ -45,17 +45,26 @@ const css = `
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 620px;
+  min-height: 680px;
   overflow: hidden;
   container-type: inline-size;
-  background:
-    radial-gradient(60% 50% at 50% 42%, color-mix(in srgb, var(--hb-hh12-accent) 7%, transparent), transparent 70%),
-    #020202;
-  color: #ededed;
-  font-family: inherit;
+  background-color: #02100a;
+  background-image: radial-gradient(color-mix(in srgb, var(--hb-hh12-accent) 16%, transparent) 1px, transparent 1.3px);
+  background-size: 26px 26px;
+  color: #c9ffe0;
+  font-family: var(--hb-hh12-mono);
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
 }
 .hb-hh12 *, .hb-hh12 *::before, .hb-hh12 *::after { box-sizing: border-box; }
+.hb-hh12::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(0, 0, 0, .16) 3px 4px);
+}
 .hb-hh12-canvas {
   position: absolute;
   inset: 0;
@@ -65,156 +74,142 @@ const css = `
   height: 100%;
   pointer-events: none;
 }
-.hb-hh12::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 1;
-  height: 52%;
-  pointer-events: none;
-  background: linear-gradient(to top, #020202 0%, rgba(2, 2, 2, .86) 38%, rgba(2, 2, 2, 0) 100%);
-}
 .hb-hh12-bar {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
-  gap: 16px;
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 18px 32px;
+  gap: 18px;
+  margin: 16px 16px 0;
+  padding: 9px 12px;
+  border: 1px solid color-mix(in srgb, var(--hb-hh12-accent) 38%, transparent);
+  border-radius: 8px;
+  background: rgba(2, 20, 12, .86);
 }
 .hb-hh12-brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  justify-self: start;
-  color: #f4f4f4;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -.01em;
+  gap: 8px;
+  color: var(--hb-hh12-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
 }
-.hb-hh12-mark { flex: none; color: var(--hb-hh12-accent); }
+.hb-hh12-mark { flex: none; }
+.hb-hh12-caret {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--hb-hh12-accent);
+  animation: hb-hh12-blink 1.1s steps(1, end) infinite;
+}
 .hb-hh12-links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .hb-hh12-link {
   display: inline-flex;
-  padding: 6px 12px;
-  border-radius: 999px;
-  color: #8f8f8f;
-  font-family: var(--hb-hh12-mono);
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: rgba(201, 255, 224, .66);
   font-size: 12px;
-  letter-spacing: .02em;
   text-decoration: none;
   transition: color .2s ease, background-color .2s ease;
 }
-.hb-hh12-link:hover { color: #ededed; background: rgba(255, 255, 255, .05); }
+.hb-hh12-link::before { content: "./"; color: color-mix(in srgb, var(--hb-hh12-accent) 60%, transparent); }
+.hb-hh12-link:hover { color: var(--hb-hh12-accent); background: color-mix(in srgb, var(--hb-hh12-accent) 12%, transparent); }
 .hb-hh12-tools {
   display: flex;
   align-items: center;
-  justify-self: end;
   gap: 8px;
+  margin-left: auto;
 }
 .hb-hh12-search {
   display: inline-grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   border: 0;
-  border-radius: 999px;
+  border-radius: 8px;
   background: transparent;
-  color: #8f8f8f;
+  color: rgba(201, 255, 224, .7);
   cursor: pointer;
   transition: color .2s ease, background-color .2s ease;
 }
-.hb-hh12-search:hover { color: #ededed; background: rgba(255, 255, 255, .06); }
+.hb-hh12-search:hover { color: var(--hb-hh12-accent); background: color-mix(in srgb, var(--hb-hh12-accent) 12%, transparent); }
 .hb-hh12-outline {
   display: inline-flex;
   align-items: center;
-  height: 32px;
-  padding: 0 14px;
-  border: 1px solid rgba(255, 255, 255, .16);
-  border-radius: 999px;
-  color: #ededed;
-  font-family: var(--hb-hh12-mono);
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--hb-hh12-accent) 55%, transparent);
+  border-radius: 8px;
+  color: var(--hb-hh12-accent);
   font-size: 12px;
-  letter-spacing: .02em;
   text-decoration: none;
   white-space: nowrap;
-  transition: border-color .2s ease, background-color .2s ease;
+  transition: background-color .2s ease, color .2s ease;
 }
-.hb-hh12-outline:hover { border-color: rgba(255, 255, 255, .34); background: rgba(255, 255, 255, .04); }
+.hb-hh12-outline:hover { background: var(--hb-hh12-accent); color: var(--hb-hh12-ink); }
 .hb-hh12-stage {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   flex: 1 1 auto;
-  min-height: 240px;
+  min-height: 120px;
 }
 .hb-hh12-foot {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 28px 40px;
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 32px 76px;
-}
-.hb-hh12-copy { min-width: 0; }
-.hb-hh12-title {
-  max-width: 11em;
-  margin: 0;
-  color: #f5f5f5;
-  font-size: clamp(28px, 5.4cqi, 56px);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -.045em;
-  text-wrap: balance;
-  animation: hb-hh12-up .8s cubic-bezier(.2, .7, .2, 1) both;
-}
-.hb-hh12-sub {
-  max-width: 34em;
-  margin: 16px 0 0;
-  color: #8f8f8f;
-  font-size: 15px;
-  line-height: 1.55;
-  text-wrap: pretty;
-  animation: hb-hh12-up .8s .08s cubic-bezier(.2, .7, .2, 1) both;
-}
-.hb-hh12-side {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
-  min-width: 0;
-  animation: hb-hh12-up .8s .16s cubic-bezier(.2, .7, .2, 1) both;
+  gap: 18px;
+  width: 100%;
+  max-width: 640px;
+  padding: 0 48px 52px;
+}
+.hb-hh12-title {
+  margin: 0;
+  color: #e4fff0;
+  font-family: var(--hb-hh12-mono);
+  font-size: clamp(28px, 4.2cqi, 60px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+  text-shadow: 0 0 22px color-mix(in srgb, var(--hb-hh12-accent) 35%, transparent);
+  animation: hb-hh12-up .7s cubic-bezier(.2, .7, .2, 1) both;
+}
+.hb-hh12-sub {
+  max-width: 34em;
+  margin: 0;
+  color: rgba(201, 255, 224, .7);
+  font-size: 13.5px;
+  line-height: 1.65;
+  text-wrap: pretty;
+  animation: hb-hh12-up .7s .08s cubic-bezier(.2, .7, .2, 1) both;
 }
 .hb-hh12-caption {
   margin: 0;
-  color: #6f6f6f;
-  font-family: var(--hb-hh12-mono);
-  font-size: 11.5px;
-  letter-spacing: .04em;
+  color: color-mix(in srgb, var(--hb-hh12-accent) 80%, transparent);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
-.hb-hh12-caption b { color: var(--hb-hh12-accent); font-weight: 500; }
 .hb-hh12-row {
   display: flex;
   align-items: stretch;
+  flex-wrap: wrap;
   gap: 8px;
   max-width: 100%;
+  animation: hb-hh12-up .7s .16s cubic-bezier(.2, .7, .2, 1) both;
 }
 .hb-hh12-cmd {
   display: flex;
@@ -223,19 +218,15 @@ const css = `
   min-width: 0;
   height: 42px;
   padding: 0 6px 0 14px;
-  border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 10px;
-  background: rgba(14, 14, 14, .82);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--hb-hh12-accent) 38%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--hb-hh12-accent) 7%, transparent);
 }
-.hb-hh12-prompt { flex: none; color: var(--hb-hh12-accent); font-family: var(--hb-hh12-mono); font-size: 12px; }
+.hb-hh12-prompt { flex: none; color: var(--hb-hh12-accent); font-size: 12px; font-weight: 700; }
 .hb-hh12-code {
   min-width: 0;
   overflow: hidden;
-  color: #d6d6d6;
-  font-family: var(--hb-hh12-mono);
+  color: #c9ffe0;
   font-size: 12px;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -249,58 +240,49 @@ const css = `
   height: 30px;
   padding: 0;
   border: 0;
-  border-radius: 7px;
+  border-radius: 8px;
   background: transparent;
-  color: #8f8f8f;
+  color: rgba(201, 255, 224, .7);
   cursor: pointer;
   transition: color .2s ease, background-color .2s ease;
 }
-.hb-hh12-copybtn:hover { color: #ededed; background: rgba(255, 255, 255, .07); }
-.hb-hh12-copybtn[data-done="true"] { color: var(--hb-hh12-accent); }
+.hb-hh12-copybtn:hover { color: var(--hb-hh12-accent); background: color-mix(in srgb, var(--hb-hh12-accent) 14%, transparent); }
+.hb-hh12-copybtn[data-done="true"] { color: var(--hb-hh12-ink); background: var(--hb-hh12-accent); }
 .hb-hh12-cta {
   display: inline-flex;
   flex: none;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   height: 42px;
-  padding: 0 14px 0 18px;
-  border-radius: 10px;
+  padding: 0 16px;
+  border-radius: 8px;
   background: var(--hb-hh12-accent);
   color: var(--hb-hh12-ink);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -.01em;
+  font-family: var(--hb-hh12-mono);
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 8px 28px -10px var(--hb-hh12-accent);
-  transition: filter .2s ease, transform .2s ease;
+  box-shadow: 0 0 24px -6px var(--hb-hh12-accent);
+  transition: filter .2s ease;
 }
-.hb-hh12-cta:hover { filter: brightness(1.08); }
+.hb-hh12-cta:hover { filter: brightness(1.12); }
 .hb-hh12-cta svg { transition: transform .2s ease; }
 .hb-hh12-cta:hover svg { transform: translateX(2px); }
 .hb-hh12-more {
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
-  z-index: 2;
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2px;
   padding: 4px 8px;
-  border-radius: 6px;
-  color: #6f6f6f;
-  font-family: var(--hb-hh12-mono);
-  font-size: 10.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  border-radius: 8px;
+  color: rgba(201, 255, 224, .7);
+  font-size: 12px;
   text-decoration: none;
-  transform: translateX(-50%);
   transition: color .2s ease;
 }
-.hb-hh12-more:hover { color: #ededed; }
-.hb-hh12-more svg { animation: hb-hh12-bob 1.8s ease-in-out infinite; }
+.hb-hh12-more::before { content: "[ "; white-space: pre; }
+.hb-hh12-more::after { content: " ]"; white-space: pre; }
+.hb-hh12-more:hover { color: var(--hb-hh12-accent); }
 .hb-hh12 a:focus-visible, .hb-hh12 button:focus-visible {
   outline: 2px solid var(--hb-hh12-accent);
   outline-offset: 2px;
@@ -314,43 +296,43 @@ const css = `
   white-space: nowrap;
 }
 @container (max-width: 760px) {
-  .hb-hh12-foot { grid-template-columns: minmax(0, 1fr); padding: 0 24px 72px; }
-  .hb-hh12-bar { padding: 16px 24px; }
+  .hb-hh12-foot { max-width: none; padding: 0 22px 36px; }
 }
 @container (max-width: 640px) {
-  .hb-hh12-bar { grid-template-columns: 1fr auto; }
-  .hb-hh12-links, .hb-hh12-search { display: none; }
-  .hb-hh12-stage { min-height: calc(80cqi + 24px); }
-  .hb-hh12-sub { font-size: 14px; }
-  .hb-hh12-side, .hb-hh12-row { align-self: stretch; }
-  .hb-hh12-row { flex-direction: column; }
+  .hb-hh12-bar { margin: 12px 12px 0; gap: 10px; }
+  .hb-hh12-links, .hb-hh12-outline { display: none; }
+  .hb-hh12-stage { min-height: 92cqi; }
+  .hb-hh12-sub { font-size: 13px; }
+  .hb-hh12-row { flex-direction: column; align-self: stretch; }
   .hb-hh12-cta { width: 100%; }
 }
-@container (max-width: 360px) {
-  .hb-hh12-bar { padding: 14px 18px; }
-  .hb-hh12-foot { padding: 0 18px 68px; }
-}
 @media (prefers-reduced-motion: reduce) {
-  .hb-hh12-title, .hb-hh12-sub, .hb-hh12-side, .hb-hh12-more svg { animation: none; }
+  .hb-hh12-title, .hb-hh12-sub, .hb-hh12-row { animation: none; }
+  .hb-hh12-caret { animation: none; }
   .hb-hh12-link, .hb-hh12-search, .hb-hh12-outline, .hb-hh12-copybtn, .hb-hh12-cta, .hb-hh12-cta svg, .hb-hh12-more { transition: none; }
   .hb-hh12-cta:hover svg { transform: none; }
 }
 `;
 
 const defaultNav: HeroDotHeadLink[] = [
-  { label: "Platform", href: "#" },
-  { label: "Docs", href: "#" },
-  { label: "Customers", href: "#" },
+  { label: "docs", href: "#" },
+  { label: "api", href: "#" },
+  { label: "pricing", href: "#" },
 ];
 const defaultNavCta: HeroDotHeadLink = { label: "Contact sales", href: "#" };
 const defaultPrimary: HeroDotHeadLink = { label: "Get API keys", href: "#" };
 const defaultMore: HeroDotHeadLink = { label: "See the flow", href: "#" };
 
-const TAU = Math.PI * 2;
-const WARM: [number, number, number] = [255, 243, 224];
-const ALPHAS = [0.06, 0.14, 0.26, 0.42, 0.62, 0.9];
-const TONES = 4;
-const LIGHT: [number, number, number] = [-0.36, 0.56, 0.75];
+const HOT: [number, number, number] = [205, 255, 228];
+const ALPHAS = [0.1, 0.22, 0.38, 0.58, 0.8, 0.98];
+const TONES = 3;
+const LIGHT: [number, number, number] = [-0.4, 0.5, 0.77];
+const CENTER_Y = -0.42;
+const TAGS: { name: string; x: number; y: number; z: number }[] = [
+  { name: "VTX", x: 0, y: 1.08, z: -0.1 },
+  { name: "OCC", x: 0, y: 0.32, z: -0.8 },
+  { name: "C1", x: 0, y: -0.95, z: -0.34 },
+];
 
 type Field = (x: number, y: number, z: number) => number;
 
@@ -599,13 +581,9 @@ function buildHead(count: number) {
 interface Scene {
   cloud: Cloud;
   feat: Float32Array;
-  total: number;
+  hv: Float32Array;
   px: Float32Array;
   py: Float32Array;
-  pz: Float32Array;
-  bs: Float32Array;
-  sx: Float32Array;
-  sy: Float32Array;
   ss: Float32Array;
   bucket: Uint8Array;
   order: Int32Array;
@@ -621,51 +599,43 @@ interface View {
   cx: number;
   cy: number;
   R: number;
+  top: number;
   time: number;
   curX: number;
   curY: number;
   pace: number;
   still: boolean;
-  limit: number;
+  cut: number;
   dpr: number;
   swing: number;
   scan: boolean;
+  compact: boolean;
 }
-
-const RING_R = [0.62, 0.92, 1.22];
-const RING_N = [80, 116, 150];
-const BASE_Y = -2.02;
-const UNIT = 0.6;
-const CENTER_Y = -0.42;
 
 function createScene(count: number, acc: [number, number, number]): Scene {
   const { cloud, feat } = buildHead(count);
-  const total = cloud.n + RING_N[0] + RING_N[1] + RING_N[2];
-  const bs = new Float32Array(total);
-  for (let i = 0; i < total; i++) bs[i] = 0.78 + hash(i, 3) * 0.4;
+  const n = cloud.n;
+  const hv = new Float32Array(n);
+  for (let i = 0; i < n; i++) hv[i] = hash(i, 55);
   const fills: string[] = [];
   for (let b = 0; b < ALPHAS.length; b++) {
     for (let t = 0; t < TONES; t++) {
       const m = t / (TONES - 1);
-      const r = Math.round(WARM[0] + (acc[0] - WARM[0]) * m);
-      const g = Math.round(WARM[1] + (acc[1] - WARM[1]) * m);
-      const bl = Math.round(WARM[2] + (acc[2] - WARM[2]) * m);
+      const r = Math.round(acc[0] + (HOT[0] - acc[0]) * m);
+      const g = Math.round(acc[1] + (HOT[1] - acc[1]) * m);
+      const bl = Math.round(acc[2] + (HOT[2] - acc[2]) * m);
       fills.push(`rgba(${r}, ${g}, ${bl}, ${ALPHAS[b].toFixed(3)})`);
     }
   }
   return {
     cloud,
     feat,
-    total,
-    px: new Float32Array(total),
-    py: new Float32Array(total),
-    pz: new Float32Array(total),
-    bs,
-    sx: new Float32Array(total),
-    sy: new Float32Array(total),
-    ss: new Float32Array(total),
-    bucket: new Uint8Array(total),
-    order: new Int32Array(total),
+    hv,
+    px: new Float32Array(n),
+    py: new Float32Array(n),
+    ss: new Float32Array(n),
+    bucket: new Uint8Array(n),
+    order: new Int32Array(n),
     counts: new Int32Array(ALPHAS.length * TONES),
     starts: new Int32Array(ALPHAS.length * TONES),
     fills,
@@ -673,126 +643,95 @@ function createScene(count: number, acc: [number, number, number]): Scene {
   };
 }
 
+function fmt(v: number, d: number) {
+  return (v >= 0 ? "+" : "-") + Math.abs(v).toFixed(d);
+}
+
 function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
-  const { w, h, cx, cy, time, pace } = v;
-  const R = v.R * UNIT;
+  const { w, h, cx, cy, time, pace, R } = v;
   const acc = s.acc;
+  const accCss = (a: number) => `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, ${a})`;
   ctx.setTransform(v.dpr, 0, 0, v.dpr, 0, 0);
   ctx.clearRect(0, 0, w, h);
-  const glow = ctx.createRadialGradient(cx, cy, R * 0.2, cx, cy, R * 2.4);
-  glow.addColorStop(0, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0.11)`);
-  glow.addColorStop(1, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0)`);
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, w, h);
 
-  const yaw = Math.sin(time * 0.26 * pace) * v.swing + v.curX * 0.45;
-  const pitch = 0.08 + Math.sin(time * 0.19 * pace + 0.6) * 0.03 + v.curY * 0.18;
+  const base = -Math.PI / 2;
+  const yaw = base + (v.still ? 0.08 : Math.sin(time * 0.3 * pace) * v.swing * 0.6) + v.curX * 0.2;
+  const pitch = 0.04 + v.curY * 0.1;
   const cY = Math.cos(yaw);
   const sY = Math.sin(yaw);
   const cX = Math.cos(pitch);
   const sX = Math.sin(pitch);
-  const ox = cx + v.curX * R * 0.06;
-  const oy = cy + v.curY * R * 0.05;
-
-  const baseY = oy - (BASE_Y - CENTER_Y) * cX * R;
-  const coneTop = oy + 0.4 * R;
-  const cone = ctx.createLinearGradient(0, baseY, 0, coneTop);
-  cone.addColorStop(0, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0.12)`);
-  cone.addColorStop(1, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0)`);
-  ctx.fillStyle = cone;
-  ctx.beginPath();
-  ctx.moveTo(ox - R * 1.2, baseY);
-  ctx.lineTo(ox - R * 0.6, coneTop);
-  ctx.lineTo(ox + R * 0.6, coneTop);
-  ctx.lineTo(ox + R * 1.2, baseY);
-  ctx.closePath();
-  ctx.fill();
+  const ox = cx;
+  const oy = cy;
 
   const c = s.cloud;
-  const n = Math.min(c.n, v.limit);
-  const phase = ((time * pace) / 6) % 1;
-  const band = v.still || !v.scan ? 99 : 1.9 - phase * 4.4;
-  let flick = 1;
-  if (!v.still) {
-    const slot = Math.floor(time * 3);
-    if (hash(slot, 93) < 0.07) flick = 1 - 0.1 * Math.sin(((time * 3) % 1) * Math.PI);
-  }
-
-  let ri = c.n;
-  for (let r = 0; r < 3; r++) {
-    const rr = RING_R[r];
-    const rn = RING_N[r];
-    const drift = time * pace * (r % 2 ? -0.08 : 0.06);
-    for (let k = 0; k < rn; k++, ri++) {
-      const a = (k / rn) * TAU + drift;
-      s.px[ri] = Math.cos(a) * rr;
-      s.py[ri] = BASE_Y;
-      s.pz[ri] = Math.sin(a) * rr;
-    }
-  }
+  const phase = ((time * pace) / 6.4) % 1;
+  const band = v.still ? 0.1 : 1.45 - phase * 3.6;
+  const live = v.scan;
 
   s.counts.fill(0);
-  const L0 = LIGHT[0];
-  const L1 = LIGHT[1];
-  const L2 = LIGHT[2];
-  for (let i = 0; i < s.total; i++) {
-    if (i >= n && i < c.n) {
+  let kept = 0;
+  for (let i = 0; i < c.n; i++) {
+    const y0 = c.y[i];
+    if (y0 < v.cut) {
       s.bucket[i] = 255;
       continue;
     }
-    const ring = i >= c.n;
-    const x = ring ? s.px[i] : c.x[i];
-    const y = (ring ? s.py[i] : c.y[i]) - CENTER_Y;
-    const z = ring ? s.pz[i] : c.z[i];
+    const dy = y0 - band;
+    let reveal = 1;
+    let core = 0;
+    if (live) {
+      const trail = dy > 0 ? Math.exp(-dy * 0.62) : 0;
+      core = Math.exp(-(dy * dy) / 0.0055);
+      reveal = Math.max(trail, core);
+      if (s.hv[i] > 0.3 + 0.7 * reveal) {
+        s.bucket[i] = 255;
+        continue;
+      }
+    }
+    const x = c.x[i];
+    const y = y0 - CENTER_Y;
+    const z = c.z[i];
     const x1 = x * cY + z * sY;
     const z1 = -x * sY + z * cY;
     const y2 = y * cX - z1 * sX;
     const z2 = y * sX + z1 * cX;
     const p = 1 + z2 * 0.04;
-    s.sx[i] = ox + x1 * R * p;
-    s.sy[i] = oy - y2 * R * p;
+    s.px[i] = ox + x1 * R * p;
+    s.py[i] = oy - y2 * R * p;
     const depth = Math.min(1, Math.max(0, (z2 + 1.2) / 2.4));
-    let b: number;
-    let tone: number;
-    if (ring) {
-      b = 0.3 + 0.5 * depth;
-      tone = 0.75;
-    } else {
-      const nx = c.nx[i];
-      const ny = c.ny[i];
-      const nz = c.nz[i];
-      const nx1 = nx * cY + nz * sY;
-      const nz1 = -nx * sY + nz * cY;
-      const ny2 = ny * cX - nz1 * sX;
-      const nz2 = ny * sX + nz1 * cX;
-      const lam = Math.max(0, L0 * nx1 + L1 * ny2 + L2 * nz2);
-      const edge = 1 - Math.abs(nz2);
-      const rim = nz2 > -0.35 ? edge * edge * edge : 0;
-      const face = nz2 > 0 ? 1 : 0.28;
-      b = c.w[i] * (0.3 + 0.95 * lam * face + 0.9 * rim) * (0.42 + 0.58 * depth) * 1.6;
-      const dy = y + CENTER_Y - band;
-      b += Math.exp(-(dy * dy) / 0.007) * (0.3 + 1.1 * s.feat[i]) * face;
-      tone = Math.min(1, rim * 1.5 + (1 - depth) * 0.35);
-    }
-    b *= flick;
+    const nx = c.nx[i];
+    const ny = c.ny[i];
+    const nz = c.nz[i];
+    const nx1 = nx * cY + nz * sY;
+    const nz1 = -nx * sY + nz * cY;
+    const ny2 = ny * cX - nz1 * sX;
+    const nz2 = ny * sX + nz1 * cX;
+    const lam = Math.max(0, LIGHT[0] * nx1 + LIGHT[1] * ny2 + LIGHT[2] * nz2);
+    const edge = 1 - Math.abs(nz2);
+    const rim = nz2 > -0.4 ? edge * edge * edge : 0;
+    const face = nz2 > 0 ? 1 : 0.34;
+    let b = c.w[i] * (0.28 + 0.9 * lam * face + 0.8 * rim) * (0.5 + 0.5 * depth) * 1.5;
+    if (live) b = b * (0.5 + 0.7 * reveal) + core * 0.7 * face;
     if (b > 0.999) b = 0.999;
     const bi = Math.floor(b * ALPHAS.length);
-    let ti = Math.floor(tone * TONES);
+    let ti = Math.floor(Math.min(1, core * 1.3 + rim * 0.5) * TONES);
     if (ti >= TONES) ti = TONES - 1;
-    let sz = s.bs[i] * (0.62 + 0.6 * depth);
-    if (sz > 1.4) sz = 1.4;
-    if (sz < 0.6) sz = 0.6;
+    let sz = (1 + 0.7 * depth) * (R / 150 + 0.55) * (1 + 0.5 * core);
+    if (sz < 1.1) sz = 1.1;
+    if (sz > 3.4) sz = 3.4;
     s.ss[i] = sz;
     const k = bi * TONES + ti;
     s.bucket[i] = k;
     s.counts[k]++;
+    kept++;
   }
   let run = 0;
   for (let k = 0; k < s.counts.length; k++) {
     s.starts[k] = run;
     run += s.counts[k];
   }
-  for (let i = 0; i < s.total; i++) if (s.bucket[i] !== 255) s.order[s.starts[s.bucket[i]]++] = i;
+  for (let i = 0; i < c.n; i++) if (s.bucket[i] !== 255) s.order[s.starts[s.bucket[i]]++] = i;
   let pos = 0;
   for (let k = 0; k < s.counts.length; k++) {
     const m = s.counts[k];
@@ -802,24 +741,100 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
     for (let q = pos; q < pos + m; q++) {
       const i = s.order[q];
       const sz = s.ss[i];
-      ctx.rect(s.sx[i] - sz / 2, s.sy[i] - sz / 2, sz, sz);
+      ctx.rect(s.px[i] - sz / 2, s.py[i] - sz / 2, sz, sz);
     }
     ctx.fill();
     pos += m;
   }
 
-  if (band < 2 && band > -2.1) {
-    const yy = band - CENTER_Y;
-    const ly = oy - yy * cX * R;
-    const half = R * 1.25;
-    ctx.fillStyle = `rgb(${acc[0]}, ${acc[1]}, ${acc[2]})`;
-    for (let k = 0; k < 64; k++) {
-      const u = k / 63;
-      const t = Math.abs(u - 0.5) * 2;
-      ctx.globalAlpha = (1 - t * t) * 0.32 * flick;
-      ctx.fillRect(ox - half + u * half * 2 - 0.6, ly - 0.6, 1.2, 1.2);
+  const mono = `${v.compact ? 9.5 : 10.5}px ${"ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}`;
+  ctx.font = mono;
+  ctx.textBaseline = "middle";
+  const rulerX = cx + R * 1.02;
+  const lineY = oy - (band - CENTER_Y) * cX * R;
+  const inView = lineY > v.top - 4 && lineY < h;
+
+  if (!v.compact) {
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = accCss(0.4);
+    for (let t = -1.5; t <= 1.25; t += 0.25) {
+      const ty = oy - (t - CENTER_Y) * cX * R;
+      if (ty < v.top || ty > h - 6) continue;
+      const major = Math.abs(t - Math.round(t)) < 0.01;
+      ctx.beginPath();
+      ctx.moveTo(rulerX, Math.round(ty) + 0.5);
+      ctx.lineTo(rulerX + (major ? 12 : 6), Math.round(ty) + 0.5);
+      ctx.stroke();
+      if (major) {
+        ctx.fillStyle = accCss(0.55);
+        ctx.textAlign = "left";
+        ctx.fillText(fmt(t, 1), rulerX + 18, ty);
+      }
     }
-    ctx.globalAlpha = 1;
+    ctx.beginPath();
+    ctx.moveTo(rulerX + 0.5, Math.max(v.top, oy - (1.3 - CENTER_Y) * cX * R));
+    ctx.lineTo(rulerX + 0.5, h);
+    ctx.stroke();
+  }
+
+  if (live && inView) {
+    const x0 = v.compact ? cx - R * 1.35 : cx - R * 1.25;
+    const x1l = v.compact ? cx + R * 1.2 : rulerX;
+    const grad = ctx.createLinearGradient(x0, 0, x1l, 0);
+    grad.addColorStop(0, accCss(0));
+    grad.addColorStop(0.18, accCss(0.85));
+    grad.addColorStop(1, accCss(0.95));
+    ctx.fillStyle = grad;
+    ctx.fillRect(x0, Math.round(lineY), x1l - x0, 1.5);
+    const glow = ctx.createLinearGradient(0, lineY - 22, 0, lineY);
+    glow.addColorStop(0, accCss(0));
+    glow.addColorStop(1, accCss(0.1));
+    ctx.fillStyle = glow;
+    ctx.fillRect(x0, lineY - 22, x1l - x0, 22);
+    if (!v.compact) {
+      ctx.fillStyle = accCss(1);
+      ctx.beginPath();
+      ctx.moveTo(rulerX - 2, lineY);
+      ctx.lineTo(rulerX - 9, lineY - 4);
+      ctx.lineTo(rulerX - 9, lineY + 4);
+      ctx.closePath();
+      ctx.fill();
+    }
+  }
+
+  const info = [
+    `SCAN ${fmt(band, 2)}`,
+    `MESH ${kept.toLocaleString("en-US")} PTS`,
+    `YAW  ${fmt(((yaw - base) * 180) / Math.PI, 1)}`,
+  ];
+  ctx.textAlign = "left";
+  ctx.fillStyle = accCss(0.78);
+  const ix = v.compact ? 20 : 34;
+  const iy = v.top + (v.compact ? 18 : 30);
+  for (let q = 0; q < info.length; q++) ctx.fillText(info[q], ix, iy + q * 16);
+
+  if (!v.compact) {
+    ctx.textAlign = "left";
+    for (let q = 0; q < TAGS.length; q++) {
+      const t = TAGS[q];
+      const y = t.y - CENTER_Y;
+      const x1 = t.x * cY + t.z * sY;
+      const z1 = -t.x * sY + t.z * cY;
+      const y2 = y * cX - z1 * sX;
+      const z2 = y * sX + z1 * cX;
+      const p = 1 + z2 * 0.04;
+      const sx = ox + x1 * R * p;
+      const sy = oy - y2 * R * p;
+      const tx = rulerX + 52;
+      ctx.strokeStyle = accCss(0.55);
+      ctx.beginPath();
+      ctx.moveTo(sx, sy);
+      ctx.lineTo(tx - 6, sy);
+      ctx.stroke();
+      ctx.strokeRect(sx - 3.5, sy - 3.5, 7, 7);
+      ctx.fillStyle = accCss(0.9);
+      ctx.fillText(`${t.name} ${(0.9 + 0.09 * Math.abs(Math.sin(time * 0.7 + q * 2))).toFixed(2)}`, tx, sy);
+    }
   }
 }
 
@@ -835,29 +850,28 @@ function hexRgb(value: string): [number, number, number] | null {
 function resolveRgb(value: string, ctx: CanvasRenderingContext2D): [number, number, number] {
   const direct = hexRgb(value);
   if (direct) return direct;
-  ctx.fillStyle = "#5eead4";
+  ctx.fillStyle = "#39ff88";
   ctx.fillStyle = value;
   const out = String(ctx.fillStyle);
   const hex = hexRgb(out);
   if (hex) return hex;
   const nums = out.match(/[\d.]+/g);
   if (nums && nums.length >= 3) return [Number(nums[0]), Number(nums[1]), Number(nums[2])];
-  return [94, 234, 212];
+  return [57, 255, 136];
 }
 
 function inkFor(accent: string) {
   const rgb = hexRgb(accent);
-  if (!rgb) return "#0d0814";
+  if (!rgb) return "#02100a";
   const lum = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255;
-  return lum > 0.55 ? "#0d0814" : "#ffffff";
+  return lum > 0.55 ? "#02100a" : "#ffffff";
 }
 
 function Mark() {
   return (
-    <svg className="hb-hh12-mark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 3.5c-3 0-5 2.2-5 5.2 0 2.4 1.2 4.4 2.8 5.3v1.6M12 3.5c3 0 5 2.2 5 5.2 0 2.4-1.2 4.4-2.8 5.3v1.6" />
-      <path d="M4.5 20.5c.6-2.6 3-4 5.3-4.4M19.5 20.5c-.6-2.6-3-4-5.3-4.4" />
-      <path d="M4 7.5h16" strokeDasharray="1.2 2" strokeWidth="1.2" />
+    <svg className="hb-hh12-mark" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="square" strokeLinejoin="miter" aria-hidden="true">
+      <path d="M4 5l9 7-9 7" />
+      <path d="M14 19h7" />
     </svg>
   );
 }
@@ -868,11 +882,11 @@ export function HeroDotHead({
   caption = "0.8 s median · 190 countries · ISO 27001",
   command = "npx hyperblur add hero-dot-head",
   primaryCta = defaultPrimary,
-  brand = "Facet",
+  brand = "facet",
   nav = defaultNav,
   navCta = defaultNavCta,
   learnMore = defaultMore,
-  accent = "#5eead4",
+  accent = "#39ff88",
   density = 1,
   speed = 1,
   swing = 35,
@@ -886,6 +900,7 @@ export function HeroDotHead({
   const rootRef = React.useRef<HTMLElement>(null);
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const stageRef = React.useRef<HTMLDivElement>(null);
+  const barRef = React.useRef<HTMLElement>(null);
   const timerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const [copied, setCopied] = React.useState(false);
 
@@ -893,28 +908,31 @@ export function HeroDotHead({
     const root = rootRef.current;
     const canvas = canvasRef.current;
     const stage = stageRef.current;
+    const bar = barRef.current;
     const ctx = canvas?.getContext("2d");
-    if (!root || !canvas || !stage || !ctx) return;
+    if (!root || !canvas || !stage || !bar || !ctx) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const mult = Math.min(2, Math.max(0.2, Number.isFinite(density) ? density : 1));
+    const mult = Math.min(2, Math.max(0.3, Number.isFinite(density) ? density : 1));
     const pace = Math.max(0, Number.isFinite(speed) ? speed : 1);
     const acc = resolveRgb(accent, ctx);
-    const scene = createScene(Math.round(8500 * mult), acc);
+    const scene = createScene(Math.round(11000 * mult), acc);
     const view: View = {
       w: 0,
       h: 0,
       cx: 0,
       cy: 0,
       R: 0,
+      top: 0,
       time: 0,
       curX: 0,
       curY: 0,
       pace,
       still: reduce,
-      limit: scene.cloud.n,
+      cut: -9,
       dpr: 1,
       swing: (Math.min(90, Math.max(0, Number.isFinite(swing) ? swing : 35)) * Math.PI) / 180,
       scan,
+      compact: false,
     };
     let visible = true;
     let raf = 0;
@@ -924,7 +942,7 @@ export function HeroDotHead({
     let pty = 0;
 
     function layout() {
-      if (!root || !canvas || !stage) return;
+      if (!root || !canvas || !stage || !bar) return;
       const rect = root.getBoundingClientRect();
       const w = rect.width;
       const h = rect.height;
@@ -934,16 +952,22 @@ export function HeroDotHead({
       view.w = w;
       view.h = h;
       view.dpr = dpr;
-      view.cx = w / 2;
+      const br = bar.getBoundingClientRect();
+      view.top = br.bottom - rect.top;
       if (w < 640) {
         const st = stage.getBoundingClientRect();
-        view.R = w * 0.36;
-        view.cy = st.top - rect.top + st.height / 2;
-        view.limit = Math.round(scene.cloud.n * 0.6);
+        const sh = st.height;
+        view.compact = true;
+        view.R = sh / 2.75;
+        view.cx = w * 0.56;
+        view.cy = st.top - rect.top + view.R * 1.57;
+        view.cut = -1.42;
       } else {
-        view.R = Math.min(w * 0.27, h * 0.36);
-        view.cy = h * 0.46;
-        view.limit = scene.cloud.n;
+        view.compact = false;
+        view.R = Math.min(h * 0.31, w * 0.23);
+        view.cx = w * 0.66;
+        view.cy = h * 0.57;
+        view.cut = -9;
       }
     }
 
@@ -957,12 +981,8 @@ export function HeroDotHead({
       const step = last ? Math.min(0.05, (now - last) / 1000) : 0;
       last = now;
       view.time += step;
-      let tx = ptx;
-      let ty = pty;
-      if (!pointer) {
-        tx = Math.sin(view.time * 0.21) * 0.35;
-        ty = Math.sin(view.time * 0.13 + 1.2) * 0.2;
-      }
+      const tx = pointer ? ptx : 0;
+      const ty = pointer ? pty : 0;
       const ease = Math.min(1, step * 2.4);
       view.curX += (tx - view.curX) * ease;
       view.curY += (ty - view.curY) * ease;
@@ -1045,10 +1065,11 @@ export function HeroDotHead({
     <section ref={rootRef} className={`hb-hh12 ${className}`} style={vars} {...rest}>
       <style href="hb-hero-dot-head" precedence="default">{css}</style>
       <canvas ref={canvasRef} className="hb-hh12-canvas" aria-hidden="true" />
-      <header className="hb-hh12-bar">
+      <header ref={barRef} className="hb-hh12-bar">
         <a className="hb-hh12-brand" href="#">
           <Mark />
           <span>{brand}</span>
+          <span className="hb-hh12-caret" aria-hidden="true" />
         </a>
         {nav.length ? (
           <nav aria-label="Primary">
@@ -1062,12 +1083,10 @@ export function HeroDotHead({
               ))}
             </ul>
           </nav>
-        ) : (
-          <span />
-        )}
+        ) : null}
         <div className="hb-hh12-tools">
           <button type="button" className="hb-hh12-search" aria-label="Search" onClick={onSearch}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
               <circle cx="11" cy="11" r="6.5" />
               <path d="M16 16l4.5 4.5" />
             </svg>
@@ -1081,55 +1100,46 @@ export function HeroDotHead({
       </header>
       <div ref={stageRef} className="hb-hh12-stage" aria-hidden="true" />
       <div className="hb-hh12-foot">
-        <div className="hb-hh12-copy">
-          <Heading className="hb-hh12-title">{title}</Heading>
-          {subtitle ? <p className="hb-hh12-sub">{subtitle}</p> : null}
-        </div>
-        {caption || command || primaryCta ? (
-          <div className="hb-hh12-side">
-            {caption ? <p className="hb-hh12-caption">{caption}</p> : null}
-            {command || primaryCta ? (
-              <div className="hb-hh12-row">
-                {command ? (
-                  <div className="hb-hh12-cmd">
-                    <span className="hb-hh12-prompt" aria-hidden="true">$</span>
-                    <code className="hb-hh12-code">{command}</code>
-                    <button type="button" className="hb-hh12-copybtn" data-done={copied} onClick={copy} aria-label={copied ? "Copied" : "Copy command"}>
-                      {copied ? (
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M5 12.5l4.5 4.5L19 7.5" />
-                        </svg>
-                      ) : (
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <rect x="8.5" y="8.5" width="11" height="11" rx="2.2" />
-                          <path d="M15.5 8.5V6.7a2.2 2.2 0 0 0-2.2-2.2H6.7a2.2 2.2 0 0 0-2.2 2.2v6.6a2.2 2.2 0 0 0 2.2 2.2h1.8" />
-                        </svg>
-                      )}
-                      <span className="hb-hh12-sr" aria-live="polite">{copied ? "Copied" : ""}</span>
-                    </button>
-                  </div>
-                ) : null}
-                {primaryCta ? (
-                  <a className="hb-hh12-cta" href={primaryCta.href}>
-                    {primaryCta.label}
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M9 6l6 6-6 6" />
+        <Heading className="hb-hh12-title">{title}</Heading>
+        {subtitle ? <p className="hb-hh12-sub">{subtitle}</p> : null}
+        {command || primaryCta ? (
+          <div className="hb-hh12-row">
+            {command ? (
+              <div className="hb-hh12-cmd">
+                <span className="hb-hh12-prompt" aria-hidden="true">$</span>
+                <code className="hb-hh12-code">{command}</code>
+                <button type="button" className="hb-hh12-copybtn" data-done={copied} onClick={copy} aria-label={copied ? "Copied" : "Copy command"}>
+                  {copied ? (
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 12.5l4.5 4.5L19 7.5" />
                     </svg>
-                  </a>
-                ) : null}
+                  ) : (
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <rect x="8.5" y="8.5" width="11" height="11" rx="2.2" />
+                      <path d="M15.5 8.5V6.7a2.2 2.2 0 0 0-2.2-2.2H6.7a2.2 2.2 0 0 0-2.2 2.2v6.6a2.2 2.2 0 0 0 2.2 2.2h1.8" />
+                    </svg>
+                  )}
+                  <span className="hb-hh12-sr" aria-live="polite">{copied ? "Copied" : ""}</span>
+                </button>
               </div>
+            ) : null}
+            {primaryCta ? (
+              <a className="hb-hh12-cta" href={primaryCta.href}>
+                {primaryCta.label}
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </a>
+            ) : null}
+            {learnMore ? (
+              <a className="hb-hh12-more" href={learnMore.href}>
+                {learnMore.label}
+              </a>
             ) : null}
           </div>
         ) : null}
+        {caption ? <p className="hb-hh12-caption">{caption}</p> : null}
       </div>
-      {learnMore ? (
-        <a className="hb-hh12-more" href={learnMore.href}>
-          <span>{learnMore.label}</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </a>
-      ) : null}
     </section>
   );
 }
