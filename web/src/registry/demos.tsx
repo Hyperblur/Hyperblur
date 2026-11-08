@@ -284,6 +284,18 @@ import { xhDemos } from "@/registry/parts/xh.demos";
 import { xiDemos } from "@/registry/parts/xi.demos";
 import { xjDemos } from "@/registry/parts/xj.demos";
 import { xkDemos } from "@/registry/parts/xk.demos";
+import { vaDemos } from "@/registry/parts/va.demos";
+import { vbDemos } from "@/registry/parts/vb.demos";
+import { vcDemos } from "@/registry/parts/vc.demos";
+import { vdDemos } from "@/registry/parts/vd.demos";
+import { veDemos } from "@/registry/parts/ve.demos";
+import { vfDemos } from "@/registry/parts/vf.demos";
+import { vgDemos } from "@/registry/parts/vg.demos";
+import { vhDemos } from "@/registry/parts/vh.demos";
+import { viDemos } from "@/registry/parts/vi.demos";
+import { vjDemos } from "@/registry/parts/vj.demos";
+import { vkDemos } from "@/registry/parts/vk.demos";
+import { vlDemos } from "@/registry/parts/vl.demos";
 import { qpDemos } from "@/registry/parts/qp.demos";
 import { quDemos } from "@/registry/parts/qu.demos";
 import { qoDemos } from "@/registry/parts/qo.demos";
@@ -1434,6 +1446,18 @@ export const demos: Record<string, ReactNode> = {
   ...xiDemos,
   ...xjDemos,
   ...xkDemos,
+  ...vaDemos,
+  ...vbDemos,
+  ...vcDemos,
+  ...vdDemos,
+  ...veDemos,
+  ...vfDemos,
+  ...vgDemos,
+  ...vhDemos,
+  ...viDemos,
+  ...vjDemos,
+  ...vkDemos,
+  ...vlDemos,
   ...qpDemos,
   ...quDemos,
   ...qoDemos,

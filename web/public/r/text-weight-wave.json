@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-weight-wave",
+  "type": "registry:component",
+  "title": "Text Weight Wave",
+  "description": "A swell of font weight rolls through the letters on a loop, tinting each one as the crest passes. Every letter reserves its boldest width, so the line keeps still while the weight moves.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "variable font",
+    "weight",
+    "wave",
+    "loop",
+    "typography",
+    "kinetic"
+  ],
+  "docs": "https://hyperblur.dev/effects/text-weight-wave",
+  "files": [
+    {
+      "path": "registry/hyperblur/text-weight-wave.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/text-weight-wave.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface TextWeightWaveProps extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  minWeight?: number;\n  maxWeight?: number;\n  duration?: number;\n  spread?: number;\n  direction?: \"forward\" | \"backward\" | \"mirror\";\n  accent?: string;\n  tint?: boolean;\n  bars?: boolean;\n  paused?: boolean;\n}\n\nconst css = `\n@keyframes hb-vi3-w {\n  0%, 100% { font-weight: var(--hb-vi3-min); color: var(--hb-vi3-base); }\n  50% { font-weight: var(--hb-vi3-max); color: var(--hb-vi3-peak); }\n}\n@keyframes hb-vi3-bar {\n  0%, 100% { transform: scaleY(0.2); opacity: 0.25; }\n  50% { transform: scaleY(1); opacity: 1; }\n}\n.hb-vi3 {\n  position: relative;\n  display: inline-block;\n  font-family: inherit;\n  white-space: pre-wrap;\n  box-sizing: border-box;\n  --hb-vi3-base: currentColor;\n}\n.hb-vi3 *, .hb-vi3 *::before, .hb-vi3 *::after { box-sizing: border-box; }\n.hb-vi3-sr {\n  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;\n  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;\n}\n.hb-vi3-w { display: inline-block; white-space: nowrap; }\n.hb-vi3-c {\n  position: relative;\n  display: inline-grid;\n  justify-items: center;\n}\n.hb-vi3-c > span { grid-area: 1 / 1; }\n.hb-vi3-g { visibility: hidden; font-weight: var(--hb-vi3-max); }\n.hb-vi3-l {\n  font-weight: var(--hb-vi3-min);\n  animation: hb-vi3-w var(--hb-vi3-dur) cubic-bezier(.45, 0, .55, 1) infinite;\n  animation-delay: calc(var(--hb-vi3-i) * var(--hb-vi3-spread) - var(--hb-vi3-dur) * 4);\n}\n.hb-vi3-b {\n  position: absolute;\n  left: 22%; right: 22%;\n  bottom: -0.16em;\n  height: 0.09em;\n  border-radius: 0.05em;\n  background: var(--hb-vi3-peak);\n  transform-origin: 50% 100%;\n  animation: hb-vi3-bar var(--hb-vi3-dur) cubic-bezier(.45, 0, .55, 1) infinite;\n  animation-delay: calc(var(--hb-vi3-i) * var(--hb-vi3-spread) - var(--hb-vi3-dur) * 4);\n}\n.hb-vi3[data-paused] .hb-vi3-l, .hb-vi3[data-paused] .hb-vi3-b { animation-play-state: paused; }\n@media (prefers-reduced-motion: reduce) {\n  .hb-vi3 .hb-vi3-l { animation: none; font-weight: var(--hb-vi3-mid); }\n  .hb-vi3 .hb-vi3-b { animation: none; transform: scaleY(0.4); opacity: 0.4; }\n}\n`;\n\nexport function TextWeightWave({\n  text,\n  minWeight = 200,\n  maxWeight = 900,\n  duration = 2.4,\n  spread = 0.09,\n  direction = \"forward\",\n  accent = \"#7fb3ff\",\n  tint = true,\n  bars = false,\n  paused = false,\n  className = \"\",\n  style,\n  ...rest\n}: TextWeightWaveProps) {\n  const words = React.useMemo(() => text.split(/(\\s+)/), [text]);\n  const total = Array.from(text).filter((c) => c.trim() !== \"\").length;\n  const mid = Math.round((minWeight + maxWeight) / 2);\n\n  const vars = {\n    \"--hb-vi3-min\": minWeight,\n    \"--hb-vi3-max\": maxWeight,\n    \"--hb-vi3-mid\": mid,\n    \"--hb-vi3-dur\": `${duration}s`,\n    \"--hb-vi3-spread\": `${direction === \"backward\" ? -spread : spread}s`,\n    \"--hb-vi3-peak\": tint ? accent : \"currentColor\",\n    ...style,\n  } as React.CSSProperties;\n\n  let n = 0;\n  const center = (total - 1) / 2;\n\n  return (\n    <span className={`hb-vi3 ${className}`} style={vars} data-paused={paused ? \"\" : undefined} {...rest}>\n      <style href=\"hb-text-weight-wave\" precedence=\"default\">{css}</style>\n      <span className=\"hb-vi3-sr\">{text}</span>\n      <span aria-hidden=\"true\">\n        {words.map((word, wi) => {\n          if (word.trim() === \"\") return <React.Fragment key={wi}>{word}</React.Fragment>;\n          return (\n            <span className=\"hb-vi3-w\" key={wi}>\n              {Array.from(word).map((ch, ci) => {\n                const i = n++;\n                const pos = direction === \"mirror\" ? Math.abs(i - center) : i;\n                return (\n                  <span key={ci} className=\"hb-vi3-c\" style={{ \"--hb-vi3-i\": pos.toFixed(2) } as React.CSSProperties}>\n                    <span className=\"hb-vi3-g\">{ch}</span>\n                    <span className=\"hb-vi3-l\">{ch}</span>\n                    {bars ? <span className=\"hb-vi3-b\" /> : null}\n                  </span>\n                );\n              })}\n            </span>\n          );\n        })}\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}
