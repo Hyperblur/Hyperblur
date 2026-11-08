@@ -273,6 +273,17 @@ import { hoBDemos } from "@/registry/parts/hoB.demos";
 import { hoCDemos } from "@/registry/parts/hoC.demos";
 import { hoDDemos } from "@/registry/parts/hoD.demos";
 import { hoEDemos } from "@/registry/parts/hoE.demos";
+import { xaDemos } from "@/registry/parts/xa.demos";
+import { xbDemos } from "@/registry/parts/xb.demos";
+import { xcDemos } from "@/registry/parts/xc.demos";
+import { xdDemos } from "@/registry/parts/xd.demos";
+import { xeDemos } from "@/registry/parts/xe.demos";
+import { xfDemos } from "@/registry/parts/xf.demos";
+import { xgDemos } from "@/registry/parts/xg.demos";
+import { xhDemos } from "@/registry/parts/xh.demos";
+import { xiDemos } from "@/registry/parts/xi.demos";
+import { xjDemos } from "@/registry/parts/xj.demos";
+import { xkDemos } from "@/registry/parts/xk.demos";
 import { qpDemos } from "@/registry/parts/qp.demos";
 import { quDemos } from "@/registry/parts/qu.demos";
 import { qoDemos } from "@/registry/parts/qo.demos";
@@ -1412,6 +1423,17 @@ export const demos: Record<string, ReactNode> = {
   ...hoCDemos,
   ...hoDDemos,
   ...hoEDemos,
+  ...xaDemos,
+  ...xbDemos,
+  ...xcDemos,
+  ...xdDemos,
+  ...xeDemos,
+  ...xfDemos,
+  ...xgDemos,
+  ...xhDemos,
+  ...xiDemos,
+  ...xjDemos,
+  ...xkDemos,
   ...qpDemos,
   ...quDemos,
   ...qoDemos,

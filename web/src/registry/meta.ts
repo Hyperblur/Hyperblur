@@ -6,7 +6,7 @@ export type EffectCategory =
   | "hero" | "features" | "bento" | "social-proof" | "contact" | "footer" | "comparison" | "navigation" | "auth"
   | "cta" | "faq" | "pricing" | "stats" | "not-found" | "profile" | "about" | "waitlist" | "showcase"
   | "how-it-works" | "download" | "blog" | "ecommerce"
-  | "loaders" | "payments" | "checkout" | "hud" | "maps" | "local" | "menus" | "ordering";
+  | "loaders" | "modals" | "forms" | "payments" | "checkout" | "hud" | "maps" | "local" | "menus" | "ordering";
 
 export interface EffectProp {
   name: string;
@@ -55,6 +55,8 @@ export const categories: { id: EffectCategory; label: string; group: EffectGroup
   { id: "app-ui", label: "App UI", group: "components" },
   { id: "agent-kit", label: "Agent kit", group: "components" },
   { id: "social", label: "Social & feedback", group: "components" },
+  { id: "modals", label: "Modals & popups", group: "components" },
+  { id: "forms", label: "Forms & inputs", group: "components" },
   { id: "payments", label: "Payments", group: "components" },
   { id: "hud", label: "HUD & carousels", group: "components" },
   { id: "maps", label: "Maps & geo", group: "components" },
@@ -134,6 +136,17 @@ import { hoBMeta } from "./parts/hoB.meta.ts";
 import { hoCMeta } from "./parts/hoC.meta.ts";
 import { hoDMeta } from "./parts/hoD.meta.ts";
 import { hoEMeta } from "./parts/hoE.meta.ts";
+import { xaMeta } from "./parts/xa.meta.ts";
+import { xbMeta } from "./parts/xb.meta.ts";
+import { xcMeta } from "./parts/xc.meta.ts";
+import { xdMeta } from "./parts/xd.meta.ts";
+import { xeMeta } from "./parts/xe.meta.ts";
+import { xfMeta } from "./parts/xf.meta.ts";
+import { xgMeta } from "./parts/xg.meta.ts";
+import { xhMeta } from "./parts/xh.meta.ts";
+import { xiMeta } from "./parts/xi.meta.ts";
+import { xjMeta } from "./parts/xj.meta.ts";
+import { xkMeta } from "./parts/xk.meta.ts";
 import { qpMeta } from "./parts/qp.meta.ts";
 import { quMeta } from "./parts/qu.meta.ts";
 import { qoMeta } from "./parts/qo.meta.ts";
@@ -1287,6 +1300,17 @@ const allEffects: EffectMeta[] = [
   ...hoCMeta,
   ...hoDMeta,
   ...hoEMeta,
+  ...xaMeta,
+  ...xbMeta,
+  ...xcMeta,
+  ...xdMeta,
+  ...xeMeta,
+  ...xfMeta,
+  ...xgMeta,
+  ...xhMeta,
+  ...xiMeta,
+  ...xjMeta,
+  ...xkMeta,
   ...qpMeta,
   ...quMeta,
   ...qoMeta,
@@ -1324,7 +1348,7 @@ const allEffects: EffectMeta[] = [
 ];
 
 const newBatches: EffectMeta[][] = [
-  hoAMeta, hoBMeta, hoCMeta, hoDMeta, hoEMeta,
+  xaMeta, xbMeta, xcMeta, xdMeta, xeMeta, xfMeta, xgMeta, xhMeta, xiMeta, xjMeta, xkMeta,
 ];
 
 const newSlugs = new Set(newBatches.flat().map((e) => e.slug));
