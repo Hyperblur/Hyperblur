@@ -6,24 +6,15 @@ on:
   pull_request:
 
 jobs:
-  web:
-    name: Site
+  registry:
+    name: Registry
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: web
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: web/package-lock.json
-      - run: npm ci
-      - run: npx next typegen
-      - run: npm run typecheck
-      - run: npm run lint
-      - run: npm run build
+      - run: node web/scripts/check-css.mjs
 
   mcp:
     name: MCP server
