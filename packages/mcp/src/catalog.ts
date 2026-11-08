@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const DEFAULT_SITE_URL = "https://hyperblur.dev";
 export const SITE_URL_ENV = "HYPERBLUR_SITE_URL";
+export const TOKEN_ENV = "HYPERBLUR_TOKEN";
 export const INDEX_TTL_MS = 5 * 60 * 1000;
 export const FETCH_TIMEOUT_MS = 15_000;
 export const EXAMPLES_PER_CATEGORY = 3;
@@ -27,6 +28,7 @@ const effectSchema = z.object({
   install: z.string().optional(),
   docs: z.string().optional(),
   file: z.string().optional(),
+  pro: z.boolean().optional(),
 });
 
 const indexSchema = z.object({
@@ -66,6 +68,7 @@ export interface Effect {
   install: string;
   docs: string;
   file: string;
+  pro?: boolean;
 }
 
 export interface CatalogIndex {
@@ -110,6 +113,7 @@ export interface SearchResult {
 
 export interface CatalogOptions {
   siteUrl?: string;
+  token?: string;
   fetch?: typeof fetch;
   ttlMs?: number;
   timeoutMs?: number;
@@ -177,6 +181,7 @@ export function importLine(effect: Effect): string {
 export class Catalog {
   readonly siteUrl: string;
   readonly indexUrl: string;
+  readonly token: string | undefined;
   private readonly fetchImpl: typeof fetch;
   private readonly ttlMs: number;
   private readonly timeoutMs: number;
@@ -188,18 +193,19 @@ export class Catalog {
   constructor(options: CatalogOptions = {}) {
     this.siteUrl = (options.siteUrl ?? DEFAULT_SITE_URL).replace(/\/+$/, "");
     this.indexUrl = `${this.siteUrl}/r/index.json`;
+    this.token = options.token?.trim() || undefined;
     this.fetchImpl = options.fetch ?? globalThis.fetch;
     this.ttlMs = options.ttlMs ?? INDEX_TTL_MS;
     this.timeoutMs = options.timeoutMs ?? FETCH_TIMEOUT_MS;
     this.now = options.now ?? Date.now;
   }
 
-  itemUrl(slug: string): string {
-    return `${this.siteUrl}/r/${slug}.json`;
+  itemUrl(slug: string, pro = false): string {
+    return pro ? `${this.siteUrl}/api/pro/registry/${slug}` : `${this.siteUrl}/r/${slug}.json`;
   }
 
-  installCommand(slug: string): string {
-    return `npx shadcn@latest add ${this.itemUrl(slug)}`;
+  installCommand(slug: string, pro = false): string {
+    return pro ? `npx shadcn@latest add @hyperblur-pro/${slug}` : `npx shadcn@latest add ${this.itemUrl(slug)}`;
   }
 
   async getIndex(): Promise<CatalogIndex> {
@@ -269,7 +275,7 @@ export class Catalog {
     if (cached && this.now() - cached.fetchedAt < this.ttlMs) {
       return cached.source;
     }
-    const raw = await this.fetchJson(effect.file, `the registry item for "${effect.slug}"`);
+    const raw = await this.fetchJson(effect.file, `the registry item for "${effect.slug}"`, effect.pro === true);
     const parsed = registryItemSchema.safeParse(raw);
     if (!parsed.success) {
       throw new CatalogError(`The registry item at ${effect.file} is not a valid shadcn registry item: ${z.prettifyError(parsed.error)}`);
@@ -296,11 +302,13 @@ export class Catalog {
       throw new CatalogError(`The catalog index at ${this.indexUrl} has an unexpected shape: ${z.prettifyError(parsed.error)}`);
     }
     const homepage = (parsed.data.homepage ?? DEFAULT_SITE_URL).replace(/\/+$/, "");
+    const proItems = await this.loadProItems();
+    const freeSlugs = new Set(parsed.data.items.map((item) => item.slug));
     return {
       name: parsed.data.name,
       homepage: this.siteUrl,
       ...(parsed.data.generatedAt ? { generatedAt: parsed.data.generatedAt } : {}),
-      items: parsed.data.items.map((item) => ({
+      items: [...parsed.data.items.map((item) => ({
         slug: item.slug,
         component: item.component,
         title: item.title,
@@ -313,19 +321,50 @@ export class Catalog {
         install: this.installCommand(item.slug),
         docs: item.docs ? this.rebase(item.docs, homepage) : `${this.siteUrl}/effects/${item.slug}`,
         file: this.itemUrl(item.slug),
-      })),
+      })), ...proItems.filter((item) => !freeSlugs.has(item.slug))],
     };
+  }
+
+  private async loadProItems(): Promise<Effect[]> {
+    try {
+      const raw = await this.fetchJson(`${this.siteUrl}/api/pro/catalog`, "the Pro catalog");
+      const parsed = indexSchema.safeParse(raw);
+      if (!parsed.success) return [];
+      return parsed.data.items.map((item) => ({
+        slug: item.slug,
+        component: item.component,
+        title: item.title,
+        description: item.description,
+        category: item.category,
+        tags: item.tags,
+        props: item.props,
+        usage: item.usage,
+        dependencies: item.dependencies,
+        install: this.installCommand(item.slug, true),
+        docs: `${this.siteUrl}/pro`,
+        file: this.itemUrl(item.slug, true),
+        pro: true,
+      }));
+    } catch {
+      return [];
+    }
   }
 
   private rebase(url: string, homepage: string): string {
     return url.startsWith(`${homepage}/`) ? `${this.siteUrl}${url.slice(homepage.length)}` : url;
   }
 
-  private async fetchJson(url: string, what: string): Promise<unknown> {
+  private async fetchJson(url: string, what: string, auth = false): Promise<unknown> {
+    if (auth && !this.token) {
+      throw new CatalogError(`${what} is part of Hyperblur Pro. Set ${TOKEN_ENV} to your license key, or get one at ${this.siteUrl}/pro.`);
+    }
     let response: Response;
     try {
       response = await this.fetchImpl(url, {
-        headers: { accept: "application/json" },
+        headers: {
+          accept: "application/json",
+          ...(auth && this.token ? { authorization: `Bearer ${this.token}` } : {}),
+        },
         signal: AbortSignal.timeout(this.timeoutMs),
       });
     } catch (error) {
@@ -333,6 +372,10 @@ export class Catalog {
         `Could not reach the Hyperblur site at ${this.siteUrl} while loading ${what} (${describeFetchError(error, this.timeoutMs)}). ` +
           `Check that the site is online and reachable from this machine, or set ${SITE_URL_ENV} to a reachable Hyperblur instance.`,
       );
+    }
+    if (!response.ok && (response.status === 401 || response.status === 402 || response.status === 429)) {
+      const detail = await response.json().then((body) => (body as { error?: string }).error).catch(() => undefined);
+      throw new CatalogError(`Hyperblur Pro refused the request (HTTP ${response.status}): ${detail ?? "check your license key"}.`);
     }
     if (!response.ok) {
       const status = `${response.status} ${response.statusText}`.trim();

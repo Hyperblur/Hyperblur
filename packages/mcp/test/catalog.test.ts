@@ -271,7 +271,7 @@ describe("index caching", () => {
   it("shares one request between concurrent callers", async () => {
     const { catalog, calls } = makeCatalog();
     await Promise.all([catalog.search(), catalog.getEffect("scanlines"), catalog.listSlugs()]);
-    assert.equal(calls.length, 1);
+    assert.equal(calls.filter((url) => url.endsWith("/r/index.json")).length, 1);
   });
 
   it("serves the stale index when a refresh fails", async () => {
@@ -331,5 +331,68 @@ describe("site errors", () => {
     online = true;
     const { total } = await catalog.search();
     assert.equal(total, 11);
+  });
+});
+
+describe("pro items", () => {
+  const proItem = {
+    slug: "aurora-hero-pro",
+    component: "AuroraHeroPro",
+    title: "Aurora Hero Pro",
+    description: "A premium hero.",
+    category: "hero",
+    tags: [],
+    props: [],
+    usage: "<AuroraHeroPro />",
+    dependencies: [],
+  };
+  const proFile = {
+    name: "aurora-hero-pro",
+    files: [{ path: "registry/hyperblur/aurora-hero-pro.tsx", target: "components/hyperblur/aurora-hero-pro.tsx", content: "x" }],
+  };
+
+  it("lists pro items from the pro catalog and marks them", async () => {
+    const routes = { ...siteRoutes(), [`${SITE}/api/pro/catalog`]: { items: [proItem] } };
+    const { catalog } = makeCatalog(routes);
+    const effect = await catalog.getEffect("aurora-hero-pro");
+    assert.equal(effect.pro, true);
+    assert.equal(effect.install, "npx shadcn@latest add @hyperblur-pro/aurora-hero-pro");
+  });
+
+  it("explains how to get a key when the token is missing", async () => {
+    const routes = { ...siteRoutes(), [`${SITE}/api/pro/catalog`]: { items: [proItem] } };
+    const { catalog } = makeCatalog(routes);
+    await assert.rejects(catalog.getSource("aurora-hero-pro"), /HYPERBLUR_TOKEN/);
+  });
+
+  it("sends the token when loading pro source", async () => {
+    const routes = {
+      ...siteRoutes(),
+      [`${SITE}/api/pro/catalog`]: { items: [proItem] },
+      [`${SITE}/api/pro/registry/aurora-hero-pro`]: proFile,
+    };
+    const seen: (string | null)[] = [];
+    const base = mockFetch(routes);
+    const spy: typeof fetch = async (input, init) => {
+      const headers = new Headers(init?.headers);
+      seen.push(headers.get("authorization"));
+      return base.fetch(input, init);
+    };
+    const catalog = new Catalog({ siteUrl: SITE, fetch: spy, token: "hbp_test" });
+    const source = await catalog.getSource("aurora-hero-pro");
+    assert.equal(source.files.length, 1);
+    assert.ok(seen.includes("Bearer hbp_test"));
+  });
+
+  it("reports a refused license", async () => {
+    const routes = {
+      ...siteRoutes(),
+      [`${SITE}/api/pro/catalog`]: { items: [proItem] },
+      [`${SITE}/api/pro/registry/aurora-hero-pro`]: () =>
+        new Response(JSON.stringify({ error: "This license is no longer active." }), { status: 402 }),
+    };
+    const mock = mockFetch(routes);
+    const catalog = new Catalog({ siteUrl: SITE, fetch: mock.fetch, token: "hbp_old" });
+    await assert.rejects(catalog.getSource("aurora-hero-pro"), /no longer active/);
   });
 });
