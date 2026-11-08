@@ -2,6 +2,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { completable } from "@modelcontextprotocol/sdk/server/completable.js";
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
+import { mkdir, stat, writeFile } from "node:fs/promises";
+import path from "node:path";
 import { Catalog, categoryNames, importLine, itemKind } from "./catalog.ts";
 import type { CategorySummary, Effect, EffectProp, EffectSource } from "./catalog.ts";
 import {
@@ -155,6 +157,32 @@ export function createServer(options: ServerOptions): McpServer {
         const problem = await validateProjectDir(projectDir);
         if (problem) return error(problem);
         const effect = await catalog.getEffect(slug);
+        if (effect.pro) {
+          const source = await catalog.getSource(effect.slug);
+          const base = (await stat(path.join(projectDir, "src")).then((s) => s.isDirectory()).catch(() => false))
+            ? path.join(projectDir, "src")
+            : projectDir;
+          const written: string[] = [];
+          const skipped: string[] = [];
+          for (const file of source.files) {
+            const dest = path.join(base, file.target);
+            const exists = await stat(dest).then(() => true).catch(() => false);
+            if (exists && !overwrite) {
+              skipped.push(dest);
+              continue;
+            }
+            await mkdir(path.dirname(dest), { recursive: true });
+            await writeFile(dest, file.content, "utf8");
+            written.push(dest);
+          }
+          const lines = [`Installed **${effect.title}** (\`${effect.slug}\`, Pro) into ${projectDir}.`, ""];
+          for (const file of written) lines.push(`- Wrote \`${file}\``);
+          for (const file of skipped) lines.push(`- Kept existing \`${file}\` (pass overwrite to replace)`);
+          if (source.dependencies.length > 0) lines.push(`- Install these npm packages: ${source.dependencies.join(", ")}`);
+          lines.push(`- Import: \`${importLine(effect)}\``);
+          if (effect.usage) lines.push(`- Usage: \`${effect.usage}\``);
+          return text(lines.join("\n"));
+        }
         const args = shadcnArgs(effect.file, overwrite);
         const invocation = npxInvocation(args);
         const result = await runner(invocation.command, invocation.args, { cwd: projectDir, timeoutMs: installTimeoutMs });
@@ -264,7 +292,7 @@ export function formatSearch(
       : `Showing ${results.length} of ${total} Hyperblur ${noun.plural}${scope ? ` for ${scope}` : ""} (raise limit to see more):`;
   const items = results.map(
     (effect) =>
-      `- **${effect.title}** \`${effect.slug}\` (${effect.category}): ${effect.description}\n  Install: \`${effect.install}\``,
+      `- **${effect.title}** \`${effect.slug}\` (${effect.category}${effect.pro ? ", Pro" : ""}): ${effect.description}\n  Install: \`${effect.install}\``,
   );
   const footer = ["Call get_effect with a slug for props, usage and the import line."];
   if (available) footer.push(available);
