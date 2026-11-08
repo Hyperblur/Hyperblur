@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-letter-flip",
+  "type": "registry:component",
+  "title": "Text Letter Flip",
+  "description": "Each letter is a two-sided tile that turns over in a cascade to show the next word, with a small overshoot as it lands. Works on the horizontal or vertical axis and pauses on hover.",
+  "author": "Hyperblur <hello@hyperblur.dev>",
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": [
+    "text",
+    "flip",
+    "3d",
+    "rotate",
+    "words",
+    "cascade",
+    "headline"
+  ],
+  "docs": "https://hyperblur.dev/effects/text-letter-flip",
+  "files": [
+    {
+      "path": "registry/hyperblur/text-letter-flip.tsx",
+      "type": "registry:component",
+      "target": "components/hyperblur/text-letter-flip.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface TextLetterFlipProps extends React.HTMLAttributes<HTMLSpanElement> {\n  words?: string[];\n  interval?: number;\n  duration?: number;\n  stagger?: number;\n  axis?: \"x\" | \"y\";\n  pauseOnHover?: boolean;\n  paused?: boolean;\n}\n\nconst css = `\n.hb-vi4 {\n  position: relative;\n  display: inline-flex;\n  align-items: baseline;\n  font-family: inherit;\n  white-space: pre;\n  perspective: 6em;\n  box-sizing: border-box;\n}\n.hb-vi4 *, .hb-vi4 *::before, .hb-vi4 *::after { box-sizing: border-box; }\n.hb-vi4-sr {\n  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;\n  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;\n}\n.hb-vi4-cell {\n  position: relative;\n  display: inline-grid;\n  justify-items: center;\n  transform-style: preserve-3d;\n  transform: rotateX(calc(var(--hb-vi4-r) * 180deg));\n  transition: transform var(--hb-vi4-dur) cubic-bezier(.68, -0.32, .26, 1.32);\n  transition-delay: calc(var(--hb-vi4-i) * var(--hb-vi4-stagger));\n}\n.hb-vi4-f {\n  grid-area: 1 / 1;\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n}\n.hb-vi4-b { transform: rotateX(180deg); }\n.hb-vi4[data-axis=\"y\"] .hb-vi4-cell { transform: rotateY(calc(var(--hb-vi4-r) * 180deg)); }\n.hb-vi4[data-axis=\"y\"] .hb-vi4-b { transform: rotateY(180deg); }\n@media (prefers-reduced-motion: reduce) {\n  .hb-vi4 .hb-vi4-cell { transition: none; }\n}\n`;\n\nexport function TextLetterFlip({\n  words = [\"DESIGN\", \"DEPLOY\", \"DELIGHT\"],\n  interval = 2.6,\n  duration = 0.8,\n  stagger = 0.06,\n  axis = \"x\",\n  pauseOnHover = true,\n  paused = false,\n  className = \"\",\n  style,\n  onMouseEnter,\n  onMouseLeave,\n  ...rest\n}: TextLetterFlipProps) {\n  const list = words.length ? words : [\"\"];\n  const [index, setIndex] = React.useState(0);\n  const [hover, setHover] = React.useState(false);\n  const width = Math.max(...list.map((w) => Array.from(w).length));\n  const halt = paused || (pauseOnHover && hover) || list.length < 2;\n\n  React.useEffect(() => {\n    if (halt) return;\n    const id = setInterval(() => setIndex((i) => i + 1), interval * 1000);\n    return () => clearInterval(id);\n  }, [halt, interval]);\n\n  const at = (m: number) => {\n    const k = ((m % list.length) + list.length) % list.length;\n    return Array.from(list[k]);\n  };\n  const even = index % 2 === 0 ? at(index) : at(index - 1);\n  const odd = index % 2 === 1 ? at(index) : at(index - 1);\n  const current = list[((index % list.length) + list.length) % list.length];\n\n  const vars = {\n    \"--hb-vi4-dur\": `${duration}s`,\n    \"--hb-vi4-stagger\": `${stagger}s`,\n    ...style,\n  } as React.CSSProperties;\n\n  return (\n    <span\n      className={`hb-vi4 ${className}`}\n      style={vars}\n      data-axis={axis}\n      onMouseEnter={(e) => {\n        setHover(true);\n        onMouseEnter?.(e);\n      }}\n      onMouseLeave={(e) => {\n        setHover(false);\n        onMouseLeave?.(e);\n      }}\n      {...rest}\n    >\n      <style href=\"hb-text-letter-flip\" precedence=\"default\">{css}</style>\n      <span className=\"hb-vi4-sr\">{current}</span>\n      {Array.from({ length: width }, (_, k) => (\n        <span\n          key={k}\n          aria-hidden=\"true\"\n          className=\"hb-vi4-cell\"\n          style={{ \"--hb-vi4-r\": index, \"--hb-vi4-i\": k } as React.CSSProperties}\n        >\n          <span className=\"hb-vi4-f\">{even[k] ?? \" \"}</span>\n          <span className=\"hb-vi4-f hb-vi4-b\">{odd[k] ?? \" \"}</span>\n        </span>\n      ))}\n    </span>\n  );\n}\n"
+    }
+  ]
+}

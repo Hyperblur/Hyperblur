@@ -10227,6 +10227,3140 @@
       ]
     },
     {
+      "name": "hero-scroll-expand",
+      "type": "registry:component",
+      "title": "Hero Scroll Expand",
+      "description": "A framed film still grows from a small card to the full viewport while the headline splits apart and blurs out. A timecode, caption and play button settle onto the expanded frame.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "media expansion",
+        "pinned",
+        "film",
+        "showreel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-expand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-expand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-morph",
+      "type": "registry:component",
+      "title": "Hero Scroll Morph",
+      "description": "Twelve app tiles start scattered around the headline, then snap into a grid, bend into an arc and collapse into a single stack as you scroll. The last line of the headline swaps with each layout.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "layout morph",
+        "cards",
+        "saas",
+        "pinned"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-morph.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-horizontal",
+      "type": "registry:component",
+      "title": "Hero Scroll Horizontal",
+      "description": "A pinned hero that turns vertical scroll into a sideways story, from an intro panel through illustrated chapters with parallax numerals. A chapter rail at the bottom fills as you travel.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "horizontal",
+        "story",
+        "parallax",
+        "pinned"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-horizontal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-letters",
+      "type": "registry:component",
+      "title": "Hero Scroll Letters",
+      "description": "A giant word cut out of a black plate shows a night sky through its letters, then the camera flies through the O until the whole sky fills the screen. The real headline and booking pill fade in on the other side.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "zoom",
+        "mask",
+        "typography",
+        "travel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-letters.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-letters.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-curtain",
+      "type": "registry:component",
+      "title": "Hero Scroll Curtain",
+      "description": "A velvet stage curtain printed with a gold title gathers to both sides as you scroll, its folds bunching and hems lifting. Behind it the spotlight comes up on the season, the buttons and three show cards.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "curtain",
+        "theatre",
+        "events",
+        "reveal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-curtain.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-curtain.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-stack",
+      "type": "registry:component",
+      "title": "Hero Scroll Stack",
+      "description": "A split hero where product panels slide up one over another and the ones underneath tilt back, shrink and dim into a deck. The step list on the left follows the panel on top.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "sticky stack",
+        "fintech",
+        "product",
+        "steps"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-stack.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-mask",
+      "type": "registry:component",
+      "title": "Hero Scroll Mask",
+      "description": "An event name starts so large that only a slice of its painted fill is visible, then shrinks into place while the image inside keeps panning. The top bar, facts row and ticket button assemble around it.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "masked text",
+        "scale",
+        "conference",
+        "event"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-mask.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-mask.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-ring",
+      "type": "registry:component",
+      "title": "Hero Scroll Ring",
+      "description": "A ring of product cards seen from above tilts up to eye level and turns as you scroll. The piece facing you is named in the footer with its number and price.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "3d ring",
+        "carousel",
+        "shop",
+        "collection"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-ring.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-ring.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-wipe",
+      "type": "registry:component",
+      "title": "Hero Scroll Wipe",
+      "description": "A slanted wipe line sweeps across the whole hero and turns a gray spreadsheet version of the page into a polished live dashboard, headline included. A glowing handle on the line counts the progress.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "before after",
+        "wipe",
+        "dashboard",
+        "saas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-wipe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-wipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-timeline",
+      "type": "registry:component",
+      "title": "Hero Scroll Timeline",
+      "description": "A winding line draws itself down the right side as you scroll, lighting milestone nodes and their cards one by one. On the left a year and a running total count up in step.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "timeline",
+        "milestones",
+        "counter",
+        "story"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-split",
+      "type": "registry:component",
+      "title": "Hero Scroll Split",
+      "description": "A two-line headline on warm paper pulls apart while a slit between the lines opens into a wide view through whitewashed arches. Location, price and a booking button settle at the bottom.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "split text",
+        "image reveal",
+        "hotel",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-split.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-scroll-depth",
+      "type": "registry:component",
+      "title": "Hero Scroll Depth",
+      "description": "A dusk mountain scene in five layers, sky, far ridge, dolomite towers, wooded hills and foreground pines, with the headline tucked between them. Scrolling pushes the camera in and each layer moves at its own depth.",
+      "categories": [
+        "hero",
+        "hero",
+        "scroll",
+        "parallax",
+        "depth",
+        "outdoor",
+        "travel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-scroll-depth.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-scroll-depth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-prism",
+      "type": "registry:component",
+      "title": "Hero Prism",
+      "description": "A glass prism catches a beam of white light and fans it into a living spectrum behind the headline, with a spectrometer scale along the bottom. The spectrum sways on its own and tilts toward the pointer.",
+      "categories": [
+        "hero",
+        "hero",
+        "prism",
+        "spectrum",
+        "light",
+        "svg",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-prism.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-prism.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-glass-orbs",
+      "type": "registry:component",
+      "title": "Hero Glass Orbs",
+      "description": "Clear glass spheres float beside the copy and bend the grid behind them, each with a mirrored lens image, chromatic rim, caustic and a tinted shadow. The orbs drift in depth with the pointer.",
+      "categories": [
+        "hero",
+        "hero",
+        "glass",
+        "refraction",
+        "orbs",
+        "parallax",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-glass-orbs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-glass-orbs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-stage-light",
+      "type": "registry:component",
+      "title": "Hero Stage Light",
+      "description": "A product launch stage: a single fixture sweeps a cone of warm light with drifting dust across a dark room, the pool of light follows on the floor and a sheen glides over the product. Specs sit on a ruled base line.",
+      "categories": [
+        "hero",
+        "hero",
+        "spotlight",
+        "product",
+        "launch",
+        "stage",
+        "hardware"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-stage-light.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-stage-light.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-kinetic",
+      "type": "registry:component",
+      "title": "Hero Kinetic",
+      "description": "A poster-scale typographic hero with three lines that each move differently: letters pump like an equalizer, an outlined line slides as a marquee and a color wave runs through the last line, whose letters flip on hover.",
+      "categories": [
+        "hero",
+        "hero",
+        "kinetic",
+        "typography",
+        "studio",
+        "marquee",
+        "poster"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-kinetic.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-kinetic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-devices",
+      "type": "registry:component",
+      "title": "Hero Devices",
+      "description": "A laptop lid swings open to reveal a live board, then a phone slides in with notifications and a progress chip pops up. Each device sits on its own depth layer and drifts with the pointer.",
+      "categories": [
+        "hero",
+        "hero",
+        "mockup",
+        "devices",
+        "parallax",
+        "saas",
+        "app"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-devices.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-devices.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-gradient-sphere",
+      "type": "registry:component",
+      "title": "Hero Gradient Sphere",
+      "description": "A split hero with a lit 3D sphere whose gradient mesh swirls inside it, a turning wireframe, an orbit ring with a moon that passes behind, and a row of palette tokens beside the copy.",
+      "categories": [
+        "hero",
+        "hero",
+        "sphere",
+        "gradient",
+        "mesh",
+        "3d",
+        "design tools"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-gradient-sphere.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-gradient-sphere.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-terminal",
+      "type": "registry:component",
+      "title": "Hero Terminal",
+      "description": "A developer hero led by a large terminal that types a command and plays a deploy session line by line, with a filling progress bar, check marks and a live URL, then loops. A copyable command sits above it.",
+      "categories": [
+        "hero",
+        "hero",
+        "terminal",
+        "cli",
+        "developer",
+        "deploy",
+        "typing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-terminal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-terminal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-card-wall",
+      "type": "registry:component",
+      "title": "Hero Card Wall",
+      "description": "Five columns of integration cards scroll in alternating directions on a tilted 3D plane behind the copy, some lit and syncing. The wall fades into the page under the headline.",
+      "categories": [
+        "hero",
+        "hero",
+        "marquee",
+        "integrations",
+        "3d",
+        "cards",
+        "saas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-card-wall.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-card-wall.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-live-metrics",
+      "type": "registry:component",
+      "title": "Hero Live Metrics",
+      "description": "A hero that ends in a working dashboard: revenue ticks up, the line chart slides a new point in every beat and fresh payments drop into the feed. It pauses offscreen and holds still for reduced motion.",
+      "categories": [
+        "hero",
+        "hero",
+        "dashboard",
+        "live",
+        "chart",
+        "analytics",
+        "saas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-live-metrics.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-live-metrics.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-aurora-lit",
+      "type": "registry:component",
+      "title": "Hero Aurora Lit",
+      "description": "A giant dark headline silhouetted against a drifting aurora, rim-lit like an eclipse, with a faint reflection on a glowing horizon line. Quiet, nocturnal and built around the type.",
+      "categories": [
+        "hero",
+        "hero",
+        "aurora",
+        "typography",
+        "glow",
+        "reflection",
+        "night"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-aurora-lit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-aurora-lit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-light-ribbon",
+      "type": "registry:component",
+      "title": "Hero Light Ribbon",
+      "description": "A twisting ribbon of fine light strands sweeps from the bottom of the frame to the top corner, breathing slowly while bright pulses race along it. Copy and stats sit in the open space.",
+      "categories": [
+        "hero",
+        "hero",
+        "ribbon",
+        "light",
+        "svg",
+        "fintech",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-light-ribbon.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-light-ribbon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-swiss",
+      "type": "registry:component",
+      "title": "Hero Swiss",
+      "description": "A minimal editorial hero on paper with a visible twelve-column grid, a huge tight headline that rises line by line, a single accent dot and a numbered index of services. Light by default, with a dark variant.",
+      "categories": [
+        "hero",
+        "hero",
+        "editorial",
+        "minimal",
+        "grid",
+        "studio",
+        "typography"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-swiss.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-swiss.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-title-card",
+      "type": "registry:component",
+      "title": "Cinema Title Card",
+      "description": "An opening title card with anamorphic letterbox bars that close in, a slow push-in on a dusk desert road and a title that settles from wide tracking. A compressed billing block and the release line sit inside the bottom bar.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "letterbox",
+        "title card",
+        "push-in",
+        "film",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-title-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-title-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-trailer-slam",
+      "type": "registry:component",
+      "title": "Cinema Trailer Slam",
+      "description": "Teaser-style words slam into frame one beat at a time with a camera shake, a white flash and an anamorphic flare, then resolve into the title and release date. It loops for showcases or plays once.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "trailer",
+        "kinetic type",
+        "shake",
+        "flash",
+        "teaser"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-trailer-slam.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-trailer-slam.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-credits-roll",
+      "type": "registry:component",
+      "title": "Cinema Credits Roll",
+      "description": "End credits that roll up a dark frame with roles and names aligned on a center gutter, cast and crew sections and a closing studio mark. Hovering or pressing Pause stops the roll.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "credits",
+        "scroll",
+        "team",
+        "about",
+        "film"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-credits-roll.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-credits-roll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-aperture-open",
+      "type": "registry:component",
+      "title": "Cinema Aperture Open",
+      "description": "A camera diaphragm of overlapping metal blades rotates open to reveal a city at dusk and the title, with a live f-stop readout. It cycles by itself or opens and closes on demand.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "iris",
+        "aperture",
+        "reveal",
+        "camera",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-aperture-open.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-aperture-open.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-light-leak",
+      "type": "registry:component",
+      "title": "Cinema Light Leak",
+      "description": "A golden-hour coastline shot on film, with warm light leaks drifting across the frame, an edge burn, moving grain, gate weave and a running timecode. The caption sits low on the left like a home-movie title.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "light leak",
+        "film grain",
+        "analog",
+        "super 8",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-light-leak.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-light-leak.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-projector-intro",
+      "type": "registry:component",
+      "title": "Cinema Projector Intro",
+      "description": "A dark theater where the projector beam flickers on over the audience, dust drifts through the light and the screen runs a reel card before the title appears with scratches and flicker. Built for film clubs and screening nights.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "projector",
+        "theater",
+        "flicker",
+        "intro",
+        "events"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-projector-intro.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-projector-intro.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-depth-fog",
+      "type": "registry:component",
+      "title": "Cinema Depth Fog",
+      "description": "Five mountain ridges at different depths with fog banks drifting between them, a pale sun and birds crossing the sky. Each layer shifts with the pointer by its own depth, and an altitude scale runs down the right edge.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "parallax",
+        "fog",
+        "landscape",
+        "documentary",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-depth-fog.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-depth-fog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-split-reveal",
+      "type": "registry:component",
+      "title": "Cinema Split Reveal",
+      "description": "A split-screen poster for two leads, a rain-soaked night harbor against a desert at dusk, divided by a glowing diagonal seam. Hovering or focusing a side pushes the seam across, opens that character's line and recolors the shared title.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "split screen",
+        "diagonal",
+        "characters",
+        "series",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-split-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-split-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-countdown-leader",
+      "type": "registry:component",
+      "title": "Cinema Countdown Leader",
+      "description": "A film leader countdown with a sweeping dial, crosshairs and frame labels that ticks down once per second, pops a white frame and gives way to the event details. It can be skipped and replayed.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "countdown",
+        "leader",
+        "intro",
+        "premiere",
+        "event"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-countdown-leader.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-countdown-leader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-subtitles",
+      "type": "registry:component",
+      "title": "Cinema Subtitles",
+      "description": "A night drive scene with streetlights sweeping through the cabin and subtitles synced to a timeline, with speaker labels, sound cues and a scrubber that marks every line. Play, pause, seek and toggle captions.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "subtitles",
+        "captions",
+        "player",
+        "timeline",
+        "dialogue"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-subtitles.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-subtitles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-dolly-zoom",
+      "type": "registry:component",
+      "title": "Cinema Dolly Zoom",
+      "description": "A true dolly zoom down a hallway of door frames: the figure at the end keeps its size while the corridor stretches and compresses around it, with focal length and dolly distance readouts. Runs by itself or follows a progress value.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "dolly zoom",
+        "perspective",
+        "suspense",
+        "scroll",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-dolly-zoom.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-dolly-zoom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-chapter-select",
+      "type": "registry:component",
+      "title": "Cinema Chapter Select",
+      "description": "A chapter menu with illustrated poster cards, watched progress and a backdrop that crossfades to the colors of the chosen chapter. Arrow keys move between chapters and the play button resumes where the viewer stopped.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "chapters",
+        "posters",
+        "menu",
+        "streaming",
+        "selector"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-chapter-select.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-chapter-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-now-showing",
+      "type": "registry:component",
+      "title": "Cinema Now Showing",
+      "description": "A now-showing section with a poster, film facts and a paper ticket where the visitor picks a date, a showtime and the number of seats. Booking tears the stub off and prints the row, seats and a barcode.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "tickets",
+        "showtimes",
+        "booking",
+        "theater",
+        "ecommerce"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-now-showing.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-now-showing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinema-marquee-sign",
+      "type": "registry:component",
+      "title": "Cinema Marquee Sign",
+      "description": "A theater facade in 3D with a neon crown, a vertical blade sign that spells the venue, chasing bulbs and a backlit letter board whose tiles swing onto their rails for each new program. The sign tilts with the pointer.",
+      "categories": [
+        "cinematic",
+        "cinematic",
+        "marquee",
+        "neon",
+        "3d",
+        "letter board",
+        "theater"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/cinema-marquee-sign.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/cinema-marquee-sign.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-polar-veil",
+      "type": "registry:component",
+      "title": "Polar Veil",
+      "description": "Aurora curtains made of fine vertical rays that sway and shimmer over a night ridge, with twinkling stars and a light film grain. Pure CSS and SVG, no canvas.",
+      "categories": [
+        "overlay",
+        "background",
+        "aurora",
+        "night",
+        "grain",
+        "css",
+        "landing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-polar-veil.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-polar-veil.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-flow-paths",
+      "type": "registry:component",
+      "title": "Flow Paths",
+      "description": "A bundle of SVG curves that crosses the frame and twists through a pinch point, with bright glints racing along random strands. The whole bundle breathes slowly.",
+      "categories": [
+        "overlay",
+        "background",
+        "svg",
+        "paths",
+        "lines",
+        "flow",
+        "hero"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-flow-paths.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-flow-paths.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-contour-lines",
+      "type": "registry:component",
+      "title": "Contour Lines",
+      "description": "A survey map of slowly reshaping hills: nested contour lines that merge where hills meet, bolder index lines with elevation labels, summit markers and edge ticks.",
+      "categories": [
+        "overlay",
+        "background",
+        "topographic",
+        "map",
+        "contours",
+        "canvas",
+        "outdoor"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-contour-lines.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-contour-lines.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-warp-stars",
+      "type": "registry:component",
+      "title": "Warp Stars",
+      "description": "A 3D starfield that cruises, spools up into streaking light speed with a blue-shifted core, then drops out with a flash. Can also hold a fixed warp level.",
+      "categories": [
+        "overlay",
+        "background",
+        "stars",
+        "space",
+        "warp",
+        "canvas",
+        "launch"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-warp-stars.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-warp-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-mesh-lattice",
+      "type": "registry:component",
+      "title": "Mesh Lattice",
+      "description": "A smooth mesh gradient whose color points drift on their own paths, drawn with the lattice and handles of a design tool. One handle at a time is selected and shows its color value.",
+      "categories": [
+        "overlay",
+        "background",
+        "mesh gradient",
+        "design tool",
+        "gradient",
+        "canvas",
+        "handles"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-mesh-lattice.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-mesh-lattice.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-grain-gradient",
+      "type": "registry:component",
+      "title": "Grain Gradient",
+      "description": "Warm color fields that drift and blend under a heavy, tactile grain with soft mottling, like a risograph print. The grain can flicker like film or stay still.",
+      "categories": [
+        "overlay",
+        "background",
+        "grain",
+        "noise",
+        "gradient",
+        "css",
+        "editorial"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-grain-gradient.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-grain-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-grid-beams",
+      "type": "registry:component",
+      "title": "Grid Beams",
+      "description": "A fine grid lit from the top, with beams of light that shoot along its lines and sparks that flash at the crossings. Beams snap to the grid at any size.",
+      "categories": [
+        "overlay",
+        "background",
+        "grid",
+        "beams",
+        "light",
+        "css",
+        "saas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-grid-beams.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-grid-beams.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-beacon-rings",
+      "type": "registry:component",
+      "title": "Beacon Rings",
+      "description": "Segmented rings that launch from a pulsing core and rotate as they expand, over faint guide circles and a crosshair. Each launch kicks the core.",
+      "categories": [
+        "overlay",
+        "background",
+        "rings",
+        "ripple",
+        "pulse",
+        "css",
+        "signal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-beacon-rings.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-beacon-rings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-wave-lines",
+      "type": "registry:component",
+      "title": "Wave Lines",
+      "description": "Rows of thin lines in perspective that ripple like a sheet of fabric, with near rows hiding the far ones. A swell travels across and lights the crests in the accent color.",
+      "categories": [
+        "overlay",
+        "background",
+        "waves",
+        "lines",
+        "terrain",
+        "canvas",
+        "perspective"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-wave-lines.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-wave-lines.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-bokeh",
+      "type": "registry:component",
+      "title": "Bokeh",
+      "description": "Out-of-focus light discs with bright rims that drift upward while a slow focus pull sweeps through the depth, turning near discs into crisp points and far ones into soft glows.",
+      "categories": [
+        "overlay",
+        "background",
+        "bokeh",
+        "lights",
+        "depth of field",
+        "canvas",
+        "warm"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-bokeh.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-bokeh.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-spotlight-grid",
+      "type": "registry:component",
+      "title": "Spotlight Grid",
+      "description": "A dim grid where a spotlight follows the pointer, or roams on its own, and reveals bright lines, crossing dots and glowing tiles that blink on and off.",
+      "categories": [
+        "overlay",
+        "background",
+        "grid",
+        "spotlight",
+        "pointer",
+        "tiles",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-spotlight-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-spotlight-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-glow-orbs",
+      "type": "registry:component",
+      "title": "Glow Orbs",
+      "description": "Glossy lit spheres with halos that float on slow orbits and change depth, reflected on a dark polished floor below them.",
+      "categories": [
+        "overlay",
+        "background",
+        "orbs",
+        "spheres",
+        "reflection",
+        "canvas",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-glow-orbs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-glow-orbs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-horizon-rise",
+      "type": "registry:component",
+      "title": "Horizon Rise",
+      "description": "A sun rising behind the curved edge of a planet: the atmosphere rim brightens, a lens streak spreads along the horizon and the stars fade. Loops or rises once and holds.",
+      "categories": [
+        "overlay",
+        "background",
+        "sunrise",
+        "planet",
+        "horizon",
+        "css",
+        "launch"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-horizon-rise.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-horizon-rise.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-soft-clouds",
+      "type": "registry:component",
+      "title": "Soft Clouds",
+      "description": "Three layers of shaded clouds, lit on top and tinted underneath, drifting at different speeds over a sky with a low sun glow. Comes in dusk, night and day.",
+      "categories": [
+        "overlay",
+        "background",
+        "clouds",
+        "sky",
+        "parallax",
+        "canvas",
+        "calm"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-soft-clouds.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-soft-clouds.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-halftone",
+      "type": "registry:component",
+      "title": "Halftone",
+      "description": "A moving gradient printed as a two-ink halftone: each ink has its own screen angle and a slight misregistration, and the dots swell and shrink as the tones drift.",
+      "categories": [
+        "overlay",
+        "background",
+        "halftone",
+        "print",
+        "dots",
+        "canvas",
+        "editorial"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-halftone.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-halftone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-metaballs",
+      "type": "registry:component",
+      "title": "Metaballs",
+      "description": "Glossy two-tone blobs that drift, merge and split like a lava lamp, with a bright rim and a specular edge where they meet the light. The field is computed at low resolution and scaled up smoothly, so it stays light on the CPU.",
+      "categories": [
+        "overlay",
+        "background",
+        "metaballs",
+        "blobs",
+        "liquid",
+        "canvas",
+        "lava lamp"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-metaballs.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-metaballs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-flow-field",
+      "type": "registry:component",
+      "title": "Flow Field",
+      "description": "Thousands of particles follow a slowly shifting vector field and leave fading trails, tinted from one color to another by their heading. The pointer stirs a local eddy into the current.",
+      "categories": [
+        "overlay",
+        "background",
+        "flow field",
+        "particles",
+        "trails",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-flow-field.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-flow-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-voronoi",
+      "type": "registry:component",
+      "title": "Voronoi Cells",
+      "description": "A tiling of drifting Voronoi cells separated by thin gaps, each shaded like a glass tile. Cells light up one by one, a soft band sweeps across them, and the cell under the pointer glows.",
+      "categories": [
+        "overlay",
+        "background",
+        "voronoi",
+        "cells",
+        "tiles",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-voronoi.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-voronoi.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-dot-swell",
+      "type": "registry:component",
+      "title": "Dot Swell",
+      "description": "A perspective sea of dots rolling under interfering swells, with crests brightening toward the accent color and the far rows fading into fog at the horizon.",
+      "categories": [
+        "overlay",
+        "background",
+        "dots",
+        "wave",
+        "perspective",
+        "canvas",
+        "3d"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-dot-swell.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-dot-swell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-glyph-rain",
+      "type": "registry:component",
+      "title": "Glyph Rain",
+      "description": "Falling columns of glyphs on three depth planes, with bright flickering heads, long fading tails and a slow scan line that lifts the glyphs it crosses. Choose hex, binary, block or symbol glyphs, or pass your own.",
+      "categories": [
+        "overlay",
+        "background",
+        "code rain",
+        "glyphs",
+        "terminal",
+        "canvas",
+        "monospace"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-glyph-rain.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-glyph-rain.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-circuit",
+      "type": "registry:component",
+      "title": "Circuit Traces",
+      "description": "A procedurally routed circuit board with 45-degree traces, pads and chip packages. Pulses of light travel along the traces and flash the pad they arrive at.",
+      "categories": [
+        "overlay",
+        "background",
+        "circuit",
+        "pcb",
+        "pulses",
+        "canvas",
+        "tech"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-circuit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-circuit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-liquid-chrome",
+      "type": "registry:component",
+      "title": "Liquid Chrome",
+      "description": "A slowly warping surface of polished chrome with sky, horizon and ground reflections banded across the folds, lightly tinted by an accent color.",
+      "categories": [
+        "overlay",
+        "background",
+        "chrome",
+        "liquid",
+        "metal",
+        "canvas",
+        "reflective"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-liquid-chrome.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-liquid-chrome.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-cloth",
+      "type": "registry:component",
+      "title": "Satin Cloth",
+      "description": "A sheet of satin rippling in a slow breeze, lit per facet with soft diffuse light and a narrow sheen that slides along the folds.",
+      "categories": [
+        "overlay",
+        "background",
+        "cloth",
+        "satin",
+        "fabric",
+        "canvas",
+        "waves"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-cloth.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-cloth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-crystal-facets",
+      "type": "registry:component",
+      "title": "Crystal Facets",
+      "description": "A low-poly crystal surface whose facets breathe in depth while a light orbits above them. Facets that face the light glint, and a diagonal shimmer passes over the whole surface.",
+      "categories": [
+        "overlay",
+        "background",
+        "low poly",
+        "crystal",
+        "facets",
+        "canvas",
+        "light"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-crystal-facets.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-crystal-facets.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-lightning",
+      "type": "registry:component",
+      "title": "Lightning Storm",
+      "description": "A night storm with branching bolts that strike at random intervals, light up the clouds with a restrike and fade, over a layer of slanted rain.",
+      "categories": [
+        "overlay",
+        "background",
+        "lightning",
+        "storm",
+        "rain",
+        "canvas",
+        "weather"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-lightning.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-lightning.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-fireflies",
+      "type": "registry:component",
+      "title": "Fireflies",
+      "description": "Warm fireflies wander over a dusk meadow and blink on their own rhythms. Distant ones glow behind the grass and near ones float in front of it.",
+      "categories": [
+        "overlay",
+        "background",
+        "fireflies",
+        "night",
+        "glow",
+        "canvas",
+        "nature"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-fireflies.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-fireflies.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-vortex",
+      "type": "registry:component",
+      "title": "Vortex Tunnel",
+      "description": "Segmented rings rush toward the viewer through a twisting tunnel whose far end sways, with sparks spiraling along the walls and a glowing core.",
+      "categories": [
+        "overlay",
+        "background",
+        "vortex",
+        "tunnel",
+        "spiral",
+        "canvas",
+        "warp"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-vortex.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-vortex.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-hex-pulse",
+      "type": "registry:component",
+      "title": "Hex Pulse",
+      "description": "A honeycomb grid where pulses ripple out from random cells, lighting outlines with a sharp leading edge and a slow afterglow. Moving or tapping the pointer sends a pulse from that spot.",
+      "categories": [
+        "overlay",
+        "background",
+        "hexagon",
+        "grid",
+        "pulse",
+        "canvas",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-hex-pulse.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-hex-pulse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-radar",
+      "type": "registry:component",
+      "title": "Radar Scope",
+      "description": "A phosphor radar display with range rings, bearing ticks and a rotating sweep. Contacts flare as the beam passes and fade until the next turn, some with track labels.",
+      "categories": [
+        "overlay",
+        "background",
+        "radar",
+        "sweep",
+        "hud",
+        "canvas",
+        "tracking"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-radar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-radar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bg-helix-threads",
+      "type": "registry:component",
+      "title": "Helix Threads",
+      "description": "Double-helix threads cross the frame at different depths, twisting continuously with base-pair rungs between the strands and depth shading on every segment.",
+      "categories": [
+        "overlay",
+        "background",
+        "helix",
+        "dna",
+        "science",
+        "canvas",
+        "threads"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/bg-helix-threads.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/bg-helix-threads.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-tilt-spotlight",
+      "type": "registry:component",
+      "title": "Auth Tilt Spotlight",
+      "description": "A sign-in card that tilts toward the pointer in 3D, with a rotating conic border and a spotlight that follows the cursor across the surface. Includes SSO, email and password with validation, a loading sweep and a drawn success check.",
+      "categories": [
+        "auth",
+        "auth",
+        "login",
+        "tilt",
+        "spotlight",
+        "animated border",
+        "3d"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-tilt-spotlight.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-tilt-spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-split-assemble",
+      "type": "registry:component",
+      "title": "Auth Split Assemble",
+      "description": "A split sign-in section whose isometric illustration responds to the form: three floating slabs drop and lock together as the email and password become valid, and a beam lights the stack on success. Captions and progress pips follow each step.",
+      "categories": [
+        "auth",
+        "auth",
+        "login",
+        "split screen",
+        "isometric",
+        "illustration",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-split-assemble.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-split-assemble.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-aurora-glass",
+      "type": "registry:component",
+      "title": "Auth Aurora Glass",
+      "description": "A frosted glass sign-in card under drifting aurora curtains whose colors react to the form: one hue for the email field, another for the password, amber when Caps Lock is on and green on success. Floating labels, a stay-signed-in switch and a status line complete it.",
+      "categories": [
+        "auth",
+        "auth",
+        "login",
+        "glassmorphism",
+        "aurora",
+        "caps lock",
+        "floating label"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-aurora-glass.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-aurora-glass.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-passkey-handshake",
+      "type": "registry:component",
+      "title": "Auth Passkey Handshake",
+      "description": "A passkey sign-in built around a dial of sixty ticks: a sweep while the browser looks for a passkey, a draining countdown ring while you confirm on your device, then every tick lights up as the signature is verified. A live checklist shows each step of the ceremony.",
+      "categories": [
+        "auth",
+        "auth",
+        "passkey",
+        "webauthn",
+        "passwordless",
+        "countdown",
+        "security"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-passkey-handshake.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-passkey-handshake.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-magic-flight",
+      "type": "registry:component",
+      "title": "Auth Magic Flight",
+      "description": "A dark magic link sign-in where the letter folds into an envelope and flies along a dotted route into an inbox tray that catches it and shows a badge. The sent state has a live expiry bar, an Open mail button and a resend cooldown.",
+      "categories": [
+        "auth",
+        "auth",
+        "magic link",
+        "passwordless",
+        "email",
+        "envelope",
+        "countdown"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-magic-flight.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-magic-flight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-social-orbit",
+      "type": "registry:component",
+      "title": "Auth Social Orbit",
+      "description": "A social-first sign-in where provider buttons circle the brand mark on a slow orbit that pauses on hover. Pointing at a provider draws a beam to the center, tints the scene and morphs the main button to Continue with that provider.",
+      "categories": [
+        "auth",
+        "auth",
+        "social login",
+        "oauth",
+        "orbit",
+        "providers",
+        "sign in"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-social-orbit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-social-orbit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-status-rail",
+      "type": "registry:component",
+      "title": "Auth Status Rail",
+      "description": "A sign-in card with a live status rail beside the form: edge latency with a moving sparkline, workspace detection that switches to SSO for known domains, password policy, device trust and session issuance, each lighting up as you type.",
+      "categories": [
+        "auth",
+        "auth",
+        "login",
+        "sso",
+        "status",
+        "timeline",
+        "security"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-status-rail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-status-rail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-lock-reveal",
+      "type": "registry:component",
+      "title": "Auth Lock Reveal",
+      "description": "A vault unlock screen with a cutaway pin-tumbler padlock: each typed character sets a pin at the shear line, a key slides in on submit and the shackle springs open to reveal the vault contents. Wrong or short passwords shake the lock.",
+      "categories": [
+        "auth",
+        "auth",
+        "unlock",
+        "vault",
+        "padlock",
+        "re-authentication",
+        "success"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-lock-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-lock-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-flow-otp-verify",
+      "type": "registry:component",
+      "title": "Auth Flow OTP Verify",
+      "description": "A one-time code screen built on a single native input under a segmented rail: digits drop into their slots, a glowing bar glides to the next one and the code checks itself when complete. A delivery switch for text, email or call, a depleting resend ring, attempt limits and a verifying sweep complete the flow.",
+      "categories": [
+        "auth",
+        "auth",
+        "otp",
+        "verification",
+        "one-time code",
+        "2fa",
+        "resend timer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-flow-otp-verify.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-flow-otp-verify.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-flow-reset-password",
+      "type": "registry:component",
+      "title": "Auth Flow Reset Password",
+      "description": "A reset screen that measures strength in bits of entropy on a calibrated track and shows the password's makeup as colored tiles without revealing a character. It warns about reused or common passwords, points to the exact character where the confirmation differs, counts down the reset link and ends by listing the sessions it signed out.",
+      "categories": [
+        "auth",
+        "auth",
+        "reset password",
+        "strength meter",
+        "entropy",
+        "security",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-flow-reset-password.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-flow-reset-password.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-flow-two-factor-setup",
+      "type": "registry:component",
+      "title": "Auth Flow Two-Factor Setup",
+      "description": "A three-step authenticator setup: a scannable-looking code grid that ripples in with a scan line and a copyable setup key, a code check beside a ring synced to the 30-second window, and blurred backup codes that must be revealed and confirmed as stored before finishing.",
+      "categories": [
+        "auth",
+        "auth",
+        "2fa",
+        "authenticator",
+        "backup codes",
+        "security",
+        "setup"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-flow-two-factor-setup.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-flow-two-factor-setup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-flow-new-device",
+      "type": "registry:component",
+      "title": "Auth Flow New Device",
+      "description": "A new sign-in review with a dotted map that traces an arc from the usual location to the new one, device facts and a number-matching challenge: tap the number shown on the other device to approve it. Blocking the attempt plays a checklist of the lockdown steps taken.",
+      "categories": [
+        "auth",
+        "auth",
+        "new device",
+        "number matching",
+        "security alert",
+        "map",
+        "approval"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-flow-new-device.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-flow-new-device.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-flow-signup-wizard",
+      "type": "registry:component",
+      "title": "Auth Flow Signup Wizard",
+      "description": "A one-question-per-screen sign-up that slides each question in with a blur, advances on Enter and toggles choices with number keys. Beside it a member pass builds itself live from the answers, with a gradient avatar, workspace address, chosen uses and a stamp when the account is created.",
+      "categories": [
+        "auth",
+        "auth",
+        "sign up",
+        "wizard",
+        "onboarding",
+        "conversational form",
+        "steps"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-flow-signup-wizard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-flow-signup-wizard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-flow-lock-screen",
+      "type": "registry:component",
+      "title": "Auth Flow Lock Screen",
+      "description": "A device-style lock screen with rolling clock digits over a layered dusk wallpaper. Unlocking opens a frosted PIN pad that accepts the keyboard, shakes on a wrong PIN, locks out with a countdown ring after too many tries, and lifts away with an opening shackle on success.",
+      "categories": [
+        "auth",
+        "auth",
+        "lock screen",
+        "pin pad",
+        "clock",
+        "lockout",
+        "session"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-flow-lock-screen.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-flow-lock-screen.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-flow-team-invite",
+      "type": "registry:component",
+      "title": "Auth Flow Team Invite",
+      "description": "An invite acceptance that starts from a ticket with the inviter and member stack, creates the account with the email already verified, then turns into a token field for inviting teammates. Emails become chips with a role switch and an External tag, a seat meter fills as you add people, and sent chips fly into the member stack.",
+      "categories": [
+        "auth",
+        "auth",
+        "invite",
+        "sign up",
+        "team",
+        "seats",
+        "onboarding"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/auth-flow-team-invite.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/auth-flow-team-invite.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-toggle-burst",
+      "type": "registry:component",
+      "title": "Pricing Toggle Burst",
+      "description": "Three plans with a spring-loaded monthly and yearly switch. Going yearly fires a burst of shards from the discount badge, strikes through the old price and slides in the yearly saving on every card.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "billing toggle",
+        "discount",
+        "burst",
+        "plans",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-toggle-burst.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-toggle-burst.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-usage-calculator",
+      "type": "registry:component",
+      "title": "Pricing Usage Calculator",
+      "description": "Four metered sliders with free allowances hatched on the track feed a live receipt with a stacked cost bar. It also points to the cheapest flat plan that covers the usage and shows the monthly saving.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "calculator",
+        "usage",
+        "metered",
+        "slider",
+        "receipt"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-usage-calculator.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-usage-calculator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-spotlight-grid",
+      "type": "registry:component",
+      "title": "Pricing Spotlight Grid",
+      "description": "A single light follows the pointer across three plan cards, lighting their borders, inner surface and a dotted field in the gaps between them. When the pointer leaves, the light settles on a resting point.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "spotlight",
+        "pointer",
+        "glow border",
+        "plans",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-spotlight-grid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-spotlight-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-matrix-sticky",
+      "type": "registry:component",
+      "title": "Pricing Matrix Sticky",
+      "description": "A full feature matrix in its own scroller whose plan header sticks and compacts as you scroll. Columns light up under the pointer and an Only show differences switch folds away rows every plan shares.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "comparison",
+        "matrix",
+        "sticky header",
+        "table",
+        "filter"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-matrix-sticky.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-matrix-sticky.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-tier-carousel",
+      "type": "registry:component",
+      "title": "Pricing Tier Carousel",
+      "description": "Five plans in a 3D cover flow you can swipe, drag, click or drive with arrow keys. A price rail below places every tier on a log scale and a ring glides to the active one while the backdrop takes its color.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "carousel",
+        "cover flow",
+        "3d",
+        "swipe",
+        "tiers"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-tier-carousel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-tier-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-ribbon-highlight",
+      "type": "registry:component",
+      "title": "Pricing Ribbon Highlight",
+      "description": "One spinning gradient frame glides between plan cards as you hover or tab, then springs back to the selected plan. The best value plan wears a corner ribbon with a passing shine and the cards work as a radio group.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "ribbon",
+        "animated border",
+        "highlight",
+        "radio group",
+        "plans"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-ribbon-highlight.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-ribbon-highlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-enterprise-contact",
+      "type": "registry:component",
+      "title": "Pricing Enterprise Contact",
+      "description": "An enterprise card with value points, compliance seals and customers beside a scoping form. Team size and add-ons update a ballpark annual contract live, and booking a call slot ends in a drawn confirmation.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "enterprise",
+        "contact sales",
+        "quote",
+        "booking",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-enterprise-contact.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-enterprise-contact.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-credit-stack",
+      "type": "registry:component",
+      "title": "Pricing Credit Stack",
+      "description": "Credit packs as a radio list next to a stack of coins that grows and drops new coins in as you pick a bigger pack, with bonus credits glowing on top. Below, live counts show what the credits buy.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "credits",
+        "top up",
+        "bonus",
+        "packs",
+        "one-time"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-credit-stack.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-credit-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-seat-stepper",
+      "type": "registry:component",
+      "title": "Pricing Seat Stepper",
+      "description": "A press-and-hold seat stepper that fills a row of teammate avatars while a dot climbs down a volume staircase chart. Price per seat, savings and the next price break update live, with a jump to the break.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "seats",
+        "stepper",
+        "volume discount",
+        "team",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-seat-stepper.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-seat-stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-single-plan",
+      "type": "registry:component",
+      "title": "Pricing Single Plan",
+      "description": "A minimal one-plan page with an oversized price, a slowly turning guarantee seal and a shining call to action. Every included feature ticks itself on in sequence when the section scrolls into view.",
+      "categories": [
+        "pricing",
+        "pricing",
+        "single plan",
+        "minimal",
+        "guarantee",
+        "checklist",
+        "section"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/pricing-single-plan.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/pricing-single-plan.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-block-wipe",
+      "type": "registry:component",
+      "title": "Text Block Wipe",
+      "description": "Two stacked color bars sweep across each line, cover it and pull away to uncover the text, like an editorial title card. Lines run in sequence and the text settles with a short slide.",
+      "categories": [
+        "text",
+        "reveal",
+        "wipe",
+        "editorial",
+        "headline",
+        "bar",
+        "scroll"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-block-wipe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-block-wipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-cipher-lock",
+      "type": "registry:component",
+      "title": "Text Cipher Lock",
+      "description": "Characters churn through cipher glyphs and lock one at a time in a shuffled order, each with a short accent flash and a tick underneath. Every glyph sits in a cell sized to the real letter, so the line never shifts.",
+      "categories": [
+        "text",
+        "scramble",
+        "decode",
+        "cipher",
+        "terminal",
+        "resolve",
+        "glyphs"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-cipher-lock.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-cipher-lock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-weight-wave",
+      "type": "registry:component",
+      "title": "Text Weight Wave",
+      "description": "A swell of font weight rolls through the letters on a loop, tinting each one as the crest passes. Every letter reserves its boldest width, so the line keeps still while the weight moves.",
+      "categories": [
+        "text",
+        "variable font",
+        "weight",
+        "wave",
+        "loop",
+        "typography",
+        "kinetic"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-weight-wave.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-weight-wave.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-letter-flip",
+      "type": "registry:component",
+      "title": "Text Letter Flip",
+      "description": "Each letter is a two-sided tile that turns over in a cascade to show the next word, with a small overshoot as it lands. Works on the horizontal or vertical axis and pauses on hover.",
+      "categories": [
+        "text",
+        "flip",
+        "3d",
+        "rotate",
+        "words",
+        "cascade",
+        "headline"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-letter-flip.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-letter-flip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-foil-sweep",
+      "type": "registry:component",
+      "title": "Text Foil Sweep",
+      "description": "Text printed like holographic foil: a metal base, a band of spectrum colors and a hard specular streak that sweeps across. With a mouse, the streak follows the pointer instead.",
+      "categories": [
+        "text",
+        "foil",
+        "holographic",
+        "metal",
+        "shine",
+        "gradient",
+        "premium"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-foil-sweep.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-foil-sweep.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-line-rise",
+      "type": "registry:component",
+      "title": "Text Line Rise",
+      "description": "Finds where the paragraph actually wraps and lifts each visual line out of its own mask with a skew that straightens on arrival. A hairline draws above each line just before it rises.",
+      "categories": [
+        "text",
+        "lines",
+        "mask",
+        "reveal",
+        "paragraph",
+        "editorial",
+        "scroll"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-line-rise.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-line-rise.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-weight-trail",
+      "type": "registry:component",
+      "title": "Text Weight Trail",
+      "description": "Letters gain weight and color from how fast the pointer moves across them, then cool back down, so a quick swipe leaves a bold trail that fades. Optional autoplay sweeps a ghost pointer when idle.",
+      "categories": [
+        "text",
+        "pointer",
+        "velocity",
+        "variable font",
+        "weight",
+        "trail",
+        "interactive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-weight-trail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-weight-trail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-path-flow",
+      "type": "registry:component",
+      "title": "Text Path Flow",
+      "description": "A line of text streams along a wave that slowly breathes and shifts, with a dotted guide underneath and soft fades at both ends. Drawn in SVG, so it scales cleanly to any width.",
+      "categories": [
+        "text",
+        "svg",
+        "path",
+        "wave",
+        "marquee",
+        "ribbon",
+        "flow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-path-flow.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-path-flow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-magnetic",
+      "type": "registry:component",
+      "title": "Text Magnetic",
+      "description": "Each letter hangs on its own spring and leans toward the pointer, tilting with its speed and wobbling back into place when released. Autoplay drives a small magnet across the line when nobody is pointing.",
+      "categories": [
+        "text",
+        "magnetic",
+        "spring",
+        "physics",
+        "pointer",
+        "letters",
+        "interactive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-magnetic.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-magnetic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-roll-words",
+      "type": "registry:component",
+      "title": "Text Roll Words",
+      "description": "Every letter position is a reel that rolls to the next word at its own speed, and each reel resizes to the exact width of its new letter. The cycle wraps without rewinding.",
+      "categories": [
+        "text",
+        "reel",
+        "words",
+        "rotate",
+        "slot",
+        "inline",
+        "headline"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-roll-words.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-roll-words.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-ink-draw",
+      "type": "registry:component",
+      "title": "Text Ink Draw",
+      "description": "The outline of each glyph draws itself like a pen stroke, then ink floods the letters from left to right and the outline settles into a faint keyline. Rendered in SVG and sized to the text.",
+      "categories": [
+        "text",
+        "outline",
+        "stroke",
+        "draw",
+        "fill",
+        "svg",
+        "signature"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-ink-draw.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-ink-draw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-rack-focus",
+      "type": "registry:component",
+      "title": "Text Rack Focus",
+      "description": "A camera focus pull across a line: the plane of focus travels in from the left, lands on a chosen word with a hint of chromatic fringe, then the depth of field opens until the whole line is sharp.",
+      "categories": [
+        "text",
+        "focus",
+        "blur",
+        "camera",
+        "cinematic",
+        "depth",
+        "headline"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-rack-focus.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-rack-focus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-swap-pill",
+      "type": "registry:component",
+      "title": "Text Swap Pill",
+      "description": "A sentence with a tinted pill whose word tumbles out and in while the pill eases to the new width and color. A hairline inside the pill shows the time until the next word.",
+      "categories": [
+        "text",
+        "rotating",
+        "words",
+        "pill",
+        "inline",
+        "hero",
+        "width"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-swap-pill.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-swap-pill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-shatter",
+      "type": "registry:component",
+      "title": "Text Shatter",
+      "description": "Every letter splits into four shards that burst apart from the point you touch and spring back into a clean glyph. Works on hover and focus, as a click toggle, or on its own loop.",
+      "categories": [
+        "text",
+        "shatter",
+        "break",
+        "shards",
+        "hover",
+        "explode",
+        "interactive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/text-shatter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/text-shatter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-iris-wipe",
+      "type": "registry:component",
+      "title": "Transition Iris Wipe",
+      "description": "A film-style iris that closes on the first view to a single point, holds on black for a beat, then opens on the second. A lit ring rides the aperture edge and the closing view sinks back as it goes.",
+      "categories": [
+        "transitions",
+        "iris",
+        "film",
+        "clip-path",
+        "two views",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-iris-wipe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-iris-wipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-diagonal-slice",
+      "type": "registry:component",
+      "title": "Transition Diagonal Slice",
+      "description": "The next view arrives cut into slanted bands that slide in along their own angle, alternating from top and bottom. The view behind recedes and dims while the bands lock together.",
+      "categories": [
+        "transitions",
+        "slice",
+        "diagonal",
+        "bands",
+        "stagger",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-diagonal-slice.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-diagonal-slice.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-pixel-dissolve",
+      "type": "registry:component",
+      "title": "Transition Pixel Dissolve",
+      "description": "A grid of square cells blinks on in a diagonal, slightly scattered order, flashing the accent before going solid. The views swap behind the grid and the cells drop away in a second wave.",
+      "categories": [
+        "transitions",
+        "pixel",
+        "dissolve",
+        "grid",
+        "retro",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-pixel-dissolve.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-pixel-dissolve.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-shared-morph",
+      "type": "registry:component",
+      "title": "Transition Shared Morph",
+      "description": "Elements that carry the same data-morph name in both views fly from their old box to their new one while the rest of the views crossfade. Good for a list row that opens into a detail card.",
+      "categories": [
+        "transitions",
+        "shared element",
+        "morph",
+        "flip",
+        "layout",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-shared-morph.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-shared-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-curtain-call",
+      "type": "registry:component",
+      "title": "Transition Curtain Call",
+      "description": "Pleated stage drapes swing shut from both wings with a lagging hem, a valance drops and a warm spot hits the closed curtain. The scene changes behind it and the drapes part again.",
+      "categories": [
+        "transitions",
+        "curtain",
+        "theatre",
+        "stage",
+        "drapes",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-curtain-call.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-curtain-call.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-ripple-reveal",
+      "type": "registry:component",
+      "title": "Transition Ripple Reveal",
+      "description": "Click anywhere and the other view spreads out as a circle from that exact point, chased by two thin rings. Built for theme switches and before and after toggles.",
+      "categories": [
+        "transitions",
+        "ripple",
+        "click",
+        "circle",
+        "theme toggle",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-ripple-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-ripple-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-page-turn",
+      "type": "registry:component",
+      "title": "Transition Page Turn",
+      "description": "The right half of the view lifts at the spine and turns over like a magazine page, with the next view printed on its back. Shading follows the angle of the page as it travels.",
+      "categories": [
+        "transitions",
+        "page turn",
+        "book",
+        "3d",
+        "magazine",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-page-turn.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-page-turn.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-zoom-through",
+      "type": "registry:component",
+      "title": "Transition Zoom Through",
+      "description": "The camera dives into a focal point: the first view rushes past and blurs out while the second grows into place from deep behind, with light streaks for speed. Switching back zooms out the same way.",
+      "categories": [
+        "transitions",
+        "zoom",
+        "depth",
+        "focus",
+        "streaks",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-zoom-through.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-zoom-through.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-split-flap",
+      "type": "registry:component",
+      "title": "Transition Split Flap",
+      "description": "The view is cut into flaps hinged at the middle, like a station board. Each column drops its top half in turn, left to right, and settles with a small bounce.",
+      "categories": [
+        "transitions",
+        "split flap",
+        "departures",
+        "board",
+        "3d",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-split-flap.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-split-flap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-liquid-wipe",
+      "type": "registry:component",
+      "title": "Transition Liquid Wipe",
+      "description": "A wavy liquid front with a bulging belly pours across the frame, led by a colored rim that moves out of step with it. Reversing drains it back the way it came.",
+      "categories": [
+        "transitions",
+        "liquid",
+        "wipe",
+        "wave",
+        "gooey",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-liquid-wipe.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-liquid-wipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-glitch-cut",
+      "type": "registry:component",
+      "title": "Transition Glitch Cut",
+      "description": "A hard digital cut: slices of the new view tear in over the old one with jitter, skew and a split color fringe, while scan bars flash across. Over in about half a second.",
+      "categories": [
+        "transitions",
+        "glitch",
+        "cut",
+        "rgb split",
+        "broadcast",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-glitch-cut.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-glitch-cut.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transition-parallax-slide",
+      "type": "registry:component",
+      "title": "Transition Parallax Slide",
+      "description": "A push navigation: the new view slides over the old one, which drifts back and darkens under it. Children marked data-depth 1 to 3 inside either view travel at their own speed for depth.",
+      "categories": [
+        "transitions",
+        "slide",
+        "parallax",
+        "push",
+        "onboarding",
+        "transition"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/transition-parallax-slide.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/transition-parallax-slide.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-orbit-sync",
+      "type": "registry:component",
+      "title": "Loader Orbit Sync",
+      "description": "Satellites travel tilted elliptical orbits around a sync hub, growing as they pass in front and fading behind it. The hub sends out a pulse each time a satellite comes around.",
+      "categories": [
+        "loaders",
+        "loader",
+        "sync",
+        "orbit",
+        "3d",
+        "integrations",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-orbit-sync.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-orbit-sync.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-file-morph",
+      "type": "registry:component",
+      "title": "Loader File Morph",
+      "description": "A single shape morphs between a document, an image frame, an audio disc and a code hexagon, with the inner glyph crossfading at each step. Built for exports and format conversions.",
+      "categories": [
+        "loaders",
+        "loader",
+        "morph",
+        "export",
+        "convert",
+        "files",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-file-morph.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-file-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-skeleton-feed",
+      "type": "registry:component",
+      "title": "Loader Skeleton Feed",
+      "description": "Content-shaped placeholders for a post feed, an inbox or a card grid, with one diagonal shimmer that travels across every bone in order. When loading ends, the real children fade in from a soft blur.",
+      "categories": [
+        "loaders",
+        "skeleton",
+        "shimmer",
+        "placeholder",
+        "feed",
+        "inbox",
+        "loading"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-skeleton-feed.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-skeleton-feed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-liquid-progress",
+      "type": "registry:component",
+      "title": "Loader Liquid Progress",
+      "description": "A progress pill filled with liquid: the leading edge sloshes as a live wave and bubbles rise inside. The percentage changes color exactly where the liquid passes under it.",
+      "categories": [
+        "loaders",
+        "progress",
+        "upload",
+        "liquid",
+        "wave",
+        "bar",
+        "determinate"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-liquid-progress.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-liquid-progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-tick-ring",
+      "type": "registry:component",
+      "title": "Loader Tick Ring",
+      "description": "A dial of fine ticks lights up clockwise with a brighter, longer leading tick, and phase markers around the rim switch on as each stage is reached. The center shows the percentage and the current phase.",
+      "categories": [
+        "loaders",
+        "progress",
+        "deploy",
+        "ring",
+        "ticks",
+        "phases",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-tick-ring.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-tick-ring.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-dot-field",
+      "type": "registry:component",
+      "title": "Loader Dot Field",
+      "description": "A grid of dots breathes in a ripple, a traveling wave or a diagonal sweep, each dot swelling and glowing as the crest passes. Reads like a voice or audio engine at work.",
+      "categories": [
+        "loaders",
+        "loader",
+        "dots",
+        "grid",
+        "ripple",
+        "voice",
+        "css"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-dot-field.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-dot-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-status-feed",
+      "type": "registry:component",
+      "title": "Loader Status Feed",
+      "description": "Status lines are typed out one at a time with a block caret and a spinner, then checked off with a timing as the next line scrolls in. Good for long jobs that should show what they are doing.",
+      "categories": [
+        "loaders",
+        "loader",
+        "status",
+        "typewriter",
+        "steps",
+        "agent",
+        "log"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-status-feed.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-status-feed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-gauge-counter",
+      "type": "registry:component",
+      "title": "Loader Gauge Counter",
+      "description": "A segmented 240 degree gauge fills with a color ramp and a glowing tip while an odometer of rolling digits counts up in the center. Leading zeros stay dimmed like an instrument panel.",
+      "categories": [
+        "loaders",
+        "progress",
+        "gauge",
+        "odometer",
+        "counter",
+        "backup",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-gauge-counter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-gauge-counter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-stack-build",
+      "type": "registry:component",
+      "title": "Loader Stack Build",
+      "description": "Isometric slabs drop one by one onto a stack, landing with a small squash, while a dashed outline marks where the next one goes. When the stack is complete it lifts away and the build starts over.",
+      "categories": [
+        "loaders",
+        "loader",
+        "build",
+        "layers",
+        "isometric",
+        "docker",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-stack-build.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-stack-build.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-device-scan",
+      "type": "registry:component",
+      "title": "Loader Device Scan",
+      "description": "A half-dial sonar sweeps back and forth with a fading wake, and nearby devices light up the moment the beam crosses them. A live count shows how many have been found.",
+      "categories": [
+        "loaders",
+        "loader",
+        "scan",
+        "sonar",
+        "pairing",
+        "bluetooth",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-device-scan.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-device-scan.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-infinity-trace",
+      "type": "registry:component",
+      "title": "Loader Infinity Trace",
+      "description": "A bright head races around a figure eight, dragging a layered tail that fades and blurs behind it. Fits reconnecting and retrying states where the wait has no known end.",
+      "categories": [
+        "loaders",
+        "loader",
+        "infinity",
+        "reconnect",
+        "trace",
+        "indeterminate",
+        "svg"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-infinity-trace.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-infinity-trace.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader-button-progress",
+      "type": "registry:component",
+      "title": "Loader Button Progress",
+      "description": "A button that collapses into a thin progress bar on click, with the status and percentage riding above it. At 100 percent it grows back into a success pill and draws a check.",
+      "categories": [
+        "loaders",
+        "button",
+        "progress",
+        "deploy",
+        "morph",
+        "success",
+        "interactive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/loader-button-progress.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/loader-button-progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-accordion-reel",
+      "type": "registry:component",
+      "title": "Image Accordion Reel",
+      "description": "Landscape panels that open one at a time on a story-style timer, with segmented progress at the top. The ridges of each scene slide into place as its panel widens, and hovering pauses the reel.",
+      "categories": [
+        "components",
+        "accordion",
+        "gallery",
+        "autoplay",
+        "stories",
+        "panels",
+        "landscape"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-accordion-reel.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-accordion-reel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-accordion-vertical",
+      "type": "registry:component",
+      "title": "Image Accordion Vertical",
+      "description": "Stacked bands that open like an aperture: the image stays fixed while the band grows from its center, so more of the scene is revealed rather than scaled. Each open band shows a description and a project link.",
+      "categories": [
+        "components",
+        "accordion",
+        "vertical",
+        "gallery",
+        "architecture",
+        "portfolio",
+        "aperture"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-accordion-vertical.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-accordion-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-accordion-stagger",
+      "type": "registry:component",
+      "title": "Image Accordion Stagger",
+      "description": "Product panels set at staggered heights with titles running up their edges. The open panel levels out, its title swings from vertical to horizontal on a spring and the product rises into view.",
+      "categories": [
+        "components",
+        "accordion",
+        "stagger",
+        "product",
+        "rotate",
+        "gallery",
+        "spring"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/image-accordion-stagger.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/image-accordion-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "parallax-depth-cards",
+      "type": "registry:component",
+      "title": "Parallax Depth Cards",
+      "description": "A headline surrounded by floating interface cards on several depth planes. As you scroll, near cards travel further and stay sharp while far cards drift slowly, blurred and dimmed.",
+      "categories": [
+        "components",
+        "parallax",
+        "scroll",
+        "depth",
+        "cards",
+        "hero",
+        "dashboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/parallax-depth-cards.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/parallax-depth-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "parallax-sticky-captions",
+      "type": "registry:component",
+      "title": "Parallax Sticky Captions",
+      "description": "A pinned exploded view beside captions that scroll past. The view pans and zooms to the part each caption describes and lights it up, with a progress rail tracking the walkthrough.",
+      "categories": [
+        "components",
+        "parallax",
+        "scroll",
+        "sticky",
+        "storytelling",
+        "feature",
+        "walkthrough"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/parallax-sticky-captions.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/parallax-sticky-captions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "parallax-floating-gallery",
+      "type": "registry:component",
+      "title": "Parallax Floating Gallery",
+      "description": "A tilted wall of photographs in columns that drift in opposite directions at different speeds as you scroll, around a pinned title and call to action. Tiles lift and show their caption on hover.",
+      "categories": [
+        "components",
+        "parallax",
+        "gallery",
+        "scroll",
+        "columns",
+        "photography",
+        "drift"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/parallax-floating-gallery.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/parallax-floating-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "prompt-box-modes",
+      "type": "registry:component",
+      "title": "Prompt Box Modes",
+      "description": "A composer with file attachments, Search, Think and Create mode chips that retint the box, and a send button that morphs into a Stop pill while a response is running. Enter sends, Escape stops.",
+      "categories": [
+        "agent-kit",
+        "prompt",
+        "composer",
+        "attachments",
+        "modes",
+        "chat",
+        "send"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/prompt-box-modes.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/prompt-box-modes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "prompt-voice-recorder",
+      "type": "registry:component",
+      "title": "Prompt Voice Recorder",
+      "description": "A composer that turns into a live waveform with a timer while you dictate, then collapses into a transcribing state and types the transcript into the box. It can read a real microphone level or simulate speech.",
+      "categories": [
+        "agent-kit",
+        "voice",
+        "dictation",
+        "waveform",
+        "prompt",
+        "microphone",
+        "transcript"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/prompt-voice-recorder.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/prompt-voice-recorder.tsx"
+        }
+      ]
+    },
+    {
+      "name": "prompt-slash-commands",
+      "type": "registry:component",
+      "title": "Prompt Slash Commands",
+      "description": "A composer where / opens commands and @ opens context sources, with an inline ghost completion that Tab accepts. Picks become removable tokens in front of the text, and Backspace at the start removes the last one.",
+      "categories": [
+        "agent-kit",
+        "prompt",
+        "slash",
+        "commands",
+        "mentions",
+        "autocomplete",
+        "tokens"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/prompt-slash-commands.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/prompt-slash-commands.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-foil-pass",
+      "type": "registry:component",
+      "title": "Card Foil Pass",
+      "description": "An event pass with a holographic foil pattern, a rainbow seal and engraved lines that catch the light as the card tilts toward the pointer. Click or press Enter to flip it to a scannable back.",
+      "categories": [
+        "components",
+        "card",
+        "holographic",
+        "tilt",
+        "glare",
+        "3d",
+        "flip"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-foil-pass.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-foil-pass.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-hand-fan",
+      "type": "registry:component",
+      "title": "Card Hand Fan",
+      "description": "A loose pile of cards that fans into an arc like a hand of playing cards. Hovered cards rise and push their neighbors aside, and picking one lifts it to the front while the rest fold back.",
+      "categories": [
+        "components",
+        "cards",
+        "fan",
+        "stack",
+        "arc",
+        "picker",
+        "spring"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-hand-fan.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-hand-fan.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-flip-deck",
+      "type": "registry:component",
+      "title": "Card Flip Deck",
+      "description": "A rolodex of city cards where the front card flips over its top edge to reveal the next. Flip with a click, the wheel, a vertical drag, arrow keys or on a timer.",
+      "categories": [
+        "components",
+        "cards",
+        "deck",
+        "flip",
+        "rolodex",
+        "weather",
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/card-flip-deck.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/card-flip-deck.tsx"
+        }
+      ]
+    },
+    {
       "name": "bg-ferrofluid",
       "type": "registry:component",
       "title": "Ferrofluid",
