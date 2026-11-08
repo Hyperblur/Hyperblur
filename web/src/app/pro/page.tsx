@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { PricingSection } from "@/registry/hyperblur/pricing-section";
 import { ProItems } from "./pro-items";
+import { ProPricing } from "./pro-pricing";
 
 export const metadata: Metadata = {
   title: "Pro",
@@ -10,11 +10,15 @@ export const metadata: Metadata = {
     "Hyperblur Pro adds full page templates, cinematic sections, app screens and heavy backgrounds, delivered by a private registry and the MCP server.",
 };
 
-const checkout = {
-  pro: process.env.NEXT_PUBLIC_CHECKOUT_PRO,
-  team: process.env.NEXT_PUBLIC_CHECKOUT_TEAM,
+const paddleToken = process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN;
+const paddleSandbox = process.env.NEXT_PUBLIC_PADDLE_ENV === "sandbox";
+const prices = {
+  proMonthly: process.env.NEXT_PUBLIC_PADDLE_PRICE_PRO_MONTHLY,
+  proYearly: process.env.NEXT_PUBLIC_PADDLE_PRICE_PRO_YEARLY,
+  teamMonthly: process.env.NEXT_PUBLIC_PADDLE_PRICE_TEAM_MONTHLY,
+  teamYearly: process.env.NEXT_PUBLIC_PADDLE_PRICE_TEAM_YEARLY,
 };
-const open = Boolean(checkout.pro && checkout.team);
+const open = Boolean(paddleToken && prices.proMonthly && prices.proYearly && prices.teamMonthly && prices.teamYearly);
 
 const split = [
   {
@@ -48,37 +52,6 @@ const split = [
       "Shared license key",
       "Invoices for your company",
     ],
-  },
-];
-
-const tiers = [
-  {
-    name: "Free",
-    price: { monthly: 0, yearly: 0 },
-    description: "The whole public catalog, under the MIT license.",
-    features: ["Every public effect, component and block", "Install with the shadcn CLI", "Public MCP server", "Community support"],
-    cta: { label: "Browse the catalog", href: "/effects" },
-  },
-  {
-    name: "Pro",
-    price: { monthly: 12, yearly: 9 },
-    description: "Templates, cinematic sections and app screens for your own projects.",
-    features: [
-      "Every Pro template and block",
-      "Private registry and MCP access",
-      "New Pro items every month",
-      "Use in unlimited personal and client projects",
-      "Priority support",
-    ],
-    cta: open ? { label: "Subscribe", href: checkout.pro as string } : { label: "Get notified", href: "#notify" },
-    highlighted: true,
-  },
-  {
-    name: "Team",
-    price: { monthly: 39, yearly: 29 },
-    description: "Everything in Pro, shared across a team.",
-    features: ["Everything in Pro", "Up to 10 seats", "Shared license key", "Team invoices"],
-    cta: open ? { label: "Subscribe", href: checkout.team as string } : { label: "Get notified", href: "#notify" },
   },
 ];
 
@@ -212,7 +185,7 @@ export default function ProPage() {
 
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-          <h2 className="text-2xl font-semibold tracking-tight">How it works</h2>
+          <h2 id="how" className="scroll-mt-20 text-2xl font-semibold tracking-tight">How it works</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {steps.map((step) => (
               <article key={step.title} className="rounded-2xl border border-line bg-surface p-6">
@@ -227,13 +200,7 @@ export default function ProPage() {
         </div>
       </section>
 
-      <div id="pricing" className="scroll-mt-20 border-t border-line">
-        <PricingSection
-          title={open ? "Pricing" : "Pricing, once Pro opens"}
-          subtitle={open ? "Cancel any time. 14-day refund on your first payment." : "Plans are not on sale yet. These are the tiers we are planning."}
-          tiers={tiers}
-        />
-      </div>
+      <ProPricing token={open ? paddleToken : undefined} sandbox={paddleSandbox} prices={prices} />
 
       <section className="border-t border-line">
         <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
