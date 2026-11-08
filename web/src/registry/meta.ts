@@ -6,7 +6,7 @@ export type EffectCategory =
   | "hero" | "features" | "bento" | "social-proof" | "contact" | "footer" | "comparison" | "navigation" | "auth"
   | "cta" | "faq" | "pricing" | "stats" | "not-found" | "profile" | "about" | "waitlist" | "showcase"
   | "how-it-works" | "download" | "blog" | "ecommerce"
-  | "loaders" | "modals" | "forms" | "payments" | "checkout" | "hud" | "maps" | "local" | "menus" | "ordering";
+  | "loaders" | "modals" | "forms" | "payments" | "checkout" | "hud" | "maps" | "local" | "menus" | "ordering" | "cinematic";
 
 export interface EffectProp {
   name: string;
@@ -68,6 +68,7 @@ export const categories: { id: EffectCategory; label: string; group: EffectGroup
   { id: "footer", label: "Footers", group: "blocks" },
   { id: "comparison", label: "Comparison", group: "blocks" },
   { id: "navigation", label: "Navigation", group: "blocks" },
+  { id: "cinematic", label: "Cinematic pages", group: "blocks" },
   { id: "auth", label: "Auth", group: "blocks" },
   { id: "cta", label: "Call to action", group: "blocks" },
   { id: "faq", label: "FAQ", group: "blocks" },
@@ -147,6 +148,18 @@ import { xhMeta } from "./parts/xh.meta.ts";
 import { xiMeta } from "./parts/xi.meta.ts";
 import { xjMeta } from "./parts/xj.meta.ts";
 import { xkMeta } from "./parts/xk.meta.ts";
+import { vaMeta } from "./parts/va.meta.ts";
+import { vbMeta } from "./parts/vb.meta.ts";
+import { vcMeta } from "./parts/vc.meta.ts";
+import { vdMeta } from "./parts/vd.meta.ts";
+import { veMeta } from "./parts/ve.meta.ts";
+import { vfMeta } from "./parts/vf.meta.ts";
+import { vgMeta } from "./parts/vg.meta.ts";
+import { vhMeta } from "./parts/vh.meta.ts";
+import { viMeta } from "./parts/vi.meta.ts";
+import { vjMeta } from "./parts/vj.meta.ts";
+import { vkMeta } from "./parts/vk.meta.ts";
+import { vlMeta } from "./parts/vl.meta.ts";
 import { qpMeta } from "./parts/qp.meta.ts";
 import { quMeta } from "./parts/qu.meta.ts";
 import { qoMeta } from "./parts/qo.meta.ts";
@@ -1311,6 +1324,18 @@ const allEffects: EffectMeta[] = [
   ...xiMeta,
   ...xjMeta,
   ...xkMeta,
+  ...vaMeta,
+  ...vbMeta,
+  ...vcMeta,
+  ...vdMeta,
+  ...veMeta,
+  ...vfMeta,
+  ...vgMeta,
+  ...vhMeta,
+  ...viMeta,
+  ...vjMeta,
+  ...vkMeta,
+  ...vlMeta,
   ...qpMeta,
   ...quMeta,
   ...qoMeta,
@@ -1348,7 +1373,7 @@ const allEffects: EffectMeta[] = [
 ];
 
 const newBatches: EffectMeta[][] = [
-  xaMeta, xbMeta, xcMeta, xdMeta, xeMeta, xfMeta, xgMeta, xhMeta, xiMeta, xjMeta, xkMeta,
+  vaMeta, vbMeta, vcMeta, vdMeta, veMeta, vfMeta, vgMeta, vhMeta, viMeta, vjMeta, vkMeta, vlMeta,
 ];
 
 const newSlugs = new Set(newBatches.flat().map((e) => e.slug));
