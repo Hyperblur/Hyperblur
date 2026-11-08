@@ -49,14 +49,23 @@ export default function PrivacyPage() {
             service secure and working, and we keep it for a limited time.
           </li>
           <li>
+            <strong>Usage events.</strong> When you click a copy button, a main
+            button or a link to another site, your browser sends the event name,
+            the page path and a random identifier that lives only in the current
+            tab session. It goes to analytics run by us, sets no cookies, is
+            never used for advertising and is skipped when your browser sends Do
+            Not Track.
+          </li>
+          <li>
             <strong>Install requests.</strong> When the registry serves a file,
             we count the request per item. We do not link these counts to a
             person.
           </li>
         </DocList>
         <P>
-          The website does not use advertising cookies or advertising trackers.
-          If that changes, we will update this page.
+          The website does not use advertising cookies or advertising trackers,
+          and it sets no cookies at all. If that changes, we will update this
+          page.
         </P>
       </DocSection>
 
