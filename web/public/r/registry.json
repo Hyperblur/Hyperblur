@@ -7455,6 +7455,2778 @@
       ]
     },
     {
+      "name": "button-marquee",
+      "type": "registry:component",
+      "title": "Button Marquee",
+      "description": "On hover the label slides away and a looping ticker of the same words runs through a soft edge fade. A diagonal arrow chip swaps for a fresh arrow at the same moment.",
+      "categories": [
+        "buttons",
+        "button",
+        "marquee",
+        "ticker",
+        "hover",
+        "arrow",
+        "pill"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-marquee.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-elastic-stretch",
+      "type": "registry:component",
+      "title": "Button Elastic Stretch",
+      "description": "A glossy gummy button you can grab and pull: the body stretches toward the pointer with rubber-band resistance and wobbles back on a spring when released. It also leans slightly toward the cursor on hover.",
+      "categories": [
+        "buttons",
+        "button",
+        "elastic",
+        "spring",
+        "physics",
+        "drag",
+        "gummy"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-elastic-stretch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-elastic-stretch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-goo",
+      "type": "registry:component",
+      "title": "Button Goo",
+      "description": "Droplets bud off the pill on hover and stay attached through a liquid goo filter, while a blob bulges out on the side nearest the cursor. A click splashes them outward before they flow back.",
+      "categories": [
+        "buttons",
+        "button",
+        "goo",
+        "liquid",
+        "blob",
+        "svg filter",
+        "metaball"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-goo.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-goo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-equalizer",
+      "type": "registry:component",
+      "title": "Button Equalizer",
+      "description": "A play preview button whose waveform bars come alive while playing, with an elapsed timer and a progress hairline along the bottom. The play icon spins into pause and the bars already played stay lit.",
+      "categories": [
+        "buttons",
+        "button",
+        "audio",
+        "equalizer",
+        "play",
+        "waveform",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-equalizer.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-equalizer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-orbit",
+      "type": "registry:component",
+      "title": "Button Orbit",
+      "description": "Glowing particles circle the button on two tilted orbits, passing in front of and behind the face with real depth. Hovering spins them up, and a click flings them outward before they settle back.",
+      "categories": [
+        "buttons",
+        "button",
+        "particles",
+        "orbit",
+        "3d",
+        "launch",
+        "glow"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-orbit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-orbit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-aurora",
+      "type": "registry:component",
+      "title": "Button Aurora",
+      "description": "A frosted glass button floating on a slowly drifting aurora of three colors, with a matching gradient rim that flows around the edge. Hover lets the light swell out from underneath.",
+      "categories": [
+        "buttons",
+        "button",
+        "aurora",
+        "gradient",
+        "glass",
+        "glow",
+        "ambient"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-aurora.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-aurora.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-wave-letters",
+      "type": "registry:component",
+      "title": "Button Wave Letters",
+      "description": "While hovered, a wave rolls through the label letter by letter, lifting each glyph and tinting it at the crest. A hand-drawn squiggle draws itself underneath and keeps flowing.",
+      "categories": [
+        "buttons",
+        "button",
+        "letters",
+        "wave",
+        "stagger",
+        "squiggle",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-wave-letters.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-wave-letters.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-share-expand",
+      "type": "registry:component",
+      "title": "Button Share Expand",
+      "description": "A Share pill that unfolds sideways into a row of action buttons, each springing in with a tooltip while the icon turns into a close cross. Actions confirm with a check and Escape folds it back.",
+      "categories": [
+        "buttons",
+        "button",
+        "share",
+        "expand",
+        "actions",
+        "toolbar",
+        "pill"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-share-expand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-share-expand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-parallax-layers",
+      "type": "registry:component",
+      "title": "Button Parallax Layers",
+      "description": "A magnetic download button built from stacked layers: the plate, the text and the icon chip each follow the pointer by a different amount, and the shadow shifts the other way. It snaps home with a soft overshoot when the pointer leaves.",
+      "categories": [
+        "buttons",
+        "button",
+        "magnetic",
+        "parallax",
+        "depth",
+        "download",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-parallax-layers.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-parallax-layers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-dot-matrix",
+      "type": "registry:component",
+      "title": "Button Dot Matrix",
+      "description": "A terminal style button printed on a dot grid: a scan beam sweeps it while idle, dots light up in a halo around the cursor, and a click sends a bright ring of dots rippling out from the pointer.",
+      "categories": [
+        "buttons",
+        "button",
+        "dot matrix",
+        "pixel",
+        "terminal",
+        "ripple",
+        "hover"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-dot-matrix.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-dot-matrix.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-odometer",
+      "type": "registry:component",
+      "title": "Button Odometer",
+      "description": "An upvote button whose count rolls digit by digit like a mechanical odometer, starting from the ones and settling with a small overshoot. Voting fires the arrow through the top of its tile and floats a +1.",
+      "categories": [
+        "buttons",
+        "button",
+        "upvote",
+        "counter",
+        "odometer",
+        "digits",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-odometer.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-odometer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-trace",
+      "type": "registry:component",
+      "title": "Button Trace",
+      "description": "A blueprint style button whose outline is drawn around its perimeter on hover, led by a bright comet that keeps circling afterwards. Corner ticks spring outward and a click flashes the face.",
+      "categories": [
+        "buttons",
+        "button",
+        "outline",
+        "stroke",
+        "draw",
+        "svg",
+        "blueprint"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-trace.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-trace.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-swipe-confirm",
+      "type": "registry:component",
+      "title": "Button Swipe Confirm",
+      "description": "A slide-to-pay track: drag the knob with rubber-band resistance at both ends, and past the threshold it locks, spins and draws a check. Short drags spring back with an overshoot.",
+      "categories": [
+        "buttons",
+        "button",
+        "swipe",
+        "slide to confirm",
+        "payment",
+        "drag",
+        "stateful"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-swipe-confirm.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-swipe-confirm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-hold-ring",
+      "type": "registry:component",
+      "title": "Button Hold Ring",
+      "description": "A round hold-to-fire button with a tick-marked progress ring that winds up while held and unwinds faster when released early. The button rumbles harder as it charges and bursts into a check when it fires.",
+      "categories": [
+        "buttons",
+        "button",
+        "hold",
+        "progress ring",
+        "long press",
+        "go live",
+        "confirm"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-hold-ring.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-hold-ring.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-spring-press",
+      "type": "registry:component",
+      "title": "Button Spring Press",
+      "description": "A keycap button driven by a real spring: it squashes into its base while pressed, sinks deeper the longer you hold, and rebounds past rest with a wobble on release. Works with pointer, Space and Enter.",
+      "categories": [
+        "buttons",
+        "button",
+        "spring",
+        "physics",
+        "keycap",
+        "press",
+        "shortcut"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-spring-press.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-spring-press.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-submit-morph",
+      "type": "registry:component",
+      "title": "Button Submit Morph",
+      "description": "A submit button that collapses into a circle with an orbiting spinner, then expands into a green success pill or a red error pill that shakes. It follows the promise returned by onSubmit.",
+      "categories": [
+        "buttons",
+        "button",
+        "submit",
+        "loading",
+        "success",
+        "error",
+        "morph"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-submit-morph.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-submit-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-dots-morph",
+      "type": "registry:component",
+      "title": "Button Dots Morph",
+      "description": "The letters of the label fold inward and become three hopping dots while the action runs. The dots then pinch together and the done label rises in letter by letter behind a drawn check.",
+      "categories": [
+        "buttons",
+        "button",
+        "loading",
+        "dots",
+        "letters",
+        "morph",
+        "publish"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-dots-morph.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-dots-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-toggle-count",
+      "type": "registry:component",
+      "title": "Button Toggle Count",
+      "description": "A pill toggle for like, save, bookmark or star. The icon fills from the bottom with a spring pop and sparks, and the count rolls digit by digit like an odometer.",
+      "categories": [
+        "buttons",
+        "button",
+        "toggle",
+        "like",
+        "bookmark",
+        "counter",
+        "odometer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-toggle-count.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-toggle-count.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-split-menu",
+      "type": "registry:component",
+      "title": "Button Split Menu",
+      "description": "A split button whose chevron opens a menu of alternative actions; choosing one swaps the primary label with a rolling transition. Full keyboard support with arrows, Home, End and Escape.",
+      "categories": [
+        "buttons",
+        "button",
+        "split button",
+        "menu",
+        "dropdown",
+        "merge",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-split-menu.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-split-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-speed-dial",
+      "type": "registry:component",
+      "title": "Button Speed Dial",
+      "description": "A floating action button that fans its actions out on an arc or stacks them upward, with a staggered spring, a dimming halo and labels. The plus turns into a close mark.",
+      "categories": [
+        "buttons",
+        "button",
+        "fab",
+        "speed dial",
+        "floating action",
+        "menu",
+        "mobile"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-speed-dial.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-speed-dial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-icon-badge",
+      "type": "registry:component",
+      "title": "Button Icon Badge",
+      "description": "An icon button with a notification badge cut out of the background. New items make the bell swing, the badge pop and a ring ping, and the number rolls in; clicking clears it with a drop.",
+      "categories": [
+        "buttons",
+        "button",
+        "icon button",
+        "badge",
+        "notifications",
+        "counter",
+        "bell"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-icon-badge.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-icon-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-toolbar-group",
+      "type": "registry:component",
+      "title": "Button Toolbar Group",
+      "description": "A floating tool palette with a springy active pill, a hover highlight that glides between tools and tooltips with shortcut keys. Arrow keys move focus and single-letter shortcuts switch tools.",
+      "categories": [
+        "buttons",
+        "button group",
+        "toolbar",
+        "icon buttons",
+        "tooltip",
+        "shortcuts",
+        "editor"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-toolbar-group.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-toolbar-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-magnetic-pill",
+      "type": "registry:component",
+      "title": "Button Magnetic Pill",
+      "description": "A pill that is pulled toward the cursor before you reach it: the body stretches like liquid along the pointer direction, the label trails with parallax and a highlight sits on the near side. It snaps back with an elastic overshoot.",
+      "categories": [
+        "buttons",
+        "button",
+        "magnetic",
+        "pointer",
+        "elastic",
+        "stretch",
+        "cta"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-magnetic-pill.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-magnetic-pill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-press-radial",
+      "type": "registry:component",
+      "title": "Button Press Radial",
+      "description": "Tap to run the main action, or long-press to open a radial menu around the button and drag toward an option to pick it on release. A ring fills during the hold and a beam follows your finger.",
+      "categories": [
+        "buttons",
+        "button",
+        "long press",
+        "radial menu",
+        "context menu",
+        "send",
+        "gesture"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-press-radial.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-press-radial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-login-solid",
+      "type": "registry:component",
+      "title": "Social Login Solid",
+      "description": "Stacked Continue with buttons in each provider's own color, with a pressable lip, a sheen while connecting and a Last used tag. The glyphs are simplified line icons, and any provider can take a custom icon.",
+      "categories": [
+        "buttons",
+        "login",
+        "oauth",
+        "social",
+        "sign in",
+        "button",
+        "auth"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-login-solid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-login-solid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-login-outline",
+      "type": "registry:component",
+      "title": "Social Login Outline",
+      "description": "Quiet outline buttons whose border is traced in the provider color from two opposite corners on hover, while the glyph tints and an arrow slides in. While connecting, a dash keeps circling the border.",
+      "categories": [
+        "buttons",
+        "login",
+        "oauth",
+        "outline",
+        "border",
+        "social",
+        "auth"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-login-outline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-login-outline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-login-glass",
+      "type": "registry:component",
+      "title": "Social Login Glass",
+      "description": "Frosted glass pills with a light streak that follows the pointer and a blurred orb of the provider color glowing from behind. While connecting, the orb sweeps back and forth and a ring spins around the glyph.",
+      "categories": [
+        "buttons",
+        "login",
+        "glass",
+        "blur",
+        "oauth",
+        "social",
+        "pointer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-login-glass.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-login-glass.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-login-icon-row",
+      "type": "registry:component",
+      "title": "Social Login Icon Row",
+      "description": "A compact toolbar of provider tiles with a tinted highlight that springs to the hovered or focused tile and a caption that rolls to Continue with the provider. Arrow keys, Home and End move between tiles.",
+      "categories": [
+        "buttons",
+        "login",
+        "icon",
+        "toolbar",
+        "oauth",
+        "keyboard",
+        "compact"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-login-icon-row.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-login-icon-row.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-login-icon-fill",
+      "type": "registry:component",
+      "title": "Social Login Icon Fill",
+      "description": "Each glyph sits in a small well that fills with the provider color like liquid on hover, with a moving wave on the surface and the glyph turning to the contrast color. While connecting, the liquid sloshes up and down.",
+      "categories": [
+        "buttons",
+        "login",
+        "liquid",
+        "fill",
+        "oauth",
+        "social",
+        "wave"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-login-icon-fill.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-login-icon-fill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-login-color-wash",
+      "type": "registry:component",
+      "title": "Social Login Color Wash",
+      "description": "A grid of provider buttons where the brand color washes in as a circle from the exact point the pointer enters and drains toward the point it leaves. While connecting, stripes run across and a bar fills along the bottom.",
+      "categories": [
+        "buttons",
+        "login",
+        "hover",
+        "wash",
+        "oauth",
+        "grid",
+        "social"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-login-color-wash.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-login-color-wash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-share-dial",
+      "type": "registry:component",
+      "title": "Social Share Dial",
+      "description": "Press and hold the share button, drag toward a channel on the ring that opens around it and release to share. A tap keeps the ring open for clicking, and the keyboard opens it with Enter and moves with the arrow keys.",
+      "categories": [
+        "buttons",
+        "share",
+        "radial",
+        "gesture",
+        "menu",
+        "social",
+        "drag"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-share-dial.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-share-dial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-share-counter",
+      "type": "registry:component",
+      "title": "Social Share Counter",
+      "description": "A share total with odometer digits, a breakdown bar by channel and a chip per channel with its own count. Sharing rolls both numbers, grows the segment and floats a +1 from the chip.",
+      "categories": [
+        "buttons",
+        "share",
+        "counter",
+        "odometer",
+        "social",
+        "stats",
+        "chips"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-share-counter.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-share-counter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-share-morph",
+      "type": "registry:component",
+      "title": "Social Share Morph",
+      "description": "A Share pill that stretches in place into a toolbar of channels and a copy link field, with the share icon turning into a close icon. Copying sweeps a green fill under the link and confirms with a check.",
+      "categories": [
+        "buttons",
+        "share",
+        "morph",
+        "copy link",
+        "toolbar",
+        "social",
+        "expand"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-share-morph.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-share-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-follow-count",
+      "type": "registry:component",
+      "title": "Social Follow Count",
+      "description": "A Follow button joined to the follower count, where following rolls the digits up by one and slides your avatar into the front of the stack. The label flips to Following with a check that draws itself.",
+      "categories": [
+        "buttons",
+        "follow",
+        "counter",
+        "avatars",
+        "profile",
+        "social",
+        "odometer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-follow-count.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-follow-count.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-subscribe-bell",
+      "type": "registry:component",
+      "title": "Social Subscribe Bell",
+      "description": "A Subscribe button that settles into Subscribed and slides out a bell that rings, with a menu for all uploads, highlights only, no notifications or unsubscribe. The bell glyph changes with the chosen mode.",
+      "categories": [
+        "buttons",
+        "subscribe",
+        "bell",
+        "notifications",
+        "menu",
+        "channel",
+        "social"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-subscribe-bell.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-subscribe-bell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "social-follow-avatar",
+      "type": "registry:component",
+      "title": "Social Follow Avatar",
+      "description": "A creator chip where the avatar itself is the follow button: the plus badge spins into a check, a ring draws around the photo, sparks fly out and the follower count rolls up. Clicking again unfollows.",
+      "categories": [
+        "buttons",
+        "follow",
+        "avatar",
+        "creator",
+        "profile",
+        "social",
+        "ring"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/social-follow-avatar.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/social-follow-avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-hold-shred",
+      "type": "registry:component",
+      "title": "Button Hold Shred",
+      "description": "Press and hold to feed the label into a shredder slot while paper strips grow out of the bottom edge. Letting go early pulls the label back; finishing drops the strips and confirms.",
+      "categories": [
+        "buttons",
+        "button",
+        "hold",
+        "delete",
+        "shredder",
+        "destructive",
+        "confirm"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-hold-shred.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-hold-shred.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-slide-delete",
+      "type": "registry:component",
+      "title": "Button Slide Delete",
+      "description": "A slide-to-delete track where the thumb eats the label as it travels and the bin at the end opens its lid. Release past the threshold and the thumb drops into the bin while a red pill wipes in.",
+      "categories": [
+        "buttons",
+        "slider",
+        "delete",
+        "swipe",
+        "confirm",
+        "trash",
+        "mobile"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-slide-delete.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-slide-delete.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-trash-lid",
+      "type": "registry:component",
+      "title": "Button Trash Lid",
+      "description": "A pill button with a little bin whose lid tips open on hover. Clicking drops a sheet of paper inside, the lid slams with a squash and a counter badge pops up.",
+      "categories": [
+        "buttons",
+        "button",
+        "trash",
+        "delete",
+        "icon",
+        "animation",
+        "toolbar"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-trash-lid.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-trash-lid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-safety-cover",
+      "type": "registry:component",
+      "title": "Button Safety Cover",
+      "description": "A red button sealed under a hazard-striped glass cover. The first press flips the cover up on its hinge, the second press within the time window confirms.",
+      "categories": [
+        "buttons",
+        "button",
+        "double click",
+        "confirm",
+        "hazard",
+        "3d",
+        "destructive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-safety-cover.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-safety-cover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-type-confirm",
+      "type": "registry:component",
+      "title": "Button Type Confirm",
+      "description": "Type the resource name to unlock the delete button. Each matched character lights up in the name, a wrong key shakes the field and the lock icon springs open on a full match.",
+      "categories": [
+        "buttons",
+        "confirm",
+        "delete",
+        "input",
+        "type to confirm",
+        "danger",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-type-confirm.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-type-confirm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-delete-undo",
+      "type": "registry:component",
+      "title": "Button Delete Undo",
+      "description": "Deleting blurs the button away and slides in a toast with a draining bar, an Undo button and a Cmd+Z shortcut. If the window runs out the deletion is committed.",
+      "categories": [
+        "buttons",
+        "delete",
+        "undo",
+        "toast",
+        "button",
+        "shortcut",
+        "soft delete"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-delete-undo.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-delete-undo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-check-draw",
+      "type": "registry:component",
+      "title": "Button Check Draw",
+      "description": "The button folds into a circle, a ring spins while the action runs, then closes, fills and draws a checkmark before opening back up with the result. Accepts an async handler.",
+      "categories": [
+        "buttons",
+        "button",
+        "confirm",
+        "checkmark",
+        "loading",
+        "async",
+        "morph"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-check-draw.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-check-draw.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-shift-arm",
+      "type": "registry:component",
+      "title": "Button Shift Arm",
+      "description": "A delete button that only fires while Shift is held. A plain click shakes it harder each time and pops a hint with a pressing keycap; holding Shift turns it into a striped red button.",
+      "categories": [
+        "buttons",
+        "button",
+        "shake",
+        "modifier",
+        "danger",
+        "keyboard",
+        "confirm"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-shift-arm.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-shift-arm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-countdown-abort",
+      "type": "registry:component",
+      "title": "Button Countdown Abort",
+      "description": "Starts a short countdown with a rolling digit and a strip of LED segments that switch off every half second. Clicking again or pressing Escape aborts before anything happens.",
+      "categories": [
+        "buttons",
+        "countdown",
+        "abort",
+        "cancel",
+        "wipe",
+        "led",
+        "destructive"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-countdown-abort.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-countdown-abort.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-archive-discard",
+      "type": "registry:component",
+      "title": "Button Archive Discard",
+      "description": "A paired control where the hovered side stretches and the other shrinks to its icon. Archive drops a page into a box, Discard crushes its cross into a checkmark and takes the full width.",
+      "categories": [
+        "buttons",
+        "button group",
+        "archive",
+        "discard",
+        "split",
+        "email",
+        "choice"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-archive-discard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-archive-discard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-swipe-dissolve",
+      "type": "registry:component",
+      "title": "Button Swipe Dissolve",
+      "description": "A list row you drag left over a red well whose bin pops once you pass the threshold. On release the row dissolves into drifting particles from right to left, then the space collapses.",
+      "categories": [
+        "buttons",
+        "swipe",
+        "delete",
+        "row",
+        "particles",
+        "list",
+        "gesture"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-swipe-dissolve.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-swipe-dissolve.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-irreversible",
+      "type": "registry:component",
+      "title": "Button Irreversible",
+      "description": "A two-step danger row that expands in place into a warning with marching hazard stripes, a list of consequences and a checkbox. The final button stays locked until the user acknowledges.",
+      "categories": [
+        "buttons",
+        "danger zone",
+        "delete account",
+        "two step",
+        "warning",
+        "settings",
+        "confirm"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/button-irreversible.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/button-irreversible.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-zoom-origin",
+      "type": "registry:component",
+      "title": "Zoom Origin Dialog",
+      "description": "A centered dialog that grows out of the exact button that opened it and shrinks back into it on close. Ships as a deploy confirmation with branch, checks and a publish button that fills while it works.",
+      "categories": [
+        "modals",
+        "dialog",
+        "modal",
+        "zoom",
+        "flip",
+        "deploy",
+        "confirm"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-zoom-origin.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-zoom-origin.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-bottom-sheet",
+      "type": "registry:component",
+      "title": "Snap Bottom Sheet",
+      "description": "A draggable bottom sheet with peek and full snap points, velocity-aware flicks and drag down to dismiss. The default content is a ride picker with a radio list and a sticky confirm button.",
+      "categories": [
+        "modals",
+        "bottom sheet",
+        "drawer",
+        "drag",
+        "snap",
+        "mobile",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-bottom-sheet.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-bottom-sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-side-sheet",
+      "type": "registry:component",
+      "title": "Stacked Side Sheet",
+      "description": "A side sheet for order details that opens a second sheet on top for refunds while the first one recedes behind it. Escape and Back peel the layers off one at a time.",
+      "categories": [
+        "modals",
+        "side sheet",
+        "drawer",
+        "nested",
+        "stack",
+        "admin",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-side-sheet.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-side-sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-fullscreen-menu",
+      "type": "registry:component",
+      "title": "Fullscreen Reveal Menu",
+      "description": "A fullscreen navigation overlay that opens as a circle growing from the menu button, with oversized links rising in sequence. Hovering one link dims the rest and slides in an arrow.",
+      "categories": [
+        "modals",
+        "fullscreen",
+        "overlay",
+        "menu",
+        "navigation",
+        "clip path",
+        "agency"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-fullscreen-menu.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-fullscreen-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-session-alert",
+      "type": "registry:component",
+      "title": "Session Timeout Alert",
+      "description": "An alert dialog with a draining countdown ring that turns red in the last ten seconds and signs the user out at zero. Clicking the backdrop nudges the dialog instead of dismissing it.",
+      "categories": [
+        "modals",
+        "alert dialog",
+        "countdown",
+        "session",
+        "timeout",
+        "security",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dialog-session-alert.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dialog-session-alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-transfer-confirm",
+      "type": "registry:component",
+      "title": "Transfer Confirm Dialog",
+      "description": "A high-stakes confirmation that shows ownership moving between two people and stays locked until the user ticks an acknowledgement. On success the crown hops from one avatar to the other.",
+      "categories": [
+        "modals",
+        "confirm",
+        "dialog",
+        "ownership",
+        "acknowledge",
+        "async",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dialog-transfer-confirm.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dialog-transfer-confirm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-create-project",
+      "type": "registry:component",
+      "title": "Create Project Dialog",
+      "description": "A form dialog with a live URL preview that checks slug availability as you type, a sliding team switch and visibility cards. It shakes on invalid input, submits with Command Enter and resizes smoothly into a success state.",
+      "categories": [
+        "modals",
+        "form",
+        "dialog",
+        "validation",
+        "create",
+        "slug",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/dialog-create-project.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/dialog-create-project.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-lightbox-zoom",
+      "type": "registry:component",
+      "title": "Zoom Lightbox",
+      "description": "A photo lightbox opened from a mosaic grid, with directional slides, a filmstrip and click to zoom that pans with the pointer. Arrow keys, swipe, Z for zoom and I for details all work.",
+      "categories": [
+        "modals",
+        "lightbox",
+        "gallery",
+        "zoom",
+        "photo",
+        "filmstrip",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-lightbox-zoom.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-lightbox-zoom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-video-chapters",
+      "type": "registry:component",
+      "title": "Chapter Video Modal",
+      "description": "A video modal with a scrubber split into chapters, hover previews of each chapter, synced captions and speed control. Without a src it plays a styled preview timeline, so it works before the video exists.",
+      "categories": [
+        "modals",
+        "video",
+        "player",
+        "chapters",
+        "captions",
+        "tour",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-video-chapters.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-video-chapters.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-command-pages",
+      "type": "registry:component",
+      "title": "Nested Command Modal",
+      "description": "A command modal where items open sub-pages, shown as breadcrumb chips inside the search field, and Backspace walks back out. Searching from the root also finds options nested one level down.",
+      "categories": [
+        "modals",
+        "command",
+        "palette",
+        "search",
+        "keyboard",
+        "nested",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-command-pages.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-command-pages.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-onboarding-steps",
+      "type": "registry:component",
+      "title": "Onboarding Stepper Modal",
+      "description": "A three step onboarding modal: pick a role, name and color the workspace, then invite teammates as email chips. Steps slide in the direction you move and the dialog height follows the content.",
+      "categories": [
+        "modals",
+        "stepper",
+        "onboarding",
+        "wizard",
+        "modal",
+        "invite",
+        "setup"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-onboarding-steps.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-onboarding-steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal-success-check",
+      "type": "registry:component",
+      "title": "Success Check Modal",
+      "description": "A payment success modal that draws its ring and check, throws a small spark burst and counts the amount up. The receipt-style card ends in a perforated edge with a staggered list of details.",
+      "categories": [
+        "modals",
+        "success",
+        "check",
+        "payment",
+        "receipt",
+        "celebration",
+        "modal"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/modal-success-check.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/modal-success-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover-rich",
+      "type": "registry:component",
+      "title": "Rich Popover",
+      "description": "A deployment chip that opens a detailed popover with status, commit, a proportional build timeline and quick actions. It flips above or below and nudges sideways to stay on screen while the arrow keeps pointing at the trigger.",
+      "categories": [
+        "modals",
+        "popover",
+        "anchored",
+        "deployments",
+        "status",
+        "actions",
+        "devtools"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popover-rich.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popover-rich.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover-hover-profile",
+      "type": "registry:component",
+      "title": "Hover Profile Card",
+      "description": "An @mention that shows a profile card on hover, with an underline that fills while the open delay runs and a grace period so the pointer can travel into the card. Includes a contribution grid, a follow toggle with a live count and keyboard access on focus.",
+      "categories": [
+        "modals",
+        "hover-card",
+        "popover",
+        "mention",
+        "profile",
+        "follow",
+        "intent"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popover-hover-profile.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popover-hover-profile.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-newsletter-envelope",
+      "type": "registry:component",
+      "title": "Newsletter Envelope Popup",
+      "description": "A newsletter popup where the letter slides into an envelope, the flap folds shut and a seal stamps down once the address is accepted. Topic toggles, inline validation with a shake and an async submit are built in.",
+      "categories": [
+        "modals",
+        "newsletter",
+        "popup",
+        "email",
+        "form",
+        "validation",
+        "illustration"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-newsletter-envelope.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-newsletter-envelope.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-cookie-preferences",
+      "type": "registry:component",
+      "title": "Cookie Preferences",
+      "description": "A cookie consent card or bottom bar with a segmented dial that counts the enabled categories, a Customize panel that expands in place with switches and vendor lists, and a small launcher with a receipt id after saving.",
+      "categories": [
+        "modals",
+        "cookies",
+        "consent",
+        "gdpr",
+        "preferences",
+        "banner",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-cookie-preferences.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-cookie-preferences.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-exit-intent",
+      "type": "registry:component",
+      "title": "Exit Intent Popup",
+      "description": "Opens when the pointer leaves through the top of the window and reminds the visitor of their bag. The coupon stub tears off when pulled down or tapped, revealing a code that can be copied and a discounted total.",
+      "categories": [
+        "modals",
+        "exit-intent",
+        "popup",
+        "coupon",
+        "ecommerce",
+        "retention",
+        "drag"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-exit-intent.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-exit-intent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-promo-countdown",
+      "type": "registry:component",
+      "title": "Promo Countdown Popup",
+      "description": "A limited-time offer inside a rotating light border, with rolling digit reels for the countdown, a striped claimed-seats bar and a CTA with a sheen. It switches to an ended state when the timer reaches zero.",
+      "categories": [
+        "modals",
+        "promo",
+        "countdown",
+        "sale",
+        "popup",
+        "urgency",
+        "pricing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-promo-countdown.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-promo-countdown.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-upgrade-limit",
+      "type": "registry:component",
+      "title": "Upgrade Limit Prompt",
+      "description": "Shown when a usage limit is reached: a segmented meter that fills to the red, a queued overflow tag, a billing switch with a sliding thumb and plan cards whose prices roll and whose features check in one by one.",
+      "categories": [
+        "modals",
+        "upgrade",
+        "paywall",
+        "usage",
+        "pricing",
+        "plans",
+        "billing"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-upgrade-limit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-upgrade-limit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-tour-spotlight",
+      "type": "registry:component",
+      "title": "Tour Spotlight",
+      "description": "Wraps any screen and walks through it step by step: a rounded spotlight glides between targets while everything else dims, and the step card follows with a pointer tail, progress pills and arrow key navigation.",
+      "categories": [
+        "modals",
+        "onboarding",
+        "tour",
+        "spotlight",
+        "walkthrough",
+        "coachmark",
+        "steps"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-tour-spotlight.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-tour-spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-whats-new",
+      "type": "registry:component",
+      "title": "What's New Stories",
+      "description": "A release announcement told as stories: segmented bars fill and advance on their own, pause on hover or keyboard focus, and each update brings an animated illustration that slides in from the direction you move.",
+      "categories": [
+        "modals",
+        "changelog",
+        "announcement",
+        "stories",
+        "release",
+        "onboarding",
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-whats-new.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-whats-new.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover-radial-menu",
+      "type": "registry:component",
+      "title": "Radial Context Menu",
+      "description": "A context menu that opens as a ring of wedges around the pointer on right-click, long-press or Shift F10. Aim toward a wedge to select it, read the label in the hub, and confirm with a click or Enter.",
+      "categories": [
+        "modals",
+        "context-menu",
+        "radial",
+        "pie-menu",
+        "right-click",
+        "long-press",
+        "gesture"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popover-radial-menu.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popover-radial-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-island-notification",
+      "type": "registry:component",
+      "title": "Island Notification",
+      "description": "A notification pill at the top of the screen that morphs into a card with a springy resize, then into an inline reply field. Messages queue with an unread count, collapse on a paused-on-hover timer and end in an All caught up state.",
+      "categories": [
+        "modals",
+        "notification",
+        "dynamic-island",
+        "toast",
+        "reply",
+        "morph",
+        "queue"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-island-notification.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-island-notification.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popup-share-access",
+      "type": "registry:component",
+      "title": "Share Access Dialog",
+      "description": "A document sharing dialog with email chips that validate as you type or paste, a permission picker, a people list with role changes and removal, and a general access switch whose lock turns into a globe.",
+      "categories": [
+        "modals",
+        "share",
+        "permissions",
+        "invite",
+        "collaboration",
+        "dialog",
+        "chips"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/popup-share-access.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/popup-share-access.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-card-number",
+      "type": "registry:component",
+      "title": "Card Number Field",
+      "description": "A single-line card field that detects the brand, checks the number with Luhn and then folds it down to the last four digits while expiry and security code slide in. The tiny card glyph flips to its back when the security code has focus.",
+      "categories": [
+        "forms",
+        "card",
+        "payment",
+        "mask",
+        "checkout",
+        "luhn",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/field-card-number.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/field-card-number.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-phone-country",
+      "type": "registry:component",
+      "title": "Phone Field with Country",
+      "description": "A phone input with a searchable country picker and a per-country mask whose remaining digits show as faint ghost characters. Pasting a number that starts with a dial code switches the country on its own.",
+      "categories": [
+        "forms",
+        "phone",
+        "mask",
+        "country",
+        "e164",
+        "input",
+        "verification"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/field-phone-country.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/field-phone-country.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-date-picker",
+      "type": "registry:component",
+      "title": "Date Picker",
+      "description": "A date field that understands plain words like tomorrow, next fri, Dec 3 or +10d and previews the parsed date as you type, with a calendar that slides between months. The grid supports arrows, Page Up and Down, Home and End.",
+      "categories": [
+        "forms",
+        "date",
+        "calendar",
+        "picker",
+        "natural-language",
+        "input",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-date-picker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-date-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-date-range",
+      "type": "registry:component",
+      "title": "Date Range Picker",
+      "description": "A range picker where you drag across days or click a start and an end, with a live preview band that wraps across weeks and a preset column. A running total of days or nights sits above the Apply button.",
+      "categories": [
+        "forms",
+        "date-range",
+        "calendar",
+        "presets",
+        "drag",
+        "booking",
+        "analytics"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-date-range.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-date-range.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select-combobox-async",
+      "type": "registry:component",
+      "title": "Async Combobox",
+      "description": "A searchable combobox that debounces input, shows shimmering skeleton rows while results load and drops stale responses. Matches are underlined, rows stagger in and the footer reports the result count and how long the search took.",
+      "categories": [
+        "forms",
+        "combobox",
+        "autocomplete",
+        "async",
+        "search",
+        "select",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/select-combobox-async.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/select-combobox-async.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-autosize-textarea",
+      "type": "registry:component",
+      "title": "Autosize Textarea",
+      "description": "A textarea that grows smoothly with its content up to a row limit, with a ring counter that turns amber near the limit and red past it. Characters over the limit are tinted in place, and Cmd or Ctrl plus Enter sends.",
+      "categories": [
+        "forms",
+        "textarea",
+        "autosize",
+        "counter",
+        "composer",
+        "limit",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/field-autosize-textarea.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/field-autosize-textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-file-drop",
+      "type": "registry:component",
+      "title": "File Drop Upload",
+      "description": "An upload zone in three variants, panel, strip and round avatar, with a marching dashed border on drag and a lifting icon. Each file gets a typed document glyph, a progress ring and a bottom progress line, and rejected files shake with the reason.",
+      "categories": [
+        "forms",
+        "upload",
+        "dropzone",
+        "file",
+        "drag-and-drop",
+        "progress",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-file-drop.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-file-drop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-color-picker",
+      "type": "registry:component",
+      "title": "Color Picker",
+      "description": "A color picker with a saturation and brightness pad, hue and opacity sliders, a HEX, RGB and HSL field and swatches. It shows the original next to the new color and grades contrast against your background with WCAG AA and AAA.",
+      "categories": [
+        "forms",
+        "color",
+        "picker",
+        "hex",
+        "contrast",
+        "wcag",
+        "design-tools"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-color-picker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-color-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-time-picker",
+      "type": "registry:component",
+      "title": "Clock Time Picker",
+      "description": "A time picker with an analog dial: drag the hand to the hour and it moves on to minutes, which snap to a step. A large readout, an AM and PM switch and full keyboard control sit beside it.",
+      "categories": [
+        "forms",
+        "time",
+        "clock",
+        "dial",
+        "picker",
+        "schedule",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-time-picker.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-time-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field-currency",
+      "type": "registry:component",
+      "title": "Currency Field",
+      "description": "A money input where digits fill from the right like a register, each new digit rolling in, formatted live for the locale and currency. It shows a converted estimate, quick add chips and a balance limit that shakes when crossed.",
+      "categories": [
+        "forms",
+        "currency",
+        "money",
+        "amount",
+        "intl",
+        "payments",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/field-currency.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/field-currency.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-search-filters",
+      "type": "registry:component",
+      "title": "Search with Filters",
+      "description": "A search field that turns key:value syntax into colored filter tokens, suggesting filter names and then their values as you type. Prefix with a minus to exclude, click a token to edit it, and press Backspace twice to remove the last one.",
+      "categories": [
+        "forms",
+        "search",
+        "filters",
+        "tokens",
+        "query",
+        "combobox",
+        "issues"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-search-filters.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-search-filters.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-signature-pad",
+      "type": "registry:component",
+      "title": "Signature Pad",
+      "description": "A signature pad whose line thins with speed and thickens when you slow down, drawn as smooth curves at full screen resolution. It has ink colors, undo, a typed alternative and a signed stamp with the time.",
+      "categories": [
+        "forms",
+        "signature",
+        "canvas",
+        "draw",
+        "contract",
+        "e-sign",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/input-signature-pad.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/input-signature-pad.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-contact",
+      "type": "registry:component",
+      "title": "Contact Form",
+      "description": "A routed contact form where the topic switch reshapes the fields and the reply time. Inline validation, a message progress ring and a paper plane success state with a ticket number.",
+      "categories": [
+        "forms",
+        "form",
+        "contact",
+        "validation",
+        "segmented",
+        "success",
+        "support"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-contact.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-contact.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-signup",
+      "type": "registry:component",
+      "title": "Signup Form",
+      "description": "Account creation with a live username availability check, email typo suggestions and four password checks that fill as bars. Ends on an animated envelope with a resend countdown.",
+      "categories": [
+        "forms",
+        "form",
+        "signup",
+        "register",
+        "password",
+        "validation",
+        "username"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-signup.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-signup.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-wizard",
+      "type": "registry:component",
+      "title": "Wizard Form",
+      "description": "A four step onboarding wizard with a segmented progress rail, direction aware slides and a review step with edit links. Creating the workspace plays a short setup checklist.",
+      "categories": [
+        "forms",
+        "form",
+        "wizard",
+        "multi-step",
+        "onboarding",
+        "progress",
+        "stepper"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-wizard.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-wizard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-survey",
+      "type": "registry:component",
+      "title": "Survey Form",
+      "description": "One question at a time with an NPS scale, lettered choices and keyboard shortcuts. Picks confirm with a quick blink and advance on their own, ending on a summary with the score group.",
+      "categories": [
+        "forms",
+        "form",
+        "survey",
+        "nps",
+        "keyboard",
+        "questionnaire",
+        "feedback"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-survey.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-survey.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-address",
+      "type": "registry:component",
+      "title": "Address Form",
+      "description": "A shipping address form that adapts labels, postal masks and line order to the country. A parcel label above it prints the address as you type and stamps it once saved.",
+      "categories": [
+        "forms",
+        "form",
+        "address",
+        "shipping",
+        "checkout",
+        "postal code",
+        "international"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-address.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-address.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-settings",
+      "type": "registry:component",
+      "title": "Settings Form",
+      "description": "Account settings that track every edit: changed fields get a dot and a floating bar counts unsaved changes with Reset and Save. Supports Cmd+S and confirms with a green saved state.",
+      "categories": [
+        "forms",
+        "form",
+        "settings",
+        "preferences",
+        "unsaved changes",
+        "toggle",
+        "account"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-settings.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-settings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-feedback",
+      "type": "registry:component",
+      "title": "Feedback Widget",
+      "description": "A launcher pill that opens a feedback panel with a face whose mouth and brows morph across a five step mood scale. Category, note and page URL go out in one tap.",
+      "categories": [
+        "forms",
+        "form",
+        "feedback",
+        "widget",
+        "rating",
+        "emoji",
+        "launcher"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-feedback.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-feedback.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-subscribe-inline",
+      "type": "registry:component",
+      "title": "Inline Subscribe",
+      "description": "A one line newsletter field where the button sweeps across the input while it subscribes, then turns into a confirmation with a shortcut to the right inbox. Invalid emails shake and raise a tooltip.",
+      "categories": [
+        "forms",
+        "form",
+        "newsletter",
+        "subscribe",
+        "email",
+        "inline",
+        "morph"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-subscribe-inline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-subscribe-inline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-booking",
+      "type": "registry:component",
+      "title": "Booking Form",
+      "description": "Pick a day from a strip with availability marks, choose a free slot, then add your details. Confirms with a perforated ticket and an Add to calendar file.",
+      "categories": [
+        "forms",
+        "form",
+        "booking",
+        "calendar",
+        "scheduling",
+        "appointment",
+        "time slots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-booking.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-booking.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-waitlist",
+      "type": "registry:component",
+      "title": "Waitlist Form",
+      "description": "A waitlist form with a live priority meter: every optional answer moves your estimated spot forward and up through access tiers. Joining reveals a referral link with copy feedback.",
+      "categories": [
+        "forms",
+        "form",
+        "waitlist",
+        "beta",
+        "referral",
+        "gamified",
+        "launch"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-waitlist.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-waitlist.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-login-compact",
+      "type": "registry:component",
+      "title": "Compact Login",
+      "description": "Email first sign in that slides to a password step with the account chip, a caps lock badge and attempt pips. Too many misses lock the form with a countdown.",
+      "categories": [
+        "forms",
+        "form",
+        "login",
+        "sign in",
+        "password",
+        "caps lock",
+        "auth"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-login-compact.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-login-compact.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-profile-edit",
+      "type": "registry:component",
+      "title": "Profile Edit",
+      "description": "A profile you edit in place, one row at a time, with Enter to save and Escape to cancel. A completion ring and hint track what is missing, and the avatar opens a color picker.",
+      "categories": [
+        "forms",
+        "form",
+        "profile",
+        "inline edit",
+        "account",
+        "avatar",
+        "completion"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/form-profile-edit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/form-profile-edit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-prism-glass",
+      "type": "registry:component",
+      "title": "Navbar Prism Glass",
+      "description": "A floating frosted bar whose blur, tint and shadow deepen as the page scrolls, with a specular sheen and a lit rim that follow the pointer. The active link carries a softly pulsing glow dot.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "glass",
+        "backdrop blur",
+        "pointer",
+        "scroll",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-prism-glass.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-prism-glass.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-morph-underline",
+      "type": "registry:component",
+      "title": "Navbar Morph Underline",
+      "description": "A documentation header whose underline crawls between links like an inchworm: the leading edge moves first and the trailing edge catches up. On narrow screens the links become a scrollable tab strip that keeps the same underline.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "underline",
+        "tabs",
+        "docs",
+        "light",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-morph-underline.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-morph-underline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-magnetic",
+      "type": "registry:component",
+      "title": "Navbar Magnetic",
+      "description": "A studio header where every link leans toward the pointer and a soft chip stretches after it, then springs back with a slight overshoot. The call to action has a stronger pull and an arrow that straightens on hover.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "magnetic",
+        "spring",
+        "agency",
+        "pointer",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-magnetic.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-magnetic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-spotlight",
+      "type": "registry:component",
+      "title": "Navbar Spotlight",
+      "description": "A pitch-black bar lit only where the pointer is: a flashlight reveals a dot grid, makes nearby labels glow and runs a beam along the bottom edge. Touch moves the light too, and idleAt can park it for a static hero.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "spotlight",
+        "flashlight",
+        "dark",
+        "glow",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-spotlight.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-spotlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-scroll-shrink",
+      "type": "registry:component",
+      "title": "Navbar Scroll Shrink",
+      "description": "An editorial masthead with a utility row, a large centered wordmark and a sections row that folds into a floating compact bar on scroll. The wordmark glides to the left, the sections rise into the same row and a ring around search tracks reading progress.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "scroll",
+        "shrink",
+        "masthead",
+        "editorial",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-scroll-shrink.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-scroll-shrink.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-mega-preview",
+      "type": "registry:component",
+      "title": "Navbar Mega Preview",
+      "description": "A header whose menus open a two-pane panel: a list of destinations on the left and a live illustrated preview on the right that redraws for whichever item is hovered or focused. Switching menus slides the list in the direction of travel.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "mega menu",
+        "preview",
+        "dropdown",
+        "keyboard",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-mega-preview.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-mega-preview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-command",
+      "type": "registry:component",
+      "title": "Navbar Command",
+      "description": "An app header with a search field that stretches across the whole bar on focus or Cmd K, pushing the links aside and dropping grouped results with highlighted matches. Arrow keys move, Enter opens and Escape clears, then closes.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "command",
+        "search",
+        "combobox",
+        "keyboard",
+        "app"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-command.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-command.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-hamburger-morph",
+      "type": "registry:component",
+      "title": "Navbar Hamburger Morph",
+      "description": "A studio header with a Menu pill whose lines fold into a cross while the label rolls to Close, and a full-screen menu that grows out of the button in a circle. Oversized numbered links rise in sequence, with contact, socials and availability beside them.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "hamburger",
+        "fullscreen menu",
+        "mobile",
+        "focus trap",
+        "studio"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-hamburger-morph.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-hamburger-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-banner-stories",
+      "type": "registry:component",
+      "title": "Navbar Banner Stories",
+      "description": "A header topped by an announcement strip that plays like stories: segments fill over time, messages roll vertically and hover pauses the run. Dismissing folds the strip away, and the bar below carries a tracking number field with validation.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "announcement",
+        "banner",
+        "carousel",
+        "tracking",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-banner-stories.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-banner-stories.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-split-logo",
+      "type": "registry:component",
+      "title": "Navbar Split Logo",
+      "description": "A fashion header with the logo centered between two link groups. Hovering a link draws a fine line from the logo out to it and turns the star mark toward that side, and the bag count pops when it changes.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "centered logo",
+        "fashion",
+        "ecommerce",
+        "hover line",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-split-logo.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-split-logo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-floating-capsule",
+      "type": "registry:component",
+      "title": "Navbar Floating Capsule",
+      "description": "Three floating capsules for the brand, the links and the actions that glide together into one pill once the page scrolls. On small screens the pill itself grows into the menu, with staggered links and two full-width buttons.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "floating",
+        "pill",
+        "scroll",
+        "mobile menu",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-floating-capsule.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-floating-capsule.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-vertical-rail",
+      "type": "registry:component",
+      "title": "Navbar Vertical Rail",
+      "description": "A header turned on its side: a sticky left rail with rotated, numbered links, a glowing marker that slides to the current page and a round call to action. Under 640px it becomes a top bar with a clip-path menu of large numbered links.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "vertical",
+        "rail",
+        "portfolio",
+        "studio",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-vertical-rail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-vertical-rail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-tabs-stretch",
+      "type": "registry:component",
+      "title": "Navbar Tabs Stretch",
+      "description": "A project header with a row of tabs whose underline stretches like elastic: the leading edge races ahead and the trailing edge catches up. A ghost pill follows the pointer, counts sit in badges and the row scrolls with faded edges on phones.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "tabs",
+        "indicator",
+        "dashboard",
+        "app header",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-tabs-stretch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-tabs-stretch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-search-first",
+      "type": "registry:component",
+      "title": "Navbar Search First",
+      "description": "A docs header built around search: the field widens and pushes the links out of the way, scope chips show live counts, matches are highlighted and every result is reachable by keyboard. On phones a search button sweeps open into a full-width field with Cancel.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "search",
+        "combobox",
+        "docs",
+        "command k",
+        "keyboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-search-first.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-search-first.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-bottom-notch",
+      "type": "registry:component",
+      "title": "Navbar Bottom Notch",
+      "description": "A mobile bottom bar with a notch cut into the plate that slides to the selected tab, where the icon pops up into a floating accent bubble. Badges, a dot state, arrow keys and safe-area spacing are built in.",
+      "categories": [
+        "navigation",
+        "bottom bar",
+        "mobile",
+        "tab bar",
+        "notch",
+        "app",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-bottom-notch.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-bottom-notch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-commerce-rows",
+      "type": "registry:component",
+      "title": "Navbar Commerce Rows",
+      "description": "A three-tier store header: a rotating message strip, a row with search, account and a cart that opens a mini cart with quantity steppers and a free shipping meter, and a category row with mega panels. Phones get a stacked layout, scrolling chips and an accordion drawer.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "ecommerce",
+        "mega menu",
+        "mini cart",
+        "search",
+        "store"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-commerce-rows.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-commerce-rows.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-theme-reveal",
+      "type": "registry:component",
+      "title": "Navbar Theme Reveal",
+      "description": "A navbar with a sun and moon switch that repaints the page with a circular wipe starting from the toggle itself. The icon morphs between moon and sun, and the new theme is committed when the wipe lands.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "dark mode",
+        "theme toggle",
+        "clip-path",
+        "light",
+        "header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-theme-reveal.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-theme-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-hero-fill",
+      "type": "registry:component",
+      "title": "Navbar Hero Fill",
+      "description": "A transparent navbar over a full-bleed hero that fills in proportion to scroll: the background, blur, shadow, text color and height all follow one progress value instead of snapping. On phones a circular overlay opens with large staggered links and a focus trap.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "transparent",
+        "scroll",
+        "hero",
+        "overlay menu",
+        "hospitality"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-hero-fill.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-hero-fill.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-dock-stacks",
+      "type": "registry:component",
+      "title": "Navbar Dock Stacks",
+      "description": "A dock across the top of an app whose tiles swell toward the pointer and bounce when pressed. Folder items open a stack that fans out in an arc of cards, which turns into a plain list sheet on phones.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "dock",
+        "magnify",
+        "stack",
+        "fan",
+        "app"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-dock-stacks.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-dock-stacks.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navbar-breadcrumb-switcher",
+      "type": "registry:component",
+      "title": "Navbar Breadcrumb Switcher",
+      "description": "An app header where each breadcrumb is a switcher: team, project and environment open searchable lists with keyboard control. Picking a team cascades to its first project and environment, and changed crumbs swap in with a short blur.",
+      "categories": [
+        "navigation",
+        "navbar",
+        "breadcrumb",
+        "switcher",
+        "workspace",
+        "combobox",
+        "app header"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/navbar-breadcrumb-switcher.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/navbar-breadcrumb-switcher.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-resizable",
+      "type": "registry:component",
+      "title": "Sidebar Resizable",
+      "description": "An app sidebar you resize by dragging its edge, with a live width readout that snaps it into an icon rail below a threshold. Collapsed, every item shows a tooltip with its label and shortcut.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "resizable",
+        "collapsible",
+        "tooltip",
+        "drag",
+        "shortcuts"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-resizable.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-resizable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-side-push",
+      "type": "registry:component",
+      "title": "Menu Side Push",
+      "description": "An off-canvas menu that pushes the page aside as a scaled, rounded card with a ghost card behind it, revealing large numbered links. The burger morphs into a cross, focus stays trapped and Escape closes.",
+      "categories": [
+        "sidebars",
+        "off-canvas",
+        "menu",
+        "push",
+        "hamburger",
+        "portfolio",
+        "mobile"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-side-push.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-side-push.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-accordion-rail",
+      "type": "registry:component",
+      "title": "Sidebar Accordion Rail",
+      "description": "Docs-style accordion groups where only one opens at a time and its links hang from a curved branch line. A glowing bead slides to the current page while the line fills to show reading progress.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "accordion",
+        "docs",
+        "tree",
+        "progress",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-accordion-rail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-accordion-rail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-fisheye",
+      "type": "registry:component",
+      "title": "Sidebar Fisheye",
+      "description": "A vertical rail of glossy app tiles that swell under the pointer like a lens, with a floating label that glides to the nearest tile. Keyboard focus drives the same magnification.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "rail",
+        "dock",
+        "magnify",
+        "icons",
+        "music"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-fisheye.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-fisheye.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-glass-aurora",
+      "type": "registry:component",
+      "title": "Sidebar Glass Aurora",
+      "description": "A frosted glass sidebar floating over slowly drifting aurora light, with a soft light that follows the pointer down the list. The active row is a raised glass pill with a bright top edge.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "glass",
+        "gradient",
+        "aurora",
+        "frosted",
+        "creative"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-glass-aurora.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-glass-aurora.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-command",
+      "type": "registry:component",
+      "title": "Sidebar Command",
+      "description": "A keyboard-first sidebar with a fuzzy filter and two-key chords like G then I, shown in a status bar that drains while it waits for the second key. Built for power users who never touch the mouse.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "command",
+        "keyboard",
+        "shortcuts",
+        "fuzzy search",
+        "power user"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-command.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-command.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-quick-find",
+      "type": "registry:component",
+      "title": "Sidebar Quick Find",
+      "description": "A settings sidebar whose search folds away every page and section that does not match, also searching hidden keywords and showing which one matched. Enter opens the first hit and an empty search suggests terms.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "search",
+        "filter",
+        "settings",
+        "keywords",
+        "navigation"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-quick-find.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-quick-find.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-account-card",
+      "type": "registry:component",
+      "title": "Sidebar Account Card",
+      "description": "A sidebar whose account card grows upward into a panel with a status switch, workspace picker, seat meter and sign out. The avatar ring takes the status color and the nav behind softly blurs.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "account",
+        "user menu",
+        "status",
+        "workspace switcher",
+        "profile"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-account-card.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-account-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-flyout-rail",
+      "type": "registry:component",
+      "title": "Sidebar Flyout Rail",
+      "description": "An icon rail that opens a flyout of sub-links beside the hovered icon, gliding and resizing between sections with content sliding in the direction you moved. Arrow keys open, walk and close it.",
+      "categories": [
+        "sidebars",
+        "sidebar",
+        "rail",
+        "flyout",
+        "submenu",
+        "hover intent",
+        "dashboard"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/sidebar-flyout-rail.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/sidebar-flyout-rail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-side-bottom-sheet",
+      "type": "registry:component",
+      "title": "Menu Side Bottom Sheet",
+      "description": "A mobile menu in a bottom sheet you drag between half and full height, or flick down to dismiss, with quick action tiles above the links. The backdrop darkens with the sheet and focus stays inside while it is open.",
+      "categories": [
+        "sidebars",
+        "mobile",
+        "bottom sheet",
+        "menu",
+        "drag",
+        "snap points",
+        "drawer"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/menu-side-bottom-sheet.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/menu-side-bottom-sheet.tsx"
+        }
+      ]
+    },
+    {
       "name": "bg-ferrofluid",
       "type": "registry:component",
       "title": "Ferrofluid",
