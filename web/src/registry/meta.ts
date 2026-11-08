@@ -129,6 +129,11 @@ import { qyMeta } from "./parts/qy.meta.ts";
 import { qzMeta } from "./parts/qz.meta.ts";
 import { rcMeta } from "./parts/rc.meta.ts";
 import { rdMeta } from "./parts/rd.meta.ts";
+import { hoAMeta } from "./parts/hoA.meta.ts";
+import { hoBMeta } from "./parts/hoB.meta.ts";
+import { hoCMeta } from "./parts/hoC.meta.ts";
+import { hoDMeta } from "./parts/hoD.meta.ts";
+import { hoEMeta } from "./parts/hoE.meta.ts";
 import { qpMeta } from "./parts/qp.meta.ts";
 import { quMeta } from "./parts/qu.meta.ts";
 import { qoMeta } from "./parts/qo.meta.ts";
@@ -1277,6 +1282,11 @@ const allEffects: EffectMeta[] = [
   ...qzMeta,
   ...rcMeta,
   ...rdMeta,
+  ...hoAMeta,
+  ...hoBMeta,
+  ...hoCMeta,
+  ...hoDMeta,
+  ...hoEMeta,
   ...qpMeta,
   ...quMeta,
   ...qoMeta,
@@ -1314,7 +1324,7 @@ const allEffects: EffectMeta[] = [
 ];
 
 const newBatches: EffectMeta[][] = [
-  menusAMeta, menusBMeta, menusCMeta, ordAMeta, ordBMeta, ordCMeta, ordDMeta, rdMeta,
+  hoAMeta, hoBMeta, hoCMeta, hoDMeta, hoEMeta,
 ];
 
 const newSlugs = new Set(newBatches.flat().map((e) => e.slug));
