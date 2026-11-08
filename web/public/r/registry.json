@@ -7169,6 +7169,292 @@
       ]
     },
     {
+      "name": "hero-dot-saturn",
+      "type": "registry:component",
+      "title": "Hero Dot Saturn",
+      "description": "A black hero with a holographic ringed planet built from thousands of square dots: banded latitudes, three rings with gaps that pass in front of and behind the sphere, the planet shadow on the rings, a scan sweep and a dotted projector base.",
+      "categories": [
+        "hero",
+        "hero",
+        "saturn",
+        "planet",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-saturn.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-saturn.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-dna",
+      "type": "registry:component",
+      "title": "Hero Dot DNA",
+      "description": "A black hero with a holographic double helix of square dots standing on a projector base. Two strands joined by base pair rungs turn about their axis while bright pulses run along the strands and light up each rung they pass.",
+      "categories": [
+        "hero",
+        "hero",
+        "dna",
+        "helix",
+        "hologram",
+        "canvas",
+        "biotech"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-dna.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-dna.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-orbit",
+      "type": "registry:component",
+      "title": "Hero Dot Orbit",
+      "description": "A black hero with a holographic atom of square dots: a glowing nucleus of clustered spheres, faint dotted orbit rings at different tilts and bright electrons with fading trails, floating over a projector base and leaning toward the pointer.",
+      "categories": [
+        "hero",
+        "hero",
+        "atom",
+        "orbit",
+        "hologram",
+        "canvas",
+        "science"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-orbit.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-orbit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-galaxy",
+      "type": "registry:component",
+      "title": "Hero Dot Galaxy",
+      "description": "A black hero with a holographic spiral galaxy made of thousands of tiny square dots: a bright core, glowing arms that wind with inner stars moving faster, a sparse halo and a projector base below. A scan band sweeps up through it and it tilts toward the pointer.",
+      "categories": [
+        "hero",
+        "hero",
+        "galaxy",
+        "space",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-galaxy.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-galaxy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-torus",
+      "type": "registry:component",
+      "title": "Hero Dot Torus",
+      "description": "A black hero with a holographic torus or Möbius band built from square dots that keep flowing across its surface, with helical light lanes, rim light and a dotted projector base. It turns slowly on two axes and leans toward the pointer.",
+      "categories": [
+        "hero",
+        "hero",
+        "torus",
+        "mobius",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-torus.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-torus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-wave",
+      "type": "registry:component",
+      "title": "Hero Dot Wave",
+      "description": "A black hero with a perspective field of square dots rolling as layered waves toward a dark horizon. Moving or pressing the pointer sends out expanding ripples, a scan band sweeps up the field and idle ripples keep it alive.",
+      "categories": [
+        "hero",
+        "hero",
+        "wave",
+        "ripple",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-wave.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-wave.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-text",
+      "type": "registry:component",
+      "title": "Hero Dot Text",
+      "description": "A black hero where any word is drawn as extruded 3D letters made of tiny dots. The word swings like a pendulum, a scan band sweeps across it from left to right, the signal flickers now and then, and the dots part around the pointer.",
+      "categories": [
+        "hero",
+        "hero",
+        "text",
+        "hologram",
+        "3d",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-text.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-logo",
+      "type": "registry:component",
+      "title": "Hero Dot Logo",
+      "description": "A black hero that turns an SVG path into a spinning hologram of extruded dots, with dim back faces, lit side walls, an upward scan band, brief signal flicker and pointer tilt. Defaults to the Hyperblur mark.",
+      "categories": [
+        "hero",
+        "hero",
+        "logo",
+        "svg",
+        "hologram",
+        "3d",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-logo.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-logo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-silhouette",
+      "type": "registry:component",
+      "title": "Hero Dot Silhouette",
+      "description": "A black hero that turns an SVG or PNG into a hologram of dots: the shape comes from the alpha channel (or from dark pixels when there is none) and the depth from the image tones. It sways gently with an upward scan band. Defaults to a rocket.",
+      "categories": [
+        "hero",
+        "hero",
+        "image",
+        "silhouette",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-silhouette.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-silhouette.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-worldmap",
+      "type": "registry:component",
+      "title": "Hero Dot Worldmap",
+      "description": "A full-width dot-matrix world map in the style of live traffic and threat maps: pulsing city nodes, lifted arcs with bright heads and fading trails, impact rings, a ticking stats panel and a live feed of the last five events. Hover a city to see its label and routes.",
+      "categories": [
+        "hero",
+        "hero",
+        "world map",
+        "dots",
+        "arcs",
+        "network",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-worldmap.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-worldmap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-brain",
+      "type": "registry:component",
+      "title": "Hero Dot Brain",
+      "description": "A black hero with a holographic brain made of tiny dots: two hemispheres with winding folds, a cerebellum and a brain stem, seen from a three-quarter angle above a projector base. Signals crawl along the folds and synapses flash while a scan band sweeps up.",
+      "categories": [
+        "hero",
+        "hero",
+        "brain",
+        "hologram",
+        "neural",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-brain.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-brain.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-head",
+      "type": "registry:component",
+      "title": "Hero Dot Head",
+      "description": "A black hero with a stylized holographic bust drawn as horizontal dotted contour lines: skull, brow, nose, lips, ears, dim eye hollows, neck and shoulders on a projector base. It turns its head slowly while a scan line sweeps down and makes the face features flare.",
+      "categories": [
+        "hero",
+        "hero",
+        "head",
+        "bust",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-head.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-head.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-dot-hand",
+      "type": "registry:component",
+      "title": "Hero Dot Hand",
+      "description": "A black hero with an open holographic hand of tiny dots, palm toward the viewer with a slight three-quarter turn, standing on a projector base with a dotted wrist cuff. The fingers roll in a slow wave and curl a little when the pointer moves toward the bottom of the hero.",
+      "categories": [
+        "hero",
+        "hero",
+        "hand",
+        "gesture",
+        "hologram",
+        "canvas",
+        "dots"
+      ],
+      "files": [
+        {
+          "path": "registry/hyperblur/hero-dot-hand.tsx",
+          "type": "registry:component",
+          "target": "components/hyperblur/hero-dot-hand.tsx"
+        }
+      ]
+    },
+    {
       "name": "bg-ferrofluid",
       "type": "registry:component",
       "title": "Ferrofluid",
