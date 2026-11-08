@@ -3,6 +3,7 @@ import { Chakra_Petch, Geist, Geist_Mono, Instrument_Serif, Rajdhani, Space_Grot
 import "./globals.css";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
+import { Tracker } from "@/components/site/tracker";
 import { TerminalBoot } from "@/components/site/terminal-boot";
 import { themesEnabled } from "@/components/site/theme-flag";
 import { SITE_URL, effects } from "@/registry/meta";
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <Tracker />
         {themesEnabled ? <TerminalBoot count={effects.length} /> : null}
       </body>
     </html>

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { track } from "./track";
 
 interface CopyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   value: string;
@@ -25,6 +26,14 @@ export function CopyButton({
     try {
       await navigator.clipboard.writeText(value);
       setCopied(true);
+      const item =
+        window.location.pathname.split("/").filter(Boolean).pop() ?? "home";
+      const kind = /prompt/i.test(label)
+        ? "prompt"
+        : /command|install/i.test(label)
+          ? "command"
+          : "code";
+      track("copy", `${kind}:${item}`);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
       window.prompt("Copy this:", value);
@@ -39,7 +48,13 @@ export function CopyButton({
   ].join(" ");
 
   return (
-    <button type="button" onClick={onCopy} className={classes} aria-live="polite" {...rest}>
+    <button
+      type="button"
+      onClick={onCopy}
+      className={classes}
+      aria-live="polite"
+      {...rest}
+    >
       {copied ? copiedLabel : label}
     </button>
   );
