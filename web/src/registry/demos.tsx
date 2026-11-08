@@ -296,6 +296,16 @@ import { viDemos } from "@/registry/parts/vi.demos";
 import { vjDemos } from "@/registry/parts/vj.demos";
 import { vkDemos } from "@/registry/parts/vk.demos";
 import { vlDemos } from "@/registry/parts/vl.demos";
+import { waDemos } from "@/registry/parts/wa.demos";
+import { wbDemos } from "@/registry/parts/wb.demos";
+import { wcDemos } from "@/registry/parts/wc.demos";
+import { wdDemos } from "@/registry/parts/wd.demos";
+import { weDemos } from "@/registry/parts/we.demos";
+import { wfDemos } from "@/registry/parts/wf.demos";
+import { wgDemos } from "@/registry/parts/wg.demos";
+import { whDemos } from "@/registry/parts/wh.demos";
+import { wiDemos } from "@/registry/parts/wi.demos";
+import { wjDemos } from "@/registry/parts/wj.demos";
 import { qpDemos } from "@/registry/parts/qp.demos";
 import { quDemos } from "@/registry/parts/qu.demos";
 import { qoDemos } from "@/registry/parts/qo.demos";
@@ -1458,6 +1468,16 @@ export const demos: Record<string, ReactNode> = {
   ...vjDemos,
   ...vkDemos,
   ...vlDemos,
+  ...waDemos,
+  ...wbDemos,
+  ...wcDemos,
+  ...wdDemos,
+  ...weDemos,
+  ...wfDemos,
+  ...wgDemos,
+  ...whDemos,
+  ...wiDemos,
+  ...wjDemos,
   ...qpDemos,
   ...quDemos,
   ...qoDemos,
