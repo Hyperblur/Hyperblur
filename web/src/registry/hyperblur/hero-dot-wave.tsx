@@ -335,7 +335,8 @@ const css = `
   .hb-hh6-link, .hb-hh6-search, .hb-hh6-outline, .hb-hh6-copybtn, .hb-hh6-cta, .hb-hh6-cta svg, .hb-hh6-more { transition: none; }
   .hb-hh6-cta:hover svg { transform: none; }
 }
-.hb-hh6::after { height: 40%; background: linear-gradient(to top, #020202 0%, rgba(2, 2, 2, .78) 42%, rgba(2, 2, 2, 0) 100%); }
+.hb-hh6::after { height: 34%; background: linear-gradient(to top, rgba(2, 2, 2, .82) 0%, rgba(2, 2, 2, .42) 45%, rgba(2, 2, 2, 0) 100%); }
+.hb-hh6-title, .hb-hh6-sub { text-shadow: 0 2px 18px rgba(2, 2, 2, .9); }
 `;
 
 const defaultNav: HeroDotWaveLink[] = [
@@ -479,8 +480,8 @@ export function HeroDotWave({
     const live = ripples && !reduce;
     const sq = Math.sqrt(mult);
 
-    const maxCols = Math.max(24, Math.round(108 * sq));
-    const rows = Math.max(16, Math.round(60 * sq));
+    const maxCols = Math.max(24, Math.round(140 * sq));
+    const rows = Math.max(16, Math.round(76 * sq));
     const zr = waveRows(rows);
     let cols = maxCols;
     const cap = maxCols * rows + 8;
@@ -563,6 +564,7 @@ export function HeroDotWave({
       }
       for (let i = 0; i < n; i++) order[starts[bucket[i]]++] = i;
       ctx.globalAlpha = alpha;
+      ctx.globalCompositeOperation = "lighter";
       let pos = 0;
       for (let k = 0; k < buckets; k++) {
         const c = counts[k];
@@ -578,6 +580,7 @@ export function HeroDotWave({
         pos += c;
       }
       ctx.globalAlpha = 1;
+      ctx.globalCompositeOperation = "source-over";
     }
 
     function layout() {
@@ -631,7 +634,7 @@ export function HeroDotWave({
 
       const sky = ctx.createLinearGradient(0, horizon - h * 0.2 + hShift, 0, horizon + h * 0.22 + hShift);
       sky.addColorStop(0, rgba(0));
-      sky.addColorStop(0.5, rgba(0.1));
+      sky.addColorStop(0.5, rgba(0.18));
       sky.addColorStop(1, rgba(0));
       ctx.fillStyle = sky;
       ctx.fillRect(0, 0, w, h);
@@ -676,7 +679,7 @@ export function HeroDotWave({
         const inv = Z0 / z;
         const half = (span * z) / F;
         const tRow = r / (rows - 1);
-        const fade = Math.pow(1 - tRow, 0.9) * smooth((tRow + 0.02) / 0.06);
+        const fade = Math.pow(1 - tRow, 0.6) * (1 - smooth((tRow - 0.55) / 0.45) * 0.55);
         const par = curX * w * 0.04 * inv;
         for (let c = 0; c < cols; c++) {
           const xn = -1 + c * colStep + ((r & 1) ? colStep * 0.5 : 0);
@@ -686,6 +689,7 @@ export function HeroDotWave({
           const py = horizon + hShift + ((CAM - y) / z) * F;
           if (px < -4 || px > w + 4 || py < -4 || py > h + 4) continue;
           const ahead = r < rows - 1 ? hy[(r + 1) * cols + c] : y;
+          const behind = r > 0 ? hy[(r - 1) * cols + c] : y;
           const slope = (ahead - y) / Math.max(0.05, zr[Math.min(rows - 1, r + 1)] - z + 0.0001);
           const rim = Math.min(1, Math.max(0, slope * 1.8));
           const base = waveHeight(x, z, at) * amp;
@@ -694,11 +698,14 @@ export function HeroDotWave({
           const ny = (py - horizon) / depthSpan;
           const d = ny - sweep;
           const scan = Math.exp(-d * d * 260) * 0.6 + Math.exp(-d * d * 18) * 0.1;
-          let b = (0.34 + 0.9 * crest * Math.sqrt(crest) + 0.45 * rim + Math.min(0.8, ripple * 8)) * fade;
-          b = b * (1 + scan * 1.3) + scan * 0.22 * fade;
+          const ridge = y >= ahead && y >= behind && crest > 0.52 ? smooth((crest - 0.52) / 0.3) : 0;
+          const glow = crest * crest;
+          let b = (0.58 + 0.5 * glow + 0.3 * rim + 0.55 * ridge + Math.min(0.8, ripple * 8)) * fade;
+          b = b * (1 + scan * 1.2) + scan * 0.25 * fade;
           if (b > 0.999) b = 0.999;
-          const t = 0.2 + tRow * 0.8 + (1 - crest) * 0.35 - rim * 0.3 + Math.min(0.3, ripple * 3);
-          put(px, py, 0.6 + 0.85 * Math.pow(inv, 0.7) + rim * 0.15, b, t);
+          let t = 0.06 + tRow * 0.5 + glow * 0.75 + ridge * 0.6 + Math.min(0.3, ripple * 3) - rim * 0.12;
+          if (t > 0.999) t = 0.999;
+          put(px, py, 0.75 + 0.5 * Math.pow(inv, 0.6) + glow * 0.3 + ridge * 0.35, b, t);
         }
       }
 

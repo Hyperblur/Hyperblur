@@ -1,7 +1,7 @@
 {
   "name": "hyperblur",
   "homepage": "https://hyperblur.dev",
-  "generatedAt": "2026-11-08T00:16:16.250Z",
+  "generatedAt": "2026-11-08T00:24:47.466Z",
   "items": [
     {
       "slug": "glitch-text",
@@ -24672,7 +24672,7 @@
           "name": "density",
           "type": "number",
           "default": "1",
-          "description": "Multiplier for the grid (about 108 by 60 points at 1, fewer columns on narrow screens). Kept between 0.2 and 2."
+          "description": "Multiplier for the grid (about 140 by 76 points at 1, fewer columns on narrow screens). Kept between 0.2 and 2."
         },
         {
           "name": "speed",
@@ -24863,7 +24863,7 @@
       "slug": "hero-dot-logo",
       "component": "HeroDotLogo",
       "title": "Hero Dot Logo",
-      "description": "A black hero that turns an SVG path into a spinning hologram of extruded dots, with dim back faces, lit side walls, an upward scan band, brief signal flicker and pointer tilt. Defaults to the Hyperblur mark.",
+      "description": "A black hero that turns an SVG path into a hologram of extruded dots that swings like a pendulum, with a bright front face, lit side walls, an upward scan band, brief signal flicker and pointer tilt. Defaults to the Hyperblur mark.",
       "category": "hero",
       "tags": [
         "hero",
@@ -24883,7 +24883,7 @@
         {
           "name": "subtitle",
           "type": "string",
-          "default": "\"Drop in any SVG path and it turns into a spinning hologram of extruded dots, back faces dimmed and edges lit. Plain source, no runtime.\"",
+          "default": "\"Drop in any SVG path and it turns into a swinging hologram of extruded dots, front face bright and edges lit. Plain source, no runtime.\"",
           "description": "Gray paragraph under the headline. Empty hides it."
         },
         {
@@ -24944,7 +24944,7 @@
           "name": "speed",
           "type": "number",
           "default": "1",
-          "description": "Multiplier for the spin, the scan sweep and the floating motes. 0 holds the mark still while it keeps tilting toward the pointer."
+          "description": "Multiplier for the swing or spin, the scan sweep and the floating motes. 0 holds the mark still while it keeps tilting toward the pointer."
         },
         {
           "name": "path",
@@ -24965,10 +24965,16 @@
           "description": "Extrusion depth as a share of the mark height, from 0.02 to 1.5."
         },
         {
+          "name": "swing",
+          "type": "number",
+          "default": "50",
+          "description": "Pendulum amplitude around the vertical axis in degrees, from 0 to 85. Ignored when spin is true."
+        },
+        {
           "name": "spin",
           "type": "boolean",
-          "default": "true",
-          "description": "Full slow turn around the vertical axis. When false the mark swings gently instead."
+          "default": "false",
+          "description": "Full slow turn around the vertical axis instead of the swing. The turn slows down through the front and back views and speeds through the edge-on view; back faces are dimmed."
         },
         {
           "name": "headingAs",
@@ -25246,7 +25252,7 @@
           "name": "rate",
           "type": "number",
           "default": "1.4",
-          "description": "Arcs launched per second. At 1.4 about 6 to 9 arcs are in the air at once. Kept between 0.2 and 6."
+          "description": "Arcs launched per second. At 1.4 about 8 to 10 arcs are in the air at once. Markers that fall on water are moved to the nearest inland cell of the map. Kept between 0.2 and 6."
         },
         {
           "name": "showFeed",
@@ -25370,7 +25376,7 @@
           "name": "density",
           "type": "number",
           "default": "1",
-          "description": "Multiplier for the number of points (about 11,000 at 1, fewer below 640px of width). Kept between 0.2 and 2."
+          "description": "Multiplier for the number of points (about 16,000 at 1, at most 24,000, fewer below 640px of width). Kept between 0.2 and 2."
         },
         {
           "name": "speed",

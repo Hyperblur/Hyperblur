@@ -21,7 +21,7 @@ export const hoEMeta: EffectMeta[] = [
       { name: "navCta", type: `${linkType} | null`, default: '{ label: "Log in", href: "#" }', description: "Outlined mono button at the right of the top bar. Pass null to hide it." },
       { name: "learnMore", type: `${linkType} | null`, default: '{ label: "How it works", href: "#" }', description: "Small cue with a bobbing chevron at the bottom center. Pass null to hide it." },
       { name: "accent", type: "string", default: '"#c084fc"', description: "Rim color of the hologram, the projector glow and the primary button. The button text switches between dark and white for contrast when a hex color is given." },
-      { name: "density", type: "number", default: '1', description: "Multiplier for the number of points (about 11,000 at 1, fewer below 640px of width). Kept between 0.2 and 2." },
+      { name: "density", type: "number", default: '1', description: "Multiplier for the number of points (about 16,000 at 1, at most 24,000, fewer below 640px of width). Kept between 0.2 and 2." },
       { name: "speed", type: "number", default: '1', description: "Multiplier for the sway, the scan sweep and the animation. 0 freezes the motion but keeps the pointer tilt." },
       { name: "folds", type: "number", default: '1', description: "Depth of the folds and how strongly the dots gather along the grooves, from 0 (smooth hemispheres) to 2." },
       { name: "activity", type: "number", default: '1', description: "Amount of neural activity: crawling signal chains and synapse flashes, from 0 (none) to 3." },

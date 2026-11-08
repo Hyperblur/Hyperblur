@@ -70,9 +70,9 @@ const css = `
   position: absolute;
   inset: auto 0 0;
   z-index: 1;
-  height: 52%;
+  height: 40%;
   pointer-events: none;
-  background: linear-gradient(to top, #020202 0%, rgba(2, 2, 2, .86) 38%, rgba(2, 2, 2, 0) 100%);
+  background: linear-gradient(to top, #020202 0%, rgba(2, 2, 2, .8) 34%, rgba(2, 2, 2, 0) 100%);
 }
 .hb-hh11-bar {
   position: relative;
@@ -348,7 +348,7 @@ const defaultMore: HeroDotBrainLink = { label: "How it works", href: "#" };
 
 const TAU = Math.PI * 2;
 const WARM: [number, number, number] = [255, 243, 224];
-const ALPHAS = [0.06, 0.14, 0.26, 0.42, 0.62, 0.9];
+const ALPHAS = [0.1, 0.22, 0.38, 0.56, 0.76, 0.96];
 const TONES = 4;
 const LIGHT: [number, number, number] = [-0.36, 0.56, 0.75];
 
@@ -555,11 +555,11 @@ function cerebrum(x: number, y: number, z: number) {
   let d = ell(ax - 0.36, y - 0.12, z, 0.4, 0.56, 0.92);
   d = smin(d, ell(ax - 0.42, y + 0.2, z - 0.18, 0.27, 0.26, 0.5), 0.14);
   d = smin(d, ell(ax - 0.3, y - 0.02, z - 0.55, 0.28, 0.36, 0.36), 0.1);
-  return -smin(-d, ax - 0.022, 0.05);
+  return -smin(-d, ax - 0.045, 0.04);
 }
 
 function buildBrain(count: number, folds: number): Cloud {
-  const depth = 0.03 * folds;
+  const depth = 0.045 * folds;
   const bias = Math.min(1, folds) * 0.92;
   const field: Field = (x, y, z) => {
     let d = cerebrum(x, y, z);
@@ -574,18 +574,34 @@ function buildBrain(count: number, folds: number): Cloud {
     d = smin(d, cb, 0.04);
     return smin(d, capsule(x, y, z, 0, -0.25, -0.22, 0, -0.82, -0.34, 0.11, 0.08), 0.08);
   };
-  const line = (x: number, y: number, z: number) => {
+  const bank = (x: number, y: number, z: number) => {
+    const s = Math.abs(gyri(x, y, z));
+    const l = fissure(x, y, z);
+    const e = s - 0.5;
+    return Math.max(Math.exp(-(e * e) / 0.05), Math.exp(-((l - 0.035) * (l - 0.035)) / 0.0006));
+  };
+  const core = (x: number, y: number, z: number) => {
     const s = gyri(x, y, z);
     const l = fissure(x, y, z);
-    return Math.max(Math.exp(-s * s * 6), Math.exp(-(l * l) / 0.002));
+    return Math.max(Math.exp(-(s * s) / 0.03), Math.exp(-(l * l) / 0.0003));
   };
-  const accept: Field = (x, y, z) => (cerebrum(x, y, z) > 0.08 ? 0.5 : 1 - bias + bias * line(x, y, z));
-  const cloud = surface(field, [-0.85, -0.9, -1, 0.85, 0.75, 1], 0.04, count, 12000, 5, accept, 0, 0);
+  const accept: Field = (x, y, z) => {
+    if (cerebrum(x, y, z) > 0.08) return 0.45;
+    const m = Math.abs(x) < 0.12 && y > -0.05 ? 0.5 : 0;
+    return Math.min(1, Math.max(0.04, 1 - bias * 0.75 + bias * 0.85 * bank(x, y, z) - bias * 0.3 * core(x, y, z) + m));
+  };
+  const cloud = surface(field, [-0.85, -0.9, -1, 0.85, 0.75, 1], 0.04, count, 12500, 5, accept, 0, 0);
   for (let i = 0; i < cloud.n; i++) {
     const x = cloud.x[i];
     const y = cloud.y[i];
     const z = cloud.z[i];
-    cloud.w[i] = cerebrum(x, y, z) < 0.06 ? 0.3 + 1.05 * bias * line(x, y, z) + (1 - bias) * 0.5 : 0.75;
+    if (cerebrum(x, y, z) < 0.06) {
+      const crest = Math.min(1, Math.abs(gyri(x, y, z)) / 2);
+      const mid = Math.abs(x) < 0.1 && y > -0.05 ? 0.45 : 0;
+      cloud.w[i] = Math.max(0.1, 0.5 + bias * (0.95 * bank(x, y, z) + 0.25 * crest - 0.45 * core(x, y, z)) + (1 - bias) * 0.3 + mid);
+    } else {
+      cloud.w[i] = 0.8;
+    }
   }
   return cloud;
 }
@@ -726,7 +742,7 @@ function createScene(count: number, folds: number, activity: number, acc: [numbe
       fills.push(`rgba(${r}, ${g}, ${bl}, ${ALPHAS[b].toFixed(3)})`);
     }
   }
-  const npaths = Math.round(9 * activity);
+  const npaths = Math.round(12 * activity);
   const steps = 64;
   return {
     cloud,
@@ -749,7 +765,7 @@ function createScene(count: number, folds: number, activity: number, acc: [numbe
     paths: npaths > 0 ? buildPaths(cloud, npaths, steps, 17) : new Int32Array(0),
     npaths,
     steps,
-    flashes: Math.round(5 * activity),
+    flashes: Math.round(7 * activity),
   };
 }
 
@@ -765,7 +781,7 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
   ctx.fillRect(0, 0, w, h);
 
   const yaw = 0.95 + Math.sin(time * 0.23 * pace) * 0.38 + v.curX * 0.55;
-  const pitch = 0.2 + Math.sin(time * 0.17 * pace + 1) * 0.05 + v.curY * 0.24;
+  const pitch = 0.32 + Math.sin(time * 0.17 * pace + 1) * 0.05 + v.curY * 0.22;
   const cY = Math.cos(yaw);
   const sY = Math.sin(yaw);
   const cX = Math.cos(pitch);
@@ -852,17 +868,17 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
       const edge = 1 - Math.abs(nz2);
       const rim = nz2 > -0.35 ? edge * edge * edge : 0;
       const face = nz2 > 0 ? 1 : 0.3;
-      b = c.w[i] * (0.3 + 0.95 * lam * face + 0.9 * rim) * (0.42 + 0.58 * depth) * 1.45;
+      b = c.w[i] * (0.42 + 1.05 * lam * face + 1.3 * rim) * (0.5 + 0.5 * depth) * 1.55;
       const dy = y2 - band;
       b += Math.exp(-(dy * dy) / 0.005) * 0.6 * (0.35 + c.w[i] * 0.5);
-      tone = Math.min(1, rim * 1.5 + (1 - depth) * 0.35);
+      tone = Math.min(1, 0.28 + rim * 1.6 + (1 - depth) * 0.3);
     }
     b *= flick;
     if (b > 0.999) b = 0.999;
     const bi = Math.floor(b * ALPHAS.length);
     let ti = Math.floor(tone * TONES);
     if (ti >= TONES) ti = TONES - 1;
-    let sz = s.bs[i] * (0.62 + 0.6 * depth);
+    let sz = s.bs[i] * (0.7 + 0.62 * depth + (ring ? 0.1 : 0.25 * c.w[i]));
     if (sz > 1.4) sz = 1.4;
     if (sz < 0.6) sz = 0.6;
     s.ss[i] = sz;
@@ -893,7 +909,7 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
 
   const hot = `rgb(${Math.round((255 + acc[0]) / 2)}, ${Math.round((250 + acc[1]) / 2)}, ${Math.round((245 + acc[2]) / 2)})`;
   ctx.fillStyle = hot;
-  const tail = 11;
+  const tail = 14;
   for (let p = 0; p < s.npaths; p++) {
     const sp = 0.07 + hash(p, 51) * 0.06;
     const head = (((v.still ? 0.35 : time * pace * sp) + hash(p, 52)) % 1) * (s.steps + tail);
@@ -906,12 +922,12 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
       const ib = s.paths[p * s.steps + a + 1];
       if (ia >= n || ib >= n) continue;
       const d = s.sd[ia];
-      const al = (1 - j / tail) * (0.25 + 0.75 * d) * flick;
+      const al = Math.min(1, (1 - j / tail) * (0.45 + 0.75 * d) * 1.15) * flick;
       if (al <= 0.02) continue;
       ctx.globalAlpha = al;
       const qx = s.sx[ia] + (s.sx[ib] - s.sx[ia]) * u;
       const qy = s.sy[ia] + (s.sy[ib] - s.sy[ia]) * u;
-      const sz = j === 0 ? 2 : 1.4;
+      const sz = j === 0 ? 2.8 : j < 3 ? 2 : 1.5;
       ctx.fillRect(qx - sz / 2, qy - sz / 2, sz, sz);
     }
   }
@@ -927,13 +943,20 @@ function paint(ctx: CanvasRenderingContext2D, s: Scene, v: View) {
     const fx = s.sx[i];
     const fy = s.sy[i];
     const fade = (1 - lt) * flick;
+    const halo = ctx.createRadialGradient(fx, fy, 0, fx, fy, 22);
+    halo.addColorStop(0, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, ${(0.55 * fade).toFixed(3)})`);
+    halo.addColorStop(1, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0)`);
+    ctx.fillStyle = halo;
+    ctx.fillRect(fx - 22, fy - 22, 44, 44);
+    ctx.fillStyle = "rgb(255, 252, 248)";
     ctx.globalAlpha = fade;
-    ctx.fillRect(fx - 1.4, fy - 1.4, 2.8, 2.8);
-    const rad = 3 + lt * 16;
-    ctx.globalAlpha = fade * 0.7;
-    for (let q = 0; q < 8; q++) {
-      const a = (q / 8) * TAU + k;
-      ctx.fillRect(fx + Math.cos(a) * rad - 0.6, fy + Math.sin(a) * rad * 0.8 - 0.6, 1.2, 1.2);
+    ctx.fillRect(fx - 1.8, fy - 1.8, 3.6, 3.6);
+    ctx.fillStyle = hot;
+    const rad = 4 + lt * 20;
+    ctx.globalAlpha = fade * 0.85;
+    for (let q = 0; q < 12; q++) {
+      const a = (q / 12) * TAU + k;
+      ctx.fillRect(fx + Math.cos(a) * rad - 0.7, fy + Math.sin(a) * rad * 0.8 - 0.7, 1.4, 1.4);
     }
   }
   ctx.globalAlpha = 1;
@@ -1015,7 +1038,7 @@ export function HeroDotBrain({
     const mult = Math.min(2, Math.max(0.2, Number.isFinite(density) ? density : 1));
     const pace = Math.max(0, Number.isFinite(speed) ? speed : 1);
     const acc = resolveRgb(accent, ctx);
-    const scene = createScene(Math.round(11000 * mult), Math.min(2, Math.max(0, Number.isFinite(folds) ? folds : 1)), Math.min(3, Math.max(0, Number.isFinite(activity) ? activity : 1)), acc);
+    const scene = createScene(Math.min(24000, Math.round(16000 * mult)), Math.min(2, Math.max(0, Number.isFinite(folds) ? folds : 1)), Math.min(3, Math.max(0, Number.isFinite(activity) ? activity : 1)), acc);
     const view: View = {
       w: 0,
       h: 0,
@@ -1056,7 +1079,7 @@ export function HeroDotBrain({
         view.limit = Math.round(scene.cloud.n * 0.6);
       } else {
         view.R = Math.min(w * 0.27, h * 0.36);
-        view.cy = h * 0.46;
+        view.cy = h * 0.42;
         view.limit = scene.cloud.n;
       }
     }

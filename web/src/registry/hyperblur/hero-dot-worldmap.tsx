@@ -100,7 +100,8 @@ const css = `
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(to top, #020202 0%, rgba(2, 2, 2, .9) 16%, rgba(2, 2, 2, .5) 30%, rgba(2, 2, 2, 0) 46%),
+    radial-gradient(52% 42% at 18% 92%, rgba(2, 2, 2, .82), rgba(2, 2, 2, 0) 100%),
+    linear-gradient(to top, #020202 0%, rgba(2, 2, 2, .94) 17%, rgba(2, 2, 2, .62) 31%, rgba(2, 2, 2, 0) 48%),
     linear-gradient(to bottom, rgba(2, 2, 2, .75) 0%, rgba(2, 2, 2, 0) 12%);
 }
 .hb-hh10-bar {
@@ -395,6 +396,7 @@ const css = `
   line-height: 1.02;
   letter-spacing: -.04em;
   text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, .85);
   animation: hb-hh10-up .8s cubic-bezier(.2, .7, .2, 1) both;
 }
 .hb-hh10-sub {
@@ -404,6 +406,7 @@ const css = `
   font-size: 15px;
   line-height: 1.55;
   text-wrap: pretty;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, .9);
   animation: hb-hh10-up .8s .08s cubic-bezier(.2, .7, .2, 1) both;
 }
 .hb-hh10-side {
@@ -745,6 +748,38 @@ function maskAt(mask: Uint8Array, lon: number, lat: number) {
   return mask[r * MASK_W + q];
 }
 
+export function heroDotWorldmapSnap(mask: Uint8Array, node: HeroDotWorldmapNode): HeroDotWorldmapNode {
+  const interior = (lon: number, lat: number) =>
+    maskAt(mask, lon, lat) === 1 &&
+    maskAt(mask, lon + 0.5, lat) === 1 &&
+    maskAt(mask, lon - 0.5, lat) === 1 &&
+    maskAt(mask, lon, lat + 0.5) === 1 &&
+    maskAt(mask, lon, lat - 0.5) === 1;
+  if (interior(node.lon, node.lat)) return node;
+  let best: [number, number] | null = null;
+  let bestD = Infinity;
+  let fallback: [number, number] | null = null;
+  let fallD = Infinity;
+  for (let dy = -8; dy <= 8; dy++) {
+    for (let dx = -8; dx <= 8; dx++) {
+      const lon = node.lon + dx * 0.5;
+      const lat = node.lat + dy * 0.5;
+      const d = dx * dx + dy * dy;
+      if (maskAt(mask, lon, lat) !== 1) continue;
+      if (d < fallD) {
+        fallD = d;
+        fallback = [lon, lat];
+      }
+      if (d < bestD && interior(lon, lat)) {
+        bestD = d;
+        best = [lon, lat];
+      }
+    }
+  }
+  const pick = best && bestD <= fallD + 8 ? best : fallback;
+  return pick ? { name: node.name, lon: pick[0], lat: pick[1] } : node;
+}
+
 function hash(i: number, salt: number) {
   let x = (Math.imul(i + 1, 0x9e3779b1) ^ Math.imul(salt + 11, 0x85ebca6b)) >>> 0;
   x = Math.imul((x >>> 16) ^ x, 0x45d9f3b) >>> 0;
@@ -847,7 +882,7 @@ export function heroDotWorldmapArc(k: number, rate: number, nodes: HeroDotWorldm
     to,
     hot,
     start: (k + 0.15 + hash(k, 4) * 0.7) / rate,
-    travel: 1.7 + dist * 3.4,
+    travel: 2.3 + dist * 3.9,
     lift: Math.min(0.17, 0.035 + dist * 0.3),
     tag: tags[Math.floor(hash(k, 5) * tags.length) % tags.length],
     ms: Math.round(14 + hash(k, 6) * hash(k, 7) * 220 + dist * 120),
@@ -947,7 +982,7 @@ export function HeroDotWorldmap({
     runRef.current++;
     const run = runRef.current;
     const parsed = JSON.parse(nodeJson) as HeroDotWorldmapNode[];
-    const list = parsed.filter((n) => Number.isFinite(n.lon) && Number.isFinite(n.lat));
+    const list = parsed.filter((n) => Number.isFinite(n.lon) && Number.isFinite(n.lat)).map((n) => heroDotWorldmapSnap(mask, n));
     const pairs = heroDotWorldmapRoutes(list, routeJson ? (JSON.parse(routeJson) as [string, string][]) : undefined);
     const nN = list.length;
     const nu = new Float32Array(nN);
@@ -1083,7 +1118,7 @@ export function HeroDotWorldmap({
       const tb = new Float32Array(cap);
       const tt = new Uint8Array(cap);
       const ts = new Float32Array(cap);
-      const dotPx = Math.min(1.4, Math.max(0.75, (mapW / cols) * 0.3));
+      const dotPx = Math.min(1.45, Math.max(0.9, (mapW / cols) * 0.33));
       const sigma = 2 * 6.5 * 6.5;
       let n = 0;
       for (let r = 0; r < rows; r++) {
@@ -1096,7 +1131,7 @@ export function HeroDotWorldmap({
             if (r % 3 !== 1 || c % 3 !== 1) continue;
             tu[n] = lon / 360;
             tv[n] = (lat - LAT_MID) / 360;
-            tb[n] = 0.05;
+            tb[n] = 0.045;
             tt[n] = 3;
             ts[n] = dotPx * 0.7;
             n++;
@@ -1118,11 +1153,11 @@ export function HeroDotWorldmap({
           const grain = hash(idx, 33);
           tu[n] = lon / 360;
           tv[n] = (lat - LAT_MID) / 360;
-          tb[n] = 0.28 + 0.34 * edge + 0.3 * heat + 0.12 * grain;
+          tb[n] = 0.5 + 0.42 * edge + 0.28 * heat + 0.12 * grain;
           let tone = Math.floor((edge * 0.62 + heat * 0.7) * TONES);
           if (tone >= TONES) tone = TONES - 1;
           tt[n] = tone;
-          ts[n] = dotPx * (1 + 0.16 * edge + 0.12 * heat);
+          ts[n] = dotPx * (1 + 0.2 * edge + 0.14 * heat);
           n++;
         }
       }
@@ -1200,7 +1235,7 @@ export function HeroDotWorldmap({
       const squash = tiltC * 0.92;
 
       const glow = ctx.createRadialGradient(cx, cy, mapW * 0.05, cx, cy, mapW * 0.62);
-      glow.addColorStop(0, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0.07)`);
+      glow.addColorStop(0, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0.1)`);
       glow.addColorStop(1, `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0)`);
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, w, h);
@@ -1224,11 +1259,11 @@ export function HeroDotWorldmap({
         ss[i] = dsize[i] * pScale * (1 + 0.1 * near);
         let b = dbase[i] * (1 + 0.22 * near);
         const au = Math.abs(du[i]) * 2;
-        if (au > 0.72) b *= 1 - ((au - 0.72) / 0.28) * 0.45;
+        if (au > 0.78) b *= 1 - ((au - 0.78) / 0.22) * 0.3;
         if (sweep >= 0) {
           const d = (dv[i] - vb) * 60;
           const band = Math.exp(-d * d);
-          b += (dtone[i] === 3 && dbase[i] < 0.1 ? 0.12 : 0.42) * band;
+          b += (dtone[i] === 3 && dbase[i] < 0.1 ? 0.12 : 0.5) * band;
         }
         if (b > 0.999) b = 0.999;
         if (b < 0) b = 0;
@@ -1299,19 +1334,19 @@ export function HeroDotWorldmap({
       }
 
       const kNow = Math.floor(time * safeRate);
-      const kMin = Math.floor((time - 9) * safeRate) - 1;
+      const kMin = Math.floor((time - 12) * safeRate) - 1;
       let liveCount = 0;
       for (let k = kMin; k <= kNow + 1; k++) {
         const arc = heroDotWorldmapArc(k, safeRate, list, pairs);
         if (!arc) break;
         const age = time - arc.start;
-        const life = arc.travel * 1.38 + 1.1;
+        const life = arc.travel * 1.52 + 1.2;
         if (age < 0 || age > life) continue;
         liveCount++;
         const dim = hover >= 0 && arc.from !== hover && arc.to !== hover ? 0.28 : 1;
         const pr = Math.min(1, age / arc.travel);
         const head = pr * pr * (3 - 2 * pr) * 0.55 + pr * 0.45;
-        const trailLen = 0.34;
+        const trailLen = 0.5;
         const tailRaw = Math.min(1, age / arc.travel - trailLen);
         const tail = Math.max(0, tailRaw);
         const dist = Math.hypot(nu[arc.to] - nu[arc.from], nv[arc.to] - nv[arc.from]);
@@ -1321,29 +1356,29 @@ export function HeroDotWorldmap({
 
         const fadeIn = Math.min(1, age / 0.35);
         const fadeOut = tailRaw >= 1 ? Math.max(0, 1 - (age - arc.travel * (1 + trailLen)) / 0.5) : 1;
-        const ghostA = 0.11 * fadeIn * fadeOut * dim * flick;
+        const ghostA = 0.2 * fadeIn * fadeOut * dim * flick;
         if (ghostA > 0.005) {
-          const gSteps = Math.max(10, Math.floor(len / 5.5));
+          const gSteps = Math.max(12, Math.floor(len / 4.2));
           ctx.globalAlpha = ghostA;
           for (let q = 0; q <= gSteps; q++) {
             const t = q / gSteps;
             if (t < tail) continue;
             curve(arc.from, arc.to, arc.lift, t);
-            const s = 0.9 * pScale;
+            const s = 1.2 * pScale;
             ctx.fillRect(qx - s / 2, qy - s / 2, s, s);
           }
         }
 
         if (head > tail) {
           const span = head - tail;
-          const tSteps = Math.max(6, Math.floor((len * span) / 2.1));
+          const tSteps = Math.max(8, Math.floor((len * span) / 1.8));
           for (let q = 0; q <= tSteps; q++) {
             const f = q / tSteps;
             const t = tail + span * f;
             curve(arc.from, arc.to, arc.lift, t);
             const ramp = Math.pow(f, 1.7);
-            ctx.globalAlpha = (0.05 + 0.9 * ramp) * dim * flick * fadeOut;
-            const s = (0.75 + 0.65 * ramp) * pScale * Math.min(1.15, sc + 0.25);
+            ctx.globalAlpha = Math.min(1, 0.08 + 0.95 * ramp) * dim * flick * fadeOut;
+            const s = (0.95 + 0.85 * ramp) * pScale * Math.min(1.15, sc + 0.3);
             ctx.fillRect(qx - s / 2, qy - s / 2, s, s);
           }
         }
@@ -1352,12 +1387,14 @@ export function HeroDotWorldmap({
           curve(arc.from, arc.to, arc.lift, head);
           const hx = qx;
           const hy = qy;
-          const g = (arc.hot ? 26 : 22) * sc * pScale;
-          ctx.globalAlpha = 0.85 * dim * flick;
+          const g = (arc.hot ? 42 : 38) * sc * pScale;
+          ctx.globalAlpha = dim * flick;
           ctx.drawImage(arc.hot ? glowHot : glowAcc, hx - g / 2, hy - g / 2, g, g);
+          ctx.drawImage(arc.hot ? glowHot : glowAcc, hx - g / 4, hy - g / 4, g / 2, g / 2);
+          ctx.drawImage(glowWarm, hx - g / 6, hy - g / 6, g / 3, g / 3);
           ctx.fillStyle = warmCss;
           ctx.globalAlpha = dim * flick;
-          const s = 2.1 * pScale;
+          const s = 2.8 * pScale;
           ctx.fillRect(hx - s / 2, hy - s / 2, s, s);
           ctx.fillStyle = color;
         } else {
@@ -1371,10 +1408,10 @@ export function HeroDotWorldmap({
             const ease = 1 - Math.pow(1 - ip, 3);
             const fade = Math.pow(1 - ip, 1.4);
             ctx.globalAlpha = 0.9 * fade * dim * flick;
-            ringDots(x, y, (3 + ease * 20) * sc, 22, squash, 1.2, ip * 0.6);
+            ringDots(x, y, (3 + ease * 24) * sc, 26, squash, 1.4, ip * 0.6);
             ctx.globalAlpha = 0.5 * fade * dim * flick;
-            ringDots(x, y, (2 + ease * 11) * sc, 14, squash, 1, -ip * 0.8);
-            const g = 30 * sc * (0.6 + 0.4 * (1 - ip));
+            ringDots(x, y, (2 + ease * 13) * sc, 16, squash, 1.2, -ip * 0.8);
+            const g = 44 * sc * (0.6 + 0.4 * (1 - ip));
             ctx.globalAlpha = 0.8 * fade * dim * flick;
             ctx.drawImage(arc.hot ? glowHot : glowAcc, x - g / 2, y - g / 2, g, g);
           }
@@ -1396,21 +1433,21 @@ export function HeroDotWorldmap({
         const sinceHit = time - nHit[i];
         const warm = sinceHit < 2.4 ? 1 - sinceHit / 2.4 : 0;
         ctx.fillStyle = accCss;
-        for (let r = 0; r < 2; r++) {
-          const ph = reduce ? 0.35 + r * 0.3 : (time / 2.8 + nph[i] + r * 0.5) % 1;
-          ctx.globalAlpha = Math.pow(1 - ph, 2) * (0.42 + 0.3 * warm) * flick;
-          ringDots(x, y, (2.5 + ph * 11) * sc, 12, squash, 1, nph[i] * TAU);
+        for (let r = 0; r < 3; r++) {
+          const ph = reduce ? 0.2 + r * 0.3 : (time / 2.6 + nph[i] + r / 3) % 1;
+          ctx.globalAlpha = Math.min(1, Math.pow(1 - ph, 1.6) * (0.72 + 0.3 * warm)) * flick;
+          ringDots(x, y, (3 + ph * 15) * sc, 16, squash, 1.3, nph[i] * TAU);
         }
         if (isHover) {
           ctx.globalAlpha = 0.9;
           ringDots(x, y, 9 * sc + 3, 20, squash, 1.2, reduce ? 0 : time * 0.6);
         }
-        const g = (isHover ? 30 : 14 + warm * 10) * sc;
-        ctx.globalAlpha = (isHover ? 0.9 : 0.55 + 0.35 * warm) * flick;
+        const g = (isHover ? 36 : 22 + warm * 14) * sc;
+        ctx.globalAlpha = (isHover ? 1 : 0.8 + 0.2 * warm) * flick;
         ctx.drawImage(glowWarm, x - g / 2, y - g / 2, g, g);
         ctx.fillStyle = warmCss;
         ctx.globalAlpha = flick;
-        const s = isHover ? 2.6 : 2;
+        const s = isHover ? 3 : 2.4;
         ctx.fillRect(x - s / 2, y - s / 2, s, s);
       }
       ctx.globalAlpha = 1;

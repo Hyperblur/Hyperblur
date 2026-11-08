@@ -7326,7 +7326,7 @@
       "name": "hero-dot-logo",
       "type": "registry:component",
       "title": "Hero Dot Logo",
-      "description": "A black hero that turns an SVG path into a spinning hologram of extruded dots, with dim back faces, lit side walls, an upward scan band, brief signal flicker and pointer tilt. Defaults to the Hyperblur mark.",
+      "description": "A black hero that turns an SVG path into a hologram of extruded dots that swings like a pendulum, with a bright front face, lit side walls, an upward scan band, brief signal flicker and pointer tilt. Defaults to the Hyperblur mark.",
       "categories": [
         "hero",
         "hero",

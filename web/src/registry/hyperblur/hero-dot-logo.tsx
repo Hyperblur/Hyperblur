@@ -23,6 +23,7 @@ export interface HeroDotLogoProps extends Omit<React.HTMLAttributes<HTMLElement>
   path?: string;
   viewBox?: string;
   depth?: number;
+  swing?: number;
   spin?: boolean;
   headingAs?: "h1" | "h2";
   onSearch?: () => void;
@@ -628,7 +629,7 @@ function Mark() {
 
 export function HeroDotLogo({
   title = "Your mark, projected in three dimensions.",
-  subtitle = "Drop in any SVG path and it turns into a spinning hologram of extruded dots, back faces dimmed and edges lit. Plain source, no runtime.",
+  subtitle = "Drop in any SVG path and it turns into a swinging hologram of extruded dots, front face bright and edges lit. Plain source, no runtime.",
   caption = "Any SVG path · 6 depth layers · MIT licensed",
   command = "npx hyperblur add hero-dot-logo",
   primaryCta = defaultPrimary,
@@ -642,7 +643,8 @@ export function HeroDotLogo({
   path = DEFAULT_PATH,
   viewBox = DEFAULT_VIEWBOX,
   depth = 0.35,
-  spin = true,
+  swing = 50,
+  spin = false,
   headingAs = "h1",
   onSearch,
   className = "",
@@ -665,7 +667,8 @@ export function HeroDotLogo({
     const mult = Math.min(2, Math.max(0.2, Number.isFinite(density) ? density : 1));
     const pace = Math.max(0, Number.isFinite(speed) ? speed : 1);
     const deep = Math.min(1.5, Math.max(0.02, Number.isFinite(depth) ? depth : 0.35));
-    const opts: CloudOptions = { depth: deep, mids: 4, backKeep: 0.6, relief: 0, axis: 1 };
+    const swingRad = (Math.min(85, Math.max(0, Number.isFinite(swing) ? swing : 50)) * Math.PI) / 180;
+    const opts: CloudOptions = { depth: deep, mids: 3, backKeep: 0.35, relief: 0, axis: 1 };
     const pathD = typeof path === "string" ? path : "";
     const box = parseViewBox(viewBox) ?? parseViewBox(DEFAULT_VIEWBOX);
 
@@ -731,7 +734,7 @@ export function HeroDotLogo({
     }
 
     function wantRows() {
-      return Math.min(220, Math.max(26, fitUnit() / 2.3));
+      return Math.min(260, Math.max(60, fitUnit() / 1.7));
     }
 
     function resample(force: boolean) {
@@ -807,16 +810,17 @@ export function HeroDotLogo({
       ctx.fillRect(-unit * 1.3, -unit * 1.3, unit * 2.6, unit * 2.6);
       ctx.restore();
 
-      const turn = spin ? -0.5 + time * 0.42 * pace : 0.6 * Math.sin(time * 0.5 * pace);
-      const yaw = (reduce ? 0.55 : turn) + curX * 0.4;
-      const pitch = 0.1 + curY * 0.28;
+      const phase = time * 0.5 * pace;
+      const turn = spin ? phase - 0.36 * Math.sin(2 * phase) : swingRad * Math.sin(phase * 0.9);
+      const yaw = (reduce ? 0.22 : turn) + curX * 0.3;
+      const pitch = 0.08 + curY * 0.24;
       const cyw = Math.cos(yaw);
       const syw = Math.sin(yaw);
       const cp = Math.cos(pitch);
       const sp = Math.sin(pitch);
       const cam = Math.max(3.2, A * 1.5);
       const face = cyw * cp;
-      const wall = 0.34 + 0.5 * Math.abs(syw);
+      const wall = 0.16 + 0.3 * Math.abs(syw);
       const ox = curX * unit * 0.06;
       const oy = curY * unit * 0.05;
       const band = reduce ? 0.38 : -0.2 + (((time * pace) / 6) % 1) * 1.4;
@@ -855,7 +859,7 @@ export function HeroDotLogo({
         if (glitch && c.v[i] > g0 && c.v[i] < g0 + 0.09) px += gShift;
         const kind = c.kind[i];
         let b: number;
-        if (kind === 0) b = face > 0 ? 0.56 + 0.42 * face : 0.12 + 0.14 * (1 + face);
+        if (kind === 0) b = face > 0 ? 0.64 + 0.36 * face : 0.1 + 0.12 * (1 + face);
         else if (kind === 2) b = -face > 0 ? 0.24 + 0.3 * -face : 0.07 + 0.09 * (1 + -face);
         else b = wall;
         b *= 0.6 + 0.4 * c.shade[i];
@@ -866,7 +870,7 @@ export function HeroDotLogo({
         const du = c.u[i] - band;
         const sc = Math.exp(-(du * du) / 0.0032);
         b += 0.6 * sc;
-        let s = c.size[i] * (0.72 + 0.42 * near) * (kind === 0 ? 1.16 : 0.9) * (1 + 0.22 * sc);
+        let s = c.size[i] * (0.72 + 0.42 * near) * (kind === 0 ? 1.16 : 0.8) * (1 + 0.22 * sc);
         if (usePtr) {
           const dx = px - pxp;
           const dy = py - pyp;
@@ -1016,7 +1020,7 @@ export function HeroDotLogo({
       root.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [accent, density, speed, path, viewBox, depth, spin]);
+  }, [accent, density, speed, path, viewBox, depth, swing, spin]);
 
   React.useEffect(() => {
     return () => {

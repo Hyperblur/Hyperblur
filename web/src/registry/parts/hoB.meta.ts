@@ -78,7 +78,7 @@ export const hoBMeta: EffectMeta[] = [
       { name: "navCta", type: `${linkType} | null`, default: '{ label: "Sign in", href: "#" }', description: "Outlined mono button at the right of the top bar. Pass null to hide it." },
       { name: "learnMore", type: `${linkType} | null`, default: '{ label: "See the platform", href: "#" }', description: "Small cue with a bobbing chevron at the bottom center. Pass null to hide it." },
       { name: "accent", type: "string", default: '"#4da3ff"', description: "Color of the far rows, the troughs, the horizon glow, the caption details and the primary button. Near crests stay cool white. The button text switches between dark and white for contrast when a hex color is given." },
-      { name: "density", type: "number", default: "1", description: "Multiplier for the grid (about 108 by 60 points at 1, fewer columns on narrow screens). Kept between 0.2 and 2." },
+      { name: "density", type: "number", default: "1", description: "Multiplier for the grid (about 140 by 76 points at 1, fewer columns on narrow screens). Kept between 0.2 and 2." },
       { name: "speed", type: "number", default: "1", description: "Multiplier for the wave motion and the scan sweep. Ripples keep their own pace. 0 freezes the surface." },
       { name: "amplitude", type: "number", default: "1", description: "Height of the layered waves, from 0 (flat) to 3." },
       { name: "ripples", type: "boolean", default: "true", description: "When true, moving or pressing the pointer spawns expanding ripples, and a ripple appears on its own every few seconds while idle." },
