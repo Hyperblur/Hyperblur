@@ -13,7 +13,7 @@
 Visual effects for React, one command away. Copy-paste components that install with one shadcn command, or through a prompt you hand to your coding agent.
 
 - `web/src/registry/` — the free catalog: every effect, component and block lives in `web/src/registry/hyperblur`, one file each, no dependencies besides React, with its metadata in `meta.ts` and its demo in `demos.tsx`.
-- `brand/` — logo, mark, favicon and avatars, with a short usage guide.
+- `brand/` — logo, mark, favicon and avatars, with a short usage guide. These are not covered by the MIT license, see `TRADEMARK.md`.
 
 ## Develop
 
