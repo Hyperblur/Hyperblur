@@ -317,7 +317,7 @@ export function HeroDotText({
   title = "Type that floats off the page.",
   subtitle = "Turn any word into a living field of dots. One canvas, no dependencies.",
   caption = "Any word · MIT licensed",
-  command = "npx hyperblur add hero-dot-text",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-text.json",
   primaryCta = defaultPrimary,
   brand = "Glyphwork",
   nav = defaultNav,

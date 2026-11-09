@@ -434,7 +434,7 @@ export function HeroDotTorus({
   title = "Every event, one loop.",
   subtitle = "Stream, retry and replay through one continuous pipeline that never stalls.",
   caption = "99.99% uptime · 3 regions",
-  command = "npx hyperblur add hero-dot-torus",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-torus.json",
   primaryCta = defaultPrimary,
   brand = "Loopwell",
   nav = defaultNav,

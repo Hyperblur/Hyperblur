@@ -97,7 +97,7 @@ export const wfDemos: Record<string, ReactNode> = {
           <p className="font-grotesk m-0 text-[16px] font-semibold tracking-[-0.01em]">Install the effect</p>
           <p className="m-0 mt-1 text-[11.5px] text-[#8f8f8f]">One command adds the file to your project.</p>
         </div>
-        <MicroCopyChip value="npx shadcn add hyperblur/aurora" />
+        <MicroCopyChip value="npx shadcn@latest add https://hyperblur.dev/r/aurora.json" />
       </div>
     </div>
   ),

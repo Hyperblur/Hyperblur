@@ -355,23 +355,23 @@ const css = `
 `;
 
 const defaultManagers: DownloadInstallManager[] = [
-  { id: "npm", label: "npm", command: "npm install -g @quillkit/cli" },
-  { id: "pnpm", label: "pnpm", command: "pnpm add -g @quillkit/cli" },
-  { id: "yarn", label: "yarn", command: "yarn global add @quillkit/cli" },
-  { id: "brew", label: "brew", command: "brew install quillkit/tap/quill" },
+  { id: "npm", label: "npm", command: "npx shadcn@latest add https://hyperblur.dev/r/download-install-tabs.json" },
+  { id: "pnpm", label: "pnpm", command: "pnpm dlx shadcn@latest add https://hyperblur.dev/r/download-install-tabs.json" },
+  { id: "yarn", label: "yarn", command: "yarn dlx shadcn@latest add https://hyperblur.dev/r/download-install-tabs.json" },
+  { id: "bun", label: "bun", command: "bunx --bun shadcn@latest add https://hyperblur.dev/r/download-install-tabs.json" },
 ];
 
 const defaultRequirements: DownloadInstallRequirement[] = [
-  { label: "Node.js 20.11 or later", detail: "LTS recommended" },
-  { label: "macOS 12+, Linux, or Windows with WSL2", detail: "x64 and arm64" },
-  { label: "Git 2.40 or later", detail: "for deploy previews" },
-  { label: "About 120 MB of free disk space", detail: "incl. search index" },
+  { label: "Node.js 18 or later", detail: "LTS recommended" },
+  { label: "A React project with Tailwind CSS", detail: "Next.js, Vite or Remix" },
+  { label: "shadcn CLI initialized", detail: "components.json in the project" },
+  { label: "Any package manager", detail: "npm, pnpm, yarn or bun" },
 ];
 
 const defaultLinks: DownloadInstallLink[] = [
-  { label: "Read the quickstart", href: "#" },
-  { label: "Changelog", href: "#" },
-  { label: "Source code", href: "#" },
+  { label: "Read the installation guide", href: "https://hyperblur.dev/docs/installation" },
+  { label: "Browse the catalog", href: "https://hyperblur.dev/effects" },
+  { label: "Source code", href: "https://github.com/Hyperblur/Hyperblur" },
 ];
 
 function CopyIcon({ done }: { done: boolean }) {
@@ -391,19 +391,19 @@ function CopyIcon({ done }: { done: boolean }) {
 }
 
 export function DownloadInstallTabs({
-  eyebrow = "quill cli",
-  title = "Install the Quill CLI in one line",
-  subtitle = "Quill turns a folder of Markdown into a fast, searchable docs site. Pick your package manager, paste the command and you are live in a minute.",
+  eyebrow = "shadcn cli",
+  title = "Add it to your project in one line",
+  subtitle = "Pick your package manager, paste the command and the component lands in your project as plain source. No account and no runtime.",
   managers = defaultManagers,
   manager,
   defaultManager,
   onManagerChange,
   onCommandCopy,
-  verifyCommand = "quill --version",
-  verifyOutput = "quill 3.8.1 (darwin-arm64)",
-  startCommand = "quill init my-docs && quill dev",
+  verifyCommand = "ls src/components/hyperblur/download-install-tabs.tsx",
+  verifyOutput = "src/components/hyperblur/download-install-tabs.tsx",
+  startCommand = "npm run dev",
   requirements = defaultRequirements,
-  version = "v3.8.1",
+  version = "998 items",
   license = "MIT license",
   links = defaultLinks,
   accent = "#10b981",
@@ -557,7 +557,7 @@ export function DownloadInstallTabs({
             {verifyCommand ? (
               <div className="hb-kh7-step">
                 <div className="hb-kh7-sl">
-                  <b>2</b>Check the version
+                  <b>2</b>Check the file
                 </div>
                 <div className="hb-kh7-box">
                   <span className="hb-kh7-ps" aria-hidden="true">$</span>
@@ -566,7 +566,7 @@ export function DownloadInstallTabs({
                     type="button"
                     className="hb-kh7-copy"
                     data-done={copied === "verify" ? "true" : "false"}
-                    aria-label={copied === "verify" ? "Command copied" : "Copy version command"}
+                    aria-label={copied === "verify" ? "Command copied" : "Copy check command"}
                     onClick={() => copy("verify", verifyCommand)}
                   >
                     <CopyIcon done={copied === "verify"} />
@@ -578,7 +578,7 @@ export function DownloadInstallTabs({
             {startCommand ? (
               <div className="hb-kh7-step">
                 <div className="hb-kh7-sl">
-                  <b>3</b>Create your first site
+                  <b>3</b>Start your project
                 </div>
                 <div className="hb-kh7-box">
                   <span className="hb-kh7-ps" aria-hidden="true">$</span>
@@ -598,7 +598,7 @@ export function DownloadInstallTabs({
           </div>
           <div className="hb-kh7-foot">
             <span className="hb-kh7-ver">
-              Latest <b>{version}</b>
+              Catalog <b>{version}</b>
             </span>
             {license ? <span>{license}</span> : null}
           </div>

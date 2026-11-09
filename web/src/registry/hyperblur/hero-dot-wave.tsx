@@ -350,7 +350,7 @@ export function HeroDotWave({
   title = "See the swell before it breaks.",
   subtitle = "Real-time observability that folds noisy telemetry into one calm surface, traced to the line that caused it.",
   caption = "120M events per minute",
-  command = "npx hyperblur add hero-dot-wave",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-wave.json",
   primaryCta = defaultPrimary,
   brand = "Tideline",
   nav = defaultNav,
