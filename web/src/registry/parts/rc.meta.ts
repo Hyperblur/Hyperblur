@@ -14,7 +14,7 @@ export const rcMeta: EffectMeta[] = [
       { name: "title", type: "string", default: '"Build interfaces that move people."', description: "Headline at the bottom left." },
       { name: "subtitle", type: "string", default: '"Motion-ready React components you install with one command and own as plain source. No runtime, no lock-in."', description: "Gray paragraph under the headline. Empty hides it." },
       { name: "caption", type: "string", default: '"v3.2 · 240+ components · MIT licensed"', description: "Small mono line above the install row. Empty hides it." },
-      { name: "command", type: "string", default: '"npx hyperblur add hero-dot-globe"', description: "Shell command in the box with a copy button. Empty hides the box." },
+      { name: "command", type: "string", default: '"npx shadcn@latest add https://hyperblur.dev/r/hero-dot-globe.json"', description: "Shell command in the box with a copy button. Empty hides the box." },
       { name: "primaryCta", type: `${linkType} | null`, default: '{ label: "Get started", href: "#" }', description: "Solid accent button with a chevron next to the command. Pass null to hide it." },
       { name: "brand", type: "string", default: '"Orbitkit"', description: "Wordmark next to the logo mark in the top bar." },
       { name: "nav", type: `${linkType}[]`, default: '[{ label: "Docs", href: "#" }, { label: "Examples", href: "#" }, { label: "Kit", href: "#" }]', description: "Centered mono links in the top bar. Hidden below 640px of container width." },
@@ -28,6 +28,6 @@ export const rcMeta: EffectMeta[] = [
       { name: "className", type: "string", default: '""', description: "Extra classes on the section." },
       { name: "style", type: "React.CSSProperties", default: "undefined", description: "Inline styles on the section." },
     ],
-    usage: '<HeroDotGlobe title="Ship motion without the math." command="npx hyperblur add hero-dot-globe" accent="#7fb3ff" />',
+    usage: '<HeroDotGlobe title="Ship motion without the math." command="npx shadcn@latest add https://hyperblur.dev/r/hero-dot-globe.json" accent="#7fb3ff" />',
   },
 ];

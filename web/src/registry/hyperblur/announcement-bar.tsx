@@ -21,7 +21,7 @@ export interface AnnouncementBarProps extends Omit<React.HTMLAttributes<HTMLDivE
 }
 
 const defaultMessages: AnnouncementMessage[] = [
-  { badge: "New", text: "Hyperblur 2.0 is here with live team cursors.", cta: "See what changed", href: "#" },
+  { badge: "New", text: "Acme 2.0 is here with live team cursors.", cta: "See what changed", href: "#" },
   { text: "Join our free webinar on shipping faster, Nov 14.", cta: "Save your seat", href: "#" },
   { text: "SOC 2 Type II certification is now complete.", cta: "Read the report", href: "#" },
 ];

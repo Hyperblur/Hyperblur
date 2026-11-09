@@ -24,6 +24,7 @@ export interface HeroDotGalaxyProps extends Omit<React.HTMLAttributes<HTMLElemen
   tightness?: number;
   headingAs?: "h1" | "h2";
   onSearch?: () => void;
+  showBar?: boolean;
 }
 
 type HeroLink = HeroDotGalaxyLink;
@@ -306,9 +307,9 @@ export function HeroDotGalaxy({
   title = "A whole universe of effects, one command away.",
   subtitle = "Every piece is plain React you copy into your repo. No runtime to install, no account, nothing orbiting your bundle.",
   caption = "3 spiral arms · 20k stars · MIT licensed",
-  command = "npx hyperblur add hero-dot-galaxy",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-galaxy.json",
   primaryCta = defaultPrimary,
-  brand = "Corvid",
+  brand = "Your brand",
   nav = defaultNav,
   navCta = defaultNavCta,
   learnMore = defaultMore,
@@ -319,6 +320,7 @@ export function HeroDotGalaxy({
   tightness = 0.35,
   headingAs = "h1",
   onSearch,
+  showBar = false,
   className = "",
   style,
   ...rest
@@ -598,6 +600,7 @@ export function HeroDotGalaxy({
     <section ref={rootRef} className={`hb-hh4 ${className}`} style={vars} {...rest}>
       <style href="hb-hero-dot-galaxy" precedence="default">{css}</style>
       <canvas ref={canvasRef} className="hb-hh4-canvas" aria-hidden="true" />
+      {showBar ? (
       <header className="hb-hh4-bar">
         <a className="hb-hh4-brand" href="#">
           {brand}
@@ -626,6 +629,7 @@ export function HeroDotGalaxy({
           ) : null}
         </div>
       </header>
+      ) : null}
       <div className="hb-hh4-main">
         <Heading className="hb-hh4-title">{title}</Heading>
         {subtitle ? <p className="hb-hh4-sub">{subtitle}</p> : null}

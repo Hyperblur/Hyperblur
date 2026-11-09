@@ -368,7 +368,7 @@ function inkFor(accent: string) {
   return lum > 0.5 ? "#0c0d10" : "#ffffff";
 }
 
-const DEFAULT_PATH = "M18.0 9.0 H33.0 L28.0 23.0 H13.0 Z M13.5 9.0 H16.1 L11.1 23.0 H8.5 Z M10.0 9.0 H11.6 L6.6 23.0 H5.0 Z M7.2 9.0 H8.1 L3.1 23.0 H2.2 Z";
+const DEFAULT_PATH = "M18 2 L32 10 V22 L18 30 L4 22 V10 Z";
 const DEFAULT_VIEWBOX = "0 0 36 32";
 
 function parseViewBox(value: string): [number, number, number, number] | null {
@@ -539,7 +539,7 @@ export function HeroDotLogo({
   title = "Your mark, in a thousand dots.",
   subtitle = "Paste any SVG path and it becomes a swinging dotted object with real depth and a soft dotted shadow. One file, no runtime.",
   caption = "Any SVG path · extruded dots · MIT licensed",
-  command = "npx hyperblur add hero-dot-logo",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-logo.json",
   primaryCta = defaultPrimary,
   brand = "Slipstream",
   nav = defaultNav,

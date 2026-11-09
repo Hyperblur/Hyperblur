@@ -34,6 +34,7 @@ export interface HeroDotWorldmapProps extends Omit<React.HTMLAttributes<HTMLElem
   showStats?: boolean;
   headingAs?: "h1" | "h2";
   onSearch?: () => void;
+  showBar?: boolean;
 }
 
 interface FeedEvent {
@@ -76,6 +77,7 @@ const css = `
   flex-direction: column;
   width: 100%;
   min-height: 820px;
+  padding-top: 40px;
   overflow: hidden;
   container-type: inline-size;
   background:
@@ -529,7 +531,7 @@ const css = `
   .hb-hh10-foot { left: 32px; }
 }
 @container (max-width: 760px) {
-  .hb-hh10 { min-height: 0; }
+  .hb-hh10 { min-height: 0; padding-top: 20px; }
   .hb-hh10-hud { position: relative; right: auto; bottom: auto; order: 2; padding: 0 24px; margin-top: 10px; }
   .hb-hh10-stats { max-width: 100%; }
   .hb-hh10-stage { order: 3; min-height: calc(62cqi + 10px); flex: 1 1 auto; }
@@ -911,9 +913,9 @@ export function HeroDotWorldmap({
   title = "Every route, live on one map.",
   subtitle = "Live traffic and threat telemetry from 28 regions on a single flat map. Built for status pages, NOC walls and security consoles.",
   caption = "28 regions · live arcs · MIT licensed",
-  command = "npx hyperblur add hero-dot-worldmap",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-worldmap.json",
   primaryCta = defaultPrimary,
-  brand = "Vantage",
+  brand = "Your brand",
   nav = defaultNav,
   navCta = defaultNavCta,
   learnMore = defaultMore,
@@ -928,6 +930,7 @@ export function HeroDotWorldmap({
   showStats = true,
   headingAs = "h1",
   onSearch,
+  showBar = false,
   className = "",
   style,
   ...rest
@@ -1574,6 +1577,7 @@ export function HeroDotWorldmap({
     <section ref={rootRef} className={`hb-hh10 ${className}`} style={vars} {...rest}>
       <style href="hb-hero-dot-worldmap" precedence="default">{css}</style>
       <canvas ref={canvasRef} className="hb-hh10-canvas" aria-hidden="true" />
+      {showBar ? (
       <header className="hb-hh10-bar">
         <a className="hb-hh10-brand" href="#">
           <Mark />
@@ -1608,6 +1612,7 @@ export function HeroDotWorldmap({
           ) : null}
         </div>
       </header>
+      ) : null}
       {showStats || showFeed ? (
         <div className="hb-hh10-hud">
           {showStats ? (

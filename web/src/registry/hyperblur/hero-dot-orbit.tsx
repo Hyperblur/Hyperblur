@@ -310,7 +310,7 @@ export function HeroDotOrbit({
   title = "A stable core with everything in orbit.",
   subtitle = "One small, typed nucleus and every service moving around it at its own pace. Observable from the first request, and every line is yours to change.",
   caption = "1 nucleus · 5 orbits · one canvas at 60 fps",
-  command = "npx hyperblur add hero-dot-orbit",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-orbit.json",
   brand = "Valence",
   accent = "#22d3ee",
   primaryCta = defaultPrimary,
