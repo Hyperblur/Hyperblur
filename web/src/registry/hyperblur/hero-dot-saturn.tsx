@@ -310,7 +310,7 @@ export function HeroDotSaturn({
   title = "Build products with their own gravity.",
   subtitle = "Interfaces that pull people in and keep them in orbit. Ship the source, own every line, and tune the motion to your brand.",
   caption = "3 rings · 15,000 dots · zero dependencies",
-  command = "npx hyperblur add hero-dot-saturn",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-saturn.json",
   brand = "Annulus",
   accent = "#c2542d",
   primaryCta = defaultPrimary,

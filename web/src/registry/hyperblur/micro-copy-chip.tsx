@@ -155,7 +155,7 @@ function writeClipboard(text: string) {
 }
 
 export function MicroCopyChip({
-  value = "npx shadcn add hyperblur/aurora",
+  value = "npx shadcn@latest add https://hyperblur.dev/r/aurora.json",
   prefix = "$",
   copiedLabel = "Copied",
   timeout = 1800,

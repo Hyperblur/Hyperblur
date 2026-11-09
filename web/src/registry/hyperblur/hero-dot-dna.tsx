@@ -24,6 +24,7 @@ export interface HeroDotDnaProps extends Omit<React.HTMLAttributes<HTMLElement>,
   pulses?: number;
   headingAs?: "h1" | "h2";
   onSearch?: () => void;
+  showBar?: boolean;
 }
 
 type HeroLink = HeroDotDnaLink;
@@ -302,8 +303,8 @@ export function HeroDotDna({
   title = "Two strands. One source of truth.",
   subtitle = "Version every dataset and replay every experiment. A pipeline that pairs each change with its proof, from the first sample to the final figure.",
   caption = "6 turns · 60 base pairs · runs in any React app",
-  command = "npx hyperblur add hero-dot-dna",
-  brand = "Strandline",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-dna.json",
+  brand = "Your brand",
   accent = "#5eead4",
   primaryCta = defaultPrimary,
   nav = defaultNav,
@@ -315,6 +316,7 @@ export function HeroDotDna({
   pulses = 3,
   headingAs = "h1",
   onSearch,
+  showBar = false,
   className = "",
   style,
   ...rest
@@ -595,6 +597,7 @@ export function HeroDotDna({
     <section ref={rootRef} className={`hb-hh2 ${className}`} style={vars} {...rest}>
       <style href="hb-hero-dot-dna" precedence="default">{css}</style>
       <canvas ref={canvasRef} className="hb-hh2-canvas" aria-hidden="true" />
+      {showBar ? (
       <header className="hb-hh2-bar">
         <a className="hb-hh2-brand" href="#">
           <Mark />
@@ -626,6 +629,7 @@ export function HeroDotDna({
           </button>
         </div>
       </header>
+      ) : null}
       <div ref={stageRef} className="hb-hh2-stage" aria-hidden="true" />
       <div className="hb-hh2-copy">
         <Heading className="hb-hh2-title">{title}</Heading>

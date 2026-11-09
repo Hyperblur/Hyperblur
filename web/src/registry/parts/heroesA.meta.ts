@@ -32,7 +32,7 @@ export const heroesAMeta: EffectMeta[] = [
       { name: "eyebrow", type: "string", default: '"v4.2 · Edge runtime is now generally available"', description: "Monospace status line above the headline. Hidden when empty." },
       { name: "title", type: "string", default: '"Deploy to the edge in a single command"', description: "Headline. Scrambles and resolves left to right on mount and again on hover." },
       { name: "subtitle", type: "string", default: '"Relay builds, ships and scales..."', description: "Supporting paragraph under the headline. Hidden when empty." },
-      { name: "command", type: "string", default: '"npx relay deploy"', description: "Command shown in the terminal field. The copy button writes it to the clipboard. Empty hides the field." },
+      { name: "command", type: "string", default: '"npx shadcn@latest add https://hyperblur.dev/r/hero-grid.json"', description: "Command shown in the terminal field. The copy button writes it to the clipboard. Empty hides the field." },
       { name: "primaryCta", type: "{ label: string; href: string } | null", default: '{ label: "Get started", href: "#" }', description: "Solid accent button. null hides it." },
       { name: "secondaryCta", type: "{ label: string; href: string } | null", default: '{ label: "Read the docs", href: "#" }', description: "Outlined button. null hides it." },
       { name: "stats", type: "{ value: string; label: string }[]", default: "[8 ms, 310, 99.999%]", description: "Monospace figures under the actions, divided by thin rules. Empty array hides them." },

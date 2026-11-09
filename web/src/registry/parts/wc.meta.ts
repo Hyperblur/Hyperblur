@@ -180,7 +180,7 @@ export const wcMeta: EffectMeta[] = [
       { name: "accent", type: "string", default: '"#4ade80"', description: "Prompt, caret and success color." },
       ...cls,
     ],
-    usage: '<CtaTerminalInstall managers={[{ id: "npm", label: "npm", command: "npx create-acme@latest" }]} />',
+    usage: '<CtaTerminalInstall managers={[{ id: "npm", label: "npm", command: "npx shadcn@latest add https://hyperblur.dev/r/cta-terminal-install.json" }]} />',
   },
   {
     slug: "faq-topic-icons",

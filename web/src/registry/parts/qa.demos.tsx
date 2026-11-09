@@ -130,7 +130,7 @@ export const qaDemos: Record<string, ReactNode> = {
       <div className={`${card} gap-2.5 font-mono`}>
         <span className="font-sans text-[13px] font-semibold tracking-tight">Install</span>
         <div className="flex items-center justify-between gap-2 rounded-xl border border-[#262626] bg-[#0a0a0a] py-1.5 pl-3 pr-1.5">
-          <code className="min-w-0 truncate text-[11px] text-[#ededed]">npx shadcn@latest add button-copy</code>
+          <code className="min-w-0 truncate text-[11px] text-[#ededed]">npx shadcn@latest add https://hyperblur.dev/r/button-copy.json</code>
           <ButtonCopy size="sm" value="npx shadcn@latest add https://hyperblur.dev/r/button-copy.json" className="shrink-0" />
         </div>
         <div className="flex items-center justify-between gap-2 rounded-xl border border-[#262626] bg-[#0a0a0a] py-1.5 pl-3 pr-1.5">

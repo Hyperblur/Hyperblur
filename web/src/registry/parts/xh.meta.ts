@@ -123,7 +123,7 @@ export const xhMeta: EffectMeta[] = [
     tags: ["form", "settings", "preferences", "unsaved changes", "toggle", "account"],
     props: [
       { name: "title", type: "string", default: '"Account settings"', description: "Heading of the card." },
-      { name: "email", type: "string", default: '"priya@lattice.dev"', description: "Read-only email shown as verified." },
+      { name: "email", type: "string", default: '"priya@example.com"', description: "Read-only email shown as verified." },
       { name: "defaultValues", type: "Partial<FormSettingsValues>", description: "Current name, timezone, density and notification switches." },
       { name: "savedValues", type: "Partial<FormSettingsValues>", description: "Last saved values to compare against. Defaults to defaultValues, so nothing starts dirty." },
       { name: "timezones", type: "string[]", default: "6 time zones", description: "Options for the time zone select." },
