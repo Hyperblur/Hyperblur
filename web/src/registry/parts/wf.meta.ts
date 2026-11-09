@@ -118,7 +118,7 @@ export const wfMeta: EffectMeta[] = [
     category: "micro",
     tags: ["copy", "clipboard", "command", "chip", "feedback", "micro"],
     props: [
-      { name: "value", type: "string", default: '"npx shadcn add hyperblur/aurora"', description: "Text shown and copied." },
+      { name: "value", type: "string", default: '"npx shadcn@latest add https://hyperblur.dev/r/aurora.json"', description: "Text shown and copied." },
       { name: "prefix", type: "string", default: '"$"', description: "Muted prefix shown before the value and not copied. Empty string hides it." },
       { name: "copiedLabel", type: "string", default: '"Copied"', description: "Tag text after copying, also announced to screen readers." },
       { name: "timeout", type: "number", default: "1800", description: "Milliseconds the copied state stays." },

@@ -9,7 +9,7 @@ export const siteAMeta: EffectMeta[] = [
     category: "site",
     tags: ["navbar", "navigation", "mega menu", "glass", "header", "responsive"],
     props: [
-      { name: "logo", type: "ReactNode", description: "Content of the logo slot. Defaults to a small mark with the Hyperblur name." },
+      { name: "logo", type: "ReactNode", description: "Content of the logo slot. Defaults to a small neutral mark with the name Acme." },
       { name: "links", type: "{ id: string; label: string; href?: string; menu?: { title: string; description?: string; href?: string; icon?: IconName | ReactNode }[] }[]", description: "Navigation links. A link with a `menu` array opens the mega menu panel. Built-in icon names: bolt, chart, shield, code, users, book, globe, layers." },
       { name: "cta", type: "{ label: string; href?: string; onClick?: () => void } | null", default: '{ label: "Get started", href: "#" }', description: "Primary call to action on the right. Pass null to hide it." },
       { name: "accent", type: "string", default: '"#2f7bff"', description: "Color of the call to action, the menu icons and the focus rings." },
@@ -26,7 +26,7 @@ export const siteAMeta: EffectMeta[] = [
     category: "site",
     tags: ["footer", "links", "newsletter", "social", "status", "responsive"],
     props: [
-      { name: "logo", type: "ReactNode", description: "Content of the logo slot. Defaults to a small mark with the Hyperblur name." },
+      { name: "logo", type: "ReactNode", description: "Content of the logo slot. Defaults to a small neutral mark with the name Acme." },
       { name: "blurb", type: "string", default: '"Build, ship and measure product experiments from one workspace your whole team can trust."', description: "Short description under the logo." },
       { name: "socials", type: "{ name: \"x\" | \"github\" | \"linkedin\" | \"youtube\" | \"instagram\"; label?: string; href?: string }[]", default: "x, github, linkedin, youtube", description: "Social icon buttons." },
       { name: "columns", type: "{ title: string; links: { label: string; href?: string }[] }[]", default: "Product, Company, Resources, Legal", description: "Link columns. Three or four work best. They collapse to two columns, then one, as the container narrows." },
@@ -34,7 +34,7 @@ export const siteAMeta: EffectMeta[] = [
       { name: "newsletterTitle", type: "string", default: '"Product updates, once a month"', description: "Label above the mini-form." },
       { name: "onSubscribe", type: "(email: string) => void", description: "Called with the trimmed email after it passes validation." },
       { name: "legal", type: "{ label: string; href?: string }[]", default: "Privacy, Terms, Cookies", description: "Links in the bottom bar." },
-      { name: "copyright", type: "string", default: '"© 2026 Hyperblur, Inc. All rights reserved."', description: "Copyright line in the bottom bar." },
+      { name: "copyright", type: "string", default: '"© 2026 Acme, Inc. All rights reserved."', description: "Copyright line in the bottom bar." },
       { name: "status", type: "{ label: string; tone?: \"ok\" | \"warn\" | \"down\"; href?: string } | null", default: '{ label: "All systems normal", tone: "ok" }', description: "Status pill with a pulsing dot. Pass an href to make it a link, or null to hide it." },
       { name: "accent", type: "string", default: '"#2f7bff"', description: "Color of hover states, the subscribe button and focus rings." },
     ],

@@ -401,7 +401,7 @@ export function HeroDotGlobe({
   title = "Build interfaces that move people.",
   subtitle = "Motion-ready React components you install with one command and own as plain source. No runtime, no lock-in.",
   caption = "v3.2 · 240+ components · MIT licensed",
-  command = "npx hyperblur add hero-dot-globe",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-globe.json",
   primaryCta = defaultPrimary,
   brand = "Orbitkit",
   nav = defaultNav,

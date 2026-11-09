@@ -480,7 +480,7 @@ export function HeroDotEarth({
   title = "Software that reaches every continent.",
   subtitle = "Deploy once and serve every region from the nearest point of presence. Plain source you own, no runtime and no lock-in.",
   caption = "6 continents · 40 edge regions · MIT licensed",
-  command = "npx hyperblur add hero-dot-earth",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-dot-earth.json",
   primaryCta = defaultPrimary,
   brand = "Meridian",
   nav = defaultNav,

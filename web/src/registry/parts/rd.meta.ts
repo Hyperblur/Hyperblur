@@ -14,7 +14,7 @@ export const rdMeta: EffectMeta[] = [
       { name: "title", type: "string", default: '"Software that reaches every continent."', description: "Headline at the bottom left." },
       { name: "subtitle", type: "string", default: '"Deploy once and serve every region from the nearest point of presence. Plain source you own, no runtime and no lock-in."', description: "Gray paragraph under the headline. Empty hides it." },
       { name: "caption", type: "string", default: '"6 continents · 40 edge regions · MIT licensed"', description: "Small mono line above the install row. Empty hides it." },
-      { name: "command", type: "string", default: '"npx hyperblur add hero-dot-earth"', description: "Shell command in the box with a copy button. Empty hides the box." },
+      { name: "command", type: "string", default: '"npx shadcn@latest add https://hyperblur.dev/r/hero-dot-earth.json"', description: "Shell command in the box with a copy button. Empty hides the box." },
       { name: "primaryCta", type: `${linkType} | null`, default: '{ label: "Get started", href: "#" }', description: "Solid accent button with a chevron next to the command. Pass null to hide it." },
       { name: "brand", type: "string", default: '"Meridian"', description: "Wordmark next to the logo mark in the top bar." },
       { name: "nav", type: `${linkType}[]`, default: '[{ label: "Docs", href: "#" }, { label: "Examples", href: "#" }, { label: "Kit", href: "#" }]', description: "Centered mono links in the top bar. Hidden below 640px of container width." },

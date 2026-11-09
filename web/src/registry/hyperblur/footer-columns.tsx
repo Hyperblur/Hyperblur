@@ -128,10 +128,10 @@ const defaultLegal: FooterLink[] = [
 const defaultLogo = (
   <>
     <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7 3h14l-4 18H3z" fill="#2f7bff" />
-      <path d="M9 9h6M8 13h6M7 17h6" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="12" cy="12" r="9" fill="#2f7bff" />
+      <path d="M8 12h8M12 8v8" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
-    <span>Hyperblur</span>
+    <span>Acme</span>
   </>
 );
 
@@ -362,7 +362,7 @@ export function FooterColumns({
   newsletterTitle = "Product updates, once a month",
   onSubscribe,
   legal = defaultLegal,
-  copyright = "© 2026 Hyperblur, Inc. All rights reserved.",
+  copyright = "© 2026 Acme, Inc. All rights reserved.",
   status = { label: "All systems normal", tone: "ok" },
   accent = "#2f7bff",
   className = "",

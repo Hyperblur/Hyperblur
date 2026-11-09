@@ -272,7 +272,6 @@ import { hoADemos } from "@/registry/parts/hoA.demos";
 import { hoBDemos } from "@/registry/parts/hoB.demos";
 import { hoCDemos } from "@/registry/parts/hoC.demos";
 import { hoDDemos } from "@/registry/parts/hoD.demos";
-import { hoEDemos } from "@/registry/parts/hoE.demos";
 import { xaDemos } from "@/registry/parts/xa.demos";
 import { xbDemos } from "@/registry/parts/xb.demos";
 import { xcDemos } from "@/registry/parts/xc.demos";
@@ -423,10 +422,10 @@ const baseDemos: Record<string, ReactNode> = {
             <span className="ml-2 font-mono text-[10px] text-white/40">~/studio — zsh</span>
           </div>
           <div className="space-y-1.5 px-4 py-3 font-mono">
-            <div className="text-[11px] text-white/40">$ npx shadcn add</div>
+            <div className="text-[11px] text-white/40">$ npx shadcn@latest add</div>
             <div className="text-xl text-white">
-              <span className="text-blue-soft">@hyperblur/</span>
-              <Typewriter words={["aurora", "silk", "dock", "beams"]} />
+              <span className="text-blue-soft">hyperblur.dev/r/</span>
+              <Typewriter words={["aurora.json", "silk.json", "dock.json", "beams.json"]} />
             </div>
             <div className="flex items-center gap-1.5 text-[11px] text-emerald-400/80">
               <Icon d={icons.check} className="h-3 w-3" />1 file written in 0.8s
@@ -1444,7 +1443,6 @@ export const demos: Record<string, ReactNode> = {
   ...hoBDemos,
   ...hoCDemos,
   ...hoDDemos,
-  ...hoEDemos,
   ...xaDemos,
   ...xbDemos,
   ...xcDemos,

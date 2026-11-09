@@ -136,7 +136,6 @@ import { hoAMeta } from "./parts/hoA.meta.ts";
 import { hoBMeta } from "./parts/hoB.meta.ts";
 import { hoCMeta } from "./parts/hoC.meta.ts";
 import { hoDMeta } from "./parts/hoD.meta.ts";
-import { hoEMeta } from "./parts/hoE.meta.ts";
 import { xaMeta } from "./parts/xa.meta.ts";
 import { xbMeta } from "./parts/xb.meta.ts";
 import { xcMeta } from "./parts/xc.meta.ts";
@@ -1322,7 +1321,6 @@ const allEffects: EffectMeta[] = [
   ...hoBMeta,
   ...hoCMeta,
   ...hoDMeta,
-  ...hoEMeta,
   ...xaMeta,
   ...xbMeta,
   ...xcMeta,
