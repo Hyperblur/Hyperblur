@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { Catalog, resolveSiteUrl } from "./catalog.ts";
+import { Catalog, resolveSiteUrl, TOKEN_ENV } from "./catalog.ts";
 import { createServer } from "./server.ts";
 
 async function main(): Promise<void> {
-  const catalog = new Catalog({ siteUrl: resolveSiteUrl() });
+  const catalog = new Catalog({ siteUrl: resolveSiteUrl(), token: process.env[TOKEN_ENV] });
   const server = createServer({ catalog });
   const transport = new StdioServerTransport();
   await server.connect(transport);
