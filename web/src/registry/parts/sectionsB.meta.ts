@@ -63,7 +63,7 @@ export const sectionsBMeta: EffectMeta[] = [
       { name: "hubLabel", type: "string", default: '"Conduit hub"', description: "Heading under the hub diagram." },
       { name: "items", type: "{ name: string; category: string; description: string; connected?: boolean }[]", default: "Ledger, Relay, Vault, Pulse", description: "The four service tiles. Hovering a tile lights its link in the hub." },
       { name: "events", type: "{ method: string; event: string; status: number; ms: number }[]", default: "7 events", description: "Rows of the looping webhook log. Status 400 and above shows in red." },
-      { name: "installCommand", type: "string", default: '"npm install @conduit/sdk"', description: "Command shown and copied in the SDK cell." },
+      { name: "installCommand", type: "string", default: '"npx shadcn@latest add https://hyperblur.dev/r/bento-integrations.json"', description: "Command shown and copied in the SDK cell." },
       { name: "onConnectChange", type: "(name: string, connected: boolean) => void", description: "Called when a tile's Connect button is toggled." },
       { name: "accent", type: "string", default: '"#22d3ee"', description: "Accent color for the flowing beams, hub and states." },
       ...sectionProps,

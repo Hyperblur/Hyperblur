@@ -105,26 +105,24 @@ const css = `
 `;
 
 const defaultManagers: CtaTerminalInstallManager[] = [
-  { id: "npm", label: "npm", command: "npx create-tidepool@latest my-app" },
-  { id: "pnpm", label: "pnpm", command: "pnpm create tidepool my-app" },
-  { id: "yarn", label: "yarn", command: "yarn create tidepool my-app" },
-  { id: "bun", label: "bun", command: "bunx create-tidepool my-app" },
+  { id: "npm", label: "npm", command: "npx shadcn@latest add https://hyperblur.dev/r/cta-terminal-install.json" },
+  { id: "pnpm", label: "pnpm", command: "pnpm dlx shadcn@latest add https://hyperblur.dev/r/cta-terminal-install.json" },
+  { id: "yarn", label: "yarn", command: "yarn dlx shadcn@latest add https://hyperblur.dev/r/cta-terminal-install.json" },
+  { id: "bun", label: "bun", command: "bunx --bun shadcn@latest add https://hyperblur.dev/r/cta-terminal-install.json" },
 ];
 
 const defaultOutput: CtaTerminalInstallLine[] = [
-  { text: "Resolving template: starter-ts", tone: "dim" },
-  { text: "Scaffolded 38 files in ./my-app", tone: "ok" },
-  { text: "Installed 142 packages", tone: "ok" },
-  { text: "Built typed client from schema.graphql", tone: "ok" },
-  { text: "Local database seeded with 3 sample tables", tone: "ok" },
-  { text: "Ready. Run cd my-app && npm run dev", tone: "accent" },
-  { text: "  Local:  http://localhost:4321", tone: "info" },
+  { text: "Checking registry", tone: "dim" },
+  { text: "Updating files", tone: "dim" },
+  { text: "Created src/components/hyperblur/cta-terminal-install.tsx", tone: "ok" },
+  { text: "Import it and use it. No extra dependencies.", tone: "accent" },
+  { text: "  Docs:  https://hyperblur.dev/effects/cta-terminal-install", tone: "info" },
 ];
 
 export function CtaTerminalInstall({
-  eyebrow = "v3.2",
+  eyebrow = "MIT",
   title = "Up and running before your coffee cools.",
-  subtitle = "One command scaffolds a typed project with auth, a local database and deploy config. No account needed to try it.",
+  subtitle = "One command adds the component to your project as plain source you own. No runtime and no lock-in.",
   managers = defaultManagers,
   output = defaultOutput,
   primary = { label: "Read the quickstart", href: "#" },
@@ -229,7 +227,7 @@ export function CtaTerminalInstall({
         {eyebrow ? (
           <p className="hb-wc8-eyebrow">
             <b>{eyebrow}</b>
-            create-tidepool is out
+            copy-paste, one command
           </p>
         ) : null}
         <h2 className="hb-wc8-title">{title}</h2>

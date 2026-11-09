@@ -389,7 +389,7 @@ export function HeroGrid({
   eyebrow = "v4.2 · Edge runtime is now generally available",
   title = "Deploy to the edge in a single command",
   subtitle = "Relay builds, ships and scales your functions across 310 cities. Push to main and your API is live everywhere in under ten seconds.",
-  command = "npx relay deploy",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-grid.json",
   primaryCta = defaultPrimary,
   secondaryCta = defaultSecondary,
   stats = defaultStats,

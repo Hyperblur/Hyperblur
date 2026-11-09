@@ -225,13 +225,11 @@ const css = `
 `;
 
 const defaultScript: HeroTerminalLine[] = [
-  { kind: "command", text: "npx quill@latest deploy", wait: 500 },
-  { kind: "info", text: "Detected Next.js 16 with the app router", meta: "0.2s", wait: 450 },
-  { kind: "progress", text: "Installing 214 packages", meta: "1.4s", wait: 1300 },
-  { kind: "info", text: "Building 48 routes and 3 edge functions", meta: "3.1s", wait: 700 },
-  { kind: "success", text: "Uploaded 1.2 MB to 31 regions", meta: "0.6s", wait: 500 },
-  { kind: "success", text: "Preview checks passed (Lighthouse 99)", meta: "0.4s", wait: 450 },
-  { kind: "link", text: "https://acme-store.quill.run", meta: "live", wait: 0 },
+  { kind: "command", text: "npx shadcn@latest add https://hyperblur.dev/r/hero-terminal.json", wait: 500 },
+  { kind: "info", text: "Checking registry", meta: "0.3s", wait: 450 },
+  { kind: "progress", text: "Updating files", meta: "0.6s", wait: 1100 },
+  { kind: "success", text: "Created src/components/hyperblur/hero-terminal.tsx", meta: "0.1s", wait: 600 },
+  { kind: "link", text: "https://hyperblur.dev/effects/hero-terminal", meta: "docs", wait: 0 },
 ];
 
 const defaultPrimary: HeroTerminalAction = { label: "Read the quickstart", href: "#" };
@@ -258,12 +256,12 @@ function Globe() {
 }
 
 export function HeroTerminal({
-  eyebrow = "quill deploy, now with preview checks",
-  title = "From git push to global in one command",
-  subtitle = "Quill installs, builds, tests and ships your app to 31 regions, and tells you exactly what happened along the way.",
-  command = "npx quill@latest deploy",
+  eyebrow = "free, MIT licensed, no dependencies",
+  title = "From zero to a live effect in one command",
+  subtitle = "Hyperblur adds the component to your project as plain source you own, with no runtime and no lock-in.",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-terminal.json",
   script = defaultScript,
-  windowTitle = "zsh · acme-store",
+  windowTitle = "zsh · my-app",
   primaryCta = defaultPrimary,
   secondaryCta = null,
   accent = "#3ddc97",

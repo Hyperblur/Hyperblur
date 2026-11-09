@@ -213,7 +213,7 @@ export function BentoIntegrations({
   hubLabel = "Conduit hub",
   items = defaultItems,
   events = defaultEvents,
-  installCommand = "npm install @conduit/sdk",
+  installCommand = "npx shadcn@latest add https://hyperblur.dev/r/bento-integrations.json",
   onConnectChange,
   accent = "#22d3ee",
   className,

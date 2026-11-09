@@ -263,7 +263,7 @@ export function HeroParticles({
   subtitle = "Lattice maps services, queues and databases into one live dependency graph and flags what breaks before you deploy.",
   primaryCta = defaultPrimary,
   secondaryCta = defaultSecondary,
-  command = "npm install @lattice/graph",
+  command = "npx shadcn@latest add https://hyperblur.dev/r/hero-particles.json",
   accent = "#2f7bff",
   density = 1.5,
   linkDistance = 120,
