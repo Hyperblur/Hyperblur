@@ -1,5 +1,7 @@
 # Hyperblur · marca
 
+> **Aviso:** a logo, a marca compacta, o favicon, os avatares e o nome Hyperblur são de uso exclusivo da Hyperblur e **não** estão cobertos pela licença MIT do código. Veja `TRADEMARK.md` na raiz.
+
 HYPERBLUR em caixa alta, preto sobre uma placa azul-gelo inclinada, com sombra magenta deslocada.
 Atrás da placa, quinze listras diagonais que acendem do magenta ao azul, e duas linhas finas por baixo.
 O nome já está convertido em curvas: os SVGs não dependem de fonte instalada.
