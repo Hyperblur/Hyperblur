@@ -29,32 +29,25 @@ export interface HeroDotTextProps extends Omit<React.HTMLAttributes<HTMLElement>
 
 const css = `
 @keyframes hb-hh7-up {
-  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
-@keyframes hb-hh7-bob {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, 4px, 0); }
-}
 .hb-hh7 {
-  --hb-hh7-accent: #5ee7ff;
-  --hb-hh7-ink: #021417;
-  --hb-hh7-mono: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  --hb-hh7-accent: #0d0d0d;
+  --hb-hh7-ink: #f4f1ea;
+  --hb-hh7-mono: var(--font-mono, ui-monospace), "Geist Mono", SFMono-Regular, Menlo, Consolas, monospace;
   position: relative;
   isolation: isolate;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 620px;
+  min-height: 680px;
   overflow: hidden;
   container-type: inline-size;
-  background:
-    radial-gradient(70% 40% at 50% 36%, color-mix(in srgb, var(--hb-hh7-accent) 7%, transparent), transparent 70%),
-    #020202;
-  color: #ededed;
-  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
-  font-style: normal;
+  background: #f4f1ea;
+  color: #0d0d0d;
+  font-family: inherit;
   -webkit-font-smoothing: antialiased;
 }
 .hb-hh7 *, .hb-hh7 *::before, .hb-hh7 *::after { box-sizing: border-box; }
@@ -67,244 +60,169 @@ const css = `
   height: 100%;
   pointer-events: none;
 }
-.hb-hh7::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 1;
-  height: 48%;
-  pointer-events: none;
-  background: linear-gradient(to top, #020202 0%, rgba(2, 2, 2, .86) 38%, rgba(2, 2, 2, 0) 100%);
-}
 .hb-hh7-bar {
   position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  z-index: 3;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 18px 32px;
+  margin: 0 clamp(16px, 2.5cqw, 36px);
+  padding: 18px 0 14px;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.16);
+  font-family: var(--hb-hh7-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .hb-hh7-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  justify-self: start;
-  color: #f4f4f4;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -.01em;
+  color: #0d0d0d;
+  font-weight: 700;
   text-decoration: none;
-  border-radius: 6px;
 }
-.hb-hh7-mark { flex: none; color: var(--hb-hh7-accent); }
+.hb-hh7-mid, .hb-hh7-end {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.4cqw, 32px);
+}
 .hb-hh7-links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: clamp(14px, 2.4cqw, 32px);
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.hb-hh7-link {
-  display: inline-flex;
-  padding: 6px 12px;
-  border-radius: 999px;
-  color: #8f8f8f;
-  font-family: var(--hb-hh7-mono);
-  font-size: 12px;
-  letter-spacing: .02em;
-  text-decoration: none;
-  transition: color .2s ease, background-color .2s ease;
-}
-.hb-hh7-link:hover { color: #ededed; background: rgba(255, 255, 255, .05); }
-.hb-hh7-tools {
-  display: flex;
-  align-items: center;
-  justify-self: end;
-  gap: 8px;
-}
-.hb-hh7-search {
-  display: inline-grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  padding: 0;
+.hb-hh7-link, .hb-hh7-search {
+  appearance: none;
   border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: #8f8f8f;
-  cursor: pointer;
-  transition: color .2s ease, background-color .2s ease;
-}
-.hb-hh7-search:hover { color: #ededed; background: rgba(255, 255, 255, .06); }
-.hb-hh7-outline {
-  display: inline-flex;
-  align-items: center;
-  height: 32px;
-  padding: 0 14px;
-  border: 1px solid rgba(255, 255, 255, .16);
-  border-radius: 999px;
-  color: #ededed;
-  font-family: var(--hb-hh7-mono);
-  font-size: 12px;
-  letter-spacing: .02em;
+  background: none;
+  padding: 2px 0;
+  color: rgba(13, 13, 13, 0.62);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
   text-decoration: none;
   white-space: nowrap;
-  transition: border-color .2s ease, background-color .2s ease;
+  cursor: pointer;
+  transition: color 0.16s ease;
 }
-.hb-hh7-outline:hover { border-color: rgba(255, 255, 255, .34); background: rgba(255, 255, 255, .04); }
+.hb-hh7-link:hover, .hb-hh7-search:hover { color: #0d0d0d; }
+.hb-hh7-link:focus-visible, .hb-hh7-search:focus-visible, .hb-hh7-brand:focus-visible, .hb-hh7-cta:focus-visible, .hb-hh7-copybtn:focus-visible, .hb-hh7-more:focus-visible {
+  outline: 2px solid #0d0d0d;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 .hb-hh7-stage {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   flex: 1 1 auto;
-  min-height: 240px;
+  min-height: 300px;
+  margin: 0 clamp(8px, 1.4cqw, 20px);
 }
 .hb-hh7-foot {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 28px 40px;
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 32px 76px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 48px;
+  padding: 8px clamp(16px, 2.5cqw, 36px) clamp(24px, 3cqw, 40px);
 }
-.hb-hh7-copy { min-width: 0; }
+.hb-hh7-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: hb-hh7-up 0.8s 1.2s ease both;
+}
 .hb-hh7-title {
-  max-width: 11em;
+  max-width: 22ch;
   margin: 0;
-  color: #f5f5f5;
-  font-size: clamp(28px, 5.4cqi, 56px);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -.045em;
+  color: #0d0d0d;
+  font-size: clamp(22px, 2.4cqw, 34px);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   text-wrap: balance;
-  animation: hb-hh7-up .8s cubic-bezier(.2, .7, .2, 1) both;
 }
 .hb-hh7-sub {
-  max-width: 34em;
-  margin: 16px 0 0;
-  color: #8f8f8f;
-  font-size: 15px;
-  line-height: 1.55;
-  text-wrap: pretty;
-  animation: hb-hh7-up .8s .08s cubic-bezier(.2, .7, .2, 1) both;
+  max-width: 46ch;
+  margin: 0;
+  color: rgba(13, 13, 13, 0.66);
+  font-size: clamp(14px, 1.1cqw, 16px);
+  line-height: 1.5;
 }
 .hb-hh7-side {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
-  min-width: 0;
-  animation: hb-hh7-up .8s .16s cubic-bezier(.2, .7, .2, 1) both;
+  gap: 14px;
+  animation: hb-hh7-up 0.8s 1.35s ease both;
 }
 .hb-hh7-caption {
   margin: 0;
-  color: #6f6f6f;
+  color: rgba(13, 13, 13, 0.55);
   font-family: var(--hb-hh7-mono);
-  font-size: 11.5px;
-  letter-spacing: .04em;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .hb-hh7-row {
   display: flex;
-  align-items: stretch;
-  gap: 8px;
-  max-width: 100%;
-}
-.hb-hh7-cmd {
-  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  min-width: 0;
-  height: 42px;
-  padding: 0 6px 0 14px;
-  border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 10px;
-  background: rgba(14, 14, 14, .82);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  gap: 10px;
 }
-.hb-hh7-prompt { flex: none; color: var(--hb-hh7-accent); font-family: var(--hb-hh7-mono); font-size: 12px; }
-.hb-hh7-code {
-  min-width: 0;
-  overflow: hidden;
-  color: #d6d6d6;
-  font-family: var(--hb-hh7-mono);
-  font-size: 12px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.hb-hh7-copybtn {
-  position: relative;
-  display: inline-grid;
-  flex: none;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border: 0;
-  border-radius: 7px;
-  background: transparent;
-  color: #8f8f8f;
-  cursor: pointer;
-  transition: color .2s ease, background-color .2s ease;
-}
-.hb-hh7-copybtn:hover { color: #ededed; background: rgba(255, 255, 255, .07); }
-.hb-hh7-copybtn[data-done="true"] { color: var(--hb-hh7-accent); }
 .hb-hh7-cta {
   display: inline-flex;
-  flex: none;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 42px;
-  padding: 0 14px 0 18px;
-  border-radius: 10px;
+  gap: 8px;
+  padding: 13px 20px;
+  border-radius: 8px;
   background: var(--hb-hh7-accent);
   color: var(--hb-hh7-ink);
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -.01em;
+  font-weight: 650;
   text-decoration: none;
-  white-space: nowrap;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 8px 28px -10px var(--hb-hh7-accent);
-  transition: filter .2s ease, transform .2s ease;
+  transition: transform 0.18s ease, opacity 0.18s ease;
 }
-.hb-hh7-cta:hover { filter: brightness(1.08); }
-.hb-hh7-cta svg { transition: transform .2s ease; }
-.hb-hh7-cta:hover svg { transform: translateX(2px); }
-.hb-hh7-more {
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
-  z-index: 2;
+.hb-hh7-cta:hover { transform: translateY(-2px); opacity: 0.9; }
+.hb-hh7-cmd {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  color: #6f6f6f;
+  gap: 10px;
+  max-width: 100%;
+  padding: 5px 5px 5px 13px;
+  border: 1px solid rgba(13, 13, 13, 0.3);
+  border-radius: 8px;
+  color: #0d0d0d;
   font-family: var(--hb-hh7-mono);
-  font-size: 10.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transform: translateX(-50%);
-  transition: color .2s ease;
+  font-size: 12.5px;
 }
-.hb-hh7-more:hover { color: #ededed; }
-.hb-hh7-more svg { animation: hb-hh7-bob 1.8s ease-in-out infinite; }
-.hb-hh7 a:focus-visible, .hb-hh7 button:focus-visible {
-  outline: 2px solid var(--hb-hh7-accent);
-  outline-offset: 2px;
+.hb-hh7-prompt { opacity: 0.5; }
+.hb-hh7-code { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hb-hh7-copybtn {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border: 0;
+  border-radius: 6px;
+  background: rgba(13, 13, 13, 0.08);
+  color: #0d0d0d;
+  cursor: pointer;
+  transition: background 0.16s ease;
+}
+.hb-hh7-copybtn:hover { background: rgba(13, 13, 13, 0.16); }
+.hb-hh7-more {
+  color: #0d0d0d;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .hb-hh7-sr {
   position: absolute;
@@ -314,27 +232,18 @@ const css = `
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
-@container (max-width: 760px) {
-  .hb-hh7-foot { grid-template-columns: minmax(0, 1fr); padding: 0 24px 72px; }
-  .hb-hh7-bar { padding: 16px 24px; }
-}
 @container (max-width: 640px) {
-  .hb-hh7-bar { grid-template-columns: 1fr auto; }
-  .hb-hh7-links, .hb-hh7-search { display: none; }
-  .hb-hh7-stage { min-height: calc(34cqi + 40px); }
-  .hb-hh7-sub { font-size: 14px; }
-  .hb-hh7-side, .hb-hh7-row { align-self: stretch; }
-  .hb-hh7-row { flex-direction: column; }
-  .hb-hh7-cta { width: 100%; }
-}
-@container (max-width: 360px) {
-  .hb-hh7-bar { padding: 14px 18px; }
-  .hb-hh7-foot { padding: 0 18px 68px; }
+  .hb-hh7 { min-height: 720px; }
+  .hb-hh7-bar { font-size: 10.5px; letter-spacing: 0.05em; gap: 10px; }
+  .hb-hh7-end .hb-hh7-link { display: none; }
+  .hb-hh7-links { gap: 12px; }
+  .hb-hh7-stage { min-height: 230px; }
+  .hb-hh7-foot { flex-direction: column; align-items: flex-start; }
+  .hb-hh7-cmd { font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hb-hh7-title, .hb-hh7-sub, .hb-hh7-side, .hb-hh7-more svg { animation: none; }
-  .hb-hh7-link, .hb-hh7-search, .hb-hh7-outline, .hb-hh7-copybtn, .hb-hh7-cta, .hb-hh7-cta svg, .hb-hh7-more { transition: none; }
-  .hb-hh7-cta:hover svg { transform: none; }
+  .hb-hh7-copy, .hb-hh7-side { animation: none; }
+  .hb-hh7-link, .hb-hh7-search, .hb-hh7-copybtn, .hb-hh7-cta { transition: none; }
 }
 `;
 
@@ -343,310 +252,78 @@ const defaultNav: HeroDotTextLink[] = [
   { label: "Showcase", href: "#" },
   { label: "Pricing", href: "#" },
 ];
-const defaultNavCta: HeroDotTextLink = { label: "Sign in", href: "#" };
-const defaultPrimary: HeroDotTextLink = { label: "Try it free", href: "#" };
-const defaultMore: HeroDotTextLink = { label: "Learn more", href: "#" };
+const defaultNavCta: HeroDotTextLink = { label: "Log in", href: "#" };
+const defaultPrimary: HeroDotTextLink = { label: "Get the kit", href: "#" };
+const defaultMore: HeroDotTextLink = { label: "How it works", href: "#" };
 
-const WARM: [number, number, number] = [255, 245, 230];
-const ALPHAS = [0.07, 0.16, 0.28, 0.42, 0.58, 0.76, 0.96];
-const TONES = 4;
+const TAU = Math.PI * 2;
+const FONT = '"Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif';
 
-interface Mask {
-  on: Uint8Array;
-  lum: Float32Array | null;
-  w: number;
-  h: number;
-}
-
-interface Source {
-  raster: (k: number) => Mask | null;
-  baseH: number;
-  aspect: number;
-}
-
-interface CloudOptions {
-  depth: number;
-  mids: number;
-  backKeep: number;
-  relief: number;
-  axis: 0 | 1;
-}
-
-interface Cloud {
-  n: number;
-  x: Float32Array;
-  y: Float32Array;
-  z: Float32Array;
-  kind: Uint8Array;
-  tone: Uint8Array;
-  shade: Float32Array;
-  size: Float32Array;
-  u: Float32Array;
-  v: Float32Array;
-  aspect: number;
-  reach: number;
-}
-
-function hash(i: number, salt: number) {
-  let x = (Math.imul(i + 1, 0x9e3779b1) ^ Math.imul(salt + 11, 0x85ebca6b)) >>> 0;
-  x = Math.imul((x >>> 16) ^ x, 0x45d9f3b) >>> 0;
-  x = Math.imul((x >>> 16) ^ x, 0x45d9f3b) >>> 0;
-  x = ((x >>> 16) ^ x) >>> 0;
-  return x / 4294967296;
+function hash(n: number, salt: number) {
+  const s = Math.sin(n * 127.1 + salt * 311.7) * 43758.5453;
+  return s - Math.floor(s);
 }
 
 function hexRgb(value: string): [number, number, number] | null {
-  const m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(value.trim());
+  const m = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(value.trim());
   if (!m) return null;
   let h = m[1];
-  if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
-  const n = parseInt(h, 16);
-  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  if (h.length === 3) h = h.split("").map((c) => c + c).join("");
+  return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
 }
 
-function resolveRgb(value: string, ctx: CanvasRenderingContext2D): [number, number, number] {
-  const direct = hexRgb(value);
-  if (direct) return direct;
-  ctx.fillStyle = "#5ee7ff";
+function toRgb(value: string, ctx: CanvasRenderingContext2D): [number, number, number] {
+  const hex = hexRgb(value);
+  if (hex) return hex;
+  ctx.fillStyle = "#0d0d0d";
   ctx.fillStyle = value;
   const out = String(ctx.fillStyle);
-  const hex = hexRgb(out);
-  if (hex) return hex;
+  const h2 = hexRgb(out);
+  if (h2) return h2;
   const nums = out.match(/[\d.]+/g);
   if (nums && nums.length >= 3) return [Number(nums[0]), Number(nums[1]), Number(nums[2])];
-  return [94, 231, 255];
+  return [13, 13, 13];
 }
 
 function inkFor(accent: string) {
   const rgb = hexRgb(accent);
-  if (!rgb) return "#021417";
+  if (!rgb) return "#f4f1ea";
   const lum = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255;
-  return lum > 0.55 ? "#021417" : "#ffffff";
+  return lum > 0.55 ? "#0d0d0d" : "#f4f1ea";
 }
 
-function flickerAt(t: number) {
-  const slot = Math.floor(t * 5);
-  if (hash(slot, 77) < 0.94) return 0;
-  const f = t * 5 - slot;
-  return (0.05 + hash(slot, 78) * 0.09) * Math.sin(f * Math.PI);
+function ease(x: number) {
+  if (x <= 0) return 0;
+  if (x >= 1) return 1;
+  return 1 - Math.pow(1 - x, 3);
 }
 
-function alphaMask(g: CanvasRenderingContext2D, w: number, h: number): Mask | null {
-  let data: Uint8ClampedArray;
-  try {
-    data = g.getImageData(0, 0, w, h).data;
-  } catch {
-    return null;
-  }
-  const on = new Uint8Array(w * h);
-  for (let k = 0, p = 3; k < w * h; k++, p += 4) on[k] = data[p] >= 128 ? 1 : 0;
-  return { on, lum: null, w, h };
-}
-
-function maskBox(m: Mask) {
-  let x0 = m.w;
-  let y0 = m.h;
-  let x1 = -1;
-  let y1 = -1;
-  for (let j = 1; j < m.h - 1; j++) {
-    const row = j * m.w;
-    for (let i = 1; i < m.w - 1; i++) {
-      if (!m.on[row + i]) continue;
-      if (i < x0) x0 = i;
-      if (i > x1) x1 = i;
-      if (j < y0) y0 = j;
-      if (j > y1) y1 = j;
-    }
-  }
-  return x1 < 0 ? null : { x0, y0, x1, y1 };
-}
-
-function makeSource(raster: (k: number) => Mask | null): Source | null {
-  const m = raster(1);
-  if (!m) return null;
-  const b = maskBox(m);
-  if (!b) return null;
-  const bh = b.y1 - b.y0 + 1;
-  return { raster, baseH: bh, aspect: (b.x1 - b.x0 + 1) / bh };
-}
-
-function countCloud(m: Mask, o: CloudOptions) {
-  const { on, w, h } = m;
-  let total = 0;
-  for (let j = 1; j < h - 1; j++) {
-    for (let i = 1; i < w - 1; i++) {
-      const k = j * w + i;
-      if (!on[k]) continue;
-      total += 1;
-      if (hash(k, 5) < o.backKeep) total += 1;
-      if (!on[k - 1] || !on[k + 1] || !on[k - w] || !on[k + w]) total += o.mids;
-    }
-  }
-  return total;
-}
-
-function buildCloud(m: Mask, o: CloudOptions): Cloud | null {
-  const { on, lum, w, h } = m;
-  const box = maskBox(m);
-  if (!box) return null;
-  const dist = new Uint8Array(w * h);
-  for (let k = 0; k < w * h; k++) dist[k] = on[k] ? 255 : 0;
-  for (let j = 1; j < h; j++) {
-    for (let i = 1; i < w; i++) {
-      const k = j * w + i;
-      if (dist[k]) dist[k] = Math.min(dist[k], dist[k - 1] + 1, dist[k - w] + 1);
-    }
-  }
-  for (let j = h - 2; j >= 0; j--) {
-    for (let i = w - 2; i >= 0; i--) {
-      const k = j * w + i;
-      if (dist[k]) dist[k] = Math.min(dist[k], dist[k + 1] + 1, dist[k + w] + 1);
-    }
-  }
-  const n = countCloud(m, o);
-  if (!n) return null;
-  const bw = box.x1 - box.x0 + 1;
-  const bh = box.y1 - box.y0 + 1;
-  const cxm = (box.x0 + box.x1 + 1) / 2;
-  const cym = (box.y0 + box.y1 + 1) / 2;
-  const half = o.depth / 2;
-  const dome = Math.max(2, bh * 0.09);
-  const c: Cloud = {
-    n,
-    x: new Float32Array(n),
-    y: new Float32Array(n),
-    z: new Float32Array(n),
-    kind: new Uint8Array(n),
-    tone: new Uint8Array(n),
-    shade: new Float32Array(n),
-    size: new Float32Array(n),
-    u: new Float32Array(n),
-    v: new Float32Array(n),
-    aspect: bw / bh,
-    reach: 0.5,
-  };
-  let p = 0;
-  let reach = 0;
-  const put = (x: number, y: number, z: number, kind: number, tone: number, shade: number, size: number, u: number, v: number) => {
-    c.x[p] = x;
-    c.y[p] = y;
-    c.z[p] = z;
-    c.kind[p] = kind;
-    c.tone[p] = tone;
-    c.shade[p] = shade;
-    c.size[p] = size;
-    c.u[p] = u;
-    c.v[p] = v;
-    const r = x * x + y * y + z * z;
-    if (r > reach) reach = r;
-    p++;
-  };
-  for (let j = 1; j < h - 1; j++) {
-    for (let i = 1; i < w - 1; i++) {
-      const k = j * w + i;
-      if (!on[k] || p >= n) continue;
-      const d = dist[k];
-      const jx = (hash(k, 1) - 0.5) * 0.22;
-      const jy = (hash(k, 2) - 0.5) * 0.22;
-      const x = (i + 0.5 + jx - cxm) / bh;
-      const y = (cym - j - 0.5 - jy) / bh;
-      const b = lum ? lum[k] : 1;
-      const zf = half + o.relief * (0.55 * (b - 0.5) + 0.45 * (Math.min(d, dome) / dome));
-      const tone = d <= 1 ? 3 : d === 2 ? 2 : d === 3 ? 1 : 0;
-      const u = o.axis === 0 ? (i - box.x0) / bw : (box.y1 - j) / bh;
-      const v = (box.y1 - j) / bh;
-      const sz = 0.82 + hash(k, 3) * 0.36;
-      put(x, y, zf, 0, tone, b, sz, u, v);
-      if (hash(k, 5) < o.backKeep && p < n) put(x, y, -half, 2, tone > 1 ? tone : 2, b, sz * 0.9, u, v);
-      if (d === 1) {
-        for (let q = 1; q <= o.mids && p < n; q++) {
-          const t = q / (o.mids + 1);
-          put(x, y, zf + (-half - zf) * t, 1, 3, b, sz * 0.92, u, v);
-        }
-      }
-    }
-  }
-  c.n = p;
-  c.reach = Math.max(0.3, Math.sqrt(reach));
-  return c;
-}
-
-function sampleCloud(src: Source, wantRows: number, budget: number, o: CloudOptions) {
-  let rows = wantRows;
-  let m: Mask | null = null;
-  for (let a = 0; a < 4; a++) {
-    m = src.raster(rows / src.baseH);
-    if (!m) return null;
-    const total = countCloud(m, o);
-    if (total <= budget) break;
-    rows *= Math.sqrt(budget / total) * 0.96;
-  }
-  return m ? buildCloud(m, o) : null;
-}
-
-function rasterWord(word: string, family: string, k: number): Mask | null {
-  const text = word.trim();
-  if (!text || typeof document === "undefined") return null;
-  const fs = Math.max(6, 100 * k);
-  const canvas = document.createElement("canvas");
-  const g = canvas.getContext("2d", { willReadFrequently: true });
-  if (!g) return null;
-  const font = `800 ${fs.toFixed(2)}px ${family}`;
-  g.font = font;
-  const chars = Array.from(text);
-  const gap = fs * 0.06;
-  const adv: number[] = [];
-  let total = 0;
-  for (const ch of chars) {
-    const a = g.measureText(ch).width;
-    adv.push(a);
-    total += a;
-  }
-  total += gap * Math.max(0, chars.length - 1);
-  const pad = Math.ceil(fs * 0.25) + 3;
-  const cw = Math.ceil(total + pad * 2);
-  const ch = Math.ceil(fs * 1.4 + pad * 2);
-  if (cw < 4 || cw * ch > 9000000) return null;
-  canvas.width = cw;
-  canvas.height = ch;
-  g.font = font;
-  g.textBaseline = "alphabetic";
-  g.fillStyle = "#ffffff";
-  let x = pad;
-  const base = pad + fs * 1.05;
-  for (let i = 0; i < chars.length; i++) {
-    g.fillText(chars[i], x, base);
-    x += adv[i] + gap;
-  }
-  return alphaMask(g, cw, ch);
-}
-
-function Mark() {
-  return (
-    <svg className="hb-hh7-mark" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <rect x="4" y="4" width="2.4" height="2.4" rx=".5" />
-      <rect x="8" y="4" width="2.4" height="2.4" rx=".5" />
-      <rect x="12" y="4" width="2.4" height="2.4" rx=".5" />
-      <rect x="16" y="4" width="2.4" height="2.4" rx=".5" />
-      <rect x="10" y="8" width="2.4" height="2.4" rx=".5" opacity=".85" />
-      <rect x="10" y="12" width="2.4" height="2.4" rx=".5" opacity=".7" />
-      <rect x="10" y="16" width="2.4" height="2.4" rx=".5" opacity=".55" />
-      <rect x="12.6" y="18.6" width="2.4" height="2.4" rx=".5" opacity=".35" />
-    </svg>
-  );
+interface Cloud {
+  tx: Float32Array;
+  ty: Float32Array;
+  bx: Float32Array;
+  by: Float32Array;
+  delay: Float32Array;
+  phase: Float32Array;
+  ox: Float32Array;
+  oy: Float32Array;
+  tone: Uint8Array;
+  count: number;
+  step: number;
+  fontSize: number;
 }
 
 export function HeroDotText({
   title = "Type that floats off the page.",
-  subtitle = "Any word becomes a hologram of extruded dots that sways, scans and leans toward the pointer. One canvas, zero dependencies.",
-  caption = "Any word · 5 depth layers · MIT licensed",
+  subtitle = "Turn any word into a living field of dots. One canvas, no dependencies.",
+  caption = "Any word · MIT licensed",
   command = "npx hyperblur add hero-dot-text",
   primaryCta = defaultPrimary,
   brand = "Glyphwork",
   nav = defaultNav,
   navCta = defaultNavCta,
   learnMore = defaultMore,
-  accent = "#5ee7ff",
+  accent = "#0d0d0d",
   density = 1,
   speed = 1,
   word = "HYPERBLUR",
@@ -671,363 +348,236 @@ export function HeroDotText({
     const ctx = canvas?.getContext("2d");
     if (!root || !canvas || !stage || !ctx) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const mult = Math.min(2, Math.max(0.2, Number.isFinite(density) ? density : 1));
+    const mult = Math.min(2, Math.max(0.4, Number.isFinite(density) ? density : 1));
     const pace = Math.max(0, Number.isFinite(speed) ? speed : 1);
-    const deep = Math.min(1, Math.max(0.02, Number.isFinite(depth) ? depth : 0.18));
-    const swingRad = (Math.min(80, Math.max(0, Number.isFinite(swing) ? swing : 32)) * Math.PI) / 180;
-    const opts: CloudOptions = { depth: deep, mids: 3, backKeep: 0.5, relief: 0, axis: 0 };
-    const text = typeof word === "string" ? word : "";
+    const push = Math.min(1, Math.max(0.02, Number.isFinite(depth) ? depth : 0.18));
+    const sway = Math.min(80, Math.max(0, Number.isFinite(swing) ? swing : 32)) / 32;
+    const text = (typeof word === "string" && word.trim() ? word.trim() : "WORD").toUpperCase();
+    const rgb = toRgb(accent, ctx);
+    const solid = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+    const soft = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 0.42)`;
 
-    const acc = resolveRgb(accent, ctx);
-    const fills: string[] = [];
-    for (let b = 0; b < ALPHAS.length; b++) {
-      for (let t = 0; t < TONES; t++) {
-        const m = t / (TONES - 1);
-        const r = Math.round(WARM[0] + (acc[0] - WARM[0]) * m);
-        const g = Math.round(WARM[1] + (acc[1] - WARM[1]) * m);
-        const bl = Math.round(WARM[2] + (acc[2] - WARM[2]) * m);
-        fills.push(`rgba(${r}, ${g}, ${bl}, ${ALPHAS[b].toFixed(3)})`);
-      }
-    }
-    const buckets = ALPHAS.length * TONES;
-    const counts = new Int32Array(buckets);
-    const starts = new Int32Array(buckets);
-    const glowA = `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0.11)`;
-    const glowB = `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0)`;
-    const lineA = `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0.075)`;
-    const lineB = `rgba(${acc[0]}, ${acc[1]}, ${acc[2]}, 0)`;
-    const nMote = Math.round(70 * Math.min(1.5, mult));
-
-    let src: Source | null = null;
     let cloud: Cloud | null = null;
-    let sampledRows = 0;
-    let sampledBudget = 0;
-    let sx = new Float32Array(0);
-    let sy = new Float32Array(0);
-    let ss = new Float32Array(0);
-    let bucket = new Uint8Array(0);
-    let order = new Int32Array(0);
-
-    let dead = false;
     let w = 0;
     let h = 0;
-    let lw = 0;
-    let cx = 0;
-    let cy = 0;
-    let availW = 0;
-    let availH = 0;
     let dpr = 1;
-    let visible = true;
     let raf = 0;
-    let last = 0;
-    let time = 0;
-    let pointer = false;
-    let ptx = 0;
-    let pty = 0;
-    let pxp = 0;
-    let pyp = 0;
-    let curX = 0;
-    let curY = 0;
-    let resampleTimer: ReturnType<typeof setTimeout> | null = null;
+    let visible = true;
+    let start = 0;
+    let mx = 0;
+    let my = 0;
+    let active = false;
+    let rad0 = 0;
 
-    function fitUnit() {
-      const a = src ? src.aspect : 1;
-      return Math.max(4, Math.min(availW / a, availH));
-    }
-
-    function budget() {
-      return Math.round((lw < 640 ? 9000 : 18000) * mult);
-    }
-
-    function wantRows() {
-      return Math.min(220, Math.max(26, fitUnit() / 2.3));
-    }
-
-    function resample(force: boolean) {
-      if (!src) {
-        cloud = null;
-        return;
-      }
-      const want = wantRows();
-      const bud = budget();
-      if (!force && cloud && Math.abs(want - sampledRows) / sampledRows < 0.12 && bud === sampledBudget) return;
-      cloud = sampleCloud(src, want, bud, opts);
-      sampledRows = want;
-      sampledBudget = bud;
-      const n = cloud ? cloud.n : 0;
-      if (sx.length < n) {
-        sx = new Float32Array(n);
-        sy = new Float32Array(n);
-        ss = new Float32Array(n);
-        bucket = new Uint8Array(n);
-        order = new Int32Array(n);
-      }
-    }
-
-    function rebuild() {
-      if (!root) return;
-      const family = getComputedStyle(root).fontFamily || "sans-serif";
-      src = makeSource((k) => rasterWord(text, family, k));
-      resample(true);
-    }
-
-    function layout() {
-      if (!root || !canvas || !stage) return;
-      const rect = root.getBoundingClientRect();
-      w = rect.width;
-      h = rect.height;
-      lw = root.clientWidth || w;
+    const build = () => {
+      const rr = root.getBoundingClientRect();
+      const sr = stage.getBoundingClientRect();
+      w = Math.max(1, rr.width);
+      h = Math.max(1, rr.height);
       dpr = Math.min(2, window.devicePixelRatio || 1);
-      canvas.width = Math.max(1, Math.round(w * dpr));
-      canvas.height = Math.max(1, Math.round(h * dpr));
-      cx = w / 2;
-      if (lw < 640) {
-        const st = stage.getBoundingClientRect();
-        availW = w * 0.84;
-        availH = st.height * 0.62;
-        cy = st.top - rect.top + st.height / 2;
-      } else {
-        availW = w * 0.78;
-        availH = h * 0.28;
-        cy = h * 0.37;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      const sx = sr.left - rr.left;
+      const sy = sr.top - rr.top;
+      const sw = Math.max(40, sr.width);
+      const sh = Math.max(40, sr.height);
+      const narrow = w < 640;
+      let lines = [text];
+      if (narrow) {
+        const parts = text.split(/\s+/);
+        if (parts.length > 1) {
+          const mid = Math.ceil(parts.length / 2);
+          lines = [parts.slice(0, mid).join(" "), parts.slice(mid).join(" ")];
+        } else if (text.length > 5) {
+          const mid = Math.ceil(text.length / 2);
+          lines = [text.slice(0, mid), text.slice(mid)];
+        }
       }
-    }
-
-    function draw() {
-      if (!ctx) return;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, w, h);
-      const c = cloud;
-      if (!c || !w || !h) return;
-      const unit = fitUnit();
-      const A = c.aspect;
-
-      ctx.save();
-      ctx.translate(cx, cy);
-      const gsx = Math.max(1, A * 0.55);
-      ctx.scale(gsx, 1);
-      const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, unit * 1.2);
-      glow.addColorStop(0, glowA);
-      glow.addColorStop(1, glowB);
-      ctx.fillStyle = glow;
-      ctx.fillRect(-unit * 1.3, -unit * 1.3, unit * 2.6, unit * 2.6);
-      ctx.restore();
-
-      const yaw = (reduce ? swingRad * 0.45 : swingRad * Math.sin(time * 0.5 * pace)) + curX * 0.3;
-      const pitch = -0.05 + curY * 0.26;
-      const cyw = Math.cos(yaw);
-      const syw = Math.sin(yaw);
-      const cp = Math.cos(pitch);
-      const sp = Math.sin(pitch);
-      const cam = Math.max(3.2, A * 1.5);
-      const face = cyw * cp;
-      const wall = 0.34 + 0.5 * Math.abs(syw);
-      const ox = curX * unit * 0.06;
-      const oy = curY * unit * 0.05;
-      const band = reduce ? 0.38 : -0.2 + (((time * pace) / 6) % 1) * 1.4;
-      const flick = reduce ? 0 : flickerAt(time);
-      const slot = Math.floor(time * 5);
-      const glitch = flick > 0.035;
-      const g0 = hash(slot, 79) * 0.86;
-      const gShift = (hash(slot, 80) - 0.5) * unit * 0.22;
-      const usePtr = pointer && !reduce;
-      const pr = Math.max(36, unit * 0.55);
-      const pr2 = pr * pr;
-      const reach = c.reach;
-
-      const bandX = (-A / 2 + band * A) * cyw * unit;
-      const lineW = Math.max(14, unit * 0.32);
-      const lg = ctx.createLinearGradient(cx + ox + bandX - lineW, 0, cx + ox + bandX + lineW, 0);
-      lg.addColorStop(0, lineB);
-      lg.addColorStop(0.5, lineA);
-      lg.addColorStop(1, lineB);
-      ctx.fillStyle = lg;
-      ctx.fillRect(cx + ox + bandX - lineW, cy + oy - unit * 0.95, lineW * 2, unit * 1.9);
-
-      counts.fill(0);
-      for (let i = 0; i < c.n; i++) {
-        const x = c.x[i];
-        const y = c.y[i];
-        const z = c.z[i];
-        const x1 = x * cyw + z * syw;
-        const z1 = -x * syw + z * cyw;
-        const y2 = y * cp - z1 * sp;
-        const z2 = y * sp + z1 * cp;
-        const per = cam / (cam - z2);
-        let px = cx + ox + x1 * unit * per;
-        let py = cy + oy - y2 * unit * per;
-        if (glitch && c.v[i] > g0 && c.v[i] < g0 + 0.09) px += gShift;
-        const kind = c.kind[i];
-        let b: number;
-        if (kind === 0) b = face > 0 ? 0.56 + 0.42 * face : 0.12 + 0.14 * (1 + face);
-        else if (kind === 2) b = -face > 0 ? 0.24 + 0.3 * -face : 0.07 + 0.09 * (1 + -face);
-        else b = wall;
-        b *= 0.6 + 0.4 * c.shade[i];
-        let near = 0.5 + (0.5 * z2) / reach;
-        if (near < 0) near = 0;
-        if (near > 1) near = 1;
-        b *= 0.78 + 0.32 * near;
-        const du = c.u[i] - band;
-        const sc = Math.exp(-(du * du) / 0.0032);
-        b += 0.6 * sc;
-        let s = c.size[i] * (0.72 + 0.42 * near) * (kind === 0 ? 1.16 : 0.9) * (1 + 0.22 * sc);
-        if (usePtr) {
-          const dx = px - pxp;
-          const dy = py - pyp;
-          const d2 = dx * dx + dy * dy;
-          if (d2 < pr2) {
-            const d = Math.sqrt(d2) || 1;
-            const f = 1 - d / pr;
-            const push = f * f * pr * 0.16;
-            px += (dx / d) * push;
-            py += (dy / d) * push;
-            b += f * 0.35;
-            s *= 1 + f * 0.25;
+      const probe = document.createElement("canvas");
+      probe.width = Math.round(sw);
+      probe.height = Math.round(sh);
+      const pc = probe.getContext("2d", { willReadFrequently: true });
+      if (!pc) return;
+      pc.font = `900 100px ${FONT}`;
+      let maxW = 1;
+      for (const ln of lines) maxW = Math.max(maxW, pc.measureText(ln).width);
+      const lh = 0.84;
+      const capH = 0.72;
+      const byWidth = (sw * 0.985 * 100) / maxW;
+      const fs = Math.min(byWidth, (sh * 0.94) / ((lines.length - 1) * lh + capH));
+      const vs = Math.max(1, Math.min(lines.length > 1 ? 1.5 : 2, (sh * 0.9) / (((lines.length - 1) * lh + capH) * fs)));
+      pc.font = `900 ${fs}px ${FONT}`;
+      pc.textAlign = "center";
+      pc.textBaseline = "alphabetic";
+      pc.fillStyle = "#000";
+      pc.setTransform(1, 0, 0, vs, 0, 0);
+      const total = ((lines.length - 1) * lh * fs + capH * fs) * vs;
+      const top = ((sh - total) / 2 + capH * fs * vs) / vs;
+      lines.forEach((ln, i) => pc.fillText(ln, sw / 2, top + i * lh * fs));
+      const img = pc.getImageData(0, 0, probe.width, probe.height).data;
+      let step = Math.max(narrow ? 4.4 : 6, (fs * 0.036) / mult);
+      let xs: number[] = [];
+      let ys: number[] = [];
+      for (let pass = 0; pass < 3; pass++) {
+        xs = [];
+        ys = [];
+        const rowH = step * 0.866;
+        for (let j = 0, y = step * 0.5; y < sh; j++, y += rowH) {
+          const off = (j % 2) * step * 0.5;
+          for (let x = step * 0.5 + off; x < sw; x += step) {
+            const px = Math.min(probe.width - 1, Math.round(x));
+            const py = Math.min(probe.height - 1, Math.round(y));
+            if (img[(py * probe.width + px) * 4 + 3] > 140) {
+              xs.push(sx + x);
+              ys.push(sy + y);
+            }
           }
         }
-        sx[i] = px;
-        sy[i] = py;
-        if (s > 1.4) s = 1.4;
-        if (s < 0.6) s = 0.6;
-        ss[i] = s;
-        if (b > 0.999) b = 0.999;
-        if (b < 0) b = 0;
-        const bi = Math.floor(b * ALPHAS.length);
-        let ti = c.tone[i];
-        if (sc > 0.45 && ti > 0) ti--;
-        const k = bi * TONES + ti;
-        bucket[i] = k;
-        counts[k]++;
+        if (xs.length <= 6500) break;
+        step *= 1.25;
       }
-      let acc0 = 0;
-      for (let k = 0; k < buckets; k++) {
-        starts[k] = acc0;
-        acc0 += counts[k];
+      const n = xs.length;
+      const c: Cloud = {
+        tx: Float32Array.from(xs),
+        ty: Float32Array.from(ys),
+        bx: new Float32Array(n),
+        by: new Float32Array(n),
+        delay: new Float32Array(n),
+        phase: new Float32Array(n),
+        ox: new Float32Array(n),
+        oy: new Float32Array(n),
+        tone: new Uint8Array(n),
+        count: n,
+        step,
+        fontSize: fs,
+      };
+      const cxm = sx + sw / 2;
+      const cym = sy + sh / 2;
+      const reach = Math.max(w, h);
+      for (let k = 0; k < n; k++) {
+        const a = hash(k, 31) * TAU;
+        const d = (0.45 + hash(k, 32) * 0.7) * reach * 0.6;
+        c.bx[k] = cxm + Math.cos(a) * d;
+        c.by[k] = cym + Math.sin(a) * d * 0.7;
+        c.delay[k] = ((c.tx[k] - sx) / sw) * 0.7 + hash(k, 33) * 0.45;
+        c.phase[k] = hash(k, 34) * TAU;
+        c.tone[k] = hash(k, 35) > 0.82 ? 1 : 0;
       }
-      for (let i = 0; i < c.n; i++) order[starts[bucket[i]]++] = i;
+      cloud = c;
+      rad0 = step * 0.37;
+    };
 
-      ctx.globalAlpha = 1 - flick;
-      let pos = 0;
-      for (let k = 0; k < buckets; k++) {
-        const n = counts[k];
-        if (!n) continue;
-        ctx.fillStyle = fills[k];
+    const draw = (now: number) => {
+      const c = cloud;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+      if (!c) return;
+      const sec = reduce ? 99 : ((now - start) / 1000) * pace;
+      const real = (now - start) / 1000;
+      const live = !reduce;
+      const R = c.fontSize * 0.55;
+      const amp = c.step * 0.4 * sway;
+      for (let tone = 0; tone < 2; tone++) {
+        ctx.fillStyle = tone === 0 ? solid : soft;
         ctx.beginPath();
-        for (let q = pos; q < pos + n; q++) {
-          const i = order[q];
-          const s = ss[i];
-          ctx.rect(sx[i] - s / 2, sy[i] - s / 2, s, s);
+        for (let k = 0; k < c.count; k++) {
+          if (c.tone[k] !== tone) continue;
+          const p = reduce ? 1 : ease((real * Math.max(0.35, pace) - c.delay[k]) / 1.5);
+          if (p <= 0) continue;
+          let x = c.bx[k] + (c.tx[k] - c.bx[k]) * p;
+          let y = c.by[k] + (c.ty[k] - c.by[k]) * p;
+          let rad = rad0 * (0.35 + 0.65 * p);
+          if (live && p >= 1) {
+            const wob = Math.sin(c.tx[k] * 0.0065 + sec * 0.85 + c.phase[k] * 0.15);
+            x += Math.cos(sec * 0.6 + c.phase[k]) * amp * 0.45;
+            y += wob * amp + Math.sin(sec * 0.7 + c.phase[k]) * amp * 0.3;
+            const sweep = Math.sin(c.tx[k] * 0.0075 - sec * 1.5);
+            if (sweep > 0.85) rad *= 1 + (sweep - 0.85) * 2.4;
+            let tox = 0;
+            let toy = 0;
+            if (active) {
+              const dx = c.tx[k] - mx;
+              const dy = c.ty[k] - my;
+              const d = Math.hypot(dx, dy);
+              if (d < R && d > 0.001) {
+                const f = (1 - d / R) * (1 - d / R);
+                tox = (dx / d) * f * R * push * 1.6;
+                toy = (dy / d) * f * R * push * 1.6;
+                rad *= 1 + f * 0.5;
+              }
+            }
+            c.ox[k] += (tox - c.ox[k]) * 0.12;
+            c.oy[k] += (toy - c.oy[k]) * 0.12;
+            x += c.ox[k];
+            y += c.oy[k];
+          }
+          ctx.moveTo(x + rad, y);
+          ctx.arc(x, y, rad, 0, TAU);
         }
         ctx.fill();
-        pos += n;
       }
+    };
 
-      ctx.fillStyle = `rgb(${WARM[0]}, ${WARM[1]}, ${WARM[2]})`;
-      for (let k = 0; k < nMote; k++) {
-        const mx = (hash(k, 61) - 0.5) * A * 1.15;
-        const sp0 = 0.035 + hash(k, 63) * 0.06;
-        const fr = (hash(k, 62) + (reduce ? 0 : time * sp0 * pace)) % 1;
-        const my = -0.7 + fr * 1.5;
-        const px = cx + ox * 1.6 + mx * unit * cyw;
-        const py = cy + oy * 1.6 - my * unit;
-        ctx.globalAlpha = (0.08 + 0.3 * hash(k, 64)) * Math.sin(fr * Math.PI) * (1 - flick);
-        const s = 0.6 + hash(k, 65) * 0.7;
-        ctx.fillRect(px - s / 2, py - s / 2, s, s);
-      }
-      ctx.globalAlpha = 1;
-    }
-
-    function frame(now: number) {
+    const frame = (now: number) => {
       raf = 0;
-      const step = last ? Math.min(0.05, (now - last) / 1000) : 0;
-      last = now;
-      time += step;
-      let tx = ptx;
-      let ty = pty;
-      if (!pointer) {
-        tx = Math.sin(time * 0.21) * 0.3;
-        ty = Math.sin(time * 0.13 + 1.2) * 0.22;
-      }
-      const ease = Math.min(1, step * 2.4);
-      curX += (tx - curX) * ease;
-      curY += (ty - curY) * ease;
-      draw();
-      schedule();
-    }
-
-    function schedule() {
-      if (reduce || raf || dead || !visible || document.hidden) return;
+      draw(now);
+      if (visible && !document.hidden) raf = requestAnimationFrame(frame);
+    };
+    const schedule = () => {
+      if (reduce || raf) return;
       raf = requestAnimationFrame(frame);
-    }
-
-    function stop() {
+    };
+    const stop = () => {
       if (raf) cancelAnimationFrame(raf);
       raf = 0;
-      last = 0;
-    }
-
-    function onMove(e: PointerEvent) {
-      if (!root) return;
-      const rect = root.getBoundingClientRect();
-      pointer = true;
-      pxp = e.clientX - rect.left;
-      pyp = e.clientY - rect.top;
-      ptx = Math.max(-1, Math.min(1, (pxp / rect.width) * 2 - 1));
-      pty = Math.max(-1, Math.min(1, (pyp / rect.height) * 2 - 1));
-    }
-    function onLeave() {
-      pointer = false;
-    }
-    function onVisibility() {
+    };
+    const onMove = (e: PointerEvent) => {
+      const r = root.getBoundingClientRect();
+      mx = e.clientX - r.left;
+      my = e.clientY - r.top;
+      active = true;
+    };
+    const onLeave = () => {
+      active = false;
+    };
+    const onVisibility = () => {
       if (document.hidden) stop();
       else schedule();
-    }
-    function onFonts() {
-      if (dead) return;
-      rebuild();
-      draw();
-    }
+    };
 
-    layout();
+    let ready = false;
+    const rebuild = () => {
+      build();
+      draw(performance.now());
+    };
+    start = performance.now();
     rebuild();
-    draw();
-
-    const fonts = typeof document !== "undefined" ? document.fonts : undefined;
-    if (fonts) {
-      if (fonts.status !== "loaded") fonts.ready.then(onFonts).catch(() => undefined);
-      fonts.addEventListener("loadingdone", onFonts);
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(() => {
+        if (!ready) rebuild();
+      });
     }
-
-    const ro = new ResizeObserver(() => {
-      layout();
-      draw();
-      if (resampleTimer) clearTimeout(resampleTimer);
-      resampleTimer = setTimeout(() => {
-        resampleTimer = null;
-        if (dead) return;
-        resample(false);
-        draw();
-      }, 160);
-    });
+    const ro = new ResizeObserver(() => rebuild());
     ro.observe(root);
+    ro.observe(stage);
     const io = new IntersectionObserver((entries) => {
       visible = entries[0]?.isIntersecting ?? true;
       if (visible) schedule();
       else stop();
     });
     io.observe(root);
-    root.addEventListener("pointermove", onMove);
-    root.addEventListener("pointerleave", onLeave);
+    if (!reduce) {
+      root.addEventListener("pointermove", onMove);
+      root.addEventListener("pointerleave", onLeave);
+    }
     document.addEventListener("visibilitychange", onVisibility);
     schedule();
 
     return () => {
-      dead = true;
+      ready = true;
       stop();
-      if (resampleTimer) clearTimeout(resampleTimer);
       ro.disconnect();
       io.disconnect();
-      if (fonts) fonts.removeEventListener("loadingdone", onFonts);
       root.removeEventListener("pointermove", onMove);
       root.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", onVisibility);
@@ -1056,11 +606,10 @@ export function HeroDotText({
       <canvas ref={canvasRef} className="hb-hh7-canvas" aria-hidden="true" />
       <header className="hb-hh7-bar">
         <a className="hb-hh7-brand" href="#">
-          <Mark />
-          <span>{brand}</span>
+          {brand}
         </a>
         {nav.length ? (
-          <nav aria-label="Primary">
+          <nav className="hb-hh7-mid" aria-label="Primary">
             <ul className="hb-hh7-links">
               {nav.map((item) => (
                 <li key={item.label}>
@@ -1071,18 +620,13 @@ export function HeroDotText({
               ))}
             </ul>
           </nav>
-        ) : (
-          <span />
-        )}
-        <div className="hb-hh7-tools">
-          <button type="button" className="hb-hh7-search" aria-label="Search" onClick={onSearch}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="6.5" />
-              <path d="M16 16l4.5 4.5" />
-            </svg>
+        ) : null}
+        <div className="hb-hh7-end">
+          <button type="button" className="hb-hh7-search" onClick={onSearch}>
+            Search
           </button>
           {navCta ? (
-            <a className="hb-hh7-outline" href={navCta.href}>
+            <a className="hb-hh7-link" href={navCta.href}>
               {navCta.label}
             </a>
           ) : null}
@@ -1094,23 +638,31 @@ export function HeroDotText({
           <Heading className="hb-hh7-title">{title}</Heading>
           {subtitle ? <p className="hb-hh7-sub">{subtitle}</p> : null}
         </div>
-        {caption || command || primaryCta ? (
+        {caption || command || primaryCta || learnMore ? (
           <div className="hb-hh7-side">
             {caption ? <p className="hb-hh7-caption">{caption}</p> : null}
             {command || primaryCta ? (
               <div className="hb-hh7-row">
+                {primaryCta ? (
+                  <a className="hb-hh7-cta" href={primaryCta.href}>
+                    {primaryCta.label}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                ) : null}
                 {command ? (
                   <div className="hb-hh7-cmd">
                     <span className="hb-hh7-prompt" aria-hidden="true">$</span>
                     <code className="hb-hh7-code">{command}</code>
-                    <button type="button" className="hb-hh7-copybtn" data-done={copied} onClick={copy} aria-label={copied ? "Copied" : "Copy command"}>
+                    <button type="button" className="hb-hh7-copybtn" onClick={copy} aria-label={copied ? "Copied" : "Copy command"}>
                       {copied ? (
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                           <path d="M5 12.5l4.5 4.5L19 7.5" />
                         </svg>
                       ) : (
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <rect x="8.5" y="8.5" width="11" height="11" rx="2.2" />
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <rect x="8.5" y="8.5" width="11" height="11" rx="2" />
                           <path d="M15.5 8.5V6.7a2.2 2.2 0 0 0-2.2-2.2H6.7a2.2 2.2 0 0 0-2.2 2.2v6.6a2.2 2.2 0 0 0 2.2 2.2h1.8" />
                         </svg>
                       )}
@@ -1118,27 +670,16 @@ export function HeroDotText({
                     </button>
                   </div>
                 ) : null}
-                {primaryCta ? (
-                  <a className="hb-hh7-cta" href={primaryCta.href}>
-                    {primaryCta.label}
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M9 6l6 6-6 6" />
-                    </svg>
-                  </a>
-                ) : null}
               </div>
+            ) : null}
+            {learnMore ? (
+              <a className="hb-hh7-more" href={learnMore.href}>
+                {learnMore.label}
+              </a>
             ) : null}
           </div>
         ) : null}
       </div>
-      {learnMore ? (
-        <a className="hb-hh7-more" href={learnMore.href}>
-          <span>{learnMore.label}</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </a>
-      ) : null}
     </section>
   );
 }
