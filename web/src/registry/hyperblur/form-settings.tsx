@@ -129,7 +129,7 @@ const css = `
 
 export function FormSettings({
   title = "Account settings",
-  email = "priya@lattice.dev",
+  email = "priya@example.com",
   defaultValues,
   savedValues,
   timezones = ["America/Los_Angeles", "America/New_York", "Europe/London", "Europe/Berlin", "Asia/Singapore", "Australia/Sydney"],
