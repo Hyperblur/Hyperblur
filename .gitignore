@@ -1,7 +1,3 @@
 node_modules
 .next
 .DS_Store
-web/AGENTS.md
-CLAUDE.md
-CHECKLIST-reactbits.md
-CHECKLIST-motion.md
