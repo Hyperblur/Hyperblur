@@ -6,7 +6,7 @@ Legenda da coluna "Verif.": **sim** = li a página oficial ou o formulário resp
 
 ## Antes de começar (nesta ordem)
 
-1. **Publicar o MCP 0.2.0 no npm.** Hoje só existe a 0.1.0 no npm. O campo `mcpName` já foi adicionado em `packages/mcp/package.json`, mas ele só vale depois do publish. No terminal: `cd packages/mcp && npm publish` (pede o código do app de 2FA). Sem isso, o MCP Registry e vários diretórios rejeitam ou mostram versão velha.
+1. **MCP 0.2.0 no npm.** Já publicado, junto com a entrada `io.github.Hyperblur/mcp` no MCP Registry. Para versões novas: suba a versão em `packages/mcp/package.json` e `npm publish` (pede o código do app de 2FA).
 2. **Domínio hyperblur.dev.** Já ligado. Os textos, o `server.json` e o `smithery.yaml` usam hyperblur.dev; use esse endereço nos formulários de envio. Product Hunt e Hacker News só depois de conferir o site em hyperblur.dev.
 3. **Avatar na organização do GitHub** (use `launch/assets/avatar-blue-1024.png`) e **Releases/topics** do repositório (seção e).
 4. Faça login nas contas necessárias com antecedência: GitHub (já tem), npm (já tem), Product Hunt, Reddit (conta com histórico, ver aviso), X, dev.to, Hacker News.
@@ -84,7 +84,7 @@ curl -X POST https://registry.directory/api/submit \
   }'
 ```
 
-Não envie o campo `namespace` até estar listado no diretório do shadcn (ele é verificado). Não envie `pro`: ainda não há plano pago à venda.
+Não envie o campo `namespace` até estar listado no diretório do shadcn (ele é verificado).
 
 ## d) Lançamento geral
 
@@ -97,7 +97,7 @@ Não envie o campo `namespace` até estar listado no diretório do shadcn (ele �
 | Reddit r/nextjs | Comunidade de Next.js | https://www.reddit.com/r/nextjs/submit | Idem. Regras exatas: verificar | 20 min | verificar | [ ] |
 | X (Twitter) | Rede social | https://x.com/compose/post | Conta com avatar e bio. Três variações em `listings.md`. Anexe um GIF ou vídeo curto de um efeito | 15 min | sim | [ ] |
 | dev.to | Blog de desenvolvedores | https://dev.to/new | Conta. Front matter: title, published, description, tags (máximo 4), cover_image (1000x420 recomendado), canonical_url. Roteiro do artigo em `listings.md` | 2 a 3 h | sim | [ ] |
-| Vercel Templates | Galeria de templates da Vercel | https://vercel.com/templates/submit | Repo público no GitHub, descrição do uso, thumbnail 1200x630 (`launch/assets/og-image.png` serve), template com deploy simples. A equipe revisa tudo; relatos de comunidade citam formulário sem confirmação e revisão em reavaliação em 2026. Hoje o repo é um catálogo, não um template; o mais próximo é a rota /templates/landing. Candidato fraco: só vale se extrair um starter | 2 a 4 h | parcial | [ ] |
+| Vercel Templates | Galeria de templates da Vercel | https://vercel.com/templates/submit | Repo público no GitHub, descrição do uso, thumbnail 1200x630 (`launch/assets/og-image.png` serve), template com deploy simples. A equipe revisa tudo; relatos de comunidade citam formulário sem confirmação e revisão em reavaliação em 2026. O repositório público é só o catálogo gratuito; o site e os templates ficam fora dele. Não serve sem um starter próprio | 2 a 4 h | parcial | [ ] |
 | awesome-react | Lista no GitHub de recursos React | PR em https://github.com/enaqx/awesome-react (README.md, seções "React Component Libraries" ou "React Graphics and Animations") | Só recursos gratuitos, prefere links do GitHub, "não use a lista como quadro de anúncios". Faça depois de ter algumas semanas de uso e estrelas | 15 min | sim | [ ] |
 | awesome-tailwindcss | Lista no GitHub de Tailwind | https://github.com/aniftyco/awesome-tailwindcss (CONTRIBUTING.md) | Os efeitos não dependem do Tailwind, então provavelmente não se encaixa. Regras: PR escrito à mão por quem usou o recurso, formulário do PR preenchido, PRs com ajuda de IA são fechados. Recomendo pular | n/a | sim | [ ] |
 
@@ -107,7 +107,7 @@ Avisos de autopromoção: Reddit e Hacker News toleram projeto próprio quando o
 
 | Item | O que fazer | Onde | Esforço | Verif. | Feito |
 | --- | --- | --- | --- | --- | --- |
-| Página do pacote no npm | Publicar 0.2.0. A página mostra o README do pacote (`packages/mcp/README.md`) e os links de `homepage`/`repository`. Depois do domínio, troque o `homepage` | https://www.npmjs.com/package/@hyperblur/mcp | 5 min | sim (pacote existe; a página bloqueia robôs) | [ ] |
+| Página do pacote no npm | 0.2.0 já publicado. A página mostra o README do pacote (`packages/mcp/README.md`) e os links de `homepage`/`repository`. O `homepage` aponta para hyperblur.dev | https://www.npmjs.com/package/@hyperblur/mcp | 5 min | sim (pacote existe; a página bloqueia robôs) | [ ] |
 | Topics do repositório | Até 20, minúsculas e hífen. Sugestão: `react`, `shadcn`, `shadcn-ui`, `registry`, `mcp`, `mcp-server`, `model-context-protocol`, `claude-code`, `animation`, `ui-components`, `copy-paste`, `nextjs`, `typescript`. Repo > engrenagem ao lado de "About" > Topics | https://github.com/Hyperblur/Hyperblur | 5 min | sim | [ ] |
 | Social preview | Repo > Settings > General > Social preview: enviar `launch/assets/og-image.png` (1200x630). Passo de interface, não confirmado em página oficial | https://github.com/Hyperblur/Hyperblur/settings | 3 min | verificar | [ ] |
 | GitHub Release | Releases > Draft a new release. Tag `v0.2.0`, título "Hyperblur 0.2.0", botão "Generate release notes". Texto sugerido em `listings.md` | https://github.com/Hyperblur/Hyperblur/releases/new | 10 min | sim | [ ] |

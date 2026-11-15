@@ -12,12 +12,12 @@
 
 Visual effects for React, one command away. Copy-paste components that install with one shadcn command, or through a prompt you hand to your coding agent.
 
-- `web/src/registry/` — the free catalog: every effect, component and block lives in `web/src/registry/hyperblur`, one file each, no dependencies besides React, with its metadata in `meta.ts` and its demo in `demos.tsx`.
+- `web/src/registry/` — the free catalog: 998 items in 49 categories across effects, components and page blocks. Every item lives in `web/src/registry/hyperblur`, one file each, no dependencies besides React, with its metadata in `meta.ts` and its demo in `demos.tsx`.
 - `brand/` — logo, mark, favicon and avatars, with a short usage guide. These are not covered by the MIT license, see `TRADEMARK.md`.
 
 ## Develop
 
-The website is not part of this repository. Add or edit an effect in `web/src/registry/hyperblur`, describe it in `web/src/registry/meta.ts`, and run `node web/scripts/check-css.mjs` to make sure CSS names stay unique. The registry JSON at https://hyperblur.dev/r is built from this folder.
+Add or edit an effect in `web/src/registry/hyperblur`, describe it in `web/src/registry/meta.ts`, and run `node web/scripts/check-css.mjs` to make sure CSS names stay unique. The registry JSON at https://hyperblur.dev/r is built from this folder.
 
 ## Agents
 
@@ -26,7 +26,7 @@ The website is not part of this repository. Add or edit an effect in `web/src/re
 
 ## License
 
-MIT. Everything in this repository, including every effect, component and block in the catalog, is free to use in personal and commercial projects. Paid content for Hyperblur Pro will live outside this repository under its own terms.
+MIT. Everything in this repository, including every effect, component and block in the catalog, is free to use in personal and commercial projects.
 
 ## Launch kit
 
