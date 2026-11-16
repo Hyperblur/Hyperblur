@@ -121,6 +121,7 @@ import { sectionsYJMeta } from "./parts/sectionsYJ.meta.ts";
 import { yeMeta } from "./parts/ye.meta.ts";
 import { ycMeta } from "./parts/yc.meta.ts";
 import { yfMeta } from "./parts/yf.meta.ts";
+import { zaMeta } from "./parts/za.meta.ts";
 import { sectionsYGMeta } from "./parts/sectionsYG.meta.ts";
 import { ybMeta } from "./parts/yb.meta.ts";
 import { yaMeta } from "./parts/ya.meta.ts";
@@ -1354,6 +1355,7 @@ const allEffects: EffectMeta[] = [
   ...whMeta,
   ...wiMeta,
   ...wjMeta,
+  ...zaMeta,
   ...qpMeta,
   ...quMeta,
   ...qoMeta,
@@ -1391,7 +1393,7 @@ const allEffects: EffectMeta[] = [
 ];
 
 const newBatches: EffectMeta[][] = [
-  waMeta, wbMeta, wcMeta, wdMeta, weMeta, wfMeta, wgMeta, whMeta, wiMeta, wjMeta,
+  waMeta, wbMeta, wcMeta, wdMeta, weMeta, wfMeta, wgMeta, whMeta, wiMeta, wjMeta, zaMeta,
 ];
 
 const newSlugs = new Set(newBatches.flat().map((e) => e.slug));

@@ -257,6 +257,7 @@ import { sectionsYJDemos } from "@/registry/parts/sectionsYJ.demos";
 import { yeDemos } from "@/registry/parts/ye.demos";
 import { ycDemos } from "@/registry/parts/yc.demos";
 import { yfDemos } from "@/registry/parts/yf.demos";
+import { zaDemos } from "@/registry/parts/za.demos";
 import { sectionsYGDemos } from "@/registry/parts/sectionsYG.demos";
 import { ybDemos } from "@/registry/parts/yb.demos";
 import { yaDemos } from "@/registry/parts/ya.demos";
@@ -1476,6 +1477,7 @@ export const demos: Record<string, ReactNode> = {
   ...whDemos,
   ...wiDemos,
   ...wjDemos,
+  ...zaDemos,
   ...qpDemos,
   ...quDemos,
   ...qoDemos,
