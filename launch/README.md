@@ -32,7 +32,7 @@ Documentação: https://modelcontextprotocol.io/registry/quickstart
 
 1. Publique antes o pacote no npm (passo 1 do início). O Registry só guarda metadados e confere o pacote no npm. O `package.json` já tem `"mcpName": "io.github.Hyperblur/mcp"`, igual ao `name` do `server.json`. O `version` do `server.json` e do pacote precisam ser iguais (0.2.0) e cada publicação de versão é única e não pode ser alterada.
 2. Instale o CLI (macOS): `brew install mcp-publisher`. Alternativa por binário: ver a página do quickstart. Teste com `mcp-publisher --help`.
-3. Entre na pasta: `cd /Users/anders/Hyperblur/packages/mcp`
+3. Entre na pasta: `cd packages/mcp`
 4. Login: `mcp-publisher login github`. O terminal mostra um código; abra https://github.com/login/device, digite o código e autorize.
 5. Publique: `mcp-publisher publish`. Saída esperada: "Successfully published".
 6. Confira: `curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.Hyperblur/mcp"`
