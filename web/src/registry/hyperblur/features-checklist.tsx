@@ -313,7 +313,6 @@ export function FeaturesChecklist({
                 {summary.cta && (
                   <a className="hb-ka4-cta" href={summary.cta.href}>
                     {summary.cta.label}
-                    <span aria-hidden="true">&rarr;</span>
                   </a>
                 )}
                 {summary.note && <p className="hb-ka4-note">{summary.note}</p>}

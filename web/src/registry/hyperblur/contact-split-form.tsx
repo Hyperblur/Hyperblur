@@ -458,7 +458,7 @@ export function ContactSplitForm({
                   </span>
                   <span className="hb-kf5-mdesc">{method.description}</span>
                   <a className="hb-kf5-mlink" href={method.action.href}>
-                    {method.action.label} <span aria-hidden="true">&rarr;</span>
+                    {method.action.label}
                   </a>
                 </span>
               </li>

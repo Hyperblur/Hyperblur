@@ -499,7 +499,6 @@ function Row({ feature, index }: { feature: AlternatingFeature; index: number })
         {feature.link && (
           <a className="hb-ka2-link" href={feature.link.href}>
             {feature.link.label}
-            <span aria-hidden="true">&rarr;</span>
           </a>
         )}
       </div>

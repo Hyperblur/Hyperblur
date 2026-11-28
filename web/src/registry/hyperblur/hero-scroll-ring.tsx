@@ -205,16 +205,6 @@ const css = `
 }
 .hb-va8-cta:hover { background: rgba(242, 237, 230, 0.1); border-color: rgba(242, 237, 230, 0.4); }
 .hb-va8-cta:focus-visible { outline: 2px solid var(--hb-va8-accent); outline-offset: 3px; }
-.hb-va8-cta i {
-  display: grid;
-  place-items: center;
-  width: 1.6em;
-  height: 1.6em;
-  border-radius: 50%;
-  background: var(--hb-va8-accent);
-  color: #2a0f19;
-  font-style: normal;
-}
 @media (prefers-reduced-motion: reduce) {
   .hb-va8-cta { transition: none; }
 }
@@ -432,7 +422,6 @@ export function HeroScrollRing({
           {cta ? (
             <a className="hb-va8-cta" href={cta.href}>
               {cta.label}
-              <i aria-hidden="true">→</i>
             </a>
           ) : null}
         </div>

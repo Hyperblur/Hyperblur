@@ -473,7 +473,7 @@ export function NavbarDockStacks({
                         {it.stackLink && (
                           <li>
                             <a className="hb-xj9-card hb-xj9-more" href={it.stackLink.href} style={fan(it.stack!.length)} onClick={() => setOpenStack(null)}>
-                              {it.stackLink.label} →
+                              {it.stackLink.label}
                             </a>
                           </li>
                         )}

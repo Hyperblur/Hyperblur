@@ -459,7 +459,6 @@ export function DownloadPlatforms({
             {releaseNotes ? (
               <a href={releaseNotes.href}>
                 {releaseNotes.label}
-                <span aria-hidden="true">→</span>
               </a>
             ) : null}
           </div>
@@ -529,7 +528,7 @@ export function DownloadPlatforms({
         </ul>
         <div className="hb-kh5-foot">
           {current ? <span>Detected {current.name}. Not right? Pick another build above.</span> : null}
-          {allReleases ? <a href={allReleases.href}>{allReleases.label} →</a> : null}
+          {allReleases ? <a href={allReleases.href}>{allReleases.label}</a> : null}
         </div>
         <span className="hb-kh5-sr" aria-live="polite">
           {copied ? "Checksum copied to clipboard" : ""}

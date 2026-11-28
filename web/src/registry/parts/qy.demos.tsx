@@ -131,7 +131,7 @@ export const qyDemos: Record<string, ReactNode> = {
           <span className="text-[10px] uppercase tracking-[0.18em] text-white/60">Spring 2027 · Drop 03</span>
           <div>
             <p className="m-0 text-[30px] font-semibold leading-[1.02] tracking-tight">The Field Collection</p>
-            <p className="m-0 mt-2 text-xs text-[#a1a1a1]">Linen, waxed cotton and recycled wool. Shop the drop →</p>
+            <p className="m-0 mt-2 text-xs text-[#a1a1a1]">Linen, waxed cotton and recycled wool. Shop the drop.</p>
           </div>
         </div>
       </CurtainStaggerWipe>

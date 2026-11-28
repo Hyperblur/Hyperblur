@@ -688,7 +688,7 @@ export function NavbarCommerceRows({
                   <a className="hb-xj6-promo" href={active.promo.href} style={{ background: active.promo.tone ?? "linear-gradient(140deg,#262626,#111)" }}>
                     <small>{active.promo.eyebrow}</small>
                     <b>{active.promo.title}</b>
-                    <span>Shop now →</span>
+                    <span>Shop now</span>
                   </a>
                 )}
               </div>
